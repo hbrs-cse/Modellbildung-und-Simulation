@@ -136,3 +136,5 @@ exclude:
 plugins:
   - jekyll-redirect-from
   - jekyll-scholar
+
+theme: jekyll-theme-minimal
