@@ -64,7 +64,7 @@
     url: /features/search
     not_numbered: true
   - title: Testing the Octave Kernel
-    url: /features/octave_test
+    url: /features/octave
     not_numbered: true
 
 - title: GitHub repository

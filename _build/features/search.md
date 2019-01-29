@@ -5,7 +5,7 @@ prev_page:
   url: /features/interact
   title: 'Connecting content with JupyterHub and Binder'
 next_page:
-  url: /features/octave_test
+  url: /features/octave
   title: 'Testing the Octave Kernel'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
