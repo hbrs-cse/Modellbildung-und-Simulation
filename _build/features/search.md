@@ -2,11 +2,11 @@
 interact_link: content/features/search.ipynb
 title: 'Searching your book'
 prev_page:
-  url: /features/citations
-  title: 'Citations and bibliographies'
+  url: /features/interact
+  title: 'Connecting content with JupyterHub and Binder'
 next_page:
-  url: /https://github.com/jupyter/jupyter-book
-  title: 'GitHub repository'
+  url: /features/octave_test
+  title: 'Testing the Octave Kernel'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

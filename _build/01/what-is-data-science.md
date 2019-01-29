@@ -1,7 +1,7 @@
 ---
 title: 'Data Science'
 prev_page:
-  url: /https://github.com/jupyter/jupyter-book
+  url: /https://github.com/joergbrech/Modellbildung-und-Simulation
   title: 'GitHub repository'
 next_page:
   url: /01/1/intro
