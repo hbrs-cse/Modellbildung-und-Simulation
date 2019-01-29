@@ -137,4 +137,4 @@ plugins:
   - jekyll-redirect-from
   - jekyll-scholar
 
-theme: jekyll-theme-midnight
+theme: jekyll-theme-minimal
