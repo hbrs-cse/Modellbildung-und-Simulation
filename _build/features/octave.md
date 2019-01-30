@@ -66,3 +66,53 @@ plot(t,y);
 ![png](../images/features/octave_6_0.png)
 
 
+
+Einfache Funktionen blablabla
+
+
+
+{:.input_area}
+```octave
+%%file fibonacci.m
+
+function n = fibonacci(n)
+
+if n<3
+    n = 1;
+else
+    n = fibonacci(n-1) + fibonacci(n-2);
+end
+    
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/features/fibonacci.m'.
+
+```
+
+
+
+{:.input_area}
+```octave
+for i = 1:10
+    fibonacci(i)
+end
+```
+
+
+{:.output .output_stream}
+```
+ans =  1
+ans =  1
+ans =  2
+ans =  3
+ans =  5
+ans =  8
+ans =  13
+ans =  21
+ans =  34
+ans =  55
+
+```
