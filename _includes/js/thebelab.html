@@ -8,7 +8,7 @@
         ref: '{{ site.binder_repo_branch }}',
       },
       kernelOptions: {
-        name: '{{ site.kernel_name }}',
+        name: '{% if page.kernel_name %}{{ page.kernel_name }}{% else %}python3{% endif %}',
       },
     }
 </script>
