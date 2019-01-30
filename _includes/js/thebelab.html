@@ -47,6 +47,9 @@
                         break;
                     }
                 }
+                if (dataLanguage == 'matlab' ) {
+                    dataLanguage='octave'
+                }
                 codeCell.setAttribute('data-language', dataLanguage)
 
                 // If the code cell is hidden, show it
