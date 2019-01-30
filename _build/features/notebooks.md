@@ -1,12 +1,12 @@
 ---
 interact_link: content/features/notebooks.ipynb
-title: 'Jupyter notebooks'
+title: 'Ein Python Notebook als Test'
 prev_page:
-  url: /features/markdown
-  title: 'Markdown files'
+  url: /emptypage
+  title: 'Einleitung'
 next_page:
-  url: /features/hiding
-  title: 'Hiding code blocks or entire cells'
+  url: /features/octave
+  title: 'Ein Octave Notebook als Test'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

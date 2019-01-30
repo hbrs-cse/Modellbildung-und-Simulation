@@ -1,12 +1,12 @@
 ---
 interact_link: content/features/octave.ipynb
-title: 'Testing the Octave Kernel'
+title: 'Ein Octave Notebook als Test'
 prev_page:
-  url: /features/search
-  title: 'Searching your book'
+  url: /features/notebooks
+  title: 'Ein Python Notebook als Test'
 next_page:
-  url: /https://github.com/joergbrech/Modellbildung-und-Simulation
-  title: 'GitHub repository'
+  url: /emptypage
+  title: 'Über dieses Buch'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
