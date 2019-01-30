@@ -21,7 +21,7 @@ Die folgenden beiden Zeilen erstellen einen Vektor $t$, der das Intervall $[0,2\
 
 
 {:.input_area}
-```octave
+```matlab
 t = linspace(0,2*pi,25);
 y = sin(t);
 ```
@@ -32,7 +32,7 @@ Wir schauen uns mal die ersten 5 Elemente der beiden Vektoren an. Wenn ein Matla
 
 
 {:.input_area}
-```octave
+```matlab
 t(1:5)
 y(1:5)
 ```
@@ -56,7 +56,7 @@ Nun wollen wir eine grafische Darstellung mit dem Befehl `plot` erzeugen. Wir w√
 
 
 {:.input_area}
-```octave
+```matlab
 plot(t,y);
 ```
 
@@ -72,7 +72,7 @@ Einfache Funktionen blablabla
 
 
 {:.input_area}
-```octave
+```matlab
 %%file fibonacci.m
 
 function n = fibonacci(n)
