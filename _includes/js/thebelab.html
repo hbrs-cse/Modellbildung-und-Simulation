@@ -7,6 +7,9 @@
         repo: '{{ site.binder_repo_org }}/{{ site.binder_repo_name }}',
         ref: '{{ site.binder_repo_branch }}',
       }
+      kernelOptions: {
+        name: "matlab",
+      },
     }
 </script>
 <script src="https://unpkg.com/thebelab@0.3.3/lib/index.js"></script>
@@ -46,9 +49,6 @@
                         var dataLanguage = parts[1];
                         break;
                     }
-                }
-                if (dataLanguage == 'matlab' ) {
-                    dataLanguage='octave'
                 }
                 codeCell.setAttribute('data-language', dataLanguage)
 
