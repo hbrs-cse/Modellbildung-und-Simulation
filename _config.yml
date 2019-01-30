@@ -68,7 +68,6 @@ binderhub_interact_text          : "Interact"  # The text that interact buttons 
 # Thebelab settings
 use_thebelab_button              : true  # If 'true', display a button to allow in-page running code cells with Thebelab
 thebelab_button_text             : "Thebelab"  # The text to display inside the Thebelab initialization button
-kernel_name                      : "octave"
 
 
 #######################################################################################
