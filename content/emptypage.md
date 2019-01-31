@@ -1,3 +1,3 @@
 # Hier entsteht ganz bald sicher irgendetwas!
 
-![](images/empty_page.png)
+<img src="images/empty_page.png" class="center">
