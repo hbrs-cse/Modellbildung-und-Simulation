@@ -1,7 +1,6 @@
 ---
 interact_link: content/features/notebooks.ipynb
-kernel_name:  "python",
-
+kernel_name: python3
 title: 'Ein Python Notebook als Test'
 prev_page:
   url: /emptypage
