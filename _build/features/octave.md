@@ -1,6 +1,6 @@
 ---
 interact_link: content/features/octave.ipynb
-kernel_name: octave
+kernel_name: 'octave'
 title: 'Ein Octave Notebook als Test'
 prev_page:
   url: /features/notebooks
