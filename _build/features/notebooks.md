@@ -1,5 +1,6 @@
 ---
 interact_link: content/features/notebooks.ipynb
+kernel_name: python
 title: 'Ein Python Notebook als Test'
 prev_page:
   url: /emptypage
