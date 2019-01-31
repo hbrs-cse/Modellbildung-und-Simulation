@@ -17,6 +17,7 @@ install:
 book:
 	python scripts/license.py --path ./content
 	python scripts/generate_book.py
+	./scripts/octave2matlab.sh
 
 runall:
 	python scripts/execute_all_notebooks.py
