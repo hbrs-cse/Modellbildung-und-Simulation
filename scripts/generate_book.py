@@ -211,7 +211,7 @@ if __name__ == '__main__':
                 for line in origin_file:
                     found = re.findall(r'\"language\":', line)
                     if found:
-                        kernel_name = line.split('"')[3]        
+                        kernel_name = line.split(':')[1]        
         
         ###############################################################################
         # Content conversion
