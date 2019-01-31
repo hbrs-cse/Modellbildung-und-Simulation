@@ -1,3 +1,3 @@
 # Hier entsteht ganz bald sicher irgendetwas!
 
-![](images/empty_notebook.jpg)
+![](images/empty_page.png)

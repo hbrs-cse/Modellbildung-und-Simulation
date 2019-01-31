@@ -10,4 +10,4 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ---
 # Hier entsteht ganz bald sicher irgendetwas!
 
-![](images/empty_notebook.jpg)
+![](images/empty_page.png)
