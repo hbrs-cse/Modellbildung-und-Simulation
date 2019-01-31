@@ -2,7 +2,7 @@
 
 An dieser Stelle entsteht in Kürze ein interaktives Übungsbuch zur Vorlesung __Modellbildung und Simulation__ an der [Hochschule Bonn-Rhein-Sieg](https://www.h-brs.de).
 
-<img src="images/autograd.gif" class="center">
+<img src="images/autograd.gif" class="center-fit">
 
 ## Acknowledgements
 
