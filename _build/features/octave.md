@@ -7,7 +7,6 @@ prev_page:
 next_page:
   url: /emptypage
   title: 'Über dieses Buch'
-kernel_name: 'octave'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -96,7 +95,7 @@ Created file '/mnt/d/documents/modellbildung-und-simulation/content/features/fib
 
 
 {:.input_area}
-```octave
+```matlab
 for i = 1:10
     fibonacci(i)
 end
