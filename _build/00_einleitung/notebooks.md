@@ -25,7 +25,7 @@ code blocks and their outputs, and export them to Jekyll markdown.
 
 As it is markdown, you can embed images, HTML, etc into your posts!
 
-![](cool.jpg)
+![](../images/cool.jpg)
 
 You an also $add_{math}$ and
 

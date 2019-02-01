@@ -17,7 +17,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 Dieses Online-Tutorial basiert auf [GNU Octave](https://www.gnu.org/software/octave/), einer frei-verfügbaren Matlab-Alternative, das in den allermeisten Fällen Matlab Befehle korrekt interpretieren kann. Alle Beispiele die Sie hier finden werden, können Sie sowohl mit Octave als auch mit Matlab ausführen.
 
-### Erstellen einfacher Graphen
+## Erstellen einfacher Graphen
 
 Die folgenden beiden Zeilen erstellen einen Vektor $t$, der das Intervall $[0,2\pi]$ an 25 äquidistanten Punkten enthält und einen Vektor $y$, der an diesen Punkten die Funktion $y=sin(t)$ auswertet.
 
@@ -70,7 +70,9 @@ plot(t,y);
 
 
 
-Einfache Funktionen blablabla
+## Einfache Funktionen
+
+blablabla
 
 
 
