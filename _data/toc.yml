@@ -26,9 +26,9 @@
   expand_sections: true
   sections:
   - title: Ein Python Notebook als Test
-    url: /features/notebooks
+    url: /00_einleitung/notebooks
   - title: Ein Octave Notebook als Test
-    url: /features/octave
+    url: /00_einleitung/octave
   - title: Über dieses Buch
     url: /emptypage
   - title: Tragwerke - Ein Einführendes Beispiel

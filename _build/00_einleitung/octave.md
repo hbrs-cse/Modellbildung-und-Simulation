@@ -1,9 +1,11 @@
 ---
-interact_link: content/features/octave.ipynb
+redirect_from:
+  - "/00-einleitung/octave"
+interact_link: content/00_einleitung/octave.ipynb
 kernel_name: octave
 title: 'Ein Octave Notebook als Test'
 prev_page:
-  url: /features/notebooks
+  url: /00_einleitung/notebooks
   title: 'Ein Python Notebook als Test'
 next_page:
   url: /emptypage
@@ -64,7 +66,7 @@ plot(t,y);
 
 
 {:.output .output_png}
-![png](../images/features/octave_6_0.png)
+![png](../images/00_einleitung/octave_6_0.png)
 
 
 

@@ -1,12 +1,14 @@
 ---
-interact_link: content/features/notebooks.ipynb
+redirect_from:
+  - "/00-einleitung/notebooks"
+interact_link: content/00_einleitung/notebooks.ipynb
 kernel_name: python3
 title: 'Ein Python Notebook als Test'
 prev_page:
   url: /emptypage
   title: 'Einleitung'
 next_page:
-  url: /features/octave
+  url: /00_einleitung/octave
   title: 'Ein Octave Notebook als Test'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -85,7 +87,7 @@ ax.legend(custom_lines, ['Cold', 'Medium', 'Hot']);
 
 
 {:.output .output_png}
-![png](../images/features/notebooks_2_0.png)
+![png](../images/00_einleitung/notebooks_2_0.png)
 
 
 
@@ -107,7 +109,7 @@ which you can [see in the original notebook](https://github.com/jupyter/jupyter-
 
 
 {:.output .output_png}
-![png](../images/features/notebooks_6_0.png)
+![png](../images/00_einleitung/notebooks_6_0.png)
 
 
 
