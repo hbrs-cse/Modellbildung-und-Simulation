@@ -148,9 +148,10 @@ d = exp(b/a - i*sin(pi/8));
 ```
 
 
-Einige wichtige Punkte lassen sich hieraus schon erkennen:
+Einige wichtige Punkte konnten wir bisher beobachten:
 
 * Variablenzuweisungen passieren von links nach rechts: Was rechts vom Gleichheitszeichen steht, wird der Variablen die links vom Gleichheitszeichen steht zugeordnet. Wenn es diese Variable nicht gibt, wird sie im Workspace hinterlegt.
+* Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion ```exp``` oder das Rechnen mit komplexen Zahlen.
 * Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendent werden.
 * In Matlab werden die skalaren Datentypen (```integer```, ```double```, ```float```, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variable ```a``` ganzzahlig ist, geht Matlab standardmäßig von ```double``` aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion ```class()``` ausgeben lassen:
 
@@ -384,6 +385,20 @@ ans =
 
 **Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212.5 €.*
 
+Malab hat einige Befehle um spezielle Matrizen zu erstellen. Einige der wichtigsten sind:
+
+
+
+{:.input_area}
+```matlab
+eye(2);     % 2,2-Einheitsmatrix
+ones(3,2);  % 3,2-Matrix gefuellt mit 1
+zeros(2,4); % 2,4-Matrix gefuellt mit 0
+rand(2);    % 2,2-Matrix mit gleichverteilten Zufallszahlen von 0 bis 1
+randn(4);   % 4,4-Matrix mit normalverteilten Zufallszahlen um 0 und Standardabweichung 1
+```
+
+
 Das Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ wird mit dem sogenannten **backslash**-Operator gelöst.
 
 
@@ -424,32 +439,11 @@ error: 'A' undefined near line 1 column 4
 
 ```
 
+## Skripte schreiben
+
 Das %-Zeichen läutet in MATLAB einen Kommentar ein.
 
 * Wie in *ALLEN* Programmiersprachen gilt in MATLAB: ** Kommentieren Sie ihren Code! **
-
-
-
-{:.input_area}
-```matlab
-eye(2);     % 2,2-Einheitsmatrix
-ones(3,2);  % 3,2-Matrix gefuellt mit 1
-zeros(2,4); % 2,4-Matrix gefuellt mit 0
-rand(2);    % 2,2-Matrix mit Zufallszahlen von 0 bis 1
-```
-
-
-{:.output .output_stream}
-```
-
-ans =
-
-     1     1
-     1     1
-     1     1
-
-
-```
 
 Wie in anderen Programmiersprachen können in MATLAB auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist
 
@@ -464,8 +458,6 @@ end
 
 
 Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird. Weitere Schleifentypen sind in der Hilfe nachzulesen.
-
-# Grafische Ausgabe
 
 
 
@@ -497,7 +489,7 @@ x =
 
 
 
-# Funktionen
+## Funktionen schreiben
 
 * Funktionen werden normalerweise in einem eigenen m-file gespeichert, siehe das Handout zur Matlab Einführung.
 
