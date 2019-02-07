@@ -4,8 +4,8 @@ prev_page:
   url: /intro
   title: 'Home'
 next_page:
-  url: /00_einleitung/notebooks
-  title: 'Ein Python Notebook als Test'
+  url: /emptypage
+  title: 'Verwendung dieses Online Übungsbuches'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Hier entsteht ganz bald sicher irgendetwas!

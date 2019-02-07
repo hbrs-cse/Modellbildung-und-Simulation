@@ -1,7 +1,7 @@
 ---
 redirect_from:
   - "/00-einleitung/matlab-einfuehrung"
-interact_link: content/00_einleitung/Matlab_Einfuehrung.ipynb
+interact_link: lab/treecontent/00_einleitung/Matlab_Einfuehrung.ipynb
 kernel_name: octave
 title: 'Erste Schritte in Matlab'
 prev_page:
@@ -13,7 +13,7 @@ next_page:
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
-# Matlab - Getting Started
+# Erste Schritte in Matlab
 
 [Matlab](https://de.wikipedia.org/wiki/Matlab) ist eine interpretierte Skriptsprache, die insbesondere für numerische Berechnungen, Modellbildung und Simulation verwendet wird. Interpretierte Skriptsprachen zeichnen sich dadurch aus, dass sie von speziellen Computerprogrammen, sogenannten *Interpreter*, direkt interpretiert und ausgeführt werden. Im Kontrast dazu stehen Sprachen wie C/C++, die zunächst von einem Compiler in eine maschinenlesbare Datei übersetzt werden müssen.
 
@@ -58,15 +58,11 @@ In diesem Lehrbuch geht es hauptsächlich um Methodik, und weniger um die Comput
 * [let me google that for you...](http://lmgtfy.com/?q=matlab+tutorial+beginner)
 
 
-Nichtsdestotrotz sollen hier die absoluten Basics einmal beschrieben werden.
-
-## Command Window, Editor und Workspace
-
-Die wichtigsten Fenster von Matlab werden am Anfang das *Command Window*, der *Editor* und der *Workspace* sein. 
+Genauso hilft immer ein Blick in die Dokumentation. Nichtsdestotrotz sollen hier die absoluten Basics einmal beschrieben werden. Die wichtigsten Fenster von Matlab werden am Anfang das *Command Window*, der *Editor* und der *Workspace* sein. 
 
 <img src="../images/matlabonline.PNG" alt="Drawing" style="width: 1200px;"/>
 
-### Command Window
+## Einfache Befehle
 
 Im *Command Window* gibt man, wie der Name schon sagt, Befehle ein. Diese werden unmittelbar nach dem *Prompt* ```>>``` eingetippt. Gibt man zum Beispiel ```a=5``` ein, erscheint ein feedback, dass die Variable ```a``` erstellt wurde, und sie den Wert ```5``` zugewiesen bekommen hat.
 
@@ -172,6 +168,8 @@ class(a)
 ans = double
 
 ```
+
+## Vektoren und Matrizen
 
 Matlab ist ein Kofferwort aus **Mat**rix-**Lab**oratory. Der Name impliziert schon, dass es sich ideal dazu eignet mit Matrizen und Vektoren zu arbeiten. Dabei wird nicht zwischen den beiden unterschieden: Ein Zeilenvektor mit $n$ Einträgen ist einfach eine Matrix aus $\mathbb{R}^{1 \times n}$, während ein Spaltenvektor mit $n$ Einträgen eine Matrix aus $\mathbb{R}^{n \times 1}$ ist.
 
@@ -385,7 +383,7 @@ ans =
 
 ```
 
-**Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212.5 €.
+**Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212.5 €.*
 
 Das Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ wird mit dem sogenannten **backslash**-Operator gelöst.
 

@@ -25,12 +25,10 @@
   not_numbered: true
   expand_sections: true
   sections:
-  - title: Ein Python Notebook als Test
-    url: /00_einleitung/notebooks
-  - title: Ein Octave Notebook als Test
-    url: /00_einleitung/octave
-  - title: Über dieses Buch
+  - title: Verwendung dieses Online Übungsbuches
     url: /emptypage
+  - title: Erste Schritte in Matlab
+    url: /00_einleitung/Matlab_Einfuehrung
   - title: Tragwerke - Ein Einführendes Beispiel
     url: /emptypage
 
