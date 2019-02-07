@@ -28,7 +28,7 @@ Matlab ist nicht kostengünstig. Es gibt aber frei verfügbare Alternative. Zum 
 Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte, die drei am weitesten verbreiteten Sprachen aus dem Bereich wissenschaftlichen Rechnen sind wahrscheinlich 
  * [Python](https://www.python.org/) - Extrem vielseitige und weitverbreitete Sprache, [jeder sollte irgendwann mal Python lernen](https://hackernoon.com/10-reasons-to-learn-python-in-2018-f473dc35e2ee).
  * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet
- * [Julia]() - Best of R and Matlab, streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz und wirbt mit höherer Performanz.
+ * [Julia]() - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz und wirbt mit höherer Performanz.
  
 
 Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es soviel kostenfreie Alternativen gibt? Zugegeben, viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
