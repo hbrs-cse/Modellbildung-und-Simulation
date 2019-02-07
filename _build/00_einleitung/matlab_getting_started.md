@@ -1,12 +1,12 @@
 ---
 redirect_from:
-  - "/00-einleitung/matlab-einfuehrung"
-interact_link: lab/treecontent/00_einleitung/Matlab_Einfuehrung.ipynb
+  - "/00-einleitung/matlab-getting-started"
+interact_link: content/00_einleitung/matlab_getting_started.ipynb
 kernel_name: octave
 title: 'Erste Schritte in Matlab'
 prev_page:
   url: /emptypage
-  title: 'Verwendung dieses Online Übungsbuches'
+  title: 'Verwendung des Buches'
 next_page:
   url: /emptypage
   title: 'Tragwerke - Ein Einführendes Beispiel'
@@ -494,7 +494,7 @@ x =
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/Matlab_Einfuehrung_46_1.png)
+![png](../images/00_einleitung/matlab_getting_started_46_1.png)
 
 
 
@@ -606,6 +606,6 @@ ylabel('log(error)')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/Matlab_Einfuehrung_55_0.png)
+![png](../images/00_einleitung/matlab_getting_started_55_0.png)
 
 

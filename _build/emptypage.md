@@ -5,7 +5,7 @@ prev_page:
   title: 'Home'
 next_page:
   url: /emptypage
-  title: 'Verwendung dieses Online Übungsbuches'
+  title: 'Verwendung des Buches'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Hier entsteht ganz bald sicher irgendetwas!
