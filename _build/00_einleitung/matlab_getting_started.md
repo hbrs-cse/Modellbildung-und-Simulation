@@ -40,8 +40,7 @@ Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es soviel kosten
 
 Es gibt verschiedene Wege mit Matlab zu arbeiten.
 
- * **Computerraum**: Am Fachbereich 3 der Hochschule Bonn-Rhein-Sieg sind auf allen Computern der Räume B107 und B114 Matlab installiert.
- * **Installation des Software-Pakets**: Das ist mit Sicherheit der sinnvollste Weg, wenn man viel mit Matlab arbeitet. Für Studenten der Hochschule Bonn-Rhein-Sieg wird [hier](https://www.h-brs.de/de/emt/matlab) beschrieben, wie man Matlab installiert und über die Campuslizenz aktiviert.
+ * **Installation des Software-Pakets**: Das ist mit Sicherheit der sinnvollste Weg, wenn man viel mit Matlab arbeitet. Für Studenten der Hochschule Bonn-Rhein-Sieg wird [hier](https://www.h-brs.de/de/emt/matlab) beschrieben, wie man Matlab installiert und über die Campuslizenz aktiviert. Am Fachbereich 3 der Hochschule Bonn-Rhein-Sieg ist auf allen Computern der Räume B107 und B114 Matlab bereits installiert.
  * **Matlab Online**: Inzwischen gibt es eine [browser-basierte Version von Matlab](https://matlab.mathworks.com/), die ohne Installation funktioniert. Hierfür muss man sich nur über sein MathWorks Account einloggen und dort eine valide Lizenz hinterlegt haben.
  * **Matlab Mobile**: Es gibt eine [App von MathWorks](https://play.google.com/store/apps/details?id=com.mathworks.matlabmobile&hl=de), die sich anfühlt wie Matlab. Kommandos werden übers Internet zu einem Server geschickt, dort ausgeführt und das Ergebnis wird auf dem Smartphone angezeigt.
 
