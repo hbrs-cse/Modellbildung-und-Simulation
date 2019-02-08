@@ -28,13 +28,15 @@ Matlab ist nicht kostengünstig. Es gibt aber frei verfügbare Alternative. Zum 
 Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte, die drei am weitesten verbreiteten Sprachen aus dem Bereich wissenschaftlichen Rechnen sind wahrscheinlich 
  * [Python](https://www.python.org/) - Extrem vielseitige und weitverbreitete Sprache, [jeder sollte irgendwann mal Python lernen](https://hackernoon.com/10-reasons-to-learn-python-in-2018-f473dc35e2ee).
  * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet
- * [Julia]() - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz und wirbt mit höherer Performanz.
+ * [Julia]() - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
  
 
 Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es soviel kostenfreie Alternativen gibt? Zugegeben, viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
 1. Es ist eine ausgereifte, vielseitige robuste und einfach zu erlernende Skriptsprache, mit der man in sehr kurzer Zeit komplexe Modelle erstellen kann.
 2. Die Benutzerumgebung liefert viele praktische Werkzeuge wie Profiler oder Debugging Tools.
 2. Studenten erhalten in der Regel kostenfrei Zugang zu einer Campuslizenz.
+
+Also: Matlab ist super! Bevor man aber ganz viel Geld ausgibt, lohnt sich ein Blick auf die Alternativen.
 
 ## Installation
 
@@ -70,7 +72,7 @@ Im *Command Window* gibt man, wie der Name schon sagt, Befehle ein. Diese werden
 
 {:.input_area}
 ```matlab
-a=5
+a = 5
 ```
 
 
@@ -86,7 +88,7 @@ MATLAB gibt nach Eingabe eines Kommandos immer eine Rückmeldung, in diesem Fall
 
 {:.input_area}
 ```matlab
-b=2*pi;
+b = 2*pi;
 ```
 
 
@@ -153,7 +155,7 @@ Einige wichtige Punkte konnten wir bisher beobachten:
 * Variablenzuweisungen passieren von links nach rechts: Was rechts vom Gleichheitszeichen steht, wird der Variablen die links vom Gleichheitszeichen steht zugeordnet. Wenn es diese Variable nicht gibt, wird sie im Workspace hinterlegt.
 * Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion ```exp``` oder das Rechnen mit komplexen Zahlen.
 * Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendent werden.
-* In Matlab werden die skalaren Datentypen (```integer```, ```double```, ```float```, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variable ```a``` ganzzahlig ist, geht Matlab standardmäßig von ```double``` aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion ```class()``` ausgeben lassen:
+* In Matlab werden die skalaren Datentypen (```integer```, ```double```, ```float```, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variablen ```a``` ganzzahlig ist, geht Matlab standardmäßig von ```double``` aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion ```class()``` ausgeben lassen:
 
 
 
@@ -179,8 +181,8 @@ In Matlab werden Matrizen mit eckigen Klammern geschrieben, ein Semikolon beende
 
 {:.input_area}
 ```matlab
-e=[1 2 3 4 5] % ein Zeilenvektor
-f=[1;2;3;4;5] % ein Spaltenvektor
+e = [1, 2, 3, 4, 5] % ein Zeilenvektor
+f = [1; 2; 3; 4; 5] % ein Spaltenvektor
 ```
 
 
@@ -276,6 +278,25 @@ elementwise multiplication, use '.*'.
 ```
 
 Wir behelfen uns eines Tricks: Ein nachgestelltes Apostroph gibt die transponierte Matrix aus:
+
+
+
+{:.input_area}
+```matlab
+g
+```
+
+
+{:.output .output_stream}
+```
+g =
+
+   1
+   1
+   1
+
+
+```
 
 
 
@@ -385,6 +406,14 @@ ans =
 
 **Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212.5 €.*
 
+
+
+{:.input_area}
+```matlab
+weekly_cost_total = ...
+```
+
+
 Malab hat einige Befehle um spezielle Matrizen zu erstellen. Einige der wichtigsten sind:
 
 
@@ -399,7 +428,7 @@ randn(4);   % 4,4-Matrix mit normalverteilten Zufallszahlen um 0 und Standardabw
 ```
 
 
-Das Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ wird mit dem sogenannten **backslash**-Operator gelöst.
+Natürlich bietet Matlab auch viele weitere Funktionen rund um Matrizen und Vektoren um uns das Leben zu erleichtern. So kann ein Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ einfach und effizient mit dem sogenannten **backslash**-Operator gelöst werden.
 
 
 
@@ -413,12 +442,11 @@ x = A\b                     % x = inv(A)*b
 
 {:.output .output_stream}
 ```
-
 x =
 
-   -0.0333
-    0.0667
-   -0.0000
+  -3.3333e-02
+   6.6667e-02
+  -1.4456e-18
 
 
 ```
@@ -432,12 +460,6 @@ To Do: Matrix concatenation, slicing. Unerschied function und Skript, auf scope 
 B=[A, b;b', 1];
 ```
 
-
-{:.output .output_stream}
-```
-error: 'A' undefined near line 1 column 4
-
-```
 
 ## Skripte schreiben
 
@@ -473,19 +495,9 @@ ylabel('Y-Achsenbeschriftung')
 ```
 
 
-{:.output .output_stream}
-```
-
-x =
-
-    -5    -4    -3    -2    -1     0     1     2     3     4     5
-
-
-```
-
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_getting_started_46_1.png)
+![png](../images/00_einleitung/matlab_getting_started_48_0.png)
 
 
 
@@ -510,16 +522,11 @@ meineFunktion([2,3;4,5])
 
 {:.output .output_stream}
 ```
-
+ans =  4
 ans =
 
-     4
-
-
-ans =
-
-     4     9
-    16    25
+    4    9
+   16   25
 
 
 ```
@@ -597,6 +604,6 @@ ylabel('log(error)')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_getting_started_55_0.png)
+![png](../images/00_einleitung/matlab_getting_started_57_0.png)
 
 
