@@ -1,6 +1,6 @@
 # <img src="content/images/logo/favicon.ico" width=40 /> Modellbildung und Simulation
 
-[![CircleCI](https://circleci.com/gh/jupyter/jupyter-book.svg?style=svg)](https://circleci.com/gh/jupyter/jupyter-book) [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/) [![DOI](https://zenodo.org/badge/168147770.svg)](https://zenodo.org/badge/latestdoi/168147770)
+[![CircleCI](https://circleci.com/gh/jupyter/jupyter-book.svg?style=svg)](https://circleci.com/gh/jupyter/jupyter-book) [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2560662.svg)](https://doi.org/10.5281/zenodo.2560662)
 
 This is a course book for the course "Modeling and Simulation" held at the University of Applied Sciences Bonn-Rhein-Sieg in Sankt Augustin, Germany. 
 
