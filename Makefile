@@ -13,14 +13,13 @@ help:
 install:
 	gem install bundler
 	bundle install
-	
+
 book:
-	python scripts/license.py --path ./content
-	python scripts/generate_book.py
+	jupyter-book build ./
 	python scripts/octave2matlab.py
 
 runall:
-	python scripts/execute_all_notebooks.py
+	jupyter-book run ./content
 
 clean:
 	python scripts/clean.py
@@ -28,8 +27,6 @@ clean:
 serve:
 	bundle exec guard
 
-build:
+site:
 	bundle exec jekyll build
-
-test:
-	pytest scripts/tests/test_build.py
+	touch _site/.nojekyll
