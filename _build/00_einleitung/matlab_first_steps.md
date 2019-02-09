@@ -6,8 +6,8 @@ prev_page:
   url: /emptypage
   title: 'Verwendung des Buches'
 next_page:
-  url: /emptypage
-  title: 'Tragwerke - Ein Einführendes Beispiel'
+  url: /00_einleitung/matlab_command_window
+  title: 'Matlab Command Window'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Erste Schritte in Matlab
