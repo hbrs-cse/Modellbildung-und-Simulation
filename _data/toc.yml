@@ -28,7 +28,14 @@
   - title: Verwendung des Buches
     url: /emptypage
   - title: Erste Schritte in Matlab
-    url: /00_einleitung/matlab_getting_started
+    url: /00_einleitung/matlab_first_steps
+    sections:
+    - title: Matlab Command Window
+      url: /00_einleitung/matlab_command_window
+    - title: Skripte und Funktionen
+      url: /emptypage
+    - title: Übungsaugaben
+      url: /emptypage
   - title: Tragwerke - Ein Einführendes Beispiel
     url: /emptypage
 
