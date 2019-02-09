@@ -29,9 +29,7 @@
     url: /emptypage
   - title: Erste Schritte in Matlab
     url: /00_einleitung/matlab_first_steps
-    not_numbered: true
-    expand_sections: true
-    sections:
+    subsections:
     - title: Matlab Command Window
       url: /00_einleitung/matlab_command_window
     - title: Skripte und Funktionen
