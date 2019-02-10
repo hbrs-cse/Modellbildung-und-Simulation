@@ -28,12 +28,12 @@
   - title: Verwendung des Buches
     url: /emptypage
   - title: Erste Schritte in Matlab
-    url: /00_einleitung/matlab_first_steps
+    url: /00_einleitung/matlab_00_first_steps
     subsections:
     - title: Matlab Command Window
-      url: /00_einleitung/matlab_command_window
+      url: /00_einleitung/matlab_01_command_window
     - title: Skripte und Funktionen
-      url: /emptypage
+      url: /00_einleitung/matlab_02_scripts_and_functions
     - title: Best Practices
       url: /emptypage
     - title: Übungsaugaben
