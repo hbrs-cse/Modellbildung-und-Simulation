@@ -21,12 +21,12 @@
   search: true
 
 - title: Einleitung
-  url: /emptypage
+  url: /00_einleitung/intro
   not_numbered: true
   expand_sections: false
   sections:
   - title: Verwendung des Buches
-    url: /emptypage
+    url: /00_einleitung/usage
   - title: Erste Schritte in Matlab
     url: /00_einleitung/matlab_00_first_steps
     subsections:

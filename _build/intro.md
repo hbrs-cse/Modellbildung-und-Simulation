@@ -1,18 +1,37 @@
 ---
+interact_link: content/intro.ipynb
+kernel_name: octave
 title: 'Home'
 prev_page:
   url: 
   title: ''
 next_page:
-  url: /emptypage
+  url: /00_einleitung/intro
   title: 'Einleitung'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
+
 # Modellbildung und Simulation
 
 An dieser Stelle entsteht in Kürze ein interaktives Übungsbuch zur Vorlesung __Modellbildung und Simulation__ an der [Hochschule Bonn-Rhein-Sieg](https://www.h-brs.de).
 
-<img src="images/autograd.gif" class="left">
+
+
+{:.input_area}
+```matlab
+tx = ty = linspace(-8, 8, 41)';
+[xx, yy] = meshgrid(tx, ty);
+r = sqrt(xx.^2 + yy.^2) + eps;
+tz = sin(r)./ r;
+surf(tx, ty, tz);
+```
+
+
+
+{:.output .output_png}
+![png](/data/work/H_BRS/Modellbildung-und-Simulation/_build/intro_1_0.png)
+
+
 
 ## Acknowledgements
 
