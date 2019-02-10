@@ -23,7 +23,7 @@
 - title: Einleitung
   url: /emptypage
   not_numbered: true
-  expand_sections: true
+  expand_sections: false
   sections:
   - title: Verwendung des Buches
     url: /emptypage
@@ -34,6 +34,8 @@
       url: /00_einleitung/matlab_command_window
     - title: Skripte und Funktionen
       url: /emptypage
+    - title: Best Practices
+      url: /emptypage
     - title: Übungsaugaben
       url: /emptypage
   - title: Tragwerke - Ein Einführendes Beispiel
@@ -43,25 +45,25 @@
 
 - title: Schwingungen
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 - title: Lineare Gleichungssysteme
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 - title: Gleitkommaarithmetik
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 - title: Nichtlineare Gleichungssysteme
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 - title: Interpolation und Approximation
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 - title: Differentiation und Integration
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 - title: Numerik gewöhnlicher Differentialgleichungen
   url: /emptypage
-  expand_sections: true
+  expand_sections: false
 
 
 - divider: true
