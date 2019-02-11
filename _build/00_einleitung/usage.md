@@ -28,7 +28,16 @@ Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszufü
 
 ## Interact
 
-*To Do*
+Der Nachteil von der "Interact"-Methode ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über [Jupyter Lab](https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906) zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft. 
+
+<img src="../images/usage_binder.png" alt="Jupyter Lab Screenshot" style="width: 1200px;"/>
+
+<img src="../images/usage_binder_launcher.png" alt="Jupyter Lab Screenshot 2" style="width: 1200px;"/>
+
+
+Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auch neue Dokumente, wie z.B. m-files, erstellen oder hochladen, Dokumente herunterladen und eine Linux-Konsole starten. Das ganze funktioniert über ein [Docker-Container](https://de.wikipedia.org/wiki/Docker_(Software)), der über den [Binder](https://mybinder.org/) Service auf einer virtuellen Maschine geladen wird. 
+
+<img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" />    **Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!** Laden Sie unbedingt erstellte Dateien runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.
 
 ## Unit Testing
 
