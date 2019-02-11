@@ -323,7 +323,7 @@ ans =  6
 
 ```
 
-Sehr häufig ist es nützlich Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünft Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche.. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor
+Sehr häufig ist es nützlich Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor
 
 
 
@@ -732,7 +732,7 @@ ans =
 
 ```
 
-**Zusatzfrage:** Was macht der folgende Befehl:
+**Zusatzfrage:** Was macht der folgende Befehl?
 
 
 

@@ -16,13 +16,15 @@ Ganz einfach: Lesen.
 
 Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Alle Seiten, die Codeblöcke enthalten haben oben in der Kopfzeile zwei Buttons, einen auf dem "Thebelab" steht, und einen auf dem "Interact" steht.
 
-<img src="../images/usage_buttons.png" alt="Drawing" style="width: 400px;"/>
+<img src="../images/usage_buttons.png" alt="Interact buttons" style="width: 250px;"/>
 
-Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken ausführbar wird.
+Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editierbar und ausführbar wird.
 
 ## Thebelab
 
-*To Do*
+Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über Thebelab. Per Klick auf die Taste "run", wird der Code ausgeführt, mit "restart" wird der im Hintergrund laufende Octave-Kernel neu gestartet.
+
+<img src="../images/usage_thebe.png" alt="Binder Loading Page" style="width: 800px;"/>
 
 ## Interact
 
@@ -47,6 +49,8 @@ Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine 
 
    *Lösung:* Geduld. Wahrscheinlich wurden gerade Änderungen an diesem Buch vorgenommen und Sie sind die erste Person, die seitdem interaktive Inhalte nutzen wollen. Damit haben sie ein *rebuild des binder image getriggert*. Das kann schonmal dauern. Dasselbe gilt für die "Interact" Funktion. Hier erhält man aber ausführlichere Informationen über eine Konsolenausgabe beim Start.
    
+   <img src="../images/usage_binder_waiting.png" alt="Binder Loading Page" style="width: 1200px;"/>
+   
 2. Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.
 
-   Ab und zu wird der Code fälschlicherweise an einen *Python*-interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen.
+   *Lösung:* Ab und zu wird der Code fälschlicherweise an einen *Python*-interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen.
