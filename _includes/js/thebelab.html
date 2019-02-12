@@ -5,7 +5,7 @@
       requestKernel: true,
       binderOptions: {
         repo: '{{ site.binder_repo_org }}/{{ site.binder_repo_name }}',
-        ref: '{{ site.binder_repo_branch }}?filepat=content/00_einleitung',
+        ref: '{{ site.binder_repo_branch }}?filepath=content/00_einleitung',
       },
       kernelOptions: {
         name: '{% if page.kernel_name %}{{ page.kernel_name }}{% else %}python3{% endif %}',
