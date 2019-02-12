@@ -42,6 +42,12 @@ Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auc
 
 <img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" />    **Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!** Laden Sie unbedingt erstellte Dateien runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.
 
+## Dateien erstellen
+
+In Jupyter Lab ("Interact" Button), lassen sich Dateien mit Hilfe des Launchers erstellen. Man kann aber auch Dateien mit der Thebelab Funktionalität erstellen. Wenn ein Code-Block mit der Zeile `%%file myfile.m` beginnt, wird der folgende Inhalt des Blocks in eine Datei `myfile.m` geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da in Matlab Funktionen immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.
+
+<img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" /> **Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.**
+
 ## Unit Testing
 
 [*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihrer Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt. Auch Matlab und Octave bieten Möglichkeiten für Unit Tests an. 
