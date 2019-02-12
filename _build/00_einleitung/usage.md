@@ -46,13 +46,51 @@ Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auc
 
 In Jupyter Lab ("Interact" Button), lassen sich Dateien mit Hilfe des Launchers erstellen. Man kann aber auch Dateien mit der Thebelab Funktionalität erstellen. Wenn ein Code-Block mit der Zeile `%%file myfile.m` beginnt, wird der folgende Inhalt des Blocks in eine Datei `myfile.m` geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da in Matlab Funktionen immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.
 
+
+
+{:.input_area}
+```matlab
+%%file hello_world.m
+function hello_world()
+for i=1:5
+    disp('Hello World, how is your day?')
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/hello_world.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+run hello_world
+```
+
+
+{:.output .output_stream}
+```
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+
+```
+
 <img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" /> **Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.**
 
 ## Unit Testing
 
-[*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihrer Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt. Auch Matlab und Octave bieten Möglichkeiten für Unit Tests an. 
+[*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihrer Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt. 
 
-Für die meisten Übungsaufgaben müssen Matlabfunktionen erstellt werden. Auf dieser Seite werden für diese Übungsaufgaben bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können. Die Unit Testing Funktionalität von Matlab und Octave sind nicht kompatibel zu einander, deshalb basieren die Unit Tests auf dieser Seite auf die [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit). MoXUnit ist ein freies open source unit testing framework, das sowohl mit Matlab als auch Octave kompatibel ist.
+Auch Matlab und Octave bieten Möglichkeiten für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit) verwendet. MoXUnit ist ein freies open source unit testing framework, das sowohl mit Matlab als auch Octave funktioniert.
+
+Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Auf dieser Seite werden für diese Übungsaufgaben bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.
 
 ### Unit Tests auf dieser Seite ausführen
 
