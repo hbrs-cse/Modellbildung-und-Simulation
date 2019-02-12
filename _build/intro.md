@@ -29,7 +29,7 @@ surf(tx, ty, tz);
 
 
 {:.output .output_png}
-![png](/mnt/d/documents/modellbildung-und-simulation/_build/intro_1_0.png)
+![png](intro_1_0.png)
 
 
 
