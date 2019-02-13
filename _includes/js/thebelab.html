@@ -50,6 +50,10 @@
                         break;
                     }
                 }
+                if ( dataLanguage === 'matlab' ) {
+                    console.log('Found matlab block. Setting language to Octave.')
+                    dataLanguage='octave';
+                }
                 codeCell.setAttribute('data-language', dataLanguage)
 
                 // If the code cell is hidden, show it
