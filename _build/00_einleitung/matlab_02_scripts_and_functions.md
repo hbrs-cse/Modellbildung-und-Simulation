@@ -19,25 +19,94 @@ Bisher haben wir Befehle im `Command Window` eingeben und festgestellt, dass all
 
 ## Skripte
  
-To Do
- * Plots
- * if-then-else, while, for
- * Kommentare
- * Aufruf von Skripten im Command Window, nested Aufruf
+Matlab-Skripte sind einfache Textdateien, die eine Abfolge von Matlab-Befehlen enthalten. Diese werden nach einander abgearbeitet. 
 
-## Funktionen
-
-To Do:
- * Auf Scope eingehen, Unterschiede Skript und Funktion
- * Function handles
+Das `%`-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollzubar zu machen. Wie in *ALLEN* Programmiersprachen gilt auch in MATLAB: **Kommentieren Sie ihren Code!**
+Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schaut, sich fragt was man damals eigentlich gemacht hat und sich wünscht, man hätte es besser kommentiert.
 
 
-## To aufräum
+
+{:.input_area}
+```matlab
+%%file myScript.m
+% Ein kleines Beispielskript
+% mit Kommentaren
+
+% Initialisiere Variablen a und b
+a = 5;
+b = 2*a;
+
+% Ändere Variable a
+a = a/2;
+
+% Ausgabe erzwingen, durch weglassen des Semikolons am Ende der Zeile
+a
+b
+```
 
 
-Das %-Zeichen läutet in MATLAB einen Kommentar ein.
+{:.output .output_stream}
+```
+Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/myScript.m'.
 
-* Wie in *ALLEN* Programmiersprachen gilt in MATLAB: ** Kommentieren Sie ihren Code! **
+```
+
+**Hinweis:** *Die allererste Zeile*
+
+`%%file myScript.m` 
+
+*besagt nur, dass alles was folgt Inhalt der Datei `myScript.m` ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile*
+
+`% Ein kleines Beispielskript`.
+
+Dieses Skript wird mit dem `run` Befehl ausgeführt.
+
+
+
+{:.input_area}
+```matlab
+run myScript.m
+```
+
+
+{:.output .output_stream}
+```
+a =  2.5000
+b =  10
+
+```
+
+Wir dürfen an dieser Stelle die Dateiendung `.m` weglassen. Tatsächlich ist der `run` Befehl auch nicht zwingend nötig. Die Befehle `run myScript.m`, `run myScript`, `myScript.m`, `myScript` haben alle denselben Effekt: Die Befehle in `myScript.m` werden ausgeführt.
+
+Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem `help` Befehl ausgeben:
+
+
+
+{:.input_area}
+```matlab
+help myScript.m
+```
+
+
+{:.output .output_stream}
+```
+'myScript.m' is the file /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/myScript.m
+
+ Ein kleines Beispielskript
+ mit Kommentaren
+
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+
+```
+
+### for-Schleifen
 
 Wie in anderen Programmiersprachen können in MATLAB auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist
 
@@ -51,7 +120,30 @@ end
 ```
 
 
-Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird. Weitere Schleifentypen sind in der Hilfe nachzulesen.
+Der Code zwischen der `for`-  und der `end`-Zeile wird fünf mal ausgeführt. Vor jeder Ausführung wird die *Laufvariable* `i` um eins erhöht. Wir greifen in jdem Durchlauf auf die $i$-te Stelle eines Vektors $f$ zu, und beschreiben diese Stelle mit $2^i$. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.
+
+TO DO
+
+### while-Schleifen
+
+TO DO
+
+### if-Abfragen
+
+TO DO (hier schon nested Aufruf?)
+
+### Grafische Ausgabe
+
+TO DO
+
+## Funktionen
+
+To Do:
+ * Auf Scope eingehen, Unterschiede Skript und Funktion
+ * Function handles
+
+## To aufräum
+
 
 
 
@@ -69,7 +161,7 @@ ylabel('Y-Achsenbeschriftung')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_5_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_10_0.png)
 
 
 
@@ -176,6 +268,6 @@ ylabel('log(error)')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_14_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_19_0.png)
 
 

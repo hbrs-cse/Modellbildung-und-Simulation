@@ -134,7 +134,77 @@ ans = 1
 
 ```
 
-Aha, es gab also sechs Tests, und die werden alle von `fac`, bzw. der von Matlab zur Verfügung gestellten Funktion `factorial`, erfüllt. Sollte ein Test fehlschlagen, gibt der Test Auskunft über den Unterschied zwischen dem erwarteten und dem tatsächlichen Verhalten. Mit dem Befehl `type` lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in `test_fac.m` genauer anzuschauen:
+Aha, es gab also sechs Tests, und die werden alle von `fac`, bzw. der von Matlab zur Verfügung gestellten Funktion `factorial`, erfüllt. Super! 
+
+Das war allerdings auch etwas geschummelt. Wir probieren eine etwas andere Implementierung der Funktion:
+
+
+
+{:.input_area}
+```matlab
+%%file fac.m
+function r = fac(n)
+% calculates the factorial of the input n
+    r = prod(1:n);
+```
+
+
+{:.output .output_stream}
+```
+Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
+
+```
+
+Mal sehen, ob immer noch alle Tests durchlaufen:
+
+
+
+{:.input_area}
+```matlab
+moxunit_runtests test_fac.m
+```
+
+
+{:.output .output_stream}
+```
+suite: 6 tests
+...FFF
+--------------------------------------------------
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac>test_fac_exception_negative:31 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac>test_fac_exception_noninteger:35 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: inputs are not of the same size
+
+First input: 1x1 double
+1
+
+Second input: 2x3 double
+[1 1 2;6 24 120]
+  assertEqual:70 (/home/jan/tools/MOxUnit/MOxUnit/assertEqual.m)
+  test_fac>test_fac_array:39 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+--------------------------------------------------
+
+FAILED (passed=3, failure=3)
+ans = 0
+
+```
+
+Ok, drei der Tests sind erfolgreich, drei schlagen fehl. Der Unit Test gibt sogar Auskunft darüber, welche Tests fehlschlagen. Die Ausgabe
+
+```
+suite: 6 tests
+...FFF
+--------------------------------------------------
+```
+
+bedeutet, dass die letzten drei Tests fehlgeschlagen sind. Zusätzlich gibt jeder fehlgeschlagene Tests Informationen darüber aus, welches Verhalten erwartet wurde und welches tatsächlich eingetroffen ist. Manchmal sind diese Ausgaben etwas kryptisch, und es lohnt sich einen Blick in die Implementierung der Tests zu werfen. Mit dem Befehl `type` lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in `test_fac.m` genauer anzuschauen:
 
 
 
@@ -191,6 +261,8 @@ function test_fac_array
 
 ```
 
+Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird.
+
 ### Unit Tests offline ausführen.
 
 * Installieren Sie [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit)
@@ -214,8 +286,7 @@ Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine 
 1. **Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.**
 
    *Lösung:* Ab und zu wird der Code fälschlicherweise an einen *Python*-interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen.
-   
-   
+      
 1. **Ich bin mir sicher, dass ich die Übungsaufgabe richtig bearbeitet habe, aber der Unit Test gibt Fehler aus.**
 
    *Lösung:* Möglicherweise wurde für die Bearbeitung der Übungsaufgabe Matlab-Code geschrieben, der nicht mit Octave kompatibel ist. In diesem Fall sollte es schon helfen, den Unit Test lokal in der eigenen Matlab Installation laufen zu lassen. 
