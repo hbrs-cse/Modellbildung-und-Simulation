@@ -29,7 +29,6 @@ function test_fac_5
 function test_fac_exception_negative
 % test if exceptions are thrown for negative values
     assertExceptionThrown(@()fac(-1));
-    assertExceptionThrown(@()fac(1.5),'*');
     
 function test_fac_exception_noninteger
 % test if exceptions are thrown for noninteger values
