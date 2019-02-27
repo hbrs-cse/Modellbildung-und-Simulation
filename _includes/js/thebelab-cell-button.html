@@ -4,19 +4,17 @@
  * Set up thebelab button for code blocks
  */
 
-const thebelabCellButton = id =>
+const thebelabCellButton = () =>
   `<a class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
     <img class="interact-button-logo" src="{{ site.images_url | relative_url }}/logo_binder.svg" alt="Start interactive mode">
   </a>`
 
 
-const addThebelabButtonToCodeCells = () => {
+const addThebelabButtonToCodeCells =  () => {
 
   const codeCells = document.querySelectorAll('div.highlighter-rouge:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    codeCell.insertAdjacentHTML('afterend', thebelabCellButton());
   })
 }
 

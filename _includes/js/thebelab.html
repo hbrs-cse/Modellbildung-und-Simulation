@@ -72,9 +72,9 @@
             thebelab.bootstrap();
 
             // Remove copy buttons since they won't work anymore
-            const copyButtons = document.querySelectorAll('.copybtn')
-            copyButtons.forEach((copyButton, index) => {
-                copyButton.remove();
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
             });
 
             // Remove outputs since they'll be stale
