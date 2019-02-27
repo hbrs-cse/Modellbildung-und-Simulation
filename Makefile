@@ -16,7 +16,7 @@ install:
 
 book:
 	jupyter-book build ./
-        python scripts/octave2matlab.py
+	python scripts/octave2matlab.py
 
 runall:
 	jupyter-book run ./content
