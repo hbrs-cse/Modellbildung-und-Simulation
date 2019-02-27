@@ -196,7 +196,7 @@ ans = 0
 
 ```
 
-Ok, drei der Tests sind erfolgreich, drei schlagen fehl. Der Unit Test gibt sogar Auskunft darüber, welche Tests fehlschlagen. Die Ausgabe
+Ok, drei der Tests sind erfolgreich, drei schlagen fehl. Die Test Suite gibt Auskunft darüber, welche der Tests fehlschlagen. Die Ausgabe
 
 ```
 suite: 6 tests
@@ -265,7 +265,7 @@ Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skala
 
 ### Unit Tests offline ausführen.
 
-* Installieren Sie [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit)
+* Installieren Sie [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit).
 * Laden Sie sich den entsprechenden Unit Test von dieser Seite herunter. Wenn die Funktion die getestet werden soll `myFunction` heißt, ist der Unit Test in der Datei `test_myFunction.m` gespeichert. Sie können sich mit dem Befehl `type test_myFunction.m` den Inhalt der Datei wiedergeben lassen, oder mit dem "Interact"-Button eine interaktive Session starten und die Datei per Mausklick herunterladen.
 * Führen Sie den Unit Test mit `moxunit_runtests test_myFunction.m` aus.
 

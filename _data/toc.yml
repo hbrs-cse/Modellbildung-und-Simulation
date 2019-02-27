@@ -36,7 +36,16 @@
       url: /00_einleitung/matlab_02_scripts_and_functions
     - title: Best Practices
       url: /00_einleitung/matlab_03_best_practice
-    - title: Übungsaugaben
+  - title: Übungsaugaben
+    url: /emptypage
+    subsections:
+    - title: Binominialkoffizient und Kreiszahl
+      url: /emptypage
+    - title: Flüssigkeit im Boden
+      url: /emptypage
+    - title: Verkehrssimulation
+      url: /emptypage
+    - title: Conway's Game of Life
       url: /emptypage
   - title: Tragwerke - Ein Einführendes Beispiel
     url: /emptypage

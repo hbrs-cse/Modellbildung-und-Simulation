@@ -196,7 +196,6 @@ disp(x)
 ```
 
 Die Anweisung `x = 0.99*x` wird solange ausgeführt, bis $\lvert \sin(x) - x \rvert$ nicht mehr größer als $0.01$ ist.
-
 Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert die Kleinwinkelnäherung $\sin(x) \approx x$ relative Fehler von unter $1 \%$ liefert. 
 
 **Challenge:** Fallen Ihnen Wege ein, die Abschätzung genauer zu gestalten?
@@ -237,10 +236,23 @@ TO DO
 
 ## Funktionen
 
-To Do:
- * Auf Scope eingehen, Unterschiede Skript und Funktion
- * Nested Call
- * Function handles
+TO DO: Unterschiede Skript und Funktion
+
+### Eingabe und Ausgabe
+
+To Do 
+
+### Scope von Variablen
+
+To Do 
+
+### Rekursion
+
+To Do 
+
+### Function Handles
+
+To Do 
 
 ## To aufräum
 
@@ -264,8 +276,6 @@ ylabel('Y-Achsenbeschriftung')
 ![png](../images/00_einleitung/matlab_02_scripts_and_functions_20_0.png)
 
 
-
-## Funktionen schreiben
 
 * Funktionen werden normalerweise in einem eigenen m-file gespeichert, siehe das Handout zur Matlab Einführung.
 
@@ -295,7 +305,7 @@ ans =
 
 ```
 
-# Binominialkoeffizienten
+### Binominialkoeffizienten
 
 siehe Handout
 
@@ -331,7 +341,7 @@ ans =  10
 
 ```
 
-# Programmierübung 2: Rundungsfehler
+### Programmierübung 2: Rundungsfehler
 
 siehe Handout
 
