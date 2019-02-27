@@ -768,6 +768,8 @@ ans =
 ```
 
 
+Denken Sie daran, dass Gleichheit zweier Variablen mit `==` abgefragt wird!
+
 ## Gleichungssysteme lösen
 
 Natürlich bietet Matlab auch viele weitere Funktionen rund um Matrizen und Vektoren um uns das Leben zu erleichtern. So kann ein Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ einfach und effizient mit dem sogenannten **backslash**-Operator gelöst werden.

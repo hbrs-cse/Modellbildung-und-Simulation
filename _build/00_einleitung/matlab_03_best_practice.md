@@ -48,3 +48,7 @@ To Do (Beispiel, kurze Erklärung von SIMD)
 ## Kein übermäßiger Gebrauch von if-then-else Anweisungen
 
 To Do
+
+## Gleitkommazahlen nicht auf Gleichheit überprüfen
+
+To Do

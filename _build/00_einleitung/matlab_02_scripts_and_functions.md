@@ -228,11 +228,264 @@ end
 
 ### if-Abfragen
 
-TO DO
+Oft ist es nützlich, Bestimmte Befehle nur auszuführen, wenn eine Bedingung erfüllt ist. Dies erreicht man mit if-Bedingungen.
+
+
+
+{:.input_area}
+```matlab
+zaehler = rand();
+nenner = rand();
+if abs(nenner) > 1e-8
+    x = zaehler/nenner
+end
+```
+
+
+{:.output .output_stream}
+```
+x =  1.3213
+
+```
+
+Der Codeblock erstellt nur dann eine Variable ´x´, wenn der Nenner des Bruchs größer als $10^{-8}$ ist. Wir sollten den Fall abfangen, wenn diese Bedingung mal nicht erfüllt wird. Dies erreicht man mit if-then-else-Bedingungen.
+
+
+
+{:.input_area}
+```matlab
+zaehler = rand();
+nenner = rand();
+if abs(nenner) > 1e-8
+    x = zaehler/nenner
+else
+    x = 1
+end
+```
+
+
+{:.output .output_stream}
+```
+x =  2.1707
+
+```
+
+Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingungen. Das kann zum Beispiel Sinn machen, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten, wie im folgendem Beispiel.
+
+
+
+{:.input_area}
+```matlab
+%%file oldmcdonald.m
+% make some animal noises
+
+animal = "cow";
+
+if strcmp(animal, "cat")
+    disp("Meaow")
+elseif strcmp(animal,  "dog")
+    disp("Woof! Woof!")
+elseif strcmp(animal,  "cow")
+    disp("Moooooh!")
+elseif strcmp(animal,  "kangaroo")
+    disp("Gib mir eine Schnapspraline.")
+else
+    disp(["I dont know what kind of noise a ", animal, " makes."])
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+run oldmcdonald
+```
+
+
+{:.output .output_stream}
+```
+Moooooh!
+
+```
+
+In Matlab können wir Strings nicht mit `==` auf Gleichheit prüfen. Dafür stellt Matlab die Funktion `strcmp` bereit.
+
+Das folgende iterative Programm sucht eine Nullstelle des Polynoms $y(x)= -x^4 + x^3 - x^2 + x + 1$ im Interval $[-1,1]$. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.
+
+Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird über eine if-Bedingung untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird for-Schleife mit dem `break` Befehl unterbrochen.
+
+
+
+{:.input_area}
+```matlab
+%%file bisection.m
+% find a zero of the polynomial y(x)= -x^4 + x^3 - x^2 + x + 1 in the interval [-1,1]
+
+% we are happy if the function value of the found zero is smaller than the following tolerance
+tolerance = 1e-8;
+
+% don't do more than maxIterations iterations
+maxIterations = 100;
+
+% lower and upper bound for zero of the polynomial, where f(xlower)<0 and f(xupper)>0
+xlower = -1;
+xupper = 1;
+
+% this variable is set to true once the iteration converged
+converged = false;
+
+for iteration=1:maxIterations
+    
+    % take the middle between the two bounds
+    midpoint = 0.5*(xupper + xlower);
+    
+    % check the function value at this point
+    fmidpoint = -midpoint^4 + midpoint^3 - midpoint^2 + midpoint + 1;
+    
+    % if the function value is small enough, we are done
+    if abs(fmidpoint) < tolerance
+        converged = true;
+        break;
+    end
+    
+    % reset the limits and repeat
+    if fmidpoint > 0
+        xupper = midpoint;
+    else
+        xlower = midpoint;
+    end
+end
+
+if converged
+    disp(["Converged in ", num2str(iteration), " iterations. The solution is ", num2str(midpoint), "."])
+else
+    disp(["No convergence to the specified tolerance of ", num2str(tolerance),  ...
+          " within ", num2str(iteration), " iterations. The current error is ", num2str(fmidpoint), "."])
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+run bisection
+```
+
+
+{:.output .output_stream}
+```
+Converged in 25 iterations. The solution is -0.51879.
+
+```
 
 ### Grafische Ausgabe
 
-TO DO
+Es gibt in Matlab eine Vielzahl von Methoden, um den Inhalt von Vektoren grafisch darzustellen. Die `plot` Funktion ist nützlich, um funktionale Zusammenhänge darzustellen. Sie nimmt als Eingabe zwei gleichgroße Vektoren `x` und `y`, wobei der erste die $x$-Koordinaten und der zweite die $y$-Koordinaten enthält.
+
+
+
+{:.input_area}
+```matlab
+x = linspace(-5,5,11);   % Ein Vektor mit Werten von -5 bis 5
+y = x.^2;                % Ein Vektor y mit den zugehörigen Funktionswerten 
+
+plot(x, y);             % Erstellen einer grafischen Darstellung
+title('Mein erster plot y = x^2')
+xlabel('X-Achsenbeschriftung')
+ylabel('Y-Achsenbeschriftung')
+```
+
+
+
+{:.output .output_png}
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_29_0.png)
+
+
+
+Über die vielen Funktionen rund um die Visualisierung und deren Optionen informieren Sie sich bitte in der Matlab Dokumentation. An dieser Stelle soll abschließend nur noch auf zwei Features aufmerksam gemacht werden:
+
+ - Häufig möchte man mehrere Graphen in ein Koordinatensystem darstellen. Matlab überschreibt die Ergebnisse standardmäßig. Dieses Verhalten kann aber mit dem Befehl `hold on` ausgehebelt werden.
+ - Das Koordinatensystem in Matlab ist ein Objekt vom Typ `axes`. Mit dem Befehl `gca`, kurz für *get current axes*, lässt sich ein *handle* für das aktuell verwendete Koordinatensystem wiedergeben. Eigenschaften des Koordinatensystems lassen sich dann mit den Befehlen `set(gca, ...)` und `get(gca, ...)` abfragen bzw. ändern. Das ist ein nützliches Feature, wenn man tiefergreifende Eigenschaften ändern möchte, als nur die Achsenbeschriftungen.
+ 
+Im folgenden werden diese beiden Features in einem Skript benutzt, das für zehn verschiedene Parameter $D \in [0.1, 1.0]$ die Funktion
+
+$$ y(x) = \frac{1}{\sqrt{(1-x^2)^2 + (2Dx)^2}} $$
+
+über das Interval $x \in [0, 3]$ plottet.
+
+
+
+
+{:.input_area}
+```matlab
+%%file resonance_catastrophe.m
+% plot the resonance catastrophe curve for different damping parameters D
+
+% x values of the plot = 500 equally spaced points in the interval [0, 3]
+x = linspace(0, 3, 500);
+
+% make sure that each new plot call does not overwrite old results
+hold on
+
+% plot 10 functions depending on a parameter D
+for D = 0.1:0.1:1
+
+    % set some variables denoting properties of the current plot
+    plotname = ['D = ', num2str(D)];              % name that shall appear in the legend
+    plotcolor = (1-D)*[1, 0, 0] + D*[0, 0, 1];    % RGB value that shall be used for the plot
+    
+    % plot the function with some additional options
+    plot(x, 1./sqrt((1-x.^2).^2 + (2*D*x).^2), ...
+         'DisplayName', plotname, ...
+         'Color', plotcolor, ...
+         'LineWidth', 5)
+    
+end
+
+% set some options for the current axis
+xlabel('\Omega/\omega_0', 'fontsize', 16)
+ylabel('(A_\Omega*k)/F', 'fontsize', 16)
+set(gca, 'Box', 'on', 'XGrid', 'on', 'YGrid', 'on')
+
+% show a legend
+legend toggle
+
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/resonance_catastrophe.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+run resonance_catastrophe.m
+```
+
+
+
+{:.output .output_png}
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_32_0.png)
+
+
 
 ## Funktionen
 
@@ -253,131 +506,3 @@ To Do
 ### Function Handles
 
 To Do 
-
-## To aufräum
-
-
-
-
-{:.input_area}
-```matlab
-x=linspace(-5,5,11);   % Ein Vektor mit Werten von -5 bis 5
-y=x.^2;                % Ein Vektor y mit den zugehörigen Funktionswerten 
-
-plot(x,y);             % Erstellen einer grafischen Darstellung
-title('Mein erster plot')
-xlabel('X-Achsenbeschriftung')
-ylabel('Y-Achsenbeschriftung')
-```
-
-
-
-{:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_20_0.png)
-
-
-
-* Funktionen werden normalerweise in einem eigenen m-file gespeichert, siehe das Handout zur Matlab Einführung.
-
-* Kurze Funktionen (Einzeiler) können in Variablen, so genannten 'function handles' abgespeichert werden.
-
-
-
-{:.input_area}
-```matlab
-% Die Unbekannten Größen einer function handle
-% werden mit dem @-Symbol deklariert.
-meineFunktion = @(x)  x.^2;
-
-meineFunktion(2)
-meineFunktion([2,3;4,5])
-```
-
-
-{:.output .output_stream}
-```
-ans =  4
-ans =
-
-    4    9
-   16   25
-
-
-```
-
-### Binominialkoeffizienten
-
-siehe Handout
-
-
-
-{:.input_area}
-```matlab
-%% fac.m
-% calculate the factorial of an integer n
-function z = fac(n)
-    if n==0
-        z=1;
-    else
-        z=n*fac(n-1);
-    end
-end
-```
-
-
-
-
-{:.input_area}
-```matlab
-n=5;
-k=3;
-fac(5)/(fac(k)*fac(n-k))
-```
-
-
-{:.output .output_stream}
-```
-ans =  10
-
-```
-
-### Programmierübung 2: Rundungsfehler
-
-siehe Handout
-
-
-
-{:.input_area}
-```matlab
-max_iter=30;            % Anzahl der Iterationen
-z = zeros(max_iter,1);  % Initialisiere Vektor für z aus Effizienzgründen
-err = zeros(max_iter,1);% Initialisiere Vektor für err aus Effizienzgründen
-
-z(1)=2*sqrt(2);         %Anfangswerte
-err(1)=abs(pi-z(1))/pi;
-
-for n=1:max_iter-1
-    z(n+1)=2^(n+1.5)*sqrt(1-sqrt(1-4^(-n-1)*z(n)^2));
-    err(n+1)=abs(pi-z(n+1))/pi;
-end
-```
-
-
-Logarithmische Darstellung des Fehlers
-
-
-
-{:.input_area}
-```matlab
-plot(log(err))
-title('Logarithmus des Fehlers')
-xlabel('Iteration')
-ylabel('log(error)')
-```
-
-
-
-{:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_29_0.png)
-
-
