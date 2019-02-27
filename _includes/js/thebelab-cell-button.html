@@ -14,7 +14,11 @@ const addThebelabButtonToCodeCells =  () => {
 
   const codeCells = document.querySelectorAll('div.highlighter-rouge:not(.output) pre')
   codeCells.forEach((codeCell, index) => {
-    codeCell.insertAdjacentHTML('afterend', thebelabCellButton());
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.querySelector('.thebebtn') == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton());
+    }
   })
 }
 
