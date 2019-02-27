@@ -13,6 +13,38 @@ next_page:
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
-# To Do
+# Matlab Best Practices
 
-Stuff like adding comments, use descriptive variable names, create short scripts and functions, prefer functions over scripts, avoid if-then-else where possible, make use of built-in SIMD vectorization by avo
+Wie so oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien aufgelistet werden, die sich bewährt haben. Die meisten davon lassen sich allgemein auf alle Programmiersprachen anwenden, einige wenige sind Matlab-spezifisch.
+
+## Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code
+
+TO DO
+
+## Sprechende Variablennamen
+
+To Do (Beispiel)
+
+## Wiederholten Code vermeiden
+
+To Do
+
+## Das Rad nicht neu erfinden
+
+To Do
+
+## Lange Skripte und Funktionen vermeiden
+
+To Do
+
+## Funktionen über Skripte bevorzugen
+
+To Do (Beispiel Fehlerquelle scope?)
+
+## Performance: Matlab Vektorisierung ausnutzen
+
+To Do (Beispiel, kurze Erklärung von SIMD)
+
+## Kein übermäßiger Gebrauch von if-then-else Anweisungen
+
+To Do

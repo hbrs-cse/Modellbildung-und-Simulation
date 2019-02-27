@@ -8,7 +8,7 @@ prev_page:
   url: /00_einleitung/matlab_01_command_window
   title: 'Matlab Command Window'
 next_page:
-  url: /emptypage
+  url: /00_einleitung/matlab_03_best_practice
   title: 'Best Practices'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -120,17 +120,114 @@ end
 ```
 
 
-Der Code zwischen der `for`-  und der `end`-Zeile wird fünf mal ausgeführt. Vor jeder Ausführung wird die *Laufvariable* `i` um eins erhöht. Wir greifen in jdem Durchlauf auf die $i$-te Stelle eines Vektors $f$ zu, und beschreiben diese Stelle mit $2^i$. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.
+Der Code zwischen der `for`-  und der `end`-Zeile wird fünf mal ausgeführt. Bei jeder Ausführung wird eine *Laufvariable* `i` um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die $i$-te Stelle eines Vektors $f$ zu, und beschreiben diese Stelle mit $2^i$. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.
 
-TO DO
+Es besteht die Möglichkeit die Schrittweite der Laufvariablen anzupassen. Auf diese Weise können auch Laufvariablen benutzt werden, die nicht ganzzahlig sind:
+
+
+
+{:.input_area}
+```matlab
+for t=2*pi:-pi/2:0
+    x = [cos(t), sin(t)]
+end
+```
+
+
+{:.output .output_stream}
+```
+x =
+
+   1.0000e+00  -2.4493e-16
+
+x =
+
+  -1.8370e-16  -1.0000e+00
+
+x =
+
+  -1.0000e+00   1.2246e-16
+
+x =
+
+   6.1232e-17   1.0000e+00
+
+x =
+
+   1   0
+
+
+```
+
+**Quiz:** Wie sieht der Vektor $f$ aus, der von folgender for-Schleife erzeugt wird?
+
+
+
+{:.input_area}
+```matlab
+for i=1:2:5
+    f(i)=2^i;
+end
+```
+
+
+Bei for-Schleifen ist über die Laufvariable die Anzahl der Aufrufe vor dem Beginn der Schleife klar. Es ist zwar möglich, die Laufvariable selbst in der Schleife zu verändern, das sollte aber auf jeden Fall vermieden werden. Der Code wird dadurch nicht mehr intuitiv verständlich und es ist eine wahrscheinliche Fehlerquelle.
 
 ### while-Schleifen
 
-TO DO
+while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.
+
+
+
+{:.input_area}
+```matlab
+x = pi/2;
+while abs( sin(x)-x )/x > 0.01
+    x = 0.99*x;
+end
+disp(x)
+```
+
+
+{:.output .output_stream}
+```
+ 0.24470
+
+```
+
+Die Anweisung `x = 0.99*x` wird solange ausgeführt, bis $\lvert \sin(x) - x \rvert$ nicht mehr größer als $0.01$ ist.
+
+Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert die Kleinwinkelnäherung $\sin(x) \approx x$ relative Fehler von unter $1 \%$ liefert. **Challenge:** Fallen Ihnen Wege ein, die Abschätzung genauer zu gestalten?
+
+Eine for-Schleife kann immer in eine-while Schleife umgeschrieben werden. Folgende Code-Blöcke liefern das selbe Ergebnis:
+
+
+
+{:.input_area}
+```matlab
+for i=1:5
+    f(i)=2^i;
+end
+```
+
+
+
+
+{:.input_area}
+```matlab
+i=1;
+while i<=5
+    f(i)=2^i;
+    i = i+1;
+end
+```
+
+
+**Best Practice:** Verwenden Sie while-Schleifen, wenn die Anzahl der Durchläufe unbekannt ist und for-Schleifen sonst.
 
 ### if-Abfragen
 
-TO DO (hier schon nested Aufruf?)
+TO DO
 
 ### Grafische Ausgabe
 
@@ -140,6 +237,7 @@ TO DO
 
 To Do:
  * Auf Scope eingehen, Unterschiede Skript und Funktion
+ * Nested Call
  * Function handles
 
 ## To aufräum
@@ -161,7 +259,7 @@ ylabel('Y-Achsenbeschriftung')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_10_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_20_0.png)
 
 
 
@@ -268,6 +366,6 @@ ylabel('log(error)')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_19_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_29_0.png)
 
 

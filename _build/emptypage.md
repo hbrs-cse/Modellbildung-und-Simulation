@@ -1,11 +1,11 @@
 ---
-title: 'Best Practices'
+title: 'Übungsaugaben'
 prev_page:
-  url: /00_einleitung/matlab_02_scripts_and_functions
-  title: 'Skripte und Funktionen'
+  url: /00_einleitung/matlab_03_best_practice
+  title: 'Best Practices'
 next_page:
   url: /emptypage
-  title: 'Übungsaugaben'
+  title: 'Tragwerke - Ein Einführendes Beispiel'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Hier entsteht ganz bald sicher irgendetwas!
