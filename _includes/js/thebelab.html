@@ -85,12 +85,22 @@
         }
 
         // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('.thebebtn, .interact-button')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+            return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+        /*
         const thebelabButton = document.getElementById('interact-button-thebelab');
         if (thebelabButton === null) {
             setTimeout(initThebelab, 250)
         return
         };
         thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        */
     }
 
     // Initialize Thebelab
