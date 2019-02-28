@@ -72,9 +72,9 @@
             thebelab.bootstrap();
 
             // Remove copy buttons since they won't work anymore
-            const copyButtons = document.querySelectorAll('.copybtn')
-            copyButtons.forEach((copyButton, index) => {
-                copyButton.remove();
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
             });
 
             // Remove outputs since they'll be stale
@@ -85,12 +85,14 @@
         }
 
         // Add event listener for the function to modify code cells
-        const thebelabButton = document.getElementById('interact-button-thebelab');
-        if (thebelabButton === null) {
-            setTimeout(initThebelab, 250)
-        return
-        };
-        thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        const thebelabButtons = document.querySelectorAll('.thebebtn, .interact-button')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+            return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
     }
 
     // Initialize Thebelab
