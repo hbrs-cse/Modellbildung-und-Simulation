@@ -85,12 +85,13 @@
         }
 
         // Add event listener for the function to modify code cells
-        const thebelabButtons = document.querySelectorAll('.thebebtn, .interact-button')
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
         thebelabButtons.forEach((thebelabButton,index) => {
             if (thebelabButton === null) {
                 setTimeout(initThebelab, 250)
-            return
+                return
             };
+            console.log(thebelabButton)
             thebelabButton.addEventListener('click', addThebelabToCodeCells);
         });
     }
