@@ -2,13 +2,18 @@
 .thebebtn {
   position: absolute;
   top: 0;
-  right: 0;
+  right: $spacing-unit;
 
   margin: $spacing-unit-tiny;
   width: $spacing-unit;
   height: $spacing-unit;
   padding: 0 4px 2px;
 }
+
+/*.thebebtn-icon {
+  width: $spacing-unit;
+  height: $spacing-unit;
+}*/
 
 .input_area .highlight {
   position: relative;
