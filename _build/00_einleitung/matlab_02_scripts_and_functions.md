@@ -15,7 +15,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 # Skripte und Funktionen
 
-Bisher haben wir Befehle im `Command Window` eingeben und festgestellt, dass alle Variablen im `Workspace` hinterlegt werden. In diesem Kapitel widmen wir uns den `Editor`. Wir benutzen ihn um Skripte und Funktionen zuschreiben. Beide werden als Textdateien mit der Endung `.m` gespeichert. Prinzipiell können wir diese Textdateien mit jeden beliebigen Texteditor schreiben, Der Editor in Matlab bietet aber einige nützliche Funktionen. Allein *Syntax-Highlighting* kann schon sehr hilfreich sein.
+Bisher haben wir Befehle im `Command Window` eingeben und festgestellt, dass alle Variablen im `Workspace` hinterlegt werden. In diesem Kapitel widmen wir uns den `Editor`. Wir benutzen ihn um Skripte und Funktionen zu schreiben. Beide werden als Textdateien mit der Endung `.m` gespeichert. Prinzipiell können wir diese Textdateien mit jeden beliebigen Texteditor schreiben, Der Editor in Matlab bietet aber einige nützliche Funktionen. Allein *Syntax-Highlighting* kann schon sehr hilfreich sein.
 
 ## Skripte
  
@@ -47,7 +47,7 @@ b
 
 {:.output .output_stream}
 ```
-Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/myScript.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/myScript.m'.
 
 ```
 
@@ -78,6 +78,10 @@ b =  10
 
 Wir dürfen an dieser Stelle die Dateiendung `.m` weglassen. Tatsächlich ist der `run` Befehl auch nicht zwingend nötig. Die Befehle `run myScript.m`, `run myScript`, `myScript.m`, `myScript` haben alle denselben Effekt: Die Befehle in `myScript.m` werden ausgeführt.
 
+Im Matlab-Editor kann das aktuell geöffnete Skript mit `F5` oder per Mausklick auf den großen grünen Play-Button gestartet werden.
+
+<img src="../images/matlab_run_button.png" alt="Interacte Mode Code-Cell" style="width:500px;"/>
+
 Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem `help` Befehl ausgeben:
 
 
@@ -90,7 +94,7 @@ help myScript.m
 
 {:.output .output_stream}
 ```
-'myScript.m' is the file /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/myScript.m
+'myScript.m' is the file /home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/myScript.m
 
  Ein kleines Beispielskript
  mit Kommentaren
@@ -244,7 +248,7 @@ end
 
 {:.output .output_stream}
 ```
-x =  1.3213
+x =  22.641
 
 ```
 
@@ -266,7 +270,7 @@ end
 
 {:.output .output_stream}
 ```
-x =  2.1707
+x =  0.79632
 
 ```
 
@@ -297,7 +301,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/oldmcdonald.m'.
 
 ```
 
@@ -448,7 +452,11 @@ $$ y(x) = \frac{1}{\sqrt{(1-x^2)^2 + (2Dx)^2}} $$
 {:.input_area}
 ```matlab
 %%file resonance_catastrophe.m
-% plot the resonance catastrophe curve for different damping parameters D
+% plot the resonance catastrophe curve 
+%
+%     y(x) = 1./sqrt((1-x.^2).^2 + (2*D*x).^2)
+%
+% for different damping parameters D
 
 % x values of the plot = 500 equally spaced points in the interval [0, 3]
 x = linspace(0, 3, 500);
@@ -484,7 +492,7 @@ legend toggle
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/resonance_catastrophe.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/resonance_catastrophe.m'.
 
 ```
 

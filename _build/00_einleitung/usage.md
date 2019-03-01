@@ -33,7 +33,7 @@ Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszufü
 
 Alternativ kann Thebelab über das Bleistift-Symbol in jedem Code-Block gestartet werden.
 
-<img src="../images/usage_thebe2.png" alt="Interacte Mode Code-Cell" style="width: 800px;"/>
+<img src="../images/usage_thebe2.png" alt="Interacte Mode Code-Cell" style="width: 1000px;"/>
 
 ## Interact
 
