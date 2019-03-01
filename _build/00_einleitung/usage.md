@@ -23,11 +23,17 @@ Alle Seiten, die Codeblöcke enthalten haben oben in der Kopfzeile zwei Buttons,
 
 Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editierbar und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.
 
+Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service [Binder](https://mybinder.org/) auf, so dass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.
+
 ## Thebelab
 
 Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über Thebelab. Per Klick auf die Taste "run", wird der Code ausgeführt, mit "restart" wird der im Hintergrund laufende Octave-Kernel neu gestartet.
 
 <img src="../images/usage_thebe.png" alt="Binder Loading Page" style="width: 800px;"/>
+
+Alternativ kann Thebelab über das Bleistift-Symbol in jedem Code-Block gestartet werden.
+
+<img src="../images/usage_thebe2.png" alt="Interacte Mode Code-Cell" style="width: 800px;"/>
 
 ## Interact
 
