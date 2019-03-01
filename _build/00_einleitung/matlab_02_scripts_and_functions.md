@@ -328,24 +328,26 @@ Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Pr
 
 
 
-Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird über eine if-Bedingung untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird for-Schleife mit dem `break` Befehl unterbrochen.
+Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird das Intervall um die Nullstelle mittels *Bisektion* verkleinert. Über eine if-Bedingung untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird for-Schleife mit dem `break` Befehl unterbrochen.
 
 
 
 {:.input_area}
 ```matlab
 %%file bisection.m
-% find a zero of the polynomial y(x)= -x^4 + x^3 - x^2 + x + 1 in the interval [-1,1]
+% find a zero of the polynomial 
+%
+%      y(x)= -x^4 + x^3 - x^2 + x + 1
+%
+% in the interval [-1,1]
 
-% we are happy if the function value of the found zero is smaller than the following tolerance
-tolerance = 1e-8;
-
-% don't do more than maxIterations iterations
-maxIterations = 100;
-
-% lower and upper bound for zero of the polynomial, where f(xlower)<0 and f(xupper)>0
-xlower = -1;
-xupper = 1;
+%% input parameters:
+tolerance = 1e-8;    % if the absolute value of y(x) is smaller than this, we consider
+                     % the point x to be a zero.
+maxIterations = 100; % maximum number of iterations
+xlower = -1;         % lower bound of the interval
+xupper = 1;          % upper bound of the invertal. xlower and xupper must have
+                     % different signs!
 
 % this variable is set to true once the iteration converged
 converged = false;
@@ -363,6 +365,8 @@ for iteration=1:maxIterations
         converged = true;
         break;
     end
+    
+    % if we reach this point, we have not converged. 
     
     % reset the limits and repeat
     if fmidpoint > 0
@@ -385,7 +389,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/bisection.m'.
 
 ```
 
