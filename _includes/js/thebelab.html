@@ -1,5 +1,9 @@
 <!-- Include Thebelab for interactive code if it's enabled -->
 {% if site.use_thebelab_button %}
+
+<!-- Display Thebelab button in each code cell -->
+{% include js/thebelab-cell-button.html %}
+
 <script type="text/x-thebe-config">
     {
       requestKernel: true,
