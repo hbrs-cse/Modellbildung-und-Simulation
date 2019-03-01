@@ -317,7 +317,16 @@ Moooooh!
 
 In Matlab können wir Strings nicht mit `==` auf Gleichheit prüfen. Dafür stellt Matlab die Funktion `strcmp` bereit.
 
-Das folgende iterative Programm sucht eine Nullstelle des Polynoms $y(x)= -x^4 + x^3 - x^2 + x + 1$ im Interval $[-1,1]$. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.
+Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms $y(x)= -x^4 + x^3 - x^2 + x + 1$ im Interval $[-1,1]$. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.
+
+
+
+
+
+{:.output .output_png}
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_26_0.png)
+
+
 
 Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird über eine if-Bedingung untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird for-Schleife mit dem `break` Befehl unterbrochen.
 
@@ -363,8 +372,10 @@ for iteration=1:maxIterations
     end
 end
 
+result = midpoint;
+
 if converged
-    disp(["Converged in ", num2str(iteration), " iterations. The solution is ", num2str(midpoint), "."])
+    disp(["Converged in ", num2str(iteration), " iterations. The solution is ", num2str(result), "."])
 else
     disp(["No convergence to the specified tolerance of ", num2str(tolerance),  ...
           " within ", num2str(iteration), " iterations. The current error is ", num2str(fmidpoint), "."])
@@ -412,7 +423,7 @@ ylabel('Y-Achsenbeschriftung')
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_29_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_31_0.png)
 
 
 
@@ -483,7 +494,7 @@ run resonance_catastrophe.m
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_32_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_34_0.png)
 
 
 
