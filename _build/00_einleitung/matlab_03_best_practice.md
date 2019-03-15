@@ -52,3 +52,7 @@ To Do
 ## Gleitkommazahlen nicht auf Gleichheit überprüfen
 
 To Do
+
+## Versionskontrolle verwenden
+
+To Do, hier nur erwähnen was es ist und Links zur Verfügung stellen.

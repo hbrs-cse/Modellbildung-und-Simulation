@@ -199,7 +199,7 @@ disp(x)
 
 ```
 
-Die Anweisung `x = 0.99*x` wird solange ausgeführt, bis $\lvert \sin(x) - x \rvert$ nicht mehr größer als $0.01$ ist.
+Die Anweisung `x = 0.99*x` wird solange ausgeführt, bis $\frac{\lvert \sin(x) - x \rvert}{x}$ nicht mehr größer als $0.01$ ist.
 Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert die Kleinwinkelnäherung $\sin(x) \approx x$ relative Fehler von unter $1 \%$ liefert. 
 
 **Challenge:** Fallen Ihnen Wege ein, die Abschätzung genauer zu gestalten?
@@ -252,7 +252,7 @@ x =  22.641
 
 ```
 
-Der Codeblock erstellt nur dann eine Variable ´x´, wenn der Nenner des Bruchs größer als $10^{-8}$ ist. Wir sollten den Fall abfangen, wenn diese Bedingung mal nicht erfüllt wird. Dies erreicht man mit if-then-else-Bedingungen.
+Der Codeblock erstellt nur dann eine Variable `x`, wenn der Nenner des Bruchs größer als $10^{-8}$ ist. Wir sollten den Fall abfangen, wenn diese Bedingung mal nicht erfüllt wird. Dies erreicht man mit if-then-else-Bedingungen.
 
 
 
@@ -274,7 +274,7 @@ x =  0.79632
 
 ```
 
-Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingungen. Das kann zum Beispiel Sinn machen, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten, wie im folgendem Beispiel.
+Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingungen. Das kann zum Beispiel Sinn machen, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.
 
 
 
@@ -294,14 +294,14 @@ elseif strcmp(animal,  "cow")
 elseif strcmp(animal,  "kangaroo")
     disp("Gib mir eine Schnapspraline.")
 else
-    disp(["I dont know what kind of noise a ", animal, " makes."])
+    disp(["I don't know what kind of noise a ", animal, " makes."])
 end
 ```
 
 
 {:.output .output_stream}
 ```
-Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/oldmcdonald.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m'.
 
 ```
 
@@ -332,7 +332,7 @@ Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Pr
 
 
 
-Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird das Intervall um die Nullstelle mittels *Bisektion* verkleinert. Über eine if-Bedingung untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird for-Schleife mit dem `break` Befehl unterbrochen.
+Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird die Größe des Intervalls um die Nullstelle mittels *Bisektion* halbiert. Über eine if-Bedingung wird untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird die for-Schleife mit dem `break` Befehl unterbrochen.
 
 
 
@@ -343,14 +343,14 @@ Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisie
 %
 %      y(x)= -x^4 + x^3 - x^2 + x + 1
 %
-% in the interval [-1,1]
+% in the interval [-1,1] using bisection
 
 %% input parameters:
 tolerance = 1e-8;    % if the absolute value of y(x) is smaller than this, we consider
                      % the point x to be a zero.
 maxIterations = 100; % maximum number of iterations
 xlower = -1;         % lower bound of the interval
-xupper = 1;          % upper bound of the invertal. xlower and xupper must have
+xupper = 1;          % upper bound of the invertal. y(xlower) and y(xupper) must have
                      % different signs!
 
 % this variable is set to true once the iteration converged
