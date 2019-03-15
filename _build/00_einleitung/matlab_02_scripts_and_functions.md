@@ -512,20 +512,196 @@ run resonance_catastrophe.m
 
 ## Funktionen
 
-TO DO: Unterschiede Skript und Funktion
+Mit Skripten können wir also Algorithmen als eine Abfolge von Anweisungen umsetzen. Funktionen zeichnen sich, im Gegensatz zu Skripten, dadurch aus, dass es eine klare Trennung von Eingabe, Ausgabe und Anweisungen gibt. Dies bietet sich insbesondere dann an, wenn die Funktion einen Algorithmus repräsentiert, der oft an verschiedenen Stellen ausgeführt werden soll.
 
 ### Eingabe und Ausgabe
 
-To Do 
+Funktionen werden in Matlab mit dem `function` keyword eingeleitet. Das folgende m-file `oldmcdonald.m` definiert eine Funktion mit Namen `oldmcdonald`, die für einen Tiernamen `animal` als Eingabe einen Laut `sound` als Ausgabe ausgibt. Sowohl `animal` und `sound` werden als strings definiert.
+
+
+
+{:.input_area}
+```matlab
+%%file oldmcdonald.m
+function sound = oldmcdonald(animal)
+% oldmcdonald takes an input string "animal" and outputs a "noise"
+% corresponding to the input. If the animal is unknown, an 
+% error is thrown.
+% 
+% input:     animal can be any of ["cat", "dog", "cow", "kangaroo"]
+% output:    noise
+%
+    if strcmp(animal, "cat")
+        sound = "Meaow";
+    elseif strcmp(animal,  "dog")
+        sound = "Woof! Woof!";
+    elseif strcmp(animal,  "cow")
+        sound = "Moooooh!";
+    elseif strcmp(animal,  "kangaroo")
+        sound = "Gib mir eine Schnapspraline.";
+    else
+        error(["I don't know what kind of noise a ", animal, " makes."]);
+    end
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m'.
+
+```
+
+**Wichtig:** Der Dateiname muss genau dem Funktionsnamen entsprechen.
+
+Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable `ans` oder einer Variable mit beliebigen Namen zuordnen:
+
+
+
+{:.input_area}
+```matlab
+oldmcdonald('cat')
+```
+
+
+{:.output .output_stream}
+```
+ans = Meaow
+
+```
+
+
+
+{:.input_area}
+```matlab
+noise = oldmcdonald('dog')
+```
+
+
+{:.output .output_stream}
+```
+noise = Woof! Woof!
+
+```
+
+
+
+{:.input_area}
+```matlab
+oldmcdonald('penguin')
+```
+
+
+{:.output .output_stream}
+```
+error: I don't know what kind of noise a penguin makes.
+error: called from
+    oldmcdonald at line 14 column 9
+
+```
+
+
+
+{:.input_area}
+```matlab
+help oldmcdonald
+```
+
+
+{:.output .output_stream}
+```
+'oldmcdonald' is a function from the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m
+
+ oldmcdonald takes an input string "animal" and outputs a "noise"
+ corresponding to the input. If the animal is unknown, an 
+ error is thrown.
+ 
+ input:     animal can be any of ["cat", "dog", "cow", "kangaroo"]
+ output:    noise
+
+
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+'doc <topic>' to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+
+```
+
+Jede Funktion muss in einer Datei mit demselben Namen der Funktion definiert werden. Für kleine Funktionen, die nur in einem bestimmten Skript verwendet werden, bietet Matlab/Octave die Möglichkeit die Funktion *am Ende des Skriptes* zu definieren:
+
+
+
+{:.input_area}
+```matlab
+%%file mylittlefarm.m
+% make a bunch of noises using the oldmcdonald function from before
+
+% define some animals
+animals = {"cat", "dog", "cow", "kangaroo"};
+
+% let each animal have his or hers say
+for i=1:numel(animals)
+    disp(oldmcdonald(animals(i)))
+end
+
+% define the function "oldmcdonald"
+function sound = oldmcdonald(animal)
+    if strcmp(animal, "cat")
+        sound = "Meaow";
+    elseif strcmp(animal,  "dog")
+        sound = "Woof! Woof!";
+    elseif strcmp(animal,  "cow")
+        sound = "Moooooh!";
+    elseif strcmp(animal,  "kangaroo")
+        sound = "Gib mir eine Schnapspraline.";
+    else
+        error(["I don't know what kind of noise a ", animal, " makes."]);
+    end
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/mylittlefarm.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+run mylittlefarm
+```
+
+
+{:.output .output_stream}
+```
+Meaow
+Woof! Woof!
+Moooooh!
+Gib mir eine Schnapspraline.
+
+```
+
+Es ist zwingend notwendig, dass alle Funktionen am Ende eines Skriptes definiert werden.
+
+Anmerkung: Für die Liste `animals` in `mylittlefarm.m` wird keine Matrix verwendet, sondern eine sogenannte `cell`, die unterschiedlich große Variablen enthalten kann, das erkennt man an der Verwendung der geschweiften Klammern `{}` anstelle der eckigen Klammern `[]`. Strings unterschiedlicher Länge können nicht in einer Matrix gespeichert werden, da sonst jeder Buchstabe einzeln hinterlegt wird.
 
 ### Scope von Variablen
 
-To Do 
+In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränkt. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff *scope* bezeichnet.
+
+To Do, kurzes Beispiel mit Erklärungen, globale Variablen erwähnen.
 
 ### Rekursion
 
-To Do 
+To Do, fibonacci Beispiel
 
 ### Function Handles
 
-To Do 
+To Do, Funktion als Einzeiler, verwendet als Variable, function handle für eine nicht-einzeilige Funktion

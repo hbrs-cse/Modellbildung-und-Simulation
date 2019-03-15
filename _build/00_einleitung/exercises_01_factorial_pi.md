@@ -16,6 +16,14 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 ## To aufräum
 
 
+Hier vllt Liste von Fragen, von denen ich erwarte, dass die Studenten sie beantworten können?
+
+1. Beschreibe die Funktionalität des *Command Window*, *Editor* und *Workspace* in Matlab.
+1. Was ist der Unterschied zwischen einer Funktion und einem Skript?
+2. Was verbirgt sich hinter dem Wort *scope*?
+3. Was ist ein *function handle*?
+4. Aus welchem Grund sollte ich for-Schleifen vermeiden?
+
 * Funktionen werden normalerweise in einem eigenen m-file gespeichert, siehe das Handout zur Matlab Einführung.
 
 * Kurze Funktionen (Einzeiler) können in Variablen, so genannten 'function handles' abgespeichert werden.

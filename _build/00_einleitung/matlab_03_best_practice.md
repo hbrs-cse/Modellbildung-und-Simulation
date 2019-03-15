@@ -41,6 +41,10 @@ To Do
 
 To Do (Beispiel Fehlerquelle scope?)
 
+## Globale Variablen vermeiden
+
+To Do (nur kurz begründen)
+
 ## Performance: Matlab Vektorisierung ausnutzen
 
 To Do (Beispiel, kurze Erklärung von SIMD)
