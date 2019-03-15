@@ -47,7 +47,7 @@ b
 
 {:.output .output_stream}
 ```
-Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/myScript.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m'.
 
 ```
 
@@ -94,7 +94,7 @@ help myScript.m
 
 {:.output .output_stream}
 ```
-'myScript.m' is the file /home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/myScript.m
+'myScript.m' is the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m
 
  Ein kleines Beispielskript
  mit Kommentaren
@@ -248,7 +248,7 @@ end
 
 {:.output .output_stream}
 ```
-x =  22.641
+x =  1.4199
 
 ```
 
@@ -270,7 +270,7 @@ end
 
 {:.output .output_stream}
 ```
-x =  0.79632
+x =  0.96087
 
 ```
 
@@ -393,7 +393,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/bisection.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.
 
 ```
 
@@ -492,7 +492,7 @@ legend toggle
 
 {:.output .output_stream}
 ```
-Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/resonance_catastrophe.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/resonance_catastrophe.m'.
 
 ```
 
@@ -596,7 +596,7 @@ oldmcdonald('penguin')
 ```
 error: I don't know what kind of noise a penguin makes.
 error: called from
-    oldmcdonald at line 14 column 9
+    oldmcdonald at line 18 column 9
 
 ```
 
@@ -696,12 +696,412 @@ Anmerkung: Für die Liste `animals` in `mylittlefarm.m` wird keine Matrix verwen
 
 In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränkt. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff *scope* bezeichnet.
 
-To Do, kurzes Beispiel mit Erklärungen, globale Variablen erwähnen.
+Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.
 
-### Rekursion
+Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben.
 
-To Do, fibonacci Beispiel
+
+
+{:.input_area}
+```matlab
+%%file bisection.m
+function result = bisection(xlower, xupper, tolerance, maxIterations)
+% find a zero of the polynomial 
+%
+%      y(x)= -x^4 + x^3 - x^2 + x + 1
+%
+% in the interval xlower and xupper using bisection
+%
+% input:
+%   xlower:        lower bound for the zero.
+%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have 
+%                  different signs!
+%   tolerance:     if the absolute value of y(x) is smaller than this, the point 
+%                  x is considered to be a a zero.
+%   maxIterations: maximum number of iterations
+%
+% output:
+%   result:        the calculated zero of the given function
+
+% check if the bounds have function values with different signs
+fxlower =  -xlower^4 + xlower^3 - xlower^2 + xlower + 1;
+fxupper =  -xupper^4 + xupper^3 - xupper^2 + xupper + 1;
+if sign(fxupper) == sign(fxlower)
+    error("The bounds xlower and xupper must be chosen, such that their function values have different signs.")
+end
+
+% this variable is set to true once the iteration converged
+converged = false;
+
+for iteration=1:maxIterations
+    
+    % take the middle between the two bounds
+    midpoint = 0.5*(xupper + xlower);
+    
+    % check the function value at this point
+    fmidpoint = -midpoint^4 + midpoint^3 - midpoint^2 + midpoint + 1;
+    
+    % if the function value is small enough, we are done
+    if abs(fmidpoint) < tolerance
+        converged = true;
+        break;
+    end
+    
+    % if we reach this point, we have not converged. 
+    
+    % reset the limits and repeat
+    if fmidpoint > 0
+        xupper = midpoint;
+    else
+        xlower = midpoint;
+    end
+end
+
+result = midpoint;
+
+if converged
+    disp(["Converged in ", num2str(iteration), " iterations. The solution is ", num2str(result), "."])
+else
+    disp(["No convergence to the specified tolerance of ", num2str(tolerance),  ...
+          " within ", num2str(iteration), " iterations. The current error is ", num2str(fmidpoint), "."])
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.
+
+```
+
+Im folgenden wird die neue Funktion verwendet. Die Grenzen `xlower` und `xupper` werden über die Variable `a` und `b` an die Funktion übergeben. Der Mittelpunkt des Startintervals wird in der Variable `midpoint` gespeichert.
+
+
+
+{:.input_area}
+```matlab
+% define initial points and calculate the midpoint
+a = -1;
+b = 1;
+midpoint = (a+b)/2;
+
+res = bisection(a, b, 1e-8, 100);
+
+disp(midpoint)
+disp(res)
+```
+
+
+{:.output .output_stream}
+```
+Converged in 25 iterations. The solution is -0.51879.
+0
+-0.51879
+
+```
+
+Obwohl die Funktion ebenfalls eine Variable `midpoint` als Hilfsvariable in der Berechnung verwendet, bleibt die Variable außerhalb der Funktion unverändert. Die beiden Variablen befinden sich in unterschiedlichen *Scopes*. Aus demselben Grund kann während der Rechenvorschrift der Funktion auf keine Variablen mit dem Namen `a` oder `b` zurückgegriffen werden.
+
+Dieses Verhalten kann mit sogenannten globalen Variablen ausgehebelt werden, wie das folgende Beispiel demonstriert.
+
+
+
+{:.input_area}
+```matlab
+%%file increment_a.m
+function increment_a(n)
+    global a
+    a = a + n;
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/increment_a.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+global a
+a = 0;
+increment_a(2)
+increment_a(5)
+disp(a)
+```
+
+
+{:.output .output_stream}
+```
+ 7
+
+```
+
+
+
+{:.input_area}
+```matlab
+run global_variables
+```
+
+
+{:.output .output_stream}
+```
+ 7
+
+```
+
+Überall dort, wo der *scope* einer Variablen `x` erweitert werden soll, muss dies explizit durch die Zeile `global x` angegeben werden. In dem obigen Beispiel muss das also sowohl in der Funktion als auch im aufrufenden Skript geschehen.
+
+Globale Variablen sollten spärlich verwendet werden, da sie gerade die saubere Trennung von Eingabe, Ausgabe und Funktionskörper unterwandern und so für mögliche Fehlerquellen sorgen.
 
 ### Function Handles
 
-To Do, Funktion als Einzeiler, verwendet als Variable, function handle für eine nicht-einzeilige Funktion
+Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte *function handles* zu definieren. Ein *function handle* ist eine Variable, in der die Funktion gespeichert wird. function handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.
+
+
+
+{:.input_area}
+```matlab
+myPolynomial = @(x) -x.^4 + x.^3 - x.^2 + x + 1;
+```
+
+
+
+
+{:.input_area}
+```matlab
+class(myPolynomial)
+```
+
+
+{:.output .output_stream}
+```
+ans = function_handle
+
+```
+
+
+
+{:.input_area}
+```matlab
+myPolynomial(-1)
+```
+
+
+{:.output .output_stream}
+```
+ans = -3
+
+```
+
+
+
+{:.input_area}
+```matlab
+myPolynomial(1)
+```
+
+
+{:.output .output_stream}
+```
+ans =  1
+
+```
+
+Mit einem vorangestellten `@` wird deklariert, welche Terme als Eingabeparameter für die Funktion interpretiert werden sollen.
+
+Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie nun zum Beispiel als Eingabe für eine andere Funktion benutzen. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält.
+
+
+
+{:.input_area}
+```matlab
+%%file bisection.m
+function result = bisection(f, xlower, xupper, tolerance, maxIterations)
+% bisection finds a zero of a function f in the interval xlower and xupper 
+% using bisection
+%
+% input:
+%   f:             a function handle to the function f
+%   xlower:        lower bound for the zero.
+%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have 
+%                  different signs!
+%   tolerance:     if the absolute value of y(x) is smaller than this, the point 
+%                  x is considered to be a a zero.
+%   maxIterations: maximum number of iterations
+%
+% output:
+%   result:        the calculated zero of the given function
+
+% check if the bounds have function values with different signs
+if sign(f(xupper)) == sign(f(xlower))
+    error("The bounds xlower and xupper must be chosen, such that their function values have different signs.")
+end
+
+% this variable is set to true once the iteration converged
+converged = false;
+
+for iteration=1:maxIterations
+    
+    % take the middle between the two bounds
+    midpoint = 0.5*(xupper + xlower);
+    
+    % check the function value at this point
+    fmidpoint = f(midpoint);
+    
+    % if the function value is small enough, we are done
+    if abs(fmidpoint) < tolerance
+        converged = true;
+        break;
+    end
+    
+    % if we reach this point, we have not converged. 
+    
+    % reset the limits and repeat
+    if fmidpoint > 0
+        xupper = midpoint;
+    else
+        xlower = midpoint;
+    end
+end
+
+result = midpoint;
+
+if converged
+    disp(["Converged in ", num2str(iteration), " iterations. The solution is ", num2str(result), "."])
+else
+    disp(["No convergence to the specified tolerance of ", num2str(tolerance),  ...
+          " within ", num2str(iteration), " iterations. The current error is ", num2str(fmidpoint), "."])
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.
+
+```
+
+Nicht nur haben wir die Funktion stark erweitert, da sie nun Nullstellen beliebiger Funktionen finden kann, wir haben auch eine potentielle Fehlerquelle beseitigt: Bisher wurde die Funktionsvorschrift des Polynoms an drei Stellen des Algorithmus verwendet. Wenn die Funktion nun geändert werden soll, passiert es schnell, dass sie nicht an allen Stellen geändert wird. In der neuen Version kann das nicht passieren, da überall die Funktion `f` aus der Eingabe verwendet wird.
+
+Die weiter oben über ein function handle definierte Funktion `myPolynomial` kann nun als Eingabe verwendet werden:
+
+
+
+{:.input_area}
+```matlab
+bisection(myPolynomial, -1, 1, 1e-12, 100)
+```
+
+
+{:.output .output_stream}
+```
+Converged in 40 iterations. The solution is -0.51879.
+ans = -0.51879
+
+```
+
+**Quiz**: Finden Sie die erste positive Nullstelle der Funktion $f(x)=-\cos(-\frac{1}{3}x^2 - \frac{1}{10}x + 1)$. 
+
+
+
+
+
+{:.output .output_png}
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_65_0.png)
+
+
+
+
+
+{:.input_area}
+```matlab
+% space for quiz answer
+
+```
+
+
+Aus Funktionen, die über ein m-file definiert wurden lassen sich auch function handles erzeugen.
+
+Function handles lassen sich durch ein vorangestelltes `@` vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein function handle `h` für die Funktion `bisection` erstellt. Die Funktion `bisection` wird anschließend mittelbar über das function handle `h` aufgerufen, um eine Nullstelle der Funktion $f(x) = 2x - \frac{1}{3}$ aufzufinden.
+
+
+
+{:.input_area}
+```matlab
+h = @bisection
+class(h)
+h(@(x) 2*x-0.33, 0, 1, 1e-8, 100)
+```
+
+
+{:.output .output_stream}
+```
+h = @bisection
+ans = function_handle
+error: binary operator '^' not implemented for 'function handle' by 'scalar' operations
+error: called from
+    bisection at line 20 column 9
+
+```
+
+### Rekursion
+
+Zum Schluss sei noch angemerkt, dass Funktionen sich selbst aufrufen können. In vielen Fällen, in denen sich diese *Rekursion* anwenden lassen, sorgt ein rekursiver Aufruf oft für eine sehr kurze prägnante Schreibweise. So lässt sich die Fakultät wieder über eine Auswertung der Fakuktät definieren:
+
+$$ n! = n \cdot (n-1)! $$
+
+für alle $n \in \mathbb{N}$ und $0! = 1$.
+
+Als weiteres Beispiel für eine Rekursion sei Fibonacci-Folge angegeben. Die ersten beiden Zahlen der Fibonacci-Folge $a_n$ sind $a_1 = 1, a_2 = 1$. Alle weiteren Zahlen ergeben sich aus der Summe der beiden vorherigen:
+
+$$ a_{n} = a_{n-1} + a_{n-2}.$$
+
+Die ersten paar Zahlen der Fibonacci-Folge sind demnach:
+
+$$1,1,2,3,5,8,13,...$$
+
+Das folgende Programm berechnet die $n$-te Fibonacci-Zahl:
+
+
+
+{:.input_area}
+```matlab
+%%file fibonacci.m
+function out = fibonacci(n)
+    if (n<3)
+        out = 1;
+    else
+        out = fibonacci(n-1) + fibonacci(n-2);
+    end;
+end
+```
+
+
+{:.output .output_stream}
+```
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fibonacci.m'.
+
+```
+
+
+
+{:.input_area}
+```matlab
+fibonacci(15)
+```
+
+
+{:.output .output_stream}
+```
+ans =  610
+
+```
+
+Die if-then-else Anweisung garantiert, dass die Rekursion terminiert, da die Funtion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wrid.
+
+**Zusatzfrage:** Wie ist der Algorithmus hinsichtlich der verwendeten Rechenoperationen zu bewerten? Ist er effizient implementiert oder lässt sich da etwas verbessern?

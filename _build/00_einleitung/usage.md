@@ -66,7 +66,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/hello_world.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/hello_world.m'.
 
 ```
 
@@ -115,7 +115,7 @@ function r = fac(n)
 
 {:.output .output_stream}
 ```
-Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fac.m'.
 
 ```
 
@@ -131,12 +131,7 @@ moxunit_runtests test_fac.m
 
 {:.output .output_stream}
 ```
-suite: 6 tests
-......
---------------------------------------------------
-
-OK (passed=6)
-ans = 1
+error: 'moxunit_runtests' undefined near line 1 column 1
 
 ```
 
@@ -157,7 +152,7 @@ function r = fac(n)
 
 {:.output .output_stream}
 ```
-Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
+Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fac.m'.
 
 ```
 
@@ -173,32 +168,7 @@ moxunit_runtests test_fac.m
 
 {:.output .output_stream}
 ```
-suite: 6 tests
-...FFF
---------------------------------------------------
-
-failure: No exception was raised
-  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
-  test_fac>test_fac_exception_negative:31 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
-
-failure: No exception was raised
-  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
-  test_fac>test_fac_exception_noninteger:35 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
-
-failure: inputs are not of the same size
-
-First input: 1x1 double
-1
-
-Second input: 2x3 double
-[1 1 2;6 24 120]
-  assertEqual:70 (/home/jan/tools/MOxUnit/MOxUnit/assertEqual.m)
-  test_fac>test_fac_array:39 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
-
---------------------------------------------------
-
-FAILED (passed=3, failure=3)
-ans = 0
+error: 'moxunit_runtests' undefined near line 1 column 1
 
 ```
 
@@ -222,7 +192,7 @@ type test_fac.m
 
 {:.output .output_stream}
 ```
-test_fac.m is the user-defined function defined from: /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
+test_fac.m is the user-defined function defined from: /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/test_fac.m
 
 function test_suite=test_fac
 % initialize unit tets
@@ -255,7 +225,6 @@ function test_fac_5
 function test_fac_exception_negative
 % test if exceptions are thrown for negative values
     assertExceptionThrown(@()fac(-1));
-    assertExceptionThrown(@()fac(1.5),'*');
     
 function test_fac_exception_noninteger
 % test if exceptions are thrown for noninteger values
@@ -264,6 +233,7 @@ function test_fac_exception_noninteger
 function test_fac_array
 % test if fac works on array inputs
     assertEqual(fac([0 1 2; 3 4 5]),[1 1 2; 6 24 120]);
+
 
 ```
 

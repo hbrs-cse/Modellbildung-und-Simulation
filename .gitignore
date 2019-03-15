@@ -110,3 +110,16 @@ _site/
 # Test builds
 scripts/tests/site/_build
 scripts/tests/site/content/LICENSE.md
+
+# matlab scripts created by octave kernel
+bisection.m
+fibonacci.m
+global_variables.m
+increment_a.m
+myScript.m
+mylittlefarm.m
+oldmcdonald.m
+resonance_catastrophe.m
+fac.m
+hello_world.m
+
