@@ -66,7 +66,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/hello_world.m'.
+Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/hello_world.m'.
 
 ```
 
@@ -115,7 +115,7 @@ function r = fac(n)
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fac.m'.
+Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
 
 ```
 
@@ -131,7 +131,12 @@ moxunit_runtests test_fac.m
 
 {:.output .output_stream}
 ```
-error: 'moxunit_runtests' undefined near line 1 column 1
+suite: 6 tests
+......
+--------------------------------------------------
+
+OK (passed=6)
+ans = 1
 
 ```
 
@@ -152,7 +157,7 @@ function r = fac(n)
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fac.m'.
+Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
 
 ```
 
@@ -168,7 +173,12 @@ moxunit_runtests test_fac.m
 
 {:.output .output_stream}
 ```
-error: 'moxunit_runtests' undefined near line 1 column 1
+suite: 6 tests
+......
+--------------------------------------------------
+
+OK (passed=6)
+ans = 1
 
 ```
 
@@ -192,7 +202,7 @@ type test_fac.m
 
 {:.output .output_stream}
 ```
-test_fac.m is the user-defined function defined from: /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/test_fac.m
+test_fac.m is the user-defined function defined from: /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
 
 function test_suite=test_fac
 % initialize unit tets
