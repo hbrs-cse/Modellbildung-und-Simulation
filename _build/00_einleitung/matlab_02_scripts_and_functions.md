@@ -690,11 +690,11 @@ Gib mir eine Schnapspraline.
 
 Es ist zwingend notwendig, dass alle Funktionen am Ende eines Skriptes definiert werden.
 
-Anmerkung: Für die Liste `animals` in `mylittlefarm.m` wird keine Matrix verwendet, sondern eine sogenannte `cell`, die unterschiedlich große Variablen enthalten kann, das erkennt man an der Verwendung der geschweiften Klammern `{}` anstelle der eckigen Klammern `[]`. Strings unterschiedlicher Länge können nicht in einer Matrix gespeichert werden, da sonst jeder Buchstabe einzeln hinterlegt wird.
+Anmerkung: Für die Liste `animals` in `mylittlefarm.m` wird keine Matrix verwendet, sondern eine sogenannte `cell`, die unterschiedlich große Variablen enthalten kann. Das erkennt man an der Verwendung der geschweiften Klammern `{}` anstelle der eckigen Klammern `[]`. Strings unterschiedlicher Länge können nicht in einer Matrix gespeichert werden, da sonst jeder Buchstabe einzeln hinterlegt wird.
 
 ### Scope von Variablen
 
-In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränkt. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff *scope* bezeichnet.
+In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff *scope* bezeichnet.
 
 Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.
 
@@ -818,7 +818,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/increment_a.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/increment_a.m'.
 
 ```
 
@@ -828,7 +828,9 @@ Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitun
 ```matlab
 global a
 a = 0;
+disp(a)
 increment_a(2)
+disp(a)
 increment_a(5)
 disp(a)
 ```
@@ -836,20 +838,8 @@ disp(a)
 
 {:.output .output_stream}
 ```
- 7
-
-```
-
-
-
-{:.input_area}
-```matlab
-run global_variables
-```
-
-
-{:.output .output_stream}
-```
+0
+ 2
  7
 
 ```
@@ -912,9 +902,24 @@ ans =  1
 
 ```
 
-Mit einem vorangestellten `@` wird deklariert, welche Terme als Eingabeparameter für die Funktion interpretiert werden sollen.
+Mit einem vorangestellten `@(x)` wird deklariert, dass `x` als Eingabeparameter für die Funktion interpretiert werden sollen. Hier kann man auch eine Abhängigkeit von mehreren Variablen deklarieren, z.B.
 
-Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie nun zum Beispiel als Eingabe für eine andere Funktion benutzen. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält.
+
+
+{:.input_area}
+```matlab
+norm2d = @(x,y) sqrt(x.^2 + y.^2);
+norm2d(1,1)
+```
+
+
+{:.output .output_stream}
+```
+ans =  1.4142
+
+```
+
+Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen auch verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt.
 
 
 
@@ -982,7 +987,7 @@ end
 
 {:.output .output_stream}
 ```
-Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/bisection.m'.
 
 ```
 
@@ -1012,7 +1017,7 @@ ans = -0.51879
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/matlab_02_scripts_and_functions_65_0.png)
+![png](../images/00_einleitung/matlab_02_scripts_and_functions_66_0.png)
 
 
 
@@ -1043,9 +1048,8 @@ h(@(x) 2*x-0.33, 0, 1, 1e-8, 100)
 ```
 h = @bisection
 ans = function_handle
-error: binary operator '^' not implemented for 'function handle' by 'scalar' operations
-error: called from
-    bisection at line 20 column 9
+Converged in 27 iterations. The solution is 0.165.
+ans =  0.16500
 
 ```
 
