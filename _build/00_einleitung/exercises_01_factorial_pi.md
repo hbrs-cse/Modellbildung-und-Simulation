@@ -3,9 +3,9 @@ redirect_from:
   - "/00-einleitung/exercises-01-factorial-pi"
 interact_link: content/00_einleitung/exercises_01_factorial_pi.ipynb
 kernel_name: octave
-title: 'Binominialkoffizient und Kreiszahl'
+title: 'Matlab/Octave'
 prev_page:
-  url: /emptypage
+  url: /00_einleitung/exercises_00_intro
   title: 'Übungsaugaben'
 next_page:
   url: /emptypage
@@ -13,48 +13,27 @@ next_page:
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
-## To aufräum
+# 1. Machen Sie sich vertraut mit Matlab
 
 
-Hier vllt Liste von Fragen, von denen ich erwarte, dass die Studenten sie beantworten können?
+Lesen Sie sich die Kapitel [*Verwendung dieses Buches*](/Modellbildung-und-Simulation/00_einleitung/usage) und [*Erste Schritte in Matlab*](/Modellbildung-und-Simulation/00_einleitung/matlab_00_first_steps) durch. Können Sie die folgenden Fragen beantworten?
 
 1. Beschreibe die Funktionalität des *Command Window*, *Editor* und *Workspace* in Matlab.
 1. Was ist der Unterschied zwischen einer Funktion und einem Skript?
 2. Was verbirgt sich hinter dem Wort *scope*?
 3. Was ist ein *function handle*?
-4. Aus welchem Grund sollte ich for-Schleifen vermeiden?
+4. Aus welchen Gründen sollte ich for-Schleifen vermeiden?
+3. Was ist das Grundprinzip hinter dem *Bisektionsverfahren*?
+3. Wie kann ich die Operationen `*` bzw. `^` elementweise ausführen?
+3. Warum sollte ich reelle Zahlen nie mit `==` auf Gleichheit prüfen?
+3. Was bedeutet logische Indizierung?
+3. Wie kann ich eine Matrix transponieren?
+3. Warum sollte ich strings nie mit `==` auf Gleichheit prüfen?
+4. Was bewirkt der Befehl `hold on`?
 
-* Funktionen werden normalerweise in einem eigenen m-file gespeichert, siehe das Handout zur Matlab Einführung.
+# 2. Binominialkoeffizienten
 
-* Kurze Funktionen (Einzeiler) können in Variablen, so genannten 'function handles' abgespeichert werden.
-
-
-
-{:.input_area}
-```matlab
-% Die Unbekannten Größen einer function handle
-% werden mit dem @-Symbol deklariert.
-meineFunktion = @(x)  x.^2;
-
-meineFunktion(2)
-meineFunktion([2,3;4,5])
-```
-
-
-{:.output .output_stream}
-```
-ans =  4
-ans =
-
-    4    9
-   16   25
-
-
-```
-
-### Binominialkoeffizienten
-
-siehe Handout
+**To Do** siehe Handout
 
 
 
@@ -78,7 +57,7 @@ end
 ```matlab
 n=5;
 k=3;
-fac(5)/(fac(k)*fac(n-k))
+fac(n)/(fac(k)*fac(n-k))
 ```
 
 
@@ -88,9 +67,9 @@ ans =  10
 
 ```
 
-### Programmierübung 2: Rundungsfehler
+# 3. Rundungsfehler
 
-siehe Handout
+**To Do** siehe Handout
 
 
 
@@ -116,15 +95,16 @@ Logarithmische Darstellung des Fehlers
 
 {:.input_area}
 ```matlab
-plot(log(err))
+semilogy(err)
 title('Logarithmus des Fehlers')
 xlabel('Iteration')
-ylabel('log(error)')
+ylabel('error')
+set(gca, 'ygrid', 'on')
 ```
 
 
 
 {:.output .output_png}
-![png](../images/00_einleitung/exercises_01_factorial_pi_9_0.png)
+![png](../images/00_einleitung/exercises_01_factorial_pi_8_0.png)
 
 

@@ -39,7 +39,7 @@
   - title: Übungsaugaben
     url: /00_einleitung/exercises_00_intro
     subsections:
-    - title: Binominialkoffizient und Kreiszahl
+    - title: Matlab/Octave
       url: /00_einleitung/exercises_01_factorial_pi
     - title: Flüssigkeit im Boden
       url: /emptypage
