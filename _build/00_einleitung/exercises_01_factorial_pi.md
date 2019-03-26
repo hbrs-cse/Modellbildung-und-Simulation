@@ -18,7 +18,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 Lesen Sie sich die Kapitel [*Verwendung dieses Buches*](/Modellbildung-und-Simulation/00_einleitung/usage) und [*Erste Schritte in Matlab*](/Modellbildung-und-Simulation/00_einleitung/matlab_00_first_steps) durch. Können Sie die folgenden Fragen beantworten?
 
-1. Beschreibe die Funktionalität des *Command Window*, *Editor* und *Workspace* in Matlab.
+1. Beschreiben Sie die Funktionalität des *Command Window*, *Editor* und *Workspace* in Matlab.
 1. Was ist der Unterschied zwischen einer Funktion und einem Skript?
 2. Was verbirgt sich hinter dem Wort *scope*?
 3. Was ist ein *function handle*?
