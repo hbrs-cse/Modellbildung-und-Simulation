@@ -37,7 +37,7 @@
     - title: Best Practices
       url: /00_einleitung/matlab_03_best_practice
   - title: Übungsaugaben
-    url: /emptypage
+    url: /00_einleitung/exercises_00_intro
     subsections:
     - title: Binominialkoffizient und Kreiszahl
       url: /00_einleitung/exercises_01_factorial_pi
@@ -47,8 +47,8 @@
       url: /emptypage
     - title: Conway's Game of Life
       url: /emptypage
-  - title: Tragwerke - Ein Einführendes Beispiel
-    url: /emptypage
+#  - title: Tragwerke - Ein Einführendes Beispiel
+#    url: /emptypage
 
 - divider: true
 

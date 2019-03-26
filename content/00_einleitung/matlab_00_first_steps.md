@@ -8,17 +8,19 @@ Die Sprache wird von [The Mathworks Inc.](https://de.wikipedia.org/wiki/The_Math
 
 ## Matlab Alternativen
 
-Matlab ist nicht kostengünstig. Es gibt aber frei verfügbare Alternative. Zum Beispiel gibt es die kostenfreien Matlab-Klone [Octave](http://www.octave.org) oder [Scilab](http://www.scilab.org). Octave- bzw. Scilab-Skripte sind weitestgehend mit Matlab kompatibel. An einigen Stellen dieses Online-Lehrbuchs tauchen Textboxen mit Matlab-Code auf, der sich interaktiv ausführen lässt. Die Umsetzung basiert auf einen Octave-Kern, der im Hintergrund auf einer virtuellen Maschine läuft. [Hier](https://en.wikibooks.org/wiki/MATLAB_Programming/Differences_between_Octave_and_MATLAB) finden Sie eine Liste syntaktischer Unterschiede zwischen Octave und Matlab.
+Matlab ist nicht kostengünstig. Es gibt aber frei verfügbare Alternativen. Zum Beispiel gibt es die kostenfreien Matlab-Klone [Octave](http://www.octave.org) oder [Scilab](http://www.scilab.org). Octave- bzw. Scilab-Skripte sind weitestgehend mit Matlab kompatibel. 
 
-Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte, die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich wissenschaftlichen Rechnen sind wahrscheinlich 
+An einigen Stellen dieses Online-Lehrbuchs tauchen Textboxen mit Matlab-Code auf, der sich interaktiv ausführen lässt. Die Umsetzung basiert auf einen Octave-Kern, der im Hintergrund auf einer virtuellen Maschine läuft. [Hier](https://en.wikibooks.org/wiki/MATLAB_Programming/Differences_between_Octave_and_MATLAB) finden Sie eine Liste syntaktischer Unterschiede zwischen Octave und Matlab.
+
+Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte. Die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich wissenschaftlichen Rechnen sind wahrscheinlich 
  * [Python](https://www.python.org/) - Extrem vielseitige und weitverbreitete Sprache, [jeder sollte irgendwann mal Python lernen](https://hackernoon.com/10-reasons-to-learn-python-in-2018-f473dc35e2ee).
  * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet
  * [Julia]() - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
  
 
-Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es soviel kostenfreie Alternativen gibt? Zugegeben, viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
+Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es soviel kostenfreie Alternativen gibt? Zugegeben, sehr viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
 1. Es ist eine ausgereifte, vielseitige robuste und einfach zu erlernende Skriptsprache, mit der man in sehr kurzer Zeit komplexe Modelle erstellen kann.
-2. Die Benutzerumgebung liefert viele praktische Werkzeuge wie Profiler oder Debugging Tools.
+2. Die sehr gute Benutzerumgebung liefert viele praktische Werkzeuge wie Profiler oder Debugging Tools.
 2. Studenten erhalten in der Regel kostenfrei Zugang zu einer Campuslizenz.
 
 Also: Matlab ist super! Bevor man aber ganz viel Geld ausgibt, lohnt sich ein Blick auf die Alternativen.

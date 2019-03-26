@@ -204,7 +204,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 
 **Challenge:** Fallen Ihnen Wege ein, die Abschätzung genauer zu gestalten?
 
-Eine for-Schleife kann immer in eine-while Schleife umgeschrieben werden. Folgende Code-Blöcke liefern das selbe Ergebnis:
+Eine for-Schleife kann immer in eine while-Schleife umgeschrieben werden. Folgende Code-Blöcke liefern das selbe Ergebnis:
 
 
 
@@ -232,7 +232,7 @@ end
 
 ### if-Abfragen
 
-Oft ist es nützlich, Bestimmte Befehle nur auszuführen, wenn eine Bedingung erfüllt ist. Dies erreicht man mit if-Bedingungen.
+Oft ist es nützlich, bestimmte Befehle nur auszuführen, wenn eine Bedingung erfüllt ist. Dies erreicht man mit if-Bedingungen.
 
 
 
