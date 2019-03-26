@@ -30,7 +30,7 @@ surf(X, Y, Z);
 
 
 {:.output .output_png}
-![png](/data/work/H_BRS/Modellbildung-und-Simulation/_build/intro_1_0.png)
+![png](intro_1_0.png)
 
 
 
