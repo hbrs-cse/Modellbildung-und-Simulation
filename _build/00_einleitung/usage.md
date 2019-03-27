@@ -276,4 +276,26 @@ Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine 
 1. **Ich bin mir sicher, dass ich die Übungsaufgabe richtig bearbeitet habe, aber der Unit Test gibt Fehler aus.**
 
    *Lösung:* Möglicherweise wurde für die Bearbeitung der Übungsaufgabe Matlab-Code geschrieben, der nicht mit Octave kompatibel ist. In diesem Fall sollte es schon helfen, den Unit Test lokal in der eigenen Matlab Installation laufen zu lassen. 
+   
+1. **Beim Ausführen des unit tests im interaktiven Modus (*Thebelab*) erhalte ich folgende Fehlermeldung:**
+
+   ```matlab
+   moxunit_runtests test_fac.m
+   ```
+
+
+   ```
+error: Parameter not recognised or file missing: test_fac.m
+error: called from
+    moxunit_runtests>get_params at line 365 column 21
+    moxunit_runtests at line 72 column 11
+   ```
+
+   Das ist ein [bekanntes Problem](https://github.com/jupyter/jupyter-book/issues/107), an dem gerade gearbeitet wird. Die einfachste Lösung ist einfach die "interact"-Methode statt der "Thebelab"-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser relative Pfad lässt sich am url ablesen. Für diese Seite lautet er `content/00_einleitung`. Der Befehl
+   
+   ```matlab
+   moxunit_runtests content/00_einleitung/test_fac.m
+   ```
+   
+   sollte funktionieren.
 
