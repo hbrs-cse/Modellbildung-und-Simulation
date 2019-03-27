@@ -52,30 +52,6 @@ wobei $n$ und $k$ ganze Zahlen mit $n \geq k \geq 0$ sind.
 % calculate the factorial of an integer n
 function z = fac(n)
     
-    % test for non ingeger numbers
-    if any( abs(n - floor(n)) > 1e-12 )
-        error("Input n must be integer.")
-    end
-    
-    % test for nonnegative numbers
-    if any( n<0 )
-        error("Input n must be nonnegative.")
-    end
-    
-    % initialize output to 1
-    z = ones(size(n));
-    
-    % check if any entry in n is larger than 1. If not,
-    % the initialized z is the correct answer and we are 
-    % done
-    n_greater_one = n>1;
-    if ~any(n_greater_one)
-        return
-    end
-    
-    % recursively call the factorial function for those entries,
-    % that are still greater than one.
-    z(n_greater_one) = n(n_greater_one).*fac(n(n_greater_one)-1);
 end
 ```
 
@@ -96,17 +72,6 @@ Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitun
 moxunit_runtests test_fac.m
 ```
 
-
-{:.output .output_stream}
-```
-suite: 6 tests
-......
---------------------------------------------------
-
-OK (passed=6)
-ans = 1
-
-```
 
  - Schreiben Sie nun die Funktion, die den Binominialkoeffizienten berechnet. Verwenden Sie Ihre neue Funktion zur Berechnung der Fakultät.
 
@@ -186,9 +151,7 @@ Die Folge konvergiert für $n \to \infty$ gegen $\pi$:
 
 $$ \lim_{n \to \infty} z_n = \pi. $$
 
-Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortplanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich.
-
-Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortplanzung demonstriert. Berechnen Sie dazu für $n=1,2,3,...,20$ jeweils die Folgeglieder $z_n$. Berechnen Sie für jedes $z_n$ den relativen Fehler
+Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortplanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich. Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortplanzung demonstriert. Berechnen Sie dazu für $n=1,2,3,...,20$ jeweils die Folgeglieder $z_n$. Berechnen Sie für jedes $z_n$ den relativen Fehler
 
 $$ r_n = \frac{|\pi - z_n|}{\pi}. $$
 
@@ -200,28 +163,6 @@ Erstellen Sie einen Plot in dem der Logarithmus des relativen Fehlers in Abhäng
 ```matlab
 % demonstrate numerical error propagation using Viète's formula for approximating pi
 
-n_max = 20;
-
-z   = zeros(1, n_max+1);
-err = zeros(1, n_max+1);
-
-error_func  = @(z) abs(z - pi)/pi;
-
-z(1)   = 2;
-err(1) = error_func(z(1));
-
-for n=1:n_max
-    z(n+1)   = 2^(n+0.5)*sqrt(1-sqrt(1-4^(-n)*z(n)^2));
-    err(n+1) = error_func(z(n+1));
-end
-
-semilogy(1:n_max+1,err)
 
 ```
-
-
-
-{:.output .output_png}
-![png](../images/00_einleitung/exercises_01_factorial_pi_16_0.png)
-
 
