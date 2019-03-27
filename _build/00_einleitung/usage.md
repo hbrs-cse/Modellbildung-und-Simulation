@@ -17,7 +17,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.
 
-Alle Seiten, die Codeblöcke enthalten haben oben in der Kopfzeile zwei Buttons, einen auf dem "Thebelab" steht, und einen auf dem "Interact" steht.
+Alle Seiten, die Codeblöcke enthalten, haben oben in der Kopfzeile zwei Buttons, einen auf dem "Thebelab" steht, und einen auf dem "Interact" steht.
 
 <img src="../images/usage_buttons.png" alt="Interact buttons" style="width: 250px;"/>
 
@@ -279,23 +279,20 @@ Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine 
    
 1. **Beim Ausführen des unit tests im interaktiven Modus (*Thebelab*) erhalte ich folgende Fehlermeldung:**
 
-   ```matlab
+```matlab
    moxunit_runtests test_fac.m
-   ```
-
-
-   ```
-error: Parameter not recognised or file missing: test_fac.m
-error: called from
-    moxunit_runtests>get_params at line 365 column 21
-    moxunit_runtests at line 72 column 11
-   ```
-
-   Das ist ein [bekanntes Problem](https://github.com/jupyter/jupyter-book/issues/107), an dem gerade gearbeitet wird. Die einfachste Lösung ist einfach die "interact"-Methode statt der "Thebelab"-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser relative Pfad lässt sich am url ablesen. Für diese Seite lautet er `content/00_einleitung`. Der Befehl
    
-   ```matlab
-   moxunit_runtests content/00_einleitung/test_fac.m
-   ```
+   error: Parameter not recognised or file missing: test_fac.m
+   error: called from
+      moxunit_runtests>get_params at line 365 column 21
+      moxunit_runtests at line 72 column 11
+```
+
+   Das ist ein [bekanntes Problem](https://github.com/jupyter/jupyter-book/issues/107), an dem gerade gearbeitet wird. Die einfachste Lösung ist einfach die "interact"-Methode statt der "Thebelab"-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus `content` sowie dem akutellen Unterordner dieser Seite, der sich aus der url ablesen lässt. Für diese Seite lautet er `00_einleitung`. Der Befehl
+   
+```matlab
+    moxunit_runtests content/00_einleitung/test_fac.m
+```
    
    sollte funktionieren.
 
