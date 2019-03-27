@@ -1,11 +1,11 @@
 ---
-title: 'Übungsaugaben'
+title: 'Flüssigkeit im Boden'
 prev_page:
-  url: /00_einleitung/matlab_03_best_practice
-  title: 'Best Practices'
+  url: /00_einleitung/exercises_01_factorial_pi
+  title: 'Matlab/Octave'
 next_page:
   url: /emptypage
-  title: 'Tragwerke - Ein Einführendes Beispiel'
+  title: 'Verkehrssimulation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Hier entsteht ganz bald sicher irgendetwas!

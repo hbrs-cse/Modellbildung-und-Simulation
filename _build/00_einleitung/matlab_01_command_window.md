@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/matlab-01-command-window"
 interact_link: content/00_einleitung/matlab_01_command_window.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Matlab Command Window'
 prev_page:
   url: /00_einleitung/matlab_00_first_steps
@@ -22,87 +23,101 @@ Im *Command Window* gibt man, wie der Name schon sagt, Befehle ein. Diese werden
 Gibt man zum Beispiel ```a=5``` ein, erscheint ein feedback, dass die Variable ```a``` erstellt wurde, und sie den Wert ```5``` zugewiesen bekommen hat.
 
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 a = 5
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 a =  5
-
 ```
+</div>
+</div>
+</div>
 
 MATLAB gibt nach Eingabe eines Kommandos immer eine Rückmeldung, in diesem Fall wird die Variable noch einmal ausgegeben. Diese Rückmeldung kann mit Hilfe des Semikolons unterdrückt werden:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 b = 2*pi;
 ```
+</div>
 
+</div>
 
 Beide Variablen sind nun im Workspace hinterlegt, und können für weitere Berechnungen benutzt werden. Ich kann mir zum Beispiel den Wert von ```b``` ausgeben lassen,
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 b
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 b =  6.2832
-
 ```
+</div>
+</div>
+</div>
 
 oder einfache Rechenoperationen ausführen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 b/a + i*sin(pi/8)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =  1.25664 + 0.38268i
-
 ```
+</div>
+</div>
+</div>
 
 Das Ergebnis der Rechnung wird unter dem Variablennamen ```ans``` im Workspace hinterlegt. Ich kann dem Ergebnis explizit einen Variablennamen, hier ```c``` zuordnen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 c = b/a + i*sin(pi/8)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 c =  1.25664 + 0.38268i
-
 ```
+</div>
+</div>
+</div>
 
 Wenn ich möchte, kann ich die Ausgabe des Ergebnisses unterdrücken, indem ich die Zeile mit einem Semikolon beende:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 d = exp(b/a - i*sin(pi/8));
 ```
+</div>
 
+</div>
 
 Einige wichtige Punkte konnten wir bisher beobachten:
 
@@ -111,19 +126,22 @@ Einige wichtige Punkte konnten wir bisher beobachten:
 * Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendent werden.
 * In Matlab werden die skalaren Datentypen (```integer```, ```double```, ```float```, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variablen ```a``` ganzzahlig ist, geht Matlab standardmäßig von ```double``` aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion ```class()``` ausgeben lassen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 class(a)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans = double
-
 ```
+</div>
+</div>
+</div>
 
 Unter Umständen kann es sinnvoll sein, nochmal mit einem frischen *Workspace* zu starten. Der Inhalt des Workspace lässt sich mit dem Befehl `clear` leeren.
 
@@ -133,16 +151,17 @@ Matlab ist ein Kofferwort aus **Mat**rix-**Lab**oratory. Der Name impliziert sch
 
 In Matlab werden Matrizen mit eckigen Klammern geschrieben, ein Semikolon beendet eine Zeile:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 e = [1, 2, 3, 4, 5] % ein Zeilenvektor
 f = [1; 2; 3; 4; 5] % ein Spaltenvektor
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 e =
 
@@ -156,40 +175,46 @@ f =
    4
    5
 
-
 ```
+</div>
+</div>
+</div>
 
 ## Produkte von Vektoren und Matrizen
 
 Beim Produkt zweier Vektoren $\mathbf{e}$ und $\mathbf{f}$ (byw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Kann ich die eben erstellten Vektoren $e$ und $f$ miteinander multiplizieren?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 e*f
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =  55
-
 ```
+</div>
+</div>
+</div>
 
 Aha, bei Multiplikation eines $(1,n)$-dimensionalen Vektors $\mathbf{e}$ mit einem $(n,1)$-dimensionalen Vektor $\mathbf{f}$ erhalte ich eine Zahl, bzw. eine $(1,1)$-dimensionale Matrix mit nur einem Eintrag. Wir erhalten das **Skalarprodukt**
 
 $$ \mathbf{e} \cdot \mathbf{f} = \sum_{i=1}^n e_i \cdot f_i. $$
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 f*e
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -199,8 +224,10 @@ ans =
     4    8   12   16   20
     5   10   15   20   25
 
-
 ```
+</div>
+</div>
+</div>
 
 Die Multiplikation eines $(n,1)$-dimensionalen Vektors $\mathbf{f}$ mit einem (1,n)-dimensionalen Vektor $\mathbf{e}$ liefert mit also eine $(n,n)$-dimensionale Matrix. Es handelt sich um das **diadische Produkt**
 
@@ -208,21 +235,24 @@ $$ A = \mathbf{f} \cdot \mathbf{e}, \hskip0.5cm A_{ij} = f_i \cdot e_j $$
 
 Wie sieht es mit den folgenden Matrizen aus?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 g = [1; 1; 1];
 h = [2; 2; 2];
 g*h
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 error: operator *: nonconformant arguments (op1 is 3x1, op2 is 3x1)
-
 ```
+</div>
+</div>
+</div>
 
 Nein! Es klappt nicht. Die Fehlermeldung gibt schon Auskunft darüber wieso, die Dimensionen der Matrizen passen nicht zusammen. 
 
@@ -237,15 +267,16 @@ elementwise multiplication, use '.*'.
 
 Wir behelfen uns eines Tricks: Ein nachgestelltes Apostroph gibt die transponierte Matrix aus:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 g
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 g =
 
@@ -253,133 +284,152 @@ g =
    1
    1
 
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 size(g)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
    3   1
 
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 g'
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
    1   1   1
 
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 size(g')
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
    1   3
 
-
 ```
+</div>
+</div>
+</div>
 
 Das Skalarprodukt von $\mathbf{g}$ mit $\mathbf{h}$ können wir also doch ausrechnen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 g'*h
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =  6
-
 ```
+</div>
+</div>
+</div>
 
 Sehr häufig ist es nützlich Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 weekly_hours = [39.5, 19.5, 39.5, 8, 8];
 ```
+</div>
 
+</div>
 
 Die stündlichen Bruttokosten der Mitarbeiterstellen in € schreiben wir ebenfalls in einen Vektor:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 costPerHour_brutto_euro = [57.5, 57.5, 40, 15, 15];
 ```
+</div>
 
+</div>
 
 Wenn ich wissen möchte, wieviel die Mitarbeiter jeweils pro Woche kosten, muss ich die Vektoren komponentenweise miteinander multiplizieren. Das erreiche ich in Matlab, indem ich vor dem ```*```-Operator einen Punkt voranstelle, es ist also eine *punktweise* Operation, und keine Matrixmultiplikation:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 weekly_hours.*costPerHour_brutto_euro
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
    2271.25   1121.25   1580.00    120.00    120.00
 
-
 ```
+</div>
+</div>
+</div>
 
 **Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212.5 €.*
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % calculate weekly total cost
 
 ```
+</div>
 
+</div>
 
 ## Spezielle Matrizen
 
 Malab hat einige Befehle um spezielle Matrizen zu erstellen. Einige der wichtigsten sind:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 A1 = eye(2);     % 2,2-Einheitsmatrix
 A2 = ones(3,2);  % 3,2-Matrix gefuellt mit 1
@@ -387,23 +437,26 @@ A3 = zeros(2,4); % 2,4-Matrix gefuellt mit 0
 A4 = rand(2);    % 2,2-Matrix mit gleichverteilten Zufallszahlen von 0 bis 1
 A5 = randn(4);   % 4,4-Matrix mit normalverteilten Zufallszahlen um 0 und Standardabweichung 1
 ```
+</div>
 
+</div>
 
 ## Funktionen komponentenweise ausführen
 
 Viele der mathematischen Funktionen, wie `sin`, `cos`, `exp`, `sqrt` etc., können auch direkt auf Vektoren und Matrizen angewandt werden. Sie werden dann komponentenweise ausgeführt:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 A4
 disp('Die Wurzel der Elemente von A4:')
 sqrt(A4)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 A4 =
 
@@ -416,14 +469,15 @@ ans =
    0.94981   0.27503
    0.82859   0.63236
 
-
 ```
+</div>
+</div>
+</div>
 
 Nehmen wir zum Beispiel an, wir haben $n$ Vektoren $\mathbf{v}_i = (x_i, y_i, z_i)$, $i=1,...,n$. Wenn wir die $x$-, $y$-, und $z$-Komponenten der Vektoren als `X`, `Y` und `Z` speichern, können wir in nur einer Zeile den Betrag der Vektoren berechnen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 n=20;
 X = randn(n,1);
@@ -432,9 +486,11 @@ Z = randn(n,1);
 % calculate magnitude of vectors
 sqrt(X.^2 + Y.^2 + Z.^2)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -459,8 +515,10 @@ ans =
    0.78813
    2.42039
 
-
 ```
+</div>
+</div>
+</div>
 
 **Zusatzfrage:** Wozu dienen die Punkte in der Vorschrift `sqrt(X.^2 + Y.^2 + Z.^2)`?
 
@@ -468,15 +526,16 @@ ans =
 
 Oft kann es sinnvoll sein, einzelne Vektoren oder Matrizen zu größeren zusammenzufügen. Das nennt man *Concatenation*. Die zuvor erstellten Matrizen `X`, `Y`, `Z` sind schließlich nicht unabhängig von einander, sie bezeichnen die Komponenten von $n$ Vektoren $v_i$. Um dies zu verdeutlichen können wir eine $(n,3)$-Matrix erstellen, dessen Zeilen die jeweiligen Vektoren $v_i$ sind, und die Spalten die jeweiligen Komponenten `X`, `Y` und `Z`:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V = [X,Y,Z]
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 V =
 
@@ -501,36 +560,42 @@ V =
    0.542083   0.251091   0.514044
    0.964465   1.681427   1.449456
 
-
 ```
+</div>
+</div>
+</div>
 
 Wie bei Matrixprodukten müssen wir auf die richtige Dimension achten. Was passiert genau bei folgendem Befehl?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V = [X,Y;Z]
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 error: vertical dimensions mismatch (20x2 vs 20x1)
-
 ```
+</div>
+</div>
+</div>
 
 *Concatenation* ist also das Zusammenfügen von Matrizen. Der gezielte Zugriff auf Subblöcken aus einer Matrix wird als *Slicing* bezeichnet. In Matlab wird dazu der `:`-Operator verwendet. Mit folgenden Befehlen erhält man die ersten fünf Zeilen der Matrix `V`:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V(1:5,:)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -540,22 +605,25 @@ ans =
   -2.697906   0.300665   0.898349
   -0.083736   0.400069   0.336239
 
-
 ```
+</div>
+</div>
+</div>
 
 Im Gegensatz zu C/C++, fangen wir bei Matlab immer bei 1 an zu zählen, und nicht bei 0. Der Doppelpunkt nach dem Komma gibt Auskunft darüber, dass alle Spalten ausgegeben werden sollen. Wenn nur die ersten beiden Spalten ausgegeben werden sollen kann man `V(1:5,1:2)` eingeben.
 
 Alle Vektoren, bis auf die ersten 15 erhalten wir mit Hilfe des Wortes `end`, das für die Größe der jeweiligen Dimension steht:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V(16:end,:)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -565,20 +633,23 @@ ans =
    0.54208   0.25109   0.51404
    0.96446   1.68143   1.44946
 
-
 ```
+</div>
+</div>
+</div>
 
 Ich kann mir auch jeden zweiten Vektor ausgeben lassen, indem ich eine ganzzahlige Schrittweite mit angebe:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V(1:2:end,:)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -593,20 +664,23 @@ ans =
    1.613523  -1.536201   0.257822
    0.542083   0.251091   0.514044
 
-
 ```
+</div>
+</div>
+</div>
 
 Die Schrittweite kann auch negativ gewählt werden:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V(end:-1:1,:)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -631,33 +705,37 @@ ans =
   -0.265533   0.097343  -0.950886
   -3.019795   0.434514   0.720747
 
-
 ```
+</div>
+</div>
+</div>
 
 **Zusatzfrage:** Wie kann ich mir die letzten fünf Zeilen einer Matrix ausgeben lassen, ohne explizit die Größe der Matrix zu kennen?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % get last 5 elements of V
 
 ```
+</div>
 
+</div>
 
 ## Logische Indizierung
 
 Der folgende Befehl liefert Auskunft darüber, welche Elemente der Matrix `X` größer oder gleich null sind:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 X>=0
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -682,37 +760,43 @@ ans =
   1
   1
 
-
 ```
+</div>
+</div>
+</div>
 
 Das Ergebnis ist wieder eine Matrix, dessen Einträge entweder 1 sind, falls der jeweilige Eintrag in `X` größer oder gleich null ist, oder 0 wenn der jeweilige Eintrag kleiner als null ist. Matlab speichert diese Werte nicht als `double`, sondern als `logical`-, d.h. boolsche Werte ab. Wir können dem Ergebnis der Abfrage wieder einen Namen geben:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 Xpos = X>0;
 class(Xpos)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans = logical
-
 ```
+</div>
+</div>
+</div>
 
 Um nun alle Vektoren (Zeilen in `V`) zu erhalten, deren $x$-Komponente größer oder gleich null ist, kann diese `logical`-Matrix direkt als Zeilenindex verwenden.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V(Xpos,:)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -725,20 +809,23 @@ ans =
    0.54208   0.25109   0.51404
    0.96446   1.68143   1.44946
 
-
 ```
+</div>
+</div>
+</div>
 
 **Zusatzfrage:** Was macht der folgende Befehl?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 V(V(:,2)<0,:)
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =
 
@@ -752,19 +839,22 @@ ans =
    1.464365  -0.444932  -0.649004
    1.613523  -1.536201   0.257822
 
-
 ```
+</div>
+</div>
+</div>
 
 **Zusatzfrage:** Wie erhalte ich mit nur einem Befehl alle Vektoren, deren Betrag kleiner als 1 ist?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % get all rows with a magnitude < 1
 
 ```
+</div>
 
+</div>
 
 Denken Sie daran, dass Gleichheit zweier Variablen mit `==` abgefragt wird!
 
@@ -772,17 +862,18 @@ Denken Sie daran, dass Gleichheit zweier Variablen mit `==` abgefragt wird!
 
 Natürlich bietet Matlab auch viele weitere Funktionen rund um Matrizen und Vektoren um uns das Leben zu erleichtern. So kann ein Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ einfach und effizient mit dem sogenannten **backslash**-Operator gelöst werden.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 A=[1,2,3;4,5,-6;7,8,9];
 b=[0.1,0.2,0.3]';
 x = A\b                     % x = inv(A)*b
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 x =
 
@@ -790,8 +881,10 @@ x =
    6.6667e-02
   -1.4456e-18
 
-
 ```
+</div>
+</div>
+</div>
 
 Also ist Matlab ein Taschenrechner? Ja, genau! Aber ein ziemlich cooler, mit extrem vielen Funktionen und der Möglichkeit beliebig viele Variablen als Matrizen im Zwischenspeicher vorzuhalten.
 

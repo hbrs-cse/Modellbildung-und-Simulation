@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/exercises-01-factorial-pi"
 interact_link: content/00_einleitung/exercises_01_factorial_pi.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Matlab/Octave'
 prev_page:
   url: /00_einleitung/exercises_00_intro
@@ -44,9 +45,8 @@ wobei $n$ und $k$ ganze Zahlen mit $n \geq k \geq 0$ sind.
 
  - Schreiben Sie eine Funktion, die die Fakultät berechnet:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file fac.m
 % calculate the factorial of an integer n
@@ -54,56 +54,65 @@ function z = fac(n)
     
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
-
 ```
+</div>
+</div>
+</div>
 
 - Testen Sie die Funktionalität mit der bereitgestellten *test suite* `test_fac.m`, siehe unten. Es reicht zunächst, dass die ersten drei der unit tests erfolgreich sind. **Challenge:** Schaffen Sie es, alle sechs unit tests zu erfüllen?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % test the fac function
 moxunit_runtests test_fac.m
 ```
+</div>
 
+</div>
 
  - Schreiben Sie nun die Funktion, die den Binominialkoeffizienten berechnet. Verwenden Sie Ihre neue Funktion zur Berechnung der Fakultät.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file binomial_coefficient.m
 function c = binomial_coefficient(n,k)
     % ADD CODE HERE
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/binomial_coefficient.m'.
-
 ```
+</div>
+</div>
+</div>
 
  - Testen Sie die Funktionsweise Ihrer neuen Funktion (diesmal ohne explizit einen unit test zu verwenden):
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % run some quick tests without explicitly using a unit test
 binomial_coefficient( 5, 3) % expected value: 10
 binomial_coefficient(49, 6) % expected value: 13983816
 binomial_coefficient(10,10) % expected value: 1
 ```
+</div>
 
+</div>
 
 - Haben Sie Ideen, wie sie die Anzahl nötiger Rechenoperationen verringern können?
 
@@ -111,19 +120,22 @@ binomial_coefficient(10,10) % expected value: 1
 
 MATLAB bzw. Octave steht für die Auflösung reeller Zahlen die Menge der sogenannten Maschinenzahlen zur Verfügung. Diese haben eine endliche Genauigkeit, welche Sie sich mit dem Befehl
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 eps
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =    2.2204e-16
-
 ```
+</div>
+</div>
+</div>
 
 ausgeben lassen können. Bei der Eingabe einer reellen Zahl wird intern eine Maschinenzahl verwendet, die nicht zwangsweise mit dem tatsächlich eingegebenen Wert übereinstimmt. Es entsteht also ein (kleiner) Rundungsfehler im Rahmen der Maschinengenauigkeit.
 
@@ -157,12 +169,13 @@ $$ r_n = \frac{|\pi - z_n|}{\pi}. $$
 
 Erstellen Sie einen Plot in dem der Logarithmus des relativen Fehlers in Abhängigkeit der Iterationszahl $n$ dargestellt ist. Wie verhält sich der Fehler für kleine beziehungsweise große $n$?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % demonstrate numerical error propagation using Viète's formula for approximating pi
 
 
 ```
+</div>
 
+</div>

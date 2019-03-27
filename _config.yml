@@ -30,8 +30,6 @@ url: https://joergbrech.github.io/Modellbildung-und-Simulation # the base hostna
 # Jupyter Book settings
 
 # Notebook content settings
-hide_cell_text: '# HIDDEN'              # When building the textbook, any cells with this text inside will be hidden in the output markdown
-hide_code_text: '# NO CODE'              # When building the textbook, any cells with this text inside will have *only* their output shown (no code)
 use_hide_code_button: true        # If True, a small button appears to the right of each cell that lets you hide its contents.
 
 # Sidebar settings
@@ -66,13 +64,16 @@ binderhub_url: https://mybinder.org                        # The URL for your Bi
 binder_repo_base: https://github.com/                     # The site on which the textbook repository is hosted
 binder_repo_org: joergbrech                   # The username or organization that owns this repository
 binder_repo_name: Modellbildung-und-Simulation     # The name of the repository on the web
-binder_repo_branch: master                   # The branch on which your textbook is hosted.
+binder_repo_branch: master                     # The branch on which your textbook is hosted.
 binderhub_interact_text: Interact              # The text that interact buttons will contain.
 
 # Thebelab settings
 use_thebelab_button: true                # If 'true', display a button to allow in-page running code cells with Thebelab
 thebelab_button_text: Thebelab                 # The text to display inside the Thebelab initialization button
 codemirror_theme: abcdef                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
+
+# nbinteract settings
+use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
 
 # Download settings
 use_download_button: false               # If 'true', display a button to download a zip file for the notebook
@@ -94,8 +95,9 @@ google_analytics:
 
 
 
+
 #######################################################################################
-## Jupyter book settings you probably don't need to change
+# Jupyter book settings you probably don't need to change
 
 content_folder_name: content           # The folder where your raw content (notebooks/markdown files) are located
 images_url: /assets/images                   # Path to static image files

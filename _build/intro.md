@@ -1,6 +1,7 @@
 ---
 interact_link: content/intro.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Home'
 prev_page:
   url: 
@@ -15,9 +16,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 Ein interaktives Übungsbuch zur Vorlesung __Modellbildung und Simulation__ an der [Hochschule Bonn-Rhein-Sieg](https://www.h-brs.de).
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 x = linspace(-8, 8, 41)';
 y = x;
@@ -26,13 +26,17 @@ R = sqrt(X.^2 + Y.^2) + eps;
 Z = sin(R)./ R;
 surf(X, Y, Z);
 ```
+</div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
-
-{:.output .output_png}
+{:.output_png}
 ![png](intro_1_0.png)
 
-
+</div>
+</div>
+</div>
 
 ## Acknowledgements
 

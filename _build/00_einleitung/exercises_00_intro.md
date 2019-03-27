@@ -7,7 +7,7 @@ prev_page:
   title: 'Best Practices'
 next_page:
   url: /00_einleitung/exercises_01_factorial_pi
-  title: 'Binominialkoffizient und Kreiszahl'
+  title: 'Matlab/Octave'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Übungsaufgaben

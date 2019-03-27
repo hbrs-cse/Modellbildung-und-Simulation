@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/matlab-03-best-practice"
 interact_link: content/00_einleitung/matlab_03_best_practice.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Best Practices'
 prev_page:
   url: /00_einleitung/matlab_02_scripts_and_functions
@@ -23,9 +24,8 @@ Wenn Sie ein Matlab- bzw. Octaveskript schreiben, haben Sie in der Regel eine ge
 
 Zur Kommentierung gehört nicht nur dazu, dass Sie beschreiben WAS der Code macht, sondern WARUM er so aussieht wie er aussieht. Am Anfang eines Skriptes sollte eine kurze Beschreibung aufzufinden sein, welchen Zweck das Programm dient. Am Anfang einer Funktion gilt dasselbe, wobei hier auch Beschreibungen der Ein- und Ausgabegrößen dazugehören. Wenn relevant, sollten hier auch physikalische Einheiten benannt werden!
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file spherical2Cartesian.m
 function p = spherical2Cartesian(longitude, latitude, elevation)
@@ -46,17 +46,20 @@ p = [elevation*sind(longitude)*cosd(latitude); ...
 
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/spherical2Cartesian.m'.
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file sphericalGrid.m
 % This script creates a regular grid on a sphere using spherical 
@@ -83,27 +86,34 @@ scatter3(p(:,1), p(:,2), p(:,3), 'o');
 axis equal;
 
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/sphericalGrid.m'.
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 run sphericalGrid
 ```
+</div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
-
-{:.output .output_png}
+{:.output_png}
 ![png](../images/00_einleitung/matlab_03_best_practice_3_0.png)
 
-
+</div>
+</div>
+</div>
 
 Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute ihren Code verwenden ist es klar, dass Sie ihren Kollegen oder Kunden das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.
 
@@ -117,26 +127,28 @@ Damit ein Code verständlich ist, hilft es sprechende Variablen- und Funktionsna
 
 Der folgende Code entspricht semantisch dem obigen Beispiel, ist aber vollkommen unverständlich:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file xralkldaf.m
 function peng = xralkldaf(xyz,pft,               hurz)
 peng = [hurz*sind(xyz)*cosd(pft);hurz*sind(xyz)*sind(pft);hurz*cosd(xyz)];
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/xralkldaf.m'.
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file rxlquapoeh.m
 h=-180:10:180;g=-90:10:90;
@@ -150,27 +162,34 @@ end
 scatter3(qwerty(:,1),qwerty(:,2),qwerty(:,3),'o');axis equal;
 
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/rxlquapoeh.m'.
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 run rxlquapoeh
 ```
+</div>
 
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
 
-
-{:.output .output_png}
+{:.output_png}
 ![png](../images/00_einleitung/matlab_03_best_practice_7_0.png)
 
-
+</div>
+</div>
+</div>
 
 ## Wiederholten Code vermeiden
 
@@ -203,16 +222,17 @@ Genauso wie Skripte erweitern globale Variablen die Sichtbarkeit, d.h. den scope
 
 Angenommen `A` ist eine $3 \times 3$ Matrix in Matlab. Dann bewirkt der Befehl `A(5,5)=1`, dass die Matrix erweitert wird, die neuen Werte mit Nullen gefüllt werden und anschließend das Element `A(5,5)` mit dem Wert `1` beschrieben wird.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 A = rand(3,3)
 A(5,5) = 1
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 A =
 
@@ -228,8 +248,10 @@ A =
    0.00000   0.00000   0.00000   0.00000   0.00000
    0.00000   0.00000   0.00000   0.00000   1.00000
 
-
 ```
+</div>
+</div>
+</div>
 
 Was passiert da eigentlich hinter den Kulissen? Wenn eine neue Matrix erstellt wirdn, wird sie sequentiell im Speicher hinterlegt. Für eine $3 \times 3$ Matrix werden also neun Werte mit der Größe eines `double` im Speicher hintereinander weg gespeichert. Da Matlab die sogenannte *column-major* Speicherung verwendet, wird die Matrix in der folgenden Reihenfolge gespeichert:
 
@@ -243,9 +265,8 @@ Dieser Prozess der Speicherallokation nimmt eine gewisse Zeit in Anspruch, die i
 
 Der folgende Code demonstriert das. Mit den Befehlen `tic` und `toc` können Zeitmessungen für alle Befehle, die von `tic` und `toc` umschlossen werden vorgenommen werden.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % Create a regular (n+1, m+1) 2D grid of integer points storing the x and y coordinates of each grid point
 
@@ -295,15 +316,19 @@ tic;
 t3 = toc;
 disp(['Matlab internal method: ', num2str(t3), ' s'])
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Naive approach requiring constant reallocation: 13.6699 s
 Method using preallocation: 7.6887 s
 Matlab internal method: 0.016823 s
-
 ```
+</div>
+</div>
+</div>
 
 Idealerweise sollte man bei Performanzmessungen darauf achten, dass kein anderer Prozess den Rechenresourcen beansprucht und man sollte den Test mehrfach wiederholen um mögliche Schwankungen in den Messergebnissen mitteln zu können. Aber dennoch lässt sich deutlich erkennen, dass die Vorallokierung einiges an Rechenzeit einsparen kann. Aber wieso ist eigentlich die Matlab-interne Methode so viel schneller? Das liegt daran, dass Matlab natürlich noch einige andere Tricks anwendet als die clevere Allokation der Ergebnisvektoren. Unter anderem lässt sich viel Rechenzeit einsparen, indem die Vektorisierung von Rechenoperatorionen ausgenutzt wird.
 
@@ -311,9 +336,8 @@ Idealerweise sollte man bei Performanzmessungen darauf achten, dass kein anderer
 
 Matlab ist für Vektor- und Matrixoperationen optimiert. Deshalb bietet es sich an, skalare Operationen wie zum Beispiel die elementweise Addition in einer for-Schleife zu vermeiden und direkt auf Vektoroperationen zurück zugreifen, die in der Regel viel effizienter sind.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 % test the performance of vector addition C = A + B in Matlab,
 % where both A and B are (n,1)-Vectors
@@ -343,14 +367,18 @@ for i=1:n
 end
 toc;
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Elapsed time is 0.011553 seconds.
 Elapsed time is 0.709831 seconds.
-
 ```
+</div>
+</div>
+</div>
 
 [Hier](https://de.mathworks.com/help/matlab/matlab_prog/techniques-for-improving-performance.html) finden Sie zusätzliche Informationen, wie Sie die Performanz ihres Matlab-Codes verbessern können. Insbesondere der Profiler ist sehr zu empfehlen.
 
@@ -364,9 +392,8 @@ Alle Zahlen werden in Computern mit Gleitkommazahlen dargestellt. Diese endliche
 
 Eine Konsequenz ist, dass wir von zwei reellen Zahlen nur in seltenen Ausnahmefällen erwarten können, dass sie exakt gleich sind. Höchstwahrscheinlich ist mindestens eine Zahl mit Rundungsfehlern behaftet. Im folgenden werden zwei reelle Zahlen `a` und `b` berechnet, so dass das exakte Ergebnis für beide `0.3` ergeben sollte. Der Test auf Gleichheit `a == b` schlägt aber fehl, da bei den Berechnungen Rundungsfehler das Ergebnis verfälscht haben.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 a = 0.15 + 0.15
 b = 0.1  + sqrt(0.04)
@@ -377,37 +404,43 @@ else
     disp('a and b are not equal')
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 a =  0.30000
 b =  0.30000
 a and b are not equal
-
 ```
+</div>
+</div>
+</div>
 
 Wie groß ist der Rundungsfehler?
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 a-b
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 ans =   -5.5511e-17
-
 ```
+</div>
+</div>
+</div>
 
 Während es bei ganzen Zahlen legitim ist den `==`-Operator für den Test auf Gleichheit zu verwenden, sollte man bei reellen Gleitkommazahlen eher auf Gleichheit im Rahmen einer gewissen Toleranz testen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 tol = 1e-12;
 if abs(b-a) < tol
@@ -416,13 +449,17 @@ else
     disp('a and b are not equal')
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 a and b are equal.
-
 ```
+</div>
+</div>
+</div>
 
 Die Wahl der Toleranz `tol` sollte für jeden Anwendungsfall auf den erwartbaren bzw. tolerierbaren Fehler angepasst sein.
 

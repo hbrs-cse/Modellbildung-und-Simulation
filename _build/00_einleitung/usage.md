@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/usage"
 interact_link: content/00_einleitung/usage.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Verwendung des Buches'
 prev_page:
   url: /00_einleitung/intro
@@ -52,9 +53,8 @@ Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auc
 
 In Jupyter Lab ("Interact" Button), lassen sich Dateien mit Hilfe des Launchers erstellen. Man kann aber auch Dateien mit der Thebelab Funktionalität erstellen. Wenn ein Code-Block mit der Zeile `%%file myfile.m` beginnt, wird der folgende Inhalt des Blocks in eine Datei `myfile.m` geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da in Matlab Funktionen immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file hello_world.m
 function hello_world()
@@ -62,31 +62,38 @@ for i=1:5
     disp('Hello World, how is your day?')
 end
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/hello_world.m'.
-
 ```
+</div>
+</div>
+</div>
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 run hello_world
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Hello World, how is your day?
 Hello World, how is your day?
 Hello World, how is your day?
 Hello World, how is your day?
 Hello World, how is your day?
-
 ```
+</div>
+</div>
+</div>
 
 <img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" /> **Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.**
 
@@ -102,34 +109,38 @@ Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erste
 
 Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion `fac` zu schreiben, die die Fakultät $n!$ einer Zahl $n$ berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion `factorial`, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file fac.m
 function r = fac(n)
 % wrapper for Matlabs factorial function
     r = factorial(n);
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
-
 ```
+</div>
+</div>
+</div>
 
 Die bereitgestellten Unit Tests befinden sich in der Datei `test_fac.m`. Diese Tests überprüfen ob die Funktion sich so verhält wie erwartet. Der Test wird mit folgendem Befehl ausgeführt:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 moxunit_runtests test_fac.m
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 suite: 6 tests
 ......
@@ -137,41 +148,47 @@ suite: 6 tests
 
 OK (passed=6)
 ans = 1
-
 ```
+</div>
+</div>
+</div>
 
 Aha, es gab also sechs Tests, und die werden alle von `fac`, bzw. der von Matlab zur Verfügung gestellten Funktion `factorial`, erfüllt. Super! 
 
 Das war allerdings auch etwas geschummelt. Wir probieren eine etwas andere Implementierung der Funktion:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 %%file fac.m
 function r = fac(n)
 % calculates the factorial of the input n
     r = prod(1:n);
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.
-
 ```
+</div>
+</div>
+</div>
 
 Mal sehen, ob immer noch alle Tests durchlaufen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 moxunit_runtests test_fac.m
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 suite: 6 tests
 ......
@@ -179,8 +196,10 @@ suite: 6 tests
 
 OK (passed=6)
 ans = 1
-
 ```
+</div>
+</div>
+</div>
 
 Ok, drei der Tests sind erfolgreich, drei schlagen fehl. Die Test Suite gibt Auskunft darüber, welche der Tests fehlschlagen. Die Ausgabe
 
@@ -192,15 +211,16 @@ suite: 6 tests
 
 bedeutet, dass die letzten drei Tests fehlgeschlagen sind. Zusätzlich gibt jeder fehlgeschlagene Tests Informationen darüber aus, welches Verhalten erwartet wurde und welches tatsächlich eingetroffen ist. Manchmal sind diese Ausgaben etwas kryptisch, und es lohnt sich einen Blick in die Implementierung der Tests zu werfen. Mit dem Befehl `type` lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in `test_fac.m` genauer anzuschauen:
 
-
-
-{:.input_area}
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
 ```matlab
 type test_fac.m
 ```
+</div>
 
-
-{:.output .output_stream}
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
 ```
 test_fac.m is the user-defined function defined from: /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
 
@@ -244,8 +264,10 @@ function test_fac_array
 % test if fac works on array inputs
     assertEqual(fac([0 1 2; 3 4 5]),[1 1 2; 6 24 120]);
 
-
 ```
+</div>
+</div>
+</div>
 
 Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird.
 
