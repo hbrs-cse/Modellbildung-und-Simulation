@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: circleci/ruby:2.6
     steps:
+      # fetch jupyter book from github and install it
+      - install_jupyter_book
+    
       # Attach the built markdown files
       - checkout
           
@@ -42,6 +45,16 @@ workflows:
                 - gh-pages
 
 commands:
+  install_jupyter_book:
+    description: "fetch jupyter book from github and install it"
+    steps:
+      - run:
+          name: Install jupyter book
+          command: |
+            git clone https://github.com/jupyter/jupyter-book
+            cd jupyter-book
+            python setup.py install
+
   copy_built_files:
     description: "Copy the build site files so we can build the HTML"
     steps:
