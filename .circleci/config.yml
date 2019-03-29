@@ -50,10 +50,7 @@ commands:
     steps:
       - run:
           name: Install jupyter book
-          command: |
-            git clone https://github.com/jupyter/jupyter-book
-            cd jupyter-book
-            python setup.py install
+          command: pip install git+https://github.com/jupyter/jupyter-book.git
 
   copy_built_files:
     description: "Copy the build site files so we can build the HTML"
