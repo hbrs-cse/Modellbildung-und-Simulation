@@ -42,6 +42,11 @@ workflows:
   version: 2
   default:
     jobs:
+      - install_jupyter_book:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - demo_site:
           requires:
             - install_jupyter_book
@@ -49,11 +54,7 @@ workflows:
             branches:
               ignore:
                 - gh-pages
-      - install_jupyter_book:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+
 
 commands:
   build_site:
