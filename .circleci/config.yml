@@ -36,8 +36,6 @@ workflows:
   default:
     jobs:
       - demo_site:
-          requires:
-            - run_tests
           filters:
             branches:
               ignore:
