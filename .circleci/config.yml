@@ -1,0 +1,81 @@
+version: 2.1
+jobs:
+  # Build the site to store artifacts
+  demo_site:
+    docker:
+      - image: circleci/ruby:2.6
+    steps:
+      # Attach the built markdown files
+      - checkout
+          
+      # build the site
+      - run:
+          name: Build site markdown
+          command: make book
+
+      # Copy over the built markdown files
+      - copy_built_files
+
+      # Build the site's HTML w/ the base_url for CircleCI artifacts
+      - build_site:
+          build_args: --baseurl /0/html/
+
+      # Tell Circle to store the documentation output in a folder that we can access later
+      - store_artifacts:
+          path: _site
+          destination: html
+
+      - store_artifacts:
+          path: _build
+
+
+
+# Tell CircleCI to use this workflow when it builds the site
+workflows:
+  version: 2
+  default:
+    jobs:
+      - demo_site:
+          requires:
+            - run_tests
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+
+commands:
+  copy_built_files:
+    description: "Copy the build site files so we can build the HTML"
+    steps:
+      # Grab the the built markdown from the last step
+      - run:
+          name: Copy over built site files
+          command: |
+            rm -rf _build
+            cp -r /tmp/workspace/_build .
+
+  build_site:
+    description: "Build the site with Jekyll"
+    parameters:
+      build_args:
+        type: string
+        default: ""
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "jupyter_book/book_template/Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+
+      - run: gem install bundler
+      - run: bundle install
+
+      # Store bundle cache
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run:
+          name: Build the website
+          command: bundle exec jekyll build << parameters.build_args >>
