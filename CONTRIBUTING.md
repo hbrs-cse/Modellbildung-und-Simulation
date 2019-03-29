@@ -1,4 +1,34 @@
-## Contribute or improve the book
+## Contribution Workflow
+
+### Initial Setup
+
+ * Fork this repository on Github, if you haven't already done so. 
+ * Clone your personal copy to your local machine
+ ```bash
+ git clone https://github.com/USERNAME/Modellbildung-und-Simulation
+ cd Modellbildung-und-Simulation
+ ```
+ * Add this repository as upstream
+ ```bash
+ git remote set-url upstream https://github.com/joergbrech/Modellbildung-und-Simulation
+ ```
+
+### Adding new Content
+ 
+ * fetch the latest changes from this upstream repository
+ ```bash
+ git checkout master
+ git fetch upstream
+ git merge upstream/master
+ ```
+ * Create a new branch and switch to it
+ ```bash
+ git checkout -b my-awesome-new-chapter
+ ```
+ * Add content, see below.
+ * On Github, create a new Pull Request from your branch
+
+## How to create content
 
 * Download and install [jupyter-book](https://github.com/jupyter/jupyter-book).
 * Navigate into the `content` subdirectory of the repository and create some markdown files and jupyter notebooks.
