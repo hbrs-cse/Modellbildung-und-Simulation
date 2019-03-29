@@ -4,10 +4,8 @@ jobs:
   demo_site:
     docker:
       - image: circleci/ruby:2.6
-      - image: circleci/python:3.6-stretch
     steps:
-      # fetch jupyter book from github and install it
-      - install_jupyter_book
+      - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
     
       # Attach the built markdown files
       - checkout
@@ -28,6 +26,14 @@ jobs:
 
       - store_artifacts:
           path: _build
+  
+  install_jupyter_book:
+    docker:
+      - image: circleci/python:3.6-stretch
+    steps:
+      - run: 
+         name: install jupyter book from github
+         command: sudo apt-get update && pip install --user git+https://github.com/jupyter/jupyter-book.git
 
 
 
@@ -36,20 +42,21 @@ workflows:
   version: 2
   default:
     jobs:
+      - install_jupyter_book:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
       - demo_site:
+          requires:
+            - install_jupyter_book
           filters:
             branches:
               ignore:
                 - gh-pages
 
-commands:
-  install_jupyter_book:
-    description: "fetch jupyter book from github and install it"
-    steps:
-      - run:
-          name: Install jupyter book
-          command: pip install git+https://github.com/jupyter/jupyter-book.git
 
+commands:
   build_site:
     description: "Build the site with Jekyll"
     parameters:
