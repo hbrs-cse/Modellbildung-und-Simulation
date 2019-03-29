@@ -9,6 +9,10 @@
 
 This is a course book for the course "Modeling and Simulation" held at the University of Applied Sciences Bonn-Rhein-Sieg in Sankt Augustin, Germany. 
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
 ## Acknowledgements
 
 Jupyter Books was originally created by [Sam Lau][sam] and [Chris Holdgraf][chris]
