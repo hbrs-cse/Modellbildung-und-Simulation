@@ -32,7 +32,7 @@ jobs:
     docker:
       - image: circleci/python:3.6
     steps:
-     - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
+      - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
       - run: 
          name: install jupyter book from github
          command: sudo apt-get update && pip install --user git+https://github.com/jupyter/jupyter-book.git
