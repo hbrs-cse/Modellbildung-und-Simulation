@@ -98,7 +98,7 @@ commands:
             - rails-demo-bundle-v2-
 
       - run: gem install bundler
-      - run: cd jupyter_book/book_template && bundle install
+      - run: bundle install
 
       # Store bundle cache
       - save_cache:
