@@ -49,6 +49,11 @@ workflows:
             branches:
               ignore:
                 - gh-pages
+      - install_jupyter_book:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
 
 commands:
   build_site:
