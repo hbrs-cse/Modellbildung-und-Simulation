@@ -32,8 +32,9 @@ jobs:
     docker:
       - image: circleci/python:3.6-stretch
     steps:
-      - run: sudo apt-get update
-      - pip install --user git+https://github.com/jupyter/jupyter-book.git
+      - run: 
+         name: install jupyter book from github
+         command: sudo apt-get update && pip install --user git+https://github.com/jupyter/jupyter-book.git
 
 
 
