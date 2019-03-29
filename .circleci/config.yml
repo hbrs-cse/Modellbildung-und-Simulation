@@ -5,7 +5,7 @@ jobs:
     docker:
       - image: circleci/ruby:2.6
     steps:
-      - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
+      - run: export PATH=~/.local/bin:$PATH
     
       # Attach the built markdown files
       - checkout
