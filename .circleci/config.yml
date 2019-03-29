@@ -5,8 +5,6 @@ jobs:
     docker:
       - image: circleci/ruby:2.6
     steps:
-      # fetch jupyter book from github and install it
-      - install_jupyter_book
     
       # Attach the built markdown files
       - checkout
