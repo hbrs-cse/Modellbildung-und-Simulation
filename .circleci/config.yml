@@ -3,13 +3,19 @@ jobs:
   # Build the site to store artifacts
   demo_site:
     docker:
+      - image: circleci/python:3.6
       - image: circleci/ruby:2.6
     steps:
-      - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
-      - run: echo ${PATH}
     
       # Attach the built markdown files
       - checkout
+      
+      # install jupyter-book
+      - run:
+         name: install latest jupyter book from github
+         command: |
+            pip install --user git+https://github.com/jupyter/jupyter-book.git
+            echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
           
       # build the site
       - run:
