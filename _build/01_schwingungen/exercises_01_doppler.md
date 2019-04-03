@@ -3,7 +3,6 @@ redirect_from:
   - "/01-schwingungen/exercises-01-doppler"
 interact_link: content/01_schwingungen/exercises_01_doppler.ipynb
 kernel_name: octave
-has_widgets: false
 title: 'Der Doppler Effekt'
 prev_page:
   url: /01_schwingungen/intro
@@ -45,7 +44,7 @@ Für jede horizontale Linie im Spektrogramm erhalten wir einen Peak in der Fouri
 
 ## Ursache des Dopplereffektes
 
-Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus. 
+Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. $340\:\textrm{m}/\textrm{s}$ im Raum aus. 
 
 Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.
 
@@ -58,7 +57,33 @@ Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz al
 
 ## Zurück zur ursprünglichen Fragestellung
 
-Wie schnell fährt denn nun das Auto?
+Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt $f_A$. Das Signal breitet sich mit der Schallgeschwindigkeit von $c = 340\:\textrm{m}/\textrm{s}$ aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons ist dann
+
+$$ \lambda_A = \frac{c}{f_A}, $$
+
+also genau die Distanz, die das Signal in der Zeit $f_A^{-1}$ zurück legt. Kommt das Auto auf uns zu verkürzt sich die Wellenlänge genau um die Strecke, die das Auto in der Zeit $f_A^{-1}$ zurück legt. Ist $v$ die Geschwindigkeit des Autos, so verringert sich die Wellenlänge zu
+
+$$ \lambda_{A,+} = \frac{c}{f_A} - \frac{v}{f_A} = \frac{c-v}{f_A} $$
+
+Diese verringerte Wellenlänge wird vom Beobachter als höhere Frequenz $f_{B,+}$ wahrgenommen:
+
+$$ f_{B,+} = \frac{c}{\lambda_{A,+}} = \frac{c \cdot f_A}{c-v}. $$
+
+Wenn wir die Originalfrequenz der Hupe kennen würden, könnten wir nun diese Gleichung nach $v$ umstellen um die Geschwindigkeit zu bestimmen. Aus unserer voangeschalteten Frequenzanalyse kennen wir aber nur die Frequenz $f_{B,+}$ der Hupe, die wir wahrnehmen wenn das Auto auf uns zukommt und die Frequenz $f_{B,-}$, die wir wahrnehmen, wenn das Auto sich wieder von uns entfernt.
+
+Wir können aber die obigen Überlegungen Gleichungen genauso herleiten für den Fall, dass das Auto sich von uns entfernt. In diesem Fall vergrößert sich die Wellenlänge genau um den Betrag, den das Auto in der Zeit $f_A^{-1}$ zurücklegt:
+
+$$ \lambda_{A,-} = \frac{c+v}{f_A}, $$
+
+was wir als tiefere Frequenz
+
+$$ f_{B,-} =  \frac{c \cdot f_A}{c+v}$$
+
+wahrnehmen. Wenn wir nun die Gleichung für $f_{B,+}$ durch die Gleichung für $f_{B,-}$ teilen, kürzt sich die unbekannte Frequenz $f_A$ raus:
+
+$$ \frac{f_{B,+}}{f_{B,-}} = \frac{c+v}{c-v}. $$
+
+Alle Werte in dieser Gleichung sind bekannt, bis auf $v$. Wir können also nach $v$ auflösen um die Geschwindigkeit des Autos aus den gemessenen Frequenzen zu bestimmen. Im folgenden wird das für die drei identifizierten dominanten Frequenzen durchgeführt:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -69,7 +94,7 @@ f2 = [1449,  964, 399];  % frequencies retreating
 c = 340;                  % speed of sound [m/s]
 km_to_miles = 0.621371;   % [miles/kilometer]
 
-% f1/f2 = (1+v/c)/(1-v/c) =>
+% f1/f2 = (c+v)/(c-v) =>
 v = c*(f1 - f2)./(f1 + f2); %in  [m/s]
 
 
@@ -90,5 +115,7 @@ v_mph =
 </div>
 </div>
 </div>
+
+Die Toleranzen bei Geschwindigkeitsmessungen in USA liegen im Ermessen des Verkehrsbeamten, in der Regel geht man aber von ca. 5 mph aus. Glück gehabt!
 
 ![](https://media1.popsugar-assets.com/files/thumbor/X4YCyk7qgj3rZJ_o2UbD_SazRsM/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:fill-!white!-/2018/01/04/870/n/1922398/addurlFvJTS6/i/When-He-Literally-Doppler-Effect.gif)
