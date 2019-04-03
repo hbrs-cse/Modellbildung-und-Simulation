@@ -3,7 +3,6 @@ redirect_from:
   - "/00-einleitung/matlab-03-best-practice"
 interact_link: content/00_einleitung/matlab_03_best_practice.ipynb
 kernel_name: octave
-has_widgets: false
 title: 'Best Practices'
 prev_page:
   url: /00_einleitung/matlab_02_scripts_and_functions
@@ -17,6 +16,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 # Matlab Best Practices
 
 Wie so oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien aufgelistet werden, die sich bewährt haben. Die meisten davon lassen sich allgemein auf alle Programmiersprachen anwenden, einige wenige sind Matlab-spezifisch.
+
+In diesem Kurs wird nicht erwartet, dass Sie sofort perfekten Code schreiben und sich immer und überall an all diese Richtlinien halten. Es kann aber nicht schaden sich früh beim Erlernen einer neuen Programmiersprache mit diesen Ansprüchen vertraut zu machen und sie im Hinterkopf zu haben. Mindestens die ersten beiden Punkte sollten aber von Anfang an beherzigt werden.
 
 ## Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code
 
@@ -117,7 +118,7 @@ run sphericalGrid
 
 Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute ihren Code verwenden ist es klar, dass Sie ihren Kollegen oder Kunden das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.
 
-Spätestens wenn das Programm von einer größeren Zielgruppe benutzt werden soll, reicht eine reine Kommentierung nicht aus. Hier muss eine html- oder pdf-Dokumentation herhalten. Die Wichtigkeit von guter Dokumentation für die Verbreitung von Software ist unfassbar wichtig! Es gibt inzwischen einige Hilfsprogramme, die aus strukturierter Code-Kommentierung automatisiert eine solche Dokumentation erzeugen kann, Doxygen und Sphinx sind Beispiele. [Hier](https://www.artefact.tk/software/matlab/m2html/) finden Sie ein Tool das spezifisch für Matlab entwickelt wurde.
+Spätestens wenn das Programm von einer größeren Zielgruppe benutzt werden soll, reicht eine reine Kommentierung nicht aus. Hier muss eine html- oder pdf-Dokumentation herhalten. Die Wichtigkeit von guter Dokumentation für die Verbreitung von Software ist kann nicht genung betont werden! Es gibt inzwischen einige Hilfsprogramme, die aus strukturierter Code-Kommentierung automatisiert eine solche Dokumentation erzeugen kann, Doxygen und Sphinx sind Beispiele. [Hier](https://www.artefact.tk/software/matlab/m2html/) finden Sie ein Tool das spezifisch für Matlab entwickelt wurde.
 
 Die Sprache der Kommentierung sollte sich natürlich an die Zielgruppe richten. Da sich die Zielgruppe häufig während der Lebenszeit eines Programmes ändert, bietet es sich an von Anfang an eine Sprache zu nehmen, die von sehr vielen Menschen verstanden wird. Wie oft habe ich schon eine Bibliothek nicht benutzt, nur weil die Dokumentation auf Französisch ist.
 
@@ -467,10 +468,20 @@ Die Wahl der Toleranz `tol` sollte für jeden Anwendungsfall auf den erwartbaren
 
 Unter Versionskontrolle versteht man das Erfassen von Änderungen an Dokumenten und Dateien. Hierfür stehen viele verschiedene Werkzeuge zur Verfügung, wie z.B. git, svn oder mercurial. 
 
-Kleine Änderungen am Code werden in einem *commit* zusammen gefasst, der eine entsprechende Beschreibung erhält, wie z.B. *"Added unit test for coordinate transform"*. So können alle Änderungen am Code dokumentiert werden und man kann den Code zu jedem denkbaren Entwicklungspunkt zurückspulen.  Das könnte unter Umständen dazu genutzt werden, um Fehler zu beheben, die erst spät auffallen. Wichtige Meilensteine können mit zusätzlichen *tags* versehen werden. Diese können zum Beispiel Major-Releases wie *"version 1.0"* sein. Dies erhöht zudem die Reproduzierbarkeit, da die Version des Codes, mit der ein bestimmtes Ergebnis erzielt wurde mit einem tag, mindestens mit einem commit referenziert werden kann, auch wenn sich später Änderungen ergeben haben sollten. 
+Kleine Änderungen am Code werden in einem *commit* zusammen gefasst, der eine entsprechende Beschreibung erhält, wie z.B.
+
+
+```bash
+git add test_spherical2Cartesian.m
+git commit -m "added unit test for coordinate transform" 
+```
+
+So können alle Änderungen am Code dokumentiert werden und man kann den Code zu jedem denkbaren Entwicklungspunkt zurückspulen.  Das könnte unter Umständen dazu genutzt werden, um Fehler zu beheben, die erst spät auffallen. Wichtige Meilensteine können mit zusätzlichen *tags* versehen werden. Diese können zum Beispiel Major-Releases wie *"version 1.0"* sein. Dies erhöht zudem die Reproduzierbarkeit, da die Version des Codes, mit der ein bestimmtes Ergebnis erzielt wurde mit einem tag, mindestens mit einem commit referenziert werden kann, auch wenn sich später Änderungen ergeben haben sollten. 
 
 In Verbindung mit Cloudservices wie [gitlab.com](gitlab.com) oder [github.com](github.com) kann die Versionskontrolle auch zur Datensicherung verwendet werden.
 
-Die Versionskontrolle hat sich aus einer Notwendigkeit in der Softwareentwicklung heraus entwickelt. Sie kann aber für jegliche Art von Daten genutzt werden. Insbesondere für Studienarbeiten oder Abschlussarbeiten ist sie sehr zu empfehlen. Ich halte zum Beispiel alle Unterlagen zu dieses Kurses - inklusive dieses Online-Lehrbuchs - unter Versionskontrolle.
+Die Versionskontrolle hat sich aus einer Notwendigkeit in der Softwareentwicklung heraus entwickelt, da nur so gewährleistet werden kann, dass bei Arbeiten in großen Teams ein Mitarbeiter nicht die Änderungen eines anderen Entwicklers überschreibt und alle Codeänderungen für alle Entwickler transparent bleiben. 
+
+Die Versionskontrolle kann aber für jegliche Art von Daten genutzt werden. Insbesondere für Studienarbeiten oder Abschlussarbeiten ist sie sehr zu empfehlen. Ich halte zum Beispiel alle Unterlagen dieses Kurses - inklusive dieses Online-Lehrbuchs - unter Versionskontrolle.
 
 Ich kann Git wärmstens empfehlen und nur auf [eines der vielen sehr gut geschriebenen Online Tutorials](http://lmgtfy.com/?q=git+f%C3%BCr+Anf%C3%A4nger) verweisen.

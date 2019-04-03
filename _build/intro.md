@@ -1,7 +1,6 @@
 ---
 interact_link: content/intro.ipynb
 kernel_name: octave
-has_widgets: false
 title: 'Home'
 prev_page:
   url: 
@@ -37,6 +36,8 @@ surf(X, Y, Z);
 </div>
 </div>
 </div>
+
+***Hinweis***: Microsoft Edge und Microsoft Internet Explorer werden nicht unterstützt!
 
 ## Acknowledgements
 

@@ -3,7 +3,6 @@ redirect_from:
   - "/00-einleitung/matlab-02-scripts-and-functions"
 interact_link: content/00_einleitung/matlab_02_scripts_and_functions.ipynb
 kernel_name: octave
-has_widgets: false
 title: 'Skripte und Funktionen'
 prev_page:
   url: /00_einleitung/matlab_01_command_window
@@ -182,6 +181,7 @@ x =
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```matlab
+clear f
 for i=1:2:5
     f(i)=2^i;
 end

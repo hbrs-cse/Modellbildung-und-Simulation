@@ -3,7 +3,6 @@ redirect_from:
   - "/00-einleitung/matlab-01-command-window"
 interact_link: content/00_einleitung/matlab_01_command_window.ipynb
 kernel_name: octave
-has_widgets: false
 title: 'Matlab Command Window'
 prev_page:
   url: /00_einleitung/matlab_00_first_steps
@@ -75,7 +74,7 @@ oder einfache Rechenoperationen ausführen:
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```matlab
-b/a + i*sin(pi/8)
+b/a + 1i*sin(pi/8)
 ```
 </div>
 
@@ -94,7 +93,7 @@ Das Ergebnis der Rechnung wird unter dem Variablennamen ```ans``` im Workspace h
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```matlab
-c = b/a + i*sin(pi/8)
+c = b/a + 1i*sin(pi/8)
 ```
 </div>
 
@@ -122,7 +121,7 @@ d = exp(b/a - i*sin(pi/8));
 Einige wichtige Punkte konnten wir bisher beobachten:
 
 * Variablenzuweisungen passieren von links nach rechts: Was rechts vom Gleichheitszeichen steht, wird der Variablen die links vom Gleichheitszeichen steht zugeordnet. Wenn es diese Variable nicht gibt, wird sie im Workspace hinterlegt.
-* Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion ```exp``` oder das Rechnen mit komplexen Zahlen.
+* Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion ```exp``` oder das Rechnen mit komplexen Zahlen. Dabei können sowohl `1i`, `1j` als auch `i` und `j` als Symbole für die komplexe Einheit verwendet werden. Die letzten beiden Varianten sind aber potentiell gefährlich, da es auch valide Variablennamen sind und es so zu Verwechslungen kommen kann.
 * Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendent werden.
 * In Matlab werden die skalaren Datentypen (```integer```, ```double```, ```float```, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variablen ```a``` ganzzahlig ist, geht Matlab standardmäßig von ```double``` aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion ```class()``` ausgeben lassen:
 

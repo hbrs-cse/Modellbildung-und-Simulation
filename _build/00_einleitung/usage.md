@@ -3,7 +3,6 @@ redirect_from:
   - "/00-einleitung/usage"
 interact_link: content/00_einleitung/usage.ipynb
 kernel_name: octave
-has_widgets: false
 title: 'Verwendung des Buches'
 prev_page:
   url: /00_einleitung/intro
@@ -35,6 +34,8 @@ Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszufü
 Alternativ kann Thebelab über das Bleistift-Symbol in jedem Code-Block gestartet werden.
 
 <img src="../images/usage_thebe2.png" alt="Interacte Mode Code-Cell" style="width: 1000px;"/>
+
+Denken Sie daran, dass die Code-Zellen unter Umständen von einander abhängig sein könnten. Wenn zum Beispiel in einer Code-Zelle auf eine Variable `x` zugegriffen wird, muss diese auch im Workspace zur Verfügung stehen. Ist dies nicht der Fall, haben Sie wahrscheinlich die Code-Zelle weiter oben, in der `x` initialisiert wird, nicht ausgeführt.
 
 ## Interact
 
@@ -99,13 +100,13 @@ Hello World, how is your day?
 
 ## Unit Testing
 
-[*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihrer Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt. 
+[*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihrer Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt.
 
-Auch Matlab und Octave bieten Möglichkeiten für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit) verwendet. MoXUnit ist ein freies open source unit testing framework, das sowohl mit Matlab als auch Octave funktioniert.
-
-Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Auf dieser Seite werden für diese Übungsaufgaben bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.
+Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Auf dieser Seite werden für diese Übungsaufgaben bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.
 
 ### Unit Tests auf dieser Seite ausführen
+
+Sowohl Matlab als auch Octave bieten Werkzeuge für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit) verwendet. MoXUnit ist ein freies open source unit testing framework, das sowohl mit Matlab als auch Octave funktioniert.
 
 Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion `fac` zu schreiben, die die Fakultät $n!$ einer Zahl $n$ berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion `factorial`, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:
 
@@ -191,11 +192,31 @@ moxunit_runtests test_fac.m
 {:.output_stream}
 ```
 suite: 6 tests
-......
+...FFF
 --------------------------------------------------
 
-OK (passed=6)
-ans = 1
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac>test_fac_exception_negative:31 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac>test_fac_exception_noninteger:35 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: inputs are not of the same size
+
+First input: 1x1 double
+1
+
+Second input: 2x3 double
+[1 1 2;6 24 120]
+  assertEqual:70 (/home/jan/tools/MOxUnit/MOxUnit/assertEqual.m)
+  test_fac>test_fac_array:39 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+--------------------------------------------------
+
+FAILED (passed=3, failure=3)
+ans = 0
 ```
 </div>
 </div>
@@ -272,6 +293,8 @@ function test_fac_array
 Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird.
 
 ### Unit Tests offline ausführen.
+
+Wenn Sie möchten, können Sie die Unit tests auf offline ausführen. Dazu müssen Sie die jeweilige *Test Suite*, in diesem Fall `test_fac.m`, herunterladen und das MOxUnit framework lokal installiert haben.
 
 * Installieren Sie [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit).
 * Laden Sie sich den entsprechenden Unit Test von dieser Seite herunter. Wenn die Funktion die getestet werden soll `myFunction` heißt, ist der Unit Test in der Datei `test_myFunction.m` gespeichert. Sie können sich mit dem Befehl `type test_myFunction.m` den Inhalt der Datei wiedergeben lassen, oder mit dem "Interact"-Button eine interaktive Session starten und die Datei per Mausklick herunterladen.
