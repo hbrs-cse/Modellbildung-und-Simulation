@@ -2,35 +2,52 @@
 
 ### Initial Setup
 
- * Fork this repository on Github, if you haven't already done so. 
- * Clone your personal copy to your local machine
+Clone this repository to your local machine.
+
  ```bash
- git clone https://github.com/USERNAME/Modellbildung-und-Simulation
+ git clone https://github.com/joergbrech/Modellbildung-und-Simulation
  cd Modellbildung-und-Simulation
  ```
- * Add this repository as upstream
- ```bash
- git remote set-url upstream https://github.com/joergbrech/Modellbildung-und-Simulation
- ```
-
+ 
 ### Adding new Content
  
- * fetch the latest changes from this upstream repository
+ * Switch to the master branch and fetch the latest changes from this repository
  ```bash
  git checkout master
- git fetch upstream
- git merge upstream/master
+ git pull
  ```
  * Create a new branch and switch to it
  ```bash
- git checkout -b my-awesome-new-chapter
+ git checkout -b my-awesome-new-page
  ```
- * Add content, see below.
- * On Github, create a new Pull Request from your branch
+ * Add content, see below. Remember to build the book after adding/editing markdown files and jupyter notebooks in the `content` subdirectory
+ ```bash
+ make book
+ ```
+ * Stage and commit your changes:
+ ```bash
+ git add .
+ git commit -m "added another really awesome page"
+ ```
+ * Push your changes to this repository to publish the changes. If your newly created branch `my-awesome-new-page` only exists locally, you need to associate a new upstream branch to your local copy.
+ ```bash
+ git push -u origin HEAD
+ ```
+ This only needs to be done once per branch. Afterwards,
+ ```bash
+ git push
+ ```
+ suffices.
+ * Once you are fully satisfied with the changes, go to Github and create a Pull-Request from your branch.
 
 ## How to create content
 
-* Download and install [jupyter-book](https://github.com/jupyter/jupyter-book).
+* Download and install [jupyter-book](https://github.com/jupyter/jupyter-book), if you haven't done so already.
+```bash
+git clone https://github.com/jupyter/jupyter-book
+cd jupyter-book
+python setup.py install
+```
 * Navigate into the `content` subdirectory of the repository and create some markdown files and jupyter notebooks.
 * Edit `_data/toc.yml` to include the newly created content files in the table of contents.
 
@@ -38,10 +55,9 @@ Most likely, these are the only places where changes need to be made. For more s
 
 * Call
 ```bash
-make clean
 make book
 ```
-from the root directory of the repository. With ```make serve``` the results can be checked locally. Once you are content with the changes, commit all of your changed files. _Don't forget to include the newly generated files from the `_build` directory!_
+from the root directory of the repository. With ```make serve``` the results can be checked locally (*setting this up can be a bit tedious*). Once you are content with the changes, commit all of your changed files. _Don't forget to include the newly generated files from the `_build` directory!_
 
 ## Jupyter Book
 
