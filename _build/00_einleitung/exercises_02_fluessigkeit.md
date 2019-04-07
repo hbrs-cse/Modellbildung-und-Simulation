@@ -41,7 +41,7 @@ function ground = groundwater_sim(depth, width, probability)
 % Inputs:
 %   - depth:       The depth of the regulear 2D grid
 %   - width:       The width of the regular 2D grid
-%   - probability: The diffusion probability into lower cells
+%   - probability: The seeping probability into lower cells
 %
 % Outputs:
 %   - ground:      2D-grid represnting the groundwater distribution
@@ -69,7 +69,7 @@ Parametrieren Sie den Bodenparameter $p$ so, dass über 1000 Simulationen gemitt
 
 ## Aufgabe 2 - Unregelmäßigkeiten im Boden
 
-Reale Böden sind in der Regel sehr unregelmäßig strukturiert, so dass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von `absorbing_material` aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann. Modifizieren ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.
+Reale Böden sind in der Regel sehr unregelmäßig strukturiert, so dass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von `absorbing_material` aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. es hindert die Flüssigkeit am weiteren Versickern im Boden. Modifizieren ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -87,7 +87,7 @@ function ground = groundwater_sim(depth, width, probability, absorbing_material)
 % Inputs:
 %   - depth:       The depth of the regulear 2D grid
 %   - width:       The width of the regular 2D grid
-%   - probability: The diffusion probability into lower cells
+%   - probability: The seeping probability into lower cells
 %   - absorbing_material: Ratio of absorbing material in the ground
 %                         values between 0 and 1
 %
@@ -134,7 +134,7 @@ function ground = groundwater_sim(depth, width, params)
 %   - depth:       The depth of the regulear 2D grid
 %   - width:       The width of the regular 2D grid
 %
-%   - params.probability:        The diffusion probability into 
+%   - params.probability:        The seeping probability into 
 %                                lower cells
 %   - params.absorbing_material: Ratio of absorbing material in 
 %                                the ground values between 0 and 1
