@@ -66,6 +66,17 @@ Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitun
  - Für die Visualisierung können Sie zum Beispiel die Funktion `spy` oder `imagesc` verwenden.
  - Die Ränder der Bodenmatrix sind gesondert zu behandeln.
 
+Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse ihrer Funktion zu überprüfuen:
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```matlab
+moxunit_runtests test_groundwater_sim.m
+```
+</div>
+
+</div>
+
 Parametrieren Sie den Bodenparameter $p$ so, dass über 1000 Simulationen gemittelt circa drei Zellen am unteren Ende befeuchtet sind. Berechnen Sie dann Mittelwert und Standardabweichung. Verwenden Sie hierfür konkret $d=80$ und $w=250$. Schreiben Sie dazu ein Matlab-Skript, dass die Funktion `groundwater_sim` verwendet.
 
 ## Aufgabe 2 - Unregelmäßigkeiten im Boden
@@ -108,19 +119,19 @@ end
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m'.
 ```
 </div>
 </div>
 </div>
 
-Geben Sie $p$ aus Aufgabe 1 vor und variieren Sie `absorbing_material` ausgehend von 10%. Wie groß muss der Anteil *mindestens* sein, damit über 1000 Simulationen gemittelt weniger als eine Zelle am unteren Ende des Bodensegments von Flüssigkeit erreicht wird ($d=80$ und $w=250$)?
+Geben Sie $p$ aus Aufgabe 1 vor und variieren Sie `ratio_absorb` ausgehend von 10%. Wie groß muss der Anteil *mindestens* sein, damit über 1000 Simulationen gemittelt weniger als eine Zelle am unteren Ende des Bodensegments von Flüssigkeit erreicht wird ($d=80$ und $w=250$)?
 
 **Tipp**: Die Matlab-Funktion `randperm` könnte nützlich sein.
 
 ## Aufgabe 3 - Einfluss der Tiefe
 
-In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter `depth_influence` ein, um die Stärke dieses Effektes zu regulieren. Vergessen Sie nicht in Ihrer Dokumentation anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!
+In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter `depth_influence` ein, um die Stärke dieses Effektes zu regulieren. **Wichtig:** *Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!*
 
 Um die Eingabeparameter ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem *Structure array* mit Namen `params`.
 
@@ -146,7 +157,7 @@ function [ground, absorb_mat] = groundwater_sim(depth, width, params)
 %   - params.ratio_absorb:       Ratio of absorbing material in 
 %                                the ground values between 0 and 1
 %   - params.depth_influence:    influence of the depth on the
-%                                seeping probability (POSSIBLY FURTHER EXPLANATION NEEDED!)
+%                                seeping probability (FURTHER EXPLANATION NEEDED!)
 %
 % Outputs:
 %   - ground:      2D-grid representing the groundwater distribution
@@ -162,7 +173,7 @@ end
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m'.
 ```
 </div>
 </div>
