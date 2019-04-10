@@ -1,8 +1,8 @@
 # <img src="content/images/logo/favicon.ico" width=40 /> Modellbildung und Simulation
 
-| | |
+| **Visit the site:** | https://tinyurl/hbrs-modsim |
 |--|--|
-| **License** | [![License: CC BY-SA 4.0](https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg)](https://creativecommons.org/licenses/by-sa/4.0/) |
+| **License:** | [![License: CC BY-SA 4.0](https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg)](https://creativecommons.org/licenses/by-sa/4.0/) |
 | **Cite this book:** | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg)](https://doi.org/10.5281/zenodo.2560551) |
 | **Interactive notebooks:** | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content) |
 | **Build Status:** | [![CircleCI](https://circleci.com/gh/joergbrech/Modellbildung-und-Simulation.svg?style=svg)](https://circleci.com/gh/joergbrech/Modellbildung-und-Simulation) |
