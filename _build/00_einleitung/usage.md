@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/usage"
 interact_link: content/00_einleitung/usage.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Verwendung des Buches'
 prev_page:
   url: /00_einleitung/intro

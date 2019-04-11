@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/matlab-03-best-practice"
 interact_link: content/00_einleitung/matlab_03_best_practice.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Best Practices'
 prev_page:
   url: /00_einleitung/matlab_02_scripts_and_functions

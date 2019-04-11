@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/matlab-02-scripts-and-functions"
 interact_link: content/00_einleitung/matlab_02_scripts_and_functions.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Skripte und Funktionen'
 prev_page:
   url: /00_einleitung/matlab_01_command_window

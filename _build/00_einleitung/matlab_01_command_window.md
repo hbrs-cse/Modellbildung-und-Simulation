@@ -3,6 +3,7 @@ redirect_from:
   - "/00-einleitung/matlab-01-command-window"
 interact_link: content/00_einleitung/matlab_01_command_window.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Matlab Command Window'
 prev_page:
   url: /00_einleitung/matlab_00_first_steps

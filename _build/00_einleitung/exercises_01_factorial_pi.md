@@ -3,12 +3,13 @@ redirect_from:
   - "/00-einleitung/exercises-01-factorial-pi"
 interact_link: content/00_einleitung/exercises_01_factorial_pi.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Matlab/Octave'
 prev_page:
   url: /00_einleitung/exercises_00_intro
   title: 'Übungsaugaben'
 next_page:
-  url: /emptypage
+  url: /00_einleitung/exercises_02_fluessigkeit
   title: 'Flüssigkeit im Boden'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
