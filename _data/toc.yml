@@ -59,8 +59,11 @@
   - title: Der Doppler Effekt
     url: /01_schwingungen/exercises_01_doppler
 - title: Lineare Gleichungssysteme
-  url: /emptypage
+  url: /02_lineare_gleichungen/intro
   expand_sections: false
+  sections:
+  - title: Modellierung einer Highline
+    url: /02_lineare_gleichungen/exercises_00_highline
 - title: Gleitkommaarithmetik
   url: /emptypage
   expand_sections: false
