@@ -32,7 +32,7 @@ surf(X, Y, Z);
 <div class="output_subarea" markdown="1">
 
 {:.output_png}
-![png](intro_1_0.png)
+![png](images/intro_1_0.png)
 
 </div>
 </div>
