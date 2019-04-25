@@ -14,7 +14,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 # Modellbildung und Simulation
 
-Ein interaktives Übungsbuch zur Vorlesung __Modellbildung und Simulation__ an der [Hochschule Bonn-Rhein-Sieg](https://www.h-brs.de).
+Dies ist ein interaktives Übungsbuch zur Vorlesung __Modellbildung und Simulation__ an der [Hochschule Bonn-Rhein-Sieg](https://www.h-brs.de). Es dient zur Übermittlung von Matlab bzw. Octave-Kenntnissen für die Modellierung und Simulation ingenieurstechnischer Probleme.
+
+Es ist ein gemeinsames Projekt von [Dirk Reith](https://www.h-brs.de/de/emt/dirk-reith), [Gerd Steinebach](https://www.h-brs.de/de/emt/prof-dr-gerd-steinebach) und [Jan Kleinert](https://www.h-brs.de/de/emt/prof-dr-jan-kleinert), das sich gerade im Aufbau befindet. Wir freuen uns über jegliche Art von Feedback!
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -37,6 +39,8 @@ surf(X, Y, Z);
 </div>
 </div>
 </div>
+
+Im Gegensatz zu Matlab-Liveskripten wird hier auf die kostenfreie Matlab-Alternative [Octave](https://www.gnu.org/software/octave/) zusammen mit dem [Project Jupyter](https://jupyter.org/) gebaut, um mit frei verfügbaren Software-Tools frei verfügbare Lerninhalte bereitzustellen.
 
 ***Hinweis***: Microsoft Edge und Microsoft Internet Explorer werden nicht unterstützt!
 
