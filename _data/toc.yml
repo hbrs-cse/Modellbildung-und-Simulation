@@ -53,8 +53,11 @@
 - divider: true
 
 - title: Schwingungen
-  url: /emptypage
+  url: /01_schwingungen/intro
   expand_sections: false
+  sections:
+  - title: Der Doppler Effekt
+    url: /01_schwingungen/exercises_01_doppler
 - title: Lineare Gleichungssysteme
   url: /emptypage
   expand_sections: false
