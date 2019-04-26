@@ -7,7 +7,7 @@ prev_page:
   title: 'Der Doppler Effekt'
 next_page:
   url: /02_lineare_gleichungen/exercises_00_highline
-  title: 'Highline'
+  title: 'Modellierung einer Highline'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Schwingungen
