@@ -64,13 +64,13 @@ $M$ ist die *Massematrix*, $K = k \cdot S$ die *Steifigkeitsmatrix* und $D=d \cd
 
 $$M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}$$
 
-an, nur dass die Koeffizienten $M, D$ und $K$ nun matrixwertig sind und die unbekannte Verschiebungsfunktion $\mathbf{z}(t)$ vektorwertig mit $2N$ Einträgen ist: Ein Eintrag pro Raumrichtung und Massepunkt der Highline.
+an, nur dass die Koeffizienten $M, D$ und $K$ nun matrixwertig sind und die unbekannte Verschiebungsfunktion $\mathbf{z}(t)$ vektorwertig mit $2N$ Einträgen ist: Ein Eintrag pro Raumrichtung und beweglichen Massepunkt der Highline.
 
 ### Ein stationärer Lastfall
 
 Es soll zunächst der stationäre Lastfall untersucht werden, bei dem nur die Schwerkraft auf die Highline wirkt, d.h. Sie gehen von einer konstanten Kraft
 $\mathbf{F}_{i,\text{ext}}=\begin{bmatrix} 0 \\ -m g \end{bmatrix}$
-mit $g=9.81\;\textrm{m}/\textrm{s}^2$ sowie $\ddot{\mathbf{z}}=\dot{\mathbf{z}}=0$ aus. Die Differentialgleichung vereinfacht sich zu einem linearen Gleichungssystem
+mit $g=9.81\;\textrm{m}/\textrm{s}^2$ sowie $\ddot{\mathbf{z}}=\dot{\mathbf{z}}=0$ aus. Dies entspricht dem Zustand, der sich nach langer Zeit aufgrund der Dämpfung einstellt. Die Differentialgleichung vereinfacht sich in diesem Fall zu einem linearen Gleichungssystem
 
 $$K \mathbf{z} = \mathbf{F}_{\text{ext}}.$$
 
@@ -100,7 +100,7 @@ $$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\
 
 ## Aufgabe 1 - Durchhang der Highline ohne Zusatzgewicht
 
-Lösen Sie das Gleichungssystem $$S \tilde{\mathbf{z}} = \mathbf{b} $$ mit $S \in \mathbb{R}^{2N \times 2n}$ und $\mathbf{b} \in \mathbb{R}^{2N}$ für verschiedene Werte für $N$ mit Hilfe des backslash-Operators `S\b` und berechnen Sie anschließend die Verschiebung der Massepunkte $\mathbf{z}$.
+Lösen Sie das Gleichungssystem $$S \tilde{\mathbf{z}} = \mathbf{b} $$ mit $S \in \mathbb{R}^{2N \times 2N}$ und $\mathbf{b} \in \mathbb{R}^{2N}$ für verschiedene Werte für $N$ mit Hilfe des backslash-Operators `S\b` und berechnen Sie anschließend die Verschiebung der Massepunkte $\mathbf{z}$.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -109,6 +109,8 @@ Lösen Sie das Gleichungssystem $$S \tilde{\mathbf{z}} = \mathbf{b} $$ mit $S \i
 
 % S = ...
 % b = ...
+
+
 % z = ...
 
 % plot the displacement of the slackline based on the solution vector z as well as the length of the slackline L
@@ -124,7 +126,7 @@ plot_highline(z, L)
 
 ## Aufgabe 2 - Dünnbesetzte Matrizen
 
-Die Matrix $S$ enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Auflösungen erhöht. Mit der folgenden Anweisung können Sie die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt, in dem nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert werden.
+Die Matrix $S$ enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit der folgenden Anweisung können Sie die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt, in dem nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert werden.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -164,7 +166,7 @@ Für viele Algorithmen, wie etwa dem LU-Verfahren, sind in Matlab spezielle Impl
 
  - Erstellen Sie ein Balkendiagramm, dass die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und $N = 10, 100, 1000$ darstellt (Insgesamt also sechs Rechnungen).
 
-**Tipp:** Verwenden Sie die Matlabbefehle `tic` und `toc` für die Zeitmessung.
+**Tipp:** Verwenden Sie die Matlabbefehle `tic` und `toc` für die Zeitmessung. Und machen Sie sich mit dünnbesetzten Matrizen *(sparse matrix)* in Matlab vertraut.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -192,12 +194,13 @@ Iterative Verfahren testen (cgs, bicgstab, eventuell selbstimplementiertes GJ)? 
 
 ## Aufgabe 4 - Simulation des Slackliners
 
-In einer sogenannten *quasistatischen* Simulation wird ein zeitabhängiger Prozess so simuliert, dass in jedem Zeitschritt ein stationärer Zustand berechnet wird. So wird die Dynamik (z.B. Oszillation der Slackline) vernachlässigt, was die Berechnung deutlich vereinfacht.
+In einer sogenannten *quasistatischen* Simulation wird ein zeitabhängiger Prozess so simuliert, dass in jedem Zeitschritt ein stationärer Zustand berechnet wird. So wird die Dynamik (z.B. Oszillation der Slackline) vernachlässigt, was die Berechnung deutlich vereinfacht. Schließlich muss keine Differentialgleichung gelöst werden, es reicht eine Abfolge von linearen Gleichungssystemen zu lösen.
 
 Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversiert. Berechnen Sie dazu die statische Verschiebung der Slackline für unterschiedliche Positionen des Slackliners entlang der Highline. Gehen Sie von einem Gewicht von 70 kg aus.
 
   - Treffen Sie eine angemessene Wahl für
-    - die räumliche Auflösung $N$ der Slackline, sowie der zeitlichen Auflösung des Traversierens; 
+  
+    - die räumliche Auflösung $N$ der Slackline, sowie der "zeitlichen" Auflösung des Traversierens; 
     - das Lösungsverfahren für das lineare Gleichungssystem;
     - das Speicherformat der Matrix
     
