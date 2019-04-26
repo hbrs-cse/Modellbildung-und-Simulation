@@ -205,7 +205,9 @@ Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversier
     - das Speicherformat der Matrix
     
     und begründen Sie Ihre Antwort.
-  - Plotten sie den Durchhang der Slackline in vertikale Richtung am Ort des Slackliners über die jeweilige Position des Slackliners in horizontaler Richtung (Orts-"Zeit"-Diagramm der Füße des Slackliners).
+  - Plotten sie die Kurve, die von den Füßen des Slackliners durchlaufen wird (Rote Linie in der Animation).
+
+<img src="../images/slackline_animation.gif" alt="Slackline Animation" width="800"/>
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
