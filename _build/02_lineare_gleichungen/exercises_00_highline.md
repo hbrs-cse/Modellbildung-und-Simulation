@@ -37,11 +37,8 @@ $$
 \begin{align}
  m \ddot{\mathbf{z}}_0 &= 0 \notag \\
  m \ddot{\mathbf{z}}_1 &= -k \mathbf{z}_1 - d \dot{\mathbf{z}}_1 -k(\mathbf{z}_1-\mathbf{z}_2) - d(\dot{\mathbf{z}}_1-\dot{\mathbf{z}}_2) + \mathbf{F}_{1,\text{ext}} \notag \\
- &= -2k \mathbf{z}_1 + k \mathbf{z}_2 -2d\dot{\mathbf{z}}_1 + d \mathbf{z}_2 + \mathbf{F}_{1,\text{ext}} \notag  \\
- m \ddot{\mathbf{z}}_i &= k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}} \notag \\
- &= -2k \mathbf{z}_i + k \mathbf{z}_{i-1} + k\mathbf{z}_{i+1} -2d\dot{\mathbf{z}}_i + d \mathbf{z}_{i-1} + d \mathbf{z}_{i+1}+ \mathbf{F}_{i,\text{ext}}, \hskip4em \text{für } i=2,...,N-1 \notag \\
+ m \ddot{\mathbf{z}}_i &= k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}}, \hskip4em \text{für } i=2,...,N-1 \notag \\
  m \ddot{\mathbf{z}}_N &= -k \mathbf{z}_N - d \dot{\mathbf{z}}_N + k(\mathbf{z}_{N-1}-\mathbf{z}_N) + d(\dot{\mathbf{z}}_{N-1}-\dot{\mathbf{z}}_N) + \mathbf{F}_{N,\text{ext}} \notag \\
- &= -2k \mathbf{z}_n + k \mathbf{z}_{N-1} -2d\dot{\mathbf{z}}_n + d \mathbf{z}_{N-1} + \mathbf{F}_{N,\text{ext}} \notag  \\
  m \ddot{\mathbf{z}}_{N+1} &= 0 \notag
 \end{align}
 $$
@@ -69,7 +66,7 @@ an, nur dass die Koeffizienten $M, D$ und $K$ nun matrixwertig sind und die unbe
 ### Ein stationärer Lastfall
 
 Es soll zunächst der stationäre Lastfall untersucht werden, bei dem nur die Schwerkraft auf die Highline wirkt, d.h. Sie gehen von einer konstanten Kraft
-$\mathbf{F}_{i,\text{ext}}=\begin{bmatrix} 0 \\ -m g \end{bmatrix}$
+$$\mathbf{F}_{i,\text{ext}}=\begin{bmatrix} 0 \\ -m g \end{bmatrix}$$
 mit $g=9.81\;\textrm{m}/\textrm{s}^2$ sowie $\ddot{\mathbf{z}}=\dot{\mathbf{z}}=0$ aus. Dies entspricht dem Zustand, der sich nach langer Zeit aufgrund der Dämpfung einstellt. Die Differentialgleichung vereinfacht sich in diesem Fall zu einem linearen Gleichungssystem
 
 $$K \mathbf{z} = \mathbf{F}_{\text{ext}}.$$
@@ -94,7 +91,7 @@ Demnach lassen sich die Verschiebungen der Massepunkte im stationären Lastfall 
 
 $$S \tilde{\mathbf{z}} =\mathbf{b}$$
 
-gelöst wird. Die Verschiebungen $\mathbf{z}$ erhält man aus der Lösung $\tilde{\mathbf{z}}$ des Gleichunssystemes mittels
+gelöst wird. Die Verschiebungen $\mathbf{z}$ erhält man aus der *entdimensionalisierten* Lösung $\tilde{\mathbf{z}}$ des Gleichunssystemes mittels
 
 $$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\mathbf{z}}.$$
 
@@ -116,6 +113,9 @@ Lösen Sie das Gleichungssystem $$S \tilde{\mathbf{z}} = \mathbf{b} $$ mit $S \i
 % plot the displacement of the slackline based on the solution vector z as well as the length of the slackline L
 % (the function plot_highline is provided for you, you do not need to implement this)
 plot_highline(z, L)
+
+% uncomment the following line to have equal spacing along the x- and y-axis
+%axis equal
 ```
 </div>
 
@@ -123,6 +123,8 @@ plot_highline(z, L)
 
  - Wie stark hängt die Highline an der tiefsten Stelle durch?
  - Wie hoch muss die Auflösung $N$ ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie ihre Antwort mit konkreten Zahlen!
+ 
+**Tipp:** Verwenden Sie den Matlabbefehl `diag`.
 
 ## Aufgabe 2 - Dünnbesetzte Matrizen
 
@@ -164,9 +166,13 @@ S=sparse(row, column, value, 2*N, 2*N);
 
 Für viele Algorithmen, wie etwa dem LU-Verfahren, sind in Matlab spezielle Implementierungen für dünnbesetzte Matrizen hinterlegt. Wie wirkt sich das dünnbesetzte Speicherformat auf die Rechenzeit aus?
 
- - Erstellen Sie ein Balkendiagramm, dass die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und $N = 10, 100, 1000$ darstellt (Insgesamt also sechs Rechnungen).
+ - Erstellen Sie ein Balkendiagramm, dass die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und $N = 5, 50, 500, 5000$ darstellt (Insgesamt also acht Rechnungen).
 
-**Tipp:** Verwenden Sie die Matlabbefehle `tic` und `toc` für die Zeitmessung. Und machen Sie sich mit dünnbesetzten Matrizen *(sparse matrix)* in Matlab vertraut.
+**Tipps:** 
+ - Verwenden Sie die Matlabbefehle `tic` und `toc` für die Zeitmessung. 
+ - Machen Sie sich mit dünnbesetzten Matrizen *(sparse matrix)* in Matlab vertraut.
+ - Berücksichtigen Sie die Rechenzeit der Matrix-Assemblierung (Erstellen von $S$ und $b$).
+ - Unter Umständen müssen Sie die y-Achse logarithmisch skalieren!
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -196,6 +202,8 @@ Iterative Verfahren testen (cgs, bicgstab, eventuell selbstimplementiertes GJ)? 
 
 In einer sogenannten *quasistatischen* Simulation wird ein zeitabhängiger Prozess so simuliert, dass in jedem Zeitschritt ein stationärer Zustand berechnet wird. So wird die Dynamik (z.B. Oszillation der Slackline) vernachlässigt, was die Berechnung deutlich vereinfacht. Schließlich muss keine Differentialgleichung gelöst werden, es reicht eine Abfolge von linearen Gleichungssystemen zu lösen.
 
+<img src="../images/slackline_animation.gif" alt="Slackline Animation" width="800"/>
+
 Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversiert. Berechnen Sie dazu die statische Verschiebung der Slackline für unterschiedliche Positionen des Slackliners entlang der Highline. Gehen Sie von einem Gewicht von 70 kg aus.
 
   - Treffen Sie eine angemessene Wahl für
@@ -207,8 +215,6 @@ Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversier
     und begründen Sie Ihre Antwort.
   - Plotten sie die Kurve, die von den Füßen des Slackliners durchlaufen wird (Rote Linie in der Animation). Wie stark hängt die Slackline am tiefsten Punkt durch?
 
-<img src="../images/slackline_animation.gif" alt="Slackline Animation" width="800"/>
-
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```matlab
@@ -218,3 +224,5 @@ Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversier
 </div>
 
 </div>
+
+<iframe src="https://giphy.com/embed/Pg6L6vAslKnYY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/walking-canyon-slackline-Pg6L6vAslKnYY">via GIPHY</a></p>
