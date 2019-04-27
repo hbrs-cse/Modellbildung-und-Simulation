@@ -126,7 +126,7 @@ plot_highline(z, L)
 
 ## Aufgabe 2 - Dünnbesetzte Matrizen
 
-Die Matrix $S$ enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit der folgenden Anweisung können Sie die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt, in dem nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert werden.
+Die Matrix $S$ enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit dem folgenden Matlab-Code wird die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt. Es werden nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -200,12 +200,12 @@ Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversier
 
   - Treffen Sie eine angemessene Wahl für
   
-    - die räumliche Auflösung $N$ der Slackline, sowie der "zeitlichen" Auflösung des Traversierens; 
+    - die räumliche Diskretisierung $N$ der Slackline, sowie der Schrittweite des Slackliners; 
     - das Lösungsverfahren für das lineare Gleichungssystem;
     - das Speicherformat der Matrix
     
     und begründen Sie Ihre Antwort.
-  - Plotten sie die Kurve, die von den Füßen des Slackliners durchlaufen wird (Rote Linie in der Animation).
+  - Plotten sie die Kurve, die von den Füßen des Slackliners durchlaufen wird (Rote Linie in der Animation). Wie stark hängt die Slackline am tiefsten Punkt durch?
 
 <img src="../images/slackline_animation.gif" alt="Slackline Animation" width="800"/>
 
