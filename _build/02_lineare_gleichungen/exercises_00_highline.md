@@ -124,7 +124,7 @@ plot_highline(z, L)
  - Wie stark hängt die Highline an der tiefsten Stelle durch?
  - Wie hoch muss die Auflösung $N$ ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie ihre Antwort mit konkreten Zahlen!
  
-**Tipp:** Verwenden Sie den Matlabbefehl `diag`.
+**Tipp:** Verwenden Sie den Matlabbefehl `diag` um die Matrix zu erstellen.
 
 ## Aufgabe 2 - Dünnbesetzte Matrizen
 
@@ -186,7 +186,47 @@ Für viele Algorithmen, wie etwa dem LU-Verfahren, sind in Matlab spezielle Impl
 
 ## Aufgabe 3 - Iterative Gleichungssystemlöser
 
-Iterative Verfahren testen (cgs, bicgstab, eventuell selbstimplementiertes GJ)? Rechenzeit, Anzahl Iterationen, Vorkonditionierung, `S\b` vs. `K\F` (weil $K \mathbf{z} = \mathbf{F}_{\text{ext}}$ schlechtere Kondition hat als $\mathbf{S} \tilde{\mathbf{z}} = \mathbf{b}$).
+Ab einer bestimmten Größe des Gleichungssystems sind iterative Verfahren zum Lösen von linearen Gleichungssystem besser geeignet als direkte Lösungsverfahren wie das LU-Verfahren.
+
+Prominente Vertreter iterativer Verfahren für lineare Gleichungssysteme sind das konjugierte Gradientenverfahren *(Matlab: `cgs`)*, das Minres-Verfahren *(Matlab: `minres`)* sowie das BiCGstab-Verfahren *(Matlab: `bicgstab`)*.
+
+Die Konvergenzgeschwindigkeit der iterativen Verfahren lässt sich durch Vorkonditionierung, z.B. mittels unvollständiger LU-Zerlegung verbessern. Für das BiCGstab-Verfahren sieht der Befehl so aus:
+
+```òctave
+
+% construct preconditioner 
+option.thresh = 0.01;
+[L,U,P] = ilu(S,option);
+
+% calculate solution using preconditioned bicgstab
+zt = bicgstab(S,P*b,[],maxit,L,U);
+```
+
+Vergleichen Sie die benötigte Rechenzeit zur Lösung des linearen Gleichungssystems $$S\tilde{\mathbf{z}} = \mathbf{b}$$ von dem klassischen LU-Verfahren
+
+```matlab
+[L, U, P] = lu(S, b);
+y  = L\P*b;
+zt = U\y; 
+```
+
+mit den drei iterativen Verfahren, jeweils mit und ohne Vorkonditionierung und für unterschiedliche $N$. Verwenden Sie das Speicherformat für dünnbesetzte Matrizen. Erstellen Sie zwei Tabellen, in denen sie jeweils die benötigte Rechenzeit bzw. das Residuum `res = max(abs(b-S*zt))` eintragen:
+
+| Verfahren/N | 5 | 50 | 500 | ... |
+| -- | -- | -- | -- | -- |
+| LU | ... | ... | ... | ... |
+| cgs | ... | ... | ... | ... |
+| minres | ... | ... | ... | ... |
+| bicgstab | ... |... | ... | ... |
+| prec. cgs| ... |... | ... | ... |
+| prec. minres | ... | ... | ... | ... |
+| prec. bicgstab | ... |... | ... | ... |
+
+ - Ab welche Auflösung $N$ ist das schnellste der sechs iterativen Verfahren schneller als das klassische LU-Verfahren? 
+
+**Tipps:**
+ - Unter Umständen müssen Sie die maximal erlaubte Anzahl an Iterationen für die iterativen Verfahren anpassen.
+ - Denken Sie daran, die Konstruktion des Vorkonditionierers in der Rechenzeit zu berücksichtigen!
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
