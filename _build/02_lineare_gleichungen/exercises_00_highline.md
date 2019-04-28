@@ -190,9 +190,9 @@ Ab einer bestimmten Größe des Gleichungssystems sind iterative Verfahren zum L
 
 Prominente Vertreter iterativer Verfahren für lineare Gleichungssysteme sind das konjugierte Gradientenverfahren *(Matlab: `cgs`)*, das Minres-Verfahren *(Matlab: `minres`)* sowie das BiCGstab-Verfahren *(Matlab: `bicgstab`)*.
 
-Die Konvergenzgeschwindigkeit der iterativen Verfahren lässt sich durch Vorkonditionierung, z.B. mittels unvollständiger LU-Zerlegung verbessern. Für das BiCGstab-Verfahren sieht der Befehl so aus:
+Die Konvergenzgeschwindigkeit der iterativen Verfahren lässt sich durch Vorkonditionierung, z.B. mittels unvollständiger LU-Zerlegung, verbessern. Für das BiCGstab-Verfahren sieht der Befehl so aus:
 
-```òctave
+```matlab
 
 % construct preconditioner 
 option.thresh = 0.01;
