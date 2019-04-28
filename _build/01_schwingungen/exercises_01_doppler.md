@@ -3,12 +3,13 @@ redirect_from:
   - "/01-schwingungen/exercises-01-doppler"
 interact_link: content/01_schwingungen/exercises_01_doppler.ipynb
 kernel_name: octave
+has_widgets: false
 title: 'Der Doppler Effekt'
 prev_page:
   url: /01_schwingungen/intro
   title: 'Schwingungen'
 next_page:
-  url: /emptypage
+  url: /02_lineare_gleichungen/intro.md
   title: 'Lineare Gleichungssysteme'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -44,7 +45,7 @@ Für jede horizontale Linie im Spektrogramm erhalten wir einen Peak in der Fouri
 
 ## Ursache des Dopplereffektes
 
-Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. $340\:\textrm{m}/\textrm{s}$ im Raum aus. 
+Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus. 
 
 Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.
 
@@ -57,7 +58,7 @@ Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz al
 
 ## Zurück zur ursprünglichen Fragestellung
 
-Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt $f_A$. Das Signal breitet sich mit der Schallgeschwindigkeit von $c = 340\:\textrm{m}/\textrm{s}$ aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons ist dann
+Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt $f_A$. Das Signal breitet sich mit der Schallgeschwindigkeit von c = 340 m/s aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons ist dann
 
 $$ \lambda_A = \frac{c}{f_A}, $$
 
