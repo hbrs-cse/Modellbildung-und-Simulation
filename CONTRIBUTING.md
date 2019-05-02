@@ -14,7 +14,7 @@ Install Octave, Jupyter and the Octave-kernel for jupyter:
 
 ```bash
 sudo apt-get install octave
-conda install jupyter
+conda install jupyter jupyterlab
 conda install octave_kernel -c conda-forge
 ```
 
