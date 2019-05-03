@@ -1,10 +1,8 @@
 ## Initial Setup
 
-### Requirements
+I have tested this on Linux, though it should work on Windows and Mac as well. For Windows 10, working with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) works really well, so I suggest you install e.g. **Ubuntu 18.04** on your Windows machine.
 
-I have tested this on Linux, though it should work on Windows and Mac as well. For Windows 10, working with the *Windows Linux Subsystem* works really well, so I suggest you install e.g. **Ubuntu 18.04** on your Windows machine.
-
-I suggest installing miniconda3. It is a very good package manager that comes with Python and allows the creation of environments. This is not really necessary, but some of the commands below assume you have `conda` installed on your system.
+I suggest installing [miniconda3](https://docs.conda.io/en/latest/miniconda.html) via the provided bash script. It is a very good package manager that comes with Python and allows the creation of environments. This is *not really* necessary, but some of the commands below assume you have `conda` installed on your system.
 
 #### Install prerequisites
 
@@ -18,17 +16,10 @@ conda install jupyter jupyterlab
 conda install octave_kernel -c conda-forge
 ```
 
-Install ruby and its requirements:
+Install Ruby and its requirements:
 
 ```bash
 sudo apt-get install gcc g++ zlib1g-dev ruby-dev
-conda install jupyter
-conda install octave_kernel -c conda-forge
-```
-
-Finally, you need Ruby's package manager `bundler`. To install it run
-
-```bash
 sudo gem install bundler
 ```
 
@@ -45,14 +36,14 @@ python setup.py install
 cd ..
 ```
 
-### Clone this repository to your local machine
+#### Clone this repository to your local machine
 
  ```bash
  git clone https://github.com/joergbrech/Modellbildung-und-Simulation
  cd Modellbildung-und-Simulation
  ```
  
-#### Install some Ruby requirements needed to preview the website locally
+Install some Ruby requirements of this book that are needed to preview the website locally
 
 ```bash
 bundle install
@@ -64,7 +55,7 @@ bundler might ask you for your sudo password here.
 
 In this section, it is assumed that you are in the root directory of your clone of this repository, i.e. in `Modellbildung-und-Simulation`.
 
-### Adding new Content
+#### Create a feature branch
  
  * Switch to the master branch and fetch the latest changes from this repository
  ```bash
@@ -75,21 +66,29 @@ In this section, it is assumed that you are in the root directory of your clone 
  ```bash
  git checkout -b my-awesome-new-page
  ```
+ 
+#### Create or modify content
+
  * Navigate into the `content` subdirectory of the repository and create some markdown files and jupyter notebooks.
  ```bash
  cd content
- jupyterlab .
+ jupyter-lab .
  ```
- * Edit `_data/toc.yml` to include the newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the jupyter-book documentation.
+ Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser.
+ * Edit `_data/toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview).
  * Back in the root directory, run
  ```bash
  make book
  ```
+ to convert the Jupyter notebooks and markdown files and copy the results to the `_build` directory.
+ 
+#### Review your changes and push them upstream
+ 
  * With
  ```bash
  make serve
  ```
- the results can be checked locally. Simply copy the url from the command line output to your favorite browser.
+ the html-version can be checked locally. Simply copy the url from the command line output to your favorite browser.
  * Stage and commit your changes:
  ```bash
  git add .
