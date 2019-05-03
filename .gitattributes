@@ -1,0 +1,3 @@
+# marke all files in the _build directory as generated files. This should
+# change the appearance of the diff on github
+_build/ linguist-generated=true
