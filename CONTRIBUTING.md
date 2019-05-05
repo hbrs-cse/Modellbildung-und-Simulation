@@ -36,6 +36,18 @@ python setup.py install
 cd ..
 ```
 
+#### Install MOxUnit
+
+For some Matlab exercises, unit tests are provided. This page teaches Matlab but uses Octave under the hood. Because the unit testing frameworks of Matlab and Octave are not
+compatible to each other, we have to use a free unit testing framework that works with both Matlab and Octave, namely MOxUnit
+
+```bash
+git clone https://github.com/MOxUnit/MOxUnit
+cd MOxUnit
+make install
+cd ..
+```
+
 #### Clone this repository to your local machine
 
  ```bash
