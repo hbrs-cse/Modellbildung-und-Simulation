@@ -205,7 +205,7 @@ zt = bicgstab(S,P*b,[],maxit,L,U);
 Vergleichen Sie die benötigte Rechenzeit zur Lösung des linearen Gleichungssystems $$S\tilde{\mathbf{z}} = \mathbf{b}$$ von dem klassischen LU-Verfahren
 
 ```matlab
-[L, U, P] = lu(S, b);
+[L, U, P] = lu(S);
 y  = L\P*b;
 zt = U\y; 
 ```

@@ -9,7 +9,7 @@ prev_page:
   url: /01_schwingungen/intro
   title: 'Schwingungen'
 next_page:
-  url: /02_lineare_gleichungen/intro.md
+  url: /02_lineare_gleichungen/intro
   title: 'Lineare Gleichungssysteme'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
