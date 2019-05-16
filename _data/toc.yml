@@ -68,8 +68,11 @@
   url: /emptypage
   expand_sections: false
 - title: Nichtlineare Gleichungssysteme
-  url: /emptypage
+  url: /04_nichtlineare_gleichungen/intro
   expand_sections: false
+  sections:
+  - title: Bierschaumzerfall
+    url: /04_nichtlineare_gleichungen/exercises_00_bierschaum
 - title: Interpolation und Approximation
   url: /emptypage
   expand_sections: false
