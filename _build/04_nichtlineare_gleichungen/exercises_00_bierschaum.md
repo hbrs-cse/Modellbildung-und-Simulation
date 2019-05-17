@@ -149,9 +149,9 @@ $$
 \end{bmatrix}
 =
 \begin{bmatrix}
-\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_1}(p_1,...,p_n) \\
+-\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_1}(p_1,...,p_n) \\
 \vdots \\
-\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
+-\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
 \end{bmatrix}
 $$
 
@@ -170,8 +170,8 @@ $$
 \frac{\partial G}{\partial b} (a,b) 
 \end{bmatrix} = 
 \begin{bmatrix}
-\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i})\cdot  t_i \cdot b \cdot e^{a \cdot t_i} \\
-\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i}) \cdot e^{a \cdot t_i}
+-\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i})\cdot  t_i \cdot b \cdot e^{a \cdot t_i} \\
+-\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i}) \cdot e^{a \cdot t_i}
 \end{bmatrix}
 $$
 
@@ -184,6 +184,12 @@ Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung $F$ für beli
 ```matlab
 %%file F.m
 function e = F(p,t,V)
+% define the nonlinear system of equations that need to be solved within the least squares fit
+% of the beer froth experiment
+%
+% p = (a,b) is a vector of the model parameters
+%
+% t and V are vectors containing the experimental data
 
 % PUT YOUR CODE HERE
 ```
@@ -193,7 +199,7 @@ function e = F(p,t,V)
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/F.m'.
+Created file '/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/F.m'.
 ```
 </div>
 </div>
