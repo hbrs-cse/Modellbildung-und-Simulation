@@ -24,7 +24,7 @@ Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone
 
 To Do (Bilder Experiment, Messwerte, idealerweise in der VL durchgeführt, Scatterplot V über t der Messergebnisse). 
 
-| $t$ [s] | Oberer Messwert [l] | Unterer Messwert [l] | $V$ [l] |
+| $t$ [s] | Oberer Messwert [$l$] | Unterer Messwert [$l$] | $V$ [$l$] |
 | -- | -- | -- | -- |
 | 0 | 0.5 | 0.15 | 0.35 |
 | 12 | 0.45 | 0.2 | 0.25 |
@@ -76,6 +76,10 @@ $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...
 Das Minimierungsproblem lösen wir, indem wir die Bedingung aufstellen, dass alle Ableitungen von $G$ nach den Parametern null sein sollen und nach den Parametern auflösen. Die partiellen Ableitungen bestimmen wir mit der Kettenregel:
 
 $$
+\boldsymbol{0} = 
+\begin{bmatrix}
+0 \\ \vdots \\ 0
+\end{bmatrix} = F(\mathbf{p}) =
 \begin{bmatrix} 
 \frac{\partial G}{\partial p_1}(p_1,...,p_n)  \\
 \vdots \\
@@ -87,11 +91,6 @@ $$
 \vdots \\
 \frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
 \end{bmatrix}
-= 
-\begin{bmatrix}
-0 \\ \vdots \\ 0
-\end{bmatrix}
-= \boldsymbol{0}
 $$
 
 ### Anwendung auf den Bierschaum
@@ -246,7 +245,7 @@ moxunit_runtests test_newton
 
 </div>
 
- - Wenden Sie das Newton-Verfahren auf die Funkton `@(p) F(p,t,V)` an um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ ihrer Modellfunktion? 
+ - Wenden Sie das Newton-Verfahren auf die Funkton `func = @(p) F(p,t,V)` an um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ ihrer Modellfunktion? 
  - Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion `fzero`.
  - Erstellen Sie ein Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.
  - Wie lautet die Halbwertzeit des Bierschaumes?
@@ -273,7 +272,18 @@ J_{J_G}(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &= - J_G(\mathbf{p}^{(i)})^T
 \end{align}
 $$
 
-$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)})^T \in \mathbb{R}^n$. $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$ ist die sogenannte Hessematrix von $G$. Die Hessematrix ist die Ableitung der Jacobi-Matrix, sie beinhaltet also die zweiten Ableitung der Funktion $G$. 
+$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)})^T \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als *Hessematrix von $G$* an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitung der Funktion $G$:
+
+$$
+Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
+\begin{bmatrix}
+\frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_0}(\mathbf{p}) & \cdots & \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_0}(\mathbf{p}) \\
+\vdots & \ddots & \vdots \\
+\frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_n}(\mathbf{p}) & \cdots & \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_n}(\mathbf{p})
+\end{bmatrix}
+$$
+
+Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.
 
 ### Aufgabe 4: Algorithmus zur Minimierung einer Funktion
 
