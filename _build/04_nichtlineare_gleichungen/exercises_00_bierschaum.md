@@ -33,6 +33,29 @@ To Do (Bilder Experiment, Messwerte, idealerweise in der VL durchgeführt, Scatt
 
 Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist.
 
+<div markdown="1" class="cell code_cell">
+<div class="input_area hidecode" markdown="1">
+```matlab
+% measurements taken from Leike (https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf) for now 
+t = [0 15 30 45 60 75 90 105 120 150 180 210 240 300 360];
+V = [17 16.1 14.9 14 13.2 12.5 11.9 11.2 10.7 9.7 8.9 8.3 7.5 6.3 5.2]*0.001*pi*7.2^2/4;
+plot(t,V,'*')
+title('Measurement of beer froth volume over time')
+xlabel('time [s]')
+ylabel('volume [liters]')
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+
+{:.output_png}
+![png](../images/04_nichtlineare_gleichungen/exercises_00_bierschaum_2_0.png)
+
+</div>
+</div>
+</div>
+
 ### Modellbeschreibung
 
 Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können, und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung $\dot{V}$ des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt
@@ -51,7 +74,46 @@ stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichun
 
 $$ V(t) = b \cdot e^{a \cdot t}. $$
 
-Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. Wir können aber immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut. Wie können wir jetzt $a$ und $b$ so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.
+Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.005 \frac{1}{\text{s}}$ und $b=0.7$ $l$ ergibt sich folgender Verlauf.
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area hidecode" markdown="1">
+```matlab
+% measurements taken from Leike (https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf) for now 
+
+t = [0 15 30 45 60 75 90 105 120 150 180 210 240 300 360]; % time in seconds
+V = [17 16.1 14.9 14 13.2 12.5 11.9 11.2 10.7 9.7 8.9 8.3 7.5 6.3 5.2]*0.001*pi*7.2^2/4; % Volume [liters] = measured height in cm times 0.001*pi*(diameter of cylincrical glass in cm)^2
+
+hold on
+
+% plot measurement
+h1 = plot(t,V,'*','DisplayName', 'measurement');
+title('Measurement of beer froth volume over time')
+xlabel('time [s]')
+ylabel('volume [liters]')
+
+% plot model
+a = -0.005;
+b = 0.7;
+tfine = linspace(t(1),t(end),100);
+yfine = b*exp(a*tfine);
+plot(tfine, yfine,'DisplayName','model with guessed parameters a and b')
+
+legend toggle
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+
+{:.output_png}
+![png](../images/04_nichtlineare_gleichungen/exercises_00_bierschaum_4_0.png)
+
+</div>
+</div>
+</div>
+
+ Wir können aber immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut. Wie können wir jetzt $a$ und $b$ so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.
 
 ## Die Methode der kleinsten Quadrate
 
@@ -290,3 +352,8 @@ Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf e
 Schreiben Sie eine neue Funktion `minimize(func,x0,tol,maxit)` auf Grundlage ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion `func`$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie ihre Funktion `jacobian` um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.
 
  - Lösen Sie das ursprüngliche Minimierungsproblem mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion `fminsearch`.
+
+## Literatur
+
+ - Leike, A. (2002). Demonstration of the Exponential Decay Law Using Beer Froth; *European Journal of Physics, 23, 21-26.* [[Link]](https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf)
+ - Theißen, H. (2009). Mythos Bierschaumzerfall - Ein Analogon für den radioaktiven Zerfall?; *PhyDid A - Physik und Didaktik in Schule und Hochschule, 2(9), 49 - 57.* [[Link]](http://www.phydid.de/index.php/phydid/article/download/87/85)
