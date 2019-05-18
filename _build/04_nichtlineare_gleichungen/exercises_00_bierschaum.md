@@ -22,25 +22,40 @@ Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone
 
 ### Experimenteller Aufbau
 
-To Do (Bilder Experiment, Messwerte, idealerweise in der VL durchgeführt, Scatterplot V über t der Messergebnisse). 
+Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasserfesten Marker um ein Weizenglas mit Eichstrichen zu verwesen. Wir schütten ein Bier ein, so dass sehr viel Schaum entsteht und markieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.
 
 | $t$ [s] | Oberer Messwert [$l$] | Unterer Messwert [$l$] | $V$ [$l$] |
 | -- | -- | -- | -- |
-| 0 | 0.5 | 0.15 | 0.35 |
-| 12 | 0.45 | 0.2 | 0.25 |
-| 20 | 0.425 | 0.225 | 0.2 |
-| 30 | 0.35 | 0.25 | 0.1 |
+| 0  | 0.020 | 0.600 | 0.580 |
+| 12 | 0.050 | 0.600 | 0.550 |
+| 51 | 0.125 | 0.550 | 0.425  |
+| 96 | 0.150 | 0.500 | 0.350  |
+| 164 | 0.170 | 0.450 | 0.280  |
+| 220 | 0.180 | 0.400 | 0.220  |
+| 270 | 0.180 | 0.375 | 0.195  |
+| 345 | 0.185 | 0.325 | 0.140  |
+| 432 | 0.190 | 0.275 | 0.085  |
+| 490 | 0.190 | 0.250 | 0.060  |
+| 570 | 0.190 | 0.225 | 0.035  |
 
 Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
 ```matlab
-% measurements taken from Leike (https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf) for now 
-t = [0 15 30 45 60 75 90 105 120 150 180 210 240 300 360];
-V = [17 16.1 14.9 14 13.2 12.5 11.9 11.2 10.7 9.7 8.9 8.3 7.5 6.3 5.2]*0.001*pi*7.2^2/4;
-plot(t,V,'*')
-title('Measurement of beer froth volume over time')
+% measurement results
+
+t = [0 12 51 96 164 220 270 345 432 490 570];
+U = [0.02 0.05 0.125 0.15 0.17 0.18 0.18 0.185 0.19 0.19 0.19];
+O = [0.6 0.6 0.55 0.5 0.45 0.4 0.375 0.325 0.275 0.25 0.225];
+V = O-U;
+
+% approximate measurement errors:
+t_err = 2;
+V_err = 0.02;
+
+errorbar(t, V, t_err, V_err, '~>.')
+title('Measurement of beer foam volume over time')
 xlabel('time [s]')
 ylabel('volume [liters]')
 ```
@@ -74,32 +89,27 @@ stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichun
 
 $$ V(t) = b \cdot e^{a \cdot t}. $$
 
-Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.005 \frac{1}{\text{s}}$ und $b=0.7$ $l$ ergibt sich folgender Verlauf.
+Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.001 \frac{1}{\text{s}}$ und $b=0.58$ $l$ ergibt sich folgender Verlauf.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
 ```matlab
-% measurements taken from Leike (https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf) for now 
-
-t = [0 15 30 45 60 75 90 105 120 150 180 210 240 300 360]; % time in seconds
-V = [17 16.1 14.9 14 13.2 12.5 11.9 11.2 10.7 9.7 8.9 8.3 7.5 6.3 5.2]*0.001*pi*7.2^2/4; % Volume [liters] = measured height in cm times 0.001*pi*(diameter of cylincrical glass in cm)^2
-
 hold on
 
 % plot measurement
-h1 = plot(t,V,'*','DisplayName', 'measurement');
-title('Measurement of beer froth volume over time')
+h_meas = errorbar(t, V, t_err, V_err, '~>.');
+title('Measurement of beer foam volume over time')
 xlabel('time [s]')
 ylabel('volume [liters]')
 
 % plot model
-a = -0.005;
-b = 0.7;
+a = -0.001;
+b = 0.58;
 tfine = linspace(t(1),t(end),100);
 yfine = b*exp(a*tfine);
-plot(tfine, yfine,'DisplayName','model with guessed parameters a and b')
+h_model = plot(tfine, yfine);
 
-legend toggle
+legend([h_meas, h_model],{'measurement data', 'model with guessed parameters'})
 ```
 </div>
 
@@ -113,17 +123,19 @@ legend toggle
 </div>
 </div>
 
- Wir können aber immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut. Wie können wir jetzt $a$ und $b$ so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.
+ Wir können immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut. 
+ 
+Wie können wir $a$ und $b$ so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.
 
 ## Die Methode der kleinsten Quadrate
 
-Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können Sie noch unbekannte Parameter $p_1,...,p_n$ eines Modells $y = f(p_1,...,p_n,t)$ so anpassen, dass es vorher ermittelte experimentelle Daten $(t_1,y_1),...,(t_m, y_m)$ möglichst gut wiederspiegelt.
+Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können noch unbekannte Parameter $p_1,...,p_n$ eines Modells $y = f(p_1,...,p_n,t)$ so angepasst werden, dass es vorher ermittelte experimentelle Daten $(t_1,y_1),...,(t_m, y_m)$ möglichst gut wiederspiegelt.
 
 ### Die Grundidee
 
-Sie wollen die Parameter also so bestimmen, dass für alle Messpunkte $t_i$ die Differenz $y_i - f(p_1,...,p_n,t_i)$ betragsmäßig klein wird. Es handelt sich also um eine Minimierungsaufgabe!
+Wir formulieren ein Minimierungsproblem: Für alle Messpunkte $t_i$ soll die Differenz $y_i - f(p_1,...,p_n,t_i)$ betragsmäßig klein werden.
 
-Für die Formulierung stehen Ihnen verschiedene Ansätze zur Verfügung. Sie könnten einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:
+Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:
 
 $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)|  $$
 
@@ -131,7 +143,9 @@ Wenn die Funktion $G$ minimal werden soll, muss die Ableitung von $G$ nach allen
 
 $$ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. $$
 
-Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in $G$ verwendet wird ableiten. Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive sowie negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:
+Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in $G$ verwendet wird ableiten. 
+
+Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive sowie negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:
 
 $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$
 
@@ -187,7 +201,7 @@ function e = F(p,t,V)
 % define the nonlinear system of equations that need to be solved within the least squares fit
 % of the beer froth experiment
 %
-% p = (a,b) is a vector of the model parameters
+% p = [a,b]' is a vector of the model parameters
 %
 % t and V are vectors containing the experimental data
 
@@ -207,7 +221,7 @@ Created file '/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtline
 
 ## Das Newton-Verfahren
 
-Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert $\mathbf{p}^{(0)}$ muss in jeder Iteration muss ein lineares Gleichungssystem gelöst werden:
+Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert $\mathbf{p}^{(0)}$ muss in jeder Iteration ein lineares Gleichungssystem gelöst werden:
 
 $$
 \begin{align}
@@ -318,9 +332,19 @@ moxunit_runtests test_newton
  - Erstellen Sie ein Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.
  - Wie lautet die Halbwertzeit des Bierschaumes?
 
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```matlab
+% SPACE FOR SOLUTION
+
+```
+</div>
+
+</div>
+
 ## Optimierungsverfahren
 
-Die Methode der kleinsten Quadrate ist eigentlich ein Minimerungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion $G: \mathbb{R}^n \to \mathbb{R}$ bestimmen lässt, in dem das nichtlineare Gleichungssystem 
+Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion $G: \mathbb{R}^n \to \mathbb{R}$ bestimmen lässt, in dem das nichtlineare Gleichungssystem 
 
 $$
   \boldsymbol{0} = J_G(\mathbf{p})^T = 
@@ -358,8 +382,38 @@ Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf e
 Schreiben Sie eine neue Funktion `minimize(func,x0,tol,maxit)` auf Grundlage ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion `func`$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie ihre Funktion `jacobian` um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.
 
  - Lösen Sie das ursprüngliche Minimierungsproblem mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion `fminsearch`.
+ - Wo sind die Grenzen ihres Algorithmus? Gibt es mögliche Fehlerquelen, die Nutzer ihrer Funktion beachten sollten?
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```matlab
+%%file minimize.m
+
+%SPACE FOR SOLUTION
+```
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output_subarea" markdown="1">
+{:.output_stream}
+```
+Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/minimize.m'.
+```
+</div>
+</div>
+</div>
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```matlab
+% SPACE FOR SCRIPT SOLUTION
+
+```
+</div>
+
+</div>
 
 ## Literatur
 
- - Leike, A. (2002). Demonstration of the Exponential Decay Law Using Beer Froth; *European Journal of Physics, 23, 21-26.* [[Link]](https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf)
- - Theißen, H. (2009). Mythos Bierschaumzerfall - Ein Analogon für den radioaktiven Zerfall?; *PhyDid A - Physik und Didaktik in Schule und Hochschule, 2(9), 49 - 57.* [[Link]](http://www.phydid.de/index.php/phydid/article/download/87/85)
+ - Leike, A. (2002). [Demonstration of the Exponential Decay Law Using Beer Froth](https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf); *European Journal of Physics, 23, 21-26.*
+ - Theißen, H. (2009). [Mythos Bierschaumzerfall - Ein Analogon für den radioaktiven Zerfall?](http://www.phydid.de/index.php/phydid/article/download/87/85); *PhyDid A - Physik und Didaktik in Schule und Hochschule, 2(9), 49 - 57.*
