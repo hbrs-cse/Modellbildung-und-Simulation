@@ -38,7 +38,7 @@ Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasser
 | 490 | 0.190 | 0.250 | 0.060  |
 | 570 | 0.190 | 0.225 | 0.035  |
 
-Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von $#pm$
+Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $0.02$ Litern und ca. $2$ Sekunden ausgehen, ergibt sich folgendes Bild
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
