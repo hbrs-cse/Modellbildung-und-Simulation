@@ -22,7 +22,9 @@ Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone
 
 ### Experimenteller Aufbau
 
-Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasserfesten Marker um ein Weizenglas mit Eichstrichen zu verwesen. Wir schütten ein Bier ein, so dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.
+Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasserfesten Marker um ein Weizenglas mit Eichstrichen zu versehen *(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)*. 
+
+Wir schütten ein Bier in das geeichte Glas ein, so dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.
 
 | $t$ [s] | Oberer Messwert [$l$] | Unterer Messwert [$l$] | $V$ [$l$] |
 | -- | -- | -- | -- |
