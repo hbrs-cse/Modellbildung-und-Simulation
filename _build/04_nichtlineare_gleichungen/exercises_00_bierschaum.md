@@ -232,6 +232,8 @@ Created file '/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtline
 </div>
 </div>
 
+Damit haben Sie eine Funktion geschrieben, mit der Sie ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht soviel anfangen. In den folgenden beiden Aufgaben geht es nun darum die Nullstellen dieser Funktion zu finden um die beiden Parameter $a$ und $b$ bestimmen zukönnen.
+
 ## Das Newton-Verfahren
 
 Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert $\mathbf{p}^{(0)}$ muss in jeder Iteration ein lineares Gleichungssystem gelöst werden:
@@ -249,7 +251,7 @@ Um die Jacobi-Matrix $J_F(\mathbf{p}^{(i)})$ in jeder Iteration zu bestimmen, m�
 
 ### Aufgabe 2: Approximation der Jacobi-Matrix
 
-Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit finiten Differenzen approximiert:
+Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit finiten Differenzen approximiert. Dabei soll die Eingabe `F` ein *[function handle](https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html)* einer beliebigen Funktion sein, beispielsweise `@sin` oder `@(x) [x(1)^2; cos(x(2))]`.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -284,7 +286,7 @@ Mit dem folgenden unit test können Sie ihre Funktion testen:
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```matlab
-moxunit_runtests test_jacobian
+moxunit_runtests test_jacobian.m
 ```
 </div>
 
@@ -334,7 +336,7 @@ Mit dem folgenden unit test können Sie ihre Funktion testen:
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
 ```matlab
-moxunit_runtests test_newton
+moxunit_runtests test_newton.m
 ```
 </div>
 
