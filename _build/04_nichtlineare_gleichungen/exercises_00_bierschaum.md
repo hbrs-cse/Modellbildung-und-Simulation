@@ -24,37 +24,48 @@ Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone
 
 Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasserfesten Marker um ein Weizenglas mit Eichstrichen zu versehen *(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)*. 
 
+![](../images/20190521_bierschaum_01.jpg)
+
 Wir schütten ein Bier in das geeichte Glas ein, so dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.
 
-| $t$ [s] | Oberer Messwert [$l$] | Unterer Messwert [$l$] | $V$ [$l$] |
-| -- | -- | -- | -- |
-| 0  | 0.020 | 0.600 | 0.580 |
-| 12 | 0.050 | 0.600 | 0.550 |
-| 51 | 0.125 | 0.550 | 0.425  |
-| 96 | 0.150 | 0.500 | 0.350  |
-| 164 | 0.170 | 0.450 | 0.280  |
-| 220 | 0.180 | 0.400 | 0.220  |
-| 270 | 0.180 | 0.375 | 0.195  |
-| 345 | 0.185 | 0.325 | 0.140  |
-| 432 | 0.190 | 0.275 | 0.085  |
-| 490 | 0.190 | 0.250 | 0.060  |
-| 570 | 0.190 | 0.225 | 0.035  |
+![](../images/20190521_bierschaum_02.jpg)
+![](../images/20190521_bierschaum_03.jpg)
 
-Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $0.02$ Litern und ca. $2$ Sekunden ausgehen, ergibt sich folgendes Bild
+| $t$ [s] | Oberer Messwert [$l$] | Unterer Messwert [$l$] | $V$ [$l$] |
+| --  | --    | --    | --    |
+|  11 | 0.600 | 0.025 | 0.575 |
+|  18 | 0.590 | 0.045 | 0.545 |
+|  21 | 0.580 | 0.050 | 0.530 |
+|  27 | 0.570 | 0.075 | 0.495 |
+|  32 | 0.570 | 0.085 | 0.485 |
+|  37 | 0.570 | 0.100 | 0.470 |
+|  52 | 0.570 | 0.125 | 0.445 |
+|  96 | 0.555 | 0.150 | 0.400 |
+| 149 | 0.510 | 0.175 | 0.335 |
+| 195 | 0.480 | 0.180 | 0.300 |
+| 246 | 0.430 | 0.190 | 0.240 |
+| 301 | 0.400 | 0.195 | 0.205 |
+| 362 | 0.370 | 0.199 | 0.171 |
+| 430 | 0.350 | 0.200 | 0.150 |
+| 482 | 0.340 | 0.201 | 0.139 |
+| 541 | 0.300 | 0.205 | 0.095 |
+| 601 | 0.270 | 0.208 | 0.062 |
+
+Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $2 \cdot 0.02 = 0.04$ Litern und ca. $1$ Sekunden ausgehen, ergibt sich folgendes Bild
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
 ```matlab
-% measurement results
+% measurement results from lecture 2019-05-21
 
-t = [0 12 51 96 164 220 270 345 432 490 570];
-U = [0.02 0.05 0.125 0.15 0.17 0.18 0.18 0.185 0.19 0.19 0.19];
-O = [0.6 0.6 0.55 0.5 0.45 0.4 0.375 0.325 0.275 0.25 0.225];
-V = O-U;
+t = [11 18 21 27 32 37 52 96 149 195 246 301 362 430 482 541 601];
+U = [0.025 0.045 0.05 0.075 0.085 0.1 0.125 0.15 0.175 0.18 0.19 0.195 0.199 0.2 0.201 0.205 0.208];
+O = [0.6 0.59 0.58 0.57 0.57 0.57 0.57 0.55 0.51 0.48 0.43 0.40 0.37 0.35 0.34 0.3 0.27];
+V = O - U;
 
 % approximate measurement errors:
 t_err = 2;
-V_err = 0.02;
+V_err = 0.04;
 
 errorbar(t, V, t_err, V_err, '~>.')
 title('Measurement of beer foam volume over time')
@@ -91,7 +102,7 @@ stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichun
 
 $$ V(t) = b \cdot e^{a \cdot t}. $$
 
-Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.001 \frac{1}{\text{s}}$ und $b=0.58$ $l$ ergibt sich folgender Verlauf.
+Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.001 \frac{1}{\text{s}}$ und $b=0.575$ $l$ ergibt sich folgender Verlauf.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
