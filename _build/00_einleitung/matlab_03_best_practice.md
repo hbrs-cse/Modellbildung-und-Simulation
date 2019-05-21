@@ -220,6 +220,8 @@ Wenn aber `bisection.m` als Funktion implementiert ist, existiert das `i` aus Sk
 
 Genauso wie Skripte erweitern globale Variablen die Sichtbarkeit, d.h. den scope einer Variable, was zu möglichen Fehlerquellen führen kann. An wenigen Stellen können globale Variablen sinnvoll sein. Sollten Sie sie einsetzen, fragen sie sich aber auf jeden Fall warum sie sich für eine Implementierung mit globalen Variablen entschieden haben, wo Probleme auftreten könnten und ob sie das Problem anders hätten lösen können.
 
+In dem Beispiel des [Bierschaumzerfalls](../04_nichtlineare_gleichungen/exercises_00_bierschaum#der-doppler-effekt) werden globale Variablen zum Beispiel mit Hilfe von anonymen Funktionen *(function handles)* vermieden.
+
 ## Performance: Allokation
 
 Angenommen `A` ist eine $3 \times 3$ Matrix in Matlab. Dann bewirkt der Befehl `A(5,5)=1`, dass die Matrix erweitert wird, die neuen Werte mit Nullen gefüllt werden und anschließend das Element `A(5,5)` mit dem Wert `1` beschrieben wird.
