@@ -251,7 +251,7 @@ Um die Jacobi-Matrix $J_F(\mathbf{p}^{(i)})$ in jeder Iteration zu bestimmen, m�
 
 ### Aufgabe 2: Approximation der Jacobi-Matrix
 
-Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit finiten Differenzen approximiert. Dabei soll die Eingabe `F` ein *[function handle](https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html)* einer beliebigen Funktion sein, beispielsweise `@sin` oder `@(x) [x(1)^2; cos(x(2))]`.
+Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit Differenzenquotienten (*"finiten Differenzen"*) approximiert. Dabei soll die Eingabe `F` ein *[function handle](https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html)* einer beliebigen Funktion sein, beispielsweise `@sin` oder `@(x) [x(1)^2; cos(x(2))]`.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -281,6 +281,11 @@ Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulatio
 </div>
 </div>
 
+**Hinweise:**
+ - Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotient bilden.
+ - Ihr Programm sollte mit $n+1$ Funktionsaufrufen von `F` auskommen.
+
+
 Mit dem folgenden unit test können Sie ihre Funktion testen:
 
 <div markdown="1" class="cell code_cell">
@@ -298,7 +303,7 @@ $$
 G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
 $$
 
-Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die `F` berechnet, andererseits können Sie mit ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit finiten Differenzen approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion `jacobian` für ihr Problem? 
+Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die `F` berechnet, andererseits können Sie mit ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion `jacobian` für ihr Problem? 
 
 ### Aufgabe 3: Parameterbestimmung
 
