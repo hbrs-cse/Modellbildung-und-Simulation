@@ -30,7 +30,7 @@ Note, that Ruby is only needed to preview the webpage locally, since the webpage
 To install jupyter-book, clone the Github repository to your local machine and run the `setup.py` script by entering the commands below. This will create a new subdirectory called `jupyter-book` in your current working directory.
 
 ```bash
-git clone htttps://github.com/jupyter/jupyter-book
+git clone https://github.com/jupyter/jupyter-book
 cd jupyter-book
 python setup.py install
 cd ..
