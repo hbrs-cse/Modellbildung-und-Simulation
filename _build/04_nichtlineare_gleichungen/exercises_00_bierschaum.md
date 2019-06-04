@@ -348,7 +348,7 @@ moxunit_runtests test_newton.m
 </div>
 
  - Wenden Sie das Newton-Verfahren auf die Funkton `func = @(p) F(p,t,V)` an um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ ihrer Modellfunktion? 
- - Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion `fzero`.
+ - Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion `fsolve`.
  - Erstellen Sie ein Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.
  - Wie lautet die Halbwertzeit des Bierschaumes?
 
