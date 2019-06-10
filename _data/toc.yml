@@ -36,11 +36,13 @@
       url: /00_einleitung/matlab_02_scripts_and_functions
     - title: Best Practices
       url: /00_einleitung/matlab_03_best_practice
-  - title: Übungsaugaben
+  - title: Übungsaufgaben
     url: /00_einleitung/exercises_00_intro
     subsections:
     - title: Matlab/Octave
       url: /00_einleitung/exercises_01_factorial_pi
+    - title: Lineare Interpolation
+      url: /00_einleitung/exercises_03_linear_interpolation
     - title: Flüssigkeit im Boden
       url: /00_einleitung/exercises_02_fluessigkeit
     - title: Verkehrssimulation

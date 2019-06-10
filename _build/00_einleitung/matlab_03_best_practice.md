@@ -10,7 +10,7 @@ prev_page:
   title: 'Skripte und Funktionen'
 next_page:
   url: /00_einleitung/exercises_00_intro
-  title: 'Übungsaugaben'
+  title: 'Übungsaufgaben'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
@@ -326,9 +326,9 @@ disp(['Matlab internal method: ', num2str(t3), ' s'])
 <div class="output_subarea" markdown="1">
 {:.output_stream}
 ```
-Naive approach requiring constant reallocation: 13.6699 s
-Method using preallocation: 7.6887 s
-Matlab internal method: 0.016823 s
+Naive approach requiring constant reallocation: 9.396 s
+Method using preallocation: 7.987 s
+Matlab internal method: 0.021763 s
 ```
 </div>
 </div>

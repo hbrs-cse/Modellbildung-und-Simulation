@@ -7,10 +7,10 @@ has_widgets: false
 title: 'Matlab/Octave'
 prev_page:
   url: /00_einleitung/exercises_00_intro
-  title: 'Übungsaugaben'
+  title: 'Übungsaufgaben'
 next_page:
-  url: /00_einleitung/exercises_02_fluessigkeit
-  title: 'Flüssigkeit im Boden'
+  url: /00_einleitung/exercises_03_linear_interpolation
+  title: 'Lineare Interpolation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
