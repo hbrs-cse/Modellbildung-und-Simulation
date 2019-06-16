@@ -633,7 +633,7 @@ end
 
 </div>
 
-## Ihre Aufgabe
+## Aufgabe 1
 
 Damit ihre Simulationssoftware lauffähig ist, füllen Sie die Datei `rocket_ode.m` mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten
 
@@ -665,6 +665,10 @@ $$
 $$
 
 mit $\mathbf{q} = [x,y,v_x, v_y,m]^T$. 
+
+## Aufgabe 2
+
+Wie schätzen Sie die Modellierungstiefe des Simulationsprgrammes ein? Nennen Sie die wichtigsten Modellvereinfachungen und diskutieren Sie, welche am kritischsten sind. Welche Modellvereinfachungen würden Sie als erstes angehen, wenn sie das Modell verfeinern würden? Wie schätzen Sie den Aufwand dafür ein?
 
 ## Zusatzaufgabe
 
