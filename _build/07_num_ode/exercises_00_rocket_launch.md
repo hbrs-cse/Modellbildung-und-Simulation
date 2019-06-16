@@ -16,7 +16,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 # Simulation eines Raketenstarts
 
-Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation *(H-BRS)* und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen zwei Service Satelliten mit einem Gesamtgewicht von 2952 kg in MEO *(Medium Earth Orbit)* auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.
+Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation *(H-BRS)* und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen zwei Satelliten mit einem Gesamtgewicht von 2952 kg in MEO *(Medium Earth Orbit)* auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.
 
 <img src="../images/gravity_turn.gif" alt="Rocket launch Animation" width="800"/>
 
