@@ -16,7 +16,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 # Simulation eines Raketenstarts
 
-Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation *(H-BRS)* und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen zwei Satelliten mit einem Gesamtgewicht von 2952 kg in MEO *(Medium Earth Orbit)* auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.
+Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation *(H-BRS)* und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen vier Satelliten mit einem Gesamtgewicht von 2952 kg in MEO *(Medium Earth Orbit)* auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.
 
 <img src="../images/gravity_turn.gif" alt="Rocket launch Animation" width="800"/>
 
@@ -673,3 +673,14 @@ Wie schätzen Sie die Modellierungstiefe des Simulationsprgrammes ein? Nennen Si
 ## Zusatzaufgabe
 
 Bestimmen Sie auf Grundlage ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie ein Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.
+
+## Zusatzinformationen
+
+Der simulierte Raketenstart wurde inspiriert vom Ariane flight V244 am 25. Juli 2018.
+
+ - [http://www.arianespace.com/mission/ariane-flight-va244/](http://www.arianespace.com/mission/ariane-flight-va244/)
+ - [https://en.wikipedia.org/wiki/Ariane_flight_VA244](https://en.wikipedia.org/wiki/Ariane_flight_VA244)
+ - [https://en.wikipedia.org/wiki/Ariane_5#Variants](https://en.wikipedia.org/wiki/Ariane_5#Variants)
+ 
+ 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t0BKsk97n6Y?start=1183" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
