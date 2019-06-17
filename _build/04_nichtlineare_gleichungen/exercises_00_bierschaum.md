@@ -9,7 +9,7 @@ prev_page:
   url: /04_nichtlineare_gleichungen/intro
   title: 'Nichtlineare Gleichungssysteme'
 next_page:
-  url: /emptypage
+  url: /05_interp_approx/intro
   title: 'Interpolation und Approximation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

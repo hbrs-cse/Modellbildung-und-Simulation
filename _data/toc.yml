@@ -36,7 +36,7 @@
       url: /00_einleitung/matlab_02_scripts_and_functions
     - title: Best Practices
       url: /00_einleitung/matlab_03_best_practice
-  - title: Übungsaugaben
+  - title: Übungsaufgaben
     url: /00_einleitung/exercises_00_intro
     subsections:
     - title: Matlab/Octave
@@ -74,15 +74,17 @@
   - title: Bierschaumzerfall
     url: /04_nichtlineare_gleichungen/exercises_00_bierschaum
 - title: Interpolation und Approximation
-  url: /emptypage
+  url: /05_interp_approx/intro
   expand_sections: false
+  sections:
+  - title: Lineare Interpolation
+    url: /05_interp_approx/exercises_00_linear_interpolation
 - title: Differentiation und Integration
   url: /emptypage
   expand_sections: false
 - title: Numerik gewöhnlicher Differentialgleichungen
   url: /emptypage
   expand_sections: false
-
 
 - divider: true
 
