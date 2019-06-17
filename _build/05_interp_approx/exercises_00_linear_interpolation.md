@@ -9,8 +9,8 @@ prev_page:
   url: /05_interp_approx/intro
   title: 'Interpolation und Approximation'
 next_page:
-  url: /emptypage
-  title: 'Differentiation und Integration'
+  url: /05_interp_approx/exercises_01_linear_approximation
+  title: 'Lineare Approximation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 
