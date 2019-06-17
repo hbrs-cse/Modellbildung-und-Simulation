@@ -41,12 +41,8 @@ Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, d
 % this script simulates a gravity turn rocket launch in 2D cartesian
 % coordinates (3D earth is just for visualization)
 
-% The rocket is modelled as a single stage point mass, with constant nozzle
-% exit velocity and constant mass flow rate. The launch consists of a
-% launch, tiltover, ascend and orbit maneuver that only differ in the angle
-% of attack of the rocket. No aerodynamics are considered. Both the rocket
-% and the earth are point masses. The physical parameters of the rocket are
-% very unlikely to be realistic...
+% The physical parameters of the rocket are very unlikely to be realistic...
+% Please do not build a space rocket based on this code
 
 % dependencies:
 %   rocket_ode.m
