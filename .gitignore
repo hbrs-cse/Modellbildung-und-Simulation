@@ -133,3 +133,9 @@ jacobian.m
 newton.m 
 minimize.m
 linint.m
+F_thrust.m
+mass_flow_rate.m
+rocket_launch.m
+rocket_ode.m
+rocket_status.m
+rocket_visualization.m

@@ -85,8 +85,11 @@
   url: /emptypage
   expand_sections: false
 - title: Numerik gewöhnlicher Differentialgleichungen
-  url: /emptypage
+  url: /07_num_ode/intro
   expand_sections: false
+  sections:
+   - title: Simulation eines Raketenstarts
+     url: /07_num_ode/exercises_00_rocket_launch
 
 - divider: true
 
