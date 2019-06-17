@@ -676,11 +676,13 @@ Bestimmen Sie auf Grundlage ihrer Simulation welchen Beschleunigungen die Satell
 
 ## Zusatzinformationen
 
-Der simulierte Raketenstart wurde inspiriert vom Ariane flight V244 am 25. Juli 2018.
+Der simulierte Raketenstart wurde inspiriert vom Ariane flight VA244 am 25. Juli 2018.
 
  - [http://www.arianespace.com/mission/ariane-flight-va244/](http://www.arianespace.com/mission/ariane-flight-va244/)
  - [https://en.wikipedia.org/wiki/Ariane_flight_VA244](https://en.wikipedia.org/wiki/Ariane_flight_VA244)
  - [https://en.wikipedia.org/wiki/Ariane_5#Variants](https://en.wikipedia.org/wiki/Ariane_5#Variants)
+ - Einige der Galileo-Satelliten sind auch in der Datenbank des [Space Debris Viewers](https://www.dlr.de/sc/desktopdefault.aspx/tabid-12766/22301_read-51854/) hinterlegt *(allerdings noch nicht die Satelliten 23-24-25-26 von flight VA244)*.
  
  
 <iframe width="560" height="315" src="https://www.youtube.com/embed/t0BKsk97n6Y?start=1183" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
