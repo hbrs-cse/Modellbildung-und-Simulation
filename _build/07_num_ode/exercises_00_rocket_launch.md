@@ -602,7 +602,13 @@ if strcmp(flag, 'init')
     % USGS Terrestrial Remote Sensing Flagstaff Field Center (Antarctica); 
     % Defense Meteorological Satellite Program (city lights). 
     % [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0/)]
-    cdata = imread('Land_ocean_ice_2048.jpg');
+    
+    worldmap = 'Land_ocean_ice_2048.jpg';
+    if ~exist(worldmap, 'file')==1
+        websave(worldmap,...
+            'http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Land_ocean_ice_2048.jpg/1024px-Land_ocean_ice_2048.jpg');
+    end
+    cdata = imread(worldmap);
 
     % Set image as color data (cdata) property, and set face color to indicate
     % a texturemap, which Matlab expects to be in cdata. Turn off the mesh edges.
