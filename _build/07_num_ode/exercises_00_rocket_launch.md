@@ -24,11 +24,11 @@ Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden,
 
 ## Ihre Simulationssoftware
 
-Als Matlab-Experte haben Sie eine einfache Simulationssoftware für die frühe Planungsphase entworfen. Ihr Programm simuliert ein *"gravity turn maneuver"* in 2D und besteht aus den folgenden sechs Dateien. Durch Klicken auf das Plus-Symbol können Sie sich den Inhalt der Dateien anschauen.
+Als Matlab-Experte haben Sie eine einfache Simulationssoftware für die frühe Planungsphase entworfen. Ihr Programm simuliert ein *"gravity turn maneuver"* in 2D und besteht aus den folgenden sechs Dateien. *Durch Klicken auf das Plus-Symbol können Sie sich den Inhalt der Dateien anschauen.*
 
 ### `rocket_launch.m`
 
-Hauptskript Ihrer Simulation. Um ihre Simulation zu starten führen Sie diese Funktion aus. Hier werden die Simulationsparameter festgelegt, die zugrunde liedenge gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet. 
+Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liedenge gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet. 
 
 **Hinweis:** *Die Simulation beinhaltet eine Animation und kann deswegen nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf Ihrem Computer.*
 
@@ -133,7 +133,7 @@ run rocket_launch.m
 
 ### `rocket_ode.m`
 
-Das Herzstück ihrer Simulation ist das Lösen einer gewöhnlichen Differentialgleichung erster Ordnung $\dot{\mathbf{q}} = $ `rocket_ode`$(t,\mathbf{q})$ mit `ode45`, dessen rechte Seite in dieser Datei implementiert ist. Dabei ist $\mathbf{q} = [x,y, v_x, v_z, m]^T$ ein Spaltenvektor, der die aktuelle Position $(x,y)$, die aktuelle Geschwindigkeit $(v_x,v_y)$ sowie die aktuelle Masse $m$ der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.
+Das Herzstück ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung $\dot{\mathbf{q}} = $ `rocket_ode`$(t,\mathbf{q})$ mit dem Löser `ode45`. Die rechte Seite `rocket_ode` ist in dieser Datei implementiert. Dabei ist $\mathbf{q} = [x,y, v_x, v_z, m]^T$ ein Spaltenvektor, der die aktuelle Position $(x,y)$, die aktuelle Geschwindigkeit $(v_x,v_y)$ sowie die aktuelle Masse $m$ der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
@@ -160,13 +160,13 @@ end
 
 ### `mass_flow_rate.m`
 
-Teil der Raketen-ODE `rocket_ode.m` ist die gewöhnliche Differentialgleichung für die Masse der Rakete $\dot{m}=g(m, \tau)$, wobei $m$ die Masse der Rakete ist und $\tau$ die Antriebsdrossel modelliert ($\tau=0$ bedeutet kein Antrieb, $\tau=1$ bedeutet maximaler Antrieb). Die Funktion $g$ ist in `mass_flow_rate.m` implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton'schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Teribstoff ausgestoßen wird, desto höher ist der momentane Impuls sowie die Gewichtsabnahme der Rakete. 
+Teil der Raketen-ODE `rocket_ode.m` ist die gewöhnliche Differentialgleichung für die Masse $m$ der Rakete $\dot{m}=g(m, \tau)$, wobei $\tau$ die Antriebsdrossel modelliert ($\tau=0$ bedeutet kein Antrieb, $\tau=1$ bedeutet maximaler Antrieb). Die Funktion $g$ ist in `mass_flow_rate.m` implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton'schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Teribstoff ausgestoßen wird, desto höher ist der momentane Impuls sowie die Gewichtsabnahme der Rakete. 
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
 ```matlab
 %%file mass_flow_rate.m
-%% mass and mass flow rate [kg/s]
+%% mass flow rate [kg/s]
 
 % assume constant (throttle-dependent) mass flow rate 
 % until propellant is depleted
@@ -644,7 +644,7 @@ $$
 \end{align}
 $$
 
-Die erste der beidel DGLs beschreibt die Beschleunigung der Rakete, wobei $\mathbf{z} = [x, y]^T$ die aktuelle Position der Rakete in karthesischen Koordinaten ist. Die Beschleunigung setzt sich zusammen aus der Gravitationskraftsbeschleunigung
+Die erste der beiden DGLs beschreibt die Beschleunigung der Rakete, wobei $\mathbf{z} = [x, y]^T$ die aktuelle Position in karthesischen Koordinaten ist. Die Beschleunigung setzt sich zusammen aus der Gravitationsbeschleunigung
 
 $$
 \frac{\mathbf{F}_{\text{G}}}{m} = -\frac{G\cdot M}{\|\mathbf{z}\|^3} \mathbf{z}
@@ -652,7 +652,7 @@ $$
 
 und der Beschleunigung durch den Raketenantrieb $\mathbf{F}_{\text{thrust}}/m$. Hierbei ist $G=6.67408 \cdot 10^{-11} \frac{\textrm{m}^3}{\textrm{kg}\cdot\textrm{s}}$ die Gravitationskonstante und $M=5.972 \cdot 10^{24} \textrm{kg}$ die Erdmasse.
 
-Die zweite Differentialgleichung beschreibt die Masseänderung der Rakete. Der Massefluss hängt von der aktuellen Masse $m$ der Rakete, sowie der Drosselung $\tau$ ab. Die Funktionen $\mathbf{F}_{\text{thrust}}(t,\mathbf{q})$ sowie $g(m,\tau)$ sind in den Matlab-files `F_thrust.m` und `mass_flow_rate.m` implementiert. Die Drosselung (*throttle*) $\tau$ wird von `F_thrust.m` berechnet und als zweiten Ausgabeparameter bereitgestellt:
+Die zweite Differentialgleichung beschreibt die Masseänderung der Rakete. Der Massefluss hängt von der aktuellen Masse $m$ der Rakete, sowie der Drosselung $\tau$ ab. Die Funktionen $\mathbf{F}_{\text{thrust}}(t,\mathbf{q})$ sowie $g(m,\tau)$ sind bereits in den Matlab-files `F_thrust.m` und `mass_flow_rate.m` implementiert. Die Drosselung (*throttle*) $\tau$ wird von `F_thrust.m` berechnet und als zweiten Ausgabeparameter bereitgestellt:
 
 ```matlab
 [Ft, throttle] = F_thrust(t,q)
