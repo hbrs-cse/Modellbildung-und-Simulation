@@ -6,7 +6,7 @@ prev_page:
   url: /emptypage
   title: 'Differentiation und Integration'
 next_page:
-  url: /07_num_ode/exercises_00_rocket
+  url: /07_num_ode/exercises_00_rocket_launch
   title: 'Simulation eines Raketenstarts'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
