@@ -10,6 +10,6 @@ next_page:
   title: 'Simulation eines Raketenstarts'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
-# Schwingungen
+# Numerik gewöhnlicher Differentialgleichungen
 
 Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel zur Numerik gewöhnlicher Differentialgleichungen.
