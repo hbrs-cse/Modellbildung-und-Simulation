@@ -202,6 +202,12 @@ $$
 \end{bmatrix}
 $$
 
+Im Folgenden wird das Problem schrittweise gelöst.
+ 1. Wir implementieren eine Matlab-Funktion, mit der wir $F$ auswerten können.
+ 2. Wir implementieren eine Matlab-Funktion, die uns für eine gegebene Funktion $F$ die Jacobimatrix ausrechnet.
+ 3. Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf $F$ an um unsere Parameter zu bestimmen.
+ 4. Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.
+
 ### Aufgabe 1: Das nichtlineare Gleichungssystem
 
 Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung $F$ für beliebige Parameter $\mathbf{p}=[a,b]^T \in \mathbb{R}^2$ und Messwerte $t \in \mathbb{R}^m$, $V \in \mathbb{R}^m$ auswertet:
@@ -281,6 +287,17 @@ Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulatio
 </div>
 </div>
 
+Wenn Sie ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:
+
+<div markdown="1" class="cell code_cell">
+<div class="input_area" markdown="1">
+```matlab
+jacobian(@sin,0.25)
+```
+</div>
+
+</div>
+
 **Hinweise:**
  - Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotient bilden.
  - Ihr Programm sollte mit $n+1$ Funktionsaufrufen von `F` auskommen.
@@ -297,7 +314,8 @@ moxunit_runtests test_jacobian.m
 
 </div>
 
-Es gilt `F(p,t,V)` $= J_G(\mathbf{p})$ mit
+Es gilt `F(p,t,V)` $= J_G(\mathbf{p})^T
+$ mit
 
 $$
 G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
@@ -384,7 +402,7 @@ J_{J_G}(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &= - J_G(\mathbf{p}^{(i)})^T
 \end{align}
 $$
 
-$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)})^T \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als *Hessematrix von $G$* an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitung der Funktion $G$:
+$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)}) \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als *Hessematrix von $G$* an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitung der Funktion $G$:
 
 $$
 Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
@@ -401,7 +419,10 @@ Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf e
 
 Schreiben Sie eine neue Funktion `minimize(func,x0,tol,maxit)` auf Grundlage ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion `func`$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie ihre Funktion `jacobian` um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.
 
- - Lösen Sie das ursprüngliche Minimierungsproblem mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion `fminsearch`.
+ - Lösen Sie das ursprüngliche Minimierungsproblem
+$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$
+ 
+ mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion `fminsearch`.
  - Wo sind die Grenzen ihres Algorithmus? Gibt es mögliche Fehlerquelen, die Nutzer ihrer Funktion beachten sollten?
 
 <div markdown="1" class="cell code_cell">
