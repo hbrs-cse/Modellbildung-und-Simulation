@@ -56,21 +56,24 @@ Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um e
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
 ```matlab
-% measurement results from lecture 2019-05-21
+hold on
 
-t = [11 18 21 27 32 37 52 96 149 195 246 301 362 430 482 541 601];
-U = [0.025 0.045 0.05 0.075 0.085 0.1 0.125 0.15 0.175 0.18 0.19 0.195 0.199 0.2 0.201 0.205 0.208];
-O = [0.6 0.59 0.58 0.57 0.57 0.57 0.57 0.55 0.51 0.48 0.43 0.40 0.37 0.35 0.34 0.3 0.27];
-V = O - U;
-
-% approximate measurement errors:
-t_err = 2;
-V_err = 0.04;
-
-errorbar(t, V, t_err, V_err, '~>.')
+% plot measurement
+% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. 
+% Refer to the Matlab Documentation for more information.
+h_meas = errorbar(t, V, t_err, V_err, '~>.');
 title('Measurement of beer foam volume over time')
 xlabel('time [s]')
 ylabel('volume [liters]')
+
+% plot model
+a = -0.001;
+b = 0.58;
+tfine = linspace(t(1),t(end),100);
+yfine = b*exp(a*tfine);
+h_model = plot(tfine, yfine);
+
+legend([h_meas, h_model],{'measurement data', 'model with guessed parameters'})
 ```
 </div>
 
@@ -110,6 +113,8 @@ Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Model
 hold on
 
 % plot measurement
+% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. 
+% Refer to the Matlab Documentation for more information.
 h_meas = errorbar(t, V, t_err, V_err, '~>.');
 title('Measurement of beer foam volume over time')
 xlabel('time [s]')
@@ -299,8 +304,10 @@ jacobian(@sin,0.25)
 </div>
 
 **Hinweise:**
+ - Machen Sie sich mit *function handles* und *anonymous functions* in Matlab vertraut.
  - Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotient bilden.
  - Ihr Programm sollte mit $n+1$ Funktionsaufrufen von `F` auskommen.
+ - Achten Sie darauf, dass alle Funktionen $F: \mathbb{R}^n \to \mathbb{R}^m$ auf die sie die `jacobian` Funktion anwenden *Spalten*vektoren auf *Spalten*vektoren abbilden.
 
 
 Mit dem folgenden unit test können Sie ihre Funktion testen:
@@ -443,6 +450,8 @@ Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulatio
 </div>
 </div>
 </div>
+
+**Hinweis:** *Wenn Sie ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.* Vermeiden Sie duplizierten Code!
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
