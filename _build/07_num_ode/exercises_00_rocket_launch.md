@@ -652,7 +652,7 @@ $$
 \frac{\mathbf{F}_{\text{G}}}{m} = -\frac{G\cdot M}{\|\mathbf{z}\|^3} \mathbf{z}
 $$
 
-und der Beschleunigung durch den Raketenantrieb $\mathbf{F}_{\text{thrust}}/m$. Hierbei ist $G=6.67408 \cdot 10^{-11} \frac{\textrm{m}^3}{\textrm{kg}\cdot\textrm{s}}$ die Gravitationskonstante und $M=5.972 \cdot 10^{24} \textrm{kg}$ die Erdmasse.
+und der Beschleunigung durch den Raketenantrieb $\mathbf{F}_{\text{thrust}}/m$. Hierbei ist $G=6.67408 \cdot 10^{-11} \frac{\textrm{m}^3}{\textrm{kg}\cdot\textrm{s}^2}$ die Gravitationskonstante und $M=5.972 \cdot 10^{24} \textrm{kg}$ die Erdmasse.
 
 Die zweite Differentialgleichung beschreibt die Masseänderung der Rakete. Der Massefluss hängt von der aktuellen Masse $m$ der Rakete, sowie der Drosselung $\tau$ ab. Die Funktionen $\mathbf{F}_{\text{thrust}}(t,\mathbf{q})$ sowie $g(m,\tau)$ sind bereits in den Matlab-files `F_thrust.m` und `mass_flow_rate.m` implementiert. Die Drosselung (*throttle*) $\tau$ wird von `F_thrust.m` berechnet und als zweiten Ausgabeparameter bereitgestellt:
 
