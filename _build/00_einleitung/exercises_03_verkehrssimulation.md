@@ -174,14 +174,6 @@ end;
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
-{:.output_stream}
-```
-Created file '/home/philipp/buchprojekt/Modellbildung-und-Simulation/content/00_einleitung/trafficflow.m'.
-```
-</div>
-</div>
 </div>
 
 In einem weiteren Matlab–Skript berechnen Sie für normalisierte Verkehrsdichten $\rho$ = 0.05, 0.10, 0.15, 0.20, ..., 1 den Verkehrsfluss $Q$ und die durchschnittliche Geschwindigkeit $v_{\text{mean}}$ mit Hilfe dieser Matlab Funktion `trafficflow`. Gehen Sie von $p_{\text{SF}}$ = 0.2 und $v_{\text{max}}$ = 5 Zellen/Sekunde aus.
@@ -230,15 +222,12 @@ ylabel('traffic flow [cars/second]')
 ```
 </div>
 
-<div class="output_wrapper" markdown="1">
-<div class="output_subarea" markdown="1">
+</div>
 
-{:.output_png}
-![png](../images/00_einleitung/exercises_03_verkehrssimulation_7_0.png)
-
-</div>
-</div>
-</div>
+<figure>
+  <img src="../images/diagramm_stau.PNG" alt="my alt text"/>
+    <figcaption>Abbildung 6: $\rho~–~v_{\text{mean}}~–~$Diagramm und $\rho~–~Q~–~$Diagramm zum Vergleich mit der eigenen Lösung</figcaption>
+</figure>
 
 ## Aufgabe 3
 Experimentieren Sie mit den Parametern $v_{\text{max}}$ und $p_{\text{SF}}$. Wie lässt sich der Einfluss beider Parameter auf die Durchschnittsgeschwindigkeit und den Verkehrsfluss qualitativ beschreiben? Nennen sie eine Möglichkeit den Realismus des Modells zu steigen.
@@ -259,4 +248,4 @@ Experimentieren Sie mit den Parametern $v_{\text{max}}$ und $p_{\text{SF}}$. Wie
 
 ## Literatur
 
- - Nagel, K. (1992). [A cellular automaton model for freeway traffic](https://pdfs.semanticscholar.org/17a6/135c5b7af91238989514f4c709c8146031d5.pdf); *Journal de Physique I, EDP Sciences, 2(12), 2221-2229.*
+ - Nagel, K., & Schreckenberg, M. (1992). [A cellular automaton model for freeway traffic](https://pdfs.semanticscholar.org/17a6/135c5b7af91238989514f4c709c8146031d5.pdf); *Journal de Physique I, EDP Sciences, 2(12), 2221-2229.*
