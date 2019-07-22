@@ -9,8 +9,8 @@ prev_page:
   url: /05_interp_approx/exercises_00_linear_interpolation
   title: 'Lineare Interpolation'
 next_page:
-  url: /emptypage
-  title: 'Differentiation und Integration'
+  url: /05_interp_approx/exercises_02_spline_interpolation
+  title: 'Spline-Interpolation'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 

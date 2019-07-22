@@ -81,6 +81,8 @@
     url: /05_interp_approx/exercises_00_linear_interpolation
   - title: Lineare Approximation
     url: /05_interp_approx/exercises_01_linear_approximation
+  - title: Spline-Interpolation
+    url: /05_interp_approx/exercises_02_spline_interpolation
 - title: Differentiation und Integration
   url: /emptypage
   expand_sections: false
