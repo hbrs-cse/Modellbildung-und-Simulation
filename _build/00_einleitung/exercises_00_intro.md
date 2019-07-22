@@ -1,3 +1,15 @@
+---
+redirect_from:
+  - "/00-einleitung/exercises-00-intro"
+title: 'Übungsaufgaben'
+prev_page:
+  url: /00_einleitung/matlab_03_best_practice
+  title: 'Best Practices'
+next_page:
+  url: /00_einleitung/exercises_01_factorial_pi
+  title: 'Matlab/Octave'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
 # Übungsaufgaben
 
 In den folgenden Aufgaben soll zum einen der Umgang mit Matlab und zum anderen die Modellierung einfacher Prozesse geübt werden.
