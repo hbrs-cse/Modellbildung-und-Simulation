@@ -368,7 +368,7 @@ ans =  6
 </div>
 </div>
 
-Sehr häufig ist es nützlich, Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39,5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor
+Sehr häufig ist es nützlich, Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -412,7 +412,7 @@ ans =
 </div>
 </div>
 
-**Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212,5 €.*
+**Quiz:** Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab? *Hinweis: Das Ergebnis lautet 5212.5 €.*
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
