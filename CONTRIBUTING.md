@@ -86,7 +86,8 @@ In this section, it is assumed that you are in the root directory of your clone 
  cd content
  jupyter-lab .
  ```
- Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser.
+ Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser. 
+ * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/joergbrech/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
  * Edit `_data/toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview).
  * Back in the root directory, run
  ```bash
