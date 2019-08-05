@@ -1,0 +1,349 @@
+---
+redirect_from:
+  - "/00-einleitung/exercises-02-fluessigkeit"
+interact_link: content/00_einleitung/exercises_02_fluessigkeit.ipynb
+kernel_name: octave
+has_widgets: false
+title: 'Flüssigkeit im Boden'
+prev_page:
+  url: /00_einleitung/exercises_01_factorial_pi.html
+  title: 'Matlab/Octave'
+next_page:
+  url: /00_einleitung/exercises_03_verkehrssimulation.html
+  title: 'Verkehrssimulation'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Fl&#252;ssigkeit-im-Boden">Fl&#252;ssigkeit im Boden<a class="anchor-link" href="#Fl&#252;ssigkeit-im-Boden"> </a></h1><p>Erstellen Sie ein Programm in dem das Versickern einer Flüssigkeit im Boden in 2D modelliert wird. Legen Sie dazu eine Matrix an, die einen Bodenausschnitt mit <strong>beliebiger</strong> Breite $w$ und Tiefe $d$ darstellt. Die Oberfläche des Bodens sei im Bereich $[\frac{w}{4},\frac{3w}{4}]$ mit Flüssigkeit benetzt.</p>
+<p><img src="../images/fluessigkeit.png" alt=""></p>
+<p>Die Flüssigkeit dringt mit einer Wahrscheinlichkeit $p$ (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit $\frac{p}{2}$. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle ist binär.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-1---Parametrierung-des-Bodenmodells">Aufgabe 1 - Parametrierung des Bodenmodells<a class="anchor-link" href="#Aufgabe-1---Parametrierung-des-Bodenmodells"> </a></h2><p>Schreiben Sie eine Matlab Funktion, die diesen Prozess simuliert:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
+<span class="k">function</span><span class="w"> </span>ground <span class="p">=</span><span class="w"> </span><span class="nf">groundwater_sim</span><span class="p">(</span>depth, width, probability<span class="p">)</span><span class="w"></span>
+<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
+<span class="c">%</span>
+<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
+<span class="c">%   depth x width. </span>
+<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
+<span class="c">% according to a certain probability. Initially, the central </span>
+<span class="c">% half of the surface is covered by fluid</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   - depth:       The depth of the regulear 2D grid</span>
+<span class="c">%   - width:       The width of the regular 2D grid</span>
+<span class="c">%   - probability: The seeping probability into lower cells</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Tipp:</strong></p>
+<ul>
+<li>Für die Visualisierung können Sie zum Beispiel die Funktion <code>spy</code> oder <code>imagesc</code> verwenden.</li>
+<li>Die Ränder der Bodenmatrix sind gesondert zu behandeln.</li>
+</ul>
+<p>Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse ihrer Funktion zu überprüfuen:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_groundwater_sim</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Parametrieren Sie den Bodenparameter $p$ so, dass über 1000 Simulationen gemittelt circa drei Zellen am unteren Ende befeuchtet sind. Berechnen Sie dann Mittelwert und Standardabweichung. Verwenden Sie hierfür konkret $d=80$ und $w=250$. Schreiben Sie dazu ein Matlab-Skript, dass die Funktion <code>groundwater_sim</code> verwendet.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-2---Unregelm&#228;&#223;igkeiten-im-Boden">Aufgabe 2 - Unregelm&#228;&#223;igkeiten im Boden<a class="anchor-link" href="#Aufgabe-2---Unregelm&#228;&#223;igkeiten-im-Boden"> </a></h2><p>Reale Böden sind in der Regel sehr unregelmäßig strukturiert, so dass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von <code>ratio_absorb</code> aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. es hindert die Flüssigkeit am weiteren Versickern im Boden. Modifizieren ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.</p>
+<p>Geben Sie als zusätzliche Ausgabe die Matrix aus, die das absorbierende Material repräsentiert.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
+<span class="k">function</span><span class="w"> </span>[ground, absorb_mat] <span class="p">=</span><span class="w"> </span><span class="nf">groundwater_sim</span><span class="p">(</span>depth, width, probability, ratio_absorb<span class="p">)</span><span class="w"></span>
+<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
+<span class="c">%</span>
+<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
+<span class="c">%   depth x width. </span>
+<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
+<span class="c">% according to a certain probability. Initially, the central </span>
+<span class="c">% half of the surface is covered by fluid</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   - depth:        The depth of the regulear 2D grid</span>
+<span class="c">%   - width:        The width of the regular 2D grid</span>
+<span class="c">%   - probability:  The seeping probability into lower cells</span>
+<span class="c">%   - ratio_absorb: Ratio of absorbing material in the ground</span>
+<span class="c">%                   values between 0 and 1</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+<span class="c">%   - absorb_mat:  2D-grid representing  the absorbing material </span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Geben Sie $p$ aus Aufgabe 1 vor und variieren Sie <code>ratio_absorb</code> ausgehend von 10%. Wie groß muss der Anteil <em>mindestens</em> sein, damit über 1000 Simulationen gemittelt weniger als eine Zelle am unteren Ende des Bodensegments von Flüssigkeit erreicht wird ($d=80$ und $w=250$)?</p>
+<p><strong>Tipp</strong>: Die Matlab-Funktion <code>randperm</code> könnte nützlich sein.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-3---Einfluss-der-Tiefe">Aufgabe 3 - Einfluss der Tiefe<a class="anchor-link" href="#Aufgabe-3---Einfluss-der-Tiefe"> </a></h2><p>In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter <code>depth_influence</code> ein, um die Stärke dieses Effektes zu regulieren. <strong>Wichtig:</strong> <em>Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!</em></p>
+<p>Um die Eingabeparameter ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem <em>Structure array</em> mit Namen <code>params</code>.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
+<span class="k">function</span><span class="w"> </span>[ground, absorb_mat] <span class="p">=</span><span class="w"> </span><span class="nf">groundwater_sim</span><span class="p">(</span>depth, width, params<span class="p">)</span><span class="w"></span>
+<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
+<span class="c">%</span>
+<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
+<span class="c">%   depth x width. </span>
+<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
+<span class="c">% according to a certain probability. Initially, the central </span>
+<span class="c">% half of the surface is covered by fluid</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   - depth:       The depth of the regulear 2D grid</span>
+<span class="c">%   - width:       The width of the regular 2D grid</span>
+<span class="c">%</span>
+<span class="c">%   - params.probability:        The seeping probability into </span>
+<span class="c">%                                lower cells</span>
+<span class="c">%   - params.ratio_absorb:       Ratio of absorbing material in </span>
+<span class="c">%                                the ground values between 0 and 1</span>
+<span class="c">%   - params.depth_influence:    influence of the depth on the</span>
+<span class="c">%                                seeping probability (FURTHER EXPLANATION NEEDED!)</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+<span class="c">%   - absorb_mat:  2D-grid representing  the absorbing material </span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/groundwater_sim.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In einem Skript können Sie die Parameter im Structure array speichern und so gesammelt an die Funktion übergeben:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">depth</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">width</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="n">params</span><span class="p">.</span><span class="n">probability</span>     <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">params</span><span class="p">.</span><span class="n">ratio_absorb</span>    <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">params</span><span class="p">.</span><span class="n">depth_influence</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+
+<span class="p">[</span><span class="n">G</span><span class="p">,</span> <span class="n">A</span><span class="p">]</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-4---Gesteigerter-Realismus">Aufgabe 4 - Gesteigerter Realismus<a class="anchor-link" href="#Aufgabe-4---Gesteigerter-Realismus"> </a></h2><p>Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?</p>
+
+</div>
+</div>
+</div>
+
+ 
+

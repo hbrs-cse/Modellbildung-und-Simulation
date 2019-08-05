@@ -3,10 +3,10 @@ redirect_from:
   - "/04-nichtlineare-gleichungen/intro"
 title: 'Nichtlineare Gleichungssysteme'
 prev_page:
-  url: /emptypage
+  url: /emptypage.html
   title: 'Gleitkommaarithmetik'
 next_page:
-  url: /04_nichtlineare_gleichungen/exercises_00_bierschaum
+  url: /04_nichtlineare_gleichungen/exercises_00_bierschaum.html
   title: 'Bierschaumzerfall'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

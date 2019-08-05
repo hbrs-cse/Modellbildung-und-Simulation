@@ -3,10 +3,10 @@ redirect_from:
   - "/00-einleitung/intro"
 title: 'Einleitung'
 prev_page:
-  url: /intro
+  url: /intro.html
   title: 'Home'
 next_page:
-  url: /00_einleitung/usage
+  url: /00_einleitung/usage.html
   title: 'Verwendung des Buches'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

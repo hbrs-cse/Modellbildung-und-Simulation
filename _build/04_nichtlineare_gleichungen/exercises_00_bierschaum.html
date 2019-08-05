@@ -1,0 +1,805 @@
+---
+redirect_from:
+  - "/04-nichtlineare-gleichungen/exercises-00-bierschaum"
+interact_link: content/04_nichtlineare_gleichungen/exercises_00_bierschaum.ipynb
+kernel_name: octave
+has_widgets: false
+title: 'Bierschaumzerfall'
+prev_page:
+  url: /04_nichtlineare_gleichungen/intro.html
+  title: 'Nichtlineare Gleichungssysteme'
+next_page:
+  url: /05_interp_approx/intro.html
+  title: 'Interpolation und Approximation'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Der-Zerfall-des-Bierschaums">Der Zerfall des Bierschaums<a class="anchor-link" href="#Der-Zerfall-des-Bierschaums"> </a></h2><p><img src="../images/weizenbier.jpg" alt=""></p>
+<p>Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Experimenteller-Aufbau">Experimenteller Aufbau<a class="anchor-link" href="#Experimenteller-Aufbau"> </a></h3><p>Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasserfesten Marker um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
+<p><img src="../images/20190521_bierschaum_01.jpg" alt=""></p>
+<p>Wir schütten ein Bier in das geeichte Glas ein, so dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.</p>
+<p><img src="../images/20190521_bierschaum_02.jpg" alt="">
+<img src="../images/20190521_bierschaum_03.jpg" alt=""></p>
+<table>
+<thead><tr>
+<th>$t$ [s]</th>
+<th>Oberer Messwert [$l$]</th>
+<th>Unterer Messwert [$l$]</th>
+<th>$V$ [$l$]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11</td>
+<td>0.600</td>
+<td>0.025</td>
+<td>0.575</td>
+</tr>
+<tr>
+<td>18</td>
+<td>0.590</td>
+<td>0.045</td>
+<td>0.545</td>
+</tr>
+<tr>
+<td>21</td>
+<td>0.580</td>
+<td>0.050</td>
+<td>0.530</td>
+</tr>
+<tr>
+<td>27</td>
+<td>0.570</td>
+<td>0.075</td>
+<td>0.495</td>
+</tr>
+<tr>
+<td>32</td>
+<td>0.570</td>
+<td>0.085</td>
+<td>0.485</td>
+</tr>
+<tr>
+<td>37</td>
+<td>0.570</td>
+<td>0.100</td>
+<td>0.470</td>
+</tr>
+<tr>
+<td>52</td>
+<td>0.570</td>
+<td>0.125</td>
+<td>0.445</td>
+</tr>
+<tr>
+<td>96</td>
+<td>0.555</td>
+<td>0.150</td>
+<td>0.400</td>
+</tr>
+<tr>
+<td>149</td>
+<td>0.510</td>
+<td>0.175</td>
+<td>0.335</td>
+</tr>
+<tr>
+<td>195</td>
+<td>0.480</td>
+<td>0.180</td>
+<td>0.300</td>
+</tr>
+<tr>
+<td>246</td>
+<td>0.430</td>
+<td>0.190</td>
+<td>0.240</td>
+</tr>
+<tr>
+<td>301</td>
+<td>0.400</td>
+<td>0.195</td>
+<td>0.205</td>
+</tr>
+<tr>
+<td>362</td>
+<td>0.370</td>
+<td>0.199</td>
+<td>0.171</td>
+</tr>
+<tr>
+<td>430</td>
+<td>0.350</td>
+<td>0.200</td>
+<td>0.150</td>
+</tr>
+<tr>
+<td>482</td>
+<td>0.340</td>
+<td>0.201</td>
+<td>0.139</td>
+</tr>
+<tr>
+<td>541</td>
+<td>0.300</td>
+<td>0.205</td>
+<td>0.095</td>
+</tr>
+<tr>
+<td>601</td>
+<td>0.270</td>
+<td>0.208</td>
+<td>0.062</td>
+</tr>
+</tbody>
+</table>
+<p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $2 \cdot 0.02 = 0.04$ Litern und ca. $1$ Sekunden ausgehen, ergibt sich folgendes Bild</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input hidecode" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
+
+<span class="c">% plot measurement</span>
+<span class="c">% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. </span>
+<span class="c">% Refer to the Matlab Documentation for more information.</span>
+<span class="n">h_meas</span> <span class="p">=</span> <span class="nb">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s">&#39;~&gt;.&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;volume [liters]&#39;</span><span class="p">)</span>
+
+<span class="c">% plot model</span>
+<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mf">0.58</span><span class="p">;</span>
+<span class="n">tfine</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">yfine</span> <span class="p">=</span> <span class="n">b</span><span class="o">*</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
+<span class="n">h_model</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
+
+<span class="nb">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/04_nichtlineare_gleichungen/exercises_00_bierschaum_2_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Modellbeschreibung">Modellbeschreibung<a class="anchor-link" href="#Modellbeschreibung"> </a></h3><p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können, und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung $\dot{V}$ des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
+$$ \dot{V} = a \cdot V, $$<p>mit einer uns unbekannten Proportionalitätskonstante $a \in \mathbb{R}$. Diese Differentialgleichung kommt sehr häufig vor, denn sie beschreibt exponentielles Wachstum, bzw. - je nach Vorzeichen von $a$ - exponentiellen Zerfall. Wir machen also, wie gewohnt, einen Ansatz</p>
+$$ V(t) = b \cdot e^{c \cdot t}.$$<p>Setzen wir $V(t)$ in die Differentialgleichung $ \dot{V} = a \cdot V $ ein,</p>
+$$ c b \cdot e^{c \cdot t} = a \cdot b e^{c \cdot t}, $$<p>stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichung ist, unter der Voraussetzung, dass $c = a$ gilt.</p>
+$$ V(t) = b \cdot e^{a \cdot t}. $$<p>Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.001 \frac{1}{\text{s}}$ und $b=0.575$ $l$ ergibt sich folgender Verlauf.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input hidecode" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
+
+<span class="c">% plot measurement</span>
+<span class="c">% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. </span>
+<span class="c">% Refer to the Matlab Documentation for more information.</span>
+<span class="n">h_meas</span> <span class="p">=</span> <span class="nb">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s">&#39;~&gt;.&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;volume [liters]&#39;</span><span class="p">)</span>
+
+<span class="c">% plot model</span>
+<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mf">0.58</span><span class="p">;</span>
+<span class="n">tfine</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">yfine</span> <span class="p">=</span> <span class="n">b</span><span class="o">*</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
+<span class="n">h_model</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
+
+<span class="nb">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/04_nichtlineare_gleichungen/exercises_00_bierschaum_4_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wir können immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut.</p>
+<p>Wie können wir $a$ und $b$ so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Die-Methode-der-kleinsten-Quadrate">Die Methode der kleinsten Quadrate<a class="anchor-link" href="#Die-Methode-der-kleinsten-Quadrate"> </a></h2><p>Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können noch unbekannte Parameter $p_1,...,p_n$ eines Modells $y = f(p_1,...,p_n,t)$ so angepasst werden, dass es vorher ermittelte experimentelle Daten $(t_1,y_1),...,(t_m, y_m)$ möglichst gut wiederspiegelt.</p>
+<h3 id="Die-Grundidee">Die Grundidee<a class="anchor-link" href="#Die-Grundidee"> </a></h3><p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte $t_i$ soll die Differenz $y_i - f(p_1,...,p_n,t_i)$ betragsmäßig klein werden.</p>
+<p>Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:</p>
+$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)|  $$<p>Wenn die Funktion $G$ minimal werden soll, muss die Ableitung von $G$ nach allen Parametern verschwinden,</p>
+$$ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. $$<p>Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in $G$ verwendet wird ableiten.</p>
+<p>Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive sowie negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:</p>
+$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$<p>Das Minimierungsproblem lösen wir, indem wir die Bedingung aufstellen, dass alle Ableitungen von $G$ nach den Parametern null sein sollen und nach den Parametern auflösen. Die partiellen Ableitungen bestimmen wir mit der Kettenregel:</p>
+$$
+\boldsymbol{0} = 
+\begin{bmatrix}
+0 \\ \vdots \\ 0
+\end{bmatrix} = F(\mathbf{p}) =
+\begin{bmatrix} 
+\frac{\partial G}{\partial p_1}(p_1,...,p_n)  \\
+\vdots \\
+\frac{\partial G}{\partial p_n}(p_1,...,p_n)
+\end{bmatrix}
+=
+\begin{bmatrix}
+-\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_1}(p_1,...,p_n) \\
+\vdots \\
+-\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
+\end{bmatrix}
+$$<h3 id="Anwendung-auf-den-Bierschaum">Anwendung auf den Bierschaum<a class="anchor-link" href="#Anwendung-auf-den-Bierschaum"> </a></h3><p>Im Falle des Bierschaumes gilt $p_1 = a, p_2 = b$ und</p>
+$$ f(a,b,t) = b\cdot e^{a \cdot t}. $$<p>Das nichtlineare Gleichungssystem, das gelöst werden muss lautet also</p>
+$$ 
+\boldsymbol{0} = F(a,b) = 
+\begin{bmatrix}
+\frac{\partial G}{\partial a} (a,b) \\
+\frac{\partial G}{\partial b} (a,b) 
+\end{bmatrix} = 
+\begin{bmatrix}
+-\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i})\cdot  t_i \cdot b \cdot e^{a \cdot t_i} \\
+-\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i}) \cdot e^{a \cdot t_i}
+\end{bmatrix}
+$$<p>Im Folgenden wird das Problem schrittweise gelöst.</p>
+<ol>
+<li>Wir implementieren eine Matlab-Funktion, mit der wir $F$ auswerten können.</li>
+<li>Wir implementieren eine Matlab-Funktion, die uns für eine gegebene Funktion $F$ die Jacobimatrix ausrechnet.</li>
+<li>Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf $F$ an um unsere Parameter zu bestimmen.</li>
+<li>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</li>
+</ol>
+<h3 id="Aufgabe-1:-Das-nichtlineare-Gleichungssystem">Aufgabe 1: Das nichtlineare Gleichungssystem<a class="anchor-link" href="#Aufgabe-1:-Das-nichtlineare-Gleichungssystem"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung $F$ für beliebige Parameter $\mathbf{p}=[a,b]^T \in \mathbb{R}^2$ und Messwerte $t \in \mathbb{R}^m$, $V \in \mathbb{R}^m$ auswertet:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file F.m</span>
+<span class="k">function</span><span class="w"> </span>e <span class="p">=</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span>p,t,V<span class="p">)</span><span class="w"></span>
+<span class="c">% define the nonlinear system of equations that need to be solved within the least squares fit</span>
+<span class="c">% of the beer froth experiment</span>
+<span class="c">%</span>
+<span class="c">% p = [a,b]&#39; is a vector of the model parameters</span>
+<span class="c">%</span>
+<span class="c">% t and V are vectors containing the experimental data</span>
+
+<span class="c">% PUT YOUR CODE HERE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/F.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Damit haben Sie eine Funktion geschrieben, mit der Sie ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht soviel anfangen. In den folgenden beiden Aufgaben geht es nun darum die Nullstellen dieser Funktion zu finden um die beiden Parameter $a$ und $b$ bestimmen zukönnen.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Das-Newton-Verfahren">Das Newton-Verfahren<a class="anchor-link" href="#Das-Newton-Verfahren"> </a></h2><p>Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert $\mathbf{p}^{(0)}$ muss in jeder Iteration ein lineares Gleichungssystem gelöst werden:</p>
+$$
+\begin{align}
+ J_F(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &amp;= - F(\mathbf{p}^{(i)}), \notag \\
+ \mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i+1)}, \notag
+\end{align}
+$$<p>$i=1,2,3,...$</p>
+<p>Um die Jacobi-Matrix $J_F(\mathbf{p}^{(i)})$ in jeder Iteration zu bestimmen, müssen wir die partiellen Ableitungen von $F$ anch $p_1 = a$ und $p_2=b$ ausrechnen. Theoretisch kann man das in unserem Fall noch analytisch machen. Einfacher ist es aber, die Jacobi-Matrix mittels finiter Differenzen zu approximieren. Dadurch verlieren wir zwar an Genauigkeit. Aber wir können unser Verfahren so auch auf komplexere Modellgleichungen anwenden, die sich nicht mehr so einfach ableiten lassen.</p>
+<h3 id="Aufgabe-2:-Approximation-der-Jacobi-Matrix">Aufgabe 2: Approximation der Jacobi-Matrix<a class="anchor-link" href="#Aufgabe-2:-Approximation-der-Jacobi-Matrix"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit Differenzenquotienten (<em>"finiten Differenzen"</em>) approximiert. Dabei soll die Eingabe <code>F</code> ein <em><a href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code>@sin</code> oder <code>@(x) [x(1)^2; cos(x(2))]</code>.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file jacobian.m</span>
+<span class="k">function</span><span class="w"> </span>J <span class="p">=</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span>F,x<span class="p">)</span><span class="w"></span>
+<span class="c">% J = jacobian(F,x) returns the (m x n) Jacobian matrix of F evaluated at x</span>
+<span class="c">%</span>
+<span class="c">%   |  dF1/dx1 ... dF1/dxn |</span>
+<span class="c">%   |     .           .    |</span>
+<span class="c">%   |  dFm/dx1 ... dFm/dxn |</span>
+<span class="c">%</span>
+<span class="c">% It uses finite difference approximations. x must be a (n,1)-column vector and F must be a function</span>
+<span class="c">% taking an (n,1)-vector as an input. m is deduced from F.</span>
+
+<span class="c">% PUT YOUR CODE HERE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/jacobian.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wenn Sie ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">jacobian</span><span class="p">(@</span><span class="nb">sin</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Hinweise:</strong></p>
+<ul>
+<li>Machen Sie sich mit <em>function handles</em> und <em>anonymous functions</em> in Matlab vertraut.</li>
+<li>Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotient bilden.</li>
+<li>Ihr Programm sollte mit $n+1$ Funktionsaufrufen von <code>F</code> auskommen.</li>
+<li>Achten Sie darauf, dass alle Funktionen $F: \mathbb{R}^n \to \mathbb{R}^m$ auf die sie die <code>jacobian</code> Funktion anwenden <em>Spalten</em>vektoren auf <em>Spalten</em>vektoren abbilden.</li>
+</ul>
+<p>Mit dem folgenden unit test können Sie ihre Funktion testen:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Es gilt <code>F(p,t,V)</code> $= J_G(\mathbf{p})^T
+$ mit</p>
+$$
+G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
+$$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</code> berechnet, andererseits können Sie mit ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion <code>jacobian</code> für ihr Problem?</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Aufgabe-3:-Parameterbestimmung">Aufgabe 3: Parameterbestimmung<a class="anchor-link" href="#Aufgabe-3:-Parameterbestimmung"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu ihre Funktion <code>jacobian</code> aus Aufgabe 2.</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file newton.m</span>
+<span class="k">function</span><span class="w"> </span>z <span class="p">=</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span>func,z0,tol,maxit<span class="p">)</span><span class="w"></span>
+<span class="c">% z = newton(F,z0,tol,maxit) solves the nonlinear system 0=func(z)</span>
+<span class="c">%</span>
+<span class="c">% inputs:</span>
+<span class="c">%   func    a handle to the nonlinear function</span>
+<span class="c">%   z0      initial guess for the Newton method</span>
+<span class="c">%   atol    absolute tolerance</span>
+<span class="c">%   maxit   maximum number of Newton iterations</span>
+
+<span class="c">% YOUR CODE HERE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/newton.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mit dem folgenden unit test können Sie ihre Funktion testen:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Wenden Sie das Newton-Verfahren auf die Funkton <code>func = @(p) F(p,t,V)</code> an um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ ihrer Modellfunktion? </li>
+<li>Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion <code>fsolve</code>.</li>
+<li>Erstellen Sie ein Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.</li>
+<li>Wie lautet die Halbwertzeit des Bierschaumes?</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% SPACE FOR SOLUTION</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Optimierungsverfahren">Optimierungsverfahren<a class="anchor-link" href="#Optimierungsverfahren"> </a></h2><p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion $G: \mathbb{R}^n \to \mathbb{R}$ bestimmen lässt, in dem das nichtlineare Gleichungssystem</p>
+$$
+  \boldsymbol{0} = J_G(\mathbf{p})^T = 
+  \begin{bmatrix}  
+  \frac{\partial G}{\partial p_1}(\mathbf{p}) \\
+  \vdots \\
+  \frac{\partial G}{\partial p_n}(\mathbf{p})
+  \end{bmatrix}
+$$<p>mit dem Newton-Verfahren nach $\mathbf{p}$ gelöst wird. Die Iterationsvorschrift lautet</p>
+$$
+\begin{align}
+J_{J_G}(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &amp;= - J_G(\mathbf{p}^{(i)})^T \notag \\
+\mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i)}, \notag
+\end{align}
+$$<p>$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)}) \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als <em>Hessematrix von $G$</em> an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitung der Funktion $G$:</p>
+$$
+Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
+\begin{bmatrix}
+\frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_0}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_0}(\mathbf{p}) \\
+\vdots &amp; \ddots &amp; \vdots \\
+\frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_n}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_n}(\mathbf{p})
+\end{bmatrix}
+$$<p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
+<h3 id="Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion">Aufgabe 4: Algorithmus zur Minimierung einer Funktion<a class="anchor-link" href="#Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion"> </a></h3><p>Schreiben Sie eine neue Funktion <code>minimize(func,x0,tol,maxit)</code> auf Grundlage ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code>func</code>$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie ihre Funktion <code>jacobian</code> um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
+<ul>
+<li><p>Lösen Sie das ursprüngliche Minimierungsproblem
+$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$</p>
+<p>mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion <code>fminsearch</code>.</p>
+</li>
+<li>Wo sind die Grenzen ihres Algorithmus? Gibt es mögliche Fehlerquelen, die Nutzer ihrer Funktion beachten sollten?</li>
+</ul>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file minimize.m</span>
+
+<span class="c">%SPACE FOR SOLUTION</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/minimize.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Hinweis:</strong> <em>Wenn Sie ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.</em> Vermeiden Sie duplizierten Code!</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% SPACE FOR SCRIPT SOLUTION</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Literatur">Literatur<a class="anchor-link" href="#Literatur"> </a></h2><ul>
+<li>Leike, A. (2002). <a href="https://www.tf.uni-kiel.de/matwis/amat/iss/kap_2/articles/beer_article.pdf">Demonstration of the Exponential Decay Law Using Beer Froth</a>; <em>European Journal of Physics, 23, 21-26.</em></li>
+<li>Theißen, H. (2009). <a href="http://www.phydid.de/index.php/phydid/article/download/87/85">Mythos Bierschaumzerfall - Ein Analogon für den radioaktiven Zerfall?</a>; <em>PhyDid A - Physik und Didaktik in Schule und Hochschule, 2(9), 49 - 57.</em></li>
+</ul>
+
+</div>
+</div>
+</div>
+
+ 
+

@@ -1,0 +1,148 @@
+---
+redirect_from:
+  - "/05-interp-approx/exercises-00-linear-interpolation"
+interact_link: content/05_interp_approx/exercises_00_linear_interpolation.ipynb
+kernel_name: octave
+has_widgets: false
+title: 'Lineare Interpolation'
+prev_page:
+  url: /05_interp_approx/intro.html
+  title: 'Interpolation und Approximation'
+next_page:
+  url: /05_interp_approx/exercises_01_linear_approximation.html
+  title: 'Lineare Approximation'
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Lineare-Interpolation">Lineare Interpolation<a class="anchor-link" href="#Lineare-Interpolation"> </a></h1><p><img src="../images/linear_interpolation.png" width="400" height="315" /></p>
+<p>Gegeben seien die Messpunkte $(t_i; y_i)$, $i = 1; ..; n$ eines Versuches. Dabei bezeichnet $t_i$ einen Messzeitpunkt aus dem Intervall $[a; b]$ und $y_i$ den dazu gehörigen Messwert. Programmieren Sie eine Funktion, die für ein beliebiges $t \in [a; b]$ einen Wert liefert, der auf der Verbindungslinie der benachbarten Messpunkte $(t_j ; y_j)$ und $(t_{j+1}; y_{j+1})$ liegt (lineare Interpolation).</p>
+<p>Arbeiten Sie mit folgenden Angaben:<br>
+$n = 11, [a; b] = [0; 1]$</p>
+<table>
+<thead><tr>
+<th style="text-align:left">$t_i$</th>
+<th style="text-align:left">0</th>
+<th style="text-align:left">0.1</th>
+<th style="text-align:left">0.2</th>
+<th style="text-align:left">0.3</th>
+<th style="text-align:left">0.4</th>
+<th style="text-align:left">0.5</th>
+<th style="text-align:left">0.6</th>
+<th style="text-align:left">0.7</th>
+<th style="text-align:left">0.8</th>
+<th style="text-align:left">0.9</th>
+<th style="text-align:left">1.0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$y_i$</td>
+<td style="text-align:left">0.00</td>
+<td style="text-align:left">0.31</td>
+<td style="text-align:left">0.59</td>
+<td style="text-align:left">0.81</td>
+<td style="text-align:left">0.95</td>
+<td style="text-align:left">1.00</td>
+<td style="text-align:left">0.95</td>
+<td style="text-align:left">0.81</td>
+<td style="text-align:left">0.59</td>
+<td style="text-align:left">0.31</td>
+<td style="text-align:left">0.00</td>
+</tr>
+</tbody>
+</table>
+<p>Erstellen Sie dazu zunächst eine (gut dokumentierte) Funktion für die Interpolation:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file linint.m</span>
+<span class="k">function</span><span class="w"> </span>y<span class="p">=</span><span class="nf">linint</span><span class="p">(</span>t,tv,yv<span class="p">)</span><span class="w"></span>
+<span class="c">% Die Funktion linint interpoliert die in den Vektoren abgelegten Daten tv,yv linear.</span>
+<span class="c">% Dazu sollten die Daten in tv sortiert sein und ein t zwischen dem ersten</span>
+<span class="c">% und letzten Eintrag von tv eingegeben werden</span>
+<span class="c">%</span>
+<span class="c">% Eingabeparameter: tv, yv = Zeitpunkte und Messwerte,</span>
+<span class="c">% t = gewünschter Auswertezeitpunkt</span>
+<span class="c">% Ausgabeparameter: y = linear interpolierter Messwert zum Zeitpunkt t</span>
+<span class="c">%</span>
+<span class="c">%</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>... und dann ein Hauptprogramm, in welchem Sie die Funktion aufrufen und die Daten bereitstellen:</p>
+
+</div>
+</div>
+</div>
+
+
+
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="jb_input" >
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% zunächst werden zwei Vektoren tv und yv definiert,</span>
+<span class="c">% die alle Daten von t und y enthalten</span>
+<span class="c">%</span>
+<span class="n">tv</span><span class="p">=[</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">];</span>
+<span class="n">yv</span><span class="p">=[</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">];</span>
+<span class="c">%</span>
+<span class="c">% Dann können sie ihre Funktion linint testen, z.B. mit t=0.15</span>
+<span class="c">%</span>
+<span class="n">t</span><span class="p">=</span><span class="mf">0.15</span><span class="p">;</span>
+<span class="n">y</span><span class="p">=</span><span class="n">linint</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">tv</span><span class="p">,</span><span class="n">yv</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Schreiben Sie das Programm nun so um, dass Sie die oben dargestellte Visualisierung erhalten.</p>
+
+</div>
+</div>
+</div>
+
+ 
+

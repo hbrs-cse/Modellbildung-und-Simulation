@@ -1,12 +1,12 @@
 ---
 redirect_from:
   - "/00-einleitung/exercises-00-intro"
-title: 'Übungsaugaben'
+title: 'Übungsaufgaben'
 prev_page:
-  url: /00_einleitung/matlab_03_best_practice
+  url: /00_einleitung/matlab_03_best_practice.html
   title: 'Best Practices'
 next_page:
-  url: /00_einleitung/exercises_01_factorial_pi
+  url: /00_einleitung/exercises_01_factorial_pi.html
   title: 'Matlab/Octave'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

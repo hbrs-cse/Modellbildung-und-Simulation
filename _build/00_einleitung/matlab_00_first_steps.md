@@ -3,10 +3,10 @@ redirect_from:
   - "/00-einleitung/matlab-00-first-steps"
 title: 'Erste Schritte in Matlab'
 prev_page:
-  url: /00_einleitung/usage
+  url: /00_einleitung/usage.html
   title: 'Verwendung des Buches'
 next_page:
-  url: /00_einleitung/matlab_01_command_window
+  url: /00_einleitung/matlab_01_command_window.html
   title: 'Matlab Command Window'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

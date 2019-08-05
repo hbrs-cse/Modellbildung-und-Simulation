@@ -3,10 +3,10 @@ redirect_from:
   - "/07-num-ode/intro"
 title: 'Numerik gewöhnlicher Differentialgleichungen'
 prev_page:
-  url: /emptypage
+  url: /emptypage.html
   title: 'Differentiation und Integration'
 next_page:
-  url: /07_num_ode/exercises_00_rocket_launch
+  url: /07_num_ode/exercises_00_rocket_launch.html
   title: 'Simulation eines Raketenstarts'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---

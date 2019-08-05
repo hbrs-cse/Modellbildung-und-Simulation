@@ -1,11 +1,11 @@
 ---
-title: 'Verkehrssimulation'
+title: 'Conway's Game of Life'
 prev_page:
-  url: /00_einleitung/exercises_02_fluessigkeit
-  title: 'Flüssigkeit im Boden'
+  url: /00_einleitung/exercises_03_verkehrssimulation.html
+  title: 'Verkehrssimulation'
 next_page:
-  url: /emptypage
-  title: 'Conway's Game of Life'
+  url: /01_schwingungen/intro.html
+  title: 'Schwingungen'
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
 # Hier entsteht ganz bald sicher irgendetwas!
