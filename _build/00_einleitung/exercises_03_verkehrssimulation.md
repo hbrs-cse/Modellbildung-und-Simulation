@@ -66,7 +66,7 @@ Die Verkehrsdichte $\rho$ im betrachteten Zeitraum bleibe annähernd konstant. Z
 
     Berechnen sie die Positionen `pos` und Geschwindigkeiten `vel` aller Fahrzeuge nach den vier oben genannten Regeln für jede Sekunde innerhalb einer Stunde. Tipp: Für die Umsetzung der periodischen Randbedingungen könnte die Funktion `mod(k, n)` hilfreich sein. Für die Umsetzung von Regel 3 bietet sich wieder `randperm(n, k)` an.
 
-    Animieren Sie den Verkehrsfluss um zu überprüfen, ob ihr Modell funktioniert. Gehen Sie dabei von einer Maximalgeschwindigkeit von 5 Zellen/Sekunde, $p_{\text{SF}}$ = 0.2 sowie einer normalisierten Verkehrsdichte von $\rho$ = 0.4 aus. **Tipp**: Eine Animation kann zum Beispiel mit den Matlab–Funktionen `scatter` und `pause(t)` in der Hauptschleife ihres Programmes erzeugt werden.
+    Animieren Sie den Verkehrsfluss um zu überprüfen, ob Ihr Modell funktioniert. Gehen Sie dabei von einer Maximalgeschwindigkeit von 5 Zellen/Sekunde, $p_{\text{SF}}$ = 0.2 sowie einer normalisierten Verkehrsdichte von $\rho$ = 0.4 aus. **Tipp**: Eine Animation kann zum Beispiel mit den Matlab–Funktionen `scatter` und `pause(t)` in der Hauptschleife Ihres Programmes erzeugt werden.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -114,7 +114,7 @@ end;
 
 ## Aufgabe 2
 
-Wandeln Sie ihr Skript in eine Matlab–Funktion um, die beim Aufruf eine Simulation ausführt. 
+Wandeln Sie Ihr Skript in eine Matlab–Funktion um, die beim Aufruf eine Simulation ausführt. 
 Die Funktion erhält als Eingabe
  - normalisierte Verkehrsdichte $\rho$ 
  - Maximalgeschwindigkeit $v_{\text{max}}$ 
@@ -178,7 +178,7 @@ end;
 </div>
 
 In einem weiteren Matlab–Skript berechnen Sie für normalisierte Verkehrsdichten $\rho$ = 0.05, 0.10, 0.15, 0.20, ..., 1 den Verkehrsfluss $Q$ und die durchschnittliche Geschwindigkeit $v_{\text{mean}}$ mit Hilfe dieser Matlab-Funktion `trafficflow`. Gehen Sie von $p_{\text{SF}}$ = 0.2 und $v_{\text{max}}$ = 5 Zellen/Sekunde aus.
-Erstellen Sie mit ihrem Skript sowohl ein $\rho~–~v_{\text{mean}}~–~$Diagramm als auch ein $\rho~–~Q~–~$Diagramm, um die Abhängigkeiten des Verkehrsflusses bzw. der Durchschnittsgeschwindigkeit von der Verkehrsdichte darzustellen.
+Erstellen Sie mit Ihrem Skript sowohl ein $\rho~–~v_{\text{mean}}~–~$Diagramm als auch ein $\rho~–~Q~–~$Diagramm, um die Abhängigkeiten des Verkehrsflusses bzw. der Durchschnittsgeschwindigkeit von der Verkehrsdichte darzustellen.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">

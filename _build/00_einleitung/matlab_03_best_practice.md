@@ -22,7 +22,7 @@ In diesem Kurs wird nicht erwartet, dass Sie sofort perfekten Code schreiben und
 
 ## Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code
 
-Wenn Sie ein Matlab- bzw. Octaveskript schreiben, haben Sie in der Regel eine genaue Vorstellung von dem was ihr Skript macht und brauchen die Kommentare nicht als Verständnisstütze. Aus dem Grund ist es allzu leicht, auf die mühsame Kommentierung zu verzichten. Die Erfahrung zeigt aber, dass ihre Gedankengänge bei der Programmierung schon nachdem Sie sich wenige Wochen nicht mehr mit dem Code auseinandergesetzt haben vergessen sind. Stellen Sie sich vor, nach drei Wochen stellt sich heraus, dass sich ein Bug eingeschlichen hat. Bei der Fehlersuche müssen Sie sich mühsam durch ihren alten Code kämpfen und es ist im Nachhinein plötzlich nicht mehr ganz so einfach nachzuvollziehen, was Sie sich eigentlich dabei gedacht hatten. Spätestens in solchen Momenten fällt auf, wie wichtig Kommentierung ist. 
+Wenn Sie ein Matlab- bzw. Octaveskript schreiben, haben Sie in der Regel eine genaue Vorstellung von dem was Ihr Skript macht und brauchen die Kommentare nicht als Verständnisstütze. Aus dem Grund ist es allzu leicht, auf die mühsame Kommentierung zu verzichten. Die Erfahrung zeigt aber, dass Ihre Gedankengänge bei der Programmierung schon nachdem Sie sich wenige Wochen nicht mehr mit dem Code auseinandergesetzt haben vergessen sind. Stellen Sie sich vor, nach drei Wochen stellt sich heraus, dass sich ein Bug eingeschlichen hat. Bei der Fehlersuche müssen Sie sich mühsam durch Ihren alten Code kämpfen und es ist im Nachhinein plötzlich nicht mehr ganz so einfach nachzuvollziehen, was Sie sich eigentlich dabei gedacht hatten. Spätestens in solchen Momenten fällt auf, wie wichtig Kommentierung ist. 
 
 Zur Kommentierung gehört nicht nur, dass Sie beschreiben WAS der Code macht, sondern WARUM er so aussieht wie er aussieht. Am Anfang eines Skriptes sollte beschrieben sein, welchem Zweck das Programm dient. Am Anfang einer Funktion gilt dasselbe, wobei hier auch Beschreibungen der Ein- und Ausgabegrößen dazugehören. Wenn relevant, sollten hier auch physikalische Einheiten benannt werden!
 
@@ -117,7 +117,7 @@ run sphericalGrid
 </div>
 </div>
 
-Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute ihren Code verwenden ist es klar, dass Sie ihren Kollegen oder Kunden das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.
+Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute Ihren Code verwenden ist es klar, dass Sie Ihren Kollegen oder Kunden das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.
 
 Spätestens wenn das Programm von einer größeren Zielgruppe benutzt werden soll, reicht eine reine Kommentierung nicht aus. Hier muss eine html- oder pdf-Dokumentation herhalten. Die Wichtigkeit von guter Dokumentation für die Verbreitung von Software ist kann nicht genung betont werden! Es gibt inzwischen einige Hilfsprogramme, die aus strukturierter Code-Kommentierung automatisiert eine solche Dokumentation erzeugen kann, Doxygen und Sphinx sind Beispiele. [Hier](https://www.artefact.tk/software/matlab/m2html/) finden Sie ein Tool das spezifisch für Matlab entwickelt wurde.
 
@@ -125,7 +125,7 @@ Die Sprache der Kommentierung sollte sich natürlich an die Zielgruppe richten. 
 
 ## Sprechende Variablennamen
 
-Damit ein Code verständlich ist, hilft es sprechende Variablen- und Funktionsnamen zu verwenden. Während man in mathematischen Gleichungen gerne Buchstaben und Symbole als Abkürzungen verwendet, sollte man im Code versuchen die Bedeutung einer Variable durch ihren Namen auszudrücken. Im obigen Beispiel wurden anstatt der üblichen Bezeichnungen `theta`, `phi` und `r` für $(\Theta, \phi, r)$ die Variablennamen `longitude`, `latitude` und `elevation` benutzt, um auf die jeweilige Bedeutung hinzuweisen.
+Damit ein Code verständlich ist, hilft es sprechende Variablen- und Funktionsnamen zu verwenden. Während man in mathematischen Gleichungen gerne Buchstaben und Symbole als Abkürzungen verwendet, sollte man im Code versuchen die Bedeutung einer Variable durch Ihren Namen auszudrücken. Im obigen Beispiel wurden anstatt der üblichen Bezeichnungen `theta`, `phi` und `r` für $(\Theta, \phi, r)$ die Variablennamen `longitude`, `latitude` und `elevation` benutzt, um auf die jeweilige Bedeutung hinzuweisen.
 
 Der folgende Code entspricht semantisch dem obigen Beispiel, ist aber vollkommen unverständlich:
 
@@ -206,7 +206,7 @@ Zur Übung wird es Ihre Aufgabe sein, numerische Methoden wie das Lösen lineare
 
 ## Lange Skripte und Funktionen vermeiden
 
-Gerade bei etwas komplexeren Algorithmen kann es schnell mal passieren, dass eine Funktion oder ein Skript mehrere Hundert Zeilen beansprucht. Für eine bessere Wartbarkeit und Lesbarkeit des Codes macht es Sinn, diese lange Funktion in Teilaufgaben aufzuteilen, und für jede Teilaufgabe eine separate Funktion zu schreiben. So haben Sie ihren Code in wartbare kleine Module aufgeteilt, die u.U. auch wiederverwendet werden können.
+Gerade bei etwas komplexeren Algorithmen kann es schnell mal passieren, dass eine Funktion oder ein Skript mehrere Hundert Zeilen beansprucht. Für eine bessere Wartbarkeit und Lesbarkeit des Codes macht es Sinn, diese lange Funktion in Teilaufgaben aufzuteilen, und für jede Teilaufgabe eine separate Funktion zu schreiben. So haben Sie Ihren Code in wartbare kleine Module aufgeteilt, die u.U. auch wiederverwendet werden können.
 
 ## Funktionen über Skripte bevorzugen
 
@@ -384,7 +384,7 @@ Elapsed time is 0.709831 seconds.
 </div>
 </div>
 
-[Hier](https://de.mathworks.com/help/matlab/matlab_prog/techniques-for-improving-performance.html) finden Sie zusätzliche Informationen, wie Sie die Performanz ihres Matlab-Codes verbessern können. Insbesondere der Profiler ist sehr zu empfehlen.
+[Hier](https://de.mathworks.com/help/matlab/matlab_prog/techniques-for-improving-performance.html) finden Sie zusätzliche Informationen, wie Sie die Performanz Ihres Matlab-Codes verbessern können. Insbesondere der Profiler ist sehr zu empfehlen.
 
 ## Kein übermäßiger Gebrauch von if-then-else Anweisungen
 

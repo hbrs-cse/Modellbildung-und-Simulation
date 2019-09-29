@@ -20,7 +20,7 @@ Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation *(H-BRS)* und wurd
 
 <img src="../images/gravity_turn.gif" alt="Rocket launch Animation" width="800"/>
 
-Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für Sie eigentlich eine Routineuntersuchung, aber da ihre Mitarbeiter noch nie etwas von [Versionskontrolle](https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Wozu-Versionskontrolle%3F) gehört haben, sind leider Teile ihres Simulationsprogrammes abhandengekommen.
+Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für Sie eigentlich eine Routineuntersuchung, aber da Ihre Mitarbeiter noch nie etwas von [Versionskontrolle](https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Wozu-Versionskontrolle%3F) gehört haben, sind leider Teile Ihres Simulationsprogrammes abhandengekommen.
 
 ## Ihre Simulationssoftware
 
@@ -28,9 +28,9 @@ Als Matlab-Experte haben Sie eine einfache Simulationssoftware für die frühe P
 
 ### `rocket_launch.m`
 
-Hauptskript ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liegende gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet. 
+Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liegende gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet. 
 
-**Hinweis:** *Die Simulation beinhaltet eine Animation und kann deswegen nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf ihrem Computer.*
+**Hinweis:** *Die Simulation beinhaltet eine Animation und kann deswegen nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf Ihrem Computer.*
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
@@ -129,7 +129,7 @@ run rocket_launch.m
 
 ### `rocket_ode.m`
 
-Das Herzstück ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung $\dot{\mathbf{q}} = $ `rocket_ode`$(t,\mathbf{q})$ mit dem Löser `ode45`. Die rechte Seite `rocket_ode` ist in dieser Datei implementiert. Dabei ist $\mathbf{q} = [x,y, v_x, v_z, m]^T$ ein Spaltenvektor, der die aktuelle Position $(x,y)$, die aktuelle Geschwindigkeit $(v_x,v_y)$ sowie die aktuelle Masse $m$ der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.
+Das Herzstück Ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung $\dot{\mathbf{q}} = $ `rocket_ode`$(t,\mathbf{q})$ mit dem Löser `ode45`. Die rechte Seite `rocket_ode` ist in dieser Datei implementiert. Dabei ist $\mathbf{q} = [x,y, v_x, v_z, m]^T$ ein Spaltenvektor, der die aktuelle Position $(x,y)$, die aktuelle Geschwindigkeit $(v_x,v_y)$ sowie die aktuelle Masse $m$ der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
@@ -185,7 +185,7 @@ end
 
 ### `F_thrust.m`
 
-In dieser Datei ist die Funktion $F_{\text{thrust}}(t,\mathbf{q})$ hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in $x$- und $y$-Richtung berechnet. Diese Datei haben Sie bereits von ihren Kollegen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen *lift off, pitch over, ascend, 2nd stage,* und *orbit*. Je nach Phase wird in `F_thrust` der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit `rocket_status.m` den Flugplan der Rakete. Optional kann die berechnete Drosselung `throttle` als zweiter Parameter mit ausgegeben werden. Sie wird unteranderem gebraucht um den Massefluss $g$ (bzw. `mass_flow_rate`) zu berechnen.
+In dieser Datei ist die Funktion $F_{\text{thrust}}(t,\mathbf{q})$ hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in $x$- und $y$-Richtung berechnet. Diese Datei haben Sie bereits von Ihren Kollegen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen *lift off, pitch over, ascend, 2nd stage,* und *orbit*. Je nach Phase wird in `F_thrust` der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit `rocket_status.m` den Flugplan der Rakete. Optional kann die berechnete Drosselung `throttle` als zweiter Parameter mit ausgegeben werden. Sie wird unteranderem gebraucht um den Massefluss $g$ (bzw. `mass_flow_rate`) zu berechnen.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area hidecode" markdown="1">
@@ -637,7 +637,7 @@ end
 
 ## Aufgabe 1
 
-Damit ihre Simulationssoftware lauffähig ist, füllen Sie die Datei `rocket_ode.m` mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten
+Damit Ihre Simulationssoftware lauffähig ist, füllen Sie die Datei `rocket_ode.m` mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten
 
 $$
 \begin{align}
@@ -674,7 +674,7 @@ Wie schätzen Sie die Modellierungstiefe des Simulationsprogrammes ein? Nennen S
 
 ## Zusatzaufgabe
 
-Bestimmen Sie auf Grundlage ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie einen Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.
+Bestimmen Sie auf Grundlage Ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie einen Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.
 
 ## Zusatzinformationen
 

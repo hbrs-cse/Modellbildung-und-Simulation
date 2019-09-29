@@ -66,7 +66,7 @@ Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitun
  - Für die Visualisierung können Sie zum Beispiel die Funktion `spy` oder `imagesc` verwenden.
  - Die Ränder der Bodenmatrix sind gesondert zu behandeln.
 
-Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse ihrer Funktion zu überprüfuen:
+Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse Ihrer Funktion zu überprüfuen:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -81,7 +81,7 @@ Parametrieren Sie den Bodenparameter $p$ so, dass über 1000 Simulationen gemitt
 
 ## Aufgabe 2 - Unregelmäßigkeiten im Boden
 
-Reale Böden sind in der Regel sehr unregelmäßig strukturiert, sodass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von `ratio_absorb` aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. die Flüssigkeit am weiteren Versickern im Boden hindert. Modifizieren Sie ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.
+Reale Böden sind in der Regel sehr unregelmäßig strukturiert, sodass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von `ratio_absorb` aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. die Flüssigkeit am weiteren Versickern im Boden hindert. Modifizieren Sie Ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.
 
 Geben Sie als zusätzliche Ausgabe die Matrix aus, die das absorbierende Material repräsentiert.
 
@@ -131,9 +131,9 @@ Geben Sie $p$ aus Aufgabe 1 vor und variieren Sie `ratio_absorb` ausgehend von 1
 
 ## Aufgabe 3 - Einfluss der Tiefe
 
-In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter `depth_influence` ein, um die Stärke dieses Effektes zu regulieren. **Wichtig:** *Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!*
+In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie Ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter `depth_influence` ein, um die Stärke dieses Effektes zu regulieren. **Wichtig:** *Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!*
 
-Um die Eingabeparameter ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem *Structure array* mit Namen `params`.
+Um die Eingabeparameter Ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem *Structure array* mit Namen `params`.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -199,4 +199,4 @@ params.depth_influence = 0.5;
 
 ## Aufgabe 4 - Gesteigerter Realismus
 
-Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?
+Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie Ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?

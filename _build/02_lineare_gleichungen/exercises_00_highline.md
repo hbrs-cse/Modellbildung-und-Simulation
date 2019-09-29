@@ -122,7 +122,7 @@ plot_highline(z, L)
 </div>
 
  - Wie stark hängt die Highline an der tiefsten Stelle durch?
- - Wie hoch muss die Auflösung $N$ ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie ihre Antwort mit konkreten Zahlen!
+ - Wie hoch muss die Auflösung $N$ Ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie Ihre Antwort mit konkreten Zahlen!
  
 **Tipp:** Verwenden Sie den Matlabbefehl `diag` um die Matrix zu erstellen.
 

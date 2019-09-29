@@ -243,7 +243,7 @@ Created file '/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtline
 </div>
 </div>
 
-Damit haben Sie eine Funktion geschrieben, mit der Sie ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter $a$ und $b$ bestimmen zu können.
+Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter $a$ und $b$ bestimmen zu können.
 
 ## Das Newton-Verfahren
 
@@ -292,7 +292,7 @@ Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulatio
 </div>
 </div>
 
-Wenn Sie ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:
+Wenn Sie Ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -310,7 +310,7 @@ jacobian(@sin,0.25)
  - Achten Sie darauf, dass alle Funktionen $F: \mathbb{R}^n \to \mathbb{R}^m$ auf die Sie die `jacobian` Funktion anwenden *Spalten*vektoren auf *Spalten*vektoren abbilden.
 
 
-Mit dem folgenden unit test können Sie ihre Funktion testen:
+Mit dem folgenden unit test können Sie Ihre Funktion testen:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -328,11 +328,11 @@ $$
 G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
 $$
 
-Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die `F` berechnet, andererseits können Sie mit ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion `jacobian` für ihr Problem? 
+Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die `F` berechnet, andererseits können Sie mit Ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion `jacobian` für Ihr Problem? 
 
 ### Aufgabe 3: Parameterbestimmung
 
-Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu ihre Funktion `jacobian` aus Aufgabe 2.
+Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu Ihre Funktion `jacobian` aus Aufgabe 2.
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -361,7 +361,7 @@ Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulatio
 </div>
 </div>
 
-Mit dem folgenden unit test können Sie ihre Funktion testen:
+Mit dem folgenden unit test können Sie Ihre Funktion testen:
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -372,7 +372,7 @@ moxunit_runtests test_newton.m
 
 </div>
 
- - Wenden Sie das Newton-Verfahren auf die Funkton `func = @(p) F(p,t,V)` an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ ihrer Modellfunktion? 
+ - Wenden Sie das Newton-Verfahren auf die Funkton `func = @(p) F(p,t,V)` an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ Ihrer Modellfunktion? 
  - Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion `fsolve`.
  - Erstellen Sie einen Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.
  - Wie lautet die Halbwertzeit des Bierschaumes?
@@ -424,13 +424,13 @@ Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf e
 
 ### Aufgabe 4: Algorithmus zur Minimierung einer Funktion
 
-Schreiben Sie eine neue Funktion `minimize(func,x0,tol,maxit)` auf Grundlage ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion `func`$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie ihre Funktion `jacobian`, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.
+Schreiben Sie eine neue Funktion `minimize(func,x0,tol,maxit)` auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion `func`$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie Ihre Funktion `jacobian`, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.
 
  - Lösen Sie das ursprüngliche Minimierungsproblem
 $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$
  
- mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion `fminsearch`.
- - Wo sind die Grenzen ihres Algorithmus? Gibt es mögliche Fehlerquellen, die Nutzer ihrer Funktion beachten sollten?
+ mit Ihrer neuen Funktion und vergleichen Sie das Ergebnis mit Ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion `fminsearch`.
+ - Wo sind die Grenzen Ihres Algorithmus? Gibt es mögliche Fehlerquellen, die Nutzer Ihrer Funktion beachten sollten?
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">
@@ -451,7 +451,7 @@ Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulatio
 </div>
 </div>
 
-**Hinweis:** *Wenn Sie ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.* Vermeiden Sie duplizierten Code!
+**Hinweis:** *Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.* Vermeiden Sie duplizierten Code!
 
 <div markdown="1" class="cell code_cell">
 <div class="input_area" markdown="1">

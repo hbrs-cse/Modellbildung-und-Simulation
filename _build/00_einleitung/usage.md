@@ -49,7 +49,7 @@ Der Nachteil der "Interact"-Methode ist, dass man von dieser Seite weggeführt w
 
 Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auch neue Dokumente, wie z.B. m-files, erstellen oder hochladen, Dokumente herunterladen und eine Linux-Konsole starten. Das Ganze funktioniert über einen [Docker-Container](https://de.wikipedia.org/wiki/Docker_(Software)), der über den [Binder](https://mybinder.org/) Service geladen wird. 
 
-<img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" />    **Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!** Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.
+<img src="../images/attention.svg" alt="" style="width: 25px; display: inline;" />    **Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!** Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.
 
 ## Dateien erstellen
 
@@ -103,7 +103,7 @@ Hello World, how is your day?
 
 [*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihre Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt.
 
-Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.
+Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für Ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.
 
 ### Unit Tests auf dieser Seite ausführen
 
@@ -317,7 +317,7 @@ Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine 
    
 1. **Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.**
 
-   *Lösung:* Ab und zu wird der Code fälschlicherweise an einen *Python*-Interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen. Vergessen Sie aber nicht, ihren eingetragenen Code vorher zu kopieren, damit er beim Neuladen nicht abhanden kommt!
+   *Lösung:* Ab und zu wird der Code fälschlicherweise an einen *Python*-Interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen. Vergessen Sie aber nicht, Ihren eingetragenen Code vorher zu kopieren, damit er beim Neuladen nicht abhanden kommt!
       
 1. **Ich bin mir sicher, dass ich die Übungsaufgabe richtig bearbeitet habe, aber der Unit Test gibt Fehler aus.**
 
