@@ -1,0 +1,396 @@
+---
+redirect_from:
+  - "/02-lineare-gleichungen/exercises-00-highline"
+interact_link: content/02_lineare_gleichungen/exercises_00_highline.ipynb
+kernel_name: octave
+has_widgets: false
+title: |-
+  Modellierung einer Highline
+prev_page:
+  url: /02_lineare_gleichungen/intro.html
+  title: |-
+    Lineare Gleichungssysteme
+next_page:
+  url: /emptypage.html
+  title: |-
+    Gleitkommaarithmetik
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Modellierung-einer-Highline">Modellierung einer Highline<a class="anchor-link" href="#Modellierung-einer-Highline"> </a></h1><iframe width="560" height="315" src="https://www.youtube.com/embed/C6MtzvQ5hZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><p>Mittels einer Reihenschaltung von Federdämpfer-Systemen lässt sich ein einfaches zweidimensionales Modell einer Highline erstellen.</p>
+<h2 id="Modellbeschreibung">Modellbeschreibung<a class="anchor-link" href="#Modellbeschreibung"> </a></h2><p><img src="../images/bridge.png" alt=""></p>
+<p>Die Highline wird als eine Kette von $N$ Massepunkten modelliert, die jeweils mit Feder- und Dämpferelementen in horizontaler und vertikaler Richtung miteinader verbunden sind.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Kr&#228;ftebilanzierung">Kr&#228;ftebilanzierung<a class="anchor-link" href="#Kr&#228;ftebilanzierung"> </a></h3><p>Gehen Sie von einem <em>"Urzustand"</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und dem Einwirken äußerer Kräfte entstehen Verschiebungen $$ \mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix} $$ der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null,
+$$ \mathbf{z}_{0}=\mathbf{z}_{N+1}=\begin{bmatrix} 0 \\ 0 \end{bmatrix}.$$</p>
+<p>Angenommen jeder Massepunkt hat die Masse $m$ und die Federdämpferelemente haben die Steifigkeiten $k$ und Dämpfungskoeffizienten $d$. Durch Freischneiden und Kraftbilanzierung lassen sich für alle Massepunkte die Bewegungsgleichungen aufstellen. Sei $\mathbf{F}_{i,\text{ext}} \in \mathbb{R}^2$ die externe Kraft, die auf den Massepunkt mit Index $i$ wirkt. Dann gilt</p>
+$$
+\begin{align}
+ m \ddot{\mathbf{z}}_0 &amp;= 0 \notag \\
+ m \ddot{\mathbf{z}}_1 &amp;= -k \mathbf{z}_1 - d \dot{\mathbf{z}}_1 -k(\mathbf{z}_1-\mathbf{z}_2) - d(\dot{\mathbf{z}}_1-\dot{\mathbf{z}}_2) + \mathbf{F}_{1,\text{ext}} \notag \\
+ m \ddot{\mathbf{z}}_i &amp;= k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}}, \hskip4em \text{für } i=2,...,N-1 \notag \\
+ m \ddot{\mathbf{z}}_N &amp;= -k \mathbf{z}_N - d \dot{\mathbf{z}}_N + k(\mathbf{z}_{N-1}-\mathbf{z}_N) + d(\dot{\mathbf{z}}_{N-1}-\dot{\mathbf{z}}_N) + \mathbf{F}_{N,\text{ext}} \notag \\
+ m \ddot{\mathbf{z}}_{N+1} &amp;= 0 \notag
+\end{align}
+$$<p>Diese Gleichungen lassen sich in eine kompaktere Matrixschreibweise bringen. Dazu führen wir folgende Bezeichungen ein:</p>
+$$ \mathbf{z}=\left[ \begin{array}{c} \mathbf{z}_1 \\ \vdots \\ \mathbf{z}_N \end{array} \right] \in \mathbb{R}^{2N}, \quad \mathbf{F}_{\text{ext}} = \left[ \begin{array}{c} \mathbf{F}_{1,\text{ext}} \\ \vdots \\ \mathbf{F}_{N,\text{ext}} \end{array} \right] \in \mathbb{R}^{2N}, \quad M = \left[ \begin{array}{cccc} m &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; m &amp; \ddots &amp; \vdots \\ \vdots &amp; \ddots &amp; \ddots &amp; 0 \\ 0 &amp; \cdots &amp; 0 &amp; m \end{array} \right] \in \mathbb{R}^{2N \times 2N} \quad \text{und} $$
+<pre><code>                                                                                                                                                                                              
+
+</code></pre>
+$$S = \left[ \begin{array}{rrrrrrr}
+2 &amp; 0 &amp; -1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0  \\
+0 &amp; 2 &amp; 0 &amp; -1 &amp; \ddots &amp;  &amp; \vdots \\
+-1 &amp; 0 &amp; 2 &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots \\
+0 &amp; -1 &amp; 0 &amp; 2 &amp; \ddots &amp; \ddots &amp; 0 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; -1 \\
+\vdots &amp; &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; 0 \\
+0 &amp; \cdots &amp; \cdots &amp; 0 &amp; -1 &amp; 0 &amp; 2
+\end{array}  \right] \in \mathbb{R}^{2N \times 2N}.$$<p>$M$ ist die <em>Massematrix</em>, $K = k \cdot S$ die <em>Steifigkeitsmatrix</em> und $D=d \cdot S$ die <em>Dämpfungsmatrix</em> des gekoppelten Systems. Die oben bereits hergeleiteten Bewegungsgleichungen nehmen die bekannte Form eines gedämpften, angetriebenen harmonischen Oszillators</p>
+$$M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}$$<p>an, nur dass die Koeffizienten $M, D$ und $K$ nun matrixwertig sind und die unbekannte Verschiebungsfunktion $\mathbf{z}(t)$ vektorwertig mit $2N$ Einträgen ist: Ein Eintrag pro Raumrichtung und beweglichen Massepunkt der Highline.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Ein-station&#228;rer-Lastfall">Ein station&#228;rer Lastfall<a class="anchor-link" href="#Ein-station&#228;rer-Lastfall"> </a></h3><p>Es soll zunächst der stationäre Lastfall untersucht werden, bei dem nur die Schwerkraft auf die Highline wirkt, d.h. Sie gehen von einer konstanten Kraft
+$$\mathbf{F}_{i,\text{ext}}=\begin{bmatrix} 0 \\ -m g \end{bmatrix}$$
+mit $g=9.81\;\textrm{m}/\textrm{s}^2$ sowie $\ddot{\mathbf{z}}=\dot{\mathbf{z}}=0$ aus. Dies entspricht dem Zustand, der sich nach langer Zeit aufgrund der Dämpfung einstellt. Die Differentialgleichung vereinfacht sich in diesem Fall zu einem linearen Gleichungssystem</p>
+$$K \mathbf{z} = \mathbf{F}_{\text{ext}}.$$<p>Bei einer Highlinelänge von $L=50\;\textrm{m}$, einem Gesamtgewicht von $m_{\text{ges}}=3.15\;\textrm{kg}$, sowie einer Gesamtsteifigkeit von $k_{\text{ges}}=145.5\;\textrm{N}/\textrm{m}$ ergeben sich für die Einzelmassen und Einzelsteifigkeiten</p>
+$$ m = \frac{m_{\text{ges}}}{N} \quad \text{ und } \quad k = N \cdot k_{\text{ges}}.$$<p>Mit $\mathbf{b} = \left[ \begin{array}{ccccccc} 0 &amp; 1 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 &amp; 1 \end{array} \right]^T \in \mathbb{R}^{2N}$
+lässt sich das lineare Gleichungssystem schreiben als</p>
+$$
+\begin{align}
+ &amp;K \mathbf{z} = \mathbf{F}_{\text{ext}} \notag \\
+ \Leftrightarrow \quad&amp;k \cdot S \mathbf{z} = -m \cdot g \cdot \mathbf{b} \notag \\
+ \Leftrightarrow \quad&amp;N \cdot k_{\text{ges}} S \mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N} \mathbf{b} \notag \\
+ \Leftrightarrow \quad&amp;S \underbrace{\left( - \frac{N^2 \cdot k_{\text{ges}}}{m_{\text{ges}}\cdot g} \mathbf{z}\right)}_{:= \tilde{\mathbf{z}}} = \mathbf{b} \notag
+\end{align}
+$$<p>Demnach lassen sich die Verschiebungen der Massepunkte im stationären Lastfall berechnen, indem das lineare Gleichungssytem</p>
+$$S \tilde{\mathbf{z}} =\mathbf{b}$$<p>gelöst wird. Die Verschiebungen $\mathbf{z}$ erhält man aus der <em>entdimensionalisierten</em> Lösung $\tilde{\mathbf{z}}$ des Gleichunssystemes mittels</p>
+$$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\mathbf{z}}.$$
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-1---Durchhang-der-Highline-ohne-Zusatzgewicht">Aufgabe 1 - Durchhang der Highline ohne Zusatzgewicht<a class="anchor-link" href="#Aufgabe-1---Durchhang-der-Highline-ohne-Zusatzgewicht"> </a></h2><p>Lösen Sie das Gleichungssystem $$S \tilde{\mathbf{z}} = \mathbf{b} $$ mit $S \in \mathbb{R}^{2N \times 2N}$ und $\mathbf{b} \in \mathbb{R}^{2N}$ für verschiedene Werte für $N$ mit Hilfe des backslash-Operators <code>S\b</code> und berechnen Sie anschließend die Verschiebung der Massepunkte $\mathbf{z}$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% space for the solution</span>
+
+<span class="c">% S = ...</span>
+<span class="c">% b = ...</span>
+
+
+<span class="c">% z = ...</span>
+
+<span class="c">% plot the displacement of the slackline based on the solution vector z as well as the length of the slackline L</span>
+<span class="c">% (the function plot_highline is provided for you, you do not need to implement this)</span>
+<span class="n">plot_highline</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+<span class="c">% uncomment the following line to have equal spacing along the x- and y-axis</span>
+<span class="c">%axis equal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Wie stark hängt die Highline an der tiefsten Stelle durch?</li>
+<li>Wie hoch muss die Auflösung $N$ ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie ihre Antwort mit konkreten Zahlen!</li>
+</ul>
+<p><strong>Tipp:</strong> Verwenden Sie den Matlabbefehl <code>diag</code> um die Matrix zu erstellen.</p>
+<h2 id="Aufgabe-2---D&#252;nnbesetzte-Matrizen">Aufgabe 2 - D&#252;nnbesetzte Matrizen<a class="anchor-link" href="#Aufgabe-2---D&#252;nnbesetzte-Matrizen"> </a></h2><p>Die Matrix $S$ enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit dem folgenden Matlab-Code wird die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt. Es werden nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% preallocate vectors for the row and column indices and the values for the nonzero entries</span>
+<span class="nb">nnz</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">row</span>    <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">nnz</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">column</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">nnz</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">value</span>  <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">nnz</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">j</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span> <span class="c">% counter for the nonzeros, j goes from 0 to nnz-1</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span>
+    <span class="c">% for each row...</span>
+    
+    <span class="c">% save diagonal entry</span>
+    <span class="n">j</span><span class="p">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>  <span class="n">row</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="n">i</span><span class="p">;</span>  <span class="n">column</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="n">i</span><span class="p">;</span> <span class="n">value</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="mi">2</span><span class="p">;</span>
+    
+    <span class="c">% save left off-diagonal entry</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">j</span><span class="p">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>  <span class="n">row</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="n">i</span><span class="p">;</span>  <span class="n">column</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">value</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="c">% save right off-diagonal entry</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">j</span><span class="p">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">row</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="n">i</span><span class="p">;</span> <span class="n">column</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span> <span class="n">value</span><span class="p">(</span><span class="n">j</span><span class="p">)=</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c">% create sparse matrix from the vectors row, column, value</span>
+<span class="n">S</span><span class="p">=</span><span class="nb">sparse</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Für viele Algorithmen, wie etwa dem LU-Verfahren, sind in Matlab spezielle Implementierungen für dünnbesetzte Matrizen hinterlegt. Wie wirkt sich das dünnbesetzte Speicherformat auf die Rechenzeit aus?</p>
+<ul>
+<li>Erstellen Sie ein Balkendiagramm, dass die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und $N = 5, 50, 500, 5000$ darstellt (Insgesamt also acht Rechnungen).</li>
+</ul>
+<p><strong>Tipps:</strong></p>
+<ul>
+<li>Verwenden Sie die Matlabbefehle <code>tic</code> und <code>toc</code> für die Zeitmessung. </li>
+<li>Machen Sie sich mit dünnbesetzten Matrizen <em>(sparse matrix)</em> in Matlab vertraut.</li>
+<li>Berücksichtigen Sie die Rechenzeit der Matrix-Assemblierung (Erstellen von $S$ und $b$).</li>
+<li>Unter Umständen müssen Sie die y-Achse logarithmisch skalieren!</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% space for the solution</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-3---Iterative-Gleichungssysteml&#246;ser">Aufgabe 3 - Iterative Gleichungssysteml&#246;ser<a class="anchor-link" href="#Aufgabe-3---Iterative-Gleichungssysteml&#246;ser"> </a></h2><p>Ab einer bestimmten Größe des Gleichungssystems sind iterative Verfahren zum Lösen von linearen Gleichungssystem besser geeignet als direkte Lösungsverfahren wie das LU-Verfahren.</p>
+<p>Prominente Vertreter iterativer Verfahren für lineare Gleichungssysteme sind das konjugierte Gradientenverfahren <em>(Matlab: <code>cgs</code>)</em>, das Minres-Verfahren <em>(Matlab: <code>minres</code>)</em> sowie das BiCGstab-Verfahren <em>(Matlab: <code>bicgstab</code>)</em>.</p>
+<p>Die Konvergenzgeschwindigkeit der iterativen Verfahren lässt sich durch Vorkonditionierung, z.B. mittels unvollständiger LU-Zerlegung, verbessern. Für das BiCGstab-Verfahren sieht der Befehl so aus:</p>
+<div class="highlight"><pre><span></span><span class="c">% construct preconditioner </span>
+<span class="n">option</span><span class="p">.</span><span class="n">thresh</span> <span class="p">=</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">P</span><span class="p">]</span> <span class="p">=</span> <span class="n">ilu</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">option</span><span class="p">);</span>
+
+<span class="c">% calculate solution using preconditioned bicgstab</span>
+<span class="n">zt</span> <span class="p">=</span> <span class="nb">bicgstab</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">b</span><span class="p">,[],</span><span class="n">maxit</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
+</pre></div>
+<p>Vergleichen Sie die benötigte Rechenzeit zur Lösung des linearen Gleichungssystems $$S\tilde{\mathbf{z}} = \mathbf{b}$$ von dem klassischen LU-Verfahren</p>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">P</span><span class="p">]</span> <span class="p">=</span> <span class="nb">lu</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+<span class="n">y</span>  <span class="p">=</span> <span class="n">L</span><span class="o">\</span><span class="n">P</span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
+<span class="n">zt</span> <span class="p">=</span> <span class="n">U</span><span class="o">\</span><span class="n">y</span><span class="p">;</span>
+</pre></div>
+<p>mit den drei iterativen Verfahren, jeweils mit und ohne Vorkonditionierung und für unterschiedliche $N$. Verwenden Sie das Speicherformat für dünnbesetzte Matrizen. Erstellen Sie zwei Tabellen, in denen sie jeweils die benötigte Rechenzeit bzw. das Residuum <code>res = max(abs(b-S*zt))</code> eintragen:</p>
+<table>
+<thead><tr>
+<th>Verfahren/N</th>
+<th>5</th>
+<th>50</th>
+<th>500</th>
+<th>...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LU</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>cgs</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>minres</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>bicgstab</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>prec. cgs</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>prec. minres</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr>
+<td>prec. bicgstab</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ab welche Auflösung $N$ ist das schnellste der sechs iterativen Verfahren schneller als das klassische LU-Verfahren? </li>
+</ul>
+<p><strong>Tipps:</strong></p>
+<ul>
+<li>Unter Umständen müssen Sie die maximal erlaubte Anzahl an Iterationen für die iterativen Verfahren anpassen.</li>
+<li>Denken Sie daran, die Konstruktion des Vorkonditionierers in der Rechenzeit zu berücksichtigen!</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% space for the solution</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-4---Simulation-des-Slackliners">Aufgabe 4 - Simulation des Slackliners<a class="anchor-link" href="#Aufgabe-4---Simulation-des-Slackliners"> </a></h2><p>In einer sogenannten <em>quasistatischen</em> Simulation wird ein zeitabhängiger Prozess so simuliert, dass in jedem Zeitschritt ein stationärer Zustand berechnet wird. So wird die Dynamik (z.B. Oszillation der Slackline) vernachlässigt, was die Berechnung deutlich vereinfacht. Schließlich muss keine Differentialgleichung gelöst werden, es reicht eine Abfolge von linearen Gleichungssystemen zu lösen.</p>
+<p><img src="../images/slackline_animation.gif" alt="Slackline Animation" width="800"/></p>
+<p>Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversiert. Berechnen Sie dazu die statische Verschiebung der Slackline für unterschiedliche Positionen des Slackliners entlang der Highline. Gehen Sie von einem Gewicht von 70 kg aus.</p>
+<ul>
+<li><p>Treffen Sie eine angemessene Wahl für</p>
+<ul>
+<li>die räumliche Diskretisierung $N$ der Slackline, sowie der Schrittweite des Slackliners; </li>
+<li>das Lösungsverfahren für das lineare Gleichungssystem;</li>
+<li>das Speicherformat der Matrix</li>
+</ul>
+<p>und begründen Sie Ihre Antwort.</p>
+</li>
+<li>Plotten sie die Kurve, die von den Füßen des Slackliners durchlaufen wird (Rote Linie in der Animation). Wie stark hängt die Slackline am tiefsten Punkt durch?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% space for the solution</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><iframe src="https://giphy.com/embed/Pg6L6vAslKnYY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/walking-canyon-slackline-Pg6L6vAslKnYY">via GIPHY</a></p></p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

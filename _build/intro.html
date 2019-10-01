@@ -1,0 +1,106 @@
+---
+interact_link: content/intro.ipynb
+kernel_name: octave
+has_widgets: false
+title: |-
+  Home
+prev_page:
+  url: 
+  title: |-
+    
+next_page:
+  url: /00_einleitung/intro.html
+  title: |-
+    Einleitung
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Modellbildung-und-Simulation">Modellbildung und Simulation<a class="anchor-link" href="#Modellbildung-und-Simulation"> </a></h1><p>Dies ist ein interaktives Übungsbuch zur Vorlesung <strong>Modellbildung und Simulation</strong> an der <a href="https://www.h-brs.de">Hochschule Bonn-Rhein-Sieg</a>. Es dient zur Übermittlung von Matlab bzw. Octave-Kenntnissen für die Modellierung und Simulation ingenieurstechnischer Probleme.</p>
+<p>Es ist ein gemeinsames Projekt von <a href="https://www.h-brs.de/de/emt/dirk-reith">Dirk Reith</a>, <a href="https://www.h-brs.de/de/emt/prof-dr-gerd-steinebach">Gerd Steinebach</a> und <a href="https://www.h-brs.de/de/emt/prof-dr-jan-kleinert">Jan Kleinert</a>, das sich gerade im Aufbau befindet. Wir freuen uns über jegliche Art von Feedback!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">41</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
+<span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>
+<span class="n">R</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="nb">eps</span><span class="p">;</span>
+<span class="n">Z</span> <span class="p">=</span> <span class="nb">sin</span><span class="p">(</span><span class="n">R</span><span class="p">)</span><span class="o">./</span> <span class="n">R</span><span class="p">;</span>
+<span class="nb">surf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="images/intro_1_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Im Gegensatz zu Matlab-Liveskripten wird hier auf die kostenfreie Matlab-Alternative <a href="https://www.gnu.org/software/octave/">Octave</a> zusammen mit dem <a href="https://jupyter.org/">Project Jupyter</a> gebaut, um mit frei verfügbaren Software-Tools frei verfügbare Lerninhalte bereitzustellen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong><em>Hinweis</em></strong>: Microsoft Edge und Microsoft Internet Explorer werden nicht unterstützt!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Acknowledgements">Acknowledgements<a class="anchor-link" href="#Acknowledgements"> </a></h2><p>Jupyter Books was originally created by <a href="http://www.samlau.me/">Sam Lau</a> and <a href="https://predictablynoisy.com">Chris Holdgraf</a>
+with support of the <strong>UC Berkeley Data Science Education Program and the Berkeley
+Institute for Data Science</strong>.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+

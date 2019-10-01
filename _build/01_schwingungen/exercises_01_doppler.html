@@ -1,0 +1,157 @@
+---
+redirect_from:
+  - "/01-schwingungen/exercises-01-doppler"
+interact_link: content/01_schwingungen/exercises_01_doppler.ipynb
+kernel_name: octave
+has_widgets: false
+title: |-
+  Der Doppler Effekt
+prev_page:
+  url: /01_schwingungen/intro.html
+  title: |-
+    Schwingungen
+next_page:
+  url: /02_lineare_gleichungen/intro.html
+  title: |-
+    Lineare Gleichungssysteme
+comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
+---
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Der-Doppler-Effekt">Der Doppler Effekt<a class="anchor-link" href="#Der-Doppler-Effekt"> </a></h1><p>In <a href="https://www.youtube.com/watch?v=a3RfULw7aAY">dem folgenden Video</a> ist kurz ein Verkehrsschild zu sehen: Hier ist eine Maximalgeschwindigkeit von 50 mph, bzw. ca. 80 km/h vorgeschrieben.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/a3RfULw7aAY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><p>Eine Frage drängt sich nahezu auf: <strong><em>Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung?</em></strong></p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" alt="Matlab Logo" style="width: 200px;"/></p>
+<p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug an einem vorbei fährt, klingt die Sirene plötzlich viel tiefer. Er ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Frequenzanalyse">Frequenzanalyse<a class="anchor-link" href="#Frequenzanalyse"> </a></h2><p>Mit einem beliebigen Online <em>Youtube-zu-mp3-Converter</em> lässt sich die Tonspur des Videos extrahieren und mit der Funktion <code>audioread</code> in Matlab einlesen. Mit Hilfe der Signalverarbeitungstoolbox kann man sich dann ein Spektrogramm erstellen:</p>
+<p><img src="../images/honking_car_spectogram.png" alt=""></p>
+<p>Auf der x-Achse ist die Zeit und auf der y-Achse die Frequenz aufgetragen. Die Farbe gibt eine Auskunft über die dominanten Frequenzen zu jedem Zeitpunkt. Zwischen Sekunde 6 und Sekunde 7 fährt das Auto am Kameramann vorbei und der Abfall in der Tonhöhe ist gut zu erkennen.</p>
+<p>Die vielen horizontalen Linien sind ein Zeichen dafür, dass die Hupe des Fahrzeuges keinen reinen Sinuston erzeugt, sondern eine Überlagerung vieler Frequenzen ist. Eine sogenannte Fouriertransformation der Tonspur gibt uns Auskunft über die dominanten Frequenzen im gesamten Zeitfenster:</p>
+<p><img src="../images/honking_car_fouriertransform.png" alt=""></p>
+<p>Für jede horizontale Linie im Spektrogramm erhalten wir einen Peak in der Fouriertransformation. Der Ton der Hupe ist also eine Überlagerung von hauptsächlich drei Tönen bzw. Frequenzen.</p>
+<ul>
+<li>Die dominanteste Frequenz von 1658 Hz (<em><a href="https://www.youtube.com/watch?v=rv6XQwmpJAE">dreigestrichenes gis</a></em>) fällt beim Vorbeifahren auf 1449 Hz herab.</li>
+<li>Die zweite Frequenz von 1104 Hz fällt beim Vorbeifahren auf 964 Hz ab.</li>
+<li>Die dritte Frequenz von 456 Hz fällt herab auf 399 Hz.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Ursache-des-Dopplereffektes">Ursache des Dopplereffektes<a class="anchor-link" href="#Ursache-des-Dopplereffektes"> </a></h2><p>Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus.</p>
+<p>Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg" alt="Matlab Logo" style="width: 600px;"/></p>
+<p>Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz als die gestreckten Wellenberge hinter dem Fahrzeug und werden deshalb auch als höherer Ton wahrgenommen.</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" alt=""></p>
+<div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" > [CC BY-SA 3.0], via Wikimedia Commons </a></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Zur&#252;ck-zur-urspr&#252;nglichen-Fragestellung">Zur&#252;ck zur urspr&#252;nglichen Fragestellung<a class="anchor-link" href="#Zur&#252;ck-zur-urspr&#252;nglichen-Fragestellung"> </a></h2><p>Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt $f_A$. Das Signal breitet sich mit der Schallgeschwindigkeit von c = 340 m/s aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons ist dann</p>
+$$ \lambda_A = \frac{c}{f_A}, $$<p>also genau die Distanz, die das Signal in der Zeit $f_A^{-1}$ zurück legt. Kommt das Auto auf uns zu verkürzt sich die Wellenlänge genau um die Strecke, die das Auto in der Zeit $f_A^{-1}$ zurück legt. Ist $v$ die Geschwindigkeit des Autos, so verringert sich die Wellenlänge zu</p>
+$$ \lambda_{A,+} = \frac{c}{f_A} - \frac{v}{f_A} = \frac{c-v}{f_A} $$<p>Diese verringerte Wellenlänge wird vom Beobachter als höhere Frequenz $f_{B,+}$ wahrgenommen:</p>
+$$ f_{B,+} = \frac{c}{\lambda_{A,+}} = \frac{c \cdot f_A}{c-v}. $$<p>Wenn wir die Originalfrequenz der Hupe kennen würden, könnten wir nun diese Gleichung nach $v$ umstellen um die Geschwindigkeit zu bestimmen. Aus unserer voangeschalteten Frequenzanalyse kennen wir aber nur die Frequenz $f_{B,+}$ der Hupe, die wir wahrnehmen wenn das Auto auf uns zukommt und die Frequenz $f_{B,-}$, die wir wahrnehmen, wenn das Auto sich wieder von uns entfernt.</p>
+<p>Wir können aber die obigen Überlegungen Gleichungen genauso herleiten für den Fall, dass das Auto sich von uns entfernt. In diesem Fall vergrößert sich die Wellenlänge genau um den Betrag, den das Auto in der Zeit $f_A^{-1}$ zurücklegt:</p>
+$$ \lambda_{A,-} = \frac{c+v}{f_A}, $$<p>was wir als tiefere Frequenz</p>
+$$ f_{B,-} =  \frac{c \cdot f_A}{c+v}$$<p>wahrnehmen. Wenn wir nun die Gleichung für $f_{B,+}$ durch die Gleichung für $f_{B,-}$ teilen, kürzt sich die unbekannte Frequenz $f_A$ raus:</p>
+$$ \frac{f_{B,+}}{f_{B,-}} = \frac{c+v}{c-v}. $$<p>Alle Werte in dieser Gleichung sind bekannt, bis auf $v$. Wir können also nach $v$ auflösen um die Geschwindigkeit des Autos aus den gemessenen Frequenzen zu bestimmen. Im folgenden wird das für die drei identifizierten dominanten Frequenzen durchgeführt:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">f1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1658</span><span class="p">,</span> <span class="mi">1104</span><span class="p">,</span> <span class="mi">456</span><span class="p">];</span>  <span class="c">% frequencies approaching</span>
+<span class="n">f2</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1449</span><span class="p">,</span>  <span class="mi">964</span><span class="p">,</span> <span class="mi">399</span><span class="p">];</span>  <span class="c">% frequencies retreating</span>
+
+<span class="n">c</span> <span class="p">=</span> <span class="mi">340</span><span class="p">;</span>                  <span class="c">% speed of sound [m/s]</span>
+<span class="n">km_to_miles</span> <span class="p">=</span> <span class="mf">0.621371</span><span class="p">;</span>   <span class="c">% [miles/kilometer]</span>
+
+<span class="c">% f1/f2 = (c+v)/(c-v) =&gt;</span>
+<span class="n">v</span> <span class="p">=</span> <span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="n">f1</span> <span class="o">-</span> <span class="n">f2</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span><span class="p">);</span> <span class="c">%in  [m/s]</span>
+
+
+<span class="n">v_kmh</span> <span class="p">=</span> <span class="n">v</span><span class="o">*</span><span class="mf">3.6</span><span class="p">;</span>
+<span class="n">v_mph</span> <span class="p">=</span> <span class="n">v_kmh</span><span class="o">*</span><span class="n">km_to_miles</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>v_mph =
+
+   51.161   51.488   50.704
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Die Toleranzen bei Geschwindigkeitsmessungen in USA liegen im Ermessen des Verkehrsbeamten, in der Regel geht man aber von ca. 5 mph aus. Glück gehabt!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://media1.popsugar-assets.com/files/thumbor/X4YCyk7qgj3rZJ_o2UbD_SazRsM/fit-in/1200x630/filters:format_auto-!!-:strip_icc-!!-:fill-!white!-/2018/01/04/870/n/1922398/addurlFvJTS6/i/When-He-Literally-Doppler-Effect.gif" alt=""></p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
