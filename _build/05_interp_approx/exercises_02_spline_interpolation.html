@@ -54,7 +54,7 @@ den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamt
 wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen
 (dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?</p>
 <h2 id="Aufgabe-2">Aufgabe 2<a class="anchor-link" href="#Aufgabe-2"> </a></h2><ul>
-<li>Implementieren Sie eine Matlab-Funktion <code>function zfine = quadraticSpline(x, z, xfine, bc)</code>, die für gegebene x- und z-Werte sowie Randbedingung auf einem fein aufgelösten Interval, definiert durch xfine, die entsprechenden z-Werte entlang des Splines berechnet.</li>
+<li>Implementieren Sie eine Matlab-Funktion <code>function zfine = quadraticSpline(x, z, xfine, bc)</code>, die für gegebene x- und z-Werte sowie Randbedingung an den von <code>xfine</code> definierten Punkten die entsprechenden z-Werte des Splines berechnet.</li>
 </ul>
 
 </div>
@@ -70,63 +70,16 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-octave"><pre><span></span><span class="c">%%file quadraticSpline.m</span>
-<span class="c">% return interpolated z from quadratic interpolation of input x-z-value pairs</span>
 <span class="k">function</span><span class="w"> </span>zfine <span class="p">=</span><span class="w"> </span><span class="nf">quadraticSpline</span><span class="p">(</span>x, z, xfine, bc<span class="p">)</span><span class="w"></span>
+<span class="c">% z = quadraticSpline(x, z, xfine, bc) calculates the quadratic spline going through the</span>
+<span class="c">% points defined by xi and zi and evaluates the spline at the points in xfine.</span>
 
-<span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">xfine</span><span class="p">)</span><span class="o">&gt;</span> <span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">||</span> <span class="nb">min</span><span class="p">(</span><span class="n">xfine</span><span class="p">)</span><span class="o">&lt;</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-        <span class="n">msgID</span> <span class="p">=</span> <span class="s">&#39;quadraticSpline:xfineOutofbounds&#39;</span><span class="p">;</span>
-        <span class="n">msg</span> <span class="p">=</span> <span class="s">&#39;A value in xfine is outside the range of x.&#39;</span><span class="p">;</span>
-        <span class="n">exception</span> <span class="p">=</span> <span class="n">MException</span><span class="p">(</span><span class="n">msgID</span><span class="p">,</span><span class="n">msg</span><span class="p">);</span>
-        <span class="n">throw</span><span class="p">(</span><span class="n">exception</span><span class="p">);</span>
-    <span class="k">end</span>
-    
-    <span class="k">if</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">~=</span> <span class="nb">size</span><span class="p">(</span><span class="n">z</span><span class="p">)))</span>
-        <span class="n">msgID</span> <span class="p">=</span> <span class="s">&#39;quadraticSpline:xzdiffer&#39;</span><span class="p">;</span>
-        <span class="n">msg</span> <span class="p">=</span> <span class="s">&#39;x and z dimensions do not agree.&#39;</span><span class="p">;</span>
-        <span class="n">exception</span> <span class="p">=</span> <span class="n">MException</span><span class="p">(</span><span class="n">msgID</span><span class="p">,</span><span class="n">msg</span><span class="p">);</span>
-        <span class="n">throw</span><span class="p">(</span><span class="n">exception</span><span class="p">);</span>
-    <span class="k">end</span>
+<span class="p">...</span>
 
-    <span class="n">b</span> <span class="p">=</span> <span class="p">[</span><span class="n">z</span><span class="p">,</span> <span class="nb">zeros</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">z</span><span class="p">))]</span><span class="o">&#39;</span><span class="p">;</span>
-    <span class="n">b</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">bc</span><span class="p">;</span>
-    <span class="n">A</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">),</span><span class="mi">3</span><span class="o">*</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">));</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">,(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>
-    <span class="k">end</span>
-    <span class="n">A</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">A</span><span class="p">(</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">2</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">),(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">),(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">),(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-        <span class="n">A</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">),(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="k">end</span>
-    <span class="n">coeff</span> <span class="p">=</span> <span class="n">A</span><span class="o">\</span><span class="n">b</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">xfine</span><span class="p">)</span>
-        <span class="n">j</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;</span><span class="n">xfine</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
-        <span class="n">zfine</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">coeff</span><span class="p">(</span><span class="n">j</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">xfine</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">*</span> <span class="n">coeff</span><span class="p">(</span><span class="n">j</span><span class="o">*</span><span class="mi">3</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">xfine</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">*</span> <span class="n">coeff</span><span class="p">(</span><span class="n">j</span><span class="o">*</span><span class="mi">3</span><span class="p">);</span>
-    <span class="k">end</span>
 <span class="k">end</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Created file &#39;/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/quadraticSpline.m&#39;.
-</pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -137,10 +90,8 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Hier bietet es sich an, einen unit test zur Verfügung zu stellen, der diese Funktion auf das erwartete Verhalten testet. 
-Es lässt sich zum Beispiel gut überprüfen, ob die Funktion wie erwartet die Interpolationsbedingungen erfüllt oder ob die interpolierten Punkte für Punkte auf einer Parabel wieder auf der ursprünglichen Parabel liegen.</p>
 <ul>
-<li>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code>test_quadraticSpline.m</code>, siehe unten. Es reicht zunächst, dass die ersten n der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle n+i unit tests zu erfüllen?</li>
+<li>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code>test_quadraticSpline.m</code>, siehe unten. Es reicht zunächst, dass die ersten 5 der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle 9 unit tests zu erfüllen?</li>
 </ul>
 
 </div>
@@ -155,167 +106,11 @@ Es lässt sich zum Beispiel gut überprüfen, ob die Funktion wie erwartet die I
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">% test the fac function</span>
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% test the quadraticSpline function</span>
 <span class="n">moxunit_runtests</span> <span class="n">test_quadraticSpline</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>suite: 7 tests
-coeff =
-
-   0.000000
-   0.000000
-   0.037300
-   0.002988
-   0.000747
-   0.036553
-   0.010127
-   0.005894
-   0.033979
-   0.018798
-   0.017104
-   0.030242
-   0.027717
-   0.034209
-   0.025966
-
-Fcoeff =
-
-   0.000000
-   0.000000
-   0.037300
-   0.002988
-   0.000747
-   0.036553
-   0.010127
-   0.005894
-   0.033979
-   0.018798
-   0.017104
-   0.030242
-   0.027717
-   0.034209
-   0.025966
-
-Fcoeff =
-
-   0.000000
-   0.000000
-   0.037300
-   0.002988
-   0.000747
-   0.036553
-   0.010127
-   0.005894
-   0.033979
-   0.018798
-   0.017104
-   0.030242
-   0.027717
-   0.034209
-   0.025966
-
-Fcoeff =
-
-   0.000000
-   0.000000
-   0.037300
-   0.002988
-   0.000747
-   0.036553
-   0.010127
-   0.005894
-   0.033979
-   0.018798
-   0.017104
-   0.030242
-   0.027717
-   0.034209
-   0.025966
-
-F..coeff =
-
-   0.000000
-   0.000000
-   0.037300
-   0.002988
-   0.000747
-   0.036553
-   0.010127
-   0.005894
-   0.033979
-   0.018798
-   0.017104
-   0.030242
-   0.027717
-   0.034209
-   0.025966
-
-F
---------------------------------------------------
-
-failure: inputs are not equal within relative tolerance 1.49012e-08
-
-First input: 1x1 double
-0.0029883
-
-Second input: 1x1 double
-0
-  assertVectorsAlmostEqual:79 (/home/martin/MOxUnit/MOxUnit/assertVectorsAlmostEqual.m)
-  test_quadraticSpline&gt;test_quadraticSpline_0:17 (/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/test_quadraticSpline.m)
-
-failure: =: nonconformant arguments (op1 is 1x1, op2 is 0x1)
-  quadraticSpline:37 (/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/quadraticSpline.m)
-  test_quadraticSpline&gt;test_quadraticSpline_2:23 (/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/test_quadraticSpline.m)
-
-failure: inputs are not equal within relative tolerance 1.49012e-08
-
-First input: 1x1 double
-0.0077275
-
-Second input: 1x1 double
-0.006125
-  assertVectorsAlmostEqual:79 (/home/martin/MOxUnit/MOxUnit/assertVectorsAlmostEqual.m)
-  test_quadraticSpline&gt;test_quadraticSpline_0_35:29 (/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/test_quadraticSpline.m)
-
-failure: inputs are not equal within relative tolerance 1.49012e-08
-
-First input: 1x1 double
-0.075214
-
-Second input: 1x1 double
-0.061827
-  assertVectorsAlmostEqual:79 (/home/martin/MOxUnit/MOxUnit/assertVectorsAlmostEqual.m)
-  test_quadraticSpline&gt;test_quadraticSpline_1_112:35 (/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/test_quadraticSpline.m)
-
-failure: inputs are not equal within relative tolerance 1.49012e-08
-
-First input: 1x4 double
-[0.0082688 0.080896 0.010726 0.075891]
-
-Second input: 1x4 double
-[0.006845 0.069361 0.010125 0.06272]
-  assertVectorsAlmostEqual:79 (/home/martin/MOxUnit/MOxUnit/assertVectorsAlmostEqual.m)
-  test_quadraticSpline&gt;test_quadraticSpline_array:57 (/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/test_quadraticSpline.m)
-
---------------------------------------------------
-
-FAILED (failure=5, passed=2)
-ans = 0
-</pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 
@@ -342,38 +137,13 @@ ans = 0
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">%skript to apply function to the given values</span>
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%script to apply function to the given values</span>
 
 <span class="c">%uncomment to equalize axis:</span>
 <span class="c">%axis equal</span>
-<span class="n">zfine</span> <span class="p">=</span> <span class="n">quadraticSpline</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>coeff =
-
-   0.00000
-   0.00000
-   0.33333
-   0.50000
-   0.33333
-   0.16667
-
-zfine =  0.70833
-</pre>
-</div>
-</div>
-</div>
 </div>
 </div>
 
