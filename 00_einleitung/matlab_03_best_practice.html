@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Best Practices</title>
+  <meta name="description" content="        Matlab Best Practices Oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien au...">
+
+  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html">
+  <link rel="alternate" type="application/rss+xml" title="Modellbildung und Simulation" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/feed.xml">
+
+  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Best Practices" />
+<meta property="og:description" content="        Matlab Best Practices Oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien au..." />
+<meta property="og:image"       content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html",
+  "headline": "Best Practices",
+  "datePublished": "2019-10-23T13:23:29+00:00",
+  "dateModified": "2019-10-23T13:23:29+00:00",
+  "description": "        Matlab Best Practices Oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien au...",
+  "author": {
+    "@type": "Person",
+    "name": "Jan Kleinert"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/Modellbildung-und-Simulation/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/Modellbildung-und-Simulation/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/Modellbildung-und-Simulation';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/Modellbildung-und-Simulation/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
+    <img src="/Modellbildung-und-Simulation/assets/images/edit-button.svg" alt="Start thebelab interactive mode">
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script type="text/x-thebe-config">
+    {
+      requestKernel: true,
+      binderOptions: {
+        repo: 'joergbrech/Modellbildung-und-Simulation',
+        ref: 'master',
+      },
+      codeMirrorConfig: {
+        theme: "abcdef"
+      },
+      kernelOptions: {
+        name: 'octave',
+      }
+    }
+</script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
+<script>
+    /**
+     * Add attributes to Thebelab blocks
+     */
+
+    const initThebelab = () => {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all code cells, replace with Thebelab interactive code cells
+            const codeCells = document.querySelectorAll('.input_area pre')
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // Figure out the language it uses and add this too
+                var parentDiv = codeCell.parentElement.parentElement;
+                var arrayLength = parentDiv.classList.length;
+                for (var ii = 0; ii < arrayLength; ii++) {
+                    var parts = parentDiv.classList[ii].split('language-');
+                    if (parts.length === 2) {
+                        // If found, assign dataLanguage and break the loop
+                        var dataLanguage = parts[1];
+                        break;
+                    }
+                }
+                if ( dataLanguage === 'matlab' ) {
+                    console.log('Found matlab block. Setting language to Octave.')
+                    dataLanguage='octave';
+                }
+                codeCell.setAttribute('data-language', dataLanguage)
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale
+            const outputs = document.querySelectorAll('.output *, .output')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+    }
+
+    // Initialize Thebelab
+    initFunction(initThebelab);
+</script>
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+  <script src="/Modellbildung-und-Simulation/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134708516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134708516-1');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/Modellbildung-und-Simulation/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/Modellbildung-und-Simulation/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/Modellbildung-und-Simulation/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://joergbrech.github.io/Modellbildung-und-Simulation") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/Modellbildung-und-Simulation/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://h-brs.de"><img src="/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Modellbildung und Simulation</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/intro.html"
+        >
+          
+          Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/00_einleitung/intro.html"
+        >
+          
+          Einleitung
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/00_einleitung/usage.html"
+                >
+                  
+                  Verwendung des Buches
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/00_einleitung/matlab_00_first_steps.html"
+                >
+                  
+                  Erste Schritte in Matlab
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_01_command_window.html"
+                    >
+                      
+                      Matlab Command Window
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html"
+                    >
+                      
+                      Skripte und Funktionen
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
+                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html"
+                    >
+                      
+                      Best Practices
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/00_einleitung/exercises_00_intro.html"
+                >
+                  
+                  Übungsaufgaben
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_01_factorial_pi.html"
+                    >
+                      
+                      Matlab/Octave
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_02_fluessigkeit.html"
+                    >
+                      
+                      Flüssigkeit im Boden
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_03_verkehrssimulation.html"
+                    >
+                      
+                      Verkehrssimulation
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/emptypage.html"
+                    >
+                      
+                      Conway's Game of Life
+                    </a>
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/01_schwingungen/intro.html"
+        >
+          
+            1.
+          
+          Schwingungen
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/01_schwingungen/exercises_01_doppler.html"
+                >
+                  
+                    1.1
+                  
+                  Der Doppler Effekt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/02_lineare_gleichungen/intro.html"
+        >
+          
+            2.
+          
+          Lineare Gleichungssysteme
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/02_lineare_gleichungen/exercises_00_highline.html"
+                >
+                  
+                    2.1
+                  
+                  Modellierung einer Highline
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/emptypage.html"
+        >
+          
+            3.
+          
+          Gleitkommaarithmetik
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/intro.html"
+        >
+          
+            4.
+          
+          Nichtlineare Gleichungssysteme
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html"
+                >
+                  
+                    4.1
+                  
+                  Bierschaumzerfall
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/05_interp_approx/intro.html"
+        >
+          
+            5.
+          
+          Interpolation und Approximation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_00_linear_interpolation.html"
+                >
+                  
+                    5.1
+                  
+                  Lineare Interpolation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_01_linear_approximation.html"
+                >
+                  
+                    5.2
+                  
+                  Lineare Approximation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/emptypage.html"
+        >
+          
+            6.
+          
+          Differentiation und Integration
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/07_num_ode/intro.html"
+        >
+          
+            7.
+          
+          Numerik gewöhnlicher Differentialgleichungen
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/07_num_ode/exercises_00_rocket_launch.html"
+                >
+                  
+                    7.1
+                  
+                  Simulation eines Raketenstarts
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/joergbrech/Modellbildung-und-Simulation"
+        >
+          
+          GitHub repository
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer"><div align="left"><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a><br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a><br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></div></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+
+
+
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content%2F00_einleitung%2Fmatlab_03_best_practice.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/Modellbildung-und-Simulation/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/Modellbildung-und-Simulation/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/Modellbildung-und-Simulation/search.html" class="topbar-right-button" id="search-button">
+    <img src="/Modellbildung-und-Simulation/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Matlab-Best-Practices">Matlab Best Practices<a class="anchor-link" href="#Matlab-Best-Practices"> </a></h1><p>Oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien aufgelistet werden, die sich bewährt haben. Die meisten davon lassen sich allgemein auf alle Programmiersprachen anwenden, einige wenige sind Matlab-spezifisch.</p>
+<p>In diesem Kurs wird nicht erwartet, dass Sie sofort perfekten Code schreiben und sich immer und überall an all diese Richtlinien halten. Es kann aber nicht schaden sich beim Erlernen einer neuen Programmiersprache früh mit diesen Ansprüchen vertraut zu machen und sie im Hinterkopf zu haben. Zumindest die ersten beiden Punkte sollten jedoch von Anfang an beherzigt werden.</p>
+<h2 id="Unkommentierter-bzw.-nicht-dokumentierter-Code-ist-schlechter-Code">Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code<a class="anchor-link" href="#Unkommentierter-bzw.-nicht-dokumentierter-Code-ist-schlechter-Code"> </a></h2><p>Wenn Sie ein Matlab- bzw. Octaveskript schreiben, haben Sie in der Regel eine genaue Vorstellung von dem was Ihr Skript macht und brauchen die Kommentare nicht als Verständnisstütze. Aus dem Grund ist es allzu leicht, auf die mühsame Kommentierung zu verzichten. Die Erfahrung zeigt aber, dass Ihre Gedankengänge bei der Programmierung schon nachdem Sie sich wenige Wochen nicht mehr mit dem Code auseinandergesetzt haben vergessen sind. Stellen Sie sich vor, nach drei Wochen stellt sich heraus, dass sich ein Bug eingeschlichen hat. Bei der Fehlersuche müssen Sie sich mühsam durch Ihren alten Code kämpfen und es ist im Nachhinein plötzlich nicht mehr ganz so einfach nachzuvollziehen, was Sie sich eigentlich dabei gedacht hatten. Spätestens in solchen Momenten fällt auf, wie wichtig Kommentierung ist.</p>
+<p>Zur Kommentierung gehört nicht nur, dass Sie beschreiben WAS der Code macht, sondern WARUM er so aussieht wie er aussieht. Am Anfang eines Skriptes sollte beschrieben sein, welchem Zweck das Programm dient. Am Anfang einer Funktion gilt dasselbe, wobei hier auch Beschreibungen der Ein- und Ausgabegrößen dazugehören. Wenn relevant, sollten hier auch physikalische Einheiten benannt werden!</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file spherical2Cartesian.m</span>
+<span class="k">function</span><span class="w"> </span>p <span class="p">=</span><span class="w"> </span><span class="nf">spherical2Cartesian</span><span class="p">(</span>longitude, latitude, elevation<span class="p">)</span><span class="w"></span>
+<span class="c">% This function takes spherical coordinates and transforms them to</span>
+<span class="c">% cartesian coordinates</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%    longitude: azimuth angle in degrees measured from xz-plane</span>
+<span class="c">%    latitude:  polar angle in degrees  measured from xy-plane</span>
+<span class="c">%    elevation: radial distance from origin (unit implied)</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%    p: cartesian point (unit as input)</span>
+
+<span class="n">p</span> <span class="p">=</span> <span class="p">[</span><span class="n">elevation</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span><span class="o">*</span><span class="nb">cosd</span><span class="p">(</span><span class="n">latitude</span><span class="p">);</span> <span class="p">...</span>
+     <span class="n">elevation</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">latitude</span><span class="p">);</span> <span class="p">...</span>
+     <span class="n">elevation</span><span class="o">*</span><span class="nb">cosd</span><span class="p">(</span><span class="n">longitude</span><span class="p">)</span> <span class="p">];</span>
+
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/spherical2Cartesian.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file sphericalGrid.m</span>
+<span class="c">% This script creates a regular grid on a sphere using spherical </span>
+<span class="c">% coordinates in a 10-degree resolution and displays the points </span>
+<span class="c">% in a 3D-plot</span>
+
+<span class="n">res</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c">% resolution in degrees</span>
+
+<span class="c">% first, preallocate (n,3)-Matrix to store the cartesian points</span>
+<span class="n">numPoints</span> <span class="p">=</span> <span class="nb">numel</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">:</span><span class="n">res</span><span class="p">:</span><span class="mi">180</span><span class="p">)</span><span class="o">*</span><span class="nb">numel</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">:</span><span class="n">res</span><span class="p">:</span><span class="mi">90</span><span class="p">);</span>
+<span class="n">p</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">numPoints</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+
+<span class="c">% fill the array of points using the spherical2Cartesian function</span>
+<span class="n">p_index</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">long</span> <span class="p">=</span> <span class="o">-</span><span class="mi">180</span><span class="p">:</span><span class="n">res</span><span class="p">:</span><span class="mi">180</span>
+    <span class="k">for</span> <span class="n">lat</span> <span class="p">=</span> <span class="o">-</span><span class="mi">90</span><span class="p">:</span><span class="n">res</span><span class="p">:</span><span class="mi">90</span>
+        <span class="n">p</span><span class="p">(</span><span class="n">p_index</span><span class="p">,:)</span> <span class="p">=</span> <span class="n">spherical2Cartesian</span><span class="p">(</span><span class="n">long</span><span class="p">,</span> <span class="n">lat</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="n">p_index</span> <span class="p">=</span> <span class="n">p_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c">% plot the result</span>
+<span class="n">scatter3</span><span class="p">(</span><span class="n">p</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span> <span class="n">p</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span> <span class="n">p</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span> <span class="s">&#39;o&#39;</span><span class="p">);</span>
+<span class="nb">axis</span> <span class="n">equal</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/sphericalGrid.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">sphericalGrid</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/00_einleitung/matlab_03_best_practice_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute Ihren Code verwenden ist es klar, dass Sie Ihren Kollegen oder Kunden das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.</p>
+<p>Spätestens wenn das Programm von einer größeren Zielgruppe benutzt werden soll, reicht eine reine Kommentierung nicht aus. Hier muss eine html- oder pdf-Dokumentation herhalten. Die Wichtigkeit von guter Dokumentation für die Verbreitung von Software ist kann nicht genung betont werden! Es gibt inzwischen einige Hilfsprogramme, die aus strukturierter Code-Kommentierung automatisiert eine solche Dokumentation erzeugen kann, Doxygen und Sphinx sind Beispiele. <a href="https://www.artefact.tk/software/matlab/m2html/">Hier</a> finden Sie ein Tool das spezifisch für Matlab entwickelt wurde.</p>
+<p>Die Sprache der Kommentierung sollte sich natürlich an die Zielgruppe richten. Da sich die Zielgruppe häufig während der Lebenszeit eines Programmes ändert, bietet es sich an, von Anfang an eine Sprache zu wählen, die von sehr vielen Menschen verstanden wird. Wie oft habe ich schon eine Bibliothek nicht benutzt, nur weil die Dokumentation auf Französisch ist.</p>
+<h2 id="Sprechende-Variablennamen">Sprechende Variablennamen<a class="anchor-link" href="#Sprechende-Variablennamen"> </a></h2><p>Damit ein Code verständlich ist, hilft es sprechende Variablen- und Funktionsnamen zu verwenden. Während man in mathematischen Gleichungen gerne Buchstaben und Symbole als Abkürzungen verwendet, sollte man im Code versuchen die Bedeutung einer Variable durch Ihren Namen auszudrücken. Im obigen Beispiel wurden anstatt der üblichen Bezeichnungen <code>theta</code>, <code>phi</code> und <code>r</code> für $(\Theta, \phi, r)$ die Variablennamen <code>longitude</code>, <code>latitude</code> und <code>elevation</code> benutzt, um auf die jeweilige Bedeutung hinzuweisen.</p>
+<p>Der folgende Code entspricht semantisch dem obigen Beispiel, ist aber vollkommen unverständlich:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file xralkldaf.m</span>
+<span class="k">function</span><span class="w"> </span>peng <span class="p">=</span><span class="w"> </span><span class="nf">xralkldaf</span><span class="p">(</span>xyz,pft,               hurz<span class="p">)</span><span class="w"></span>
+<span class="n">peng</span> <span class="p">=</span> <span class="p">[</span><span class="n">hurz</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">*</span><span class="nb">cosd</span><span class="p">(</span><span class="n">pft</span><span class="p">);</span><span class="n">hurz</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">pft</span><span class="p">);</span><span class="n">hurz</span><span class="o">*</span><span class="nb">cosd</span><span class="p">(</span><span class="n">xyz</span><span class="p">)];</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/xralkldaf.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file rxlquapoeh.m</span>
+<span class="n">h</span><span class="p">=</span><span class="o">-</span><span class="mi">180</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">180</span><span class="p">;</span><span class="n">g</span><span class="p">=</span><span class="o">-</span><span class="mi">90</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">90</span><span class="p">;</span>
+<span class="n">kkkk</span><span class="p">=</span><span class="nb">numel</span><span class="p">(</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="nb">numel</span><span class="p">(</span><span class="n">g</span><span class="p">);</span><span class="n">qwerty</span><span class="p">=</span><span class="nb">zeros</span><span class="p">(</span><span class="n">kkkk</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+<span class="n">c</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">b</span><span class="p">=</span><span class="n">h</span>
+    <span class="k">for</span> <span class="n">a</span><span class="p">=</span><span class="n">g</span>
+        <span class="n">qwerty</span><span class="p">(</span><span class="n">c</span><span class="p">,:)=</span><span class="n">xralkldaf</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span><span class="n">c</span><span class="p">=</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">scatter3</span><span class="p">(</span><span class="n">qwerty</span><span class="p">(:,</span><span class="mi">1</span><span class="p">),</span><span class="n">qwerty</span><span class="p">(:,</span><span class="mi">2</span><span class="p">),</span><span class="n">qwerty</span><span class="p">(:,</span><span class="mi">3</span><span class="p">),</span><span class="s">&#39;o&#39;</span><span class="p">);</span><span class="nb">axis</span> <span class="n">equal</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/rxlquapoeh.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">rxlquapoeh</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/00_einleitung/matlab_03_best_practice_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Wiederholten-Code-vermeiden">Wiederholten Code vermeiden<a class="anchor-link" href="#Wiederholten-Code-vermeiden"> </a></h2><p>Nicht selten müssen ähnliche oder identische Algorithmen mehrmals an verschiedenen Stellen im Code ausgeführt werden. So werden zum Beispiel im Laufe einer FEM-Berechnung sehr viele Polynominterpolationen ausgeführt. Wenn nun der Algorithmus der Polynominterpolation einmal geschrieben wird und mit Copy-und-Paste an die unterschiedlichen Stellen im Code verteilt wird, funktioniert das in der Regel, auch wenn derselbe Code mehrfach vorkommt und die Code-Basis unnötig vergrößert wird.</p>
+<p>Wenn sich jetzt aber ein Bug in der Polynominterpolation eingeschlichen hat, oder der Polynomgrad geändert werden muss, muss das an vielen Stellen im Code geschehen und die Gefahr ist groß, dass eine Stelle vergessen wird. Daher ist es viel sinnvoller, die Polynominterpolation in eine Funktion auszulagern, die an den diversen Stellen im Code aufgerufen wird. Die Code-Basis bleibt klein und Änderungen an der Funktion haben direkt an allen relevanten Stellen des Codes Effekt.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Das-Rad-nicht-neu-erfinden">Das Rad nicht neu erfinden<a class="anchor-link" href="#Das-Rad-nicht-neu-erfinden"> </a></h2><p>Zur Übung wird es Ihre Aufgabe sein, numerische Methoden wie das Lösen linearer Gleichungssysteme, das Newtonverfahren oder die Polynominterpolation mit Matlab bzw. Octave selber zu programmieren. Später in der Praxis macht es Sinn für solche Methoden die bereits zur Verfügung gestellten Bibliotheken zu benutzen. Diese sind seit langer Zeit im Einsatz, vielfach getestet und auf Performanz getrimmt. Sie müssen die Methoden nicht immer wieder neu implementieren. Wichtig ist aber, dass sie verstehen wie sie funktionieren und an welchen Stellen unter Umständen Probleme auftreten können.</p>
+<h2 id="Lange-Skripte-und-Funktionen-vermeiden">Lange Skripte und Funktionen vermeiden<a class="anchor-link" href="#Lange-Skripte-und-Funktionen-vermeiden"> </a></h2><p>Gerade bei etwas komplexeren Algorithmen kann es schnell mal passieren, dass eine Funktion oder ein Skript mehrere Hundert Zeilen beansprucht. Für eine bessere Wartbarkeit und Lesbarkeit des Codes macht es Sinn, diese lange Funktion in Teilaufgaben aufzuteilen, und für jede Teilaufgabe eine separate Funktion zu schreiben. So haben Sie Ihren Code in wartbare kleine Module aufgeteilt, die u.U. auch wiederverwendet werden können.</p>
+<h2 id="Funktionen-&#252;ber-Skripte-bevorzugen">Funktionen &#252;ber Skripte bevorzugen<a class="anchor-link" href="#Funktionen-&#252;ber-Skripte-bevorzugen"> </a></h2><p>Nun kennen wir schon zwei Gründe, warum Funktionen nützlich sind: Zum einen lassen sich Wiederholungen dadurch vermeiden, dass oft vorkommende Aufgaben in eine Funktion ausgelagert werden. Zum anderen helfen Sie den Code in kleine Arbeitspakete zu zerlegen.</p>
+<p>Es gibt aber weitere Gründe, warum Funktionen häufig gegenüber Skripten zu bevorzugen sind. Zum einen trennen Sie Ein- und Ausgabe eines Algorithmus von der tatsächlichen Implementierung. Zum anderen schützen Sie dadurch, dass der <em>scope</em> von Hilfsvariablen des Algorithmus beschränkt bleiben. Nehmen wir an in einem Skript A wird eine Nullstelle einer Funktion mittels Bisektion gesucht. Ist der Bisektionsalgorithmus als Skript <code>bisection.m</code> implementiert, das aus dem Skript B mit dem Befehl <code>run bisection.m</code> aufgerufen wird, landen alle Hilfsvariablen aus <code>bisection.m</code> im workspace. Wenn es im Skript A eine Variable <code>i</code> und im Skript <code>bisection.m</code> eine Variable <code>i</code> gibt, so wird die erste durch die zweite überschrieben. Da der Anwender, der Skript A geschrieben hat, sich für die Implementierung in <code>bisection.m</code> gar nicht interessiert, bekommt er es unter Umständen gar nicht mit und die Fehlersuche kann langwierig sein.</p>
+<p>Wenn aber <code>bisection.m</code> als Funktion implementiert ist, existiert das <code>i</code> aus Skript A in einem anderen Workspace (bzw. <em>scope</em>) als das <code>i</code> aus <code>bisection.m</code>. Keines der <code>i</code> wird überschrieben.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Globale-Variablen-vermeiden">Globale Variablen vermeiden<a class="anchor-link" href="#Globale-Variablen-vermeiden"> </a></h2><p>Genauso wie Skripte erweitern globale Variablen die Sichtbarkeit, d.h. den scope einer Variable, was zu möglichen Fehlerquellen führen kann. An wenigen Stellen können globale Variablen sinnvoll sein. Sollten Sie sie einsetzen, fragen Sie sich aber auf jeden Fall, warum Sie sich für eine Implementierung mit globalen Variablen entschieden haben, wo Probleme auftreten könnten und ob Sie das Problem anders hätten lösen können.</p>
+<p>In dem Beispiel des <a href="../04_nichtlineare_gleichungen/exercises_00_bierschaum#der-doppler-effekt">Bierschaumzerfalls</a> werden globale Variablen zum Beispiel mit Hilfe von anonymen Funktionen <em>(function handles)</em> vermieden.</p>
+<h2 id="Performance:-Allokation">Performance: Allokation<a class="anchor-link" href="#Performance:-Allokation"> </a></h2><p>Angenommen <code>A</code> ist eine $3 \times 3$ Matrix in Matlab. Dann bewirkt der Befehl <code>A(5,5)=1</code>, dass die Matrix erweitert wird, die neuen Werte mit Nullen gefüllt werden und anschließend das Element <code>A(5,5)</code> mit dem Wert <code>1</code> beschrieben wird.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A =
+
+   0.391676   0.440689   0.453920
+   0.532241   0.615566   0.010242
+   0.576607   0.714609   0.033449
+
+A =
+
+   0.39168   0.44069   0.45392   0.00000   0.00000
+   0.53224   0.61557   0.01024   0.00000   0.00000
+   0.57661   0.71461   0.03345   0.00000   0.00000
+   0.00000   0.00000   0.00000   0.00000   0.00000
+   0.00000   0.00000   0.00000   0.00000   1.00000
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Was passiert da eigentlich hinter den Kulissen? Wenn eine neue Matrix erstellt wird, wird sie sequentiell im Speicher hinterlegt. Für eine $3 \times 3$ Matrix werden also neun Werte mit der Größe eines <code>double</code> im Speicher hintereinander weg gespeichert. Da Matlab die sogenannte <em>column-major</em> Speicherung verwendet, wird die Matrix in der folgenden Reihenfolge gespeichert:</p>
+
+<pre><code>A(1,1) A(2,1) A(3,1) A(1,2) A(2,2) A(3,2) A(1,3) A(2,3) A(3,3)</code></pre>
+<p>Der Befehl <code>A(5,5)=1</code> signalisiert nun, dass die Matrix vergrößert werden muss. Da die Matrix aber zwingend sequentiell in <em>column-major</em> Speicherformat im RAM hinterlegt werden muss, kann Matlab nicht einfach die alte Speicheradresse verwenden. Es muss zunächst im Speicher nach einer Stelle gesucht werden, die 25 <code>double</code> Werte aufnehmen kann. Dieser Speicher wird dann für die Matrix <code>A</code> reserviert und <code>À</code> erhält eine neue Speicheradresse. Anschließend müssen die Werte der alten Matrix an die neue Speicheradresse kopiert werden, die neu hinzugekommenen Elemente bekommen den Wert <code>0</code> zugewiesen, während <code>A(5,5)</code>, die 25. Stelle im Speicher, den Wert <code>1</code> zugewiesen bekommt.</p>
+<p>Dieser Prozess der Speicherallokation nimmt eine gewisse Zeit in Anspruch, die insbesondere bei größeren Matrizen nicht mehr vernachlässigt werden kann. Wenn also die benötigte Größe einer Matrix vorher ausgerechnet werden kann, dann sollte die Matrix einmal in der richtigen Größe am Anfang des Skriptes bzw. der Funktion allokiert werden, z.B. mit dem <code>zeros(n,m)</code> Befehl. Anschließend kann sie befüllt werden, ohne dass sie im Speicher umziehen muss.</p>
+<p>Der folgende Code demonstriert das. Mit den Befehlen <code>tic</code> und <code>toc</code> können Zeitmessungen für alle Befehle, die von <code>tic</code> und <code>toc</code> umschlossen werden, vorgenommen werden.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% Create a regular (n+1, m+1) 2D grid of integer points storing the x and y coordinates of each grid point</span>
+
+<span class="n">clear</span> <span class="c">% clear the workspace to make sure no variables are allocated in memory yet</span>
+
+<span class="n">n</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>
+<span class="n">m</span> <span class="p">=</span> <span class="mi">1000</span><span class="p">;</span>
+
+
+<span class="c">%% Create grid without preallocating X and Y</span>
+
+<span class="nb">tic</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">=</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span>
+        <span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">i</span><span class="p">;</span> <span class="c">% the arrays X and Y grow with each increment in i and j</span>
+        <span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">t1</span> <span class="p">=</span> <span class="nb">toc</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Naive approach requiring constant reallocation: &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="s">&#39; s&#39;</span><span class="p">])</span>
+
+
+<span class="c">%% Create grid with preallocation of X and Y</span>
+
+<span class="n">clear</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">;</span> <span class="c">% remove X and Y from workspace to force Matlab to allocate X and Y again</span>
+<span class="nb">tic</span><span class="p">;</span>
+
+<span class="c">% preallocate X and Y with the right size and initialize with zeros</span>
+<span class="n">X</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Y</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c">% fill the arrays</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">=</span><span class="mi">0</span><span class="p">:</span><span class="n">m</span>
+        <span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">j</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+<span class="n">t2</span> <span class="p">=</span> <span class="nb">toc</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Method using preallocation: &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="s">&#39; s&#39;</span><span class="p">])</span>
+
+<span class="c">%% Matlab internal method</span>
+
+<span class="n">clear</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">;</span>
+<span class="nb">tic</span><span class="p">;</span>
+<span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">]</span> <span class="p">=</span> <span class="nb">meshgrid</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">n</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">m</span><span class="p">);</span>
+<span class="n">t3</span> <span class="p">=</span> <span class="nb">toc</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">([</span><span class="s">&#39;Matlab internal method: &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">t3</span><span class="p">),</span> <span class="s">&#39; s&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Naive approach requiring constant reallocation: 9.396 s
+Method using preallocation: 7.987 s
+Matlab internal method: 0.021763 s
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Idealerweise sollte man bei Performanzmessungen darauf achten, dass kein anderer Prozess die Rechenressourcen beansprucht und man sollte den Test mehrfach wiederholen, um mögliche Schwankungen in den Messergebnissen mitteln zu können. Aber dennoch lässt sich deutlich erkennen, dass die Vorallokierung einiges an Rechenzeit einsparen kann. Aber wieso ist eigentlich die Matlab-interne Methode so viel schneller? Das liegt daran, dass Matlab natürlich noch einige andere Tricks anwendet als die clevere Allokation der Ergebnisvektoren. Unter anderem lässt sich viel Rechenzeit einsparen, indem die Vektorisierung von Rechenoperationen ausgenutzt wird.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Performance:-Matlab-Vektorisierung-ausnutzen">Performance: Matlab Vektorisierung ausnutzen<a class="anchor-link" href="#Performance:-Matlab-Vektorisierung-ausnutzen"> </a></h2><p>Matlab ist für Vektor- und Matrixoperationen optimiert. Deshalb bietet es sich an, skalare Operationen wie zum Beispiel die elementweise Addition in einer for-Schleife zu vermeiden und direkt auf Vektoroperationen zurückzugreifen, die in der Regel viel effizienter sind.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% test the performance of vector addition C = A + B in Matlab,</span>
+<span class="c">% where both A and B are (n,1)-Vectors</span>
+
+<span class="n">clear</span><span class="p">;</span> <span class="c">% clear all variables from workspace</span>
+
+<span class="n">n</span> <span class="p">=</span> <span class="mf">1e5</span><span class="p">;</span> <span class="c">% length of the input vectors A and B</span>
+
+<span class="c">% create two vectors of length n</span>
+<span class="n">A</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">B</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="c">% preallocate solution vector</span>
+<span class="n">C</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+
+<span class="c">% implement vectorwise, Matlab can make use of SIMD vectorization</span>
+<span class="nb">tic</span><span class="p">;</span>
+<span class="n">C</span> <span class="p">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span><span class="p">;</span>
+<span class="nb">toc</span><span class="p">;</span>
+
+<span class="c">% use a for-loop: Matlab cannot use vectorization, because Matlab cannot predict</span>
+<span class="c">% what you intend to do in each loop.</span>
+<span class="nb">tic</span><span class="p">;</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span>
+    <span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">A</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<span class="k">end</span>
+<span class="nb">toc</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Elapsed time is 0.011553 seconds.
+Elapsed time is 0.709831 seconds.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://de.mathworks.com/help/matlab/matlab_prog/techniques-for-improving-performance.html">Hier</a> finden Sie zusätzliche Informationen, wie Sie die Performanz Ihres Matlab-Codes verbessern können. Insbesondere der Profiler ist sehr zu empfehlen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Kein-&#252;berm&#228;&#223;iger-Gebrauch-von-if-then-else-Anweisungen">Kein &#252;berm&#228;&#223;iger Gebrauch von if-then-else Anweisungen<a class="anchor-link" href="#Kein-&#252;berm&#228;&#223;iger-Gebrauch-von-if-then-else-Anweisungen"> </a></h2><p>Zum einen sorgen viele if-then-else-Verzweigungen für komplexe Pfade in einem Rechencode. Zum anderen können if-then-else-Abfragen innerhalb von Schleifen auch Performanzeinbußen mit sich bringen, da die Bedingung immer wieder abgefragt werden muss und u.U. ein Codeblock geladen werden muss oder eben nicht. In diesem Fall lohnt es sich zu überlegen, ob man die if-then-else-Abfrage um die for-Schleife schachtelt.</p>
+<h2 id="Gleitkommazahlen-nicht-auf-Gleichheit-&#252;berpr&#252;fen">Gleitkommazahlen nicht auf Gleichheit &#252;berpr&#252;fen<a class="anchor-link" href="#Gleitkommazahlen-nicht-auf-Gleichheit-&#252;berpr&#252;fen"> </a></h2><p>In Computern werden alle Zahlen mit Gleitkommazahlen dargestellt. Diese endliche Zahldarstellung hat den Effekt, dass jede Rechenoperation fehlerbehaftet ist. Während der Rechenfehler einer einzelnen Operation zwar relativ gering ausfallen kann, kann er sich im Laufe vieler Rechenoperationen eines Algorithmus verstärken. Dieser Umstand muss bei numerischen Berechnungen mit dem Computer immer beachtet werden!</p>
+<p>Eine Konsequenz ist, dass wir von zwei reellen Zahlen nur in seltenen Ausnahmefällen erwarten können, dass sie exakt gleich sind. Höchstwahrscheinlich ist mindestens eine Zahl mit Rundungsfehlern behaftet. Im folgenden werden zwei reelle Zahlen <code>a</code> und <code>b</code> berechnet, so dass das exakte Ergebnis für beide <code>0.3</code> ergeben sollte. Der Test auf Gleichheit <code>a == b</code> schlägt aber fehl, da bei den Berechnungen Rundungsfehler das Ergebnis verfälscht haben.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="mf">0.15</span> <span class="o">+</span> <span class="mf">0.15</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mf">0.1</span>  <span class="o">+</span> <span class="nb">sqrt</span><span class="p">(</span><span class="mf">0.04</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;a and b are equal.&#39;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;a and b are not equal&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a =  0.30000
+b =  0.30000
+a and b are not equal
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wie groß ist der Rundungsfehler?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">a</span><span class="o">-</span><span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =   -5.5511e-17
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Während es bei ganzen Zahlen legitim ist den <code>==</code>-Operator für den Test auf Gleichheit zu verwenden, sollte man bei reellen Gleitkommazahlen eher auf Gleichheit im Rahmen einer gewissen Toleranz testen:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">tol</span> <span class="p">=</span> <span class="mf">1e-12</span><span class="p">;</span>
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;a and b are equal.&#39;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;a and b are not equal&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a and b are equal.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Die Wahl der Toleranz <code>tol</code> sollte für jeden Anwendungsfall auf den erwartbaren bzw. tolerierbaren Fehler angepasst sein.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Versionskontrolle-verwenden">Versionskontrolle verwenden<a class="anchor-link" href="#Versionskontrolle-verwenden"> </a></h2><p>Unter Versionskontrolle versteht man das Erfassen von Änderungen an Dokumenten und Dateien. Hierfür stehen viele verschiedene Werkzeuge zur Verfügung, wie z.B. git, svn oder mercurial.</p>
+<p>Kleine Änderungen am Code werden in einem <em>commit</em> zusammengefasst, der eine entsprechende Beschreibung erhält, wie z.B.</p>
+<div class="highlight"><pre><span></span>git add test_spherical2Cartesian.m
+git commit -m <span class="s2">&quot;added unit test for coordinate transform&quot;</span>
+</pre></div>
+<p>So können alle Änderungen am Code dokumentiert werden und man kann den Code zu jedem denkbaren Entwicklungspunkt zurückspulen.  Das kann unter Umständen dazu genutzt werden, Fehler zu beheben, die erst spät auffallen. Wichtige Meilensteine können mit zusätzlichen <em>tags</em> versehen werden. Diese können zum Beispiel Major-Releases wie <em>"version 1.0"</em> sein. Dies erhöht zudem die Reproduzierbarkeit, da die Version des Codes, mit der ein bestimmtes Ergebnis erzielt wurde mit einem tag, mindestens mit einem commit referenziert werden kann, auch wenn sich später Änderungen ergeben haben sollten.</p>
+<p>In Verbindung mit Cloudservices wie <a href="gitlab.com">gitlab.com</a> oder <a href="github.com">github.com</a> kann die Versionskontrolle auch zur Datensicherung verwendet werden.</p>
+<p>Die Versionskontrolle hat sich aus einer Notwendigkeit in der Softwareentwicklung heraus entwickelt, da nur so gewährleistet werden kann, dass bei Arbeiten in großen Teams ein Mitarbeiter nicht die Änderungen eines anderen Entwicklers überschreibt und alle Codeänderungen für alle Entwickler transparent bleiben.</p>
+<p>Die Versionskontrolle kann aber für jegliche Art von Daten genutzt werden. Insbesondere für Studienarbeiten oder Abschlussarbeiten ist sie sehr zu empfehlen. Ich halte zum Beispiel alle Unterlagen dieses Kurses - inklusive dieses Online-Lehrbuchs - unter Versionskontrolle.</p>
+<p>Ich kann Git wärmstens empfehlen und nur auf <a href="http://lmgtfy.com/?q=git+f%C3%BCr+Anf%C3%A4nger">eines der vielen sehr gut geschriebenen Online Tutorials</a> verweisen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html">
+      〈 <span class="u-margin-right-tiny"></span> Skripte und Funktionen
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/00_einleitung/exercises_00_intro.html">
+      Übungsaufgaben <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

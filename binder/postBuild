@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ex
+
+# clone and install MOxUnit unit test framework for matlab and octave
+git clone https://github.com/MOxUnit/MOxUnit.git
+cd MOxUnit
+make install

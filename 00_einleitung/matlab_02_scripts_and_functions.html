@@ -1,0 +1,3262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+
+  <title>Skripte und Funktionen</title>
+  <meta name="description" content="        Skripte und Funktionen Bisher haben wir Befehle im Command Window eingeben und festgestellt, dass alle Variablen im Workspace hinterlegt werden. In d...">
+
+  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html">
+  <link rel="alternate" type="application/rss+xml" title="Modellbildung und Simulation" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/feed.xml">
+
+  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Skripte und Funktionen" />
+<meta property="og:description" content="        Skripte und Funktionen Bisher haben wir Befehle im Command Window eingeben und festgestellt, dass alle Variablen im Workspace hinterlegt werden. In d..." />
+<meta property="og:image"       content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" />
+
+<meta name="twitter:card" content="summary">
+
+
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "NewsArticle",
+  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html",
+  "headline": "Skripte und Funktionen",
+  "datePublished": "2019-10-23T13:23:29+00:00",
+  "dateModified": "2019-10-23T13:23:29+00:00",
+  "description": "        Skripte und Funktionen Bisher haben wir Befehle im Command Window eingeben und festgestellt, dass alle Variablen im Workspace hinterlegt werden. In d...",
+  "author": {
+    "@type": "Person",
+    "name": "Jan Kleinert"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Data 100 at UC Berkeley",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation",
+      "width": 60,
+      "height": 60
+    }
+  },
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation",
+    "height": 60,
+    "width": 60
+  }
+}
+
+  </script>
+  <link rel="stylesheet" href="/Modellbildung-und-Simulation/assets/css/styles.css">
+
+  <!-- <link rel="manifest" href="/manifest.json"> -->
+  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#233947">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="/Modellbildung-und-Simulation/images/logo/favicon.ico">
+
+  <!-- MathJax Config -->
+  <!-- Allow inline math using $ and automatically break long math lines -->
+<!-- (mostly) copied from nbconvert configuration -->
+<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+        processEscapes: true,
+        processEnvironments: true
+    },
+    // Center justify equations in code and markdown cells. Elsewhere
+    // we use CSS to left justify single line equations in code cells.
+    displayAlign: 'center',
+    "HTML-CSS": {
+        styles: {'.MathJax_Display': {"margin": 0}},
+        linebreaks: { automatic: true },
+    }
+});
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+
+
+  <!-- DOM updating function -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/dom-update.js"></script>
+
+  <!-- Selectors for elements on the page -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/documentSelectors.js"></script>
+
+  <!-- Define some javascript variables that will be useful in other javascript -->
+  <script>
+    const site_basename = '/Modellbildung-und-Simulation';
+  </script>
+
+  <!-- Add AnchorJS to let headers be linked -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
+  <script src="/Modellbildung-und-Simulation/assets/js/page/anchors.js" async></script>
+
+  <!-- Include Turbolinks to make page loads fast -->
+  <!-- https://github.com/turbolinks/turbolinks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
+  <meta name="turbolinks-cache-control" content="no-cache">
+
+  <!-- Load nbinteract for widgets -->
+  
+
+  <!-- Load Thebelab for interactive widgets -->
+  <!-- Include Thebelab for interactive code if it's enabled -->
+
+
+<!-- Display Thebelab button in each code cell -->
+<script>
+/**
+ * Set up thebelab button for code blocks
+ */
+
+const thebelabCellButton = id =>
+  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
+    <img src="/Modellbildung-und-Simulation/assets/images/edit-button.svg" alt="Start thebelab interactive mode">
+  </a>`
+
+
+const addThebelabButtonToCodeCells =  () => {
+
+  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
+  codeCells.forEach((codeCell, index) => {
+    const id = codeCellId(index)
+    codeCell.setAttribute('id', id)
+    if (document.getElementById("thebelab-cell-button-" + id) == null) {
+      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
+    }
+  })
+}
+
+initFunction(addThebelabButtonToCodeCells);
+</script>
+
+
+
+<script type="text/x-thebe-config">
+    {
+      requestKernel: true,
+      binderOptions: {
+        repo: 'joergbrech/Modellbildung-und-Simulation',
+        ref: 'master',
+      },
+      codeMirrorConfig: {
+        theme: "abcdef"
+      },
+      kernelOptions: {
+        name: 'octave',
+      }
+    }
+</script>
+<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
+<script>
+    /**
+     * Add attributes to Thebelab blocks
+     */
+
+    const initThebelab = () => {
+        const addThebelabToCodeCells = () => {
+            console.log("Adding thebelab to code cells...");
+            // If Thebelab hasn't loaded, wait a bit and try again. This
+            // happens because we load ClipboardJS asynchronously.
+            if (window.thebelab === undefined) {
+                setTimeout(addThebelabToCodeCells, 250)
+            return
+            }
+
+            // If we already detect a Thebelab cell, don't re-run
+            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
+                return;
+            }
+
+            // Find all code cells, replace with Thebelab interactive code cells
+            const codeCells = document.querySelectorAll('.input_area pre')
+            codeCells.forEach((codeCell, index) => {
+                const id = codeCellId(index)
+                codeCell.setAttribute('data-executable', 'true')
+
+                // Figure out the language it uses and add this too
+                var parentDiv = codeCell.parentElement.parentElement;
+                var arrayLength = parentDiv.classList.length;
+                for (var ii = 0; ii < arrayLength; ii++) {
+                    var parts = parentDiv.classList[ii].split('language-');
+                    if (parts.length === 2) {
+                        // If found, assign dataLanguage and break the loop
+                        var dataLanguage = parts[1];
+                        break;
+                    }
+                }
+                if ( dataLanguage === 'matlab' ) {
+                    console.log('Found matlab block. Setting language to Octave.')
+                    dataLanguage='octave';
+                }
+                codeCell.setAttribute('data-language', dataLanguage)
+
+                // If the code cell is hidden, show it
+                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
+                if (inputCheckbox !== null) {
+                    setCodeCellVisibility(inputCheckbox, 'visible');
+                }
+            });
+
+            // Remove the event listener from the page so keyboard press doesn't
+            // Change page
+            document.removeEventListener('keydown', initPageNav)
+            keyboardListener = false;
+
+            // Init thebelab
+            thebelab.bootstrap();
+
+            // Remove copy buttons since they won't work anymore
+            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
+            copyAndThebeButtons.forEach((button, index) => {
+                button.remove();
+            });
+
+            // Remove outputs since they'll be stale
+            const outputs = document.querySelectorAll('.output *, .output')
+            outputs.forEach((output, index) => {
+                output.remove();
+            });
+
+            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
+            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
+            thebeInitCells.forEach((cell) => {
+                console.log("Initializing ThebeLab with cell: " + cell.id);
+                cell.querySelector('.thebelab-run-button').click();
+            });
+        }
+
+        // Add event listener for the function to modify code cells
+        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
+        thebelabButtons.forEach((thebelabButton,index) => {
+            if (thebelabButton === null) {
+                setTimeout(initThebelab, 250)
+                return
+            };
+            thebelabButton.addEventListener('click', addThebelabToCodeCells);
+        });
+    }
+
+    // Initialize Thebelab
+    initFunction(initThebelab);
+</script>
+
+
+
+  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
+  <script src="/Modellbildung-und-Simulation/assets/js/page/tocbot.js"></script>
+
+  <!-- Google analytics -->
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134708516-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-134708516-1');
+</script>
+
+
+
+  <!-- Clipboard copy button -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
+
+  <!-- Load custom website scripts -->
+  <script src="/Modellbildung-und-Simulation/assets/js/scripts.js" async></script>
+
+  <!-- Load custom user CSS and JS  -->
+  <script src="/Modellbildung-und-Simulation/assets/custom/custom.js" async></script>
+  <link rel="stylesheet" href="/Modellbildung-und-Simulation/assets/custom/custom.css">
+
+  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
+  
+<script>
+/**
+  * To auto-embed hub URLs in interact links if given in a RESTful fashion
+ */
+
+function getJsonFromUrl(url) {
+  var query = url.split('?');
+  if (query.length < 2) {
+    // No queries so just return false
+    return false;
+  }
+  query = query[1];
+  // Collect REST params into a dictionary
+  var result = {};
+  query.split("&").forEach(function(part) {
+    var item = part.split("=");
+    result[item[0]] = decodeURIComponent(item[1]);
+  });
+  return result;
+}
+    
+function dict2param(dict) {
+    params = Object.keys(dict).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
+    });
+    return params.join('&')
+}
+
+// Parse a Binder URL, converting it to the string needed for JupyterHub
+function binder2Jupyterhub(url) {
+  newUrl = {};
+  parts = url.split('v2/gh/')[1];
+  // Grab the base repo information
+  repoinfo = parts.split('?')[0];
+  var [org, repo, ref] = repoinfo.split('/');
+  newUrl['repo'] = ['https://github.com', org, repo].join('/');
+  newUrl['branch'] = ref
+  // Grab extra parameters passed
+  params = getJsonFromUrl(url);
+  if (params['filepath'] !== undefined) {
+    newUrl['subPath'] = params['filepath']
+  }
+  return dict2param(newUrl);
+}
+
+// Filter out potentially unsafe characters to prevent xss
+function safeUrl(url)
+{
+   return String(encodeURIComponent(url))
+            .replace(/&/g, '&amp;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
+
+function addParamToInternalLinks(hub) {
+  var links = document.querySelectorAll("a").forEach(function(link) {
+    var href = link.href;
+    // If the link is an internal link...
+    if (href.search("https://joergbrech.github.io/Modellbildung-und-Simulation") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
+      // Assume we're an internal link, add the hub param to it
+      var params = getJsonFromUrl(href);
+      if (params !== false) {
+        // We have REST params, so append a new one
+        params['jupyterhub'] = hub;
+      } else {
+        // Create the REST params
+        params = {'jupyterhub': hub};
+      }
+      // Update the link
+      var newHref = href.split('?')[0] + '?' + dict2param(params);
+      link.setAttribute('href', decodeURIComponent(newHref));
+    }
+  });
+  return false;
+}
+
+
+// Update interact links
+function updateInteractLink() {
+    // hack to make this work since it expects a ? in the URL
+    rest = getJsonFromUrl("?" + location.search.substr(1));
+    jupyterHubUrl = rest['jupyterhub'];
+    var hubType = null;
+    var hubUrl = null;
+    if (jupyterHubUrl !== undefined) {
+      hubType = 'jupyterhub';
+      hubUrl = jupyterHubUrl;
+    }
+
+    if (hubType !== null) {
+      // Sanitize the hubUrl
+      hubUrl = safeUrl(hubUrl);
+
+      // Add HTTP text if omitted
+      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
+      var interactButtons = document.querySelectorAll("button.interact-button")
+      var lastButton = interactButtons[interactButtons.length-1];
+      var link = lastButton.parentElement;
+
+      // If we've already run this, skip the link updating
+      if (link.nextElementSibling !== null) {
+        return;
+      }
+
+      // Update the link and add context div
+      var href = link.getAttribute('href');
+      if (lastButton.id === 'interact-button-binder') {
+        // If binder links exist, we need to re-work them for jupyterhub
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
+          first = [hubUrl, 'git-sync'].join('/')
+        } else {
+          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
+        }
+        href = first + '?' + binder2Jupyterhub(href);
+      } else {
+        // If interact button isn't binderhub, assume it's jupyterhub
+        // If JupyterHub links, we only need to replace the hub url
+        href = href.replace("", hubUrl);
+        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
+          // Assume we're working from a local Jupyter server and remove `/hub`
+          href = href.replace("/hub/user-redirect", "");
+        }
+      }
+      link.setAttribute('href', decodeURIComponent(href));
+
+      // Add text after interact link saying where we're launching
+      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
+      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
+
+      // Update internal links so we retain the hub url
+      addParamToInternalLinks(hubUrl);
+    }
+}
+
+runWhenDOMLoaded(updateInteractLink)
+document.addEventListener('turbolinks:load', updateInteractLink)
+</script>
+
+
+  <!-- Lunr search code - will only be executed on the /search page -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
+  <script>var initQuery = function() {
+  // See if we have a search box
+  var searchInput = document.querySelector('input#lunr_search');
+  if (searchInput === null) {
+    return;
+  }
+
+  // Function to parse our lunr cache
+  var idx = lunr(function () {
+    this.field('title')
+    this.field('excerpt')
+    this.field('categories')
+    this.field('tags')
+    this.ref('id')
+
+    this.pipeline.remove(lunr.trimmer)
+
+    for (var item in store) {
+      this.add({
+        title: store[item].title,
+        excerpt: store[item].excerpt,
+        categories: store[item].categories,
+        tags: store[item].tags,
+        id: item
+      })
+    }
+  });
+
+  // Run search upon keyup
+  searchInput.addEventListener('keyup', function () {
+    var resultdiv = document.querySelector('#results');
+    var query = document.querySelector("input#lunr_search").value.toLowerCase();
+    var result =
+      idx.query(function (q) {
+        query.split(lunr.tokenizer.separator).forEach(function (term) {
+          q.term(term, { boost: 100 })
+          if(query.lastIndexOf(" ") != query.length-1){
+            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
+          }
+          if (term != ""){
+            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
+          }
+        })
+      });
+
+      // Empty the results div
+      while (resultdiv.firstChild) {
+        resultdiv.removeChild(resultdiv.firstChild);
+      }
+
+    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
+    for (var item in result) {
+      var ref = result[item].ref;
+      if(store[ref].teaser){
+        var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<div class="archive__item-teaser">'+
+                '<img src="'+store[ref].teaser+'" alt="">'+
+              '</div>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      else{
+    	  var searchitem =
+          '<div class="list__item">'+
+            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
+              '<h2 class="archive__item-title" itemprop="headline">'+
+                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
+              '</h2>'+
+              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
+            '</article>'+
+          '</div>';
+      }
+      resultdiv.insertAdjacentHTML('beforeend', searchitem);
+    }
+  });
+};
+
+initFunction(initQuery);
+</script>
+
+  <!-- Load JS that depends on site variables -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/copy-button.js" async></script>
+
+  <!-- Hide cell code -->
+  <script src="/Modellbildung-und-Simulation/assets/js/page/hide-cell.js" async></script>
+
+  <!-- Printing the screen -->
+  <!-- Include nbinteract for interactive widgets -->
+<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
+<script>
+printContent = () => {
+    // MathJax displays a second version of any math for assistive devices etc.
+    // This prevents double-rendering in the PDF output.
+    var ignoreAssistList = [];
+    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
+        var thisId = 'MathJax-assistive-' + index.toString();
+        element.setAttribute('id', thisId);
+        ignoreAssistList.push(thisId)
+    });
+
+    // Print the actual content object
+    printJS({
+        printable: 'textbook_content',
+        type: 'html',
+        css: "/Modellbildung-und-Simulation/assets/css/styles.css",
+        style: "#textbook_content {padding-top: 40px};",
+        scanStyles: false,
+        targetStyles: ["*"],
+        ignoreElements: ignoreAssistList,
+        documentTitle: "Made with Jupyter Book"
+    })
+};
+
+initPrint = () => {
+    document.querySelector('#interact-button-print').addEventListener('click', printContent)
+}
+
+initFunction(initPrint)
+</script>
+
+</head>
+
+  <body>
+    <!-- .js-show-sidebar shows sidebar by default -->
+    <div id="js-textbook" class="c-textbook js-show-sidebar">
+      
+
+
+
+<nav id="js-sidebar" class="c-textbook__sidebar">
+  <a href="https://h-brs.de"><img src="/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
+  <h2 class="c-sidebar__title">Modellbildung und Simulation</h2>
+  <ul class="c-sidebar__chapters">
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/intro.html"
+        >
+          
+          Home
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/00_einleitung/intro.html"
+        >
+          
+          Einleitung
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections ">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/00_einleitung/usage.html"
+                >
+                  
+                  Verwendung des Buches
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/00_einleitung/matlab_00_first_steps.html"
+                >
+                  
+                  Erste Schritte in Matlab
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_01_command_window.html"
+                    >
+                      
+                      Matlab Command Window
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry c-sidebar__entry--active"
+                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html"
+                    >
+                      
+                      Skripte und Funktionen
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html"
+                    >
+                      
+                      Best Practices
+                    </a>
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/00_einleitung/exercises_00_intro.html"
+                >
+                  
+                  Übungsaufgaben
+                </a>
+
+                
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_01_factorial_pi.html"
+                    >
+                      
+                      Matlab/Octave
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_02_fluessigkeit.html"
+                    >
+                      
+                      Flüssigkeit im Boden
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_03_verkehrssimulation.html"
+                    >
+                      
+                      Verkehrssimulation
+                    </a>
+                
+                  
+                  
+
+                  <li class="c-sidebar__subsection">
+                    <a class="c-sidebar__entry "
+                      href="/Modellbildung-und-Simulation/emptypage.html"
+                    >
+                      
+                      Conway's Game of Life
+                    </a>
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/01_schwingungen/intro.html"
+        >
+          
+            1.
+          
+          Schwingungen
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/01_schwingungen/exercises_01_doppler.html"
+                >
+                  
+                    1.1
+                  
+                  Der Doppler Effekt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/02_lineare_gleichungen/intro.html"
+        >
+          
+            2.
+          
+          Lineare Gleichungssysteme
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/02_lineare_gleichungen/exercises_00_highline.html"
+                >
+                  
+                    2.1
+                  
+                  Modellierung einer Highline
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/emptypage.html"
+        >
+          
+            3.
+          
+          Gleitkommaarithmetik
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/intro.html"
+        >
+          
+            4.
+          
+          Nichtlineare Gleichungssysteme
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html"
+                >
+                  
+                    4.1
+                  
+                  Bierschaumzerfall
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/05_interp_approx/intro.html"
+        >
+          
+            5.
+          
+          Interpolation und Approximation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_00_linear_interpolation.html"
+                >
+                  
+                    5.1
+                  
+                  Lineare Interpolation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_01_linear_approximation.html"
+                >
+                  
+                    5.2
+                  
+                  Lineare Approximation
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/emptypage.html"
+        >
+          
+            6.
+          
+          Differentiation und Integration
+        </a>
+
+        
+      </li>
+
+      
+    
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/07_num_ode/intro.html"
+        >
+          
+            7.
+          
+          Numerik gewöhnlicher Differentialgleichungen
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/07_num_ode/exercises_00_rocket_launch.html"
+                >
+                  
+                    7.1
+                  
+                  Simulation eines Raketenstarts
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="https://github.com/joergbrech/Modellbildung-und-Simulation"
+        >
+          
+          GitHub repository
+        </a>
+
+        
+      </li>
+
+      
+    
+  </ul>
+  <p class="sidebar_footer"><div align="left"><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a><br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a><br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></div></p>
+</nav>
+
+      
+      <div class="c-topbar" id="top-navbar">
+  <!-- We show the sidebar by default so we use .is-active -->
+  <div class="c-topbar__buttons">
+    <button
+      id="js-sidebar-toggle"
+      class="hamburger hamburger--arrowalt is-active"
+    >
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="buttons">
+
+
+
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content%2F00_einleitung%2Fmatlab_02_scripts_and_functions.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/Modellbildung-und-Simulation/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
+</div>
+
+  </div>
+  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
+  <aside class="sidebar__right">
+    <header><h4 class="nav__title"><img src="/Modellbildung-und-Simulation/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
+    <nav class="onthispage">
+    </nav>
+  </aside>
+  <a href="/Modellbildung-und-Simulation/search.html" class="topbar-right-button" id="search-button">
+    <img src="/Modellbildung-und-Simulation/assets/images/search-solid.svg" alt="Search" />
+  </a>
+</div>
+
+      <main class="c-textbook__page" tabindex="-1">
+            <div class="c-textbook__content" id="textbook_content">
+                  <main class="jupyter-page">
+    <div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Skripte-und-Funktionen">Skripte und Funktionen<a class="anchor-link" href="#Skripte-und-Funktionen"> </a></h1><p>Bisher haben wir Befehle im <code>Command Window</code> eingeben und festgestellt, dass alle Variablen im <code>Workspace</code> hinterlegt werden. In diesem Kapitel widmen wir uns dem <code>Editor</code>. Wir benutzen ihn, um Skripte und Funktionen zu schreiben. Beide werden als Textdateien mit der Endung <code>.m</code> gespeichert. Prinzipiell können wir diese Textdateien mit jedem beliebigen Texteditor schreiben, der Editor in Matlab bietet aber einige nützliche Funktionen. Allein <em>Syntax-Highlighting</em> kann schon sehr hilfreich sein.</p>
+<h2 id="Skripte">Skripte<a class="anchor-link" href="#Skripte"> </a></h2><p>Matlab-Skripte sind einfache Textdateien, die eine Abfolge von Matlab-Befehlen enthalten. Diese werden nach einander abgearbeitet.</p>
+<p>Das <code>%</code>-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollziehbar zu machen. Wie in <em>ALLEN</em> Programmiersprachen gilt auch in MATLAB: <strong>Kommentieren Sie Ihren Code!</strong>
+Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schaut, sich fragt was man damals eigentlich gemacht hat und sich wünscht, man hätte es besser kommentiert.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file myScript.m</span>
+<span class="c">% Ein kleines Beispielskript</span>
+<span class="c">% mit Kommentaren</span>
+
+<span class="c">% Initialisiere Variablen a und b</span>
+<span class="n">a</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+
+<span class="c">% Ändere Variable a</span>
+<span class="n">a</span> <span class="p">=</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="c">% Ausgabe erzwingen, durch weglassen des Semikolons am Ende der Zeile</span>
+<span class="n">a</span>
+<span class="n">b</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Hinweis:</strong> <em>Die allererste Zeile</em></p>
+<p><code>%%file myScript.m</code></p>
+<p><em>besagt nur, dass alles was folgt Inhalt der Datei <code>myScript.m</code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.</em></p>
+<p><code>% Ein kleines Beispielskript</code>.</p>
+<p>Dieses Skript wird mit dem <code>run</code> Befehl ausgeführt.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">myScript</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a =  2.5000
+b =  10
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Wir dürfen an dieser Stelle die Dateiendung <code>.m</code> weglassen. Tatsächlich ist der <code>run</code> Befehl auch nicht zwingend nötig. Die Befehle <code>run myScript.m</code>, <code>run myScript</code>, <code>myScript.m</code>, <code>myScript</code> haben alle denselben Effekt: Die Befehle in <code>myScript.m</code> werden ausgeführt.</p>
+<p>Im Matlab-Editor kann das aktuell geöffnete Skript mit <code>F5</code> oder per Mausklick auf den großen grünen Play-Button gestartet werden.</p>
+<p><img src="../images/matlab_run_button.png" alt="Interacte Mode Code-Cell" style="width:500px;"/></p>
+<p>Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem <code>help</code> Befehl ausgeben:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">help</span> <span class="n">myScript</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&#39;myScript.m&#39; is the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m
+
+ Ein kleines Beispielskript
+ mit Kommentaren
+
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+&#39;doc &lt;topic&gt;&#39; to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="for-Schleifen">for-Schleifen<a class="anchor-link" href="#for-Schleifen"> </a></h3><p>Wie in anderen Programmiersprachen können in MATLAB auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Der Code zwischen der <code>for</code>-  und der <code>end</code>-Zeile wird fünf mal ausgeführt. Bei jeder Ausführung wird eine <em>Laufvariable</em> <code>i</code> um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die $i$-te Stelle eines Vektors $f$ zu, und beschreiben diese Stelle mit $2^i$. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.</p>
+<p>Es besteht die Möglichkeit die Schrittweite der Laufvariablen anzupassen. Auf diese Weise können auch Laufvariablen benutzt werden, die nicht ganzzahlig sind:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">:</span><span class="o">-</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x =
+
+   1.0000e+00  -2.4493e-16
+
+x =
+
+  -1.8370e-16  -1.0000e+00
+
+x =
+
+  -1.0000e+00   1.2246e-16
+
+x =
+
+   6.1232e-17   1.0000e+00
+
+x =
+
+   1   0
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Quiz:</strong> Wie sieht der Vektor $f$ aus, der von folgender for-Schleife erzeugt wird?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">clear</span> <span class="n">f</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Bei for-Schleifen ist über die Laufvariable die Anzahl der Aufrufe vor dem Beginn der Schleife klar. Es ist zwar möglich, die Laufvariable selbst in der Schleife zu verändern, das sollte aber auf jeden Fall vermieden werden. Der Code wird dadurch nicht mehr intuitiv verständlich und es ist eine wahrscheinliche Fehlerquelle.</p>
+<h3 id="while-Schleifen">while-Schleifen<a class="anchor-link" href="#while-Schleifen"> </a></h3><p>while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife wird solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">x</span> <span class="p">)</span><span class="o">/</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.01</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="k">end</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> 0.24470
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Die Anweisung <code>x = 0.99*x</code> wird solange ausgeführt, bis $\frac{\lvert \sin(x) - x \rvert}{x}$ nicht mehr größer als $0.01$ ist.
+Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert die Kleinwinkelnäherung $\sin(x) \approx x$ relative Fehler von unter $1 \%$ liefert.</p>
+<p><strong>Challenge:</strong> Fallen Ihnen Wege ein, die Abschätzung genauer zu gestalten?</p>
+<p>Eine for-Schleife kann immer in eine while-Schleife umgeschrieben werden. Folgende Code-Blöcke liefern das selbe Ergebnis:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">=</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+    <span class="n">i</span> <span class="p">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Best Practice:</strong> Verwenden Sie while-Schleifen, wenn die Anzahl der Durchläufe unbekannt ist und for-Schleifen, wenn sie bekannt ist.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="if-Abfragen">if-Abfragen<a class="anchor-link" href="#if-Abfragen"> </a></h3><p>Oft ist es nützlich, bestimmte Befehle nur auszuführen, wenn eine Bedingung erfüllt ist. Dies erreicht man mit if-Bedingungen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">zaehler</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
+<span class="n">nenner</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">nenner</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-8</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x =  1.4199
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Der Codeblock erstellt nur dann eine Variable <code>x</code>, wenn der Nenner des Bruchs größer als $10^{-8}$ ist. Wir sollten den Fall abfangen, wenn diese Bedingung mal nicht erfüllt wird. Dies erreicht man mit if-then-else-Bedingungen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">zaehler</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
+<span class="n">nenner</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
+<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">nenner</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-8</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
+<span class="k">else</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>x =  0.96087
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingung. Das kann zum Beispiel Sinn haben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
+<span class="c">% make some animal noises</span>
+
+<span class="n">animal</span> <span class="p">=</span> <span class="s">&quot;cow&quot;</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Meaow&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;cow&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Moooooh!&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;kangaroo&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s">&quot; makes.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">oldmcdonald</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Moooooh!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In Matlab können wir Strings nicht mit <code>==</code> auf Gleichheit prüfen. Dafür stellt Matlab die Funktion <code>strcmp</code> bereit.</p>
+<p>Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms $y(x)= -x^4 + x^3 - x^2 + x + 1$ im Interval $[-1,1]$. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% plot f(x) = -x^4 + x^3 - x^2 + x + 1;</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">y</span> <span class="p">=</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;y(x) = -x^4 + x^3 - x^2 + x + 1&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/00_einleitung/matlab_02_scripts_and_functions_26_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird die Größe des Intervalls um die Nullstelle mittels <em>Bisektion</em> halbiert. Über eine if-Bedingung wird untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird die for-Schleife mit dem <code>break</code> Befehl unterbrochen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file bisection.m</span>
+<span class="c">% find a zero of the polynomial </span>
+<span class="c">%</span>
+<span class="c">%      y(x)= -x^4 + x^3 - x^2 + x + 1</span>
+<span class="c">%</span>
+<span class="c">% in the interval [-1,1] using bisection</span>
+
+<span class="c">%% input parameters:</span>
+<span class="n">tolerance</span> <span class="p">=</span> <span class="mf">1e-8</span><span class="p">;</span>    <span class="c">% if the absolute value of y(x) is smaller than this, we consider</span>
+                     <span class="c">% the point x to be a zero.</span>
+<span class="n">maxIterations</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c">% maximum number of iterations</span>
+<span class="n">xlower</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>         <span class="c">% lower bound of the interval</span>
+<span class="n">xupper</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c">% upper bound of the invertal. y(xlower) and y(xupper) must have</span>
+                     <span class="c">% different signs!</span>
+
+<span class="c">% this variable is set to true once the iteration converged</span>
+<span class="n">converged</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">iteration</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">maxIterations</span>
+    
+    <span class="c">% take the middle between the two bounds</span>
+    <span class="n">midpoint</span> <span class="p">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">xupper</span> <span class="o">+</span> <span class="n">xlower</span><span class="p">);</span>
+    
+    <span class="c">% check the function value at this point</span>
+    <span class="n">fmidpoint</span> <span class="p">=</span> <span class="o">-</span><span class="n">midpoint</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">midpoint</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">midpoint</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">midpoint</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    
+    <span class="c">% if the function value is small enough, we are done</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+        <span class="n">converged</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="c">% if we reach this point, we have not converged. </span>
+    
+    <span class="c">% reset the limits and repeat</span>
+    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">result</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="n">converged</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;Converged in &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The solution is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;No convergence to the specified tolerance of &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">tolerance</span><span class="p">),</span>  <span class="p">...</span>
+          <span class="s">&quot; within &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The current error is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">bisection</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Converged in 25 iterations. The solution is -0.51879.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Grafische-Ausgabe">Grafische Ausgabe<a class="anchor-link" href="#Grafische-Ausgabe"> </a></h3><p>Es gibt in Matlab eine Vielzahl von Methoden, um den Inhalt von Vektoren grafisch darzustellen. Die <code>plot</code> Funktion ist nützlich, um funktionale Zusammenhänge darzustellen. Sie nimmt als Eingabe zwei gleichgroße Vektoren <code>x</code> und <code>y</code>, wobei der erste die $x$-Koordinaten und der zweite die $y$-Koordinaten enthält.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">);</span>   <span class="c">% Ein Vektor mit Werten von -5 bis 5</span>
+<span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>                <span class="c">% Ein Vektor y mit den zugehörigen Funktionswerten </span>
+
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>             <span class="c">% Erstellen einer grafischen Darstellung</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Mein erster plot y = x^2&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;X-Achsenbeschriftung&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Y-Achsenbeschriftung&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/00_einleitung/matlab_02_scripts_and_functions_31_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Über die vielen Funktionen rund um die Visualisierung und deren Optionen informieren Sie sich bitte in der Matlab Dokumentation. An dieser Stelle soll abschließend nur noch auf zwei Features aufmerksam gemacht werden:</p>
+<ul>
+<li>Häufig möchte man mehrere Graphen in einem Koordinatensystem darstellen. Matlab überschreibt die Ergebnisse standardmäßig. Dieses Verhalten kann aber mit dem Befehl <code>hold on</code> ausgehebelt werden.</li>
+<li>Das Koordinatensystem in Matlab ist ein Objekt vom Typ <code>axes</code>. Mit dem Befehl <code>gca</code>, kurz für <em>get current axes</em>, lässt sich ein <em>handle</em> für das aktuell verwendete Koordinatensystem wiedergeben. Eigenschaften des Koordinatensystems lassen sich dann mit den Befehlen <code>set(gca, ...)</code> und <code>get(gca, ...)</code> abfragen bzw. ändern. Das ist ein nützliches Feature, wenn man tiefergreifende Eigenschaften ändern möchte, als nur die Achsenbeschriftungen.</li>
+</ul>
+<p>Im folgenden werden diese beiden Features in einem Skript benutzt, das für zehn verschiedene Parameter $D \in [0.1, 1.0]$ die Funktion</p>
+$$ y(x) = \frac{1}{\sqrt{(1-x^2)^2 + (2Dx)^2}} $$<p>über das Interval $x \in [0, 3]$ plottet.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file resonance_catastrophe.m</span>
+<span class="c">% plot the resonance catastrophe curve </span>
+<span class="c">%</span>
+<span class="c">%     y(x) = 1./sqrt((1-x.^2).^2 + (2*D*x).^2)</span>
+<span class="c">%</span>
+<span class="c">% for different damping parameters D</span>
+
+<span class="c">% x values of the plot = 500 equally spaced points in the interval [0, 3]</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+
+<span class="c">% make sure that each new plot call does not overwrite old results</span>
+<span class="nb">hold</span> <span class="n">on</span>
+
+<span class="c">% plot 10 functions depending on a parameter D</span>
+<span class="k">for</span> <span class="n">D</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">1</span>
+
+    <span class="c">% set some variables denoting properties of the current plot</span>
+    <span class="n">plotname</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#39;D = &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">D</span><span class="p">)];</span>              <span class="c">% name that shall appear in the legend</span>
+    <span class="n">plotcolor</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">D</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>    <span class="c">% RGB value that shall be used for the plot</span>
+    
+    <span class="c">% plot the function with some additional options</span>
+    <span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="p">...</span>
+         <span class="s">&#39;DisplayName&#39;</span><span class="p">,</span> <span class="n">plotname</span><span class="p">,</span> <span class="p">...</span>
+         <span class="s">&#39;Color&#39;</span><span class="p">,</span> <span class="n">plotcolor</span><span class="p">,</span> <span class="p">...</span>
+         <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    
+<span class="k">end</span>
+
+<span class="c">% set some options for the current axis</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;\Omega/\omega_0&#39;</span><span class="p">,</span> <span class="s">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;(A_\Omega*k)/F&#39;</span><span class="p">,</span> <span class="s">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span> <span class="s">&#39;Box&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">)</span>
+
+<span class="c">% show a legend</span>
+<span class="nb">legend</span> <span class="n">toggle</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/resonance_catastrophe.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">resonance_catastrophe</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/00_einleitung/matlab_02_scripts_and_functions_34_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Funktionen">Funktionen<a class="anchor-link" href="#Funktionen"> </a></h2><p>Mit Skripten können wir also Algorithmen als eine Abfolge von Anweisungen umsetzen. Funktionen zeichnen sich, im Gegensatz zu Skripten, dadurch aus, dass es eine klare Trennung von Eingabe, Ausgabe und Anweisungen gibt. Dies bietet sich insbesondere dann an, wenn die Funktion einen Algorithmus repräsentiert, der oft an verschiedenen Stellen ausgeführt werden soll.</p>
+<h3 id="Eingabe-und-Ausgabe">Eingabe und Ausgabe<a class="anchor-link" href="#Eingabe-und-Ausgabe"> </a></h3><p>Funktionen werden in Matlab mit dem <code>function</code> keyword eingeleitet. Das folgende m-file <code>oldmcdonald.m</code> definiert eine Funktion mit Namen <code>oldmcdonald</code>, die für einen Tiernamen <code>animal</code> als Eingabe einen Laut <code>sound</code> als Ausgabe ausgibt. Sowohl <code>animal</code> und <code>sound</code> werden als strings definiert.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
+<span class="k">function</span><span class="w"> </span>sound <span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span><span class="w"></span>
+<span class="c">% oldmcdonald takes an input string &quot;animal&quot; and outputs a &quot;noise&quot;</span>
+<span class="c">% corresponding to the input. If the animal is unknown, an </span>
+<span class="c">% error is thrown.</span>
+<span class="c">% </span>
+<span class="c">% input:     animal can be any of [&quot;cat&quot;, &quot;dog&quot;, &quot;cow&quot;, &quot;kangaroo&quot;]</span>
+<span class="c">% output:    noise</span>
+<span class="c">%</span>
+    <span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Meaow&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Woof! Woof!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;cow&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Moooooh!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;kangaroo&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="nb">error</span><span class="p">([</span><span class="s">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s">&quot; makes.&quot;</span><span class="p">]);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Wichtig:</strong> Der Dateiname muss genau dem Funktionsnamen entsprechen.</p>
+<p>Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable <code>ans</code> oder einer Variablen mit beliebigem Namen zuordnen:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;cat&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans = Meaow
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">noise</span> <span class="p">=</span> <span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;dog&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>noise = Woof! Woof!
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;penguin&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>error: I don&#39;t know what kind of noise a penguin makes.
+error: called from
+    oldmcdonald at line 18 column 9
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">help</span> <span class="n">oldmcdonald</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&#39;oldmcdonald&#39; is a function from the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m
+
+ oldmcdonald takes an input string &#34;animal&#34; and outputs a &#34;noise&#34;
+ corresponding to the input. If the animal is unknown, an 
+ error is thrown.
+ 
+ input:     animal can be any of [&#34;cat&#34;, &#34;dog&#34;, &#34;cow&#34;, &#34;kangaroo&#34;]
+ output:    noise
+
+
+
+Additional help for built-in functions and operators is
+available in the online version of the manual.  Use the command
+&#39;doc &lt;topic&gt;&#39; to search the manual index.
+
+Help and information about Octave is also available on the WWW
+at http://www.octave.org and via the help@octave.org
+mailing list.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Jede Funktion muss in einer Datei mit demselben Namen der Funktion definiert werden. Für kleine Funktionen, die nur in einem bestimmten Skript verwendet werden, bietet Matlab/Octave die Möglichkeit, die Funktion <em>am Ende des Skriptes</em> zu definieren:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file mylittlefarm.m</span>
+<span class="c">% make a bunch of noises using the oldmcdonald function from before</span>
+
+<span class="c">% define some animals</span>
+<span class="n">animals</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;cat&quot;</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">,</span> <span class="s">&quot;cow&quot;</span><span class="p">,</span> <span class="s">&quot;kangaroo&quot;</span><span class="p">};</span>
+
+<span class="c">% let each animal have his or her say</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="n">oldmcdonald</span><span class="p">(</span><span class="n">animals</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<span class="k">end</span>
+
+<span class="c">% define the function &quot;oldmcdonald&quot;</span>
+<span class="k">function</span><span class="w"> </span>sound <span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Meaow&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Woof! Woof!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;cow&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Moooooh!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;kangaroo&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="nb">error</span><span class="p">([</span><span class="s">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s">&quot; makes.&quot;</span><span class="p">]);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/martin/Modellbildung-und-Simulation/content/00_einleitung/mylittlefarm.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">run</span> <span class="n">mylittlefarm</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Meaow
+Woof! Woof!
+Moooooh!
+Gib mir eine Schnapspraline.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Es ist zwingend notwendig, dass alle Funktionen am Ende eines Skriptes definiert werden.</p>
+<p>Anmerkung: Für die Liste <code>animals</code> in <code>mylittlefarm.m</code> wird keine Matrix verwendet, sondern eine sogenannte <code>cell</code>, die unterschiedlich große Variablen enthalten kann. Das erkennt man an der Verwendung der geschweiften Klammern <code>{}</code> anstelle der eckigen Klammern <code>[]</code>. Strings unterschiedlicher Länge können nicht in einer Matrix gespeichert werden, da sonst jeder Buchstabe einzeln hinterlegt wird.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Scope-von-Variablen">Scope von Variablen<a class="anchor-link" href="#Scope-von-Variablen"> </a></h3><p>In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff <em>scope</em> bezeichnet.</p>
+<p>Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden, nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems innerhalb der Funktion dienen, nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.</p>
+<p>Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file bisection.m</span>
+<span class="k">function</span><span class="w"> </span>result <span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>xlower, xupper, tolerance, maxIterations<span class="p">)</span><span class="w"></span>
+<span class="c">% find a zero of the polynomial </span>
+<span class="c">%</span>
+<span class="c">%      y(x)= -x^4 + x^3 - x^2 + x + 1</span>
+<span class="c">%</span>
+<span class="c">% in the interval xlower and xupper using bisection</span>
+<span class="c">%</span>
+<span class="c">% input:</span>
+<span class="c">%   xlower:        lower bound for the zero.</span>
+<span class="c">%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have </span>
+<span class="c">%                  different signs!</span>
+<span class="c">%   tolerance:     if the absolute value of y(x) is smaller than this, the point </span>
+<span class="c">%                  x is considered to be a a zero.</span>
+<span class="c">%   maxIterations: maximum number of iterations</span>
+<span class="c">%</span>
+<span class="c">% output:</span>
+<span class="c">%   result:        the calculated zero of the given function</span>
+
+<span class="c">% check if the bounds have function values with different signs</span>
+<span class="n">fxlower</span> <span class="p">=</span>  <span class="o">-</span><span class="n">xlower</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">xlower</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">xlower</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">xlower</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">fxupper</span> <span class="p">=</span>  <span class="o">-</span><span class="n">xupper</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">xupper</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">xupper</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">xupper</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="nb">sign</span><span class="p">(</span><span class="n">fxupper</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sign</span><span class="p">(</span><span class="n">fxlower</span><span class="p">)</span>
+    <span class="nb">error</span><span class="p">(</span><span class="s">&quot;The bounds xlower and xupper must be chosen, such that their function values have different signs.&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c">% this variable is set to true once the iteration converged</span>
+<span class="n">converged</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">iteration</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">maxIterations</span>
+    
+    <span class="c">% take the middle between the two bounds</span>
+    <span class="n">midpoint</span> <span class="p">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">xupper</span> <span class="o">+</span> <span class="n">xlower</span><span class="p">);</span>
+    
+    <span class="c">% check the function value at this point</span>
+    <span class="n">fmidpoint</span> <span class="p">=</span> <span class="o">-</span><span class="n">midpoint</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">midpoint</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">midpoint</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">midpoint</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    
+    <span class="c">% if the function value is small enough, we are done</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+        <span class="n">converged</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="c">% if we reach this point, we have not converged. </span>
+    
+    <span class="c">% reset the limits and repeat</span>
+    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">result</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="n">converged</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;Converged in &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The solution is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;No convergence to the specified tolerance of &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">tolerance</span><span class="p">),</span>  <span class="p">...</span>
+          <span class="s">&quot; within &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The current error is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Im folgenden wird die neue Funktion verwendet. Die Grenzen <code>xlower</code> und <code>xupper</code> werden über die Variable <code>a</code> und <code>b</code> an die Funktion übergeben. Der Mittelpunkt des Startintervals wird in der Variable <code>midpoint</code> gespeichert.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% define initial points and calculate the midpoint</span>
+<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">midpoint</span> <span class="p">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+<span class="n">res</span> <span class="p">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="nb">disp</span><span class="p">(</span><span class="n">midpoint</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Converged in 25 iterations. The solution is -0.51879.
+0
+-0.51879
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Obwohl die Funktion ebenfalls eine Variable <code>midpoint</code> als Hilfsvariable in der Berechnung verwendet, bleibt die Variable außerhalb der Funktion unverändert. Die beiden Variablen befinden sich in unterschiedlichen <em>Scopes</em>. Aus demselben Grund kann während der Rechenvorschrift der Funktion auf keine Variablen mit dem Namen <code>a</code> oder <code>b</code> zurückgegriffen werden.</p>
+<p>Dieses Verhalten kann mit sogenannten globalen Variablen ausgehebelt werden, wie das folgende Beispiel demonstriert.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file increment_a.m</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">increment_a</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">global</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/increment_a.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="k">global</span> <span class="n">a</span>
+<span class="n">a</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">increment_a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">increment_a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+ 2
+ 7
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Überall dort, wo der <em>scope</em> einer Variablen <code>x</code> erweitert werden soll, muss dies explizit durch die Zeile <code>global x</code> angegeben werden. In dem obigen Beispiel muss das also sowohl in der Funktion als auch im aufrufenden Skript geschehen.</p>
+<p>Globale Variablen sollten spärlich verwendet werden, da sie gerade die saubere Trennung von Eingabe, Ausgabe und Funktionskörper unterwandern und so für mögliche Fehlerquellen sorgen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Function-Handles">Function Handles<a class="anchor-link" href="#Function-Handles"> </a></h3><p>Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte <em>function handles</em> zu definieren. Ein <em>function handle</em> ist eine Variable, in der die Funktion gespeichert wird. function handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">myPolynomial</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">class</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans = function_handle
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">myPolynomial</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans = -3
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">myPolynomial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  1
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mit einem vorangestellten <code>@(x)</code> wird deklariert, dass <code>x</code> als Eingabeparameter für die Funktion interpretiert werden soll. Hier kann man auch eine Abhängigkeit von mehreren Variablen deklarieren, z.B.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">norm2d</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">norm2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  1.4142
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file bisection.m</span>
+<span class="k">function</span><span class="w"> </span>result <span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>f, xlower, xupper, tolerance, maxIterations<span class="p">)</span><span class="w"></span>
+<span class="c">% bisection finds a zero of a function f in the interval xlower and xupper </span>
+<span class="c">% using bisection</span>
+<span class="c">%</span>
+<span class="c">% input:</span>
+<span class="c">%   f:             a function handle to the function f</span>
+<span class="c">%   xlower:        lower bound for the zero.</span>
+<span class="c">%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have </span>
+<span class="c">%                  different signs!</span>
+<span class="c">%   tolerance:     if the absolute value of y(x) is smaller than this, the point </span>
+<span class="c">%                  x is considered to be a a zero.</span>
+<span class="c">%   maxIterations: maximum number of iterations</span>
+<span class="c">%</span>
+<span class="c">% output:</span>
+<span class="c">%   result:        the calculated zero of the given function</span>
+
+<span class="c">% check if the bounds have function values with different signs</span>
+<span class="k">if</span> <span class="nb">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xupper</span><span class="p">))</span> <span class="o">==</span> <span class="nb">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xlower</span><span class="p">))</span>
+    <span class="nb">error</span><span class="p">(</span><span class="s">&quot;The bounds xlower and xupper must be chosen, such that their function values have different signs.&quot;</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="c">% this variable is set to true once the iteration converged</span>
+<span class="n">converged</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="n">iteration</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">maxIterations</span>
+    
+    <span class="c">% take the middle between the two bounds</span>
+    <span class="n">midpoint</span> <span class="p">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">xupper</span> <span class="o">+</span> <span class="n">xlower</span><span class="p">);</span>
+    
+    <span class="c">% check the function value at this point</span>
+    <span class="n">fmidpoint</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">midpoint</span><span class="p">);</span>
+    
+    <span class="c">% if the function value is small enough, we are done</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+        <span class="n">converged</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="c">% if we reach this point, we have not converged. </span>
+    
+    <span class="c">% reset the limits and repeat</span>
+    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">result</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="n">converged</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;Converged in &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The solution is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;No convergence to the specified tolerance of &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">tolerance</span><span class="p">),</span>  <span class="p">...</span>
+          <span class="s">&quot; within &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The current error is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/bisection.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Nicht nur haben wir die Funktion stark erweitert, da sie nun Nullstellen beliebiger Funktionen finden kann, wir haben auch eine potentielle Fehlerquelle beseitigt: Bisher wurde die Funktionsvorschrift des Polynoms an drei Stellen des Algorithmus verwendet. Wenn die Funktion nun geändert werden soll, passiert es schnell, dass sie nicht an allen Stellen geändert wird. In der neuen Version kann das nicht passieren, da überall die Funktion <code>f</code> aus der Eingabe verwendet wird.</p>
+<p>Die weiter oben über ein function handle definierte Funktion <code>myPolynomial</code> kann nun als Eingabe verwendet werden:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">bisection</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Converged in 40 iterations. The solution is -0.51879.
+ans = -0.51879
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Quiz</strong>: Finden Sie die erste positive Nullstelle der Funktion $f(x)=-\cos(-\frac{1}{3}x^2 - \frac{1}{10}x + 1)$.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell tag_hide_input">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%plot f(x)= -cos(-0.33*x.^2-0.1*x +1)</span>
+<span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2000</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.33</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">])</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span> <span class="s">&#39;Box&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../images/00_einleitung/matlab_02_scripts_and_functions_66_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% space for quiz answer</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Aus Funktionen, die über ein m-file definiert wurden lassen sich auch function handles erzeugen.</p>
+<p>Function handles lassen sich durch ein vorangestelltes <code>@</code> vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein function handle <code>h</code> für die Funktion <code>bisection</code> erstellt. Die Funktion <code>bisection</code> wird anschließend mittelbar über das function handle <code>h</code> aufgerufen, um eine Nullstelle der Funktion $f(x) = 2x - \frac{1}{3}$ aufzufinden.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">h</span> <span class="p">=</span> <span class="p">@</span><span class="n">bisection</span>
+<span class="nb">class</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="n">h</span><span class="p">(@(</span><span class="n">x</span><span class="p">)</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mf">0.33</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>h = @bisection
+ans = function_handle
+Converged in 27 iterations. The solution is 0.165.
+ans =  0.16500
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Rekursion">Rekursion<a class="anchor-link" href="#Rekursion"> </a></h3><p>Zum Schluss sei noch angemerkt, dass Funktionen sich selbst aufrufen können. In vielen Fällen, in denen sich diese <em>Rekursion</em> anwenden lässt, sorgt ein rekursiver Aufruf für eine sehr kurze, prägnante Schreibweise. So lässt sich die Fakultät wieder über eine Auswertung der Fakuktät definieren:</p>
+$$ n! = n \cdot (n-1)! $$<p>für alle $n \in \mathbb{N}$ und $0! = 1$.</p>
+<p>Als weiteres Beispiel für eine Rekursion sei die ursprüngliche Fibonacci-Folge angegeben. Die ersten beiden Zahlen der Fibonacci-Folge $a_n$ sind $a_1 = 1, a_2 = 1$. Alle weiteren Zahlen ergeben sich aus der Summe der beiden vorherigen:</p>
+$$ a_{n} = a_{n-1} + a_{n-2}.$$<p>Die ersten paar Zahlen der Fibonacci-Folge sind demnach:</p>
+$$1,1,2,3,5,8,13,...$$<p>Das folgende Programm berechnet die $n$-te Fibonacci-Zahl:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file fibonacci.m</span>
+<span class="k">function</span><span class="w"> </span>out <span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">out</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">out</span> <span class="p">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">end</span><span class="p">;</span>
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fibonacci.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  610
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Die if-then-else-Anweisung garantiert, dass die Rekursion terminiert, da die Funktion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wrid.</p>
+<p><strong>Zusatzfrage:</strong> Wie ist der Algorithmus hinsichtlich der verwendeten Rechenoperationen zu bewerten? Ist er effizient implementiert oder lässt sich da etwas verbessern?</p>
+
+</div>
+</div>
+</div>
+</div>
+
+ 
+
+
+    </main>
+    
+            </div>
+            <div class="c-textbook__footer" id="textbook_footer">
+              <nav class="c-page__nav">
+  
+    
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/00_einleitung/matlab_01_command_window.html">
+      〈 <span class="u-margin-right-tiny"></span> Matlab Command Window
+    </a>
+  
+
+  
+    
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html">
+      Best Practices <span class="u-margin-right-tiny"></span> 〉
+    </a>
+  
+</nav>
+
+              <footer>
+  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
+</footer>
+
+            </div>
+
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
