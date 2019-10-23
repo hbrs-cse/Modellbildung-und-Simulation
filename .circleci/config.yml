@@ -110,7 +110,7 @@ jobs:
           name: Push site to gh-pages
           command: |
             export PATH=$PATH:/home/circleci/.local/bin
-            ghp-import -p -n -f _site
+            ghp-import -m "[skip ci] Update Site" -p -n -f _site
 
 
 # These workflows define how the jobs above will run. In our case, we
