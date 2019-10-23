@@ -25,17 +25,6 @@ sudo gem install bundler
 
 Note, that Ruby is only needed to preview the webpage locally, since the webpage is built with every commit to this repository using github-pages.
 
-#### Install Jupyter-Book
-
-To install jupyter-book, clone the Github repository to your local machine and run the `setup.py` script by entering the commands below. This will create a new subdirectory called `jupyter-book` in your current working directory.
-
-```bash
-git clone https://github.com/jupyter/jupyter-book
-cd jupyter-book
-python setup.py install
-cd ..
-```
-
 #### Install MOxUnit
 
 For some Matlab exercises, unit tests are provided. This page teaches Matlab but uses Octave under the hood. Because the unit testing frameworks of Matlab and Octave are not
@@ -61,7 +50,13 @@ Install some Ruby requirements of this book that are needed to preview the websi
 bundle install
 ```
 
-bundler might ask you for your sudo password here.
+bundler might ask you for your sudo password here. Now install the python requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+Currently, the only requirement is `jupyter-book`.
 
 ## Contribution Workflow
 
@@ -88,7 +83,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  ```
  Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser. 
  * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/joergbrech/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
- * Edit `_data/toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview).
+ * Edit `_data/toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
  ```bash
  make book

@@ -29,11 +29,15 @@ url: https://joergbrech.github.io/Modellbildung-und-Simulation # the base hostna
 #######################################################################################
 # Jupyter Book settings
 
+# Main page settings
+footer_text: This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The
+  Jupyter Book Community</a>
+
 # Sidebar settings
 show_sidebar: true                # Show the sidebar. Only set to false if your only wish to host a single page.
 collapse_inactive_chapters: true  # Whether to collapse the inactive chapters in the sidebar
 textbook_logo: images/logo/hbrs_logo_text.png     # A logo to be displayed at the top of your textbook sidebar. Should be square
-textbook_logo_link: https://h-brs.de                                     # A link for the logo.
+textbook_logo_link: https://h-brs.de                            # A link for the logo.
 sidebar_footer_text: '<div align="left"><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img
   src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License:
   CC BY-SA 4.0"></a><br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg"
@@ -75,6 +79,7 @@ use_show_widgets_button: true                # If 'true', display a button to al
 # Download settings
 use_download_button: false               # If 'true', display a button to download a zip file for the notebook
 download_button_text: Download                # The text that download buttons will contain
+download_page_header: Made with Jupyter Book                # A header that will be displayed at the top of and PDF-printed page
 
 #######################################################################################
 # Jupyter book extensions and additional features
@@ -153,4 +158,4 @@ plugins:
 - jekyll-scholar
 
 # Jupyter Book version - DO NOT CHANGE THIS. It is generated when a new book is created
-jupyter_book_version: 0.5.3dev0
+jupyter_book_version: 0.6.3

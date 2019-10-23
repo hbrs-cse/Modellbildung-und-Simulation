@@ -17,8 +17,6 @@
 - title: Home
   url: /intro
   not_numbered: true
-- title: Search
-  search: true
 
 - title: Einleitung
   url: /00_einleitung/intro
