@@ -38,7 +38,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Kr&#228;ftebilanzierung">Kr&#228;ftebilanzierung<a class="anchor-link" href="#Kr&#228;ftebilanzierung"> </a></h3><p>Gehen Sie von einem <em>"Urzustand"</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und dem Einwirken äußerer Kräfte entstehen Verschiebungen $$ \mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix} $$ der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null,
+<h3 id="Kr&#228;ftebilanzierung">Kr&#228;ftebilanzierung<a class="anchor-link" href="#Kr&#228;ftebilanzierung"> </a></h3><p>Gehen Sie von einem <em>"Urzustand"</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen $$ \mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix} $$ der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null,
 $$ \mathbf{z}_{0}=\mathbf{z}_{N+1}=\begin{bmatrix} 0 \\ 0 \end{bmatrix}.$$</p>
 <p>Angenommen jeder Massepunkt hat die Masse $m$ und die Federdämpferelemente haben die Steifigkeiten $k$ und Dämpfungskoeffizienten $d$. Durch Freischneiden und Kraftbilanzierung lassen sich für alle Massepunkte die Bewegungsgleichungen aufstellen. Sei $\mathbf{F}_{i,\text{ext}} \in \mathbb{R}^2$ die externe Kraft, die auf den Massepunkt mit Index $i$ wirkt. Dann gilt</p>
 $$
@@ -63,7 +63,7 @@ $$S = \left[ \begin{array}{rrrrrrr}
 \vdots &amp; &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; 0 \\
 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; -1 &amp; 0 &amp; 2
 \end{array}  \right] \in \mathbb{R}^{2N \times 2N}.$$<p>$M$ ist die <em>Massematrix</em>, $K = k \cdot S$ die <em>Steifigkeitsmatrix</em> und $D=d \cdot S$ die <em>Dämpfungsmatrix</em> des gekoppelten Systems. Die oben bereits hergeleiteten Bewegungsgleichungen nehmen die bekannte Form eines gedämpften, angetriebenen harmonischen Oszillators</p>
-$$M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}$$<p>an, nur dass die Koeffizienten $M, D$ und $K$ nun matrixwertig sind und die unbekannte Verschiebungsfunktion $\mathbf{z}(t)$ vektorwertig mit $2N$ Einträgen ist: Ein Eintrag pro Raumrichtung und beweglichen Massepunkt der Highline.</p>
+$$M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}$$<p>an, nur dass die Koeffizienten $M, D$ und $K$ nun matrixwertig sind und die unbekannte Verschiebungsfunktion $\mathbf{z}(t)$ vektorwertig mit $2N$ Einträgen ist: Ein Eintrag pro Raumrichtung und beweglichem Massepunkt der Highline.</p>
 
 </div>
 </div>
@@ -142,7 +142,7 @@ $$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>Wie stark hängt die Highline an der tiefsten Stelle durch?</li>
-<li>Wie hoch muss die Auflösung $N$ ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie ihre Antwort mit konkreten Zahlen!</li>
+<li>Wie hoch muss die Auflösung $N$ Ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie Ihre Antwort mit konkreten Zahlen!</li>
 </ul>
 <p><strong>Tipp:</strong> Verwenden Sie den Matlabbefehl <code>diag</code> um die Matrix zu erstellen.</p>
 <h2 id="Aufgabe-2---D&#252;nnbesetzte-Matrizen">Aufgabe 2 - D&#252;nnbesetzte Matrizen<a class="anchor-link" href="#Aufgabe-2---D&#252;nnbesetzte-Matrizen"> </a></h2><p>Die Matrix $S$ enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit dem folgenden Matlab-Code wird die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt. Es werden nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert.</p>
@@ -200,7 +200,7 @@ $$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Für viele Algorithmen, wie etwa dem LU-Verfahren, sind in Matlab spezielle Implementierungen für dünnbesetzte Matrizen hinterlegt. Wie wirkt sich das dünnbesetzte Speicherformat auf die Rechenzeit aus?</p>
 <ul>
-<li>Erstellen Sie ein Balkendiagramm, dass die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und $N = 5, 50, 500, 5000$ darstellt (Insgesamt also acht Rechnungen).</li>
+<li>Erstellen Sie ein Balkendiagramm, das die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und $N = 5, 50, 500, 5000$ darstellt (Insgesamt also acht Rechnungen).</li>
 </ul>
 <p><strong>Tipps:</strong></p>
 <ul>
@@ -246,12 +246,12 @@ $$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\
 <span class="c">% calculate solution using preconditioned bicgstab</span>
 <span class="n">zt</span> <span class="p">=</span> <span class="nb">bicgstab</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">b</span><span class="p">,[],</span><span class="n">maxit</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
 </pre></div>
-<p>Vergleichen Sie die benötigte Rechenzeit zur Lösung des linearen Gleichungssystems $$S\tilde{\mathbf{z}} = \mathbf{b}$$ von dem klassischen LU-Verfahren</p>
+<p>Vergleichen Sie die zur Lösung des linearen Gleichungssystems $ S\tilde{\mathbf{z}} =\mathbf{b}$ benötigte Rechenzeit des klassischen LU-Verfahrens</p>
 <div class="highlight"><pre><span></span><span class="p">[</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">P</span><span class="p">]</span> <span class="p">=</span> <span class="nb">lu</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
 <span class="n">y</span>  <span class="p">=</span> <span class="n">L</span><span class="o">\</span><span class="n">P</span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
 <span class="n">zt</span> <span class="p">=</span> <span class="n">U</span><span class="o">\</span><span class="n">y</span><span class="p">;</span>
 </pre></div>
-<p>mit den drei iterativen Verfahren, jeweils mit und ohne Vorkonditionierung und für unterschiedliche $N$. Verwenden Sie das Speicherformat für dünnbesetzte Matrizen. Erstellen Sie zwei Tabellen, in denen sie jeweils die benötigte Rechenzeit bzw. das Residuum <code>res = max(abs(b-S*zt))</code> eintragen:</p>
+<p>mit denen der drei iterativen Verfahren, jeweils mit und ohne Vorkonditionierung und für unterschiedliche $N$. Verwenden Sie das Speicherformat für dünnbesetzte Matrizen. Erstellen Sie zwei Tabellen, in denen Sie jeweils die benötigte Rechenzeit bzw. das Residuum <code>res = max(abs(b-S*zt))</code> eintragen:</p>
 <table>
 <thead><tr>
 <th>Verfahren/N</th>
@@ -314,7 +314,7 @@ $$\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\
 </tbody>
 </table>
 <ul>
-<li>Ab welche Auflösung $N$ ist das schnellste der sechs iterativen Verfahren schneller als das klassische LU-Verfahren? </li>
+<li>Ab welcher Auflösung $N$ ist das Schnellste der sechs iterativen Verfahren schneller als das klassische LU-Verfahren? </li>
 </ul>
 <p><strong>Tipps:</strong></p>
 <ul>

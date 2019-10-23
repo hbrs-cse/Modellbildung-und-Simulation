@@ -25,9 +25,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Fl&#252;ssigkeit-im-Boden">Fl&#252;ssigkeit im Boden<a class="anchor-link" href="#Fl&#252;ssigkeit-im-Boden"> </a></h1><p>Erstellen Sie ein Programm in dem das Versickern einer Flüssigkeit im Boden in 2D modelliert wird. Legen Sie dazu eine Matrix an, die einen Bodenausschnitt mit <strong>beliebiger</strong> Breite $w$ und Tiefe $d$ darstellt. Die Oberfläche des Bodens sei im Bereich $[\frac{w}{4},\frac{3w}{4}]$ mit Flüssigkeit benetzt.</p>
+<h1 id="Fl&#252;ssigkeit-im-Boden">Fl&#252;ssigkeit im Boden<a class="anchor-link" href="#Fl&#252;ssigkeit-im-Boden"> </a></h1><p>Erstellen Sie ein Programm, in dem das Versickern einer Flüssigkeit im Boden in 2D modelliert wird. Legen Sie dazu eine Matrix an, die einen Bodenausschnitt mit <strong>beliebiger</strong> Breite $w$ und Tiefe $d$ darstellt. Die Oberfläche des Bodens sei im Bereich $[\frac{w}{4},\frac{3w}{4}]$ mit Flüssigkeit benetzt.</p>
 <p><img src="../images/fluessigkeit.png" alt=""></p>
-<p>Die Flüssigkeit dringt mit einer Wahrscheinlichkeit $p$ (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit $\frac{p}{2}$. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle ist binär.</p>
+<p>Die Flüssigkeit dringt mit einer Wahrscheinlichkeit $p$ (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit $\frac{p}{2}$. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle binär ist.</p>
 
 </div>
 </div>
@@ -38,7 +38,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufgabe-1---Parametrierung-des-Bodenmodells">Aufgabe 1 - Parametrierung des Bodenmodells<a class="anchor-link" href="#Aufgabe-1---Parametrierung-des-Bodenmodells"> </a></h2><p>Schreiben Sie eine Matlab Funktion, die diesen Prozess simuliert:</p>
+<h2 id="Aufgabe-1---Parametrierung-des-Bodenmodells">Aufgabe 1 - Parametrierung des Bodenmodells<a class="anchor-link" href="#Aufgabe-1---Parametrierung-des-Bodenmodells"> </a></h2><p>Schreiben Sie eine Matlab-Funktion, die diesen Prozess simuliert:</p>
 
 </div>
 </div>
@@ -63,7 +63,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <span class="c">% half of the surface is covered by fluid</span>
 <span class="c">%</span>
 <span class="c">% Inputs:</span>
-<span class="c">%   - depth:       The depth of the regulear 2D grid</span>
+<span class="c">%   - depth:       The depth of the regular 2D grid</span>
 <span class="c">%   - width:       The width of the regular 2D grid</span>
 <span class="c">%   - probability: The seeping probability into lower cells</span>
 <span class="c">%</span>
@@ -105,7 +105,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <li>Für die Visualisierung können Sie zum Beispiel die Funktion <code>spy</code> oder <code>imagesc</code> verwenden.</li>
 <li>Die Ränder der Bodenmatrix sind gesondert zu behandeln.</li>
 </ul>
-<p>Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse ihrer Funktion zu überprüfuen:</p>
+<p>Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse Ihrer Funktion zu überprüfuen:</p>
 
 </div>
 </div>
@@ -133,7 +133,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Parametrieren Sie den Bodenparameter $p$ so, dass über 1000 Simulationen gemittelt circa drei Zellen am unteren Ende befeuchtet sind. Berechnen Sie dann Mittelwert und Standardabweichung. Verwenden Sie hierfür konkret $d=80$ und $w=250$. Schreiben Sie dazu ein Matlab-Skript, dass die Funktion <code>groundwater_sim</code> verwendet.</p>
+<p>Parametrieren Sie den Bodenparameter $p$ so, dass über 1000 Simulationen gemittelt am unteren Ende circa drei Zellen befeuchtet sind. Berechnen Sie dann Mittelwert und Standardabweichung. Verwenden Sie hierfür konkret $d=80$ und $w=250$. Schreiben Sie dazu ein Matlab-Skript, das die Funktion <code>groundwater_sim</code> verwendet.</p>
 
 </div>
 </div>
@@ -144,7 +144,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufgabe-2---Unregelm&#228;&#223;igkeiten-im-Boden">Aufgabe 2 - Unregelm&#228;&#223;igkeiten im Boden<a class="anchor-link" href="#Aufgabe-2---Unregelm&#228;&#223;igkeiten-im-Boden"> </a></h2><p>Reale Böden sind in der Regel sehr unregelmäßig strukturiert, so dass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von <code>ratio_absorb</code> aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. es hindert die Flüssigkeit am weiteren Versickern im Boden. Modifizieren ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.</p>
+<h2 id="Aufgabe-2---Unregelm&#228;&#223;igkeiten-im-Boden">Aufgabe 2 - Unregelm&#228;&#223;igkeiten im Boden<a class="anchor-link" href="#Aufgabe-2---Unregelm&#228;&#223;igkeiten-im-Boden"> </a></h2><p>Reale Böden sind in der Regel sehr unregelmäßig strukturiert, sodass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von <code>ratio_absorb</code> aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. die Flüssigkeit am weiteren Versickern im Boden hindert. Modifizieren Sie Ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.</p>
 <p>Geben Sie als zusätzliche Ausgabe die Matrix aus, die das absorbierende Material repräsentiert.</p>
 
 </div>
@@ -179,7 +179,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <span class="c">% Outputs:</span>
 <span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
 <span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
-<span class="c">%   - absorb_mat:  2D-grid representing  the absorbing material </span>
+<span class="c">%   - absorb_mat:  2D-grid representing the absorbing material </span>
 <span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
 
 <span class="k">end</span>
@@ -223,8 +223,8 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufgabe-3---Einfluss-der-Tiefe">Aufgabe 3 - Einfluss der Tiefe<a class="anchor-link" href="#Aufgabe-3---Einfluss-der-Tiefe"> </a></h2><p>In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter <code>depth_influence</code> ein, um die Stärke dieses Effektes zu regulieren. <strong>Wichtig:</strong> <em>Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!</em></p>
-<p>Um die Eingabeparameter ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem <em>Structure array</em> mit Namen <code>params</code>.</p>
+<h2 id="Aufgabe-3---Einfluss-der-Tiefe">Aufgabe 3 - Einfluss der Tiefe<a class="anchor-link" href="#Aufgabe-3---Einfluss-der-Tiefe"> </a></h2><p>In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie Ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter <code>depth_influence</code> ein, um die Stärke dieses Effektes zu regulieren. <strong>Wichtig:</strong> <em>Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!</em></p>
+<p>Um die Eingabeparameter Ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem <em>Structure array</em> mit Namen <code>params</code>.</p>
 
 </div>
 </div>
@@ -329,7 +329,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufgabe-4---Gesteigerter-Realismus">Aufgabe 4 - Gesteigerter Realismus<a class="anchor-link" href="#Aufgabe-4---Gesteigerter-Realismus"> </a></h2><p>Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?</p>
+<h2 id="Aufgabe-4---Gesteigerter-Realismus">Aufgabe 4 - Gesteigerter Realismus<a class="anchor-link" href="#Aufgabe-4---Gesteigerter-Realismus"> </a></h2><p>Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie Ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?</p>
 
 </div>
 </div>

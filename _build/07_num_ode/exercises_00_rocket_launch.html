@@ -27,7 +27,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Simulation-eines-Raketenstarts">Simulation eines Raketenstarts<a class="anchor-link" href="#Simulation-eines-Raketenstarts"> </a></h1><p>Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation <em>(H-BRS)</em> und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen vier Satelliten mit einem Gesamtgewicht von 2952 kg in MEO <em>(Medium Earth Orbit)</em> auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.</p>
 <p><img src="../images/gravity_turn.gif" alt="Rocket launch Animation" width="800"/></p>
-<p>Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für sie eigentliche eine Routineuntersuchung, aber da ihre Mitarbeiter noch nie etwas von <a href="https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Wozu-Versionskontrolle%3F">Versionskontrolle</a> gehört haben, sind leider Teile ihres Simulationsprogrammes abhanden gekommen.</p>
+<p>Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für Sie eigentlich eine Routineuntersuchung, aber da Ihre Mitarbeiter noch nie etwas von <a href="https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Wozu-Versionskontrolle%3F">Versionskontrolle</a> gehört haben, sind leider Teile Ihres Simulationsprogrammes abhandengekommen.</p>
 <h2 id="Ihre-Simulationssoftware">Ihre Simulationssoftware<a class="anchor-link" href="#Ihre-Simulationssoftware"> </a></h2><p>Als Matlab-Experte haben Sie eine einfache Simulationssoftware für die frühe Planungsphase entworfen. Ihr Programm simuliert ein <em>"gravity turn maneuver"</em> in 2D und besteht aus den folgenden sechs Dateien. <em>Durch Klicken auf das Plus-Symbol können Sie sich den Inhalt der Dateien anschauen.</em></p>
 
 </div>
@@ -39,7 +39,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="rocket_launch.m"><code>rocket_launch.m</code><a class="anchor-link" href="#rocket_launch.m"> </a></h3><p>Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liedenge gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet.</p>
+<h3 id="rocket_launch.m"><code>rocket_launch.m</code><a class="anchor-link" href="#rocket_launch.m"> </a></h3><p>Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liegende gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet.</p>
 <p><strong>Hinweis:</strong> <em>Die Simulation beinhaltet eine Animation und kann deswegen nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf Ihrem Computer.</em></p>
 
 </div>
@@ -162,7 +162,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="rocket_ode.m"><code>rocket_ode.m</code><a class="anchor-link" href="#rocket_ode.m"> </a></h3><p>Das Herzstück ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung $\dot{\mathbf{q}} = $ <code>rocket_ode</code>$(t,\mathbf{q})$ mit dem Löser <code>ode45</code>. Die rechte Seite <code>rocket_ode</code> ist in dieser Datei implementiert. Dabei ist $\mathbf{q} = [x,y, v_x, v_z, m]^T$ ein Spaltenvektor, der die aktuelle Position $(x,y)$, die aktuelle Geschwindigkeit $(v_x,v_y)$ sowie die aktuelle Masse $m$ der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.</p>
+<h3 id="rocket_ode.m"><code>rocket_ode.m</code><a class="anchor-link" href="#rocket_ode.m"> </a></h3><p>Das Herzstück Ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung $\dot{\mathbf{q}} = $ <code>rocket_ode</code>$(t,\mathbf{q})$ mit dem Löser <code>ode45</code>. Die rechte Seite <code>rocket_ode</code> ist in dieser Datei implementiert. Dabei ist $\mathbf{q} = [x,y, v_x, v_z, m]^T$ ein Spaltenvektor, der die aktuelle Position $(x,y)$, die aktuelle Geschwindigkeit $(v_x,v_y)$ sowie die aktuelle Masse $m$ der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.</p>
 
 </div>
 </div>
@@ -204,7 +204,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="mass_flow_rate.m"><code>mass_flow_rate.m</code><a class="anchor-link" href="#mass_flow_rate.m"> </a></h3><p>Teil der Raketen-ODE <code>rocket_ode.m</code> ist die gewöhnliche Differentialgleichung für die Masse $m$ der Rakete $\dot{m}=g(m, \tau)$, wobei $\tau$ die Antriebsdrossel modelliert ($\tau=0$ bedeutet kein Antrieb, $\tau=1$ bedeutet maximaler Antrieb). Die Funktion $g$ ist in <code>mass_flow_rate.m</code> implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton'schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Teribstoff ausgestoßen wird, desto höher ist der momentane Impuls sowie die Gewichtsabnahme der Rakete.</p>
+<h3 id="mass_flow_rate.m"><code>mass_flow_rate.m</code><a class="anchor-link" href="#mass_flow_rate.m"> </a></h3><p>Teil der Raketen-ODE <code>rocket_ode.m</code> ist die gewöhnliche Differentialgleichung für die Masse $m$ der Rakete $\dot{m}=g(m, \tau)$, wobei $\tau$ die Antriebsdrossel modelliert ($\tau=0$ bedeutet kein Antrieb, $\tau=1$ bedeutet maximaler Antrieb). Die Funktion $g$ ist in <code>mass_flow_rate.m</code> implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton'schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Treibstoff ausgestoßen wird, desto höher sind der momentane Impuls und die Gewichtsabnahme der Rakete.</p>
 
 </div>
 </div>
@@ -247,7 +247,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="F_thrust.m"><code>F_thrust.m</code><a class="anchor-link" href="#F_thrust.m"> </a></h3><p>In dieser Datei ist die Funktion $F_{\text{thrust}}(t,\mathbf{q})$ hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in $x$- und $y$-Richtung berechnet. Diese Datei haben sie bereits von ihren Kollegen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen <em>lift off, pitch over, ascend, 2nd stage,</em> und <em>orbit</em>. Je nach Phase wird in <code>F_thrust</code> der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion, zusammen mit <code>rocket_status.m</code> bestimmen den Flugplan der Rakete. Optional kann die berechnete Drosselung <code>throttle</code> als zweiter Parameter mit ausgegeben werden. Sie wird unteranderem gebraucht um den Massefluss $g$ (bzw. <code>mass_flow_rate</code>) zu berechnen.</p>
+<h3 id="F_thrust.m"><code>F_thrust.m</code><a class="anchor-link" href="#F_thrust.m"> </a></h3><p>In dieser Datei ist die Funktion $F_{\text{thrust}}(t,\mathbf{q})$ hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in $x$- und $y$-Richtung berechnet. Diese Datei haben Sie bereits von Ihren Kollegen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen <em>lift off, pitch over, ascend, 2nd stage,</em> und <em>orbit</em>. Je nach Phase wird in <code>F_thrust</code> der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit <code>rocket_status.m</code> den Flugplan der Rakete. Optional kann die berechnete Drosselung <code>throttle</code> als zweiter Parameter mit ausgegeben werden. Sie wird unteranderem gebraucht um den Massefluss $g$ (bzw. <code>mass_flow_rate</code>) zu berechnen.</p>
 
 </div>
 </div>
@@ -334,7 +334,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="rocket_status.m"><code>rocket_status.m</code><a class="anchor-link" href="#rocket_status.m"> </a></h3><p>Diese Datei wird von <code>F_thrust.m</code> verwendet. Hier wird je nach Zustand der Rakete nach Bestimmten Kriterien die Phase <em>(lift off, pitch over, ascend, 2nd stage, orbit)</em> des Raketenstarts gewechselt. In jeder Phase verhält sich die Funktion <code>F_thrust</code> etwas anders. Die Syntax ist so gewählt, dass die Funktion vom <em>event handler</em> des ODE-Lösers von Matlab aufgerufen wird.</p>
+<h3 id="rocket_status.m"><code>rocket_status.m</code><a class="anchor-link" href="#rocket_status.m"> </a></h3><p>Diese Datei wird von <code>F_thrust.m</code> verwendet. Hier wird je nach Zustand der Rakete nach bestimmten Kriterien die Phase <em>(lift off, pitch over, ascend, 2nd stage, orbit)</em> des Raketenstarts gewechselt. In jeder Phase verhält sich die Funktion <code>F_thrust</code> etwas anders. Die Syntax ist so gewählt, dass die Funktion vom <em>event handler</em> des ODE-Lösers von Matlab aufgerufen wird.</p>
 
 </div>
 </div>
@@ -744,7 +744,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufgabe-1">Aufgabe 1<a class="anchor-link" href="#Aufgabe-1"> </a></h2><p>Damit ihre Simulationssoftware lauffähig ist, füllen Sie die Datei <code>rocket_ode.m</code> mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten</p>
+<h2 id="Aufgabe-1">Aufgabe 1<a class="anchor-link" href="#Aufgabe-1"> </a></h2><p>Damit Ihre Simulationssoftware lauffähig ist, füllen Sie die Datei <code>rocket_ode.m</code> mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten</p>
 $$
 \begin{align}
 \ddot{\mathbf{z}} &amp;= \frac{\mathbf{F}_{\text{G}} + \mathbf{F}_{\text{thrust}}}{m}, \notag \\
@@ -754,7 +754,7 @@ $$<p>Die erste der beiden DGLs beschreibt die Beschleunigung der Rakete, wobei $
 $$
 \frac{\mathbf{F}_{\text{G}}}{m} = -\frac{G\cdot M}{\|\mathbf{z}\|^3} \mathbf{z}
 $$<p>und der Beschleunigung durch den Raketenantrieb $\mathbf{F}_{\text{thrust}}/m$. Hierbei ist $G=6.67408 \cdot 10^{-11} \frac{\textrm{m}^3}{\textrm{kg}\cdot\textrm{s}^2}$ die Gravitationskonstante und $M=5.972 \cdot 10^{24} \textrm{kg}$ die Erdmasse.</p>
-<p>Die zweite Differentialgleichung beschreibt die Masseänderung der Rakete. Der Massefluss hängt von der aktuellen Masse $m$ der Rakete, sowie der Drosselung $\tau$ ab. Die Funktionen $\mathbf{F}_{\text{thrust}}(t,\mathbf{q})$ sowie $g(m,\tau)$ sind bereits in den Matlab-files <code>F_thrust.m</code> und <code>mass_flow_rate.m</code> implementiert. Die Drosselung (<em>throttle</em>) $\tau$ wird von <code>F_thrust.m</code> berechnet und als zweiten Ausgabeparameter bereitgestellt:</p>
+<p>Die zweite Differentialgleichung beschreibt die Masseänderung der Rakete. Der Massefluss hängt von der aktuellen Masse $m$ der Rakete sowie der Drosselung $\tau$ ab. Die Funktionen $\mathbf{F}_{\text{thrust}}(t,\mathbf{q})$ sowie $g(m,\tau)$ sind bereits in den Matlab-files <code>F_thrust.m</code> und <code>mass_flow_rate.m</code> implementiert. Die Drosselung (<em>throttle</em>) $\tau$ wird von <code>F_thrust.m</code> berechnet und als zweiten Ausgabeparameter bereitgestellt:</p>
 <div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Ft</span><span class="p">,</span> <span class="n">throttle</span><span class="p">]</span> <span class="p">=</span> <span class="n">F_thrust</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
 </pre></div>
 <p><strong>Hinweis:</strong> Bringen Sie zunächst dieses System von Differentialgleichungen auf erste Ordnung</p>
@@ -771,7 +771,7 @@ $$<p>mit $\mathbf{q} = [x,y,v_x, v_y,m]^T$.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aufgabe-2">Aufgabe 2<a class="anchor-link" href="#Aufgabe-2"> </a></h2><p>Wie schätzen Sie die Modellierungstiefe des Simulationsprgrammes ein? Nennen Sie die wichtigsten Modellvereinfachungen und diskutieren Sie, welche am kritischsten sind. Welche Modellvereinfachungen würden Sie als erstes angehen, wenn sie das Modell verfeinern würden? Wie schätzen Sie den Aufwand dafür ein?</p>
+<h2 id="Aufgabe-2">Aufgabe 2<a class="anchor-link" href="#Aufgabe-2"> </a></h2><p>Wie schätzen Sie die Modellierungstiefe des Simulationsprogrammes ein? Nennen Sie die wichtigsten Modellvereinfachungen und diskutieren Sie, welche am kritischsten sind. Welche Modellvereinfachungen würden Sie als erstes angehen, wenn Sie das Modell verfeinern würden? Wie schätzen Sie den Aufwand dafür ein?</p>
 
 </div>
 </div>
@@ -782,7 +782,7 @@ $$<p>mit $\mathbf{q} = [x,y,v_x, v_y,m]^T$.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Zusatzaufgabe">Zusatzaufgabe<a class="anchor-link" href="#Zusatzaufgabe"> </a></h2><p>Bestimmen Sie auf Grundlage ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie ein Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.</p>
+<h2 id="Zusatzaufgabe">Zusatzaufgabe<a class="anchor-link" href="#Zusatzaufgabe"> </a></h2><p>Bestimmen Sie auf Grundlage Ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie einen Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.</p>
 
 </div>
 </div>
