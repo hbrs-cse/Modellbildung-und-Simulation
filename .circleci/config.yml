@@ -33,14 +33,15 @@ jobs:
     steps:
       # Get our data and merge with upstream
       - run: sudo apt-get update
-      - run: 
-         name: install jupyter book
-         command: pip install -r /tmp/workspace/requirements.txt
          
       # Update our path
       - run: echo "export PATH=~/.local/bin:$PATH" >> $BASH_ENV
       
       - checkout
+
+      - run: 
+         name: install jupyter book
+         command: pip install -r requirements.txt
 
       # Build the site itself
       - run:
