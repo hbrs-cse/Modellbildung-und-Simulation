@@ -102,7 +102,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  git add .
  git commit -m "added another really awesome page"
  ```
- _Don't forget to include the newly generated files from the `_build` directory!_
+
  * Push your changes to this repository to publish the changes. If your newly created branch `my-awesome-new-page` only exists locally, you need to associate a new upstream branch to your local copy.
  ```bash
  git push -u origin HEAD
