@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/matlab_01_command_window.html",
   "headline": "Matlab Command Window",
-  "datePublished": "2019-10-23T13:47:35+00:00",
-  "dateModified": "2019-10-23T13:47:35+00:00",
+  "datePublished": "2019-10-23T15:50:08+00:00",
+  "dateModified": "2019-10-23T15:50:08+00:00",
   "description": "        Command Window Im Command Window gibt man, wie der Name schon sagt, Befehle ein. Diese werden unmittelbar nach dem Prompt &gt;&gt; eingetippt.Erste B...",
   "author": {
     "@type": "Person",
@@ -1514,6 +1514,432 @@ f =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Matrizen erzeugt man auf dieselbe Art:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">;</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A =
+
+   11   12
+   21   22
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Mit runden Klammern können wir auf einzelne Elemente zugreifen und auch überschreiben:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  2
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =
+
+   1   2   3
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">42</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>e =
+
+    1    2   42    4    5
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">3</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>e =
+
+   1   2   3   4   5
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  22
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">42</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A =
+
+   42   12
+   21   22
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Matlab verwendet ein sogenanntes <em>column-major</em> Speicherformat für Matrizen. D.h. dass Matrizen im Speicher spaltenweise gespeichert werden. Für die Matrix <code>A</code> sähe das in Etwa so aus:</p>
+
+<pre><code>42 21 12 22</code></pre>
+<p>Wir können uns alle Elemente der Matrix <code>A</code>, so wie sie von Matlab gespeichert werden ausgeben, in dem wir den Index durch einen Doppelpunkt ersetzen:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span><span class="p">(:)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =
+
+   42
+   21
+   12
+   22
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Für Matrizen kann man daher sowohl durch Angabe zweier Indizes als auch durch Angabe eines Index auf Elemente zugreifen:</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  12
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">5</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A =
+
+   42    5
+   21   22
+
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ans =  5
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Produkte-von-Vektoren-und-Matrizen">Produkte von Vektoren und Matrizen<a class="anchor-link" href="#Produkte-von-Vektoren-und-Matrizen"> </a></h2><p>Beim Produkt zweier Vektoren $\mathbf{e}$ und $\mathbf{f}$ (bzw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Kann ich die eben erstellten Vektoren $e$ und $f$ miteinander multiplizieren?</p>
 
 </div>
@@ -2050,14 +2476,14 @@ elementwise multiplication, use '.*'.</code></pre>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>A4 =
 
-   0.902136   0.075642
-   0.686556   0.399885
+   0.44656   0.73537
+   0.18055   0.95080
 
 Die Wurzel der Elemente von A4:
 ans =
 
-   0.94981   0.27503
-   0.82859   0.63236
+   0.66825   0.85754
+   0.42491   0.97509
 
 </pre>
 </div>
@@ -2108,26 +2534,26 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-   3.13487
-   0.99205
-   2.25956
-   2.85939
-   0.52927
-   0.90552
-   1.28791
-   1.30450
-   1.13228
-   1.93397
-   0.84716
-   1.47221
-   0.69851
-   1.66239
-   1.29021
-   2.01736
-   2.24273
-   1.51946
-   0.78813
-   2.42039
+   1.27082
+   2.12935
+   2.28378
+   1.48039
+   1.84512
+   1.88619
+   1.88152
+   2.68298
+   1.53354
+   3.08340
+   1.50169
+   1.85289
+   2.29875
+   1.74458
+   1.62807
+   1.15378
+   1.77924
+   1.92541
+   0.81153
+   1.52136
 
 </pre>
 </div>
@@ -2184,26 +2610,26 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>V =
 
-  -3.019795   0.434514   0.720747
-  -0.265533   0.097343  -0.950886
-   0.894989   1.914294   0.800064
-  -2.697906   0.300665   0.898349
-  -0.083736   0.400069   0.336239
-  -0.357997  -0.675456  -0.485356
-  -0.696160  -1.005352   0.404150
-  -0.614755  -1.149692   0.044734
-  -0.771785   0.724196   0.402418
-  -1.436569  -0.637793   1.126824
-   0.144118  -0.373410  -0.746646
-  -0.329917  -0.430427   1.368680
-   0.513278  -0.395825  -0.260358
-   1.464365  -0.444932  -0.649004
-   1.129131   0.456939   0.425324
-  -1.874085   0.379074  -0.643297
-   1.613523  -1.536201   0.257822
-  -1.110248   1.028797   0.133014
-   0.542083   0.251091   0.514044
-   0.964465   1.681427   1.449456
+  -0.322496   0.276267   1.197767
+   0.184774  -1.895761   0.951878
+  -0.901812   1.705073   1.222752
+  -0.674568  -1.317111   0.041429
+  -0.296170  -1.678014   0.707831
+   1.467738  -0.762423   0.906740
+  -1.074790  -0.040866  -1.543783
+   0.568760   2.621381   0.057240
+  -0.397382   1.169356  -0.909087
+   1.089513  -2.831767   0.549000
+   0.327851   1.032975  -1.039488
+   0.145657  -0.836806   1.646732
+  -1.588139  -1.661264  -0.047459
+   1.391289   0.329041  -0.999795
+  -1.326279   0.942947   0.049580
+   0.103442  -1.022502   0.524393
+  -0.293752  -1.692801  -0.462420
+  -0.232870  -0.499655   1.844812
+  -0.578842  -0.561705  -0.089501
+   1.133429   0.979685   0.264775
 
 </pre>
 </div>
@@ -2292,11 +2718,11 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-  -3.019795   0.434514   0.720747
-  -0.265533   0.097343  -0.950886
-   0.894989   1.914294   0.800064
-  -2.697906   0.300665   0.898349
-  -0.083736   0.400069   0.336239
+  -0.322496   0.276267   1.197767
+   0.184774  -1.895761   0.951878
+  -0.901812   1.705073   1.222752
+  -0.674568  -1.317111   0.041429
+  -0.296170  -1.678014   0.707831
 
 </pre>
 </div>
@@ -2343,11 +2769,11 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-  -1.87409   0.37907  -0.64330
-   1.61352  -1.53620   0.25782
-  -1.11025   1.02880   0.13301
-   0.54208   0.25109   0.51404
-   0.96446   1.68143   1.44946
+   0.103442  -1.022502   0.524393
+  -0.293752  -1.692801  -0.462420
+  -0.232870  -0.499655   1.844812
+  -0.578842  -0.561705  -0.089501
+   1.133429   0.979685   0.264775
 
 </pre>
 </div>
@@ -2393,16 +2819,16 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-  -3.019795   0.434514   0.720747
-   0.894989   1.914294   0.800064
-  -0.083736   0.400069   0.336239
-  -0.696160  -1.005352   0.404150
-  -0.771785   0.724196   0.402418
-   0.144118  -0.373410  -0.746646
-   0.513278  -0.395825  -0.260358
-   1.129131   0.456939   0.425324
-   1.613523  -1.536201   0.257822
-   0.542083   0.251091   0.514044
+  -0.322496   0.276267   1.197767
+  -0.901812   1.705073   1.222752
+  -0.296170  -1.678014   0.707831
+  -1.074790  -0.040866  -1.543783
+  -0.397382   1.169356  -0.909087
+   0.327851   1.032975  -1.039488
+  -1.588139  -1.661264  -0.047459
+  -1.326279   0.942947   0.049580
+  -0.293752  -1.692801  -0.462420
+  -0.578842  -0.561705  -0.089501
 
 </pre>
 </div>
@@ -2448,26 +2874,26 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-   0.964465   1.681427   1.449456
-   0.542083   0.251091   0.514044
-  -1.110248   1.028797   0.133014
-   1.613523  -1.536201   0.257822
-  -1.874085   0.379074  -0.643297
-   1.129131   0.456939   0.425324
-   1.464365  -0.444932  -0.649004
-   0.513278  -0.395825  -0.260358
-  -0.329917  -0.430427   1.368680
-   0.144118  -0.373410  -0.746646
-  -1.436569  -0.637793   1.126824
-  -0.771785   0.724196   0.402418
-  -0.614755  -1.149692   0.044734
-  -0.696160  -1.005352   0.404150
-  -0.357997  -0.675456  -0.485356
-  -0.083736   0.400069   0.336239
-  -2.697906   0.300665   0.898349
-   0.894989   1.914294   0.800064
-  -0.265533   0.097343  -0.950886
-  -3.019795   0.434514   0.720747
+   1.133429   0.979685   0.264775
+  -0.578842  -0.561705  -0.089501
+  -0.232870  -0.499655   1.844812
+  -0.293752  -1.692801  -0.462420
+   0.103442  -1.022502   0.524393
+  -1.326279   0.942947   0.049580
+   1.391289   0.329041  -0.999795
+  -1.588139  -1.661264  -0.047459
+   0.145657  -0.836806   1.646732
+   0.327851   1.032975  -1.039488
+   1.089513  -2.831767   0.549000
+  -0.397382   1.169356  -0.909087
+   0.568760   2.621381   0.057240
+  -1.074790  -0.040866  -1.543783
+   1.467738  -0.762423   0.906740
+  -0.296170  -1.678014   0.707831
+  -0.674568  -1.317111   0.041429
+  -0.901812   1.705073   1.222752
+   0.184774  -1.895761   0.951878
+  -0.322496   0.276267   1.197767
 
 </pre>
 </div>
@@ -2542,14 +2968,11 @@ ans =
 <pre>ans =
 
   0
-  0
   1
   0
   0
   0
-  0
-  0
-  0
+  1
   0
   1
   0
@@ -2560,6 +2983,9 @@ ans =
   1
   0
   1
+  0
+  0
+  0
   1
 
 </pre>
@@ -2650,14 +3076,15 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-   0.89499   1.91429   0.80006
-   0.14412  -0.37341  -0.74665
-   0.51328  -0.39583  -0.26036
-   1.46436  -0.44493  -0.64900
-   1.12913   0.45694   0.42532
-   1.61352  -1.53620   0.25782
-   0.54208   0.25109   0.51404
-   0.96446   1.68143   1.44946
+   0.184774  -1.895761   0.951878
+   1.467738  -0.762423   0.906740
+   0.568760   2.621381   0.057240
+   1.089513  -2.831767   0.549000
+   0.327851   1.032975  -1.039488
+   0.145657  -0.836806   1.646732
+   1.391289   0.329041  -0.999795
+   0.103442  -1.022502   0.524393
+   1.133429   0.979685   0.264775
 
 </pre>
 </div>
@@ -2703,15 +3130,18 @@ ans =
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>ans =
 
-  -0.357997  -0.675456  -0.485356
-  -0.696160  -1.005352   0.404150
-  -0.614755  -1.149692   0.044734
-  -1.436569  -0.637793   1.126824
-   0.144118  -0.373410  -0.746646
-  -0.329917  -0.430427   1.368680
-   0.513278  -0.395825  -0.260358
-   1.464365  -0.444932  -0.649004
-   1.613523  -1.536201   0.257822
+   0.184774  -1.895761   0.951878
+  -0.674568  -1.317111   0.041429
+  -0.296170  -1.678014   0.707831
+   1.467738  -0.762423   0.906740
+  -1.074790  -0.040866  -1.543783
+   1.089513  -2.831767   0.549000
+   0.145657  -0.836806   1.646732
+  -1.588139  -1.661264  -0.047459
+   0.103442  -1.022502   0.524393
+  -0.293752  -1.692801  -0.462420
+  -0.232870  -0.499655   1.844812
+  -0.578842  -0.561705  -0.089501
 
 </pre>
 </div>
