@@ -257,9 +257,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <p>Einige wichtige Punkte konnten wir bisher beobachten:</p>
 <ul>
 <li>Variablenzuweisungen passieren von links nach rechts: Was rechts vom Gleichheitszeichen steht, wird der Variablen die links vom Gleichheitszeichen steht zugeordnet. Wenn es diese Variable nicht gibt, wird sie im Workspace hinterlegt.</li>
-<li>Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion <code>exp</code> oder das Rechnen mit komplexen Zahlen. Dabei können sowohl <code>1i</code>, <code>1j</code> als auch <code>i</code> und <code>j</code> als Symbole für die komplexe Einheit verwendet werden. Die letzten beiden Varianten sind aber potentiell gefährlich, da es auch valide Variablennamen sind und es so zu Verwechslungen kommen kann.</li>
-<li>Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendent werden.</li>
-<li>In Matlab werden die skalaren Datentypen (<code>integer</code>, <code>double</code>, <code>float</code>, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variablen <code>a</code> ganzzahlig ist, geht Matlab standardmäßig von <code>double</code> aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion <code>class()</code> ausgeben lassen:</li>
+<li>Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion <code>exp</code> oder das Rechnen mit komplexen Zahlen. Dabei können sowohl <code>1i</code>, <code>1j</code> als auch <code>i</code> und <code>j</code> als Symbole für die komplexe Einheit verwendet werden. Die letzten beiden Varianten sind aber potenziell gefährlich, da es auch valide Variablennamen sind und es so zu Verwechslungen kommen kann.</li>
+<li>Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendet werden.</li>
+<li>In Matlab werden die skalaren Datentypen (<code>integer</code>, <code>double</code>, <code>float</code>, ...) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variablen <code>a</code> ganzzahlig ist, geht Matlab standardmäßig von <code>double</code> aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion <code>class()</code> ausgeben:</li>
 </ul>
 
 </div>
@@ -370,7 +370,7 @@ f =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Produkte-von-Vektoren-und-Matrizen">Produkte von Vektoren und Matrizen<a class="anchor-link" href="#Produkte-von-Vektoren-und-Matrizen"> </a></h2><p>Beim Produkt zweier Vektoren $\mathbf{e}$ und $\mathbf{f}$ (byw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Kann ich die eben erstellten Vektoren $e$ und $f$ miteinander multiplizieren?</p>
+<h2 id="Produkte-von-Vektoren-und-Matrizen">Produkte von Vektoren und Matrizen<a class="anchor-link" href="#Produkte-von-Vektoren-und-Matrizen"> </a></h2><p>Beim Produkt zweier Vektoren $\mathbf{e}$ und $\mathbf{f}$ (bzw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Kann ich die eben erstellten Vektoren $e$ und $f$ miteinander multiplizieren?</p>
 
 </div>
 </div>
@@ -463,7 +463,7 @@ $$ \mathbf{e} \cdot \mathbf{f} = \sum_{i=1}^n e_i \cdot f_i. $$
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Die Multiplikation eines $(n,1)$-dimensionalen Vektors $\mathbf{f}$ mit einem (1,n)-dimensionalen Vektor $\mathbf{e}$ liefert mit also eine $(n,n)$-dimensionale Matrix. Es handelt sich um das <strong>diadische Produkt</strong></p>
+<p>Die Multiplikation eines $(n,1)$-dimensionalen Vektors $\mathbf{f}$ mit einem $(1,n)$-dimensionalen Vektor $\mathbf{e}$ liefert also eine $(n,n)$-dimensionale Matrix. Es handelt sich um das <strong>diadische Produkt</strong></p>
 $$ A = \mathbf{f} \cdot \mathbf{e}, \hskip0.5cm A_{ij} = f_i \cdot e_j $$<p>Wie sieht es mit den folgenden Matrizen aus?</p>
 
 </div>
@@ -510,7 +510,7 @@ $$ A = \mathbf{f} \cdot \mathbf{e}, \hskip0.5cm A_{ij} = f_i \cdot e_j $$<p>Wie 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Nein! Es klappt nicht. Die Fehlermeldung gibt schon Auskunft darüber wieso, die Dimensionen der Matrizen passen nicht zusammen.</p>
-<p><em>Hinweis:</em> Hier ist der Wortlaut der Octave-Fehlermeldung zusehen. Matlab gibt an dieser Stelle die folgende Fehlermeldung wieder:</p>
+<p><em>Hinweis:</em> Hier ist der Wortlaut der Octave-Fehlermeldung zu sehen. Matlab gibt an dieser Stelle die folgende Fehlermeldung wieder:</p>
 
 <pre><code>Error using  * 
 Incorrect dimensions for matrix multiplication. Check that the number of columns in
@@ -712,7 +712,7 @@ elementwise multiplication, use '.*'.</code></pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Sehr häufig ist es nützlich Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor</p>
+<p>Sehr häufig ist es nützlich, Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor</p>
 
 </div>
 </div>
@@ -842,7 +842,7 @@ elementwise multiplication, use '.*'.</code></pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Spezielle-Matrizen">Spezielle Matrizen<a class="anchor-link" href="#Spezielle-Matrizen"> </a></h2><p>Malab hat einige Befehle um spezielle Matrizen zu erstellen. Einige der wichtigsten sind:</p>
+<h2 id="Spezielle-Matrizen">Spezielle Matrizen<a class="anchor-link" href="#Spezielle-Matrizen"> </a></h2><p>Matlab hat einige Befehle, um spezielle Matrizen zu erstellen. Einige der wichtigsten sind:</p>
 
 </div>
 </div>
@@ -1010,7 +1010,7 @@ ans =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Concatenation-und-Slicing">Concatenation und Slicing<a class="anchor-link" href="#Concatenation-und-Slicing"> </a></h2><p>Oft kann es sinnvoll sein, einzelne Vektoren oder Matrizen zu größeren zusammenzufügen. Das nennt man <em>Concatenation</em>. Die zuvor erstellten Matrizen <code>X</code>, <code>Y</code>, <code>Z</code> sind schließlich nicht unabhängig von einander, sie bezeichnen die Komponenten von $n$ Vektoren $v_i$. Um dies zu verdeutlichen können wir eine $(n,3)$-Matrix erstellen, dessen Zeilen die jeweiligen Vektoren $v_i$ sind, und die Spalten die jeweiligen Komponenten <code>X</code>, <code>Y</code> und <code>Z</code>:</p>
+<h2 id="Concatenation-und-Slicing">Concatenation und Slicing<a class="anchor-link" href="#Concatenation-und-Slicing"> </a></h2><p>Oft kann es sinnvoll sein, einzelne Vektoren oder Matrizen zu größeren zusammenzufügen. Das nennt man <em>Concatenation</em>. Die zuvor erstellten Matrizen <code>X</code>, <code>Y</code>, <code>Z</code> sind schließlich nicht unabhängig von einander, sie bezeichnen die Komponenten von $n$ Vektoren $v_i$. Um dies zu verdeutlichen, können wir eine $(n,3)$-Matrix erstellen, deren Zeilen die jeweiligen Vektoren $v_i$ sind, und die Spalten die jeweiligen Komponenten <code>X</code>, <code>Y</code> und <code>Z</code>:</p>
 
 </div>
 </div>
@@ -1118,7 +1118,7 @@ ans =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><em>Concatenation</em> ist also das Zusammenfügen von Matrizen. Der gezielte Zugriff auf Subblöcken aus einer Matrix wird als <em>Slicing</em> bezeichnet. In Matlab wird dazu der <code>:</code>-Operator verwendet. Mit folgenden Befehlen erhält man die ersten fünf Zeilen der Matrix <code>V</code>:</p>
+<p><em>Concatenation</em> ist also das Zusammenfügen von Matrizen. Der gezielte Zugriff auf Subblöcke aus einer Matrix wird als <em>Slicing</em> bezeichnet. In Matlab wird dazu der <code>:</code>-Operator verwendet. Mit folgenden Befehlen erhält man die ersten fünf Zeilen der Matrix <code>V</code>:</p>
 
 </div>
 </div>
@@ -1169,7 +1169,7 @@ ans =
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Im Gegensatz zu C/C++, fangen wir bei Matlab immer bei 1 an zu zählen, und nicht bei 0. Der Doppelpunkt nach dem Komma gibt Auskunft darüber, dass alle Spalten ausgegeben werden sollen. Wenn nur die ersten beiden Spalten ausgegeben werden sollen kann man <code>V(1:5,1:2)</code> eingeben.</p>
-<p>Alle Vektoren, bis auf die ersten 15 erhalten wir mit Hilfe des Wortes <code>end</code>, das für die Größe der jeweiligen Dimension steht:</p>
+<p>Alle Vektoren, bis auf die ersten 15, erhalten wir mit Hilfe des Wortes <code>end</code>, das für die Größe der jeweiligen Dimension steht:</p>
 
 </div>
 </div>
@@ -1432,7 +1432,7 @@ ans =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Das Ergebnis ist wieder eine Matrix, dessen Einträge entweder 1 sind, falls der jeweilige Eintrag in <code>X</code> größer oder gleich null ist, oder 0 wenn der jeweilige Eintrag kleiner als null ist. Matlab speichert diese Werte nicht als <code>double</code>, sondern als <code>logical</code>-, d.h. boolsche Werte ab. Wir können dem Ergebnis der Abfrage wieder einen Namen geben:</p>
+<p>Das Ergebnis ist wieder eine Matrix, deren Einträge entweder 1 sind, falls der jeweilige Eintrag in <code>X</code> größer oder gleich null ist, oder 0 wenn der jeweilige Eintrag kleiner als null ist. Matlab speichert diese Werte nicht als <code>double</code> ab, sondern als <code>logical</code>-, d.h. boolsche Werte. Wir können dem Ergebnis der Abfrage wieder einen Namen geben:</p>
 
 </div>
 </div>
@@ -1476,7 +1476,7 @@ ans =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Um nun alle Vektoren (Zeilen in <code>V</code>) zu erhalten, deren $x$-Komponente größer oder gleich null ist, kann diese <code>logical</code>-Matrix direkt als Zeilenindex verwenden.</p>
+<p>Um nun alle Vektoren (Zeilen in <code>V</code>) zu erhalten, deren $x$-Komponente größer oder gleich null ist, kann diese <code>logical</code>-Matrix direkt als Zeilenindex verwendet werden.</p>
 
 </div>
 </div>
@@ -1611,7 +1611,7 @@ ans =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Denken Sie daran, dass Gleichheit zweier Variablen mit <code>==</code> abgefragt wird!</p>
+<p>Denken Sie daran, dass die Gleichheit zweier Variablen mit <code>==</code> abgefragt wird!</p>
 
 </div>
 </div>
@@ -1622,7 +1622,7 @@ ans =
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Gleichungssysteme-l&#246;sen">Gleichungssysteme l&#246;sen<a class="anchor-link" href="#Gleichungssysteme-l&#246;sen"> </a></h2><p>Natürlich bietet Matlab auch viele weitere Funktionen rund um Matrizen und Vektoren um uns das Leben zu erleichtern. So kann ein Gleichungssytem $A\cdot \mathbf{x} = \mathbf{b}$ einfach und effizient mit dem sogenannten <strong>backslash</strong>-Operator gelöst werden.</p>
+<h2 id="Gleichungssysteme-l&#246;sen">Gleichungssysteme l&#246;sen<a class="anchor-link" href="#Gleichungssysteme-l&#246;sen"> </a></h2><p>Natürlich bietet Matlab auch viele weitere Funktionen rund um Matrizen und Vektoren, um uns das Leben zu erleichtern. So kann ein Gleichungssystem $A\cdot \mathbf{x} = \mathbf{b}$ einfach und effizient mit dem sogenannten <strong>backslash</strong>-Operator gelöst werden.</p>
 
 </div>
 </div>

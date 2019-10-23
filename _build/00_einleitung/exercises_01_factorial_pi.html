@@ -236,7 +236,7 @@ $$ \left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{k! \cdot (n-k)
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Haben Sie Ideen, wie sie die Anzahl nötiger Rechenoperationen verringern können?</li>
+<li>Haben Sie Ideen, wie Sie die Anzahl nötiger Rechenoperationen verringern können?</li>
 </ul>
 
 </div>
@@ -292,7 +292,7 @@ $$ \left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{k! \cdot (n-k)
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>ausgeben lassen können. Bei der Eingabe einer reellen Zahl wird intern eine Maschinenzahl verwendet, die nicht zwangsweise mit dem tatsächlich eingegebenen Wert übereinstimmt. Es entsteht also ein (kleiner) Rundungsfehler im Rahmen der Maschinengenauigkeit.</p>
-<p>François Viète hat 1593 als erster ane analytische Gleichung für die Kreiszahl $\pi$ veröffentlicht. Zu diesem Zeitpunkt gab es zwar bereits einige Ansätze $\pi$ zu approximieren, aber seine Darstellung als unendliches Produkt</p>
+<p>François Viète hat 1593 als erster eine analytische Gleichung für die Kreiszahl $\pi$ veröffentlicht. Zu diesem Zeitpunkt gab es zwar bereits einige Ansätze $\pi$ zu approximieren, doch seine Darstellung als unendliches Produkt</p>
 $$
 \begin{align}
 a_1 &amp;= \frac{1}{2}\sqrt{2}, \\
@@ -316,7 +316,7 @@ $$ \lim_{n \to \infty} z_n = \pi. $$
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortplanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich. Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortplanzung demonstriert. Berechnen Sie dazu für $n=1,2,3,...,20$ jeweils die Folgeglieder $z_n$. Berechnen Sie für jedes $z_n$ den relativen Fehler</p>
-$$ r_n = \frac{|\pi - z_n|}{\pi}. $$<p>Erstellen Sie einen Plot in dem der Logarithmus des relativen Fehlers in Abhängigkeit der Iterationszahl $n$ dargestellt ist. Wie verhält sich der Fehler für kleine beziehungsweise große $n$?</p>
+$$ r_n = \frac{|\pi - z_n|}{\pi}. $$<p>Erstellen Sie einen Plot, in dem der Logarithmus des relativen Fehlers in Abhängigkeit der Iterationszahl $n$ dargestellt ist. Wie verhält sich der Fehler für kleine bzw. große $n$?</p>
 
 </div>
 </div>

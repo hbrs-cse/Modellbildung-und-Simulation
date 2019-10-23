@@ -25,9 +25,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Skripte-und-Funktionen">Skripte und Funktionen<a class="anchor-link" href="#Skripte-und-Funktionen"> </a></h1><p>Bisher haben wir Befehle im <code>Command Window</code> eingeben und festgestellt, dass alle Variablen im <code>Workspace</code> hinterlegt werden. In diesem Kapitel widmen wir uns den <code>Editor</code>. Wir benutzen ihn um Skripte und Funktionen zu schreiben. Beide werden als Textdateien mit der Endung <code>.m</code> gespeichert. Prinzipiell können wir diese Textdateien mit jeden beliebigen Texteditor schreiben, Der Editor in Matlab bietet aber einige nützliche Funktionen. Allein <em>Syntax-Highlighting</em> kann schon sehr hilfreich sein.</p>
+<h1 id="Skripte-und-Funktionen">Skripte und Funktionen<a class="anchor-link" href="#Skripte-und-Funktionen"> </a></h1><p>Bisher haben wir Befehle im <code>Command Window</code> eingeben und festgestellt, dass alle Variablen im <code>Workspace</code> hinterlegt werden. In diesem Kapitel widmen wir uns dem <code>Editor</code>. Wir benutzen ihn, um Skripte und Funktionen zu schreiben. Beide werden als Textdateien mit der Endung <code>.m</code> gespeichert. Prinzipiell können wir diese Textdateien mit jedem beliebigen Texteditor schreiben, der Editor in Matlab bietet aber einige nützliche Funktionen. Allein <em>Syntax-Highlighting</em> kann schon sehr hilfreich sein.</p>
 <h2 id="Skripte">Skripte<a class="anchor-link" href="#Skripte"> </a></h2><p>Matlab-Skripte sind einfache Textdateien, die eine Abfolge von Matlab-Befehlen enthalten. Diese werden nach einander abgearbeitet.</p>
-<p>Das <code>%</code>-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollzubar zu machen. Wie in <em>ALLEN</em> Programmiersprachen gilt auch in MATLAB: <strong>Kommentieren Sie ihren Code!</strong>
+<p>Das <code>%</code>-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollziehbar zu machen. Wie in <em>ALLEN</em> Programmiersprachen gilt auch in MATLAB: <strong>Kommentieren Sie Ihren Code!</strong>
 Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schaut, sich fragt was man damals eigentlich gemacht hat und sich wünscht, man hätte es besser kommentiert.</p>
 
 </div>
@@ -86,7 +86,7 @@ Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schau
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hinweis:</strong> <em>Die allererste Zeile</em></p>
 <p><code>%%file myScript.m</code></p>
-<p><em>besagt nur, dass alles was folgt Inhalt der Datei <code>myScript.m</code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile</em></p>
+<p><em>besagt nur, dass alles was folgt Inhalt der Datei <code>myScript.m</code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.</em></p>
 <p><code>% Ein kleines Beispielskript</code>.</p>
 <p>Dieses Skript wird mit dem <code>run</code> Befehl ausgeführt.</p>
 
@@ -317,7 +317,7 @@ x =
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Bei for-Schleifen ist über die Laufvariable die Anzahl der Aufrufe vor dem Beginn der Schleife klar. Es ist zwar möglich, die Laufvariable selbst in der Schleife zu verändern, das sollte aber auf jeden Fall vermieden werden. Der Code wird dadurch nicht mehr intuitiv verständlich und es ist eine wahrscheinliche Fehlerquelle.</p>
-<h3 id="while-Schleifen">while-Schleifen<a class="anchor-link" href="#while-Schleifen"> </a></h3><p>while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.</p>
+<h3 id="while-Schleifen">while-Schleifen<a class="anchor-link" href="#while-Schleifen"> </a></h3><p>while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife wird solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.</p>
 
 </div>
 </div>
@@ -418,7 +418,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Best Practice:</strong> Verwenden Sie while-Schleifen, wenn die Anzahl der Durchläufe unbekannt ist und for-Schleifen sonst.</p>
+<p><strong>Best Practice:</strong> Verwenden Sie while-Schleifen, wenn die Anzahl der Durchläufe unbekannt ist und for-Schleifen, wenn sie bekannt ist.</p>
 
 </div>
 </div>
@@ -525,7 +525,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingungen. Das kann zum Beispiel Sinn machen, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
+<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingung. Das kann zum Beispiel Sinn haben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
 
 </div>
 </div>
@@ -847,7 +847,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Über die vielen Funktionen rund um die Visualisierung und deren Optionen informieren Sie sich bitte in der Matlab Dokumentation. An dieser Stelle soll abschließend nur noch auf zwei Features aufmerksam gemacht werden:</p>
 <ul>
-<li>Häufig möchte man mehrere Graphen in ein Koordinatensystem darstellen. Matlab überschreibt die Ergebnisse standardmäßig. Dieses Verhalten kann aber mit dem Befehl <code>hold on</code> ausgehebelt werden.</li>
+<li>Häufig möchte man mehrere Graphen in einem Koordinatensystem darstellen. Matlab überschreibt die Ergebnisse standardmäßig. Dieses Verhalten kann aber mit dem Befehl <code>hold on</code> ausgehebelt werden.</li>
 <li>Das Koordinatensystem in Matlab ist ein Objekt vom Typ <code>axes</code>. Mit dem Befehl <code>gca</code>, kurz für <em>get current axes</em>, lässt sich ein <em>handle</em> für das aktuell verwendete Koordinatensystem wiedergeben. Eigenschaften des Koordinatensystems lassen sich dann mit den Befehlen <code>set(gca, ...)</code> und <code>get(gca, ...)</code> abfragen bzw. ändern. Das ist ein nützliches Feature, wenn man tiefergreifende Eigenschaften ändern möchte, als nur die Achsenbeschriftungen.</li>
 </ul>
 <p>Im folgenden werden diese beiden Features in einem Skript benutzt, das für zehn verschiedene Parameter $D \in [0.1, 1.0]$ die Funktion</p>
@@ -1028,7 +1028,7 @@ $$ y(x) = \frac{1}{\sqrt{(1-x^2)^2 + (2Dx)^2}} $$<p>über das Interval $x \in [0
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Wichtig:</strong> Der Dateiname muss genau dem Funktionsnamen entsprechen.</p>
-<p>Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable <code>ans</code> oder einer Variable mit beliebigen Namen zuordnen:</p>
+<p>Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable <code>ans</code> oder einer Variablen mit beliebigem Namen zuordnen:</p>
 
 </div>
 </div>
@@ -1186,7 +1186,7 @@ mailing list.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Jede Funktion muss in einer Datei mit demselben Namen der Funktion definiert werden. Für kleine Funktionen, die nur in einem bestimmten Skript verwendet werden, bietet Matlab/Octave die Möglichkeit die Funktion <em>am Ende des Skriptes</em> zu definieren:</p>
+<p>Jede Funktion muss in einer Datei mit demselben Namen der Funktion definiert werden. Für kleine Funktionen, die nur in einem bestimmten Skript verwendet werden, bietet Matlab/Octave die Möglichkeit, die Funktion <em>am Ende des Skriptes</em> zu definieren:</p>
 
 </div>
 </div>
@@ -1206,7 +1206,7 @@ mailing list.
 <span class="c">% define some animals</span>
 <span class="n">animals</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;cat&quot;</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">,</span> <span class="s">&quot;cow&quot;</span><span class="p">,</span> <span class="s">&quot;kangaroo&quot;</span><span class="p">};</span>
 
-<span class="c">% let each animal have his or hers say</span>
+<span class="c">% let each animal have his or her say</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
     <span class="nb">disp</span><span class="p">(</span><span class="n">oldmcdonald</span><span class="p">(</span><span class="n">animals</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
 <span class="k">end</span>
@@ -1238,7 +1238,7 @@ mailing list.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Created file &#39;/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/mylittlefarm.m&#39;.
+<pre>Created file &#39;/home/martin/Modellbildung-und-Simulation/content/00_einleitung/mylittlefarm.m&#39;.
 </pre>
 </div>
 </div>
@@ -1301,7 +1301,7 @@ Gib mir eine Schnapspraline.
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Scope-von-Variablen">Scope von Variablen<a class="anchor-link" href="#Scope-von-Variablen"> </a></h3><p>In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff <em>scope</em> bezeichnet.</p>
-<p>Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.</p>
+<p>Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden, nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems innerhalb der Funktion dienen, nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.</p>
 <p>Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben.</p>
 
 </div>
@@ -1682,7 +1682,7 @@ Gib mir eine Schnapspraline.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Mit einem vorangestellten <code>@(x)</code> wird deklariert, dass <code>x</code> als Eingabeparameter für die Funktion interpretiert werden sollen. Hier kann man auch eine Abhängigkeit von mehreren Variablen deklarieren, z.B.</p>
+<p>Mit einem vorangestellten <code>@(x)</code> wird deklariert, dass <code>x</code> als Eingabeparameter für die Funktion interpretiert werden soll. Hier kann man auch eine Abhängigkeit von mehreren Variablen deklarieren, z.B.</p>
 
 </div>
 </div>
@@ -1726,7 +1726,7 @@ Gib mir eine Schnapspraline.
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen auch verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt.</p>
+<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt.</p>
 
 </div>
 </div>
@@ -1988,9 +1988,9 @@ ans =  0.16500
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Rekursion">Rekursion<a class="anchor-link" href="#Rekursion"> </a></h3><p>Zum Schluss sei noch angemerkt, dass Funktionen sich selbst aufrufen können. In vielen Fällen, in denen sich diese <em>Rekursion</em> anwenden lassen, sorgt ein rekursiver Aufruf oft für eine sehr kurze prägnante Schreibweise. So lässt sich die Fakultät wieder über eine Auswertung der Fakuktät definieren:</p>
+<h3 id="Rekursion">Rekursion<a class="anchor-link" href="#Rekursion"> </a></h3><p>Zum Schluss sei noch angemerkt, dass Funktionen sich selbst aufrufen können. In vielen Fällen, in denen sich diese <em>Rekursion</em> anwenden lässt, sorgt ein rekursiver Aufruf für eine sehr kurze, prägnante Schreibweise. So lässt sich die Fakultät wieder über eine Auswertung der Fakuktät definieren:</p>
 $$ n! = n \cdot (n-1)! $$<p>für alle $n \in \mathbb{N}$ und $0! = 1$.</p>
-<p>Als weiteres Beispiel für eine Rekursion sei Fibonacci-Folge angegeben. Die ersten beiden Zahlen der Fibonacci-Folge $a_n$ sind $a_1 = 1, a_2 = 1$. Alle weiteren Zahlen ergeben sich aus der Summe der beiden vorherigen:</p>
+<p>Als weiteres Beispiel für eine Rekursion sei die ursprüngliche Fibonacci-Folge angegeben. Die ersten beiden Zahlen der Fibonacci-Folge $a_n$ sind $a_1 = 1, a_2 = 1$. Alle weiteren Zahlen ergeben sich aus der Summe der beiden vorherigen:</p>
 $$ a_{n} = a_{n-1} + a_{n-2}.$$<p>Die ersten paar Zahlen der Fibonacci-Folge sind demnach:</p>
 $$1,1,2,3,5,8,13,...$$<p>Das folgende Programm berechnet die $n$-te Fibonacci-Zahl:</p>
 
@@ -2074,7 +2074,7 @@ $$1,1,2,3,5,8,13,...$$<p>Das folgende Programm berechnet die $n$-te Fibonacci-Za
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Die if-then-else Anweisung garantiert, dass die Rekursion terminiert, da die Funtion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wrid.</p>
+<p>Die if-then-else-Anweisung garantiert, dass die Rekursion terminiert, da die Funktion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wrid.</p>
 <p><strong>Zusatzfrage:</strong> Wie ist der Algorithmus hinsichtlich der verwendeten Rechenoperationen zu bewerten? Ist er effizient implementiert oder lässt sich da etwas verbessern?</p>
 
 </div>

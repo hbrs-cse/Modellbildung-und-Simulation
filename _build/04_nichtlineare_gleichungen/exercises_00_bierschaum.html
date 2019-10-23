@@ -37,9 +37,9 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Experimenteller-Aufbau">Experimenteller Aufbau<a class="anchor-link" href="#Experimenteller-Aufbau"> </a></h3><p>Messen wir es einfach nach! Wir benutzen ein Messbecher, Wasser und einen wasserfesten Marker um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
+<h3 id="Experimenteller-Aufbau">Experimenteller Aufbau<a class="anchor-link" href="#Experimenteller-Aufbau"> </a></h3><p>Messen wir es einfach nach! Wir benutzen einen Messbecher, Wasser und einen wasserfesten Marker, um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber, etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
 <p><img src="../images/20190521_bierschaum_01.jpg" alt=""></p>
-<p>Wir schütten ein Bier in das geeichte Glas ein, so dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.</p>
+<p>Wir schütten ein Bier so in das geeichte Glas ein, dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.</p>
 <p><img src="../images/20190521_bierschaum_02.jpg" alt="">
 <img src="../images/20190521_bierschaum_03.jpg" alt=""></p>
 <table>
@@ -155,7 +155,7 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 </tr>
 </tbody>
 </table>
-<p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $2 \cdot 0.02 = 0.04$ Litern und ca. $1$ Sekunden ausgehen, ergibt sich folgendes Bild</p>
+<p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus, um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $2 \cdot 0.02 = 0.04$ Litern und ca. $1$ Sekunde ausgehen, ergibt sich folgendes Bild</p>
 
 </div>
 </div>
@@ -301,8 +301,8 @@ $$ V(t) = b \cdot e^{a \cdot t}. $$<p>Ok, nun haben wir einerseits Messwerte und
 <h3 id="Die-Grundidee">Die Grundidee<a class="anchor-link" href="#Die-Grundidee"> </a></h3><p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte $t_i$ soll die Differenz $y_i - f(p_1,...,p_n,t_i)$ betragsmäßig klein werden.</p>
 <p>Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:</p>
 $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)|  $$<p>Wenn die Funktion $G$ minimal werden soll, muss die Ableitung von $G$ nach allen Parametern verschwinden,</p>
-$$ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. $$<p>Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in $G$ verwendet wird ableiten.</p>
-<p>Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive sowie negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:</p>
+$$ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. $$<p>Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in $G$ verwendet wird, ableiten.</p>
+<p>Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive und negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:</p>
 $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$<p>Das Minimierungsproblem lösen wir, indem wir die Bedingung aufstellen, dass alle Ableitungen von $G$ nach den Parametern null sein sollen und nach den Parametern auflösen. Die partiellen Ableitungen bestimmen wir mit der Kettenregel:</p>
 $$
 \boldsymbol{0} = 
@@ -336,7 +336,7 @@ $$<p>Im Folgenden wird das Problem schrittweise gelöst.</p>
 <ol>
 <li>Wir implementieren eine Matlab-Funktion, mit der wir $F$ auswerten können.</li>
 <li>Wir implementieren eine Matlab-Funktion, die uns für eine gegebene Funktion $F$ die Jacobimatrix ausrechnet.</li>
-<li>Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf $F$ an um unsere Parameter zu bestimmen.</li>
+<li>Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf $F$ an, um unsere Parameter zu bestimmen.</li>
 <li>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</li>
 </ol>
 <h3 id="Aufgabe-1:-Das-nichtlineare-Gleichungssystem">Aufgabe 1: Das nichtlineare Gleichungssystem<a class="anchor-link" href="#Aufgabe-1:-Das-nichtlineare-Gleichungssystem"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung $F$ für beliebige Parameter $\mathbf{p}=[a,b]^T \in \mathbb{R}^2$ und Messwerte $t \in \mathbb{R}^m$, $V \in \mathbb{R}^m$ auswertet:</p>
@@ -391,7 +391,7 @@ $$<p>Im Folgenden wird das Problem schrittweise gelöst.</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Damit haben Sie eine Funktion geschrieben, mit der Sie ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht soviel anfangen. In den folgenden beiden Aufgaben geht es nun darum die Nullstellen dieser Funktion zu finden um die beiden Parameter $a$ und $b$ bestimmen zukönnen.</p>
+<p>Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter $a$ und $b$ bestimmen zu können.</p>
 
 </div>
 </div>
@@ -409,7 +409,7 @@ $$
  \mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i+1)}, \notag
 \end{align}
 $$<p>$i=1,2,3,...$</p>
-<p>Um die Jacobi-Matrix $J_F(\mathbf{p}^{(i)})$ in jeder Iteration zu bestimmen, müssen wir die partiellen Ableitungen von $F$ anch $p_1 = a$ und $p_2=b$ ausrechnen. Theoretisch kann man das in unserem Fall noch analytisch machen. Einfacher ist es aber, die Jacobi-Matrix mittels finiter Differenzen zu approximieren. Dadurch verlieren wir zwar an Genauigkeit. Aber wir können unser Verfahren so auch auf komplexere Modellgleichungen anwenden, die sich nicht mehr so einfach ableiten lassen.</p>
+<p>Um die Jacobi-Matrix $J_F(\mathbf{p}^{(i)})$ in jeder Iteration zu bestimmen, müssen wir die partiellen Ableitungen von $F$ nach $p_1 = a$ und $p_2=b$ ausrechnen. Theoretisch kann man das in unserem Fall noch analytisch machen. Einfacher ist es aber, die Jacobi-Matrix mittels finiter Differenzen zu approximieren. Dadurch verlieren wir zwar an Genauigkeit, aber wir können unser Verfahren dadurch auch auf komplexere Modellgleichungen anwenden, die sich nicht mehr so einfach ableiten lassen.</p>
 <h3 id="Aufgabe-2:-Approximation-der-Jacobi-Matrix">Aufgabe 2: Approximation der Jacobi-Matrix<a class="anchor-link" href="#Aufgabe-2:-Approximation-der-Jacobi-Matrix"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit Differenzenquotienten (<em>"finiten Differenzen"</em>) approximiert. Dabei soll die Eingabe <code>F</code> ein <em><a href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code>@sin</code> oder <code>@(x) [x(1)^2; cos(x(2))]</code>.</p>
 
 </div>
@@ -464,7 +464,7 @@ $$<p>$i=1,2,3,...$</p>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Wenn Sie ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:</p>
+<p>Wenn Sie Ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:</p>
 
 </div>
 </div>
@@ -495,11 +495,11 @@ $$<p>$i=1,2,3,...$</p>
 <p><strong>Hinweise:</strong></p>
 <ul>
 <li>Machen Sie sich mit <em>function handles</em> und <em>anonymous functions</em> in Matlab vertraut.</li>
-<li>Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotient bilden.</li>
+<li>Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotienten bilden.</li>
 <li>Ihr Programm sollte mit $n+1$ Funktionsaufrufen von <code>F</code> auskommen.</li>
-<li>Achten Sie darauf, dass alle Funktionen $F: \mathbb{R}^n \to \mathbb{R}^m$ auf die sie die <code>jacobian</code> Funktion anwenden <em>Spalten</em>vektoren auf <em>Spalten</em>vektoren abbilden.</li>
+<li>Achten Sie darauf, dass alle Funktionen $F: \mathbb{R}^n \to \mathbb{R}^m$ auf die Sie die <code>jacobian</code> Funktion anwenden <em>Spalten</em>vektoren auf <em>Spalten</em>vektoren abbilden.</li>
 </ul>
-<p>Mit dem folgenden unit test können Sie ihre Funktion testen:</p>
+<p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
 
 </div>
 </div>
@@ -531,7 +531,7 @@ $$<p>$i=1,2,3,...$</p>
 $ mit</p>
 $$
 G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
-$$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</code> berechnet, andererseits können Sie mit ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion <code>jacobian</code> für ihr Problem?</p>
+$$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</code> berechnet, andererseits können Sie mit Ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion <code>jacobian</code> für Ihr Problem?</p>
 
 </div>
 </div>
@@ -542,7 +542,7 @@ $$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</c
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Aufgabe-3:-Parameterbestimmung">Aufgabe 3: Parameterbestimmung<a class="anchor-link" href="#Aufgabe-3:-Parameterbestimmung"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu ihre Funktion <code>jacobian</code> aus Aufgabe 2.</p>
+<h3 id="Aufgabe-3:-Parameterbestimmung">Aufgabe 3: Parameterbestimmung<a class="anchor-link" href="#Aufgabe-3:-Parameterbestimmung"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu Ihre Funktion <code>jacobian</code> aus Aufgabe 2.</p>
 
 </div>
 </div>
@@ -595,7 +595,7 @@ $$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</c
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Mit dem folgenden unit test können Sie ihre Funktion testen:</p>
+<p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
 
 </div>
 </div>
@@ -624,9 +624,9 @@ $$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</c
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>Wenden Sie das Newton-Verfahren auf die Funkton <code>func = @(p) F(p,t,V)</code> an um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ ihrer Modellfunktion? </li>
+<li>Wenden Sie das Newton-Verfahren auf die Funkton <code>func = @(p) F(p,t,V)</code> an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ Ihrer Modellfunktion? </li>
 <li>Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion <code>fsolve</code>.</li>
-<li>Erstellen Sie ein Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.</li>
+<li>Erstellen Sie einen Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.</li>
 <li>Wie lautet die Halbwertzeit des Bierschaumes?</li>
 </ul>
 
@@ -656,7 +656,7 @@ $$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</c
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Optimierungsverfahren">Optimierungsverfahren<a class="anchor-link" href="#Optimierungsverfahren"> </a></h2><p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion $G: \mathbb{R}^n \to \mathbb{R}$ bestimmen lässt, in dem das nichtlineare Gleichungssystem</p>
+<h2 id="Optimierungsverfahren">Optimierungsverfahren<a class="anchor-link" href="#Optimierungsverfahren"> </a></h2><p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion $G: \mathbb{R}^n \to \mathbb{R}$ bestimmen lässt, indem das nichtlineare Gleichungssystem</p>
 $$
   \boldsymbol{0} = J_G(\mathbf{p})^T = 
   \begin{bmatrix}  
@@ -670,7 +670,7 @@ $$
 J_{J_G}(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &amp;= - J_G(\mathbf{p}^{(i)})^T \notag \\
 \mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i)}, \notag
 \end{align}
-$$<p>$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)}) \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als <em>Hessematrix von $G$</em> an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitung der Funktion $G$:</p>
+$$<p>$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)}) \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als <em>Hessematrix von $G$</em> an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitungen der Funktion $G$:</p>
 $$
 Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \begin{bmatrix}
@@ -679,13 +679,13 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_n}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_n}(\mathbf{p})
 \end{bmatrix}
 $$<p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
-<h3 id="Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion">Aufgabe 4: Algorithmus zur Minimierung einer Funktion<a class="anchor-link" href="#Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion"> </a></h3><p>Schreiben Sie eine neue Funktion <code>minimize(func,x0,tol,maxit)</code> auf Grundlage ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code>func</code>$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie ihre Funktion <code>jacobian</code> um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
+<h3 id="Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion">Aufgabe 4: Algorithmus zur Minimierung einer Funktion<a class="anchor-link" href="#Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion"> </a></h3><p>Schreiben Sie eine neue Funktion <code>minimize(func,x0,tol,maxit)</code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code>func</code>$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie Ihre Funktion <code>jacobian</code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
 <ul>
 <li><p>Lösen Sie das ursprüngliche Minimierungsproblem
 $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$</p>
-<p>mit ihrer neuen Funktion und vergleichen Sie das Ergebnis mit ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion <code>fminsearch</code>.</p>
+<p>mit Ihrer neuen Funktion und vergleichen Sie das Ergebnis mit Ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion <code>fminsearch</code>.</p>
 </li>
-<li>Wo sind die Grenzen ihres Algorithmus? Gibt es mögliche Fehlerquelen, die Nutzer ihrer Funktion beachten sollten?</li>
+<li>Wo sind die Grenzen Ihres Algorithmus? Gibt es mögliche Fehlerquellen, die Nutzer Ihrer Funktion beachten sollten?</li>
 </ul>
 
 </div>
@@ -731,7 +731,7 @@ $$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Hinweis:</strong> <em>Wenn Sie ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.</em> Vermeiden Sie duplizierten Code!</p>
+<p><strong>Hinweis:</strong> <em>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.</em> Vermeiden Sie duplizierten Code!</p>
 
 </div>
 </div>
