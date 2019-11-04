@@ -40,8 +40,9 @@ jobs:
           root: .
           paths:
             - ./_build/
-      - store_test_results:
-          path: ./_build/
+      - store_artifacts:
+          path: _build/
+          destination: build
 
   # Build the site to store artifacts
   html_demo:
