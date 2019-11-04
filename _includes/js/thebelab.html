@@ -16,10 +16,11 @@
       },
       kernelOptions: {
         name: '{% if page.kernel_name %}{{ page.kernel_name }}{% else %}python3{% endif %}',
+        path: "{{ page.kernel_path }}"
       }
     }
 </script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
+<script src="https://unpkg.com/thebelab@0.5.1/lib/index.js" async></script>
 <script>
     /**
      * Add attributes to Thebelab blocks
