@@ -1,2 +1,2 @@
 #jupyter-book==0.6.3
--e git://github.com/jupyter/jupyter-book.git#egg=jupyter-book
+-e git://github.com/joergbrech/jupyter-book.git@1fab30ee15a50d02d3537d8a79e378bba9b12a37#egg=jupyter-book
