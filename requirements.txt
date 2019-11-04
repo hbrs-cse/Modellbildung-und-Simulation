@@ -1,1 +1,2 @@
-jupyter-book==0.6.4dev0
+#jupyter-book==0.6.3
+-e git://github.com/jupyter/jupyter-book.git
