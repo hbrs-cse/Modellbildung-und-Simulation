@@ -40,6 +40,8 @@ jobs:
           root: .
           paths:
             - ./_build/
+            
+      # Store the build artifacts for debugging purposes
       - store_artifacts:
           path: _build/
           destination: build
