@@ -43,6 +43,8 @@
       url: /00_einleitung/exercises_02_fluessigkeit
     - title: Verkehrssimulation
       url: /00_einleitung/exercises_03_verkehrssimulation
+    - title: Perfekter Wurf
+      url: /00_einleitung/exercises_04_perfekter_wurf
     - title: Conway's Game of Life
       url: /emptypage
 #  - title: Tragwerke - Ein Einführendes Beispiel
