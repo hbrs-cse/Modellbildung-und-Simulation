@@ -139,3 +139,4 @@ rocket_launch.m
 rocket_ode.m
 rocket_status.m
 rocket_visualization.m
+_build
