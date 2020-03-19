@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Interpolation und Approximation</title>
-  <meta name="description" content="        Interpolation und Approximation Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolation und Approximation.         ">
+  <title>Spline-Interpolation</title>
+  <meta name="description" content="        Spline-Interpolation am Biegebalken Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechan...">
 
-  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/05_interp_approx/intro.html">
+  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/05_interp_approx/exercises_02_spline_interpolation.html">
   <link rel="alternate" type="application/rss+xml" title="Modellbildung und Simulation" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/feed.xml">
 
-  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/05_interp_approx/intro.html" />
+  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/05_interp_approx/exercises_02_spline_interpolation.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Interpolation und Approximation" />
-<meta property="og:description" content="        Interpolation und Approximation Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolation und Approximation.         " />
+<meta property="og:title"       content="Spline-Interpolation" />
+<meta property="og:description" content="        Spline-Interpolation am Biegebalken Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechan..." />
 <meta property="og:image"       content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/05_interp_approx/intro.html",
-  "headline": "Interpolation und Approximation",
+  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/05_interp_approx/exercises_02_spline_interpolation.html",
+  "headline": "Spline-Interpolation",
   "datePublished": "2020-03-19T08:32:31+00:00",
   "dateModified": "2020-03-19T08:32:31+00:00",
-  "description": "        Interpolation und Approximation Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolation und Approximation.         ",
+  "description": "        Spline-Interpolation am Biegebalken Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechan...",
   "author": {
     "@type": "Person",
     "name": "Jan Kleinert"
@@ -154,7 +154,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'octave',
       }
     }
 </script>
@@ -577,7 +577,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/Modellbildung-und-Simulation/intro.html"
         >
           
@@ -959,7 +959,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/Modellbildung-und-Simulation/05_interp_approx/intro.html"
         >
           
@@ -1021,7 +1021,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/Modellbildung-und-Simulation/05_interp_approx/exercises_02_spline_interpolation.html"
                 >
                   
@@ -1164,6 +1164,20 @@ initFunction(initPrint)
 
 
 
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content%2F05_interp_approx%2Fexercises_02_spline_interpolation.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/Modellbildung-und-Simulation/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
 </div>
 
   </div>
@@ -1185,10 +1199,146 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interpolation-und-Approximation">Interpolation und Approximation<a class="anchor-link" href="#Interpolation-und-Approximation"> </a></h1><p>Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolation und Approximation.</p>
+<h1 id="Spline-Interpolation-am-Biegebalken">Spline-Interpolation am Biegebalken<a class="anchor-link" href="#Spline-Interpolation-am-Biegebalken"> </a></h1><p>Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechanik bekannt ist.</p>
+<p><img src="../images/spline_interpolation_inks.svg" width="400" height="315" /></p>
+<p>Messungen der Biegelinie an verschiedenen Punkten ergaben folgende Werte:</p>
+<table>
+<thead><tr>
+<th style="text-align:left">$x [m]$</th>
+<th style="text-align:left">0</th>
+<th style="text-align:left">0.5</th>
+<th style="text-align:left">1</th>
+<th style="text-align:left">1.5</th>
+<th style="text-align:left">2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">$z [m]$</td>
+<td style="text-align:left">0.00</td>
+<td style="text-align:left">0.0125</td>
+<td style="text-align:left">0.05</td>
+<td style="text-align:left">0.1125</td>
+<td style="text-align:left">0.2</td>
+</tr>
+</tbody>
+</table>
+<p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Hierbei keine fertige MATLAB Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
+<h2 id="Aufgabe-1">Aufgabe 1<a class="anchor-link" href="#Aufgabe-1"> </a></h2><p>Konstruieren sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle (alles Bleistift und Papier!).
+Bestimmen sie die Koeffizienten der gesuchten Parabeln $z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]$.</p>
+<p><strong>Hinweis:</strong> Zur eindeutigen Bestimmung der einzelnen Polynome sind drei Bedingungen notwendig. Zwei sind durch
+den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamten Spline zu vermeiden
+wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen
+(dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?</p>
+<h2 id="Aufgabe-2">Aufgabe 2<a class="anchor-link" href="#Aufgabe-2"> </a></h2><ul>
+<li>Implementieren Sie eine Matlab-Funktion <code>function zfine = quadraticSpline(x, z, xfine, bc)</code>, die für gegebene x- und z-Werte sowie Randbedingung an den von <code>xfine</code> definierten Punkten die entsprechenden z-Werte des Splines berechnet.</li>
+</ul>
 
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file quadraticSpline.m</span>
+<span class="k">function</span><span class="w"> </span>zfine <span class="p">=</span><span class="w"> </span><span class="nf">quadraticSpline</span><span class="p">(</span>x, z, xfine, bc<span class="p">)</span><span class="w"></span>
+<span class="c">% z = quadraticSpline(x, z, xfine, bc) calculates the quadratic spline going through the</span>
+<span class="c">% points defined by xi and zi and evaluates the spline at the points in xfine.</span>
+
+<span class="p">...</span>
+
+<span class="k">end</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Created file &#39;/home/martin/Modellbildung-und-Simulation/content/05_interp_approx/quadraticSpline.m&#39;.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code>test_quadraticSpline.m</code>, siehe unten. Es reicht zunächst, dass die ersten 5 der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle 9 unit tests zu erfüllen?</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% test the quadraticSpline function</span>
+<span class="n">moxunit_runtests</span> <span class="n">test_quadraticSpline</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Nun soll der Biegungsverlauf des gesamten Balkens mit einer Schrittweite von 1 mm interpoliert werden. Erstellen Sie dazu ein Skript, in welchem Ihre Funktion auf die obigen Messwerte angewandt wird. Stellen Sie den interpolierten Spline bzw. die Biegelinie in einem Plot dar.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%script to apply function to the given values</span>
+
+<span class="c">%uncomment to equalize axis:</span>
+<span class="c">%axis equal</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1202,15 +1352,15 @@ initFunction(initPrint)
               <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html">
-      〈 <span class="u-margin-right-tiny"></span> Bierschaumzerfall
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/05_interp_approx/exercises_01_linear_approximation.html">
+      〈 <span class="u-margin-right-tiny"></span> Lineare Approximation
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/05_interp_approx/exercises_00_linear_interpolation.html">
-      Lineare Interpolation <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/emptypage.html">
+      Differentiation und Integration <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
