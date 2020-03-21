@@ -84,8 +84,11 @@
   - title: Spline-Interpolation
     url: /05_interp_approx/exercises_02_spline_interpolation
 - title: Differentiation und Integration
-  url: /emptypage
+  url: /06_Differentiation_Integration/intro
   expand_sections: false
+  sections:
+  - title: Numerische Integration
+    url: /06_Differentiation_Integration/exercises_00_numeric_integration
 - title: Numerik gewöhnlicher Differentialgleichungen
   url: /07_num_ode/intro
   expand_sections: false
