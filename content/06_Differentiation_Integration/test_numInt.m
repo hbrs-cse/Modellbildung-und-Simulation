@@ -1,4 +1,4 @@
-function test_suite=test_quadraticSpline
+function test_suite=test_numInt
 % initialize unit tets
     try
         test_functions=localfunctions();
@@ -27,7 +27,7 @@ function test_numInt_negativeStartOfInterval
     assertVectorsAlmostEqual(numInt(f,a,b,tol),0)
     
 function test_numInt_moreComplexFunction
-% test function of 
+% test function of x^3 + x
     a = -1;
     b = 1;
     f = @(x) x^3+x;
