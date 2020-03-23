@@ -45,8 +45,8 @@
       url: /00_einleitung/exercises_03_verkehrssimulation
     - title: Perfekter Wurf
       url: /00_einleitung/exercises_04_perfekter_wurf
-    - title: Conway's Game of Life
-      url: /emptypage
+#    - title: Conway's Game of Life
+#      url: /emptypage
 #  - title: Tragwerke - Ein Einführendes Beispiel
 #    url: /emptypage
 
@@ -64,9 +64,9 @@
   sections:
   - title: Modellierung einer Highline
     url: /02_lineare_gleichungen/exercises_00_highline
-- title: Gleitkommaarithmetik
-  url: /emptypage
-  expand_sections: false
+#- title: Gleitkommaarithmetik
+#  url: /emptypage
+#  expand_sections: false
 - title: Nichtlineare Gleichungssysteme
   url: /04_nichtlineare_gleichungen/intro
   expand_sections: false
@@ -83,15 +83,17 @@
     url: /05_interp_approx/exercises_01_linear_approximation
   - title: Spline-Interpolation
     url: /05_interp_approx/exercises_02_spline_interpolation
-- title: Differentiation und Integration
-  url: /emptypage
-  expand_sections: false
+#- title: Differentiation und Integration
+#  url: /emptypage
+#  expand_sections: false
 - title: Numerik gewöhnlicher Differentialgleichungen
   url: /07_num_ode/intro
   expand_sections: false
   sections:
    - title: Simulation eines Raketenstarts
      url: /07_num_ode/exercises_00_rocket_launch
+- title: My Awesome New Page
+  url: my_awesome_new_page
 
 - divider: true
 
