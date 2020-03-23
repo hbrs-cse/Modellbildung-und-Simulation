@@ -113,3 +113,12 @@ In this section, it is assumed that you are in the root directory of your clone 
  ```
  suffices.
  * Once you are fully satisfied with the changes, go to Github and create a Pull-Request from your branch.
+
+### Review the final result online
+
+This repository uses Circle CI to build a demo site for each commit. So whenever you push something to any branch online, you can see the effect that this commit has on the website:
+
+![til](./docs/media/circle_ci.gif)
+
+ * If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
+ * Note that the *Artifacts* tab is only visible if you are a registered member in Circle CI, your Circle CI account is connected to your Github account and you are logged in. By default, Circle CI uses a temporary user account.
