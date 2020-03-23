@@ -1,4 +1,8 @@
-## Initial Setup
+# Contribution Guide
+
+
+<details>
+<summary>Initial Setup</summary>
 
 I have tested this on Linux, though it should work on Windows and Mac as well. For Windows 10, working with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) works really well, so I suggest you install e.g. **Ubuntu 18.04** on your Windows machine.
 
@@ -58,6 +62,8 @@ pip install -r requirements.txt
 
 Currently, the only requirement is `jupyter-book`.
 
+</details>
+
 ## Contribution Workflow
 
 In this section, it is assumed that you are in the root directory of your clone of this repository, i.e. in `Modellbildung-und-Simulation`.
@@ -116,7 +122,7 @@ In this section, it is assumed that you are in the root directory of your clone 
 
 ### Review the final result online
 
-This repository uses Circle CI to build a demo site for each commit. So whenever you push something to any branch online, you can see the effect that this commit has on the website:
+This repository uses Circle CI to build a demo site with each `git push`. This way you can see the effect that your commits will have on the website, even before your changes are merged into the master branch.
 
 ![til](./docs/media/circle_ci.gif)
 
