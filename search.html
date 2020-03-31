@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/search",
   "headline": "Search the site",
-  "datePublished": "2020-03-31T09:14:59+00:00",
-  "dateModified": "2020-03-31T09:14:59+00:00",
+  "datePublished": "2020-03-31T13:45:21+00:00",
+  "dateModified": "2020-03-31T13:45:21+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -1164,6 +1164,102 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/08_eigenwerte/intro.html"
+        >
+          
+            8.
+          
+          Eigenwertprobleme
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_00_qr.html"
+                >
+                  
+                    8.1
+                  
+                  Das QR Verfahren
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_01_roots.html"
+                >
+                  
+                    8.2
+                  
+                  Nullstellen von Polynomen
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_03_beam_modes.html"
+                >
+                  
+                    8.3
+                  
+                  Eindimensionaler Schwingungsbalken
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
+        <li class="c-sidebar__divider"></li>
+        
+      
+      
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
           href="https://github.com/joergbrech/Modellbildung-und-Simulation"
         >
           
@@ -1418,6 +1514,38 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/07_num_ode/intro.html",
+        "teaser":null},{
+        "title": "Das QR Verfahren",
+        
+        "excerpt":
+            "Das QR Verfahren Folgender iterativer Algorithmus liegt dem sogenanneten QR-Verfahren zur Berechnung der Eigenwerte einer Matrix zugrunde: Setze $A^{(0))}=A$ Berechne $Q^{(k)}$ und $R^{(k)}$, so dass $$ A^{(k)}=Q^{(k)}R^{(k)} \\hspace{1cm} \\text{ für alle } k=0,1,... $$ Setze $A^{(k+1)}=R^{(k)}Q^{(k)}$ Aufgabe 1 - Implementieren Sie den QR-Algorithmus Schreiben Sie eine Funktion, die dieses Verfahren implementiert um die Eigenwerte einer Matrix zu berechnen. Brechen Sie die Iteration ab sobald eine maximale Anzahl an Iterationen erreicht wurde, oder die relative Änderung $ \\frac{\\|A^{(k)} - A^{(k-1)}\\|}{\\|A^{(k)}\\|}$ eine vom Benutzer vorgegebene Toleranz unterschreitet. %%file my_eig.m function E = my_eig(A, maxiter, tol) % Find a few eigenvalues and eigenvectors...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/exercises_00_qr.html",
+        "teaser":null},{
+        "title": "Nullstellen von Polynomen",
+        
+        "excerpt":
+            "Nullstellen von Polynomen Die sogenannte Begleitmatrix $$ \\begin{bmatrix} -c_{1} &amp; -c_{2} &amp; \\cdots &amp; -c_{n-1} &amp; -c_n \\\\ 1 &amp; 0 &amp; \\cdots &amp; &amp; 0 \\\\ 0 &amp; 1 &amp; 0 &amp; \\cdots 0 \\\\ \\vdots &amp; &amp; \\ddots &amp; &amp; \\vdots \\\\ 0 &amp; \\cdots &amp; 0 &amp; 1 &amp; 0 \\end{bmatrix} $$besitzt das charakteristische Polynom $p(x)=x^n + c_{1}x^{n-1} + ... + c_{n-1}x + c_n$. Sie wird häufig in der Steuerungstechnik genutzt um die Eigenwerte (und somit die dynamischen Eigenschaften) des linearen Systems zu bestimmen. Aufgabe 1 - Stimmt das? Zeigen Sie für $n=2$, dass das angegebene charakteristische...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/exercises_01_roots.html",
+        "teaser":null},{
+        "title": "Eindimensionaler Schwingungsbalken",
+        
+        "excerpt":
+            "Schwingungsmoden eines eindimensionalen Balkens Wir wollen einen flexiblen Balken simulieren. Dazu diskretisieren wir ihn durch $N$ Massepunkte der Masse $m$ und verbinden diese mit Federn der Steifigkeit $k$. Wir vernachlässigen zur Vereinfachung Torsionssteifigkeiten und betrachten das System bei Schwerelosigkeit. Die Modellgleichungen Da Bild kommt uns bekannt vor! Wir können dieselben Modellgleichungen wie in dieser Aufgabe zu linearen Gleichungssystemen verwenden, allerdings vernachlässigen wir die externe Kraft und die Dämpfung. Gehen Sie von einem \"Urzustand\" aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen $$ \\mathbf{u}_i = \\begin{bmatrix} x_i(t) \\\\ y_i(t) \\end{bmatrix}...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/exercises_03_beam_modes.html",
+        "teaser":null},{
+        "title": "Eigenwertprobleme",
+        
+        "excerpt":
+            "             Schwingungen  Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.                     ",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html",
         "teaser":null},{
         "title": "Conway's Game of Life",
         
