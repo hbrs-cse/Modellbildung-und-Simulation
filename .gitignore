@@ -139,4 +139,8 @@ rocket_launch.m
 rocket_ode.m
 rocket_status.m
 rocket_visualization.m
+my_eig.m
+test_my_roots.m
+
+# don't version control the build directory, site is generated using CI not gh-pages
 _build

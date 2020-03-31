@@ -98,6 +98,19 @@
 
 - divider: true
 
+- title: Eigenwertprobleme
+  url: /08_eigenwerte/intro
+  expand_sections: false
+  sections:
+   - title: Das QR Verfahren
+     url: /08_eigenwerte/exercises_00_qr
+   - title: Nullstellen von Polynomen
+     url: /08_eigenwerte/exercises_01_roots
+   - title: Eindimensionaler Schwingungsbalken
+     url: /08_eigenwerte/exercises_03_beam_modes
+
+- divider: true
+
 - title: GitHub repository
   url: https://github.com/joergbrech/Modellbildung-und-Simulation
   external: true
