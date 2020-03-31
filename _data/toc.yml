@@ -65,8 +65,11 @@
   - title: Modellierung einer Highline
     url: /02_lineare_gleichungen/exercises_00_highline
 - title: Gleitkommaarithmetik
-  url: /emptypage
+  url: /03_gleitkommaarithmetik/intro
   expand_sections: false
+  sections:
+  - title: Übungen
+    url: /03_gleitkommaarithmetik/exercises_01_uebungen
 - title: Nichtlineare Gleichungssysteme
   url: /04_nichtlineare_gleichungen/intro
   expand_sections: false
