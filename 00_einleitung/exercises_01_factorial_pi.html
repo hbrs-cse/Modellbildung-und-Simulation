@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/exercises_01_factorial_pi.html",
   "headline": "Matlab/Octave",
-  "datePublished": "2020-03-23T22:43:20+00:00",
-  "dateModified": "2020-03-23T22:43:20+00:00",
+  "datePublished": "2020-03-31T09:14:59+00:00",
+  "dateModified": "2020-03-31T09:14:59+00:00",
   "description": "        1. Machen Sie sich vertraut mit Matlab Lesen Sie sich die Kapitel Verwendung dieses Buches und Erste Schritte in Matlab durch. Können Sie die folgend...",
   "author": {
     "@type": "Person",
@@ -883,7 +883,7 @@ initFunction(initPrint)
       
       <li class="c-sidebar__chapter">
         <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/emptypage.html"
+          href="/Modellbildung-und-Simulation/03_gleitkommaarithmetik/intro.html"
         >
           
             3.
@@ -891,6 +891,37 @@ initFunction(initPrint)
           Gleitkommaarithmetik
         </a>
 
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/03_gleitkommaarithmetik/exercises_01_uebungen.html"
+                >
+                  
+                    3.1
+                  
+                  Übungen
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
         
       </li>
 
@@ -1415,102 +1446,6 @@ $$ \left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{k! \cdot (n-k)
 
 </div>
 </div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="3.-Rundungsfehler">3. Rundungsfehler<a class="anchor-link" href="#3.-Rundungsfehler"> </a></h1><p>MATLAB bzw. Octave steht für die Auflösung reeller Zahlen die Menge der sogenannten Maschinenzahlen zur Verfügung. Diese haben eine endliche Genauigkeit, welche Sie sich mit dem Befehl</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="nb">eps</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>ans =    2.2204e-16
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>ausgeben lassen können. Bei der Eingabe einer reellen Zahl wird intern eine Maschinenzahl verwendet, die nicht zwangsweise mit dem tatsächlich eingegebenen Wert übereinstimmt. Es entsteht also ein (kleiner) Rundungsfehler im Rahmen der Maschinengenauigkeit.</p>
-<p>François Viète hat 1593 als erster eine analytische Gleichung für die Kreiszahl $\pi$ veröffentlicht. Zu diesem Zeitpunkt gab es zwar bereits einige Ansätze $\pi$ zu approximieren, doch seine Darstellung als unendliches Produkt</p>
-$$
-\begin{align}
-a_1 &amp;= \frac{1}{2}\sqrt{2}, \\
-a_n &amp;= \frac{1}{2}\sqrt{2+2a_{n-1}}, \text{ für } n \geq 2 
-\end{align}
-$$$$ \Rightarrow \frac{2}{\pi} = \lim_{n \to \infty} a_i = a_1 \cdot a_2 \cdot a_3 \cdot ... = \left( \frac{1}{2}\sqrt{2} \right) \cdot \left( \frac{1}{2}\sqrt{2+\sqrt{2}} \right) \cdot \left( \frac{1}{2}\sqrt{2+\sqrt{2 + \sqrt{2}}} \right) \cdot ... $$<p>war neu. Die Produktformel lässt sich äquivalent als eine Folge schreiben:</p>
-$$ 
-\begin{align}
-z_0 &amp;= 2, \notag \\
-z_n &amp;= 2^{n+\frac{1}{2}}\sqrt{1-\sqrt{1-4^{-n}z_{n-1}^2}}, \text{ für } n = 1, 2, 3, ... 
-\end{align}
-$$<p>Die Folge konvergiert für $n \to \infty$ gegen $\pi$:</p>
-$$ \lim_{n \to \infty} z_n = \pi. $$
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortplanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich. Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortplanzung demonstriert. Berechnen Sie dazu für $n=1,2,3,...,20$ jeweils die Folgeglieder $z_n$. Berechnen Sie für jedes $z_n$ den relativen Fehler</p>
-$$ r_n = \frac{|\pi - z_n|}{\pi}. $$<p>Erstellen Sie einen Plot, in dem der Logarithmus des relativen Fehlers in Abhängigkeit der Iterationszahl $n$ dargestellt ist. Wie verhält sich der Fehler für kleine bzw. große $n$?</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">% demonstrate numerical error propagation using Viète&#39;s formula for approximating pi</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
 </div>
 </div>
 
