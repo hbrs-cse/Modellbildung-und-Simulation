@@ -55,9 +55,6 @@
 - title: Schwingungen
   url: /01_schwingungen/intro
   expand_sections: false
-  sections:
-  - title: Der Doppler Effekt
-    url: /01_schwingungen/exercises_01_doppler
 - title: Lineare Gleichungssysteme
   url: /02_lineare_gleichungen/intro
   expand_sections: false
@@ -108,6 +105,18 @@
      url: /08_eigenwerte/exercises_01_roots
    - title: Eindimensionaler Schwingungsbalken
      url: /08_eigenwerte/exercises_03_beam_modes
+- title: Diskrete Fouriertransformation
+  url: /09_dft/intro
+  expand_sections: false
+  sections:
+  - title: Approximation periodischer Funktionen
+    url: /09_dft/exercises_00_approximation
+  - title: Verrauschte Signale filtern
+    url: /09_dft/exercises_01_fft_noise
+  - title: Der Doppler Effekt
+    url: /09_dft/exercises_02_doppler
+  - title: Der Vuvuzela Filter
+    url: /09_dft/exercises_03_vuvuzela
 
 - divider: true
 
