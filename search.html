@@ -26,8 +26,8 @@
   "@type": "NewsArticle",
   "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/search",
   "headline": "Search the site",
-  "datePublished": "2020-03-31T13:55:04+00:00",
-  "dateModified": "2020-03-31T13:55:04+00:00",
+  "datePublished": "2020-04-21T14:28:22+00:00",
+  "dateModified": "2020-04-21T14:28:22+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -784,37 +784,6 @@ initFunction(initPrint)
         </a>
 
         
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/01_schwingungen/exercises_01_doppler.html"
-                >
-                  
-                    1.1
-                  
-                  Der Doppler Effekt
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
       </li>
 
       
@@ -1248,6 +1217,117 @@ initFunction(initPrint)
     
       
       
+
+      
+      
+
+      
+      
+      <li class="c-sidebar__chapter">
+        <a class="c-sidebar__entry "
+          href="/Modellbildung-und-Simulation/09_dft/intro.html"
+        >
+          
+            9.
+          
+          Diskrete Fouriertransformation
+        </a>
+
+        
+
+          
+          
+          
+          
+
+          
+
+          <ul class="c-sidebar__sections u-hidden-visually">
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/09_dft/exercises_00_approximation.html"
+                >
+                  
+                    9.1
+                  
+                  Approximation periodischer Funktionen
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/09_dft/exercises_01_fft_noise.html"
+                >
+                  
+                    9.2
+                  
+                  Verrauschte Signale filtern
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/09_dft/exercises_02_doppler.html"
+                >
+                  
+                    9.3
+                  
+                  Der Doppler Effekt
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/Modellbildung-und-Simulation/09_dft/exercises_03_vuvuzela.html"
+                >
+                  
+                    9.4
+                  
+                  Der Vuvuzela Filter
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+          </ul>
+        
+      </li>
+
+      
+    
+      
+      
         <li class="c-sidebar__divider"></li>
         
       
@@ -1403,14 +1483,6 @@ initFunction(initPrint)
         "tags": [],
         "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/00_einleitung/usage.html",
         "teaser":null},{
-        "title": "Der Doppler Effekt",
-        
-        "excerpt":
-            "Der Doppler Effekt In dem folgenden Video ist kurz ein Verkehrsschild zu sehen: Hier ist eine Maximalgeschwindigkeit von 50 mph, bzw. ca. 80 km/h vorgeschrieben. Eine Frage drängt sich nahezu auf: Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung? Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als Doppler Effekt bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem...",
-        "categories": [],
-        "tags": [],
-        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/01_schwingungen/exercises_01_doppler.html",
-        "teaser":null},{
         "title": "Schwingungen",
         
         "excerpt":
@@ -1430,7 +1502,7 @@ initFunction(initPrint)
         "title": "Lineare Gleichungssysteme",
         
         "excerpt":
-            "             Schwingungen  Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über lineare Gleichungssysteme.                     ",
+            "             Lineare Gleichungssysteme  Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über lineare Gleichungssysteme.                     ",
         "categories": [],
         "tags": [],
         "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/02_lineare_gleichungen/intro.html",
@@ -1546,6 +1618,46 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html",
+        "teaser":null},{
+        "title": "Approximation periodischer Funktionen",
+        
+        "excerpt":
+            "Approximation von periodischen Signalen Aufgabe 1: Rechteckssignal Entwickeln Sie eine Matlab/Octave-Funktion, mit deren Hilfe Sie ein Rechtecksignal mit vorgegebener Frequenz freq durch Überlagerung von Sinus- und Cosinusfunktionen erzeugen können. Da Sie die dafür nötige Reihe nicht unendlich genau berechnen können, muss dabei die maximal auftretende Frequenz der verwendeten harmonischen Schwingungen $f_{max}$ beschränkt werden. Verwenden Sie nicht die fft Funktion. Berechnen Sie die Koeffizienten von Hand vor. %%file fourier_approx_rectangular.m function a = fourier_approx_rectangular(amplitude, freq, f_max) % calculates the complex Fourier coefficients of a periodic rectangular signal. % % amplitude denotes the amplitude of the input signal [unit implied] % freq denotes...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/09_dft/exercises_00_approximation.html",
+        "teaser":null},{
+        "title": "Verrauschte Signale filtern",
+        
+        "excerpt":
+            "Filtern verrauschter Signale Analysieren Sie das Frequenz- und Amplitudenspektrum des Signals $$ S = a_1 \\sin(2 \\pi f_1 t) + a_2 \\sin(2 \\pi f_2 t) + a_3 \\sin(2 \\pi f_3 t) $$mit $a_1 = 0.3$, $a_2 = 0.1$, $a_3=0.4$ und $f_1 = 50$ Hz, $f_2 = 40$ Hz und $f_3 = 30$ Hz und zufällig aufgeprägtem Rauschen. Machen Sie sich dazu mit der Matlab-Funktion fft vertraut und lassen sie sich das Frequenzspektrum graphisch ausgeben. Verwenden Sie dann einen digitalen Filter um das Rauschen des Signals zu unterdrücken und vergleichen anschließend das geilfterte mit dem unverrauschten Signal S. Hinweis: Das Signal...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/09_dft/exercises_01_fft_noise.html",
+        "teaser":null},{
+        "title": "Der Doppler Effekt",
+        
+        "excerpt":
+            "Der Doppler Effekt Hinweis: Der Inhalt dieser Seite lässt sich nicht interaktiv auf dieser Seite ausführen. In dem folgenden Video ist kurz ein Verkehrsschild zu sehen: Hier ist eine Maximalgeschwindigkeit von 50 mph, bzw. ca. 80 km/h vorgeschrieben. Eine Frage drängt sich nahezu auf: Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung? Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als Doppler Effekt bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/09_dft/exercises_02_doppler.html",
+        "teaser":null},{
+        "title": "Der Vuvuzela Filter",
+        
+        "excerpt":
+            "Erinnern Sie sich noch an die WM 2010 in S&#252;dafrika? Hinweis: Der Inhalt dieser Seite lässt sich nicht interaktiv auf dieser Seite ausführen. Wir entwickeln einen Vuvuzela-Filter in 5 einfachen Schritten: Wir nehmen einen Vuvuzela-Ton mit Matlab auf. Wir machen eine Frequenzanalyse unserer Aufnahme um die Vuvuzela-Frequenzen zu identifizieren. Wir enfwerfen einen Filter, der nur die Vuvuzela-Frequenzen aus dem Spektrum entfernt. Wir testen den Filter anhand unserer Aufnahme. Wir wenden den Filter auf eine Aufnahme der WM 2010 an um die Vuvuzelas aus dem Audiokanal zu entfernen oder zumindest etwas zu dämpfen. Schritt 1: Die Aufnahme Packen Sie ihre Vuvuzela...",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/09_dft/exercises_03_vuvuzela.html",
+        "teaser":null},{
+        "title": "Diskrete Fouriertransformation",
+        
+        "excerpt":
+            "             Diskrete Fouriertransformation  Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zur diskreten Fouriertransformation.                     ",
+        "categories": [],
+        "tags": [],
+        "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/09_dft/intro.html",
         "teaser":null},{
         "title": "Conway's Game of Life",
         
