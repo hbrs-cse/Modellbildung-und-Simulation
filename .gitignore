@@ -141,6 +141,8 @@ rocket_status.m
 rocket_visualization.m
 my_eig.m
 test_my_roots.m
+fourier_approx_rectangular.m
+fourier_approx_sawtooth.m
 
 # don't version control the build directory, site is generated using CI not gh-pages
 _build
