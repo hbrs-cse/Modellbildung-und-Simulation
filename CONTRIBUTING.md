@@ -25,6 +25,7 @@ Install Ruby and its requirements:
 ```bash
 sudo apt-get install gcc g++ zlib1g-dev ruby-dev
 sudo gem install bundler
+sudo gem update --system
 ```
 
 Note, that Ruby is only needed to preview the webpage locally, since the webpage is built with every commit to this repository using github-pages.
