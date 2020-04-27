@@ -28,4 +28,4 @@ function test_2x2
     assertElementsAlmostEqual(my_eig(A, 200, 1e-10), [7;-2], 1e-8);
     
     A=[0.7, 0.4; 0.3 0.6];
-    assertElementsAlmostEqual(my_eig(A, 200, 1e-610), [1;0.3], 1e-8);
+    assertElementsAlmostEqual(my_eig(A, 200, 1e-10), [1;0.3], 1e-8);
