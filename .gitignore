@@ -111,6 +111,9 @@ _site/
 scripts/tests/site/_build
 scripts/tests/site/content/LICENSE.md
 
+# Matlab autosave files
+*.asv
+
 # matlab scripts created by octave kernel
 bisection.m
 fibonacci.m
@@ -140,6 +143,8 @@ rocket_ode.m
 rocket_status.m
 rocket_visualization.m
 my_eig.m
+my_roots.m 
+rod_frequency.m
 test_my_roots.m
 fourier_approx_rectangular.m
 fourier_approx_sawtooth.m
