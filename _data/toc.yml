@@ -117,6 +117,14 @@
     url: /09_dft/exercises_02_doppler
   - title: Der Vuvuzela Filter
     url: /09_dft/exercises_03_vuvuzela
+- title: Randwertprobleme
+  url: /10_bvp/intro
+  expand_sections: false
+  sections:
+  - title: Durchhang eines flexiblen Kabels
+    url: /10_bvp/exercises_00_flexible_cable
+  - title: Temperatur in einem nuklearen Brennstab
+    url: /10_bvp/exercises_01_nuclear_reactor
 
 - divider: true
 
