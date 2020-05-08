@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Eigenwertprobleme</title>
-  <meta name="description" content="        Eigenwertprobleme Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.         ">
+  <title>Temperatur in einem nuklearen Brennstab</title>
+  <meta name="description" content="        Temperatur in einem nuklearen Brennstab Der Brennstab eines Nuklearreaktors ist eine brennstoffgefüllte zylindrische Hülle. Innerhalb des Zylinders u...">
 
-  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html">
+  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/10_bvp/exercises_01_nuclear_reactor.html">
   <link rel="alternate" type="application/rss+xml" title="Modellbildung und Simulation" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/feed.xml">
 
-  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html" />
+  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/10_bvp/exercises_01_nuclear_reactor.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Eigenwertprobleme" />
-<meta property="og:description" content="        Eigenwertprobleme Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.         " />
+<meta property="og:title"       content="Temperatur in einem nuklearen Brennstab" />
+<meta property="og:description" content="        Temperatur in einem nuklearen Brennstab Der Brennstab eines Nuklearreaktors ist eine brennstoffgefüllte zylindrische Hülle. Innerhalb des Zylinders u..." />
 <meta property="og:image"       content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html",
-  "headline": "Eigenwertprobleme",
+  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/10_bvp/exercises_01_nuclear_reactor.html",
+  "headline": "Temperatur in einem nuklearen Brennstab",
   "datePublished": "2020-05-08T08:04:36+00:00",
   "dateModified": "2020-05-08T08:04:36+00:00",
-  "description": "        Eigenwertprobleme Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.         ",
+  "description": "        Temperatur in einem nuklearen Brennstab Der Brennstab eines Nuklearreaktors ist eine brennstoffgefüllte zylindrische Hülle. Innerhalb des Zylinders u...",
   "author": {
     "@type": "Person",
     "name": "Jan Kleinert"
@@ -154,7 +154,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'octave',
       }
     }
 </script>
@@ -577,7 +577,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/Modellbildung-und-Simulation/intro.html"
         >
           
@@ -1132,7 +1132,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/Modellbildung-und-Simulation/08_eigenwerte/intro.html"
         >
           
@@ -1150,7 +1150,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
@@ -1353,7 +1353,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
@@ -1378,7 +1378,7 @@ initFunction(initPrint)
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/Modellbildung-und-Simulation/10_bvp/exercises_01_nuclear_reactor.html"
                 >
                   
@@ -1444,6 +1444,20 @@ initFunction(initPrint)
 
 
 
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content%2F10_bvp%2Fexercises_01_nuclear_reactor.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/Modellbildung-und-Simulation/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
 </div>
 
   </div>
@@ -1465,7 +1479,60 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Eigenwertprobleme">Eigenwertprobleme<a class="anchor-link" href="#Eigenwertprobleme"> </a></h1><p>Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.</p>
+<h1 id="Temperatur-in-einem-nuklearen-Brennstab">Temperatur in einem nuklearen Brennstab<a class="anchor-link" href="#Temperatur-in-einem-nuklearen-Brennstab"> </a></h1><p>Der Brennstab eines Nuklearreaktors ist eine brennstoffgefüllte zylindrische Hülle. Innerhalb des Zylinders und auch in der Hülle entsteht Hitze durch Kernreaktionen. Die äußere Oberfläche des Zylinders wird von fließendem Wasser auf $T_\infty = 473\;\textrm{K}$ heruntergekühlt.</p>
+<p><img src="../images/brennstab.png" alt=""></p>
+<p>Der Wärmeübergangskoeffizient ist $h =10^4 \; \textrm{W}/(\textrm{m}^2\mathrm{K})$ Die thermische Leitfähigkeit des Hüllenmaterials ist $k = 16.75  \; \textrm{W}/(\textrm{mK})$. Der innere Radius des Stabes beträgt $R=1.5 \cdot 10^{-2}\;\textrm{m}$ und die Dicke der Hülle um den Brennstab $w = 3 \cdot 10^{-3}\;\textrm{m}$.</p>
+<table>
+<thead><tr>
+<th>Konstante</th>
+<th>Symbol</th>
+<th>Wert</th>
+<th>Einheit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wärmeübergangskoeffizient</td>
+<td>$h$</td>
+<td>$10^4$</td>
+<td>$\frac{\textrm{W}}{\textrm{m}^2\textrm{K}}$</td>
+</tr>
+<tr>
+<td>Thermische Leitfähigkeit</td>
+<td>$k$</td>
+<td>$16.75$</td>
+<td>$\frac{\textrm{W}}{\textrm{mK}}$</td>
+</tr>
+<tr>
+<td>Wassertemperatur</td>
+<td>$T_\infty$</td>
+<td>$473$</td>
+<td>$\textrm{K}$</td>
+</tr>
+<tr>
+<td>Radius des Stabes</td>
+<td>$R$</td>
+<td>$1.5 \cdot 10^{-2}$</td>
+<td>$\textrm{m}$</td>
+</tr>
+<tr>
+<td>Hülle des Stabes</td>
+<td>$w$</td>
+<td>$ 3 \cdot 10^{-3}$</td>
+<td>$\textrm{m}$</td>
+</tr>
+</tbody>
+</table>
+<p>Die <strong>Temperaturverteilung in der Hülle</strong> kann durch Lösen der folgenden Differentialgleichung beschrieben werden:</p>
+$$
+\frac{\mathrm{d}}{\mathrm{d}r} \left( r k \frac{\mathrm{d}T}{\mathrm{d}r} \right) = -10^8 \cdot e^{-\frac{r}{R}}
+$$<p>für $R \leq r \leq R + w$. Die Randbedingungen sind</p>
+$$
+\begin{align}
+&amp;\frac{\mathrm{d}T}{\mathrm{d}r}(r=R) = - \frac{6.32 \cdot 10^5 \mathrm{W}\mathrm{m}^{-2}}{k} \notag \\
+&amp;\frac{\mathrm{d}T}{\mathrm{d}r}(r=R+w) = - \frac{h}{k}(T(r=R+w) - T_\infty) \notag
+\end{align}
+$$<p>Lösen Sie die Differentialgleichung mit der Matlab-Routine <code>bvp4c</code>.</p>
 
 </div>
 </div>
@@ -1482,15 +1549,15 @@ initFunction(initPrint)
               <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/07_num_ode/exercises_00_rocket_launch.html">
-      〈 <span class="u-margin-right-tiny"></span> Simulation eines Raketenstarts
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/10_bvp/exercises_00_flexible_cable.html">
+      〈 <span class="u-margin-right-tiny"></span> Durchhang eines flexiblen Kabels
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_00_qr.html">
-      Das QR Verfahren <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="">
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>

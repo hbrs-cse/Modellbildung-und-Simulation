@@ -5,16 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
-  <title>Eigenwertprobleme</title>
-  <meta name="description" content="        Eigenwertprobleme Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.         ">
+  <title>Durchhang eines flexiblen Kabels</title>
+  <meta name="description" content="        Durchhang eines flexiblen Kabels Ein flexibles Kabel einheitlicher Dichte ist an zwei Punkten $y(0) = 10\;\mathrm{m}$ und $y(20) = 15\;\mathrm{m}$ au...">
 
-  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html">
+  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/10_bvp/exercises_00_flexible_cable.html">
   <link rel="alternate" type="application/rss+xml" title="Modellbildung und Simulation" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/feed.xml">
 
-  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html" />
+  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/10_bvp/exercises_00_flexible_cable.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Eigenwertprobleme" />
-<meta property="og:description" content="        Eigenwertprobleme Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.         " />
+<meta property="og:title"       content="Durchhang eines flexiblen Kabels" />
+<meta property="og:description" content="        Durchhang eines flexiblen Kabels Ein flexibles Kabel einheitlicher Dichte ist an zwei Punkten $y(0) = 10\;\mathrm{m}$ und $y(20) = 15\;\mathrm{m}$ au..." />
 <meta property="og:image"       content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" />
 
 <meta name="twitter:card" content="summary">
@@ -24,11 +24,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/08_eigenwerte/intro.html",
-  "headline": "Eigenwertprobleme",
+  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/10_bvp/exercises_00_flexible_cable.html",
+  "headline": "Durchhang eines flexiblen Kabels",
   "datePublished": "2020-05-08T08:04:36+00:00",
   "dateModified": "2020-05-08T08:04:36+00:00",
-  "description": "        Eigenwertprobleme Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.         ",
+  "description": "        Durchhang eines flexiblen Kabels Ein flexibles Kabel einheitlicher Dichte ist an zwei Punkten $y(0) = 10\;\mathrm{m}$ und $y(20) = 15\;\mathrm{m}$ au...",
   "author": {
     "@type": "Person",
     "name": "Jan Kleinert"
@@ -154,7 +154,7 @@ initFunction(addThebelabButtonToCodeCells);
         theme: "abcdef"
       },
       kernelOptions: {
-        name: 'python3',
+        name: 'octave',
       }
     }
 </script>
@@ -577,7 +577,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/Modellbildung-und-Simulation/intro.html"
         >
           
@@ -1132,7 +1132,7 @@ initFunction(initPrint)
       
       
       <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry c-sidebar__entry--active"
+        <a class="c-sidebar__entry "
           href="/Modellbildung-und-Simulation/08_eigenwerte/intro.html"
         >
           
@@ -1150,7 +1150,7 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections ">
+          <ul class="c-sidebar__sections u-hidden-visually">
             
               
               
@@ -1353,13 +1353,13 @@ initFunction(initPrint)
 
           
 
-          <ul class="c-sidebar__sections u-hidden-visually">
+          <ul class="c-sidebar__sections ">
             
               
               
 
               <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
+                <a class="c-sidebar__entry c-sidebar__entry--active"
                   href="/Modellbildung-und-Simulation/10_bvp/exercises_00_flexible_cable.html"
                 >
                   
@@ -1444,6 +1444,20 @@ initFunction(initPrint)
 
 
 
+  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
+
+  
+  
+
+
+
+
+
+
+<a href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content%2F10_bvp%2Fexercises_00_flexible_cable.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/Modellbildung-und-Simulation/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
+  
+
+
 </div>
 
   </div>
@@ -1465,10 +1479,94 @@ initFunction(initPrint)
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Eigenwertprobleme">Eigenwertprobleme<a class="anchor-link" href="#Eigenwertprobleme"> </a></h1><p>Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwertproblemen.</p>
+<h1 id="Durchhang-eines-flexiblen-Kabels">Durchhang eines flexiblen Kabels<a class="anchor-link" href="#Durchhang-eines-flexiblen-Kabels"> </a></h1><p>Ein flexibles Kabel einheitlicher Dichte ist an zwei Punkten $y(0) = 10\;\mathrm{m}$ und $y(20) = 15\;\mathrm{m}$ aufgehängt. Die Form des Kabels folgt der Differentialgleichung</p>
+$$
+\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = C \sqrt{1+ \left( \frac{\mathrm{d}y}{\mathrm{d}t} \right)^2}
+$$<p>wobei $C=0.041\;\mathrm{m}^{-1}$ eine Konstante ist, die das Kabelgewicht pro Einheitslänge sowie den horizontalen Spannungsanteil im tiefsten Punkt des Kabels enthält.</p>
+<p><img src="../images/flexible_cable.png" alt=""></p>
+<h2 id="Aufgabe-1">Aufgabe 1<a class="anchor-link" href="#Aufgabe-1"> </a></h2><p>Verwenden Sie die Matlab-Routine <code>bvp4c</code> um den Verlauf des Kabels zwischen $x = 0\;\mathrm{m}$ und $\mathrm{x} = 20 \;\mathrm{m}$ zu bestimmen.</p>
 
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aufgabe-2">Aufgabe 2<a class="anchor-link" href="#Aufgabe-2"> </a></h2><p>Lösen Sie das Randwertproblem nun mit dem so genannten <strong>Schießverfahren</strong>. Wählen Sie hierzu zwei Schätzungen für die unbekannten Ableitungen $\frac{\mathrm{d}y}{\mathrm{d}x}$ bei $x=0$. <em>Schießen</em> sie auf $x=20$, indem sie die Differentialgleichung als Anfangswertproblem mit <code>ode45</code> für beide Schätzwerte $\frac{\mathrm{d}y}{\mathrm{d}x}$ lösen. Vergleichen Sie die getroffenen $y(x=20)$-Werte mit dem Zielwert $y(x=20)=15$. Wenn eine ihrer Schätzungen den Zielwert unterschätzt, und die andere den Zielwert überschätzt, können Sie sich mittels Bisektionsverfahren dem tatsächlichen Wert für $\frac{\mathrm{d}y}{\mathrm{d}x}(x=0)$ nähern. Führen Sie eine Bisektion durch, um sich dem Zielwert bis auf <code>tol</code>$ = 0.01\;\textrm{m}$ zu nähern.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">%file bvpsm.m</span>
+<span class="k">function</span><span class="w"> </span>sol <span class="p">=</span><span class="w"> </span><span class="nf">bvpsm</span><span class="p">(</span>odefun, x, ybc, yp_lower, yp_upper, tol, max_iter<span class="p">)</span><span class="w"></span>
+<span class="c">% this functions solves a boundary value problem with dirichlet boundary conditions using</span>
+<span class="c">% the shooting method.</span>
+<span class="c">%</span>
+<span class="c">% Internally, the bisection method is used to dermine the slope af the left boundary.</span>
+<span class="c">%</span>
+<span class="c">% INPUTS:</span>
+<span class="c">%    - odefun is a function handle  for the right-hand side of the scalar ode </span>
+<span class="c">%      of second order y&#39;&#39; = f(t,y).</span>
+<span class="c">%    - x=[xa, xb] is a 1x2 vector containing the start and end value for the interval, on </span>
+<span class="c">%      on which the BVP is to be solved</span>
+<span class="c">%    - ybc=[ya, yb] is the a 1x2 vector containing the Dirichlet boundary conditions of the BVP.</span>
+<span class="c">%    - yp_lower is a lower estimate of the slope of y and yp_upper is an upper estimate of the </span>
+<span class="c">%      slope of y at xa. These values are needed by the shooting method.</span>
+<span class="c">%    - tol is a tolerance for the right boundary condition. The problem is considered as solved,</span>
+<span class="c">%      if abs(y(xb)-yb) &lt; tol</span>
+<span class="c">%    - max_iter are the maximum number of iterations for determining the slope at xa</span>
+<span class="c">%</span>
+<span class="c">% OUTPUTS:</span>
+<span class="c">%    - sol is the solution structure, as it is returned by the initial value problem solvers</span>
+<span class="c">%      such as ode45</span>
+
+<span class="c">% PUT YOUR IMPLEMENTATION HERE</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Hinweis:</strong> In <a href="00_einleitung/matlab_02_scripts_and_function">diesem Kapitel</a> wurde eine Funktion für das Bisektionsverfahren entwickelt. Verwenden Sie diese Funktion in ihrer Implementierung, um das Rad nicht neu erfinden zu müssen.</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-octave"><pre><span></span><span class="c">% SPACE FOR SOLUTION: Apply the function bvpsm to solve the BVP of the flexible cable.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -1482,15 +1580,15 @@ initFunction(initPrint)
               <nav class="c-page__nav">
   
     
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/07_num_ode/exercises_00_rocket_launch.html">
-      〈 <span class="u-margin-right-tiny"></span> Simulation eines Raketenstarts
+    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/10_bvp/intro.html">
+      〈 <span class="u-margin-right-tiny"></span> Randwertprobleme
     </a>
   
 
   
     
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_00_qr.html">
-      Das QR Verfahren <span class="u-margin-right-tiny"></span> 〉
+    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/10_bvp/exercises_01_nuclear_reactor.html">
+      Temperatur in einem nuklearen Bren... <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
