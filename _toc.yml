@@ -1,15 +1,17 @@
-- title: Home
-  file: content/intro
+- file: content/intro
+  title: Home
 - file: content/00_einleitung/intro
   expand_sections: false
   sections:
   - file: content/00_einleitung/usage
   - file: content/00_einleitung/matlab_00_first_steps
+    expand_sections: false
     sections:
     - file: content/00_einleitung/matlab_01_command_window
     - file: content/00_einleitung/matlab_02_scripts_and_functions
     - file: content/00_einleitung/matlab_03_best_practice
   - file: content/00_einleitung/exercises_00_intro
+    expand_sections: false
     sections:
     - file: content/00_einleitung/exercises_01_factorial_pi
     - file: content/00_einleitung/exercises_02_fluessigkeit
