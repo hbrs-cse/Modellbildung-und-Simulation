@@ -154,3 +154,8 @@ _build
 
 # visual studio code settings
 .vscode
+
+# latex stuff
+*.aux 
+*.fdb_latexmk
+*.fls 
