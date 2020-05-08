@@ -151,3 +151,11 @@ fourier_approx_sawtooth.m
 
 # don't version control the build directory, site is generated using CI not gh-pages
 _build
+
+# visual studio code settings
+.vscode
+
+# latex stuff
+*.aux 
+*.fdb_latexmk
+*.fls 
