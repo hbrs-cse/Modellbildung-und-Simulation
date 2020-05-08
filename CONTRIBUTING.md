@@ -20,15 +20,6 @@ conda install jupyter jupyterlab
 conda install octave_kernel -c conda-forge
 ```
 
-Install Ruby and its requirements:
-
-```bash
-sudo apt-get install gcc g++ zlib1g-dev ruby-dev
-sudo gem install bundler
-sudo gem update --system
-```
-
-Note, that Ruby is only needed to preview the webpage locally, since the webpage is built with every commit to this repository using github-pages.
 
 #### Install MOxUnit
 
@@ -49,13 +40,7 @@ cd ..
  cd Modellbildung-und-Simulation
  ```
  
-Install some Ruby requirements of this book that are needed to preview the website locally
-
-```bash
-bundle install
-```
-
-bundler might ask you for your sudo password here. Now install the python requirements:
+Now install the python requirements:
 
 ```bash
 pip install -r requirements.txt
@@ -93,17 +78,13 @@ In this section, it is assumed that you are in the root directory of your clone 
  * Edit `_data/toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
  ```bash
- make book
+ jupyter-book build .
  ```
  to convert the Jupyter notebooks and markdown files and copy the results to the `_build` directory.
  
 #### Review your changes and push them upstream
  
- * With
- ```bash
- make serve
- ```
- the html-version can be checked locally. Simply copy the url from the command line output to your favorite browser.
+ * Checkout the generated html files in `_build/html`.
  * Stage and commit your changes:
  ```bash
  git add .

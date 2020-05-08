@@ -1,0 +1,73 @@
+- file: content/intro
+
+- file: content/00_einleitung/intro
+  expand_sections: false
+  sections:
+  - file: content/00_einleitung/usage
+  - file: content/00_einleitung/matlab_00_first_steps
+    sections:
+    - file: content/00_einleitung/matlab_01_command_window
+    - file: content/00_einleitung/matlab_02_scripts_and_functions
+    - file: content/00_einleitung/matlab_03_best_practice
+  - file: content/00_einleitung/exercises_00_intro
+    sections:
+    - file: content/00_einleitung/exercises_01_factorial_pi
+    - file: content/00_einleitung/exercises_02_fluessigkeit
+    - file: content/00_einleitung/exercises_03_verkehrssimulation
+    - file: content/00_einleitung/exercises_04_perfekter_wurf
+
+#- divider: true
+
+- file: content/01_schwingungen/intro
+  expand_sections: false
+- file: content/02_lineare_gleichungen/intro
+  expand_sections: false
+  sections:
+  - file: content/02_lineare_gleichungen/exercises_00_highline
+- file: content/03_gleitkommaarithmetik/intro
+  expand_sections: false
+  sections:
+  - file: content/03_gleitkommaarithmetik/exercises_01_uebungen
+- file: content/04_nichtlineare_gleichungen/intro
+  expand_sections: false
+  sections:
+  - file: content/04_nichtlineare_gleichungen/exercises_00_bierschaum
+- file: content/05_interp_approx/intro
+  expand_sections: false
+  sections:
+  - file: content/05_interp_approx/exercises_00_linear_interpolation
+  - file: content/05_interp_approx/exercises_01_linear_approximation
+  - file: content/05_interp_approx/exercises_02_spline_interpolation
+- file: content/07_num_ode/intro
+  expand_sections: false
+  sections:
+   - file: content/07_num_ode/exercises_00_rocket_launch
+
+#- divider: true
+
+- file: content/08_eigenwerte/intro
+  expand_sections: false
+  sections:
+   - file: content/08_eigenwerte/exercises_00_qr
+   - file: content/08_eigenwerte/exercises_01_roots
+   - file: content/08_eigenwerte/exercises_03_beam_modes
+- file: content/09_dft/intro
+  expand_sections: false
+  sections:
+  - file: content/09_dft/exercises_00_approximation
+  - file: content/09_dft/exercises_01_fft_noise
+  - file: content/09_dft/exercises_02_doppler
+  - file: content/09_dft/exercises_03_vuvuzela
+- file: content/10_bvp/intro
+  expand_sections: false
+  sections:
+  - file: content/10_bvp/exercises_00_flexible_cable
+  - file: content/10_bvp/exercises_01_nuclear_reactor
+
+#- divider: true
+
+
+#- title: GitHub repository
+#  url: https://github.com/joergbrech/Modellbildung-und-Simulation
+#  external: true
+#  not_numbered: true

@@ -33,7 +33,7 @@ jobs:
       # Build the page intermediate HTML files
       - run:
           name: Build page intermediate HTML files
-          command: make book
+          command: jupyter-book build .
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
       - persist_to_workspace:
@@ -55,17 +55,10 @@ jobs:
       # Copy over the built page files
       - copy_built_files
 
-      # Build the site's HTML w/ the base_url for CircleCI artifacts
-      - run:
-          name: Install Bundler and Jekyll, then build the book
-          command: |
-            gem install bundler
-            bundle install
-            bundle exec jekyll build --baseurl /0/html/
 
       # Tell Circle to store the documentation output in a folder we can access later
       - store_artifacts:
-          path: _site/
+          path: _build/html
           destination: html
 
   # Finally, push the HTML to the gh-pages branch
@@ -97,20 +90,12 @@ jobs:
             # The SSH key fingerprint
             - "46:04:53:ea:61:05:73:c9:0e:74:12:f0:ed:2a:5b:b6"
 
-      # Build the site's HTML using the base_url defined in the *book's* configuration
-      - run:
-          name: Install Bundler and Jekyll, then build the book
-          command: |
-            gem install bundler
-            bundle install
-            bundle exec jekyll build
-
       # Push the `_site` folder to our gh-pages branch for it to go live
       - run:
           name: Push site to gh-pages
           command: |
             export PATH=$PATH:/home/circleci/.local/bin
-            ghp-import -m "[skip ci] Update Site" -p -n -f _site
+            ghp-import -m "[skip ci] Update Site" -p -n -f _build/html
 
 
 # These workflows define how the jobs above will run. In our case, we
