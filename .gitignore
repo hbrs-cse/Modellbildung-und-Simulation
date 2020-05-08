@@ -148,6 +148,10 @@ rod_frequency.m
 test_my_roots.m
 fourier_approx_rectangular.m
 fourier_approx_sawtooth.m
+bvpsm.m 
+quadraticSpline.m 
+trafficflow.m 
+vuvuzela_filter_*
 
 # don't version control the build directory, site is generated using CI not gh-pages
 _build

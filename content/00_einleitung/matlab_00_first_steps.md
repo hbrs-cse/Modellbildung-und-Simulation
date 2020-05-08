@@ -15,7 +15,7 @@ An einigen Stellen dieses Online-Lehrbuchs tauchen Textboxen mit Matlab-Code auf
 Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte. Die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich des wissenschaftlichen Rechnens sind wahrscheinlich 
  * [Python](https://www.python.org/) - Extrem vielseitige und weitverbreitete Sprache, [jeder sollte irgendwann mal Python lernen](https://hackernoon.com/10-reasons-to-learn-python-in-2018-f473dc35e2ee).
  * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet
- * [Julia]() - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
+ * [Julia](https://julialang.org/) - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
  
 
 Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es so viele kostenfreie Alternativen gibt? Zugegeben, sehr viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 

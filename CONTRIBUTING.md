@@ -12,12 +12,11 @@ I suggest installing [miniconda3](https://docs.conda.io/en/latest/miniconda.html
 
 This website is based on Jupyter-book, which lets you create a static website out of Markdown files and Jupyter notebooks. The Jupyter notebooks here use the Octave kernel. The webpage creation is done with ruby. So first, we need to install these prerequisites with `apt-get` and `conda`:
 
-Install Octave, Jupyter and the Octave-kernel for jupyter:
+Install octave, jupyter and optionally jupyterlab:
 
 ```bash
 sudo apt-get install octave
 conda install jupyter jupyterlab
-conda install octave_kernel -c conda-forge
 ```
 
 
@@ -46,8 +45,6 @@ Now install the python requirements:
 pip install -r requirements.txt
 ```
 
-Currently, the only requirement is `jupyter-book`.
-
 </details>
 
 ## Contribution Workflow
@@ -75,12 +72,12 @@ In this section, it is assumed that you are in the root directory of your clone 
  ```
  Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser. 
  * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/joergbrech/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
- * Edit `_data/toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview) and the [demo notebook](https://jupyterbook.org/intro.html).
+ * Edit `toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
  ```bash
  jupyter-book build .
  ```
- to convert the Jupyter notebooks and markdown files and copy the results to the `_build` directory.
+ to convert the Jupyter notebooks and markdown files and copy the results to the `_build` directory. **Make sure this command executes without warnings.**
  
 #### Review your changes and push them upstream
  
