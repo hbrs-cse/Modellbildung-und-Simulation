@@ -21,7 +21,7 @@ commands:
 jobs:
   build_page_files:
     docker:
-      - image: circleci/python:3.6-stretch
+      - image: mtmiller/octave
     steps:
       # Get our data and merge with upstream
       - checkout
