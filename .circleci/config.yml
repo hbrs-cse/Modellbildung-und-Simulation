@@ -28,9 +28,7 @@ jobs:
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
-      - run: python3 --version
-      - run: pip3 --version
-      - run: pip3 install --user -r requirements.txt
+      - run: pip3 install -r requirements.txt
 
       # Build the page intermediate HTML files
       - run:
