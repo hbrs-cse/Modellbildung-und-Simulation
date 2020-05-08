@@ -28,7 +28,9 @@ jobs:
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
-      - run: python3 -m pip install --user -r requirements.txt
+      - run: python --version
+      - run: pip --version
+      - run: pip install --user -r requirements.txt
 
       # Build the page intermediate HTML files
       - run:
@@ -44,7 +46,7 @@ jobs:
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: circleci/ruby:2.6
+      - image: mtmiller/octave
     steps:
       - checkout
 
@@ -64,7 +66,7 @@ jobs:
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: circleci/ruby:2.6
+      - image: mtmiller/octave
     steps:
       - checkout
 
@@ -80,8 +82,6 @@ jobs:
           name: "Install ghp-import"
           command: |
             export PATH=$PATH:/home/circleci/.local/bin
-            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-            python get-pip.py --user
             pip install -U ghp-import --user
 
       # Tell CircleCI to use the SSH key we've set up with permissions to push to our repo
