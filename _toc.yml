@@ -1,5 +1,5 @@
-- file: content/intro
-
+- title: Home
+  file: content/intro
 - file: content/00_einleitung/intro
   expand_sections: false
   sections:
@@ -15,9 +15,6 @@
     - file: content/00_einleitung/exercises_02_fluessigkeit
     - file: content/00_einleitung/exercises_03_verkehrssimulation
     - file: content/00_einleitung/exercises_04_perfekter_wurf
-
-#- divider: true
-
 - file: content/01_schwingungen/intro
   expand_sections: false
 - file: content/02_lineare_gleichungen/intro
@@ -42,15 +39,12 @@
   expand_sections: false
   sections:
    - file: content/07_num_ode/exercises_00_rocket_launch
-
-#- divider: true
-
 - file: content/08_eigenwerte/intro
   expand_sections: false
   sections:
-   - file: content/08_eigenwerte/exercises_00_qr
-   - file: content/08_eigenwerte/exercises_01_roots
-   - file: content/08_eigenwerte/exercises_03_beam_modes
+  - file: content/08_eigenwerte/exercises_00_qr
+  - file: content/08_eigenwerte/exercises_01_roots
+  - file: content/08_eigenwerte/exercises_03_beam_modes
 - file: content/09_dft/intro
   expand_sections: false
   sections:
@@ -63,11 +57,4 @@
   sections:
   - file: content/10_bvp/exercises_00_flexible_cable
   - file: content/10_bvp/exercises_01_nuclear_reactor
-
-#- divider: true
-
-
-#- title: GitHub repository
-#  url: https://github.com/joergbrech/Modellbildung-und-Simulation
-#  external: true
-#  not_numbered: true
+  
