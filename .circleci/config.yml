@@ -28,9 +28,9 @@ jobs:
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
-      - run: python --version
-      - run: pip --version
-      - run: pip install --user -r requirements.txt
+      - run: python3 --version
+      - run: pip3 --version
+      - run: pip3 install --user -r requirements.txt
 
       # Build the page intermediate HTML files
       - run:
@@ -82,7 +82,7 @@ jobs:
           name: "Install ghp-import"
           command: |
             export PATH=$PATH:/home/circleci/.local/bin
-            pip install -U ghp-import --user
+            pip3 install -U ghp-import --user
 
       # Tell CircleCI to use the SSH key we've set up with permissions to push to our repo
       - add_ssh_keys:
