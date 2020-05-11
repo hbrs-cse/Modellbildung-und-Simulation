@@ -1,0 +1,50 @@
+- file: intro
+  title: Home
+- file: 00_einleitung/intro
+  sections:
+  - file: 00_einleitung/usage
+  - file: 00_einleitung/matlab_00_first_steps
+    sections:
+    - file: 00_einleitung/matlab_01_command_window
+    - file: 00_einleitung/matlab_02_scripts_and_functions
+    - file: 00_einleitung/matlab_03_best_practice
+  - file: 00_einleitung/exercises_00_intro
+    sections:
+    - file: 00_einleitung/exercises_01_factorial_pi
+    - file: 00_einleitung/exercises_02_fluessigkeit
+    - file: 00_einleitung/exercises_03_verkehrssimulation
+    - file: 00_einleitung/exercises_04_perfekter_wurf
+- file: 01_schwingungen/intro
+- file: 02_lineare_gleichungen/intro
+  sections:
+  - file: 02_lineare_gleichungen/exercises_00_highline
+- file: 03_gleitkommaarithmetik/intro
+  sections:
+  - file: 03_gleitkommaarithmetik/exercises_01_uebungen
+- file: 04_nichtlineare_gleichungen/intro
+  sections:
+  - file: 04_nichtlineare_gleichungen/exercises_00_bierschaum
+- file: 05_interp_approx/intro
+  sections:
+  - file: 05_interp_approx/exercises_00_linear_interpolation
+  - file: 05_interp_approx/exercises_01_linear_approximation
+  - file: 05_interp_approx/exercises_02_spline_interpolation
+- file: 07_num_ode/intro
+  sections:
+   - file: 07_num_ode/exercises_00_rocket_launch
+- file: 08_eigenwerte/intro
+  sections:
+  - file: 08_eigenwerte/exercises_00_qr
+  - file: 08_eigenwerte/exercises_01_roots
+  - file: 08_eigenwerte/exercises_03_beam_modes
+- file: 09_dft/intro
+  sections:
+  - file: 09_dft/exercises_00_approximation
+  - file: 09_dft/exercises_01_fft_noise
+  - file: 09_dft/exercises_02_doppler
+  - file: 09_dft/exercises_03_vuvuzela
+- file: 10_bvp/intro
+  sections:
+  - file: 10_bvp/exercises_00_flexible_cable
+  - file: 10_bvp/exercises_01_nuclear_reactor
+  

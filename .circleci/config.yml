@@ -33,13 +33,15 @@ jobs:
       # Build the page intermediate HTML files
       - run:
           name: Build page intermediate HTML files
-          command: jupyter-book build .
+          command: |
+            jupyter-book build content/
+            cp -r content/images content/_build/html/images
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
       - persist_to_workspace:
           root: .
           paths:
-            - ./_build/
+            - ./content/_build/
 
   # Build the site to store artifacts
   html_demo:

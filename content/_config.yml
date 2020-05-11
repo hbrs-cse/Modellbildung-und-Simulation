@@ -8,20 +8,23 @@
 title                       : Modellbildung und Simulation  # The title of the book. Will be placed in the left navbar.
 author                      : "Jan Kleinert"  # The author of the book
 copyright                   : "2020"  # Copyright year to be placed in the footer
-logo                        : content/images/logo/hbrs_logo_text.png  # A path to the book logo
-exclude_patterns            : [CHANGELOG.md, README.md, CONTRIBUTING.md, LICENSE.md]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
+logo                        : images/logo/hbrs_logo_text.png  # A path to the book logo
+exclude_patterns            : [CHANGELOG.md, 
+                               README.md, 
+                               CONTRIBUTING.md, 
+                               LICENSE.md]  # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 
 #######################################################################################
 # Execution settings
 execute:
-  execute_notebooks         : "auto"  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
+  execute_notebooks         : "off"  # Whether to execute notebooks at build time. Must be one of ("auto", "force", "cache", "off")
   cache                     : ""  # A path to the jupyter cache that will be used to store execution artifacs. Defaults to `_build/.jupyter_cache/`
   exclude_patterns          : []  # A list of patterns to *skip* in execution (e.g. a notebook that takes a really long time)
 
 #######################################################################################
 # HTML-specific settings
 html:
-  favicon                   : content/images/logo/favicon.ico  # A path to a favicon image
+  favicon                   : images/logo/favicon.ico  # A path to a favicon image
   navbar_number_sections    : false  # Add a number to each section in your left navbar
   navbar_footer_text        : 'Powered by <a href="https://jupyterbook.org">Jupyter Book</a>'  # Will be displayed underneath the left navbar.
   google_analytics_id       : "UA-134708516-1"  # A GA id that can be used to track book views.

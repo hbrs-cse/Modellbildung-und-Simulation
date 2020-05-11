@@ -75,7 +75,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  * Edit `toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
  ```bash
- jupyter-book build .
+ jupyter-book build content/
  ```
  to convert the Jupyter notebooks and markdown files and copy the results to the `_build` directory. **Make sure this command executes without warnings.**
  
