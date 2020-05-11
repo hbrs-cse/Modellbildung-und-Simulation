@@ -14,8 +14,8 @@ commands:
       - run:
           name: Copy over built site files
           command: |
-            rm -rf _build
-            cp -r /tmp/workspace/_build .
+            rm -rf content/_build
+            cp -r /tmp/workspace/content/_build .
 
 # Jobs define the actual code that CircleCI runs
 jobs:
