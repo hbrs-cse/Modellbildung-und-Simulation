@@ -29,6 +29,7 @@
   - file: 05_interp_approx/exercises_00_linear_interpolation
   - file: 05_interp_approx/exercises_01_linear_approximation
   - file: 05_interp_approx/exercises_02_spline_interpolation
+- file: 06_Differentiation_Integration/intro
 - file: 07_num_ode/intro
   sections:
    - file: 07_num_ode/exercises_00_rocket_launch
