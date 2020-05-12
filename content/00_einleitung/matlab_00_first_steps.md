@@ -33,7 +33,7 @@ Es gibt verschiedene Wege mit Matlab zu arbeiten.
  * **Matlab Online**: Inzwischen gibt es eine [browser-basierte Version von Matlab](https://matlab.mathworks.com/), die ohne Installation funktioniert. Hierfür muss man sich nur über seinen MathWorks-Account einloggen und dort eine valide Lizenz hinterlegt haben.
  * **Matlab Mobile**: Es gibt eine [App von MathWorks](https://play.google.com/store/apps/details?id=com.mathworks.matlabmobile&hl=de), die sich anfühlt wie Matlab. Kommandos werden übers Internet zu einem Server geschickt, dort ausgeführt und das Ergebnis wird auf dem Smartphone angezeigt.
 
-# Basics
+## Basics
 
 In diesem Lehrbuch geht es hauptsächlich um Methodik und weniger um die Computersprache, in der die Algorithmen umgesetzt werden. Es ist also nicht Ziel, das drölfmillionste Tutorial für Matlab zur Verfügung zu stellen. Hierfür gibt es bereits viele sehr gute Anlaufstellen:
 

@@ -1,5 +1,4 @@
 - file: intro
-  title: Home
 - file: 00_einleitung/intro
   sections:
   - file: 00_einleitung/usage
