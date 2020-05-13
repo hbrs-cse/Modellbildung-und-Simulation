@@ -1,0 +1,19 @@
+name: HTML-Preview
+
+on:
+  check_suite:
+    types: [completed,]
+
+jobs:
+  report_artifacts:
+    runs-on: ubuntu-latest
+    name: Report Artifacts
+    steps:
+    - name: Get preview url using CircleCI REST API
+      env:
+        JOB_CONTEXT: ${{ toJson(github) }}
+      run: |
+        site=`curl -s -H'Circle-Token: ${{ github.secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ github.ref }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
+        echo "::set-env name=PREVIEW_URL::$site"
+
+# To Do: Determine the PR name of the check_suite and comment on PR
