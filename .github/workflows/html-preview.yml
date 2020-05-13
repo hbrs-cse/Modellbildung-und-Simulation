@@ -1,18 +1,31 @@
 name: HTML-Preview
 
 on:
-  status
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]
 
 jobs:
   report_artifacts:
     runs-on: ubuntu-latest
     name: Report Artifacts
     steps:
-    - name: Get preview url using CircleCI REST API
-      env:
-        JOB_CONTEXT: ${{ toJson(github) }}
-      run: |
-        site=`curl -s -H'Circle-Token: ${{ github.secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ github.ref }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
-        echo "::set-env name=PREVIEW_URL::$site"
+      - name: Search for trigger keyword preview
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
+        with:
+          trigger: '@preview'
+          reaction: rocket
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+
+      - name: Get preview url using CircleCI REST API
+        run: |
+          site=`curl -s -H'Circle-Token: ${{ github.secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ github.ref }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
+          echo $site
+          echo "::set-env name=PREVIEW_URL::$site"  
+      - name: Post a comment with the preview url
+        run: echo $site
 
 # To Do: Determine the PR name of the check_suite and comment on PR
