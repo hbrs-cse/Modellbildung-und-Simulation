@@ -22,7 +22,7 @@ jobs:
         run: |
           site=`curl -s -H'Circle-Token: ${{ secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ steps.getbranch.outputs.branch }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
           echo $site
-          echo "::set-env name=PREVIEW_URL::$site"
+          echo "::set-output name=site::$site"
           
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
