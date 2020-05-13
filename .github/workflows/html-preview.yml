@@ -1,0 +1,35 @@
+name: HTML-Preview
+
+on:
+  pull_request:
+    types: [opened]
+  issue_comment:
+    types: [created]
+
+jobs:
+  report_artifacts:
+    runs-on: ubuntu-latest
+    name: Report Artifacts
+    steps:
+      - uses: khan/pull-request-comment-trigger@master
+        id: check
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+        with:
+          trigger: 'preview'
+          reaction: rocket
+        
+      - name: Get preview url using CircleCI REST API
+        run: |
+          site=`curl -s -H'Circle-Token: ${{ github.secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ github.ref }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
+          echo $site
+          echo "::set-env name=PREVIEW_URL::$site"
+          
+      - name: Post a comment with the preview url
+        if: steps.check.outputs.triggered == 'true'
+        uses: unsplash/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          msg: "You asked for a @preview? [Here you go.](${{ env.site }})"
+          check_for_duplicate_msg: false  # OPTIONAL
