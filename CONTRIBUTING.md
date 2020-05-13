@@ -77,11 +77,11 @@ In this section, it is assumed that you are in the root directory of your clone 
  ```bash
  jupyter-book build content/
  ```
- to convert the Jupyter notebooks and markdown files and copy the results to the `_build` directory. **Make sure this command executes without warnings.**
+ to convert the Jupyter notebooks and markdown files and copy the results to the `content/_build` directory. **Make sure this command executes without warnings.**
  
 #### Review your changes and push them upstream
  
- * Checkout the generated html files in `_build/html`.
+ * Checkout the generated html files in `content/_build/html`.
  * Stage and commit your changes:
  ```bash
  git add .
