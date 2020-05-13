@@ -1,8 +1,3 @@
-# NOTE: This is an example CircleCI configuration that
-# will build your book and preview its HTML content.
-# You will probably have to modify it in order to get it working
-# just the way you want. See https://jupyterbook.org/advanced/circleci.html
-# for more information
 version: 2.1
 
 # Commands are snippets of configuration we can re-use
@@ -30,12 +25,13 @@ jobs:
       # This will depend on your particular package!
       - run: pip3 install -r requirements.txt
 
-      # Build the page intermediate HTML files
+      # Build the page intermediate HTML files and copy all images to the build directory
       - run:
           name: Build page intermediate HTML files
           command: |
-            jupyter-book build content/
-            cp -r content/images content/_build/html/images
+            cd content
+            jupyter-book build .
+            find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
       - persist_to_workspace:
