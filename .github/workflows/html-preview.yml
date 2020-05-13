@@ -1,8 +1,7 @@
 name: HTML-Preview
 
 on:
-  check_suite:
-    types: [completed,]
+  status
 
 jobs:
   report_artifacts:
