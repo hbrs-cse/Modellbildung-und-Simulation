@@ -14,11 +14,20 @@ jobs:
         with:
           comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
           reaction-type: rocket
+          
+      # Get the branch name
+      - name: Get the target branch name
+        id: getbranch
+        run: |
+          branch=${{ github.event.client_payload.slash_command.branch }}
+          if [[ -z "$branch" ]]; then branch="master"; fi
+          echo ::set-output name=branch::$branch
         
       - name: Get preview url using CircleCI REST API
+        id: geturl
         run: |
-          site=`curl -s -H'Circle-Token: ${{ secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ github.ref }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
-          echo "$site"
+          site=`curl -s -H'Circle-Token: ${{ secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ steps.getbranch.outputs.branch }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
+          echo $site
           echo "::set-env name=PREVIEW_URL::$site"
           
       - name: Create comment
@@ -28,4 +37,4 @@ jobs:
           body: |
             Hello @${{ github.event.client_payload.github.actor }}!
             [Click here to see a preview of the site][1]
-            [1]: ${{ env.site }}
+            [1]: ${{ steps.geturl.outputs.site }}
