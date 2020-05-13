@@ -7,15 +7,9 @@ on:
 jobs:
   report_artifacts:
     runs-on: ubuntu-latest
-    name: Report Artifacts
+    name: Comment preview url
     steps:
-      - name: Add reaction
-        uses: peter-evans/create-or-update-comment@v1
-        with:
-          comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
-          reaction-type: rocket
-          
-      # Get the branch name
+         
       - name: Get the target branch name
         id: getbranch
         run: |
@@ -36,5 +30,4 @@ jobs:
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: |
             Hello @${{ github.event.client_payload.github.actor }}!
-            [Click here to see a preview of the site][1]
-            [1]: ${{ steps.geturl.outputs.site }}
+            [Click here to see a preview of the site](${{ steps.geturl.outputs.site }})
