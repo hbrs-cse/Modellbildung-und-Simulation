@@ -1,35 +1,40 @@
 name: HTML-Preview
 
 on:
-  pull_request:
-    types: [opened]
-  issue_comment:
-    types: [created]
+  repository_dispatch:
+    types: [preview]
 
 jobs:
   report_artifacts:
     runs-on: ubuntu-latest
     name: Report Artifacts
     steps:
-      - uses: khan/pull-request-comment-trigger@master
-        id: check
-        env:
-          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
+      - name: Add reaction
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          trigger: 'preview'
-          reaction: rocket
+          comment-id: ${{ github.event.client_payload.github.payload.comment.id }}
+          reaction-type: rocket
+          
+      # Get the branch name
+      - name: Get the target branch name
+        id: getbranch
+        run: |
+          branch=${{ github.event.client_payload.slash_command.branch }}
+          if [[ -z "$branch" ]]; then branch="master"; fi
+          echo ::set-output name=branch::$branch
         
       - name: Get preview url using CircleCI REST API
+        id: geturl
         run: |
-          site=`curl -s -H'Circle-Token: ${{ github.secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ github.ref }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
+          site=`curl -s -H'Circle-Token: ${{ secrets.CIRCLE_CI_ACCESS_TOKEN }}' "https://circleci.com/api/v1.1/project/github/joergbrech/Modellbildung-und-Simulation/latest/artifacts?branch=${{ steps.getbranch.outputs.branch }}&filter=successful" | grep '0/html/intro.html' | cut -d \" -f4`
           echo $site
           echo "::set-env name=PREVIEW_URL::$site"
           
-      - name: Post a comment with the preview url
-        if: steps.check.outputs.triggered == 'true'
-        uses: unsplash/comment-on-pr@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create comment
+        uses: peter-evans/create-or-update-comment@v1
         with:
-          msg: "You asked for a @preview? [Here you go.](${{ env.site }})"
-          check_for_duplicate_msg: false  # OPTIONAL
+          issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
+          body: |
+            Hello @${{ github.event.client_payload.github.actor }}!
+            [Click here to see a preview of the site][1]
+            [1]: ${{ steps.geturl.outputs.site }}
