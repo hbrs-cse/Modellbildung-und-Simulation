@@ -2,7 +2,7 @@ name: HTML-Preview
 
 on:
   repository_dispatch:
-    types: [preview]
+    types: [preview-command]
 
 jobs:
   report_artifacts:
