@@ -27,7 +27,7 @@ html:
   favicon                   : images/logo/favicon.ico  # A path to a favicon image
   navbar_number_sections    : false  # Add a number to each section in your left navbar
   navbar_footer_text        : '<div align="left">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="images/logo/GitHub-Mark-64px.png" style="width: 20px;"> Github Repository</a>
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
     <br>
     <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
     <br>
