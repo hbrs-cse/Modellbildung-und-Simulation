@@ -31,4 +31,4 @@ jobs:
         with:
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: |
-            Hello @${{ github.event.client_payload.github.actor }}! [Click here to see a preview of the site](${{ steps.geturl.outputs.site }})
+            Hello @${{ github.event.client_payload.github.actor }}! [Click here to see a preview of the site.](${{ steps.geturl.outputs.site }})
