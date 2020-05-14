@@ -87,7 +87,7 @@ jobs:
       # Push the `_site` folder to our gh-pages branch for it to go live
       - run:
           name: Push site to gh-pages
-          command: ghp-import -m "[skip ci] Update Site" -p -n -f content/_build/html
+          command: ghp-import -m "[skip ci] Update Site" -p -n -f _build/html
 
 
 # These workflows define how the jobs above will run. In our case, we
