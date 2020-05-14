@@ -40,7 +40,7 @@ jobs:
           sha_short=`cat result | grep sha_short | cut -d, -f2`
           commit_url=`cat result | grep commit_url | cut -d, -f2`
           artifact_url=`cat result | grep artifact_url | cut -d, -f2`
-          newer_build_warning="**Caution: ** There are a newer commits to `${{ steps.getbranch.outputs.branch }}` without build artifacts!"
+          newer_build_warning='**Caution: ** There are a newer commits to `${{ steps.getbranch.outputs.branch }}` without build artifacts!'
           if [[  -z "$newer_build" ]]; then newer_build_warning=""; fi
           echo $newer_build_warning
           echo $sha_short
