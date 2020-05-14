@@ -1,8 +1,3 @@
-# NOTE: This is an example CircleCI configuration that
-# will build your book and preview its HTML content.
-# You will probably have to modify it in order to get it working
-# just the way you want. See https://jupyterbook.org/advanced/circleci.html
-# for more information
 version: 2.1
 
 # Commands are snippets of configuration we can re-use
@@ -14,37 +9,40 @@ commands:
       - run:
           name: Copy over built site files
           command: |
-            rm -rf _build
-            cp -r /tmp/workspace/_build .
+            rm -rf content/_build
+            cp -r /tmp/workspace/content/_build .
 
 # Jobs define the actual code that CircleCI runs
 jobs:
   build_page_files:
     docker:
-      - image: circleci/python:3.6-stretch
+      - image: mtmiller/octave
     steps:
       # Get our data and merge with upstream
       - checkout
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
-      - run: pip install --user -r requirements.txt
+      - run: pip3 install -r requirements.txt
 
-      # Build the page intermediate HTML files
+      # Build the page intermediate HTML files and copy all images to the build directory
       - run:
           name: Build page intermediate HTML files
-          command: make book
+          command: |
+            cd content
+            jupyter-book build .
+            find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
       - persist_to_workspace:
           root: .
           paths:
-            - ./_build/
+            - ./content/_build/
 
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: circleci/ruby:2.6
+      - image: mtmiller/octave
     steps:
       - checkout
 
@@ -55,23 +53,16 @@ jobs:
       # Copy over the built page files
       - copy_built_files
 
-      # Build the site's HTML w/ the base_url for CircleCI artifacts
-      - run:
-          name: Install Bundler and Jekyll, then build the book
-          command: |
-            gem install bundler
-            bundle install
-            bundle exec jekyll build --baseurl /0/html/
 
       # Tell Circle to store the documentation output in a folder we can access later
       - store_artifacts:
-          path: _site/
+          path: _build/html
           destination: html
 
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: circleci/ruby:2.6
+      - image: mtmiller/octave
     steps:
       - checkout
 
@@ -85,11 +76,7 @@ jobs:
       # Install the ghp-import tool which we'll use to push the files
       - run:
           name: "Install ghp-import"
-          command: |
-            export PATH=$PATH:/home/circleci/.local/bin
-            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-            python get-pip.py --user
-            pip install -U ghp-import --user
+          command: pip3 install -U ghp-import
 
       # Tell CircleCI to use the SSH key we've set up with permissions to push to our repo
       - add_ssh_keys:
@@ -97,20 +84,10 @@ jobs:
             # The SSH key fingerprint
             - "46:04:53:ea:61:05:73:c9:0e:74:12:f0:ed:2a:5b:b6"
 
-      # Build the site's HTML using the base_url defined in the *book's* configuration
-      - run:
-          name: Install Bundler and Jekyll, then build the book
-          command: |
-            gem install bundler
-            bundle install
-            bundle exec jekyll build
-
       # Push the `_site` folder to our gh-pages branch for it to go live
       - run:
           name: Push site to gh-pages
-          command: |
-            export PATH=$PATH:/home/circleci/.local/bin
-            ghp-import -m "[skip ci] Update Site" -p -n -f _site
+          command: ghp-import -m "[skip ci] Update Site" -p -n -f _build/html
 
 
 # These workflows define how the jobs above will run. In our case, we

@@ -15,7 +15,7 @@ An einigen Stellen dieses Online-Lehrbuchs tauchen Textboxen mit Matlab-Code auf
 Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte. Die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich des wissenschaftlichen Rechnens sind wahrscheinlich 
  * [Python](https://www.python.org/) - Extrem vielseitige und weitverbreitete Sprache, [jeder sollte irgendwann mal Python lernen](https://hackernoon.com/10-reasons-to-learn-python-in-2018-f473dc35e2ee).
  * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet
- * [Julia]() - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
+ * [Julia](https://julialang.org/) - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
  
 
 Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es so viele kostenfreie Alternativen gibt? Zugegeben, sehr viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
@@ -33,7 +33,7 @@ Es gibt verschiedene Wege mit Matlab zu arbeiten.
  * **Matlab Online**: Inzwischen gibt es eine [browser-basierte Version von Matlab](https://matlab.mathworks.com/), die ohne Installation funktioniert. Hierfür muss man sich nur über seinen MathWorks-Account einloggen und dort eine valide Lizenz hinterlegt haben.
  * **Matlab Mobile**: Es gibt eine [App von MathWorks](https://play.google.com/store/apps/details?id=com.mathworks.matlabmobile&hl=de), die sich anfühlt wie Matlab. Kommandos werden übers Internet zu einem Server geschickt, dort ausgeführt und das Ergebnis wird auf dem Smartphone angezeigt.
 
-# Basics
+## Basics
 
 In diesem Lehrbuch geht es hauptsächlich um Methodik und weniger um die Computersprache, in der die Algorithmen umgesetzt werden. Es ist also nicht Ziel, das drölfmillionste Tutorial für Matlab zur Verfügung zu stellen. Hierfür gibt es bereits viele sehr gute Anlaufstellen:
 
