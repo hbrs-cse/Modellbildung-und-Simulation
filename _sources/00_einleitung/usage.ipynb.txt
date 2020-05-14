@@ -1,0 +1,401 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Verwendung dieses Buches\n",
+    "\n",
+    "Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.\n",
+    "\n",
+    "Alle Seiten, die Codeblöcke enthalten, haben oben in der Kopfzeile zwei Buttons, einen auf dem \"Thebelab\" steht, und einen auf dem \"Interact\" steht.\n",
+    "\n",
+    "<img src=\"../images/usage_buttons.png\" alt=\"Interact buttons\" style=\"width: 250px;\"/>\n",
+    "\n",
+    "Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editier- und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave-Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.\n",
+    "\n",
+    "Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service [Binder](https://mybinder.org/) auf, sodass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.\n",
+    "\n",
+    "## Thebelab\n",
+    "\n",
+    "Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über Thebelab. Per Klick auf die Taste \"run\", wird der Code ausgeführt, mit \"restart\" wird der im Hintergrund laufende Octave-Kernel neu gestartet.\n",
+    "\n",
+    "<img src=\"../images/usage_thebe.png\" alt=\"Binder Loading Page\" style=\"width: 800px;\"/>\n",
+    "\n",
+    "Alternativ kann Thebelab über das Bleistift-Symbol in jedem Code-Block gestartet werden.\n",
+    "\n",
+    "<img src=\"../images/usage_thebe2.png\" alt=\"Interacte Mode Code-Cell\" style=\"width: 1000px;\"/>\n",
+    "\n",
+    "Denken Sie daran, dass die Code-Zellen unter Umständen von einander abhängig sein könnten. Wenn zum Beispiel in einer Code-Zelle auf eine Variable `x` zugegriffen wird, muss diese auch im Workspace zur Verfügung stehen. Ist dies nicht der Fall, haben Sie wahrscheinlich die Code-Zelle weiter oben, in der `x` initialisiert wird, nicht ausgeführt.\n",
+    "\n",
+    "## Interact\n",
+    "\n",
+    "Der Nachteil der \"Interact\"-Methode ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über [Jupyter Lab](https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906) zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft. \n",
+    "\n",
+    "<img src=\"../images/usage_binder.png\" alt=\"Jupyter Lab Screenshot\" style=\"width: 1200px;\"/>\n",
+    "\n",
+    "<img src=\"../images/usage_binder_launcher.png\" alt=\"Jupyter Lab Screenshot 2\" style=\"width: 1200px;\"/>\n",
+    "\n",
+    "\n",
+    "Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auch neue Dokumente, wie z.B. m-files, erstellen oder hochladen, Dokumente herunterladen und eine Linux-Konsole starten. Das Ganze funktioniert über einen [Docker-Container](https://de.wikipedia.org/wiki/Docker_(Software)), der über den [Binder](https://mybinder.org/) Service geladen wird. \n",
+    "\n",
+    "<img src=\"../images/attention.svg\" alt=\"\" style=\"width: 25px; display: inline;\" />    **Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!** Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.\n",
+    "\n",
+    "## Dateien erstellen\n",
+    "\n",
+    "In Jupyter Lab (\"Interact\" Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der Thebelab Funktionalität erstellen. Wenn ein Code-Block mit der Zeile `%%file myfile.m` beginnt, wird der folgende Inhalt des Blocks in eine Datei `myfile.m` geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/hello_world.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file hello_world.m\n",
+    "function hello_world()\n",
+    "for i=1:5\n",
+    "    disp('Hello World, how is your day?')\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Hello World, how is your day?\n",
+      "Hello World, how is your day?\n",
+      "Hello World, how is your day?\n",
+      "Hello World, how is your day?\n",
+      "Hello World, how is your day?\n"
+     ]
+    }
+   ],
+   "source": [
+    "run hello_world"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<img src=\"../images/attention.svg\" alt=\"\" style=\"width: 25px; display: inline;\" /> **Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.**\n",
+    "\n",
+    "## Unit Testing\n",
+    "\n",
+    "[*Unit Testing*](http://lmgtfy.com/?q=unit+testing) ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihre Funktionsfähigkeit prüfen. Ein weit verbreitetes [Programmierparadigma](https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung) besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt.\n",
+    "\n",
+    "Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für Ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.\n",
+    "\n",
+    "### Unit Tests auf dieser Seite ausführen\n",
+    "\n",
+    "Sowohl Matlab als auch Octave bieten Werkzeuge für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit) verwendet. MoXUnit ist ein freies open source unit testing framework, das sowohl mit Matlab als auch Octave funktioniert.\n",
+    "\n",
+    "Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion `fac` zu schreiben, die die Fakultät $n!$ einer Zahl $n$ berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion `factorial`, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file fac.m\n",
+    "function r = fac(n)\n",
+    "% wrapper for Matlabs factorial function\n",
+    "    r = factorial(n);"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Die bereitgestellten Unit Tests befinden sich in der Datei `test_fac.m`. Diese Tests überprüfen, ob die Funktion sich so verhält wie erwartet. Der Test wird mit folgendem Befehl ausgeführt:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "suite: 6 tests\n",
+      "......\n",
+      "--------------------------------------------------\n",
+      "\n",
+      "OK (passed=6)\n",
+      "ans = 1\n"
+     ]
+    }
+   ],
+   "source": [
+    "moxunit_runtests test_fac.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Aha, es gab also sechs Tests, und die werden von `fac`, bzw. der von Matlab zur Verfügung gestellten Funktion `factorial`, alle erfüllt. Super! \n",
+    "\n",
+    "Das war allerdings auch etwas geschummelt. Wir probieren eine etwas andere Implementierung der Funktion:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file fac.m\n",
+    "function r = fac(n)\n",
+    "% calculates the factorial of the input n\n",
+    "    r = prod(1:n);"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Mal sehen, ob immer noch alle Tests durchlaufen:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "suite: 6 tests\n",
+      "...FFF\n",
+      "--------------------------------------------------\n",
+      "\n",
+      "failure: No exception was raised\n",
+      "  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)\n",
+      "  test_fac>test_fac_exception_negative:31 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)\n",
+      "\n",
+      "failure: No exception was raised\n",
+      "  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)\n",
+      "  test_fac>test_fac_exception_noninteger:35 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)\n",
+      "\n",
+      "failure: inputs are not of the same size\n",
+      "\n",
+      "First input: 1x1 double\n",
+      "1\n",
+      "\n",
+      "Second input: 2x3 double\n",
+      "[1 1 2;6 24 120]\n",
+      "  assertEqual:70 (/home/jan/tools/MOxUnit/MOxUnit/assertEqual.m)\n",
+      "  test_fac>test_fac_array:39 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)\n",
+      "\n",
+      "--------------------------------------------------\n",
+      "\n",
+      "FAILED (passed=3, failure=3)\n",
+      "ans = 0\n"
+     ]
+    }
+   ],
+   "source": [
+    "moxunit_runtests test_fac.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ok, drei der Tests sind erfolgreich, drei schlagen fehl. Die Test Suite gibt Auskunft darüber, welche der Tests fehlschlagen. Die Ausgabe\n",
+    "\n",
+    "```\n",
+    "suite: 6 tests\n",
+    "...FFF\n",
+    "--------------------------------------------------\n",
+    "```\n",
+    "\n",
+    "bedeutet, dass die letzten drei Tests fehlgeschlagen sind. Zusätzlich gibt jeder fehlgeschlagene Test Informationen darüber aus, welches Verhalten erwartet wurde und welches tatsächlich eingetroffen ist. Manchmal sind diese Ausgaben etwas kryptisch, dann lohnt es sich einen Blick in die Implementierung der Tests zu werfen. Mit dem Befehl `type` lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in `test_fac.m` genauer anzuschauen:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "test_fac.m is the user-defined function defined from: /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m\n",
+      "\n",
+      "function test_suite=test_fac\n",
+      "% initialize unit tets\n",
+      "    try\n",
+      "        test_functions=localfunctions();\n",
+      "    catch\n",
+      "    end\n",
+      "    initTestSuite;\n",
+      "\n",
+      "%%%%%%%%%%%%%%%%%%%%%%%\n",
+      "%     Basic tests     %\n",
+      "%%%%%%%%%%%%%%%%%%%%%%%\n",
+      "    \n",
+      "function test_fac_0\n",
+      "% test if fac(0)==1\n",
+      "    assertEqual(fac(0),1);\n",
+      "\n",
+      "function test_fac_1\n",
+      "% test if fac(1)==1\n",
+      "    assertEqual(fac(1),1);\n",
+      "    \n",
+      "function test_fac_5\n",
+      "% test if fac(5)==120\n",
+      "    assertEqual(fac(5),120);\n",
+      "    \n",
+      "%%%%%%%%%%%%%%%%%%%%%%%\n",
+      "% More advanced tests %\n",
+      "%%%%%%%%%%%%%%%%%%%%%%%\n",
+      "\n",
+      "function test_fac_exception_negative\n",
+      "% test if exceptions are thrown for negative values\n",
+      "    assertExceptionThrown(@()fac(-1));\n",
+      "    \n",
+      "function test_fac_exception_noninteger\n",
+      "% test if exceptions are thrown for noninteger values\n",
+      "    assertExceptionThrown(@()fac(1.5),'*');\n",
+      "    \n",
+      "function test_fac_array\n",
+      "% test if fac works on array inputs\n",
+      "    assertEqual(fac([0 1 2; 3 4 5]),[1 1 2; 6 24 120]);\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "type test_fac.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden, wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Unit Tests offline ausführen.\n",
+    "\n",
+    "Wenn Sie möchten, können Sie die Unit tests auch offline ausführen. Dazu müssen Sie die jeweilige *Test Suite*, in diesem Fall `test_fac.m`, herunterladen und das MOxUnit framework lokal installiert haben.\n",
+    "\n",
+    "* Installieren Sie [MOxUnit](https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit).\n",
+    "* Laden Sie sich den entsprechenden Unit Test von dieser Seite herunter. Wenn die Funktion, die getestet werden soll, `myFunction` heißt, ist der Unit Test in der Datei `test_myFunction.m` gespeichert. Sie können sich mit dem Befehl `type test_myFunction.m` den Inhalt der Datei wiedergeben lassen, oder mit dem \"Interact\"-Button eine interaktive Session starten und die Datei per Mausklick herunterladen.\n",
+    "* Führen Sie den Unit Test mit `moxunit_runtests test_myFunction.m` aus.\n",
+    "\n",
+    "## Troubleshooting\n",
+    "\n",
+    "Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine [Email](mailto:jan.kleinert@h-brs.de) oder noch besser, über einen Eintrag im [Issue tracker](https://github.com/joergbrech/Modellbildung-und-Simulation/issues) auf Github.\n",
+    "\n",
+    "### Bekannte bzw. erwartete Probleme:\n",
+    "\n",
+    "1. **Wenn ich auf `run` klicke, steht da nur `Waiting for kernel...` und nichts passiert.**\n",
+    "\n",
+    "   <img src=\"../images/usage_waiting.png\" alt=\"Drawing\" style=\"width: 400px;\"/>\n",
+    "\n",
+    "   *Lösung:* Geduld. Wahrscheinlich wurden gerade Änderungen an diesem Buch vorgenommen und Sie sind die erste Person, die seitdem interaktive Inhalte nutzen will. Damit haben sie ein *rebuild des binder image getriggert*. Das kann schon mal eine Weile dauern. Dasselbe gilt für die \"Interact\" Funktion. Hier erhält man aber ausführlichere Informationen über eine Konsolenausgabe beim Start.\n",
+    "   \n",
+    "   <img src=\"../images/usage_binder_waiting.png\" alt=\"Binder Loading Page\" style=\"width: 1200px;\"/>\n",
+    "   \n",
+    "1. **Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.**\n",
+    "\n",
+    "   *Lösung:* Ab und zu wird der Code fälschlicherweise an einen *Python*-Interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen. Vergessen Sie aber nicht, Ihren eingetragenen Code vorher zu kopieren, damit er beim Neuladen nicht abhanden kommt!\n",
+    "      \n",
+    "1. **Ich bin mir sicher, dass ich die Übungsaufgabe richtig bearbeitet habe, aber der Unit Test gibt Fehler aus.**\n",
+    "\n",
+    "   *Lösung:* Möglicherweise wurde für die Bearbeitung der Übungsaufgabe Matlab-Code geschrieben, der nicht mit Octave kompatibel ist. In diesem Fall sollte es schon helfen, den Unit Test lokal in der eigenen Matlab Installation laufen zu lassen. \n",
+    "   \n",
+    "1. **Beim Ausführen des unit tests im interaktiven Modus (*Thebelab*) erhalte ich folgende Fehlermeldung:**\n",
+    "\n",
+    "```octave\n",
+    "   moxunit_runtests test_fac.m\n",
+    "   \n",
+    "   error: Parameter not recognised or file missing: test_fac.m\n",
+    "   error: called from\n",
+    "      moxunit_runtests>get_params at line 365 column 21\n",
+    "      moxunit_runtests at line 72 column 11\n",
+    "```\n",
+    "\n",
+    "   Das ist ein [bekanntes Problem](https://github.com/jupyter/jupyter-book/issues/107), an dem gerade gearbeitet wird. Die einfachste Lösung ist einfach die \"interact\"-Methode statt der \"Thebelab\"-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus `content` sowie dem akutellen Unterordner dieser Seite, der sich aus der url ablesen lässt. Für diese Seite lautet er `00_einleitung`. Der Befehl\n",
+    "   \n",
+    "```octave\n",
+    "    moxunit_runtests content/00_einleitung/test_fac.m\n",
+    "```\n",
+    "   \n",
+    "   sollte funktionieren.\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "4.2.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

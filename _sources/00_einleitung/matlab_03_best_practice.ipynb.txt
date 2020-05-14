@@ -1,0 +1,581 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Best Practices\n",
+    "\n",
+    "Oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien aufgelistet werden, die sich bewährt haben. Die meisten davon lassen sich allgemein auf alle Programmiersprachen anwenden, einige wenige sind Matlab-spezifisch.\n",
+    "\n",
+    "In diesem Kurs wird nicht erwartet, dass Sie sofort perfekten Code schreiben und sich immer und überall an all diese Richtlinien halten. Es kann aber nicht schaden sich beim Erlernen einer neuen Programmiersprache früh mit diesen Ansprüchen vertraut zu machen und sie im Hinterkopf zu haben. Zumindest die ersten beiden Punkte sollten jedoch von Anfang an beherzigt werden.\n",
+    "\n",
+    "## Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code\n",
+    "\n",
+    "Wenn Sie ein Matlab- bzw. Octaveskript schreiben, haben Sie in der Regel eine genaue Vorstellung von dem was Ihr Skript macht und brauchen die Kommentare nicht als Verständnisstütze. Aus dem Grund ist es allzu leicht, auf die mühsame Kommentierung zu verzichten. Die Erfahrung zeigt aber, dass Ihre Gedankengänge bei der Programmierung schon nachdem Sie sich wenige Wochen nicht mehr mit dem Code auseinandergesetzt haben vergessen sind. Stellen Sie sich vor, nach drei Wochen stellt sich heraus, dass sich ein Bug eingeschlichen hat. Bei der Fehlersuche müssen Sie sich mühsam durch Ihren alten Code kämpfen und es ist im Nachhinein plötzlich nicht mehr ganz so einfach nachzuvollziehen, was Sie sich eigentlich dabei gedacht hatten. Spätestens in solchen Momenten fällt auf, wie wichtig Kommentierung ist. \n",
+    "\n",
+    "Zur Kommentierung gehört nicht nur, dass Sie beschreiben WAS der Code macht, sondern WARUM er so aussieht wie er aussieht. Am Anfang eines Skriptes sollte beschrieben sein, welchem Zweck das Programm dient. Am Anfang einer Funktion gilt dasselbe, wobei hier auch Beschreibungen der Ein- und Ausgabegrößen dazugehören. Wenn relevant, sollten hier auch physikalische Einheiten benannt werden!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/spherical2Cartesian.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file spherical2Cartesian.m\n",
+    "function p = spherical2Cartesian(longitude, latitude, elevation)\n",
+    "% This function takes spherical coordinates and transforms them to\n",
+    "% cartesian coordinates\n",
+    "%\n",
+    "% Inputs:\n",
+    "%    longitude: azimuth angle in degrees measured from xz-plane\n",
+    "%    latitude:  polar angle in degrees  measured from xy-plane\n",
+    "%    elevation: radial distance from origin (unit implied)\n",
+    "%\n",
+    "% Outputs:\n",
+    "%    p: cartesian point (unit as input)\n",
+    "\n",
+    "p = [elevation*sind(longitude)*cosd(latitude); ...\n",
+    "     elevation*sind(longitude)*sind(latitude); ...\n",
+    "     elevation*cosd(longitude) ];\n",
+    "\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/sphericalGrid.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file sphericalGrid.m\n",
+    "% This script creates a regular grid on a sphere using spherical \n",
+    "% coordinates in a 10-degree resolution and displays the points \n",
+    "% in a 3D-plot\n",
+    "\n",
+    "res = 10; % resolution in degrees\n",
+    "\n",
+    "% first, preallocate (n,3)-Matrix to store the cartesian points\n",
+    "numPoints = numel(-180:res:180)*numel(-90:res:90);\n",
+    "p = zeros(numPoints, 3);\n",
+    "\n",
+    "% fill the array of points using the spherical2Cartesian function\n",
+    "p_index = 1;\n",
+    "for long = -180:res:180\n",
+    "    for lat = -90:res:90\n",
+    "        p(p_index,:) = spherical2Cartesian(long, lat, 1);\n",
+    "        p_index = p_index + 1;\n",
+    "    end\n",
+    "end\n",
+    "\n",
+    "% plot the result\n",
+    "scatter3(p(:,1), p(:,2), p(:,3), 'o');\n",
+    "axis equal;\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "run sphericalGrid"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute Ihren Code verwenden ist es klar, dass Sie Ihren Kollegen oder Kunden das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.\n",
+    "\n",
+    "Spätestens wenn das Programm von einer größeren Zielgruppe benutzt werden soll, reicht eine reine Kommentierung nicht aus. Hier muss eine html- oder pdf-Dokumentation herhalten. Die Wichtigkeit von guter Dokumentation für die Verbreitung von Software ist kann nicht genung betont werden! Es gibt inzwischen einige Hilfsprogramme, die aus strukturierter Code-Kommentierung automatisiert eine solche Dokumentation erzeugen kann, Doxygen und Sphinx sind Beispiele. [Hier](https://www.artefact.tk/software/matlab/m2html/) finden Sie ein Tool das spezifisch für Matlab entwickelt wurde.\n",
+    "\n",
+    "Die Sprache der Kommentierung sollte sich natürlich an die Zielgruppe richten. Da sich die Zielgruppe häufig während der Lebenszeit eines Programmes ändert, bietet es sich an, von Anfang an eine Sprache zu wählen, die von sehr vielen Menschen verstanden wird. Wie oft habe ich schon eine Bibliothek nicht benutzt, nur weil die Dokumentation auf Französisch ist.\n",
+    "\n",
+    "## Sprechende Variablennamen\n",
+    "\n",
+    "Damit ein Code verständlich ist, hilft es sprechende Variablen- und Funktionsnamen zu verwenden. Während man in mathematischen Gleichungen gerne Buchstaben und Symbole als Abkürzungen verwendet, sollte man im Code versuchen die Bedeutung einer Variable durch Ihren Namen auszudrücken. Im obigen Beispiel wurden anstatt der üblichen Bezeichnungen `theta`, `phi` und `r` für $(\\Theta, \\phi, r)$ die Variablennamen `longitude`, `latitude` und `elevation` benutzt, um auf die jeweilige Bedeutung hinzuweisen.\n",
+    "\n",
+    "Der folgende Code entspricht semantisch dem obigen Beispiel, ist aber vollkommen unverständlich:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/xralkldaf.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file xralkldaf.m\n",
+    "function peng = xralkldaf(xyz,pft,               hurz)\n",
+    "peng = [hurz*sind(xyz)*cosd(pft);hurz*sind(xyz)*sind(pft);hurz*cosd(xyz)];\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/rxlquapoeh.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file rxlquapoeh.m\n",
+    "h=-180:10:180;g=-90:10:90;\n",
+    "kkkk=numel(h)*numel(g);qwerty=zeros(kkkk, 3);\n",
+    "c=1;\n",
+    "for b=h\n",
+    "    for a=g\n",
+    "        qwerty(c,:)=xralkldaf(b, a, 1);c=c+1;\n",
+    "    end\n",
+    "end\n",
+    "scatter3(qwerty(:,1),qwerty(:,2),qwerty(:,3),'o');axis equal;\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "run rxlquapoeh"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Wiederholten Code vermeiden\n",
+    "\n",
+    "Nicht selten müssen ähnliche oder identische Algorithmen mehrmals an verschiedenen Stellen im Code ausgeführt werden. So werden zum Beispiel im Laufe einer FEM-Berechnung sehr viele Polynominterpolationen ausgeführt. Wenn nun der Algorithmus der Polynominterpolation einmal geschrieben wird und mit Copy-und-Paste an die unterschiedlichen Stellen im Code verteilt wird, funktioniert das in der Regel, auch wenn derselbe Code mehrfach vorkommt und die Code-Basis unnötig vergrößert wird. \n",
+    "\n",
+    "Wenn sich jetzt aber ein Bug in der Polynominterpolation eingeschlichen hat, oder der Polynomgrad geändert werden muss, muss das an vielen Stellen im Code geschehen und die Gefahr ist groß, dass eine Stelle vergessen wird. Daher ist es viel sinnvoller, die Polynominterpolation in eine Funktion auszulagern, die an den diversen Stellen im Code aufgerufen wird. Die Code-Basis bleibt klein und Änderungen an der Funktion haben direkt an allen relevanten Stellen des Codes Effekt.\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Das Rad nicht neu erfinden\n",
+    "\n",
+    "Zur Übung wird es Ihre Aufgabe sein, numerische Methoden wie das Lösen linearer Gleichungssysteme, das Newtonverfahren oder die Polynominterpolation mit Matlab bzw. Octave selber zu programmieren. Später in der Praxis macht es Sinn für solche Methoden die bereits zur Verfügung gestellten Bibliotheken zu benutzen. Diese sind seit langer Zeit im Einsatz, vielfach getestet und auf Performanz getrimmt. Sie müssen die Methoden nicht immer wieder neu implementieren. Wichtig ist aber, dass sie verstehen wie sie funktionieren und an welchen Stellen unter Umständen Probleme auftreten können.\n",
+    "\n",
+    "## Lange Skripte und Funktionen vermeiden\n",
+    "\n",
+    "Gerade bei etwas komplexeren Algorithmen kann es schnell mal passieren, dass eine Funktion oder ein Skript mehrere Hundert Zeilen beansprucht. Für eine bessere Wartbarkeit und Lesbarkeit des Codes macht es Sinn, diese lange Funktion in Teilaufgaben aufzuteilen, und für jede Teilaufgabe eine separate Funktion zu schreiben. So haben Sie Ihren Code in wartbare kleine Module aufgeteilt, die u.U. auch wiederverwendet werden können.\n",
+    "\n",
+    "## Funktionen über Skripte bevorzugen\n",
+    "\n",
+    "Nun kennen wir schon zwei Gründe, warum Funktionen nützlich sind: Zum einen lassen sich Wiederholungen dadurch vermeiden, dass oft vorkommende Aufgaben in eine Funktion ausgelagert werden. Zum anderen helfen Sie den Code in kleine Arbeitspakete zu zerlegen.\n",
+    "\n",
+    "Es gibt aber weitere Gründe, warum Funktionen häufig gegenüber Skripten zu bevorzugen sind. Zum einen trennen Sie Ein- und Ausgabe eines Algorithmus von der tatsächlichen Implementierung. Zum anderen schützen Sie dadurch, dass der *scope* von Hilfsvariablen des Algorithmus beschränkt bleiben. Nehmen wir an in einem Skript A wird eine Nullstelle einer Funktion mittels Bisektion gesucht. Ist der Bisektionsalgorithmus als Skript `bisection.m` implementiert, das aus dem Skript B mit dem Befehl `run bisection.m` aufgerufen wird, landen alle Hilfsvariablen aus `bisection.m` im workspace. Wenn es im Skript A eine Variable `i` und im Skript `bisection.m` eine Variable `i` gibt, so wird die erste durch die zweite überschrieben. Da der Anwender, der Skript A geschrieben hat, sich für die Implementierung in `bisection.m` gar nicht interessiert, bekommt er es unter Umständen gar nicht mit und die Fehlersuche kann langwierig sein.\n",
+    "\n",
+    "Wenn aber `bisection.m` als Funktion implementiert ist, existiert das `i` aus Skript A in einem anderen Workspace (bzw. *scope*) als das `i` aus `bisection.m`. Keines der `i` wird überschrieben."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Globale Variablen vermeiden\n",
+    "\n",
+    "Genauso wie Skripte erweitern globale Variablen die Sichtbarkeit, d.h. den scope einer Variable, was zu möglichen Fehlerquellen führen kann. An wenigen Stellen können globale Variablen sinnvoll sein. Sollten Sie sie einsetzen, fragen Sie sich aber auf jeden Fall, warum Sie sich für eine Implementierung mit globalen Variablen entschieden haben, wo Probleme auftreten könnten und ob Sie das Problem anders hätten lösen können.\n",
+    "\n",
+    "In dem Beispiel des [Bierschaumzerfalls](../04_nichtlineare_gleichungen/exercises_00_bierschaum#der-doppler-effekt) werden globale Variablen zum Beispiel mit Hilfe von anonymen Funktionen *(function handles)* vermieden.\n",
+    "\n",
+    "## Performance: Allokation\n",
+    "\n",
+    "Angenommen `A` ist eine $3 \\times 3$ Matrix in Matlab. Dann bewirkt der Befehl `A(5,5)=1`, dass die Matrix erweitert wird, die neuen Werte mit Nullen gefüllt werden und anschließend das Element `A(5,5)` mit dem Wert `1` beschrieben wird."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "A =\n",
+      "\n",
+      "   0.391676   0.440689   0.453920\n",
+      "   0.532241   0.615566   0.010242\n",
+      "   0.576607   0.714609   0.033449\n",
+      "\n",
+      "A =\n",
+      "\n",
+      "   0.39168   0.44069   0.45392   0.00000   0.00000\n",
+      "   0.53224   0.61557   0.01024   0.00000   0.00000\n",
+      "   0.57661   0.71461   0.03345   0.00000   0.00000\n",
+      "   0.00000   0.00000   0.00000   0.00000   0.00000\n",
+      "   0.00000   0.00000   0.00000   0.00000   1.00000\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "A = rand(3,3)\n",
+    "A(5,5) = 1"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Was passiert da eigentlich hinter den Kulissen? Wenn eine neue Matrix erstellt wird, wird sie sequentiell im Speicher hinterlegt. Für eine $3 \\times 3$ Matrix werden also neun Werte mit der Größe eines `double` im Speicher hintereinander weg gespeichert. Da Matlab die sogenannte *column-major* Speicherung verwendet, wird die Matrix in der folgenden Reihenfolge gespeichert:\n",
+    "\n",
+    "```\n",
+    "A(1,1) A(2,1) A(3,1) A(1,2) A(2,2) A(3,2) A(1,3) A(2,3) A(3,3)\n",
+    "```\n",
+    "\n",
+    "Der Befehl `A(5,5)=1` signalisiert nun, dass die Matrix vergrößert werden muss. Da die Matrix aber zwingend sequentiell in *column-major* Speicherformat im RAM hinterlegt werden muss, kann Matlab nicht einfach die alte Speicheradresse verwenden. Es muss zunächst im Speicher nach einer Stelle gesucht werden, die 25 `double` Werte aufnehmen kann. Dieser Speicher wird dann für die Matrix `A` reserviert und `À` erhält eine neue Speicheradresse. Anschließend müssen die Werte der alten Matrix an die neue Speicheradresse kopiert werden, die neu hinzugekommenen Elemente bekommen den Wert `0` zugewiesen, während `A(5,5)`, die 25. Stelle im Speicher, den Wert `1` zugewiesen bekommt.\n",
+    "\n",
+    "Dieser Prozess der Speicherallokation nimmt eine gewisse Zeit in Anspruch, die insbesondere bei größeren Matrizen nicht mehr vernachlässigt werden kann. Wenn also die benötigte Größe einer Matrix vorher ausgerechnet werden kann, dann sollte die Matrix einmal in der richtigen Größe am Anfang des Skriptes bzw. der Funktion allokiert werden, z.B. mit dem `zeros(n,m)` Befehl. Anschließend kann sie befüllt werden, ohne dass sie im Speicher umziehen muss.\n",
+    "\n",
+    "Der folgende Code demonstriert das. Mit den Befehlen `tic` und `toc` können Zeitmessungen für alle Befehle, die von `tic` und `toc` umschlossen werden, vorgenommen werden."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Naive approach requiring constant reallocation: 9.396 s\n",
+      "Method using preallocation: 7.987 s\n",
+      "Matlab internal method: 0.021763 s\n"
+     ]
+    }
+   ],
+   "source": [
+    "% Create a regular (n+1, m+1) 2D grid of integer points storing the x and y coordinates of each grid point\n",
+    "\n",
+    "clear % clear the workspace to make sure no variables are allocated in memory yet\n",
+    "\n",
+    "n = 1000;\n",
+    "m = 1000;\n",
+    "\n",
+    "\n",
+    "%% Create grid without preallocating X and Y\n",
+    "\n",
+    "tic;\n",
+    "for i=0:n\n",
+    "    for j=0:m\n",
+    "        X(i+1, j+1) = i; % the arrays X and Y grow with each increment in i and j\n",
+    "        Y(i+1, j+1) = j;\n",
+    "    end\n",
+    "end\n",
+    "t1 = toc;\n",
+    "disp(['Naive approach requiring constant reallocation: ', num2str(t1), ' s'])\n",
+    "\n",
+    "\n",
+    "%% Create grid with preallocation of X and Y\n",
+    "\n",
+    "clear X,Y; % remove X and Y from workspace to force Matlab to allocate X and Y again\n",
+    "tic;\n",
+    "\n",
+    "% preallocate X and Y with the right size and initialize with zeros\n",
+    "X = zeros(n+1, m+1);\n",
+    "Y = zeros(n+1, m+1);\n",
+    "\n",
+    "% fill the arrays\n",
+    "for i=0:n\n",
+    "    for j=0:m\n",
+    "        X(i+1, j+1) = i;\n",
+    "        Y(i+1, j+1) = j;\n",
+    "    end\n",
+    "end\n",
+    "t2 = toc;\n",
+    "disp(['Method using preallocation: ', num2str(t2), ' s'])\n",
+    "\n",
+    "%% Matlab internal method\n",
+    "\n",
+    "clear X,Y;\n",
+    "tic;\n",
+    "[X, Y] = meshgrid(0:n, 0:m);\n",
+    "t3 = toc;\n",
+    "disp(['Matlab internal method: ', num2str(t3), ' s'])"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Idealerweise sollte man bei Performanzmessungen darauf achten, dass kein anderer Prozess die Rechenressourcen beansprucht und man sollte den Test mehrfach wiederholen, um mögliche Schwankungen in den Messergebnissen mitteln zu können. Aber dennoch lässt sich deutlich erkennen, dass die Vorallokierung einiges an Rechenzeit einsparen kann. Aber wieso ist eigentlich die Matlab-interne Methode so viel schneller? Das liegt daran, dass Matlab natürlich noch einige andere Tricks anwendet als die clevere Allokation der Ergebnisvektoren. Unter anderem lässt sich viel Rechenzeit einsparen, indem die Vektorisierung von Rechenoperationen ausgenutzt wird."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Performance: Matlab Vektorisierung ausnutzen\n",
+    "\n",
+    "Matlab ist für Vektor- und Matrixoperationen optimiert. Deshalb bietet es sich an, skalare Operationen wie zum Beispiel die elementweise Addition in einer for-Schleife zu vermeiden und direkt auf Vektoroperationen zurückzugreifen, die in der Regel viel effizienter sind."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Elapsed time is 0.011553 seconds.\n",
+      "Elapsed time is 0.709831 seconds.\n"
+     ]
+    }
+   ],
+   "source": [
+    "% test the performance of vector addition C = A + B in Matlab,\n",
+    "% where both A and B are (n,1)-Vectors\n",
+    "\n",
+    "clear; % clear all variables from workspace\n",
+    "\n",
+    "n = 1e5; % length of the input vectors A and B\n",
+    "\n",
+    "% create two vectors of length n\n",
+    "A = rand(n,1);\n",
+    "B = rand(n,1);\n",
+    "\n",
+    "% preallocate solution vector\n",
+    "C = zeros(n,1);\n",
+    "\n",
+    "\n",
+    "% implement vectorwise, Matlab can make use of SIMD vectorization\n",
+    "tic;\n",
+    "C = A + B;\n",
+    "toc;\n",
+    "\n",
+    "% use a for-loop: Matlab cannot use vectorization, because Matlab cannot predict\n",
+    "% what you intend to do in each loop.\n",
+    "tic;\n",
+    "for i=1:n\n",
+    "    C(i) = A(i) + B(i);\n",
+    "end\n",
+    "toc;"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "[Hier](https://de.mathworks.com/help/matlab/matlab_prog/techniques-for-improving-performance.html) finden Sie zusätzliche Informationen, wie Sie die Performanz Ihres Matlab-Codes verbessern können. Insbesondere der Profiler ist sehr zu empfehlen."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Kein übermäßiger Gebrauch von if-then-else Anweisungen\n",
+    "\n",
+    "Zum einen sorgen viele if-then-else-Verzweigungen für komplexe Pfade in einem Rechencode. Zum anderen können if-then-else-Abfragen innerhalb von Schleifen auch Performanzeinbußen mit sich bringen, da die Bedingung immer wieder abgefragt werden muss und u.U. ein Codeblock geladen werden muss oder eben nicht. In diesem Fall lohnt es sich zu überlegen, ob man die if-then-else-Abfrage um die for-Schleife schachtelt.\n",
+    "\n",
+    "## Gleitkommazahlen nicht auf Gleichheit überprüfen\n",
+    "\n",
+    "In Computern werden alle Zahlen mit Gleitkommazahlen dargestellt. Diese endliche Zahldarstellung hat den Effekt, dass jede Rechenoperation fehlerbehaftet ist. Während der Rechenfehler einer einzelnen Operation zwar relativ gering ausfallen kann, kann er sich im Laufe vieler Rechenoperationen eines Algorithmus verstärken. Dieser Umstand muss bei numerischen Berechnungen mit dem Computer immer beachtet werden!\n",
+    "\n",
+    "Eine Konsequenz ist, dass wir von zwei reellen Zahlen nur in seltenen Ausnahmefällen erwarten können, dass sie exakt gleich sind. Höchstwahrscheinlich ist mindestens eine Zahl mit Rundungsfehlern behaftet. Im folgenden werden zwei reelle Zahlen `a` und `b` berechnet, so dass das exakte Ergebnis für beide `0.3` ergeben sollte. Der Test auf Gleichheit `a == b` schlägt aber fehl, da bei den Berechnungen Rundungsfehler das Ergebnis verfälscht haben."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a =  0.30000\n",
+      "b =  0.30000\n",
+      "a and b are not equal\n"
+     ]
+    }
+   ],
+   "source": [
+    "a = 0.15 + 0.15\n",
+    "b = 0.1  + sqrt(0.04)\n",
+    "\n",
+    "if a == b\n",
+    "    disp('a and b are equal.')\n",
+    "else\n",
+    "    disp('a and b are not equal')\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Wie groß ist der Rundungsfehler?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans =   -5.5511e-17\n"
+     ]
+    }
+   ],
+   "source": [
+    "a-b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Während es bei ganzen Zahlen legitim ist den `==`-Operator für den Test auf Gleichheit zu verwenden, sollte man bei reellen Gleitkommazahlen eher auf Gleichheit im Rahmen einer gewissen Toleranz testen:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a and b are equal.\n"
+     ]
+    }
+   ],
+   "source": [
+    "tol = 1e-12;\n",
+    "if abs(b-a) < tol\n",
+    "    disp('a and b are equal.')\n",
+    "else\n",
+    "    disp('a and b are not equal')\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Die Wahl der Toleranz `tol` sollte für jeden Anwendungsfall auf den erwartbaren bzw. tolerierbaren Fehler angepasst sein."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Versionskontrolle verwenden\n",
+    "\n",
+    "Unter Versionskontrolle versteht man das Erfassen von Änderungen an Dokumenten und Dateien. Hierfür stehen viele verschiedene Werkzeuge zur Verfügung, wie z.B. git, svn oder mercurial. \n",
+    "\n",
+    "Kleine Änderungen am Code werden in einem *commit* zusammengefasst, der eine entsprechende Beschreibung erhält, wie z.B.\n",
+    "\n",
+    "\n",
+    "```bash\n",
+    "git add test_spherical2Cartesian.m\n",
+    "git commit -m \"added unit test for coordinate transform\" \n",
+    "```\n",
+    "\n",
+    "So können alle Änderungen am Code dokumentiert werden und man kann den Code zu jedem denkbaren Entwicklungspunkt zurückspulen.  Das kann unter Umständen dazu genutzt werden, Fehler zu beheben, die erst spät auffallen. Wichtige Meilensteine können mit zusätzlichen *tags* versehen werden. Diese können zum Beispiel Major-Releases wie *\"version 1.0\"* sein. Dies erhöht zudem die Reproduzierbarkeit, da die Version des Codes, mit der ein bestimmtes Ergebnis erzielt wurde mit einem tag, mindestens mit einem commit referenziert werden kann, auch wenn sich später Änderungen ergeben haben sollten. \n",
+    "\n",
+    "In Verbindung mit Cloudservices wie [gitlab.com](https://gitlab.com) oder [github.com](https://github.com) kann die Versionskontrolle auch zur Datensicherung verwendet werden.\n",
+    "\n",
+    "Die Versionskontrolle hat sich aus einer Notwendigkeit in der Softwareentwicklung heraus entwickelt, da nur so gewährleistet werden kann, dass bei Arbeiten in großen Teams ein Mitarbeiter nicht die Änderungen eines anderen Entwicklers überschreibt und alle Codeänderungen für alle Entwickler transparent bleiben. \n",
+    "\n",
+    "Die Versionskontrolle kann aber für jegliche Art von Daten genutzt werden. Insbesondere für Studienarbeiten oder Abschlussarbeiten ist sie sehr zu empfehlen. Ich halte zum Beispiel alle Unterlagen dieses Kurses - inklusive dieses Online-Lehrbuchs - unter Versionskontrolle.\n",
+    "\n",
+    "Ich kann Git wärmstens empfehlen und nur auf [eines der vielen sehr gut geschriebenen Online Tutorials](http://lmgtfy.com/?q=git+f%C3%BCr+Anf%C3%A4nger) verweisen."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "4.2.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

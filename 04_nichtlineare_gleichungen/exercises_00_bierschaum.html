@@ -1,1764 +1,456 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta charset="utf-8" />
+    <title>Bierschaumzerfall &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script type="text/javascript" src="../_static/togglebutton.js"></script>
+    <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/mystnb.js"></script>
+    <script type="text/javascript" src="../_static/sphinx-book-theme.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" type="text/javascript" src="../_static/thebelab.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interpolation und Approximation" href="../05_interp_approx/intro.html" />
+    <link rel="prev" title="Nichtlineare Gleichungssysteme" href="intro.html" />
 
-  <title>Bierschaumzerfall</title>
-  <meta name="description" content="        Der Zerfall des Bierschaums Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?Experiment...">
-
-  <link rel="canonical" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html">
-  <link rel="alternate" type="application/rss+xml" title="Modellbildung und Simulation" href="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/feed.xml">
-
-  <meta property="og:url"         content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Bierschaumzerfall" />
-<meta property="og:description" content="        Der Zerfall des Bierschaums Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?Experiment..." />
-<meta property="og:image"       content="https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" />
-
-<meta name="twitter:card" content="summary">
-
-
-  <script type="application/ld+json">
-  {
-  "@context": "http://schema.org",
-  "@type": "NewsArticle",
-  "mainEntityOfPage": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html",
-  "headline": "Bierschaumzerfall",
-  "datePublished": "2020-05-14T05:54:22+00:00",
-  "dateModified": "2020-05-14T05:54:22+00:00",
-  "description": "        Der Zerfall des Bierschaums Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?Experiment...",
-  "author": {
-    "@type": "Person",
-    "name": "Jan Kleinert"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Data 100 at UC Berkeley",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation",
-      "width": 60,
-      "height": 60
-    }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "https://joergbrech.github.io/Modellbildung-und-Simulation/Modellbildung-und-Simulation",
-    "height": 60,
-    "width": 60
-  }
-}
-
-  </script>
-  <link rel="stylesheet" href="/Modellbildung-und-Simulation/assets/css/styles.css">
-
-  <!-- <link rel="manifest" href="/manifest.json"> -->
-  <!-- <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#efae0a"> -->
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-  <meta name="theme-color" content="#233947">
-
-  <!-- Favicon -->
-  <link rel="shortcut icon" type="image/x-icon" href="/Modellbildung-und-Simulation/images/logo/favicon.ico">
-
-  <!-- MathJax Config -->
-  <!-- Allow inline math using $ and automatically break long math lines -->
-<!-- (mostly) copied from nbconvert configuration -->
-<!-- https://github.com/jupyter/nbconvert/blob/master/nbconvert/templates/html/mathjax.tpl -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-        processEscapes: true,
-        processEnvironments: true
-    },
-    // Center justify equations in code and markdown cells. Elsewhere
-    // we use CSS to left justify single line equations in code cells.
-    displayAlign: 'center',
-    "HTML-CSS": {
-        styles: {'.MathJax_Display': {"margin": 0}},
-        linebreaks: { automatic: true },
-    }
-});
-</script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML' async></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
 
 
-  <!-- DOM updating function -->
-  <script src="/Modellbildung-und-Simulation/assets/js/page/dom-update.js"></script>
 
-  <!-- Selectors for elements on the page -->
-  <script src="/Modellbildung-und-Simulation/assets/js/page/documentSelectors.js"></script>
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
 
-  <!-- Define some javascript variables that will be useful in other javascript -->
-  <script>
-    const site_basename = '/Modellbildung-und-Simulation';
-  </script>
+    <div class="container-xl">
+      <div class="row">
+          
 
-  <!-- Add AnchorJS to let headers be linked -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js" async></script>
-  <script src="/Modellbildung-und-Simulation/assets/js/page/anchors.js" async></script>
-
-  <!-- Include Turbolinks to make page loads fast -->
-  <!-- https://github.com/turbolinks/turbolinks -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turbolinks/5.2.0/turbolinks.js" async></script>
-  <meta name="turbolinks-cache-control" content="no-cache">
-
-  <!-- Load nbinteract for widgets -->
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
   
-
-  <!-- Load Thebelab for interactive widgets -->
-  <!-- Include Thebelab for interactive code if it's enabled -->
-
-
-<!-- Display Thebelab button in each code cell -->
-<script>
-/**
- * Set up thebelab button for code blocks
- */
-
-const thebelabCellButton = id =>
-  `<a id="thebelab-cell-button-${id}" class="btn thebebtn o-tooltip--left" data-tooltip="Interactive Mode">
-    <img src="/Modellbildung-und-Simulation/assets/images/edit-button.svg" alt="Start thebelab interactive mode">
-  </a>`
-
-
-const addThebelabButtonToCodeCells =  () => {
-
-  const codeCells = document.querySelectorAll('div.input_area > div.highlight:not(.output) pre')
-  codeCells.forEach((codeCell, index) => {
-    const id = codeCellId(index)
-    codeCell.setAttribute('id', id)
-    if (document.getElementById("thebelab-cell-button-" + id) == null) {
-      codeCell.insertAdjacentHTML('afterend', thebelabCellButton(id));
-    }
-  })
-}
-
-initFunction(addThebelabButtonToCodeCells);
-</script>
-
-
-
-<script type="text/x-thebe-config">
-    {
-      requestKernel: true,
-      binderOptions: {
-        repo: 'joergbrech/Modellbildung-und-Simulation',
-        ref: 'master',
-      },
-      codeMirrorConfig: {
-        theme: "abcdef"
-      },
-      kernelOptions: {
-        name: 'octave',
-      }
-    }
-</script>
-<script src="https://unpkg.com/thebelab@0.4.0/lib/index.js" async></script>
-<script>
-    /**
-     * Add attributes to Thebelab blocks
-     */
-
-    const initThebelab = () => {
-        const addThebelabToCodeCells = () => {
-            console.log("Adding thebelab to code cells...");
-            // If Thebelab hasn't loaded, wait a bit and try again. This
-            // happens because we load ClipboardJS asynchronously.
-            if (window.thebelab === undefined) {
-                setTimeout(addThebelabToCodeCells, 250)
-            return
-            }
-
-            // If we already detect a Thebelab cell, don't re-run
-            if (document.querySelectorAll('div.thebelab-cell').length > 0) {
-                return;
-            }
-
-            // Find all code cells, replace with Thebelab interactive code cells
-            const codeCells = document.querySelectorAll('.input_area pre')
-            codeCells.forEach((codeCell, index) => {
-                const id = codeCellId(index)
-                codeCell.setAttribute('data-executable', 'true')
-
-                // Figure out the language it uses and add this too
-                var parentDiv = codeCell.parentElement.parentElement;
-                var arrayLength = parentDiv.classList.length;
-                for (var ii = 0; ii < arrayLength; ii++) {
-                    var parts = parentDiv.classList[ii].split('language-');
-                    if (parts.length === 2) {
-                        // If found, assign dataLanguage and break the loop
-                        var dataLanguage = parts[1];
-                        break;
-                    }
-                }
-                if ( dataLanguage === 'matlab' ) {
-                    console.log('Found matlab block. Setting language to Octave.')
-                    dataLanguage='octave';
-                }
-                codeCell.setAttribute('data-language', dataLanguage)
-
-                // If the code cell is hidden, show it
-                var inputCheckbox = document.querySelector(`input#hidebtn${codeCell.id}`);
-                if (inputCheckbox !== null) {
-                    setCodeCellVisibility(inputCheckbox, 'visible');
-                }
-            });
-
-            // Remove the event listener from the page so keyboard press doesn't
-            // Change page
-            document.removeEventListener('keydown', initPageNav)
-            keyboardListener = false;
-
-            // Init thebelab
-            thebelab.bootstrap();
-
-            // Remove copy buttons since they won't work anymore
-            const copyAndThebeButtons = document.querySelectorAll('.copybtn, .thebebtn')
-            copyAndThebeButtons.forEach((button, index) => {
-                button.remove();
-            });
-
-            // Remove outputs since they'll be stale
-            const outputs = document.querySelectorAll('.output *, .output')
-            outputs.forEach((output, index) => {
-                output.remove();
-            });
-
-            // Find any cells with an initialization tag and ask ThebeLab to run them when ready
-            var thebeInitCells = document.querySelectorAll('div.tag_thebelab-init');
-            thebeInitCells.forEach((cell) => {
-                console.log("Initializing ThebeLab with cell: " + cell.id);
-                cell.querySelector('.thebelab-run-button').click();
-            });
-        }
-
-        // Add event listener for the function to modify code cells
-        const thebelabButtons = document.querySelectorAll('[id^=thebelab], [id$=thebelab]')
-        thebelabButtons.forEach((thebelabButton,index) => {
-            if (thebelabButton === null) {
-                setTimeout(initThebelab, 250)
-                return
-            };
-            thebelabButton.addEventListener('click', addThebelabToCodeCells);
-        });
-    }
-
-    // Initialize Thebelab
-    initFunction(initThebelab);
-</script>
-
-
-
-  <!-- Load the auto-generating TOC (non-async otherwise the TOC won't load w/ turbolinks) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.min.js" async></script>
-  <script src="/Modellbildung-und-Simulation/assets/js/page/tocbot.js"></script>
-
-  <!-- Google analytics -->
+  <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
   
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-134708516-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-134708516-1');
-</script>
-
-
-
-  <!-- Clipboard copy button -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" async></script>
-
-  <!-- Load custom website scripts -->
-  <script src="/Modellbildung-und-Simulation/assets/js/scripts.js" async></script>
-
-  <!-- Load custom user CSS and JS  -->
-  <script src="/Modellbildung-und-Simulation/assets/custom/custom.js" async></script>
-  <link rel="stylesheet" href="/Modellbildung-und-Simulation/assets/custom/custom.css">
-
-  <!-- Update interact links w/ REST param, is defined in includes so we can use templates -->
   
-<script>
-/**
-  * To auto-embed hub URLs in interact links if given in a RESTful fashion
- */
-
-function getJsonFromUrl(url) {
-  var query = url.split('?');
-  if (query.length < 2) {
-    // No queries so just return false
-    return false;
-  }
-  query = query[1];
-  // Collect REST params into a dictionary
-  var result = {};
-  query.split("&").forEach(function(part) {
-    var item = part.split("=");
-    result[item[0]] = decodeURIComponent(item[1]);
-  });
-  return result;
-}
-    
-function dict2param(dict) {
-    params = Object.keys(dict).map(function(k) {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(dict[k])
-    });
-    return params.join('&')
-}
-
-// Parse a Binder URL, converting it to the string needed for JupyterHub
-function binder2Jupyterhub(url) {
-  newUrl = {};
-  parts = url.split('v2/gh/')[1];
-  // Grab the base repo information
-  repoinfo = parts.split('?')[0];
-  var [org, repo, ref] = repoinfo.split('/');
-  newUrl['repo'] = ['https://github.com', org, repo].join('/');
-  newUrl['branch'] = ref
-  // Grab extra parameters passed
-  params = getJsonFromUrl(url);
-  if (params['filepath'] !== undefined) {
-    newUrl['subPath'] = params['filepath']
-  }
-  return dict2param(newUrl);
-}
-
-// Filter out potentially unsafe characters to prevent xss
-function safeUrl(url)
-{
-   return String(encodeURIComponent(url))
-            .replace(/&/g, '&amp;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;');
-}
-
-function addParamToInternalLinks(hub) {
-  var links = document.querySelectorAll("a").forEach(function(link) {
-    var href = link.href;
-    // If the link is an internal link...
-    if (href.search("https://joergbrech.github.io/Modellbildung-und-Simulation") !== -1 || href.startsWith('/') || href.search("127.0.0.1:") !== -1) {
-      // Assume we're an internal link, add the hub param to it
-      var params = getJsonFromUrl(href);
-      if (params !== false) {
-        // We have REST params, so append a new one
-        params['jupyterhub'] = hub;
-      } else {
-        // Create the REST params
-        params = {'jupyterhub': hub};
-      }
-      // Update the link
-      var newHref = href.split('?')[0] + '?' + dict2param(params);
-      link.setAttribute('href', decodeURIComponent(newHref));
-    }
-  });
-  return false;
-}
-
-
-// Update interact links
-function updateInteractLink() {
-    // hack to make this work since it expects a ? in the URL
-    rest = getJsonFromUrl("?" + location.search.substr(1));
-    jupyterHubUrl = rest['jupyterhub'];
-    var hubType = null;
-    var hubUrl = null;
-    if (jupyterHubUrl !== undefined) {
-      hubType = 'jupyterhub';
-      hubUrl = jupyterHubUrl;
-    }
-
-    if (hubType !== null) {
-      // Sanitize the hubUrl
-      hubUrl = safeUrl(hubUrl);
-
-      // Add HTTP text if omitted
-      if (hubUrl.indexOf('http') < 0) {hubUrl = 'http://' + hubUrl;}
-      var interactButtons = document.querySelectorAll("button.interact-button")
-      var lastButton = interactButtons[interactButtons.length-1];
-      var link = lastButton.parentElement;
-
-      // If we've already run this, skip the link updating
-      if (link.nextElementSibling !== null) {
-        return;
-      }
-
-      // Update the link and add context div
-      var href = link.getAttribute('href');
-      if (lastButton.id === 'interact-button-binder') {
-        // If binder links exist, we need to re-work them for jupyterhub
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // If localhost, assume we're working from a local Jupyter server and remove `/hub`
-          first = [hubUrl, 'git-sync'].join('/')
-        } else {
-          first = [hubUrl, 'hub', 'user-redirect', 'git-sync'].join('/')
-        }
-        href = first + '?' + binder2Jupyterhub(href);
-      } else {
-        // If interact button isn't binderhub, assume it's jupyterhub
-        // If JupyterHub links, we only need to replace the hub url
-        href = href.replace("", hubUrl);
-        if (hubUrl.indexOf('http%3A%2F%2Flocalhost') > -1) {
-          // Assume we're working from a local Jupyter server and remove `/hub`
-          href = href.replace("/hub/user-redirect", "");
-        }
-      }
-      link.setAttribute('href', decodeURIComponent(href));
-
-      // Add text after interact link saying where we're launching
-      hubUrlNoHttp = decodeURIComponent(hubUrl).replace('http://', '').replace('https://', '');
-      link.insertAdjacentHTML('afterend', '<div class="interact-context">on ' + hubUrlNoHttp + '</div>');
-
-      // Update internal links so we retain the hub url
-      addParamToInternalLinks(hubUrl);
-    }
-}
-
-runWhenDOMLoaded(updateInteractLink)
-document.addEventListener('turbolinks:load', updateInteractLink)
-</script>
-
-
-  <!-- Lunr search code - will only be executed on the /search page -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js" async></script>
-  <script>var initQuery = function() {
-  // See if we have a search box
-  var searchInput = document.querySelector('input#lunr_search');
-  if (searchInput === null) {
-    return;
-  }
-
-  // Function to parse our lunr cache
-  var idx = lunr(function () {
-    this.field('title')
-    this.field('excerpt')
-    this.field('categories')
-    this.field('tags')
-    this.ref('id')
-
-    this.pipeline.remove(lunr.trimmer)
-
-    for (var item in store) {
-      this.add({
-        title: store[item].title,
-        excerpt: store[item].excerpt,
-        categories: store[item].categories,
-        tags: store[item].tags,
-        id: item
-      })
-    }
-  });
-
-  // Run search upon keyup
-  searchInput.addEventListener('keyup', function () {
-    var resultdiv = document.querySelector('#results');
-    var query = document.querySelector("input#lunr_search").value.toLowerCase();
-    var result =
-      idx.query(function (q) {
-        query.split(lunr.tokenizer.separator).forEach(function (term) {
-          q.term(term, { boost: 100 })
-          if(query.lastIndexOf(" ") != query.length-1){
-            q.term(term, {  usePipeline: false, wildcard: lunr.Query.wildcard.TRAILING, boost: 10 })
-          }
-          if (term != ""){
-            q.term(term, {  usePipeline: false, editDistance: 1, boost: 1 })
-          }
-        })
-      });
-
-      // Empty the results div
-      while (resultdiv.firstChild) {
-        resultdiv.removeChild(resultdiv.firstChild);
-      }
-
-    resultdiv.insertAdjacentHTML('afterbegin', '<p class="results__found">'+result.length+' Result(s) found</p>');
-    for (var item in result) {
-      var ref = result[item].ref;
-      if(store[ref].teaser){
-        var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<div class="archive__item-teaser">'+
-                '<img src="'+store[ref].teaser+'" alt="">'+
-              '</div>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      else{
-    	  var searchitem =
-          '<div class="list__item">'+
-            '<article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">'+
-              '<h2 class="archive__item-title" itemprop="headline">'+
-                '<a href="'+store[ref].url+'" rel="permalink">'+store[ref].title+'</a>'+
-              '</h2>'+
-              '<p class="archive__item-excerpt" itemprop="description">'+store[ref].excerpt.split(" ").splice(0,20).join(" ")+'...</p>'+
-            '</article>'+
-          '</div>';
-      }
-      resultdiv.insertAdjacentHTML('beforeend', searchitem);
-    }
-  });
-};
-
-initFunction(initQuery);
-</script>
-
-  <!-- Load JS that depends on site variables -->
-  <script src="/Modellbildung-und-Simulation/assets/js/page/copy-button.js" async></script>
-
-  <!-- Hide cell code -->
-  <script src="/Modellbildung-und-Simulation/assets/js/page/hide-cell.js" async></script>
-
-  <!-- Printing the screen -->
-  <!-- Include nbinteract for interactive widgets -->
-<script src="https://printjs-4de6.kxcdn.com/print.min.js" async></script>
-<script>
-printContent = () => {
-    // MathJax displays a second version of any math for assistive devices etc.
-    // This prevents double-rendering in the PDF output.
-    var ignoreAssistList = [];
-    assistives = document.querySelectorAll('.MathJax_Display span.MJX_Assistive_MathML').forEach((element, index) => {
-        var thisId = 'MathJax-assistive-' + index.toString();
-        element.setAttribute('id', thisId);
-        ignoreAssistList.push(thisId)
-    });
-
-    // Print the actual content object
-    printJS({
-        printable: 'textbook_content',
-        type: 'html',
-        css: "/Modellbildung-und-Simulation/assets/css/styles.css",
-        style: "#textbook_content {padding-top: 40px};",
-        scanStyles: false,
-        targetStyles: ["*"],
-        ignoreElements: ignoreAssistList,
-        documentTitle: "Made with Jupyter Book"
-    })
-};
-
-initPrint = () => {
-    document.querySelector('#interact-button-print').addEventListener('click', printContent)
-}
-
-initFunction(initPrint)
-</script>
-
-</head>
-
-  <body>
-    <!-- .js-show-sidebar shows sidebar by default -->
-    <div id="js-textbook" class="c-textbook js-show-sidebar">
-      
-
-
-
-<nav id="js-sidebar" class="c-textbook__sidebar">
-  <a href="https://h-brs.de"><img src="/Modellbildung-und-Simulation/images/logo/hbrs_logo_text.png" class="textbook_logo" id="sidebar-logo" alt="textbook logo" data-turbolinks-permanent/></a>
-  <h2 class="c-sidebar__title">Modellbildung und Simulation</h2>
-  <ul class="c-sidebar__chapters">
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/intro.html"
-        >
-          
-          Home
-        </a>
-
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/00_einleitung/intro.html"
-        >
-          
-          Einleitung
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/00_einleitung/usage.html"
-                >
-                  
-                  Verwendung des Buches
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/00_einleitung/matlab_00_first_steps.html"
-                >
-                  
-                  Erste Schritte in Matlab
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_01_command_window.html"
-                    >
-                      
-                      Matlab Command Window
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_02_scripts_and_functions.html"
-                    >
-                      
-                      Skripte und Funktionen
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/matlab_03_best_practice.html"
-                    >
-                      
-                      Best Practices
-                    </a>
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/00_einleitung/exercises_00_intro.html"
-                >
-                  
-                  Übungsaufgaben
-                </a>
-
-                
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_01_factorial_pi.html"
-                    >
-                      
-                      Matlab/Octave
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_02_fluessigkeit.html"
-                    >
-                      
-                      Flüssigkeit im Boden
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_03_verkehrssimulation.html"
-                    >
-                      
-                      Verkehrssimulation
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/00_einleitung/exercises_04_perfekter_wurf.html"
-                    >
-                      
-                      Perfekter Wurf
-                    </a>
-                
-                  
-                  
-
-                  <li class="c-sidebar__subsection">
-                    <a class="c-sidebar__entry "
-                      href="/Modellbildung-und-Simulation/emptypage.html"
-                    >
-                      
-                      Conway's Game of Life
-                    </a>
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/01_schwingungen/intro.html"
-        >
-          
-            1.
-          
-          Schwingungen
-        </a>
-
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/02_lineare_gleichungen/intro.html"
-        >
-          
-            2.
-          
-          Lineare Gleichungssysteme
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/02_lineare_gleichungen/exercises_00_highline.html"
-                >
-                  
-                    2.1
-                  
-                  Modellierung einer Highline
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/03_gleitkommaarithmetik/intro.html"
-        >
-          
-            3.
-          
-          Gleitkommaarithmetik
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/03_gleitkommaarithmetik/exercises_01_uebungen.html"
-                >
-                  
-                    3.1
-                  
-                  Übungen
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/intro.html"
-        >
-          
-            4.
-          
-          Nichtlineare Gleichungssysteme
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections ">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry c-sidebar__entry--active"
-                  href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/exercises_00_bierschaum.html"
-                >
-                  
-                    4.1
-                  
-                  Bierschaumzerfall
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/05_interp_approx/intro.html"
-        >
-          
-            5.
-          
-          Interpolation und Approximation
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_00_linear_interpolation.html"
-                >
-                  
-                    5.1
-                  
-                  Lineare Interpolation
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_01_linear_approximation.html"
-                >
-                  
-                    5.2
-                  
-                  Lineare Approximation
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/05_interp_approx/exercises_02_spline_interpolation.html"
-                >
-                  
-                    5.3
-                  
-                  Spline-Interpolation
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/emptypage.html"
-        >
-          
-            6.
-          
-          Differentiation und Integration
-        </a>
-
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/07_num_ode/intro.html"
-        >
-          
-            7.
-          
-          Numerik gewöhnlicher Differentialgleichungen
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/07_num_ode/exercises_00_rocket_launch.html"
-                >
-                  
-                    7.1
-                  
-                  Simulation eines Raketenstarts
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/08_eigenwerte/intro.html"
-        >
-          
-            8.
-          
-          Eigenwertprobleme
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_00_qr.html"
-                >
-                  
-                    8.1
-                  
-                  Das QR Verfahren
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_01_roots.html"
-                >
-                  
-                    8.2
-                  
-                  Nullstellen von Polynomen
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/08_eigenwerte/exercises_03_beam_modes.html"
-                >
-                  
-                    8.3
-                  
-                  Eindimensionaler Schwingungsbalken
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/09_dft/intro.html"
-        >
-          
-            9.
-          
-          Diskrete Fouriertransformation
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/09_dft/exercises_00_approximation.html"
-                >
-                  
-                    9.1
-                  
-                  Approximation periodischer Funktionen
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/09_dft/exercises_01_fft_noise.html"
-                >
-                  
-                    9.2
-                  
-                  Verrauschte Signale filtern
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/09_dft/exercises_02_doppler.html"
-                >
-                  
-                    9.3
-                  
-                  Der Doppler Effekt
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/09_dft/exercises_03_vuvuzela.html"
-                >
-                  
-                    9.4
-                  
-                  Der Vuvuzela Filter
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="/Modellbildung-und-Simulation/10_bvp/intro.html"
-        >
-          
-            10.
-          
-          Randwertprobleme
-        </a>
-
-        
-
-          
-          
-          
-          
-
-          
-
-          <ul class="c-sidebar__sections u-hidden-visually">
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/10_bvp/exercises_00_flexible_cable.html"
-                >
-                  
-                    10.1
-                  
-                  Durchhang eines flexiblen Kabels
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-              
-              
-
-              <li class="c-sidebar__section">
-                <a class="c-sidebar__entry "
-                  href="/Modellbildung-und-Simulation/10_bvp/exercises_01_nuclear_reactor.html"
-                >
-                  
-                    10.2
-                  
-                  Temperatur in einem nuklearen Brennstab
-                </a>
-
-                
-                
-
-              </li>
-              
-            
-          </ul>
-        
-      </li>
-
-      
-    
-      
-      
-        <li class="c-sidebar__divider"></li>
-        
-      
-      
-
-      
-      
-
-      
-      
-      <li class="c-sidebar__chapter">
-        <a class="c-sidebar__entry "
-          href="https://github.com/joergbrech/Modellbildung-und-Simulation"
-        >
-          
-          GitHub repository
-        </a>
-
-        
-      </li>
-
-      
-    
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../00_einleitung/intro.html">Einleitung</a>
+  </li>
+  <li class="">
+    <a href="../01_schwingungen/intro.html">Schwingungen</a>
+  </li>
+  <li class="">
+    <a href="../02_lineare_gleichungen/intro.html">Lineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../03_gleitkommaarithmetik/intro.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="active">
+    <a href="intro.html">Nichtlineare Gleichungssysteme</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Bierschaumzerfall</a>
+    </li>
   </ul>
-  <p class="sidebar_footer"><div align="left"><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a><br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a><br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a></div></p>
+  </li>
+  <li class="">
+    <a href="../05_interp_approx/intro.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../06_Differentiation_Integration/intro.html">Differentiation und Integration</a>
+  </li>
+  <li class="">
+    <a href="../07_num_ode/intro.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  </li>
+  <li class="">
+    <a href="../08_eigenwerte/intro.html">Eigenwertprobleme</a>
+  </li>
+  <li class="">
+    <a href="../09_dft/intro.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="">
+    <a href="../10_bvp/intro.html">Randwertprobleme</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/04_nichtlineare_gleichungen/exercises_00_bierschaum.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/exercises_00_bierschaum.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/04_nichtlineare_gleichungen/exercises_00_bierschaum.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#experimenteller-aufbau" class="nav-link">Experimenteller Aufbau</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#modellbeschreibung" class="nav-link">Modellbeschreibung</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#die-methode-der-kleinsten-quadrate" class="nav-link">Die Methode der kleinsten Quadrate</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#die-grundidee" class="nav-link">Die Grundidee</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#anwendung-auf-den-bierschaum" class="nav-link">Anwendung auf den Bierschaum</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#aufgabe-1-das-nichtlineare-gleichungssystem" class="nav-link">Aufgabe 1: Das nichtlineare Gleichungssystem</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#das-newton-verfahren" class="nav-link">Das Newton-Verfahren</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#aufgabe-2-approximation-der-jacobi-matrix" class="nav-link">Aufgabe 2: Approximation der Jacobi-Matrix</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#aufgabe-3-parameterbestimmung" class="nav-link">Aufgabe 3: Parameterbestimmung</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#optimierungsverfahren" class="nav-link">Optimierungsverfahren</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#aufgabe-4-algorithmus-zur-minimierung-einer-funktion" class="nav-link">Aufgabe 4: Algorithmus zur Minimierung einer Funktion</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#zusatzliche-informationen" class="nav-link">Zusätzliche Informationen</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#literatur" class="nav-link">Literatur</a>
+        </li>
+    
+    </ul>
 </nav>
 
-      
-      <div class="c-topbar" id="top-navbar">
-  <!-- We show the sidebar by default so we use .is-active -->
-  <div class="c-topbar__buttons">
-    <button
-      id="js-sidebar-toggle"
-      class="hamburger hamburger--arrowalt is-active"
-    >
-      <span class="hamburger-box">
-        <span class="hamburger-inner"></span>
-      </span>
-    </button>
-    <div class="buttons">
 
 
-
-  <button id="interact-button-thebelab" class="interact-button">Thebelab</button>
-
-  
-  
-
-
-
-
-
-
-<a href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content%2F04_nichtlineare_gleichungen%2Fexercises_00_bierschaum.ipynb"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="/Modellbildung-und-Simulation/assets/images/logo_binder.svg" alt="Interact" />Interact</button></a>
-  
-
-
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/exercises_00_bierschaum.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
 </div>
 
-  </div>
-  <!-- Empty sidebar placeholder that we'll auto-fill with javascript -->
-  <aside class="sidebar__right">
-    <header><h4 class="nav__title"><img src="/Modellbildung-und-Simulation/assets/images/list-solid.svg" alt="Search" />   On this page</h4></header>
-    <nav class="onthispage">
-    </nav>
-  </aside>
-  <a href="/Modellbildung-und-Simulation/search.html" class="topbar-right-button" id="search-button">
-    <img src="/Modellbildung-und-Simulation/assets/images/search-solid.svg" alt="Search" />
-  </a>
+    </div>
 </div>
-
-      <main class="c-textbook__page" tabindex="-1">
-            <div class="c-textbook__content" id="textbook_content">
-                  <main class="jupyter-page">
-    <div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Der-Zerfall-des-Bierschaums">Der Zerfall des Bierschaums<a class="anchor-link" href="#Der-Zerfall-des-Bierschaums"> </a></h2><p><img src="../images/weizenbier.jpg" alt=""></p>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="bierschaumzerfall">
+<h1>Bierschaumzerfall<a class="headerlink" href="#bierschaumzerfall" title="Permalink to this headline">¶</a></h1>
+<p><img alt="" src="../_images/weizenbier.jpg" /></p>
 <p>Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Experimenteller-Aufbau">Experimenteller Aufbau<a class="anchor-link" href="#Experimenteller-Aufbau"> </a></h3><p>Messen wir es einfach nach! Wir benutzen einen Messbecher, Wasser und einen wasserfesten Marker, um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber, etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
-<p><img src="../images/20190521_bierschaum_01.jpg" alt=""></p>
+<div class="section" id="experimenteller-aufbau">
+<h2>Experimenteller Aufbau<a class="headerlink" href="#experimenteller-aufbau" title="Permalink to this headline">¶</a></h2>
+<p>Messen wir es einfach nach! Wir benutzen einen Messbecher, Wasser und einen wasserfesten Marker, um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber, etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
+<p><img alt="" src="../_images/20190521_bierschaum_01.jpg" /></p>
 <p>Wir schütten ein Bier so in das geeichte Glas ein, dass sehr viel Schaum entsteht und notieren uns - so gut es eben geht - den unteren und oberen Stand des Schaumes zu unterschiedlichen Zeitpunkten. Die Differenz ist dann das Bierschaumvolumen zum jeweiligen Zeitpunkt.</p>
-<p><img src="../images/20190521_bierschaum_02.jpg" alt="">
-<img src="../images/20190521_bierschaum_03.jpg" alt=""></p>
-<table>
-<thead><tr>
-<th>$t$ [s]</th>
-<th>Oberer Messwert [$l$]</th>
-<th>Unterer Messwert [$l$]</th>
-<th>$V$ [$l$]</th>
+<p><img alt="" src="../_images/20190521_bierschaum_02.jpg" />
+<img alt="" src="../_images/20190521_bierschaum_03.jpg" /></p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p><span class="math notranslate nohighlight">\(t\)</span> [s]</p></th>
+<th class="head"><p>Oberer Messwert [<span class="math notranslate nohighlight">\(l\)</span>]</p></th>
+<th class="head"><p>Unterer Messwert [<span class="math notranslate nohighlight">\(l\)</span>]</p></th>
+<th class="head"><p><span class="math notranslate nohighlight">\(V\)</span> [<span class="math notranslate nohighlight">\(l\)</span>]</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>11</td>
-<td>0.600</td>
-<td>0.025</td>
-<td>0.575</td>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>0.600</p></td>
+<td><p>0.025</p></td>
+<td><p>0.575</p></td>
 </tr>
-<tr>
-<td>18</td>
-<td>0.590</td>
-<td>0.045</td>
-<td>0.545</td>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>0.590</p></td>
+<td><p>0.045</p></td>
+<td><p>0.545</p></td>
 </tr>
-<tr>
-<td>21</td>
-<td>0.580</td>
-<td>0.050</td>
-<td>0.530</td>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>0.580</p></td>
+<td><p>0.050</p></td>
+<td><p>0.530</p></td>
 </tr>
-<tr>
-<td>27</td>
-<td>0.570</td>
-<td>0.075</td>
-<td>0.495</td>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>0.570</p></td>
+<td><p>0.075</p></td>
+<td><p>0.495</p></td>
 </tr>
-<tr>
-<td>32</td>
-<td>0.570</td>
-<td>0.085</td>
-<td>0.485</td>
+<tr class="row-even"><td><p>32</p></td>
+<td><p>0.570</p></td>
+<td><p>0.085</p></td>
+<td><p>0.485</p></td>
 </tr>
-<tr>
-<td>37</td>
-<td>0.570</td>
-<td>0.100</td>
-<td>0.470</td>
+<tr class="row-odd"><td><p>37</p></td>
+<td><p>0.570</p></td>
+<td><p>0.100</p></td>
+<td><p>0.470</p></td>
 </tr>
-<tr>
-<td>52</td>
-<td>0.570</td>
-<td>0.125</td>
-<td>0.445</td>
+<tr class="row-even"><td><p>52</p></td>
+<td><p>0.570</p></td>
+<td><p>0.125</p></td>
+<td><p>0.445</p></td>
 </tr>
-<tr>
-<td>96</td>
-<td>0.555</td>
-<td>0.150</td>
-<td>0.400</td>
+<tr class="row-odd"><td><p>96</p></td>
+<td><p>0.555</p></td>
+<td><p>0.150</p></td>
+<td><p>0.400</p></td>
 </tr>
-<tr>
-<td>149</td>
-<td>0.510</td>
-<td>0.175</td>
-<td>0.335</td>
+<tr class="row-even"><td><p>149</p></td>
+<td><p>0.510</p></td>
+<td><p>0.175</p></td>
+<td><p>0.335</p></td>
 </tr>
-<tr>
-<td>195</td>
-<td>0.480</td>
-<td>0.180</td>
-<td>0.300</td>
+<tr class="row-odd"><td><p>195</p></td>
+<td><p>0.480</p></td>
+<td><p>0.180</p></td>
+<td><p>0.300</p></td>
 </tr>
-<tr>
-<td>246</td>
-<td>0.430</td>
-<td>0.190</td>
-<td>0.240</td>
+<tr class="row-even"><td><p>246</p></td>
+<td><p>0.430</p></td>
+<td><p>0.190</p></td>
+<td><p>0.240</p></td>
 </tr>
-<tr>
-<td>301</td>
-<td>0.400</td>
-<td>0.195</td>
-<td>0.205</td>
+<tr class="row-odd"><td><p>301</p></td>
+<td><p>0.400</p></td>
+<td><p>0.195</p></td>
+<td><p>0.205</p></td>
 </tr>
-<tr>
-<td>362</td>
-<td>0.370</td>
-<td>0.199</td>
-<td>0.171</td>
+<tr class="row-even"><td><p>362</p></td>
+<td><p>0.370</p></td>
+<td><p>0.199</p></td>
+<td><p>0.171</p></td>
 </tr>
-<tr>
-<td>430</td>
-<td>0.350</td>
-<td>0.200</td>
-<td>0.150</td>
+<tr class="row-odd"><td><p>430</p></td>
+<td><p>0.350</p></td>
+<td><p>0.200</p></td>
+<td><p>0.150</p></td>
 </tr>
-<tr>
-<td>482</td>
-<td>0.340</td>
-<td>0.201</td>
-<td>0.139</td>
+<tr class="row-even"><td><p>482</p></td>
+<td><p>0.340</p></td>
+<td><p>0.201</p></td>
+<td><p>0.139</p></td>
 </tr>
-<tr>
-<td>541</td>
-<td>0.300</td>
-<td>0.205</td>
-<td>0.095</td>
+<tr class="row-odd"><td><p>541</p></td>
+<td><p>0.300</p></td>
+<td><p>0.205</p></td>
+<td><p>0.095</p></td>
 </tr>
-<tr>
-<td>601</td>
-<td>0.270</td>
-<td>0.208</td>
-<td>0.062</td>
+<tr class="row-even"><td><p>601</p></td>
+<td><p>0.270</p></td>
+<td><p>0.208</p></td>
+<td><p>0.062</p></td>
 </tr>
 </tbody>
 </table>
-<p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus, um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. $2 \cdot 0.02 = 0.04$ Litern und ca. $1$ Sekunde ausgehen, ergibt sich folgendes Bild</p>
+<p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus, um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. <span class="math notranslate nohighlight">\(2 \cdot 0.02 = 0.04\)</span> Litern und ca. <span class="math notranslate nohighlight">\(1\)</span> Sekunde ausgehen, ergibt sich folgendes Bild</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hold</span> <span class="n">on</span>
 
-</div>
-</div>
-</div>
-</div>
+<span class="o">%</span> <span class="n">plot</span> <span class="n">measurement</span>
+<span class="o">%</span> <span class="n">Note</span><span class="p">:</span> <span class="n">The</span> <span class="n">syntax</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errorbar</span> <span class="n">function</span> <span class="n">differs</span> <span class="ow">in</span> <span class="n">Matlab</span><span class="p">,</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">line</span> <span class="n">only</span> <span class="n">works</span> <span class="k">with</span> <span class="n">Octave</span><span class="o">.</span> 
+<span class="o">%</span> <span class="n">Refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Matlab</span> <span class="n">Documentation</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="n">h_meas</span> <span class="o">=</span> <span class="n">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s1">&#39;~&gt;.&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;volume [liters]&#39;</span><span class="p">)</span>
 
-<div class="jb_cell tag_hide_input">
+<span class="o">%</span> <span class="n">plot</span> <span class="n">model</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.58</span><span class="p">;</span>
+<span class="n">tfine</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="n">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">yfine</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
+<span class="n">h_model</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
 
-<div class="cell border-box-sizing code_cell rendered tag_hide_input">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
-
-<span class="c">% plot measurement</span>
-<span class="c">% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. </span>
-<span class="c">% Refer to the Matlab Documentation for more information.</span>
-<span class="n">h_meas</span> <span class="p">=</span> <span class="nb">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s">&#39;~&gt;.&#39;</span><span class="p">);</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;volume [liters]&#39;</span><span class="p">)</span>
-
-<span class="c">% plot model</span>
-<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
-<span class="n">b</span> <span class="p">=</span> <span class="mf">0.58</span><span class="p">;</span>
-<span class="n">tfine</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
-<span class="n">yfine</span> <span class="p">=</span> <span class="n">b</span><span class="o">*</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
-<span class="n">h_model</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
-
-<span class="nb">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
+<span class="n">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s1">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s1">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../images/04_nichtlineare_gleichungen/exercises_00_bierschaum_2_0.png"
->
-</div>
-
+<div class="cell_output docutils container">
+<img alt="../_images/exercises_00_bierschaum_2_0.png" src="../_images/exercises_00_bierschaum_2_0.png" />
 </div>
 </div>
 </div>
-</div>
+<div class="section" id="modellbeschreibung">
+<h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
+<p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können, und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung <span class="math notranslate nohighlight">\(\dot{V}\)</span> des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
+<div class="math notranslate nohighlight">
+\[ \dot{V} = a \cdot V, \]</div>
+<p>mit einer uns unbekannten Proportionalitätskonstante <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span>. Diese Differentialgleichung kommt sehr häufig vor, denn sie beschreibt exponentielles Wachstum, bzw. - je nach Vorzeichen von <span class="math notranslate nohighlight">\(a\)</span> - exponentiellen Zerfall. Wir machen also, wie gewohnt, einen Ansatz</p>
+<div class="math notranslate nohighlight">
+\[ V(t) = b \cdot e^{c \cdot t}.\]</div>
+<p>Setzen wir <span class="math notranslate nohighlight">\(V(t)\)</span> in die Differentialgleichung $ \dot{V} = a \cdot V $ ein,</p>
+<div class="math notranslate nohighlight">
+\[ c b \cdot e^{c \cdot t} = a \cdot b e^{c \cdot t}, \]</div>
+<p>stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichung ist, unter der Voraussetzung, dass <span class="math notranslate nohighlight">\(c = a\)</span> gilt.</p>
+<div class="math notranslate nohighlight">
+\[ V(t) = b \cdot e^{a \cdot t}. \]</div>
+<p>Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>. <span class="math notranslate nohighlight">\(b\)</span> muss offensichtlich der y-Achsenabschnitt sein, da <span class="math notranslate nohighlight">\(V(0)=b \cdot e^0 = b\)</span>, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate <span class="math notranslate nohighlight">\(a\)</span> zu raten. Für <span class="math notranslate nohighlight">\(a=-0.001 \frac{1}{\text{s}}\)</span> und <span class="math notranslate nohighlight">\(b=0.575\)</span> <span class="math notranslate nohighlight">\(l\)</span> ergibt sich folgender Verlauf.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hold</span> <span class="n">on</span>
 
-</div>
-</div>
+<span class="o">%</span> <span class="n">plot</span> <span class="n">measurement</span>
+<span class="o">%</span> <span class="n">Note</span><span class="p">:</span> <span class="n">The</span> <span class="n">syntax</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errorbar</span> <span class="n">function</span> <span class="n">differs</span> <span class="ow">in</span> <span class="n">Matlab</span><span class="p">,</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">line</span> <span class="n">only</span> <span class="n">works</span> <span class="k">with</span> <span class="n">Octave</span><span class="o">.</span> 
+<span class="o">%</span> <span class="n">Refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Matlab</span> <span class="n">Documentation</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
+<span class="n">h_meas</span> <span class="o">=</span> <span class="n">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s1">&#39;~&gt;.&#39;</span><span class="p">);</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;volume [liters]&#39;</span><span class="p">)</span>
 
-<div class="jb_cell">
+<span class="o">%</span> <span class="n">plot</span> <span class="n">model</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">0.58</span><span class="p">;</span>
+<span class="n">tfine</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="n">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">yfine</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
+<span class="n">h_model</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Modellbeschreibung">Modellbeschreibung<a class="anchor-link" href="#Modellbeschreibung"> </a></h3><p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können, und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung $\dot{V}$ des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
-$$ \dot{V} = a \cdot V, $$<p>mit einer uns unbekannten Proportionalitätskonstante $a \in \mathbb{R}$. Diese Differentialgleichung kommt sehr häufig vor, denn sie beschreibt exponentielles Wachstum, bzw. - je nach Vorzeichen von $a$ - exponentiellen Zerfall. Wir machen also, wie gewohnt, einen Ansatz</p>
-$$ V(t) = b \cdot e^{c \cdot t}.$$<p>Setzen wir $V(t)$ in die Differentialgleichung $ \dot{V} = a \cdot V $ ein,</p>
-$$ c b \cdot e^{c \cdot t} = a \cdot b e^{c \cdot t}, $$<p>stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichung ist, unter der Voraussetzung, dass $c = a$ gilt.</p>
-$$ V(t) = b \cdot e^{a \cdot t}. $$<p>Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern $a$ und $b$. $b$ muss offensichtlich der y-Achsenabschnitt sein, da $V(0)=b \cdot e^0 = b$, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate $a$ zu raten. Für $a=-0.001 \frac{1}{\text{s}}$ und $b=0.575$ $l$ ergibt sich folgender Verlauf.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell tag_hide_input">
-
-<div class="cell border-box-sizing code_cell rendered tag_hide_input">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
-
-<span class="c">% plot measurement</span>
-<span class="c">% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. </span>
-<span class="c">% Refer to the Matlab Documentation for more information.</span>
-<span class="n">h_meas</span> <span class="p">=</span> <span class="nb">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s">&#39;~&gt;.&#39;</span><span class="p">);</span>
-<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
-<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;volume [liters]&#39;</span><span class="p">)</span>
-
-<span class="c">% plot model</span>
-<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
-<span class="n">b</span> <span class="p">=</span> <span class="mf">0.58</span><span class="p">;</span>
-<span class="n">tfine</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
-<span class="n">yfine</span> <span class="p">=</span> <span class="n">b</span><span class="o">*</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
-<span class="n">h_model</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
-
-<span class="nb">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
+<span class="n">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s1">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s1">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-
-
-<div class="output_png output_subarea ">
-<img src="../images/04_nichtlineare_gleichungen/exercises_00_bierschaum_4_0.png"
->
-</div>
-
+<div class="cell_output docutils container">
+<img alt="../_images/exercises_00_bierschaum_4_0.png" src="../_images/exercises_00_bierschaum_4_0.png" />
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Wir können immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut.</p>
-<p>Wie können wir $a$ und $b$ so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.</p>
-
+<p>Wie können wir <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.</p>
 </div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Die-Methode-der-kleinsten-Quadrate">Die Methode der kleinsten Quadrate<a class="anchor-link" href="#Die-Methode-der-kleinsten-Quadrate"> </a></h2><p>Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können noch unbekannte Parameter $p_1,...,p_n$ eines Modells $y = f(p_1,...,p_n,t)$ so angepasst werden, dass es vorher ermittelte experimentelle Daten $(t_1,y_1),...,(t_m, y_m)$ möglichst gut wiederspiegelt.</p>
-<h3 id="Die-Grundidee">Die Grundidee<a class="anchor-link" href="#Die-Grundidee"> </a></h3><p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte $t_i$ soll die Differenz $y_i - f(p_1,...,p_n,t_i)$ betragsmäßig klein werden.</p>
+<div class="section" id="die-methode-der-kleinsten-quadrate">
+<h2>Die Methode der kleinsten Quadrate<a class="headerlink" href="#die-methode-der-kleinsten-quadrate" title="Permalink to this headline">¶</a></h2>
+<p>Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können noch unbekannte Parameter <span class="math notranslate nohighlight">\(p_1,...,p_n\)</span> eines Modells <span class="math notranslate nohighlight">\(y = f(p_1,...,p_n,t)\)</span> so angepasst werden, dass es vorher ermittelte experimentelle Daten <span class="math notranslate nohighlight">\((t_1,y_1),...,(t_m, y_m)\)</span> möglichst gut wiederspiegelt.</p>
+<div class="section" id="die-grundidee">
+<h3>Die Grundidee<a class="headerlink" href="#die-grundidee" title="Permalink to this headline">¶</a></h3>
+<p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte <span class="math notranslate nohighlight">\(t_i\)</span> soll die Differenz <span class="math notranslate nohighlight">\(y_i - f(p_1,...,p_n,t_i)\)</span> betragsmäßig klein werden.</p>
 <p>Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:</p>
-$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)|  $$<p>Wenn die Funktion $G$ minimal werden soll, muss die Ableitung von $G$ nach allen Parametern verschwinden,</p>
-$$ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. $$<p>Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in $G$ verwendet wird, ableiten.</p>
+<div class="math notranslate nohighlight">
+\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)|  \]</div>
+<p>Wenn die Funktion <span class="math notranslate nohighlight">\(G\)</span> minimal werden soll, muss die Ableitung von <span class="math notranslate nohighlight">\(G\)</span> nach allen Parametern verschwinden,</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. \]</div>
+<p>Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in <span class="math notranslate nohighlight">\(G\)</span> verwendet wird, ableiten.</p>
 <p>Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive und negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:</p>
-$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$<p>Das Minimierungsproblem lösen wir, indem wir die Bedingung aufstellen, dass alle Ableitungen von $G$ nach den Parametern null sein sollen und nach den Parametern auflösen. Die partiellen Ableitungen bestimmen wir mit der Kettenregel:</p>
-$$
+<div class="math notranslate nohighlight">
+\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  \]</div>
+<p>Das Minimierungsproblem lösen wir, indem wir die Bedingung aufstellen, dass alle Ableitungen von <span class="math notranslate nohighlight">\(G\)</span> nach den Parametern null sein sollen und nach den Parametern auflösen. Die partiellen Ableitungen bestimmen wir mit der Kettenregel:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \boldsymbol{0} = 
 \begin{bmatrix}
 0 \\ \vdots \\ 0
@@ -1774,9 +466,16 @@ $$
 \vdots \\
 -\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
 \end{bmatrix}
-$$<h3 id="Anwendung-auf-den-Bierschaum">Anwendung auf den Bierschaum<a class="anchor-link" href="#Anwendung-auf-den-Bierschaum"> </a></h3><p>Im Falle des Bierschaumes gilt $p_1 = a, p_2 = b$ und</p>
-$$ f(a,b,t) = b\cdot e^{a \cdot t}. $$<p>Das nichtlineare Gleichungssystem, das gelöst werden muss lautet also</p>
-$$ 
+\end{split}\]</div>
+</div>
+<div class="section" id="anwendung-auf-den-bierschaum">
+<h3>Anwendung auf den Bierschaum<a class="headerlink" href="#anwendung-auf-den-bierschaum" title="Permalink to this headline">¶</a></h3>
+<p>Im Falle des Bierschaumes gilt <span class="math notranslate nohighlight">\(p_1 = a, p_2 = b\)</span> und</p>
+<div class="math notranslate nohighlight">
+\[ f(a,b,t) = b\cdot e^{a \cdot t}. \]</div>
+<p>Das nichtlineare Gleichungssystem, das gelöst werden muss lautet also</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} 
 \boldsymbol{0} = F(a,b) = 
 \begin{bmatrix}
 \frac{\partial G}{\partial a} (a,b) \\
@@ -1786,483 +485,298 @@ $$
 -\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i})\cdot  t_i \cdot b \cdot e^{a \cdot t_i} \\
 -\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i}) \cdot e^{a \cdot t_i}
 \end{bmatrix}
-$$<p>Im Folgenden wird das Problem schrittweise gelöst.</p>
-<ol>
-<li>Wir implementieren eine Matlab-Funktion, mit der wir $F$ auswerten können.</li>
-<li>Wir implementieren eine Matlab-Funktion, die uns für eine gegebene Funktion $F$ die Jacobimatrix ausrechnet.</li>
-<li>Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf $F$ an, um unsere Parameter zu bestimmen.</li>
-<li>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</li>
+\end{split}\]</div>
+<p>Im Folgenden wird das Problem schrittweise gelöst.</p>
+<ol class="simple">
+<li><p>Wir implementieren eine Matlab-Funktion, mit der wir <span class="math notranslate nohighlight">\(F\)</span> auswerten können.</p></li>
+<li><p>Wir implementieren eine Matlab-Funktion, die uns für eine gegebene Funktion <span class="math notranslate nohighlight">\(F\)</span> die Jacobimatrix ausrechnet.</p></li>
+<li><p>Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf <span class="math notranslate nohighlight">\(F\)</span> an, um unsere Parameter zu bestimmen.</p></li>
+<li><p>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</p></li>
 </ol>
-<h3 id="Aufgabe-1:-Das-nichtlineare-Gleichungssystem">Aufgabe 1: Das nichtlineare Gleichungssystem<a class="anchor-link" href="#Aufgabe-1:-Das-nichtlineare-Gleichungssystem"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung $F$ für beliebige Parameter $\mathbf{p}=[a,b]^T \in \mathbb{R}^2$ und Messwerte $t \in \mathbb{R}^m$, $V \in \mathbb{R}^m$ auswertet:</p>
-
 </div>
-</div>
-</div>
-</div>
+<div class="section" id="aufgabe-1-das-nichtlineare-gleichungssystem">
+<h3>Aufgabe 1: Das nichtlineare Gleichungssystem<a class="headerlink" href="#aufgabe-1-das-nichtlineare-gleichungssystem" title="Permalink to this headline">¶</a></h3>
+<p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung <span class="math notranslate nohighlight">\(F\)</span> für beliebige Parameter <span class="math notranslate nohighlight">\(\mathbf{p}=[a,b]^T \in \mathbb{R}^2\)</span> und Messwerte <span class="math notranslate nohighlight">\(t \in \mathbb{R}^m\)</span>, <span class="math notranslate nohighlight">\(V \in \mathbb{R}^m\)</span> auswertet:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">F</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="n">e</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">define</span> <span class="n">the</span> <span class="n">nonlinear</span> <span class="n">system</span> <span class="n">of</span> <span class="n">equations</span> <span class="n">that</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">within</span> <span class="n">the</span> <span class="n">least</span> <span class="n">squares</span> <span class="n">fit</span>
+<span class="o">%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">beer</span> <span class="n">froth</span> <span class="n">experiment</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="s1">&#39; is a vector of the model parameters</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">V</span> <span class="n">are</span> <span class="n">vectors</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">experimental</span> <span class="n">data</span>
 
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file F.m</span>
-<span class="k">function</span><span class="w"> </span>e <span class="p">=</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span>p,t,V<span class="p">)</span><span class="w"></span>
-<span class="c">% define the nonlinear system of equations that need to be solved within the least squares fit</span>
-<span class="c">% of the beer froth experiment</span>
-<span class="c">%</span>
-<span class="c">% p = [a,b]&#39; is a vector of the model parameters</span>
-<span class="c">%</span>
-<span class="c">% t and V are vectors containing the experimental data</span>
-
-<span class="c">% PUT YOUR CODE HERE</span>
+<span class="o">%</span> <span class="n">PUT</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/F.m&#39;.
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/jan/shares/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/F.m&#39;.
+</pre></div>
 </div>
 </div>
 </div>
+<p>Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> bestimmen zu können.</p>
 </div>
 </div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter $a$ und $b$ bestimmen zu können.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Das-Newton-Verfahren">Das Newton-Verfahren<a class="anchor-link" href="#Das-Newton-Verfahren"> </a></h2><p>Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert $\mathbf{p}^{(0)}$ muss in jeder Iteration ein lineares Gleichungssystem gelöst werden:</p>
-$$
+<div class="section" id="das-newton-verfahren">
+<h2>Das Newton-Verfahren<a class="headerlink" href="#das-newton-verfahren" title="Permalink to this headline">¶</a></h2>
+<p>Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert <span class="math notranslate nohighlight">\(\mathbf{p}^{(0)}\)</span> muss in jeder Iteration ein lineares Gleichungssystem gelöst werden:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
  J_F(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &amp;= - F(\mathbf{p}^{(i)}), \notag \\
  \mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i+1)}, \notag
 \end{align}
-$$<p>$i=1,2,3,...$</p>
-<p>Um die Jacobi-Matrix $J_F(\mathbf{p}^{(i)})$ in jeder Iteration zu bestimmen, müssen wir die partiellen Ableitungen von $F$ nach $p_1 = a$ und $p_2=b$ ausrechnen. Theoretisch kann man das in unserem Fall noch analytisch machen. Einfacher ist es aber, die Jacobi-Matrix mittels finiter Differenzen zu approximieren. Dadurch verlieren wir zwar an Genauigkeit, aber wir können unser Verfahren dadurch auch auf komplexere Modellgleichungen anwenden, die sich nicht mehr so einfach ableiten lassen.</p>
-<h3 id="Aufgabe-2:-Approximation-der-Jacobi-Matrix">Aufgabe 2: Approximation der Jacobi-Matrix<a class="anchor-link" href="#Aufgabe-2:-Approximation-der-Jacobi-Matrix"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix $J_F(\mathbf{x})$ für eine beliebige Funktion $F:\mathbb{R}^n \to \mathbb{R}^m$ mit Differenzenquotienten (<em>"finiten Differenzen"</em>) approximiert. Dabei soll die Eingabe <code>F</code> ein <em><a href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code>@sin</code> oder <code>@(x) [x(1)^2; cos(x(2))]</code>.</p>
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(i=1,2,3,...\)</span></p>
+<p>Um die Jacobi-Matrix <span class="math notranslate nohighlight">\(J_F(\mathbf{p}^{(i)})\)</span> in jeder Iteration zu bestimmen, müssen wir die partiellen Ableitungen von <span class="math notranslate nohighlight">\(F\)</span> nach <span class="math notranslate nohighlight">\(p_1 = a\)</span> und <span class="math notranslate nohighlight">\(p_2=b\)</span> ausrechnen. Theoretisch kann man das in unserem Fall noch analytisch machen. Einfacher ist es aber, die Jacobi-Matrix mittels finiter Differenzen zu approximieren. Dadurch verlieren wir zwar an Genauigkeit, aber wir können unser Verfahren dadurch auch auf komplexere Modellgleichungen anwenden, die sich nicht mehr so einfach ableiten lassen.</p>
+<div class="section" id="aufgabe-2-approximation-der-jacobi-matrix">
+<h3>Aufgabe 2: Approximation der Jacobi-Matrix<a class="headerlink" href="#aufgabe-2-approximation-der-jacobi-matrix" title="Permalink to this headline">¶</a></h3>
+<p>Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">jacobian</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="n">returns</span> <span class="n">the</span> <span class="p">(</span><span class="n">m</span> <span class="n">x</span> <span class="n">n</span><span class="p">)</span> <span class="n">Jacobian</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">F</span> <span class="n">evaluated</span> <span class="n">at</span> <span class="n">x</span>
+<span class="o">%</span>
+<span class="o">%</span>   <span class="o">|</span>  <span class="n">dF1</span><span class="o">/</span><span class="n">dx1</span> <span class="o">...</span> <span class="n">dF1</span><span class="o">/</span><span class="n">dxn</span> <span class="o">|</span>
+<span class="o">%</span>   <span class="o">|</span>     <span class="o">.</span>           <span class="o">.</span>    <span class="o">|</span>
+<span class="o">%</span>   <span class="o">|</span>  <span class="n">dFm</span><span class="o">/</span><span class="n">dx1</span> <span class="o">...</span> <span class="n">dFm</span><span class="o">/</span><span class="n">dxn</span> <span class="o">|</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">It</span> <span class="n">uses</span> <span class="n">finite</span> <span class="n">difference</span> <span class="n">approximations</span><span class="o">.</span> <span class="n">x</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">column</span> <span class="n">vector</span> <span class="ow">and</span> <span class="n">F</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">function</span>
+<span class="o">%</span> <span class="n">taking</span> <span class="n">an</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">vector</span> <span class="k">as</span> <span class="n">an</span> <span class="nb">input</span><span class="o">.</span> <span class="n">m</span> <span class="ow">is</span> <span class="n">deduced</span> <span class="kn">from</span> <span class="nn">F.</span>
 
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file jacobian.m</span>
-<span class="k">function</span><span class="w"> </span>J <span class="p">=</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span>F,x<span class="p">)</span><span class="w"></span>
-<span class="c">% J = jacobian(F,x) returns the (m x n) Jacobian matrix of F evaluated at x</span>
-<span class="c">%</span>
-<span class="c">%   |  dF1/dx1 ... dF1/dxn |</span>
-<span class="c">%   |     .           .    |</span>
-<span class="c">%   |  dFm/dx1 ... dFm/dxn |</span>
-<span class="c">%</span>
-<span class="c">% It uses finite difference approximations. x must be a (n,1)-column vector and F must be a function</span>
-<span class="c">% taking an (n,1)-vector as an input. m is deduced from F.</span>
-
-<span class="c">% PUT YOUR CODE HERE</span>
+<span class="o">%</span> <span class="n">PUT</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/jacobian.m&#39;.
-</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Wenn Sie Ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von $sin(x)$ an der Stelle $x=0.25$ auszuwerten:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="n">jacobian</span><span class="p">(@</span><span class="nb">sin</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/jacobian.m&#39;.
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
+<p>Wenn Sie Ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von <span class="math notranslate nohighlight">\(sin(x)\)</span> an der Stelle <span class="math notranslate nohighlight">\(x=0.25\)</span> auszuwerten:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jacobian</span><span class="p">(</span><span class="nd">@sin</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+</pre></div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+</div>
 <p><strong>Hinweise:</strong></p>
-<ul>
-<li>Machen Sie sich mit <em>function handles</em> und <em>anonymous functions</em> in Matlab vertraut.</li>
-<li>Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotienten bilden.</li>
-<li>Ihr Programm sollte mit $n+1$ Funktionsaufrufen von <code>F</code> auskommen.</li>
-<li>Achten Sie darauf, dass alle Funktionen $F: \mathbb{R}^n \to \mathbb{R}^m$ auf die Sie die <code>jacobian</code> Funktion anwenden <em>Spalten</em>vektoren auf <em>Spalten</em>vektoren abbilden.</li>
+<ul class="simple">
+<li><p>Machen Sie sich mit <em>function handles</em> und <em>anonymous functions</em> in Matlab vertraut.</p></li>
+<li><p>Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotienten bilden.</p></li>
+<li><p>Ihr Programm sollte mit <span class="math notranslate nohighlight">\(n+1\)</span> Funktionsaufrufen von <code class="docutils literal notranslate"><span class="pre">F</span></code> auskommen.</p></li>
+<li><p>Achten Sie darauf, dass alle Funktionen <span class="math notranslate nohighlight">\(F: \mathbb{R}^n \to \mathbb{R}^m\)</span> auf die Sie die <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> Funktion anwenden <em>Spalten</em>vektoren auf <em>Spalten</em>vektoren abbilden.</p></li>
 </ul>
 <p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="p">.</span><span class="n">m</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="o">.</span><span class="n">m</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Es gilt <code>F(p,t,V)</code> $= J_G(\mathbf{p})^T
+<p>Es gilt <code class="docutils literal notranslate"><span class="pre">F(p,t,V)</span></code> $= J_G(\mathbf{p})^T
 $ mit</p>
-$$
+<div class="math notranslate nohighlight">
+\[
 G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
-$$<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code>F</code> berechnet, andererseits können Sie mit Ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix $J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}$ mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene $\mathbf{p}$. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion <code>jacobian</code> für Ihr Problem?</p>
-
+\]</div>
+<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code class="docutils literal notranslate"><span class="pre">F</span></code> berechnet, andererseits können Sie mit Ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix <span class="math notranslate nohighlight">\(J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}\)</span> mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene <span class="math notranslate nohighlight">\(\mathbf{p}\)</span>. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> für Ihr Problem?</p>
 </div>
-</div>
-</div>
-</div>
+<div class="section" id="aufgabe-3-parameterbestimmung">
+<h3>Aufgabe 3: Parameterbestimmung<a class="headerlink" href="#aufgabe-3-parameterbestimmung" title="Permalink to this headline">¶</a></h3>
+<p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> aus Aufgabe 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">newton</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="n">z</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">z0</span><span class="p">,</span><span class="n">tol</span><span class="p">,</span><span class="n">maxit</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">z</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">z0</span><span class="p">,</span><span class="n">tol</span><span class="p">,</span><span class="n">maxit</span><span class="p">)</span> <span class="n">solves</span> <span class="n">the</span> <span class="n">nonlinear</span> <span class="n">system</span> <span class="mi">0</span><span class="o">=</span><span class="n">func</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">inputs</span><span class="p">:</span>
+<span class="o">%</span>   <span class="n">func</span>    <span class="n">a</span> <span class="n">handle</span> <span class="n">to</span> <span class="n">the</span> <span class="n">nonlinear</span> <span class="n">function</span>
+<span class="o">%</span>   <span class="n">z0</span>      <span class="n">initial</span> <span class="n">guess</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Newton</span> <span class="n">method</span>
+<span class="o">%</span>   <span class="n">atol</span>    <span class="n">absolute</span> <span class="n">tolerance</span>
+<span class="o">%</span>   <span class="n">maxit</span>   <span class="n">maximum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">Newton</span> <span class="n">iterations</span>
 
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Aufgabe-3:-Parameterbestimmung">Aufgabe 3: Parameterbestimmung<a class="anchor-link" href="#Aufgabe-3:-Parameterbestimmung"> </a></h3><p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu Ihre Funktion <code>jacobian</code> aus Aufgabe 2.</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file newton.m</span>
-<span class="k">function</span><span class="w"> </span>z <span class="p">=</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span>func,z0,tol,maxit<span class="p">)</span><span class="w"></span>
-<span class="c">% z = newton(F,z0,tol,maxit) solves the nonlinear system 0=func(z)</span>
-<span class="c">%</span>
-<span class="c">% inputs:</span>
-<span class="c">%   func    a handle to the nonlinear function</span>
-<span class="c">%   z0      initial guess for the Newton method</span>
-<span class="c">%   atol    absolute tolerance</span>
-<span class="c">%   maxit   maximum number of Newton iterations</span>
-
-<span class="c">% YOUR CODE HERE</span>
+<span class="o">%</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/newton.m&#39;.
-</pre>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/newton.m&#39;.
+</pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="p">.</span><span class="n">m</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="o">.</span><span class="n">m</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Wenden Sie das Newton-Verfahren auf die Funkton <code>func = @(p) F(p,t,V)</code> an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter $a$ und $b$ Ihrer Modellfunktion? </li>
-<li>Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion <code>fsolve</code>.</li>
-<li>Erstellen Sie einen Plot mit den Messwerten, sowie der kalibrierten Modellfunktion $V(t) = b \cdot e^{a \cdot t}$.</li>
-<li>Wie lautet die Halbwertzeit des Bierschaumes?</li>
+<ul class="simple">
+<li><p>Wenden Sie das Newton-Verfahren auf die Funkton <code class="docutils literal notranslate"><span class="pre">func</span> <span class="pre">=</span> <span class="pre">&#64;(p)</span> <span class="pre">F(p,t,V)</span></code> an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> Ihrer Modellfunktion?</p></li>
+<li><p>Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>.</p></li>
+<li><p>Erstellen Sie einen Plot mit den Messwerten, sowie der kalibrierten Modellfunktion <span class="math notranslate nohighlight">\(V(t) = b \cdot e^{a \cdot t}\)</span>.</p></li>
+<li><p>Wie lautet die Halbwertzeit des Bierschaumes?</p></li>
 </ul>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">% SPACE FOR SOLUTION</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SOLUTION</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Optimierungsverfahren">Optimierungsverfahren<a class="anchor-link" href="#Optimierungsverfahren"> </a></h2><p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion $G: \mathbb{R}^n \to \mathbb{R}$ bestimmen lässt, indem das nichtlineare Gleichungssystem</p>
-$$
+</div>
+<div class="section" id="optimierungsverfahren">
+<h2>Optimierungsverfahren<a class="headerlink" href="#optimierungsverfahren" title="Permalink to this headline">¶</a></h2>
+<p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion <span class="math notranslate nohighlight">\(G: \mathbb{R}^n \to \mathbb{R}\)</span> bestimmen lässt, indem das nichtlineare Gleichungssystem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
   \boldsymbol{0} = J_G(\mathbf{p})^T = 
   \begin{bmatrix}  
   \frac{\partial G}{\partial p_1}(\mathbf{p}) \\
   \vdots \\
   \frac{\partial G}{\partial p_n}(\mathbf{p})
   \end{bmatrix}
-$$<p>mit dem Newton-Verfahren nach $\mathbf{p}$ gelöst wird. Die Iterationsvorschrift lautet</p>
-$$
+\end{split}\]</div>
+<p>mit dem Newton-Verfahren nach <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> gelöst wird. Die Iterationsvorschrift lautet</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 \begin{align}
 J_{J_G}(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &amp;= - J_G(\mathbf{p}^{(i)})^T \notag \\
 \mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i)}, \notag
 \end{align}
-$$<p>$i=1,2,3,...$ Hierbei ist $J_G(\mathbf{p}^{(i)}) \in \mathbb{R}^n$ die Jacobimatrix von $G$. Die Jacobimatrix von $J_G(\mathbf{p}^{(i)})^T$ wiederum ist $J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}$. Sie wird auch als <em>Hessematrix von $G$</em> an der Stelle $\mathbf{p}^{(i)}$ bezeichnet und beinhaltet die zweiten Ableitungen der Funktion $G$:</p>
-$$
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(i=1,2,3,...\)</span> Hierbei ist <span class="math notranslate nohighlight">\(J_G(\mathbf{p}^{(i)}) \in \mathbb{R}^n\)</span> die Jacobimatrix von <span class="math notranslate nohighlight">\(G\)</span>. Die Jacobimatrix von <span class="math notranslate nohighlight">\(J_G(\mathbf{p}^{(i)})^T\)</span> wiederum ist <span class="math notranslate nohighlight">\(J_{J_G}(\mathbf{p}^{(i)}) \in \mathbb{R}^{n \times n}\)</span>. Sie wird auch als <em>Hessematrix von <span class="math notranslate nohighlight">\(G\)</span></em> an der Stelle <span class="math notranslate nohighlight">\(\mathbf{p}^{(i)}\)</span> bezeichnet und beinhaltet die zweiten Ableitungen der Funktion <span class="math notranslate nohighlight">\(G\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
 Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \begin{bmatrix}
 \frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_0}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_0}(\mathbf{p}) \\
 \vdots &amp; \ddots &amp; \vdots \\
 \frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_n}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_n}(\mathbf{p})
 \end{bmatrix}
-$$<p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
-<h3 id="Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion">Aufgabe 4: Algorithmus zur Minimierung einer Funktion<a class="anchor-link" href="#Aufgabe-4:-Algorithmus-zur-Minimierung-einer-Funktion"> </a></h3><p>Schreiben Sie eine neue Funktion <code>minimize(func,x0,tol,maxit)</code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code>func</code>$: \mathbb{R}^n \to \mathbb{R}$ minimiert. Verwenden Sie Ihre Funktion <code>jacobian</code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
+\end{split}\]</div>
+<p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
+<div class="section" id="aufgabe-4-algorithmus-zur-minimierung-einer-funktion">
+<h3>Aufgabe 4: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-4-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">¶</a></h3>
+<p>Schreiben Sie eine neue Funktion <code class="docutils literal notranslate"><span class="pre">minimize(func,x0,tol,maxit)</span></code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code class="docutils literal notranslate"><span class="pre">func</span></code><span class="math notranslate nohighlight">\(: \mathbb{R}^n \to \mathbb{R}\)</span> minimiert. Verwenden Sie Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
 <ul>
-<li><p>Lösen Sie das ursprüngliche Minimierungsproblem
-$$ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  $$</p>
-<p>mit Ihrer neuen Funktion und vergleichen Sie das Ergebnis mit Ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion <code>fminsearch</code>.</p>
+<li><p>Lösen Sie das ursprüngliche Minimierungsproblem</p>
+<div class="math notranslate nohighlight">
+\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  \]</div>
 </li>
-<li>Wo sind die Grenzen Ihres Algorithmus? Gibt es mögliche Fehlerquellen, die Nutzer Ihrer Funktion beachten sollten?</li>
 </ul>
+<p>mit Ihrer neuen Funktion und vergleichen Sie das Ergebnis mit Ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fminsearch</span></code>.</p>
+<ul class="simple">
+<li><p>Wo sind die Grenzen Ihres Algorithmus? Gibt es mögliche Fehlerquellen, die Nutzer Ihrer Funktion beachten sollten?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">minimize</span><span class="o">.</span><span class="n">m</span>
 
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">%%file minimize.m</span>
-
-<span class="c">%SPACE FOR SOLUTION</span>
+<span class="o">%</span><span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SOLUTION</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="jb_output_wrapper }}">
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Created file &#39;/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/04_nichtlineare_gleichungen/minimize.m&#39;.
-</pre>
 </div>
 </div>
 </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Hinweis:</strong> <em>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.</em> Vermeiden Sie duplizierten Code!</p>
-
-</div>
-</div>
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-octave"><pre><span></span><span class="c">% SPACE FOR SCRIPT SOLUTION</span>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SCRIPT</span> <span class="n">SOLUTION</span>
 </pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-</div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Zus&#228;tzliche-Informationen">Zus&#228;tzliche Informationen<a class="anchor-link" href="#Zus&#228;tzliche-Informationen"> </a></h3><p>Zusätzliche Informationen zum Verfall von Bierschaum finden Sie in <a href="#Theissen2009">(Theißen, 2009)</a> und <a href="#Leike2001">(Leike, 2001)</a>.</p>
-
 </div>
 </div>
 </div>
 </div>
-
-<div class="jb_cell">
-
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Literatur">Literatur<a class="anchor-link" href="#Literatur"> </a></h2><p><ol class="bibliography"><li><span id="Theissen2009">Theißen, H. (2009). Mythos Bierschaumzerfall - Ein Analogon für den radioaktiven Zerfall? <i>PhyDid A - Physik Und Didaktik in Schule Und Hochschule</i>. Retrieved from http://phydid.physik.fu-berlin.de/index.php/phydid/article/view/87</span></li>
-<li><span id="Leike2001">Leike, A. (2001). Demonstration of the exponential decay law using beer froth. <i>European Journal of Physics</i>, <i>23</i>(1), 21–26. https://doi.org/10.1088/0143-0807/23/1/304</span></li></ol></p>
-
+<div class="section" id="zusatzliche-informationen">
+<h3>Zusätzliche Informationen<a class="headerlink" href="#zusatzliche-informationen" title="Permalink to this headline">¶</a></h3>
+<p>Zusätzliche Informationen zum Verfall von Bierschaum finden Sie in <a class="bibtex reference internal" href="#theissen2009" id="id1">[The09]</a> und <a class="bibtex reference internal" href="#leike2001" id="id2">[Lei01]</a>.</p>
 </div>
 </div>
+<div class="section" id="literatur">
+<h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-04_nichtlineare_gleichungen/exercises_00_bierschaum-0"><dl class="citation">
+<dt class="bibtex label" id="leike2001"><span class="brackets"><a class="fn-backref" href="#id2">Lei01</a></span></dt>
+<dd><p>A Leike. Demonstration of the exponential decay law using beer froth. <em>European Journal of Physics</em>, 23(1):21–26, dec 2001. URL: <a class="reference external" href="https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304">https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304</a>, <a class="reference external" href="https://doi.org/10.1088/0143-0807/23/1/304">doi:10.1088/0143-0807/23/1/304</a>.</p>
+</dd>
+<dt class="bibtex label" id="theissen2009"><span class="brackets"><a class="fn-backref" href="#id1">The09</a></span></dt>
+<dd><p>H Theißen. Mythos bierschaumzerfall - ein analogon für den radioaktiven zerfall? <em>PhyDid A - Physik und Didaktik in Schule und Hochschule</em>, 2009. URL: <a class="reference external" href="http://phydid.physik.fu-berlin.de/index.php/phydid/article/view/87">http://phydid.physik.fu-berlin.de/index.php/phydid/article/view/87</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
- 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "04_nichtlineare_gleichungen"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
-
-    </main>
-    
-            </div>
-            <div class="c-textbook__footer" id="textbook_footer">
-              <nav class="c-page__nav">
-  
-    
-    <a id="js-page__nav__prev" class="c-page__nav__prev" href="/Modellbildung-und-Simulation/04_nichtlineare_gleichungen/intro.html">
-      〈 <span class="u-margin-right-tiny"></span> Nichtlineare Gleichungssysteme
-    </a>
-  
-
-  
-    
-    <a id="js-page__nav__next" class="c-page__nav__next" href="/Modellbildung-und-Simulation/05_interp_approx/intro.html">
-      Interpolation und Approximation <span class="u-margin-right-tiny"></span> 〉
-    </a>
-  
-</nav>
-
-              <footer>
-  <p class="footer">This page was created by <a href="https://github.com/jupyter/jupyter-book/graphs/contributors">The Jupyter Book Community</a></p>
-</footer>
-
-            </div>
-
+              </div>
+              
         </div>
-      </main>
     </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Nichtlineare Gleichungssysteme</a>
+    <a class='right-next' id="next-link" href="../05_interp_approx/intro.html" title="next page">Interpolation und Approximation</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
   </body>
 </html>

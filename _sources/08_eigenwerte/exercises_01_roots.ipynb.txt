@@ -1,0 +1,169 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Nullstellen von Polynomen\n",
+    "\n",
+    "Die sogenannte Begleitmatrix\n",
+    "\n",
+    "$$\n",
+    "\\begin{bmatrix}\n",
+    "-c_{1} & -c_{2} & \\cdots & -c_{n-1} & -c_n \\\\\n",
+    "1 & 0 & \\cdots & & 0 \\\\\n",
+    "0 & 1 & 0 & \\cdots 0 \\\\\n",
+    "\\vdots & & \\ddots & & \\vdots \\\\\n",
+    "0 & \\cdots & 0 & 1 & 0\n",
+    "\\end{bmatrix}\n",
+    "$$\n",
+    "\n",
+    "besitzt das charakteristische Polynom $p(x)=x^n + c_{1}x^{n-1} + ... + c_{n-1}x + c_n$. \n",
+    "\n",
+    "Sie wird häufig in der Steuerungstechnik genutzt um die Eigenwerte (und somit die dynamischen Eigenschaften) des linearen Systems zu bestimmen.\n",
+    "\n",
+    "## Aufgabe 1 - Stimmt das?\n",
+    "\n",
+    "Zeigen Sie für $n=2$, dass das angegebene charakteristische Polynom zur Begleitmatrix passt.\n",
+    "\n",
+    "## Aufgabe 2 - Nullstellen berechnen\n",
+    "\n",
+    "Entwerfen Sie eine Matlab Funktion, mit welcher Sie auf dieser Basis die Nullstellen eines beliebigen Polynoms unter Verwendung der Funktion `eig` berechnen können."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%%file my_roots.m\n",
+    "function z = my_roots(C)\n",
+    "% Find polynomial roots.\n",
+    "%\n",
+    "%    roots(C) computes the roots of the polynomial whose coefficients\n",
+    "%    are the elements of the vector C. If C has N+1 components,\n",
+    "%    the polynomial is C(1)*X^N + ... + C(N)*X + C(N+1).\n",
+    "\n",
+    "% INSERT CODE HERE"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    " - Überprüfen Sie händisch anhand eines einfachen quadratischen Polynoms, ob ihr Programm funktioniert, z.B. $p(x)=3x^2-9x+6$.\n",
+    " - Wie lauten die Nullstellen von $p(x) = 2x^4 -20x^3 + 70x^2 -100x +48$?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 3 - Automatisches Testen\n",
+    "\n",
+    "Schreiben Sie nun unit tests für ihre neue Funktion. Diese unit tests verwenden das Framework [MOxUnit](https://github.com/MOxUnit/MOxUnit), das sowohl mit Matlab als auch Octave kompatibel ist. Wenn Sie die Tests auch lokal auf ihrem Rechner ausführen wollen, benötigen Sie eine Installation von MOxUnit. \n",
+    "\n",
+    "Erstellen Sie zunächst zueine Datei mit folgendem Inhalt:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/c/Users/jan/Documents/Vorlesungen/Modellbildung-und-Simulation/content/08_eigenwerte/test_my_roots.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file test_my_roots.m\n",
+    "function test_suite=test_my_roots\n",
+    "% initialize unit tets\n",
+    "    try\n",
+    "        test_functions=localfunctions();\n",
+    "    catch\n",
+    "    end\n",
+    "    initTestSuite;\n",
+    "\n",
+    "function test_quadratic_polynomial\n",
+    "    % tests, wether my_roots correctly determines the \n",
+    "    % roots of a quadratic polynomial\n",
+    "\n",
+    "    % INSERT CODE HERE. Use assertElementsAlmostEqual(a, b, tol)\n",
+    "    % to test, wether two values are equal up to a tolerance tol.\n",
+    "    % Never compare flaoting point numbers with ==\n",
+    "    % Remove the next line to get started\n",
+    "    assertEqual(1,0)\n",
+    "    \n",
+    "function test_compare_to_roots\n",
+    "    % tests, wether my_roots yields the same results as roots\n",
+    "\n",
+    "    % INSERT CODE HERE. Use assertElementsAlmostEqual(a, b, tol)\n",
+    "    % to test, wether two values are equal up to a tolerance tol.\n",
+    "    % Never compare flaoting point numbers with ==\n",
+    "    % Remove the next line to get started\n",
+    "    assertEqual(1,0)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In dieser Datei sind zwei unit tests `test_quadratic_polynomial` und `test_compare_to_roots` vorbereitet, die beide wegen der Zeile `assertEqual(1,0)` garantiert fehlschlagen werden. Ändern Sie die unit tests wie folgt ab:\n",
+    "\n",
+    "### `test_quadratic_polynomial`\n",
+    "\n",
+    "Erstellen Sie ein zufälliges quadratisches Polynom, berechnen Sie die Nullstellen mit der abc- oder der pq-Formel und überprüfen Sie mit `assertElementsAlmostEqual(a, b, tol)`, ob ihre Funktion `my_roots` das selbe Ergebnis liefert.\n",
+    "\n",
+    "### `test_compare_to_roots`\n",
+    "\n",
+    "Erstellen Sie eine zufällige natürliche Zahl $n$ zwischen 1 und 10 und anschließend ein zufälliges Polynom $n$-ten Grades und überprüfen Sie mit `assertElementsAlmostEqual(a, b, tol)`, ob ihre Funktion `my_roots` das selbe Ergebnis liefert wie die eingebaute Funktion `roots`.\n",
+    "\n",
+    "Besteht ihre Funktion die unit tests?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "moxunit_runtests test_my_roots.m;"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "4.2.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

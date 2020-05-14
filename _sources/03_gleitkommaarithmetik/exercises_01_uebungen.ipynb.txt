@@ -1,0 +1,383 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Übungen"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 1: Gleitpunktarithmetik\n",
+    "\n",
+    "Welches Ergebnis erhalten Sie für die Rechnung \n",
+    "    \n",
+    "$2590 + 4 + 4 + 4$\n",
+    "\n",
+    "in Gleitpunktarithmetik zur Basis $\\beta=10$ mit Mantissenlänge $t=3$, wenn sie die Summanden\n",
+    "\n",
+    "(a) von links nach rechts und \n",
+    "\n",
+    "(b) von rechts nach links\n",
+    "    \n",
+    "abarbeiten? Welche allgemeine Konsequenz lässt sich daraus ableiten?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 2: Auslöschung \n",
+    "Berechnen Sie mit dem Taschenrechner\n",
+    " \n",
+    " $f(x)=\\ln(\\sqrt{x^2+1}-x)$\n",
+    " \n",
+    " für $x=10^4$ und $x=10^6$. Welches Ergebnis ist richtig?\n",
+    " Wie können Sie das Ergebnis umformen, um ein richtiges Ergebnis zu erhalten?\n",
+    " \n",
+    " (Hinweis: Vermeiden Sie die Subtraktion von etwa gleich großen Zahlen)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 3: Overflow\n",
+    "\n",
+    "Die Beträge von $x$ und $y$ in der Formel\n",
+    "\n",
+    " $r=\\sqrt{x^2 + y^2}$\n",
+    " \n",
+    " seien so groß, dass die Auswertung von $x^2+y^2$ zu einem Overflow führt, obwohl $r$ im zulässigen Bereich der Maschinenzahlen liegt.\n",
+    " Formen Sie die Formel so um, dass ein Overflow vermieden wird.\n",
+    " "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 4: Rundungsfehler"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "François Viète hat 1593 als erster eine analytische Gleichung für die Kreiszahl $\\pi$ veröffentlicht. Zu diesem Zeitpunkt gab es zwar bereits einige Ansätze $\\pi$ zu approximieren, doch seine Darstellung als unendliches Produkt\n",
+    "\n",
+    "$$\n",
+    "\\begin{align}\n",
+    "a_1 &= \\frac{1}{2}\\sqrt{2}, \\\\\n",
+    "a_n &= \\frac{1}{2}\\sqrt{2+2a_{n-1}}, \\text{ für } n \\geq 2 \n",
+    "\\end{align}\n",
+    "$$\n",
+    "\n",
+    "$$ \\Rightarrow \\frac{2}{\\pi} = \\lim_{n \\to \\infty} a_i = a_1 \\cdot a_2 \\cdot a_3 \\cdot ... = \\left( \\frac{1}{2}\\sqrt{2} \\right) \\cdot \\left( \\frac{1}{2}\\sqrt{2+\\sqrt{2}} \\right) \\cdot \\left( \\frac{1}{2}\\sqrt{2+\\sqrt{2 + \\sqrt{2}}} \\right) \\cdot ... $$\n",
+    "\n",
+    "war neu. Die Produktformel lässt sich äquivalent als eine Folge schreiben:\n",
+    "\n",
+    "$$ \n",
+    "\\begin{align}\n",
+    "z_0 &= 2, \\notag \\\\\n",
+    "z_n &= 2^{n+\\frac{1}{2}}\\sqrt{1-\\sqrt{1-4^{-n}z_{n-1}^2}}, \\text{ für } n = 1, 2, 3, ... \n",
+    "\\end{align}\n",
+    "$$\n",
+    "\n",
+    "Die Folge konvergiert für $n \\to \\infty$ gegen $\\pi$:\n",
+    "\n",
+    "$$ \\lim_{n \\to \\infty} z_n = \\pi. $$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortplanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich. Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortplanzung demonstriert. Berechnen Sie dazu für $n=1,2,3,...,20$ jeweils die Folgeglieder $z_n$. Berechnen Sie für jedes $z_n$ den relativen Fehler\n",
+    "\n",
+    "$$ r_n = \\frac{|\\pi - z_n|}{\\pi}. $$\n",
+    "\n",
+    "Erstellen Sie einen Plot, in dem der Logarithmus des relativen Fehlers in Abhängigkeit der Iterationszahl $n$ dargestellt ist. Wie verhält sich der Fehler für kleine bzw. große $n$?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "% demonstrate numerical error propagation using Viète's formula for approximating pi"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 5: Rechengenauigkeit"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Zunächst schauen wir uns an wie Matlab/Octave Variablen speichert, denen wir einen Wert zu weisen. Dies kann einfach mit dem Befehl [$whos()$](https://de.mathworks.com/help/matlab/ref/whos.html \"List variables in workspace, with sizes and types\") abgefragt werden. Dabei werden alle Variablen, ihre Größen (für Matlab/Octave ist jede Variable eine Matrix), ihr Speicherbedarf sowie ihre Klasse aufgelistet. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Variables in the current scope:\n",
+      "\n",
+      "   Attr Name        Size                     Bytes  Class\n",
+      "   ==== ====        ====                     =====  ===== \n",
+      "        x           1x1                          8  double\n",
+      "\n",
+      "Total is 1 element using 8 bytes\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "clear;\n",
+    "x = 1;\n",
+    "whos"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Die Variable $x$ ist eine $1$x$1$ Matrix und ist, da wir nichts spezifiziert haben, standardmäßig vom Typ $double$. Lassen wir uns die Variable ausgeben:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x =  1\n"
+     ]
+    }
+   ],
+   "source": [
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "wird der Wert jedoch nicht in diesem Datenformat angezeigt. Das Ausgabeformat können wir mit dem Befehl [$format$](https://de.mathworks.com/help/matlab/ref/format.html \"Set Command Window output display format\") ändern:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x =    1.00000000000000E+00\n"
+     ]
+    }
+   ],
+   "source": [
+    "format longE\n",
+    "x"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Wie sehen die Ausgaben für andere Formate wie $shortG$, $bank$, $hex$, $rat$ aus?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Speicherplatz, insbesondere im Arbeitsspeicher ist kostbar und kann bei der Rechnung mit großen Matrizen (n,m >> 1 Mio.) schnell knapp werden und die Performance sinken lassen. Daher kann es Sinn ergeben den Speicherplatz von Variablen zu begrenzen.\n",
+    "\n",
+    "Aber Achtung! Wie Sie feststellen werden, kann dies die zuvor untersuchten Fehler verstärken.\n",
+    "\n",
+    "Statt double-precision können wir z.B. mit dem Befehl [$single()$](https://de.mathworks.com/help/matlab/matlab_prog/floating-point-numbers.html \"Floating-Point Numbers\") Werte in single-precision abspeichern: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Variables in the current scope:\n",
+      "\n",
+      "   Attr Name        Size                     Bytes  Class\n",
+      "   ==== ====        ====                     =====  ===== \n",
+      "        x           1x1                          8  double\n",
+      "        y           1x1                          4  single\n",
+      "\n",
+      "Total is 2 elements using 12 bytes\n",
+      "\n",
+      "x =    1.00000000000000E+00\n",
+      "y =    1.00000000000000E+00\n"
+     ]
+    }
+   ],
+   "source": [
+    "y = single(x);\n",
+    "whos\n",
+    "x\n",
+    "y"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In der Ausgabe unterscheiden sich die Werte von $x$ und $y$ nicht, der Speicherbedarf von $y$ ist aber nur halb so groß, wie der von $x$.\n",
+    "Welche Auswirkungen hat das?\n",
+    "\n",
+    "Dazu betrachten wir mit dem Befehl [$eps()$](https://de.mathworks.com/help/matlab/ref/eps.html \"Floating-point relative accuracy\") die relative Maschinengenauigkeit der beiden Werte. Der Rundungsfehler kann abgeschätzt werden durch: $\\left|\\frac{\\operatorname{fl}(x)-x}{x}\\right|\\leq eps$. Die relative Maschinengenauigkeit kann also interpretiert werden als kleinster Wert, der zu $x$ addiert und nach der Rundung berücksichtigt wird."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans =    2.22044604925031E-16\n",
+      "ans =    1.19209289550781E-07\n"
+     ]
+    }
+   ],
+   "source": [
+    "eps(x)\n",
+    "eps(y)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Betrachten wir nun für beide Werte das Phänomen der Auslöschung bei Subtraktion fast gleich großer Zahlen:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "z =    9.99999990000000E-01\n",
+      "dx =    1.00000000502476E-08\n",
+      "dy =    0.00000000000000E+00\n"
+     ]
+    }
+   ],
+   "source": [
+    "z = 1-10^-8 \n",
+    "dx = x-z\n",
+    "dy = y-z"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Welches Format haben $dx$ und $dy$?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%Show format of dx, dy\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Welchen Wert darf $z$ maximal annehmen, bevor Auslöschung stattfindet?\n",
+    "Ab welchem Wert findet Auslöschung auch bei doppelter Genauigkeit statt ($dx=0$)?\n",
+    "\n",
+    "***Tipp: Ausprobieren wird Sie viel wertvolle Zeit kosten, haben Sie eine bessere Idee?***"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Berechnen Sie die relative Maschinengenauigkeit negativer Werte. Was fällt auf? Wie können Sie das erklären?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%Compute eps of negative values\n",
+    "\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "4.2.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
