@@ -42,7 +42,7 @@ jobs:
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: mtmiller/octave
+      - image: circleci/python:3.6-stretch
     steps:
       - checkout
 
@@ -62,7 +62,7 @@ jobs:
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: mtmiller/octave
+      - image: circleci/python:3.6-stretch
     steps:
       - checkout
 
@@ -76,11 +76,7 @@ jobs:
       # Install the ghp-import tool which we'll use to push the files
       - run:
           name: "Install ghp-import"
-          command: |
-            export PATH=$PATH:/root/.local/bin
-            curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-            python get-pip.py --user
-            pip install -U ghp-import --user
+          command: pip install -U ghp-import
 
       # Tell CircleCI to use the SSH key we've set up with permissions to push to our repo
       - add_ssh_keys:
@@ -91,9 +87,7 @@ jobs:
       # Push the `_site` folder to our gh-pages branch for it to go live
       - run:
           name: Push site to gh-pages
-          command: |
-            export PATH=$PATH:/root/.local/bin
-            ghp-import -m "[skip ci] Update Site" -p -n -f _build/html
+          command: ghp-import -m "[skip ci] Update Site" -p -n -f _build/html
 
 
 # These workflows define how the jobs above will run. In our case, we
