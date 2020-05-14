@@ -10,4 +10,12 @@ jobs:
         uses: peter-evans/slash-command-dispatch@v1
         with:
           token: ${{ secrets.GH_REPO_TOKEN }}
-          commands: preview
+          reaction-token: ${{ secrets.GITHUB_TOKEN }}
+          config: >
+            [
+              {
+                "command": "preview",
+                "permission": "write",
+                "issue_type": "pull-request"
+              }
+            ]
