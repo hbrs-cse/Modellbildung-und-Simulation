@@ -13,7 +13,7 @@ jobs:
       - name: Get the target branch name
         id: getbranch
         run: |
-          branch=${{ github.event.client_payload.slash_command.branch }}
+          branch=${{ github.event.client_payload.pull_request.head.ref }}
           if [[ -z "$branch" ]]; then branch="master"; fi
           echo ::set-output name=branch::$branch
         
@@ -24,10 +24,11 @@ jobs:
           echo $site
           echo "::set-output name=site::$site"
           
+      # To Do: Get the commit sha of the latest CircleCI artifact. It might not be the latest commit
+          
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: |
-            Hello @${{ github.event.client_payload.github.actor }}!
-            [Click here to see a preview of the site](${{ steps.geturl.outputs.site }})
+            Hello @${{ github.event.client_payload.github.actor }}! [Click here to see a preview of the site](${{ steps.geturl.outputs.site }})
