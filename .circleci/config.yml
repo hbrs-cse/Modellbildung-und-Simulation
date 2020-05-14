@@ -77,7 +77,7 @@ jobs:
       - run:
           name: "Install ghp-import"
           command: |
-            export PATH=$PATH:/home/circleci/.local/bin
+            export PATH=$PATH:/root/.local/bin
             curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
             python get-pip.py --user
             pip install -U ghp-import --user
@@ -92,7 +92,7 @@ jobs:
       - run:
           name: Push site to gh-pages
           command: |
-            export PATH=$PATH:/home/circleci/.local/bin
+            export PATH=$PATH:/root/.local/bin
             ghp-import -m "[skip ci] Update Site" -p -n -f _build/html
 
 
