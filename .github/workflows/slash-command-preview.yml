@@ -40,11 +40,13 @@ jobs:
           sha_short=`cat result | grep sha_short | cut -d, -f2`
           commit_url=`cat result | grep commit_url | cut -d, -f2`
           artifact_url=`cat result | grep artifact_url | cut -d, -f2`
-          echo $newer_build
+          newer_build_warning="**Caution: ** There are a newer commits to `${{ steps.getbranch.outputs.branch }}` without build artifacts!"
+          if [[  -z "$newer_build" ]]; then newer_build_warning=""; fi
+          echo $newer_build_warning
           echo $sha_short
           echo $commit_url
           echo $artifact_url
-          echo "::set-output name=newer_build::$newer_build"
+          echo "::set-output name=newer_build_warning::$newer_build_warning"
           echo "::set-output name=sha_short::$sha_short"
           echo "::set-output name=commit_url::$commit_url"
           echo "::set-output name=artifact_url::$artifact_url"
@@ -56,4 +58,7 @@ jobs:
         with:
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: |
-            Hello @${{ github.event.client_payload.github.actor }}! [Click here to see a preview of the site.](${{ steps.geturl.outputs.artifact_url }})
+            Hello @${{ github.event.client_payload.github.actor }}, you asked for a preview? No problem!
+            
+            Click [here to see a preview](${{ steps.geturl.outputs.artifact_url }}) of the site at commit [${{ steps.geturl.outputs.sha_short }}](${{ steps.geturl.outputs.$commit_url }}).
+            ${{ steps.geturl.outputs.newer_build_warning }}

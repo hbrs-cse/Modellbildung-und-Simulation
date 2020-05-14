@@ -1,3 +1,0 @@
-sha_short d94b067
-commit_url https://github.com/joergbrech/Modellbildung-und-Simulation/commit/d94b067e6d72aaaaf0bf6d75eba4feb045162e96
-artifact_url, https://559-168147770-gh.circle-artifacts.com/0/html/intro.html
