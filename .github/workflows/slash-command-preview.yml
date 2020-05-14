@@ -60,5 +60,5 @@ jobs:
           body: |
             Hello @${{ github.event.client_payload.github.actor }}, you asked for a preview? No problem!
             
-            Click [here to see a preview](${{ steps.geturl.outputs.artifact_url }}) of the site at commit [${{ steps.geturl.outputs.sha_short }}](${{ steps.geturl.outputs.commit_url }}).
+            Click [here to see a preview](${{ steps.geturl.outputs.artifact_url }}) of the site at commit [`${{ steps.geturl.outputs.sha_short }}`](${{ steps.geturl.outputs.commit_url }}).
             ${{ steps.geturl.outputs.newer_build_warning }}
