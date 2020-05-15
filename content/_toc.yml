@@ -14,6 +14,8 @@
     - file: 00_einleitung/exercises_03_verkehrssimulation
     - file: 00_einleitung/exercises_04_perfekter_wurf
 - file: 01_schwingungen/intro
+  sections:
+  - file: 01_schwingungen/exercises_02_harmonisch
 - file: 02_lineare_gleichungen/intro
   sections:
   - file: 02_lineare_gleichungen/exercises_00_highline
