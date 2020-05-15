@@ -1,52 +1,91 @@
-- file: intro
-- file: 00_einleitung/intro
+file: intro
+title: Intro
+sections:
+- file: 00_einleitung/index
+  title: Einleitung
   sections:
-  - file: 00_einleitung/usage
-  - file: 00_einleitung/matlab_00_first_steps
+  - file: 00_einleitung/01_usage/00_verwendung_dieses_buches
+    title: Verwendung Dieses Buches
+  - file: 00_einleitung/02_first_steps/00_erste_schritte_in_matlab
+    title: Erste Schritte In Matlab
     sections:
-    - file: 00_einleitung/matlab_01_command_window
-    - file: 00_einleitung/matlab_02_scripts_and_functions
-    - file: 00_einleitung/matlab_03_best_practice
-  - file: 00_einleitung/exercises_00_intro
+    - file: 00_einleitung/02_first_steps/01_matlab_command_window
+      title: Matlab Command Window
+    - file: 00_einleitung/02_first_steps/02_skripte_und_funktionen
+      title: Skripte Und Funktionen
+    - file: 00_einleitung/02_first_steps/03_best_practice
+      title: Best Practice
+  - file: "00_einleitung/03_exercises/00_\xFCbungsaufgaben"
+    title: "\xDCbungsaufgaben"
     sections:
-    - file: 00_einleitung/exercises_01_factorial_pi
-    - file: 00_einleitung/exercises_02_fluessigkeit
-    - file: 00_einleitung/exercises_03_verkehrssimulation
-    - file: 00_einleitung/exercises_04_perfekter_wurf
-- file: 01_schwingungen/intro
+    - file: 00_einleitung/03_exercises/01_matlab_kennenlernen
+      title: Matlab Kennenlernen
+    - file: 00_einleitung/03_exercises/02_fluessigkeit_im_boden
+      title: Fluessigkeit Im Boden
+    - file: 00_einleitung/03_exercises/03_verkehrssimulation
+      title: Verkehrssimulation
+    - file: 00_einleitung/03_exercises/04_der_perfekte_wurf
+      title: Der Perfekte Wurf
+- file: 01_schwingungen/00_schwingungen
+  title: Schwingungen
   sections:
-  - file: 01_schwingungen/exercises_02_harmonisch
-- file: 02_lineare_gleichungen/intro
+  - file: 01_schwingungen/01_harmonisch/00_harmonische_schwingung
+    title: Harmonische Schwingung
+- file: 02_lineare_gleichungen/00_lineare_gleichungssysteme
+  title: Lineare Gleichungssysteme
   sections:
-  - file: 02_lineare_gleichungen/exercises_00_highline
-- file: 03_gleitkommaarithmetik/intro
+  - file: 02_lineare_gleichungen/01_highline/00_modellierung_einer_highline
+    title: Modellierung Einer Highline
+- file: 03_gleitkommaarithmetik/00_gleitkommaarithmetik
+  title: Gleitkommaarithmetik
   sections:
-  - file: 03_gleitkommaarithmetik/exercises_01_uebungen
-- file: 04_nichtlineare_gleichungen/intro
+  - file: "03_gleitkommaarithmetik/01_\xFCbungen/00_\xFCbungen"
+    title: "\xDCbungen"
+- file: 04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
+  title: Nichtlineare Gleichungssysteme
   sections:
-  - file: 04_nichtlineare_gleichungen/exercises_00_bierschaum
-- file: 05_interp_approx/intro
+  - file: 04_nichtlineare_gleichungen/01_bierschaum/00_bierschaumzerfall
+    title: Bierschaumzerfall
+- file: 05_interp_approx/00_interpolation_Und_approximation
+  title: Interpolation Und Approximation
   sections:
-  - file: 05_interp_approx/exercises_00_linear_interpolation
-  - file: 05_interp_approx/exercises_01_linear_approximation
-  - file: 05_interp_approx/exercises_02_spline_interpolation
-- file: 06_Differentiation_Integration/intro
-- file: 07_num_ode/intro
+  - file: 05_interp_approx/01_linear_interpolation/00_lineare_interpolation
+    title: Lineare Interpolation
+  - file: 05_interp_approx/02_linear_approximation/00_lineare_approximation
+    title: Lineare Approximation
+  - file: 05_interp_approx/03_spline_interpolation/00_spline_interpolation
+    title: Spline Interpolation
+- file: 06_Differentiation_Integration/index
+  title: Differentiation Integration
+- file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
+  title: "Numerik Gew\xF6hnlicher Differentialgleichungen"
   sections:
-   - file: 07_num_ode/exercises_00_rocket_launch
-- file: 08_eigenwerte/intro
+  - file: 07_num_ode/01_rocket_launch/00_simulation_eines_raketenstarts
+    title: Simulation Eines Raketenstarts
+- file: 08_eigenwerte/00_eigenwertprobleme
+  title: Eigenwertprobleme
   sections:
-  - file: 08_eigenwerte/exercises_00_qr
-  - file: 08_eigenwerte/exercises_01_roots
-  - file: 08_eigenwerte/exercises_03_beam_modes
-- file: 09_dft/intro
+  - file: 08_eigenwerte/01_qr/00_das_QR_verfahren
+    title: Das Qr Verfahren
+  - file: 08_eigenwerte/02_poly/00_nullstellen_von_polynomen
+    title: Nullstellen Von Polynomen
+  - file: 08_eigenwerte/03_modes/00_schwingungsmoden_eines_eindimensionalen_balkens
+    title: Schwingungsmoden Eines Eindimensionalen Balkens
+- file: 09_dft/00_diskrete_fouriertransformation
+  title: Diskrete Fouriertransformation
   sections:
-  - file: 09_dft/exercises_00_approximation
-  - file: 09_dft/exercises_01_fft_noise
-  - file: 09_dft/exercises_02_doppler
-  - file: 09_dft/exercises_03_vuvuzela
-- file: 10_bvp/intro
+  - file: 09_dft/01_approximation/00_approximation_von_periodischen_signalen
+    title: Approximation Von Periodischen Signalen
+  - file: 09_dft/02_fft_noise/00_filtern_verrauschter_signale
+    title: Filtern Verrauschter Signale
+  - file: 09_dft/03_doppler/00_der_doppler_effekt
+    title: Der Doppler Effekt
+  - file: 09_dft/04_vuvuzela/00_vuvuzela_filter
+    title: Vuvuzela Filter
+- file: 10_bvp/00_randwertprobleme
+  title: Randwertprobleme
   sections:
-  - file: 10_bvp/exercises_00_flexible_cable
-  - file: 10_bvp/exercises_01_nuclear_reactor
-  
+  - file: 10_bvp/01_flexible_cable/00_durchhang_eines_flexiblen_kabels
+    title: Durchhang Eines Flexiblen Kabels
+  - file: 10_bvp/02_nuclear_reactor/00_temperatur_in_einem_nuklearen_brennstab
+    title: Temperatur In Einem Nuklearen Brennstab
