@@ -1,0 +1,399 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Harmonische Schwingung &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lineare Gleichungssysteme" href="../02_lineare_gleichungen/intro.html" />
+    <link rel="prev" title="Schwingungen" href="intro.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../00_einleitung/intro.html">Einleitung</a>
+  </li>
+  <li class="active">
+    <a href="intro.html">Schwingungen</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Harmonische Schwingung</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../02_lineare_gleichungen/intro.html">Lineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../03_gleitkommaarithmetik/intro.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="">
+    <a href="../04_nichtlineare_gleichungen/intro.html">Nichtlineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../05_interp_approx/intro.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../06_Differentiation_Integration/intro.html">Differentiation und Integration</a>
+  </li>
+  <li class="">
+    <a href="../07_num_ode/intro.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  </li>
+  <li class="">
+    <a href="../08_eigenwerte/intro.html">Eigenwertprobleme</a>
+  </li>
+  <li class="">
+    <a href="../09_dft/intro.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="">
+    <a href="../10_bvp/intro.html">Randwertprobleme</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/01_schwingungen/exercises_02_harmonisch.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/01_schwingungen/exercises_02_harmonisch.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/01_schwingungen/exercises_02_harmonisch.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1-fadenpendel" class="nav-link">Aufgabe 1: Fadenpendel</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2-dampfung" class="nav-link">Aufgabe 2: Dämpfung</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-3-angeregte-schwingung" class="nav-link">Aufgabe 3: Angeregte Schwingung</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/01_schwingungen/exercises_02_harmonisch.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="harmonische-schwingung">
+<h1>Harmonische Schwingung<a class="headerlink" href="#harmonische-schwingung" title="Permalink to this headline">¶</a></h1>
+<p>Unter einer harmonischen Schwingung versteht man eine Schwingung, die vollständig mit der Sinus- bzw. Kosinusfunktion beschrieben werden kann:
+<span class="math notranslate nohighlight">\(y(t) = \hat y \cdot \sin \left( {\omega  \cdot t} \right)\)</span></p>
+<div class="section" id="aufgabe-1-fadenpendel">
+<h2>Aufgabe 1: Fadenpendel<a class="headerlink" href="#aufgabe-1-fadenpendel" title="Permalink to this headline">¶</a></h2>
+<p>Nutzen Sie Matlab/Octave, um das Verhalten eines Fadenpendels zu simulieren.
+Stellen Sie dazu zunächst mit Stift und Papier die zu lösende Differentialgleichung auf.</p>
+<p><em><strong>Tipp:</strong></em> Vielleicht hilft Ihnen eine Skizze und die Energieerhaltung bei der Herleitung!</p>
+<p>Nun stehen wir vor der Herausforderung ein zeitkontinuierliches Problem mit unseren endlichen Ressourcen zu lösen! Wie gelingt uns dies? Und wie können wir eine diskrete Zeit in Matlab ausdrücken?</p>
+<p><em><strong>Tipp:</strong></em> Vielleicht kommen wir mit <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/linspace.html">dieser Funktion</a> einen Schritt näher?</p>
+<p>Nun können wir unser Problem Matlab/Octave mitteilen. Dazu geben wir zunächst allen Variablen und konstanten Größen einen Wert:</p>
+<ul class="simple">
+<li><p>Zu Beginn der Simulation soll das Pendel parallel zum Boden ausgelenkt sein und ruhen</p></li>
+<li><p>Die Länge des Seils soll 5m betragen</p></li>
+<li><p>Die Simulation beginnt zum Zeitpunkt t0 = 0</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="p">;</span> <span class="o">%</span><span class="n">Gravitationskonstante</span>
+<span class="n">l</span> <span class="o">=</span> <span class="p">;</span> <span class="o">%</span><span class="n">Länge</span> <span class="n">des</span> <span class="n">Seils</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="p">[,</span> <span class="p">];</span> <span class="o">%</span><span class="n">Anfangsbedingung</span> 
+<span class="n">t_start</span> <span class="o">=</span> <span class="p">;</span> <span class="o">%</span><span class="n">Zu</span> <span class="n">welchem</span> <span class="n">Zeitpunkt</span> <span class="n">die</span> <span class="n">Simulation</span> <span class="n">beginnt</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="p">;</span> <span class="o">%</span><span class="n">Zu</span> <span class="n">welchem</span> <span class="n">Zeitpunkt</span> <span class="n">die</span> <span class="n">Simulation</span> <span class="n">endet</span> 
+<span class="n">t_steps</span> <span class="o">=</span> <span class="p">;</span> <span class="o">%</span><span class="n">Anzahl</span> <span class="n">der</span> <span class="n">Zeitschritte</span> <span class="n">zwischen</span> <span class="n">t_start</span> <span class="n">und</span> <span class="n">t_end</span> 
+<span class="n">t_interval</span> <span class="o">=</span> <span class="p">;</span> <span class="o">%</span><span class="n">Zeitvektor</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die DGL, die wir zu Beginn aufgestellt haben, können wir nun auch in Vektorform aufschreiben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dgl</span> <span class="o">=</span> <span class="o">@</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="p">[</span> <span class="p">;</span> <span class="p">];</span> <span class="o">%</span><span class="n">Eine</span> <span class="n">Funktion</span><span class="p">,</span> <span class="n">mit</span> <span class="n">t</span> <span class="n">und</span> <span class="n">x</span> <span class="n">als</span> <span class="n">Variablen</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unser nun diskretes Problem können wir problemlos mit den uns zur Verfügung stehenden Hilfsmitteln lösen. Dazu benötigen wir nichts weiter als Stift und Papier… und eine Menge Geduld, wenn wir eine brauchbare Zeitauflösung verfolgen! Wie können wir unsere nun zeitdiskrete Differentialgleichung mit Hilfe von Matlab/Octave lösen?</p>
+<p><em><strong>Tipp:</strong></em> <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/ode45.html">Hier</a> finden Sie Informationen zur Anwendung einer der populärlisten Möglichkeiten unser Problem zu lösen!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span> <span class="o">=</span>  <span class="p">;</span> <span class="o">%</span><span class="n">Lösung</span> <span class="n">der</span> <span class="n">dgl</span> <span class="n">nach</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Abhängigkeit</span> <span class="n">von</span> <span class="n">t</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Plotten Sie nun das Ergebnis. Dazu bietet es sich an, zunächst ein Winkel-Zeit-Diagramm und ein Geschwindigkeits-Zeit-Diagramm auszugeben. Die Lösung unserer Differentialgleichung wurde in <span class="math notranslate nohighlight">\(x\)</span> gespeichert und besteht aus zwei Spalten, dem Winkel und der Geschwindigkeit.</p>
+<p><em><strong>Tipp:</strong></em> Wie man auf einzelne Spalten einer Matrix zugreift und weiteres zur Indizierung von Arrays in Matlab/Octave finden Sie zum Beispiel <a class="reference external" href="https://de.mathworks.com/help/matlab/math/array-indexing.html">hier</a>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">phi_t</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span> <span class="p">,</span> <span class="p">)</span><span class="s1">&#39;; %Auslesen der Winkel-Komponenten aus dem Ergebnisvektor x </span>
+<span class="n">omega_t</span> <span class="o">=</span> <span class="n">x</span><span class="p">(</span> <span class="p">,</span> <span class="p">)</span><span class="s1">&#39;; %Auslesen der Winkelgeschwindigkeits-Komponenten aus dem Ergebnisvektor x </span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit Hilfe des <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/plot.html">plot-Befehls</a> können wir nun unsere Diagramme zeichnen lassen, diese sollten ungefähr so aussehen:</p>
+<figure>
+  <img src="../images/plot.png"/>
+  <figcaption>Abbildung 1: Der Verlauf des Winkels zwischen Pendel und Decke über die Zeit</figcaption>
+</figure><p><strong>Tipp:</strong> Mit <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/subplot.html">subplot</a> können mehrere plots nebeneinander dargestellt werden!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">phi_t</span><span class="p">)</span>
+<span class="n">grid</span> <span class="n">on</span>
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Winkel-Zeit-Diagramm&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Neben statischen Daigrammen ermöglicht Matlab die Animation von Bewegungen. Dies gelingt, indem für jeden Zeitschritt der schon bekannte plot-Befehl ausgeführt wird. Mit dem Befehl <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/hold.html">hold</a> kann erzwungen werden, das Darstellungsfenster geöffnet zu halten und den neuen Datenpunkt hinzuzufügen. So sollte es Ihnen gelingen eine ähnliche Animation des Winkel-Zeit-Diagrams zu generieren, wie unten dargstellt. (Leider können Animationen nicht interaktiv auf dieser Seite ausgeführt werden, kopieren Sie den Code in Matlab und füllen Sie die Lücken!)</p>
+<p>Nutzen Sie die bereitgestellte Code-Struktur, um auch die Bewegung des Pendels zu simulieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>cartesianx = %zunächst muss der Vektoren mit den Winkeln zu allen Zeitpunkten kartesisch ausgedrückt werden
+cartesiany = 
+frame = 1; %Setze den Framezähler initial auf 1
+for i = 1 : t_steps %Für jeden Zeitschritt soll ein Plot erstellt werden
+    %Darstellung des animierten Winkel-Zeit-Diagrams
+    plot()
+    
+    
+    
+    
+    %Darstellung Pendel (Die obigen plots sollten nicht überschrieben werden, wie können wir das lösen?)
+    plotarrayx = [0 cartesianx(iterations)]; %Das ist der x-Anteil des Seil-Vektors (oben berechnet) 
+    plotarrayy = [0 cartesiany(iterations)]; %Das ist der y-Anteil des Seil-Vektors (oben berechnet)
+    %Jetzt wird einmal die Masse des Pendel als roter Kreis und das Seil als Linie geplotet
+    plot(cartesianx(iterations),cartesiany(iterations),&#39;ro&#39;,plotarrayx,plotarrayy,&#39;k-&#39;) 
+    title([&#39;Animation in kartesischen Koordinaten&#39;],&#39;fontsize&#39;,12)
+    xlabel(&#39;x [m]&#39;,&#39;fontsize&#39;,12)
+    ylabel(&#39;y [m]&#39;,&#39;fontsize&#39;,12)
+    axis([-l l -l 0]) %Als Ränder unseres Diagrams können wird jeweils die Länge des Seils setzen
+    pbaspect([2 1 1]) %Hier wird die Aspect-Ratio des Diagrams so angepasst, sodass 1m in x-Richtung so lang ist, wie 1m in y-Richtung
+    iter = iter+1;
+end
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ihr Ergebnis sollte den hier gezeigten Animationen ähnlich sein (je nachdem welche Parameter sie insbeosndere für die Zeitschrittweite und Schrittanzahl wählen, wird es sich unterscheiden!):</p>
+<figure>
+  <img src="../images/pendulum_halfPI.gif" width="500"/>
+  <figcaption></figcaption>
+</figure><p>Experementieren Sie mit den Parametern herum: Verhält sich das Pendel immer ihrer Erwartung entsprechend?</p>
+<p>Welche Parameter müssen Sie wählen, um bei den oben genannten Anfangsbedingungen eine Periodendauer von 10 Sekunden zu erreichen?</p>
+</div>
+<div class="section" id="aufgabe-2-dampfung">
+<h2>Aufgabe 2: Dämpfung<a class="headerlink" href="#aufgabe-2-dampfung" title="Permalink to this headline">¶</a></h2>
+<p>Vergleicht man die bisherigen Ergebnisse mit realen Pendeln wird schnell ersichtlich, dass wir hier etwas realistischer modellieren könnten! In Aufgabe 1 wurde die zu lösende Differentialgleichung mit Hilfe des Energieerhaltungssatzes hergeleitet. Dabei sind wir von einem abgeschlossenen System ausgegangen, d.h. weder Masse noch eine andere Energieform kann über Systemgrenzen mit der Umwelt ausgetauscht werden. Dies entspricht natürlich nicht der Realität, insbesondere die Luftreibung entzieht unserem System kinetische Energie und wandelt diese in Wärme um. Die Geschwindigkeit des Pendels wird reduziert. Um diesen Effekt in unserem Modell zu berücksichtigen müssen wir unserer Differentialgleichung einen Dämpfungsterm hinzufügen.</p>
+<p>Auch hier hilft die Energieerhaltung bei der Herleitung der Differentialgleichung. Die dämpfende Kraft soll mit einer Dämpfungskonstanten modelliert werden und ist abhängig von der Winkelgeschwindigkeit!</p>
+<p>Wenn Sie Ihren Code aus Aufgabe 1 erweitern, sollten sie in Ihrer Animation den dämpfenden Charakter der neuen Differentialgleichung erkennen können (Testen Sie dazu mögliche Dämpfungskonstanten aus):</p>
+<figure>
+  <img src="../images/pendulum_gdmpft.gif" width="500"/>
+  <figcaption></figcaption>
+</figure><p>Mehr zu Erhaltungssystemen und ihrer Klassifzierung gibt es <a class="reference external" href="https://de.wikipedia.org/wiki/Thermodynamisches_System">hier</a></p>
+</div>
+<div class="section" id="aufgabe-3-angeregte-schwingung">
+<h2>Aufgabe 3: Angeregte Schwingung<a class="headerlink" href="#aufgabe-3-angeregte-schwingung" title="Permalink to this headline">¶</a></h2>
+<p>Abschließend soll die Simulation um die Anregung einer beliebigen externen Kraft erweitert werden. Wie muss sich dazu die Differentialgleichung ändern? Simulieren Sie eine periodische Anregung und testen Sie verschiedene Anregungsfrequenzen. Was passiert, wenn Sie mit der Eigenfrequenz des Systems anregen? (<strong>TIPP</strong>: <span class="math notranslate nohighlight">\(\omega_0 = \sqrt{\frac{k}{m}}\)</span>)</p>
+<p>Tatsächlich hätten wir die bisherigen Aufgaben auch analytisch lösen können und wollten nur Arbeit sparen. Diese neue Differentialgleichung können wir aber tatsächlich gar nicht mehr selbst lösen, spätestens jetzt sind wir also auf einen Löser, wie z.B. ode45, angewiesen!
+Je nach Anregungsfrequenz und-amplitude, werden Ihre Ergebnisse unterschiedlich aussehen, bei einer Anregungsfrequenz <span class="math notranslate nohighlight">\(\omega = \frac{\omega_0}{2}\)</span> sollten Sie folgende Simulation erzeugen können:</p>
+<figure>
+  <img src="../images/pendulum_angrt.gif" width="500"/>
+  <figcaption></figcaption>
+</figure><p><strong>TIPP</strong>: Sie können <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/axis.html">axis()</a> so verändern, dass positive y-Werte dargestellt werden können!</p>
+<p>Wählen Sie eine Dämpfungskonstante <span class="math notranslate nohighlight">\(d = 0.3~\frac{kg}{s}\)</span> und simulieren Sie eine periodische Kraftanregung mit einer Amplitude <span class="math notranslate nohighlight">\(A = 1\)</span> und einer Anregungsfrequenz <span class="math notranslate nohighlight">\(\omega = 0.8\)</span>, alle anderen Werte wie in Aufgabe 1. Nach welcher Zeit <span class="math notranslate nohighlight">\(t\)</span> wird der eingeschwungene Zustand erreicht? Wie groß ist die Amplitude dieser harmonischen Schwingung? Berechnen Sie die analytischen Lösung und vergleichen Ihre Ergebnisse.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "01_schwingungen"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">Schwingungen</a>
+    <a class='right-next' id="next-link" href="../02_lineare_gleichungen/intro.html" title="next page">Lineare Gleichungssysteme</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
