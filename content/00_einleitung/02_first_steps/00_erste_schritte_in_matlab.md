@@ -2,7 +2,7 @@
 
 [Matlab](https://de.wikipedia.org/wiki/Matlab) ist eine interpretierte Skriptsprache, die insbesondere für numerische Berechnungen, Modellbildung und Simulation verwendet wird. Interpretierte Skriptsprachen zeichnen sich dadurch aus, dass sie von speziellen Computerprogrammen, sogenannten *Interpretern*, direkt interpretiert und ausgeführt werden. Im Kontrast dazu stehen Sprachen wie C/C++, die zunächst von einem Compiler in eine maschinenlesbare Datei übersetzt werden müssen.
 
-<img src="/images/Matlab_Logo.png" alt="Matlab Logo" style="width: 200px;"/>
+<img src="images/Matlab_Logo.png" alt="Matlab Logo" style="width: 200px;"/>
 
 Die Sprache wird von [The Mathworks Inc.](https://de.wikipedia.org/wiki/The_MathWorks) entwickelt. Dieses Unternehmen vertreibt kommerziell die gleichnamige Entwicklungsumgebung und den gleichnamigen Interpreter.
 
@@ -48,4 +48,4 @@ In diesem Lehrbuch geht es hauptsächlich um Methodik und weniger um die Compute
 
 Genauso hilft immer ein Blick in die Dokumentation. Nichtsdestotrotz sollen hier die absoluten Basics einmal beschrieben werden. Die wichtigsten Fenster von Matlab werden am Anfang das *Command Window*, der *Editor* und der *Workspace* sein. 
 
-<img src="/images/matlabonline.PNG" alt="Matlab Screenshot" style="width: 1200px;"/>
+<img src="images/matlabonline.PNG" alt="Matlab Screenshot" style="width: 1200px;"/>
