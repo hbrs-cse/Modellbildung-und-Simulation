@@ -1,12 +1,14 @@
+name: html-preview
 on: [status]
 
 jobs:
   html-preview:
     runs-on: ubuntu-latest
-    name: Run CircleCI artifacts redirector
+    name: Create link to html_demo artifact
     steps:
       - name: GitHub Action step
         uses: larsoner/circleci-artifacts-redirector-action@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           artifact-path: 0/html/index.html
+          circleci-jobs: html_demo
