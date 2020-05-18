@@ -5,27 +5,27 @@ sections:
   title: Einleitung
   sections:
   - file: 00_einleitung/01_usage/00_verwendung_dieses_buches
-    title: Verwendung dieses Buches
+    title: Verwendung Dieses Buches
   - file: 00_einleitung/02_first_steps/00_erste_schritte_in_matlab
-    title: Erste Schritte in Matlab
+    title: Erste Schritte In Matlab
     sections:
     - file: 00_einleitung/02_first_steps/01_matlab_command_window
       title: Matlab Command Window
-    - file: 00_einleitung/02_first_steps/02_SKRIPTE_UND_FUNKTIONEN
-      title: Skripte und Funktionen
+    - file: 00_einleitung/02_first_steps/02_skripte_und_funktionen
+      title: Skripte Und Funktionen
     - file: 00_einleitung/02_first_steps/03_best_practice
       title: Best Practice
   - file: "00_einleitung/03_exercises/00_\xFCbungsaufgaben"
     title: "\xDCbungsaufgaben"
     sections:
     - file: 00_einleitung/03_exercises/01_matlab_kennenlernen
-      title: Matlab kennenlernen
+      title: Matlab Kennenlernen
     - file: 00_einleitung/03_exercises/02_fluessigkeit_im_boden
-      title: Fluessigkeit im Boden
+      title: Fluessigkeit Im Boden
     - file: 00_einleitung/03_exercises/03_verkehrssimulation
       title: Verkehrssimulation
     - file: 00_einleitung/03_exercises/04_der_perfekte_wurf
-      title: Der perfekte Wurf
+      title: Der Perfekte Wurf
 - file: 01_schwingungen/00_schwingungen
   title: Schwingungen
   sections:
@@ -35,7 +35,7 @@ sections:
   title: Lineare Gleichungssysteme
   sections:
   - file: 02_lineare_gleichungen/01_modellierung_einer_highline
-    title: Modellierung einer Highline
+    title: Modellierung Einer Highline
 - file: 03_gleitkommaarithmetik/00_gleitkommaarithmetik
   title: Gleitkommaarithmetik
   sections:
@@ -47,7 +47,7 @@ sections:
   - file: 04_nichtlineare_gleichungen/01_bierschaumzerfall
     title: Bierschaumzerfall
 - file: 05_interp_approx/00_interpolation_Und_approximation
-  title: Interpolation und Approximation
+  title: Interpolation Und Approximation
   sections:
   - file: 05_interp_approx/01_lineare_interpolation
     title: Lineare Interpolation
@@ -56,28 +56,28 @@ sections:
   - file: 05_interp_approx/03_spline_interpolation
     title: Spline Interpolation
 - file: 06_Differentiation_Integration/00_differentiation_und_integration
-  title: Differentiation und Integration
+  title: Differentiation Und Integration
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
-  title: "Numerik gew\xF6hnlicher Differentialgleichungen"
+  title: "Numerik Gew\xF6hnlicher Differentialgleichungen"
   sections:
   - file: 07_num_ode/01_simulation_eines_raketenstarts
-    title: Simulation eines Raketenstarts
+    title: Simulation Eines Raketenstarts
 - file: 08_eigenwerte/00_eigenwertprobleme
   title: Eigenwertprobleme
   sections:
   - file: 08_eigenwerte/01_das_qr_verfahren
-    title: Das QR Verfahren
+    title: Das Qr Verfahren
   - file: 08_eigenwerte/02_nullstellen_von_polynomen
-    title: Nullstellen von Polynomen
+    title: Nullstellen Von Polynomen
   - file: 08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens
-    title: Schwingungsmoden eines eindimensionalen Balkens
+    title: Schwingungsmoden Eines Eindimensionalen Balkens
 - file: 09_dft/00_diskrete_fouriertransformation
   title: Diskrete Fouriertransformation
   sections:
   - file: 09_dft/01_approximation_von_periodischen_signalen
-    title: Approximation von periodischen Signalen
+    title: Approximation Von Periodischen Signalen
   - file: 09_dft/02_filtern_verrauschter_signale
-    title: Filtern verrauschter Signale
+    title: Filtern Verrauschter Signale
   - file: 09_dft/03_der_doppler_effekt
     title: Der Doppler Effekt
   - file: 09_dft/04_vuvuzela_filter
@@ -85,7 +85,7 @@ sections:
 - file: 10_bvp/00_randwertprobleme
   title: Randwertprobleme
   sections:
-  - file: 10_bvp/01_Durchhang_eines_flexiblen_Kabels
-    title: Durchhang eines flexiblen Kabels
+  - file: 10_bvp/01_durchhang_eines_flexiblen_Kabels
+    title: Durchhang Eines Flexiblen Kabels
   - file: 10_bvp/02_temperatur_in_einem_nuklearen_brennstab
-    title: Temperatur in einem nuklearen Brennstab
+    title: Temperatur In Einem Nuklearen Brennstab
