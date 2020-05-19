@@ -102,8 +102,8 @@ In this section, it is assumed that you are in the root directory of your clone 
 ### Review the final result online
 
 This repository uses Circle CI to build a demo site with each `git push`. This way you can see the effect that your commits will have on the website, even before your changes are merged into the master branch.
+To view the demo site, click on *"Details"* next to the check *"ci/circleci:html_demo artifact"*.
 
-![til](./docs/media/circle_ci.gif)
+![PR Status](./docs/media/pr_status.png)
 
- * If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
- * Note that the *Artifacts* tab is only visible if you are a registered member in Circle CI, your Circle CI account is connected to your Github account and you are logged in. By default, Circle CI uses a temporary user account.
+If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
