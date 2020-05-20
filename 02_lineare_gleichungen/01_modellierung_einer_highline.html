@@ -1,0 +1,553 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Modellierung einer Highline &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gleitkommaarithmetik" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html" />
+    <link rel="prev" title="Lineare Gleichungssysteme" href="00_lineare_gleichungssysteme.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../00_einleitung/00_einleitung.html">Einleitung</a>
+  </li>
+  <li class="">
+    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
+  </li>
+  <li class="active">
+    <a href="00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Modellierung einer Highline</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="">
+    <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
+  </li>
+  <li class="">
+    <a href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  </li>
+  <li class="">
+    <a href="../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
+  </li>
+  <li class="">
+    <a href="../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="">
+    <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/02_lineare_gleichungen/01_modellierung_einer_highline.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/02_lineare_gleichungen/01_modellierung_einer_highline.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/02_lineare_gleichungen/01_modellierung_einer_highline.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#modellbeschreibung" class="nav-link">Modellbeschreibung</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#kraftebilanzierung" class="nav-link">Kräftebilanzierung</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#ein-stationarer-lastfall" class="nav-link">Ein stationärer Lastfall</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht" class="nav-link">Aufgabe 1 - Durchhang der Highline ohne Zusatzgewicht</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2-dunnbesetzte-matrizen" class="nav-link">Aufgabe 2 - Dünnbesetzte Matrizen</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-3-iterative-gleichungssystemloser" class="nav-link">Aufgabe 3 - Iterative Gleichungssystemlöser</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-4-simulation-des-slackliners" class="nav-link">Aufgabe 4 - Simulation des Slackliners</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/02_lineare_gleichungen/01_modellierung_einer_highline.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="modellierung-einer-highline">
+<h1>Modellierung einer Highline<a class="headerlink" href="#modellierung-einer-highline" title="Permalink to this headline">¶</a></h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/C6MtzvQ5hZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Mittels einer Reihenschaltung von Federdämpfer-Systemen lässt sich ein einfaches zweidimensionales Modell einer Highline erstellen.</p>
+<div class="section" id="modellbeschreibung">
+<h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
+<p><img alt="" src="../_images/bridge.png" /></p>
+<p>Die Highline wird als eine Kette von <span class="math notranslate nohighlight">\(N\)</span> Massepunkten modelliert, die jeweils mit Feder- und Dämpferelementen in horizontaler und vertikaler Richtung miteinader verbunden sind.</p>
+<div class="section" id="kraftebilanzierung">
+<h3>Kräftebilanzierung<a class="headerlink" href="#kraftebilanzierung" title="Permalink to this headline">¶</a></h3>
+<p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen <span class="math notranslate nohighlight">\(\mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix}\)</span> der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null, <span class="math notranslate nohighlight">\(\mathbf{z}_{0}=\mathbf{z}_{N+1}=\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span>.</p>
+<p>Angenommen jeder Massepunkt hat die Masse <span class="math notranslate nohighlight">\(m\)</span> und die Federdämpferelemente haben die Steifigkeiten <span class="math notranslate nohighlight">\(k\)</span> und Dämpfungskoeffizienten <span class="math notranslate nohighlight">\(d\)</span>. Durch Freischneiden und Kraftbilanzierung lassen sich für alle Massepunkte die Bewegungsgleichungen aufstellen. Sei <span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{ext}} \in \mathbb{R}^2\)</span> die externe Kraft, die auf den Massepunkt mit Index <span class="math notranslate nohighlight">\(i\)</span> wirkt. Dann gilt</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+ m \ddot{\mathbf{z}}_0 &amp;= 0 \notag \\
+ m \ddot{\mathbf{z}}_1 &amp;= -k \mathbf{z}_1 - d \dot{\mathbf{z}}_1 -k(\mathbf{z}_1-\mathbf{z}_2) - d(\dot{\mathbf{z}}_1-\dot{\mathbf{z}}_2) + \mathbf{F}_{1,\text{ext}} \notag \\
+ m \ddot{\mathbf{z}}_i &amp;= k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}}, \hskip4em \text{für } i=2,...,N-1 \notag \\
+ m \ddot{\mathbf{z}}_N &amp;= -k \mathbf{z}_N - d \dot{\mathbf{z}}_N + k(\mathbf{z}_{N-1}-\mathbf{z}_N) + d(\dot{\mathbf{z}}_{N-1}-\dot{\mathbf{z}}_N) + \mathbf{F}_{N,\text{ext}} \notag \\
+ m \ddot{\mathbf{z}}_{N+1} &amp;= 0 \notag
+\end{align}
+\end{split}\]</div>
+<p>Diese Gleichungen lassen sich in eine kompaktere Matrixschreibweise bringen. Dazu führen wir folgende Bezeichungen ein:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \mathbf{z}=\left[ \begin{array}{c} \mathbf{z}_1 \\ \vdots \\ \mathbf{z}_N \end{array} \right] \in \mathbb{R}^{2N}, \quad \mathbf{F}_{\text{ext}} = \left[ \begin{array}{c} \mathbf{F}_{1,\text{ext}} \\ \vdots \\ \mathbf{F}_{N,\text{ext}} \end{array} \right] \in \mathbb{R}^{2N}, \quad M = \left[ \begin{array}{cccc} m &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; m &amp; \ddots &amp; \vdots \\ \vdots &amp; \ddots &amp; \ddots &amp; 0 \\ 0 &amp; \cdots &amp; 0 &amp; m \end{array} \right] \in \mathbb{R}^{2N \times 2N} \quad \text{und} \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}S = \left[ \begin{array}{rrrrrrr}
+2 &amp; 0 &amp; -1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0  \\
+0 &amp; 2 &amp; 0 &amp; -1 &amp; \ddots &amp;  &amp; \vdots \\
+-1 &amp; 0 &amp; 2 &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots \\
+0 &amp; -1 &amp; 0 &amp; 2 &amp; \ddots &amp; \ddots &amp; 0 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; -1 \\
+\vdots &amp; &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; 0 \\
+0 &amp; \cdots &amp; \cdots &amp; 0 &amp; -1 &amp; 0 &amp; 2
+\end{array}  \right] \in \mathbb{R}^{2N \times 2N}.\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(M\)</span> ist die <em>Massematrix</em>, <span class="math notranslate nohighlight">\(K = k \cdot S\)</span> die <em>Steifigkeitsmatrix</em> und <span class="math notranslate nohighlight">\(D=d \cdot S\)</span> die <em>Dämpfungsmatrix</em> des gekoppelten Systems. Die oben bereits hergeleiteten Bewegungsgleichungen nehmen die bekannte Form eines gedämpften, angetriebenen harmonischen Oszillators</p>
+<div class="math notranslate nohighlight">
+\[M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}\]</div>
+<p>an, nur dass die Koeffizienten <span class="math notranslate nohighlight">\(M, D\)</span> und <span class="math notranslate nohighlight">\(K\)</span> nun matrixwertig sind und die unbekannte Verschiebungsfunktion <span class="math notranslate nohighlight">\(\mathbf{z}(t)\)</span> vektorwertig mit <span class="math notranslate nohighlight">\(2N\)</span> Einträgen ist: Ein Eintrag pro Raumrichtung und beweglichem Massepunkt der Highline.</p>
+</div>
+<div class="section" id="ein-stationarer-lastfall">
+<h3>Ein stationärer Lastfall<a class="headerlink" href="#ein-stationarer-lastfall" title="Permalink to this headline">¶</a></h3>
+<p>Es soll zunächst der stationäre Lastfall untersucht werden, bei dem nur die Schwerkraft auf die Highline wirkt, d.h. Sie gehen von einer konstanten Kraft
+<span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{ext}}=\begin{bmatrix} 0 \\ -m g \end{bmatrix}\)</span>
+mit <span class="math notranslate nohighlight">\(g=9.81\;\textrm{m}/\textrm{s}^2\)</span> sowie <span class="math notranslate nohighlight">\(\ddot{\mathbf{z}}=\dot{\mathbf{z}}=0\)</span> aus. Dies entspricht dem Zustand, der sich nach langer Zeit aufgrund der Dämpfung einstellt. Die Differentialgleichung vereinfacht sich in diesem Fall zu einem linearen Gleichungssystem</p>
+<div class="math notranslate nohighlight">
+\[K \mathbf{z} = \mathbf{F}_{\text{ext}}.\]</div>
+<p>Bei einer Highlinelänge von <span class="math notranslate nohighlight">\(L=50\;\textrm{m}\)</span>, einem Gesamtgewicht von <span class="math notranslate nohighlight">\(m_{\text{ges}}=3.15\;\textrm{kg}\)</span>, sowie einer Gesamtsteifigkeit von <span class="math notranslate nohighlight">\(k_{\text{ges}}=145.5\;\textrm{N}/\textrm{m}\)</span> ergeben sich für die Einzelmassen und Einzelsteifigkeiten</p>
+<div class="math notranslate nohighlight">
+\[ m = \frac{m_{\text{ges}}}{N} \quad \text{ und } \quad k = N \cdot k_{\text{ges}}.\]</div>
+<p>Mit <span class="math notranslate nohighlight">\(\mathbf{b} = \left[ \begin{array}{ccccccc} 0 &amp; 1 &amp; 0 &amp; 1 &amp; \cdots &amp; 0 &amp; 1 \end{array} \right]^T \in \mathbb{R}^{2N}\)</span>
+lässt sich das lineare Gleichungssystem schreiben als</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+ &amp;K \mathbf{z} = \mathbf{F}_{\text{ext}} \notag \\
+ \Leftrightarrow \quad&amp;k \cdot S \mathbf{z} = -m \cdot g \cdot \mathbf{b} \notag \\
+ \Leftrightarrow \quad&amp;N \cdot k_{\text{ges}} S \mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N} \mathbf{b} \notag \\
+ \Leftrightarrow \quad&amp;S \underbrace{\left( - \frac{N^2 \cdot k_{\text{ges}}}{m_{\text{ges}}\cdot g} \mathbf{z}\right)}_{:= \tilde{\mathbf{z}}} = \mathbf{b} \notag
+\end{align}
+\end{split}\]</div>
+<p>Demnach lassen sich die Verschiebungen der Massepunkte im stationären Lastfall berechnen, indem das lineare Gleichungssytem</p>
+<div class="math notranslate nohighlight">
+\[S \tilde{\mathbf{z}} =\mathbf{b}\]</div>
+<p>gelöst wird. Die Verschiebungen <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> erhält man aus der <em>entdimensionalisierten</em> Lösung <span class="math notranslate nohighlight">\(\tilde{\mathbf{z}}\)</span> des Gleichunssystemes mittels</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\mathbf{z}}.\]</div>
+</div>
+</div>
+<div class="section" id="aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht">
+<h2>Aufgabe 1 - Durchhang der Highline ohne Zusatzgewicht<a class="headerlink" href="#aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht" title="Permalink to this headline">¶</a></h2>
+<p>Lösen Sie das Gleichungssystem <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} = \mathbf{b}\)</span> mit <span class="math notranslate nohighlight">\(S \in \mathbb{R}^{2N \times 2N}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{2N}\)</span> für verschiedene Werte für <span class="math notranslate nohighlight">\(N\)</span> mit Hilfe des backslash-Operators <code class="docutils literal notranslate"><span class="pre">S\b</span></code> und berechnen Sie anschließend die Verschiebung der Massepunkte <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">space</span> <span class="k">for</span> <span class="n">the</span> <span class="n">solution</span>
+
+<span class="o">%</span> <span class="n">S</span> <span class="o">=</span> <span class="o">...</span>
+<span class="o">%</span> <span class="n">b</span> <span class="o">=</span> <span class="o">...</span>
+
+
+<span class="o">%</span> <span class="n">z</span> <span class="o">=</span> <span class="o">...</span>
+
+<span class="o">%</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">displacement</span> <span class="n">of</span> <span class="n">the</span> <span class="n">slackline</span> <span class="n">based</span> <span class="n">on</span> <span class="n">the</span> <span class="n">solution</span> <span class="n">vector</span> <span class="n">z</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">slackline</span> <span class="n">L</span>
+<span class="o">%</span> <span class="p">(</span><span class="n">the</span> <span class="n">function</span> <span class="n">plot_highline</span> <span class="ow">is</span> <span class="n">provided</span> <span class="k">for</span> <span class="n">you</span><span class="p">,</span> <span class="n">you</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">need</span> <span class="n">to</span> <span class="n">implement</span> <span class="n">this</span><span class="p">)</span>
+<span class="n">plot_highline</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">L</span><span class="p">)</span>
+
+<span class="o">%</span> <span class="n">uncomment</span> <span class="n">the</span> <span class="n">following</span> <span class="n">line</span> <span class="n">to</span> <span class="n">have</span> <span class="n">equal</span> <span class="n">spacing</span> <span class="n">along</span> <span class="n">the</span> <span class="n">x</span><span class="o">-</span> <span class="ow">and</span> <span class="n">y</span><span class="o">-</span><span class="n">axis</span>
+<span class="o">%</span><span class="n">axis</span> <span class="n">equal</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Wie stark hängt die Highline an der tiefsten Stelle durch?</p></li>
+<li><p>Wie hoch muss die Auflösung <span class="math notranslate nohighlight">\(N\)</span> Ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie Ihre Antwort mit konkreten Zahlen!</p></li>
+</ul>
+<p><strong>Tipp:</strong> Verwenden Sie den Matlabbefehl <code class="docutils literal notranslate"><span class="pre">diag</span></code> um die Matrix zu erstellen.</p>
+</div>
+<div class="section" id="aufgabe-2-dunnbesetzte-matrizen">
+<h2>Aufgabe 2 - Dünnbesetzte Matrizen<a class="headerlink" href="#aufgabe-2-dunnbesetzte-matrizen" title="Permalink to this headline">¶</a></h2>
+<p>Die Matrix <span class="math notranslate nohighlight">\(S\)</span> enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit dem folgenden Matlab-Code wird die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt. Es werden nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">preallocate</span> <span class="n">vectors</span> <span class="k">for</span> <span class="n">the</span> <span class="n">row</span> <span class="ow">and</span> <span class="n">column</span> <span class="n">indices</span> <span class="ow">and</span> <span class="n">the</span> <span class="n">values</span> <span class="k">for</span> <span class="n">the</span> <span class="n">nonzero</span> <span class="n">entries</span>
+<span class="n">nnz</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">row</span>    <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">column</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">value</span>  <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="n">nnz</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="o">%</span> <span class="n">counter</span> <span class="k">for</span> <span class="n">the</span> <span class="n">nonzeros</span><span class="p">,</span> <span class="n">j</span> <span class="n">goes</span> <span class="kn">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="n">nnz</span><span class="o">-</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span>
+    <span class="o">%</span> <span class="k">for</span> <span class="n">each</span> <span class="n">row</span><span class="o">...</span>
+    
+    <span class="o">%</span> <span class="n">save</span> <span class="n">diagonal</span> <span class="n">entry</span>
+    <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>  <span class="n">row</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>  <span class="n">column</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="n">i</span><span class="p">;</span> <span class="n">value</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+    
+    <span class="o">%</span> <span class="n">save</span> <span class="n">left</span> <span class="n">off</span><span class="o">-</span><span class="n">diagonal</span> <span class="n">entry</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&gt;</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>  <span class="n">row</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="n">i</span><span class="p">;</span>  <span class="n">column</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="n">i</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span> <span class="n">value</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">end</span>
+    
+    <span class="o">%</span> <span class="n">save</span> <span class="n">right</span> <span class="n">off</span><span class="o">-</span><span class="n">diagonal</span> <span class="n">entry</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">j</span><span class="o">=</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">row</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="n">i</span><span class="p">;</span> <span class="n">column</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">;</span> <span class="n">value</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="o">%</span> <span class="n">create</span> <span class="n">sparse</span> <span class="n">matrix</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">vectors</span> <span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span>
+<span class="n">S</span><span class="o">=</span><span class="n">sparse</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für viele Algorithmen, wie etwa dem LU-Verfahren, sind in Matlab spezielle Implementierungen für dünnbesetzte Matrizen hinterlegt. Wie wirkt sich das dünnbesetzte Speicherformat auf die Rechenzeit aus?</p>
+<ul class="simple">
+<li><p>Erstellen Sie ein Balkendiagramm, das die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und <span class="math notranslate nohighlight">\(N = 5, 50, 500, 5000\)</span> darstellt (Insgesamt also acht Rechnungen).</p></li>
+</ul>
+<p><strong>Tipps:</strong></p>
+<ul class="simple">
+<li><p>Verwenden Sie die Matlabbefehle <code class="docutils literal notranslate"><span class="pre">tic</span></code> und <code class="docutils literal notranslate"><span class="pre">toc</span></code> für die Zeitmessung.</p></li>
+<li><p>Machen Sie sich mit dünnbesetzten Matrizen <em>(sparse matrix)</em> in Matlab vertraut.</p></li>
+<li><p>Berücksichtigen Sie die Rechenzeit der Matrix-Assemblierung (Erstellen von <span class="math notranslate nohighlight">\(S\)</span> und <span class="math notranslate nohighlight">\(b\)</span>).</p></li>
+<li><p>Unter Umständen müssen Sie die y-Achse logarithmisch skalieren!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">space</span> <span class="k">for</span> <span class="n">the</span> <span class="n">solution</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-3-iterative-gleichungssystemloser">
+<h2>Aufgabe 3 - Iterative Gleichungssystemlöser<a class="headerlink" href="#aufgabe-3-iterative-gleichungssystemloser" title="Permalink to this headline">¶</a></h2>
+<p>Ab einer bestimmten Größe des Gleichungssystems sind iterative Verfahren zum Lösen von linearen Gleichungssystem besser geeignet als direkte Lösungsverfahren wie das LU-Verfahren.</p>
+<p>Prominente Vertreter iterativer Verfahren für lineare Gleichungssysteme sind das konjugierte Gradientenverfahren <em>(Matlab: <code class="docutils literal notranslate"><span class="pre">cgs</span></code>)</em>, das Minres-Verfahren <em>(Matlab: <code class="docutils literal notranslate"><span class="pre">minres</span></code>)</em> sowie das BiCGstab-Verfahren <em>(Matlab: <code class="docutils literal notranslate"><span class="pre">bicgstab</span></code>)</em>.</p>
+<p>Die Konvergenzgeschwindigkeit der iterativen Verfahren lässt sich durch Vorkonditionierung, z.B. mittels unvollständiger LU-Zerlegung, verbessern. Für das BiCGstab-Verfahren sieht der Befehl so aus:</p>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% construct preconditioner </span>
+<span class="n">option</span><span class="p">.</span><span class="n">thresh</span> <span class="p">=</span> <span class="mf">0.01</span><span class="p">;</span>
+<span class="p">[</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">,</span><span class="n">P</span><span class="p">]</span> <span class="p">=</span> <span class="n">ilu</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">option</span><span class="p">);</span>
+
+<span class="c">% calculate solution using preconditioned bicgstab</span>
+<span class="n">zt</span> <span class="p">=</span> <span class="nb">bicgstab</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="n">P</span><span class="o">*</span><span class="n">b</span><span class="p">,[],</span><span class="n">maxit</span><span class="p">,</span><span class="n">L</span><span class="p">,</span><span class="n">U</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Vergleichen Sie die zur Lösung des linearen Gleichungssystems $ S\tilde{\mathbf{z}} =\mathbf{b}$ benötigte Rechenzeit des klassischen LU-Verfahrens</p>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">L</span><span class="p">,</span> <span class="n">U</span><span class="p">,</span> <span class="n">P</span><span class="p">]</span> <span class="p">=</span> <span class="nb">lu</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
+<span class="n">y</span>  <span class="p">=</span> <span class="n">L</span><span class="o">\</span><span class="n">P</span><span class="o">*</span><span class="n">b</span><span class="p">;</span>
+<span class="n">zt</span> <span class="p">=</span> <span class="n">U</span><span class="o">\</span><span class="n">y</span><span class="p">;</span> 
+</pre></div>
+</div>
+<p>mit denen der drei iterativen Verfahren, jeweils mit und ohne Vorkonditionierung und für unterschiedliche <span class="math notranslate nohighlight">\(N\)</span>. Verwenden Sie das Speicherformat für dünnbesetzte Matrizen. Erstellen Sie zwei Tabellen, in denen Sie jeweils die benötigte Rechenzeit bzw. das Residuum <code class="docutils literal notranslate"><span class="pre">res</span> <span class="pre">=</span> <span class="pre">max(abs(b-S*zt))</span></code> eintragen:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Verfahren/N</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>50</p></th>
+<th class="head"><p>500</p></th>
+<th class="head"><p>…</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LU</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>cgs</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>minres</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>bicgstab</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>prec. cgs</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>prec. minres</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-even"><td><p>prec. bicgstab</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>Ab welcher Auflösung <span class="math notranslate nohighlight">\(N\)</span> ist das Schnellste der sechs iterativen Verfahren schneller als das klassische LU-Verfahren?</p></li>
+</ul>
+<p><strong>Tipps:</strong></p>
+<ul class="simple">
+<li><p>Unter Umständen müssen Sie die maximal erlaubte Anzahl an Iterationen für die iterativen Verfahren anpassen.</p></li>
+<li><p>Denken Sie daran, die Konstruktion des Vorkonditionierers in der Rechenzeit zu berücksichtigen!</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">space</span> <span class="k">for</span> <span class="n">the</span> <span class="n">solution</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-4-simulation-des-slackliners">
+<h2>Aufgabe 4 - Simulation des Slackliners<a class="headerlink" href="#aufgabe-4-simulation-des-slackliners" title="Permalink to this headline">¶</a></h2>
+<p>In einer sogenannten <em>quasistatischen</em> Simulation wird ein zeitabhängiger Prozess so simuliert, dass in jedem Zeitschritt ein stationärer Zustand berechnet wird. So wird die Dynamik (z.B. Oszillation der Slackline) vernachlässigt, was die Berechnung deutlich vereinfacht. Schließlich muss keine Differentialgleichung gelöst werden, es reicht eine Abfolge von linearen Gleichungssystemen zu lösen.</p>
+<img src="images/slackline_animation.gif" alt="Slackline Animation" width="800"/>
+<p>Simulieren Sie, wie ein Slackliner die Highline von links nach rechts traversiert. Berechnen Sie dazu die statische Verschiebung der Slackline für unterschiedliche Positionen des Slackliners entlang der Highline. Gehen Sie von einem Gewicht von 70 kg aus.</p>
+<ul>
+<li><p>Treffen Sie eine angemessene Wahl für</p>
+<ul class="simple">
+<li><p>die räumliche Diskretisierung <span class="math notranslate nohighlight">\(N\)</span> der Slackline, sowie der Schrittweite des Slackliners;</p></li>
+<li><p>das Lösungsverfahren für das lineare Gleichungssystem;</p></li>
+<li><p>das Speicherformat der Matrix</p></li>
+</ul>
+<p>und begründen Sie Ihre Antwort.</p>
+</li>
+<li><p>Plotten sie die Kurve, die von den Füßen des Slackliners durchlaufen wird (Rote Linie in der Animation). Wie stark hängt die Slackline am tiefsten Punkt durch?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">space</span> <span class="k">for</span> <span class="n">the</span> <span class="n">solution</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "02_lineare_gleichungen"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00_lineare_gleichungssysteme.html" title="previous page">Lineare Gleichungssysteme</a>
+    <a class='right-next' id="next-link" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html" title="next page">Gleitkommaarithmetik</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

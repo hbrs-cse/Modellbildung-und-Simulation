@@ -1,0 +1,382 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Nullstellen von Polynomen &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Schwingungsmoden eines eindimensionalen Balkens" href="03_schwingungsmoden_eines_eindimensionalen_balkens.html" />
+    <link rel="prev" title="Das QR Verfahren" href="01_das_qr_verfahren.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../00_einleitung/00_einleitung.html">Einleitung</a>
+  </li>
+  <li class="">
+    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
+  </li>
+  <li class="">
+    <a href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="">
+    <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
+  </li>
+  <li class="">
+    <a href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  </li>
+  <li class="active">
+    <a href="00_eigenwertprobleme.html">Eigenwertprobleme</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="01_das_qr_verfahren.html">Das QR Verfahren</a>
+    </li>
+    <li class="active">
+      <a href="">Nullstellen von Polynomen</a>
+    </li>
+    <li class="">
+      <a href="03_schwingungsmoden_eines_eindimensionalen_balkens.html">Schwingungsmoden eines eindimensionalen Balkens</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="">
+    <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/08_eigenwerte/02_nullstellen_von_polynomen.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/08_eigenwerte/02_nullstellen_von_polynomen.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/08_eigenwerte/02_nullstellen_von_polynomen.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1-stimmt-das" class="nav-link">Aufgabe 1 - Stimmt das?</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2-nullstellen-berechnen" class="nav-link">Aufgabe 2 - Nullstellen berechnen</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-3-automatisches-testen" class="nav-link">Aufgabe 3 - Automatisches Testen</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#test-quadratic-polynomial" class="nav-link">test_quadratic_polynomial</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#test-compare-to-roots" class="nav-link">test_compare_to_roots</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/08_eigenwerte/02_nullstellen_von_polynomen.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="nullstellen-von-polynomen">
+<h1>Nullstellen von Polynomen<a class="headerlink" href="#nullstellen-von-polynomen" title="Permalink to this headline">¶</a></h1>
+<p>Die sogenannte Begleitmatrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+-c_{1} &amp; -c_{2} &amp; \cdots &amp; -c_{n-1} &amp; -c_n \\
+1 &amp; 0 &amp; \cdots &amp; &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; \cdots 0 \\
+\vdots &amp; &amp; \ddots &amp; &amp; \vdots \\
+0 &amp; \cdots &amp; 0 &amp; 1 &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<p>besitzt das charakteristische Polynom <span class="math notranslate nohighlight">\(p(x)=x^n + c_{1}x^{n-1} + ... + c_{n-1}x + c_n\)</span>.</p>
+<p>Sie wird häufig in der Steuerungstechnik genutzt um die Eigenwerte (und somit die dynamischen Eigenschaften) des linearen Systems zu bestimmen.</p>
+<div class="section" id="aufgabe-1-stimmt-das">
+<h2>Aufgabe 1 - Stimmt das?<a class="headerlink" href="#aufgabe-1-stimmt-das" title="Permalink to this headline">¶</a></h2>
+<p>Zeigen Sie für <span class="math notranslate nohighlight">\(n=2\)</span>, dass das angegebene charakteristische Polynom zur Begleitmatrix passt.</p>
+</div>
+<div class="section" id="aufgabe-2-nullstellen-berechnen">
+<h2>Aufgabe 2 - Nullstellen berechnen<a class="headerlink" href="#aufgabe-2-nullstellen-berechnen" title="Permalink to this headline">¶</a></h2>
+<p>Entwerfen Sie eine Matlab Funktion, mit welcher Sie auf dieser Basis die Nullstellen eines beliebigen Polynoms unter Verwendung der Funktion <code class="docutils literal notranslate"><span class="pre">eig</span></code> berechnen können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">my_roots</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="n">z</span> <span class="o">=</span> <span class="n">my_roots</span><span class="p">(</span><span class="n">C</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">Find</span> <span class="n">polynomial</span> <span class="n">roots</span><span class="o">.</span>
+<span class="o">%</span>
+<span class="o">%</span>    <span class="n">roots</span><span class="p">(</span><span class="n">C</span><span class="p">)</span> <span class="n">computes</span> <span class="n">the</span> <span class="n">roots</span> <span class="n">of</span> <span class="n">the</span> <span class="n">polynomial</span> <span class="n">whose</span> <span class="n">coefficients</span>
+<span class="o">%</span>    <span class="n">are</span> <span class="n">the</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">the</span> <span class="n">vector</span> <span class="n">C</span><span class="o">.</span> <span class="n">If</span> <span class="n">C</span> <span class="n">has</span> <span class="n">N</span><span class="o">+</span><span class="mi">1</span> <span class="n">components</span><span class="p">,</span>
+<span class="o">%</span>    <span class="n">the</span> <span class="n">polynomial</span> <span class="ow">is</span> <span class="n">C</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">X</span><span class="o">^</span><span class="n">N</span> <span class="o">+</span> <span class="o">...</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">C</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span>
+
+<span class="o">%</span> <span class="n">INSERT</span> <span class="n">CODE</span> <span class="n">HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Überprüfen Sie händisch anhand eines einfachen quadratischen Polynoms, ob ihr Programm funktioniert, z.B. <span class="math notranslate nohighlight">\(p(x)=3x^2-9x+6\)</span>.</p></li>
+<li><p>Wie lauten die Nullstellen von <span class="math notranslate nohighlight">\(p(x) = 2x^4 -20x^3 + 70x^2 -100x +48\)</span>?</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-3-automatisches-testen">
+<h2>Aufgabe 3 - Automatisches Testen<a class="headerlink" href="#aufgabe-3-automatisches-testen" title="Permalink to this headline">¶</a></h2>
+<p>Schreiben Sie nun unit tests für ihre neue Funktion. Diese unit tests verwenden das Framework <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">MOxUnit</a>, das sowohl mit Matlab als auch Octave kompatibel ist. Wenn Sie die Tests auch lokal auf ihrem Rechner ausführen wollen, benötigen Sie eine Installation von MOxUnit.</p>
+<p>Erstellen Sie zunächst zueine Datei mit folgendem Inhalt:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">test_my_roots</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="n">test_suite</span><span class="o">=</span><span class="n">test_my_roots</span>
+<span class="o">%</span> <span class="n">initialize</span> <span class="n">unit</span> <span class="n">tets</span>
+    <span class="k">try</span>
+        <span class="n">test_functions</span><span class="o">=</span><span class="n">localfunctions</span><span class="p">();</span>
+    <span class="n">catch</span>
+    <span class="n">end</span>
+    <span class="n">initTestSuite</span><span class="p">;</span>
+
+<span class="n">function</span> <span class="n">test_quadratic_polynomial</span>
+    <span class="o">%</span> <span class="n">tests</span><span class="p">,</span> <span class="n">wether</span> <span class="n">my_roots</span> <span class="n">correctly</span> <span class="n">determines</span> <span class="n">the</span> 
+    <span class="o">%</span> <span class="n">roots</span> <span class="n">of</span> <span class="n">a</span> <span class="n">quadratic</span> <span class="n">polynomial</span>
+
+    <span class="o">%</span> <span class="n">INSERT</span> <span class="n">CODE</span> <span class="n">HERE</span><span class="o">.</span> <span class="n">Use</span> <span class="n">assertElementsAlmostEqual</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">to</span> <span class="n">test</span><span class="p">,</span> <span class="n">wether</span> <span class="n">two</span> <span class="n">values</span> <span class="n">are</span> <span class="n">equal</span> <span class="n">up</span> <span class="n">to</span> <span class="n">a</span> <span class="n">tolerance</span> <span class="n">tol</span><span class="o">.</span>
+    <span class="o">%</span> <span class="n">Never</span> <span class="n">compare</span> <span class="n">flaoting</span> <span class="n">point</span> <span class="n">numbers</span> <span class="k">with</span> <span class="o">==</span>
+    <span class="o">%</span> <span class="n">Remove</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">line</span> <span class="n">to</span> <span class="n">get</span> <span class="n">started</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+    
+<span class="n">function</span> <span class="n">test_compare_to_roots</span>
+    <span class="o">%</span> <span class="n">tests</span><span class="p">,</span> <span class="n">wether</span> <span class="n">my_roots</span> <span class="n">yields</span> <span class="n">the</span> <span class="n">same</span> <span class="n">results</span> <span class="k">as</span> <span class="n">roots</span>
+
+    <span class="o">%</span> <span class="n">INSERT</span> <span class="n">CODE</span> <span class="n">HERE</span><span class="o">.</span> <span class="n">Use</span> <span class="n">assertElementsAlmostEqual</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">tol</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">to</span> <span class="n">test</span><span class="p">,</span> <span class="n">wether</span> <span class="n">two</span> <span class="n">values</span> <span class="n">are</span> <span class="n">equal</span> <span class="n">up</span> <span class="n">to</span> <span class="n">a</span> <span class="n">tolerance</span> <span class="n">tol</span><span class="o">.</span>
+    <span class="o">%</span> <span class="n">Never</span> <span class="n">compare</span> <span class="n">flaoting</span> <span class="n">point</span> <span class="n">numbers</span> <span class="k">with</span> <span class="o">==</span>
+    <span class="o">%</span> <span class="n">Remove</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">line</span> <span class="n">to</span> <span class="n">get</span> <span class="n">started</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In dieser Datei sind zwei unit tests <code class="docutils literal notranslate"><span class="pre">test_quadratic_polynomial</span></code> und <code class="docutils literal notranslate"><span class="pre">test_compare_to_roots</span></code> vorbereitet, die beide wegen der Zeile <code class="docutils literal notranslate"><span class="pre">assertEqual(1,0)</span></code> garantiert fehlschlagen werden. Ändern Sie die unit tests wie folgt ab:</p>
+<div class="section" id="test-quadratic-polynomial">
+<h3><code class="docutils literal notranslate"><span class="pre">test_quadratic_polynomial</span></code><a class="headerlink" href="#test-quadratic-polynomial" title="Permalink to this headline">¶</a></h3>
+<p>Erstellen Sie ein zufälliges quadratisches Polynom, berechnen Sie die Nullstellen mit der abc- oder der pq-Formel und überprüfen Sie mit <code class="docutils literal notranslate"><span class="pre">assertElementsAlmostEqual(a,</span> <span class="pre">b,</span> <span class="pre">tol)</span></code>, ob ihre Funktion <code class="docutils literal notranslate"><span class="pre">my_roots</span></code> das selbe Ergebnis liefert.</p>
+</div>
+<div class="section" id="test-compare-to-roots">
+<h3><code class="docutils literal notranslate"><span class="pre">test_compare_to_roots</span></code><a class="headerlink" href="#test-compare-to-roots" title="Permalink to this headline">¶</a></h3>
+<p>Erstellen Sie eine zufällige natürliche Zahl <span class="math notranslate nohighlight">\(n\)</span> zwischen 1 und 10 und anschließend ein zufälliges Polynom <span class="math notranslate nohighlight">\(n\)</span>-ten Grades und überprüfen Sie mit <code class="docutils literal notranslate"><span class="pre">assertElementsAlmostEqual(a,</span> <span class="pre">b,</span> <span class="pre">tol)</span></code>, ob ihre Funktion <code class="docutils literal notranslate"><span class="pre">my_roots</span></code> das selbe Ergebnis liefert wie die eingebaute Funktion <code class="docutils literal notranslate"><span class="pre">roots</span></code>.</p>
+<p>Besteht ihre Funktion die unit tests?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_my_roots</span><span class="o">.</span><span class="n">m</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "08_eigenwerte"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="01_das_qr_verfahren.html" title="previous page">Das QR Verfahren</a>
+    <a class='right-next' id="next-link" href="03_schwingungsmoden_eines_eindimensionalen_balkens.html" title="next page">Schwingungsmoden eines eindimensionalen Balkens</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

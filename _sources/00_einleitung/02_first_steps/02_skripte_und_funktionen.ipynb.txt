@@ -1,0 +1,1486 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "(skripte-und-funktionen)=\n",
+    "# Skripte und Funktionen\n",
+    "\n",
+    "Bisher haben wir Befehle im `Command Window` eingeben und festgestellt, dass alle Variablen im `Workspace` hinterlegt werden. In diesem Kapitel widmen wir uns dem `Editor`. Wir benutzen ihn, um Skripte und Funktionen zu schreiben. Beide werden als Textdateien mit der Endung `.m` gespeichert. Prinzipiell können wir diese Textdateien mit jedem beliebigen Texteditor schreiben, der Editor in Matlab bietet aber einige nützliche Funktionen. Allein *Syntax-Highlighting* kann schon sehr hilfreich sein.\n",
+    "\n",
+    "## Skripte\n",
+    " \n",
+    "Matlab-Skripte sind einfache Textdateien, die eine Abfolge von Matlab-Befehlen enthalten. Diese werden nach einander abgearbeitet. \n",
+    "\n",
+    "Das `%`-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollziehbar zu machen. Wie in *ALLEN* Programmiersprachen gilt auch in MATLAB: **Kommentieren Sie Ihren Code!**\n",
+    "Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schaut, sich fragt was man damals eigentlich gemacht hat und sich wünscht, man hätte es besser kommentiert."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file myScript.m\n",
+    "% Ein kleines Beispielskript\n",
+    "% mit Kommentaren\n",
+    "\n",
+    "% Initialisiere Variablen a und b\n",
+    "a = 5;\n",
+    "b = 2*a;\n",
+    "\n",
+    "% Ändere Variable a\n",
+    "a = a/2;\n",
+    "\n",
+    "% Ausgabe erzwingen, durch weglassen des Semikolons am Ende der Zeile\n",
+    "a\n",
+    "b"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Hinweis:** *Die allererste Zeile*\n",
+    "\n",
+    "`%%file myScript.m` \n",
+    "\n",
+    "*besagt nur, dass alles was folgt Inhalt der Datei `myScript.m` ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.*\n",
+    "\n",
+    "`% Ein kleines Beispielskript`.\n",
+    "\n",
+    "Dieses Skript wird mit dem `run` Befehl ausgeführt."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "a =  2.5000\n",
+      "b =  10\n"
+     ]
+    }
+   ],
+   "source": [
+    "run myScript.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Wir dürfen an dieser Stelle die Dateiendung `.m` weglassen. Tatsächlich ist der `run` Befehl auch nicht zwingend nötig. Die Befehle `run myScript.m`, `run myScript`, `myScript.m`, `myScript` haben alle denselben Effekt: Die Befehle in `myScript.m` werden ausgeführt.\n",
+    "\n",
+    "Im Matlab-Editor kann das aktuell geöffnete Skript mit `F5` oder per Mausklick auf den großen grünen Play-Button gestartet werden.\n",
+    "\n",
+    "<img src=\"images/matlab_run_button.png\" alt=\"Interacte Mode Code-Cell\" style=\"width:500px;\"/>\n",
+    "\n",
+    "Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem `help` Befehl ausgeben:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "'myScript.m' is the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m\n",
+      "\n",
+      " Ein kleines Beispielskript\n",
+      " mit Kommentaren\n",
+      "\n",
+      "\n",
+      "Additional help for built-in functions and operators is\n",
+      "available in the online version of the manual.  Use the command\n",
+      "'doc <topic>' to search the manual index.\n",
+      "\n",
+      "Help and information about Octave is also available on the WWW\n",
+      "at http://www.octave.org and via the help@octave.org\n",
+      "mailing list.\n"
+     ]
+    }
+   ],
+   "source": [
+    "help myScript.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### for-Schleifen\n",
+    "\n",
+    "Wie in anderen Programmiersprachen können in MATLAB auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for i=1:5\n",
+    "    f(i)=2^i;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Der Code zwischen der `for`-  und der `end`-Zeile wird fünf mal ausgeführt. Bei jeder Ausführung wird eine *Laufvariable* `i` um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die $i$-te Stelle eines Vektors $f$ zu, und beschreiben diese Stelle mit $2^i$. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.\n",
+    "\n",
+    "Es besteht die Möglichkeit die Schrittweite der Laufvariablen anzupassen. Auf diese Weise können auch Laufvariablen benutzt werden, die nicht ganzzahlig sind:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x =\n",
+      "\n",
+      "   1.0000e+00  -2.4493e-16\n",
+      "\n",
+      "x =\n",
+      "\n",
+      "  -1.8370e-16  -1.0000e+00\n",
+      "\n",
+      "x =\n",
+      "\n",
+      "  -1.0000e+00   1.2246e-16\n",
+      "\n",
+      "x =\n",
+      "\n",
+      "   6.1232e-17   1.0000e+00\n",
+      "\n",
+      "x =\n",
+      "\n",
+      "   1   0\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "for t=2*pi:-pi/2:0\n",
+    "    x = [cos(t), sin(t)]\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Quiz:** Wie sieht der Vektor $f$ aus, der von folgender for-Schleife erzeugt wird?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "clear f\n",
+    "for i=1:2:5\n",
+    "    f(i)=2^i;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Bei for-Schleifen ist über die Laufvariable die Anzahl der Aufrufe vor dem Beginn der Schleife klar. Es ist zwar möglich, die Laufvariable selbst in der Schleife zu verändern, das sollte aber auf jeden Fall vermieden werden. Der Code wird dadurch nicht mehr intuitiv verständlich und es ist eine wahrscheinliche Fehlerquelle.\n",
+    "\n",
+    "### while-Schleifen\n",
+    "\n",
+    "while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife wird solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      " 0.24470\n"
+     ]
+    }
+   ],
+   "source": [
+    "x = pi/2;\n",
+    "while abs( sin(x)-x )/x > 0.01\n",
+    "    x = 0.99*x;\n",
+    "end\n",
+    "disp(x)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Die Anweisung `x = 0.99*x` wird solange ausgeführt, bis $\\frac{\\lvert \\sin(x) - x \\rvert}{x}$ nicht mehr größer als $0.01$ ist.\n",
+    "Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert die Kleinwinkelnäherung $\\sin(x) \\approx x$ relative Fehler von unter $1 \\%$ liefert. \n",
+    "\n",
+    "**Challenge:** Fallen Ihnen Wege ein, die Abschätzung genauer zu gestalten?\n",
+    "\n",
+    "Eine for-Schleife kann immer in eine while-Schleife umgeschrieben werden. Folgende Code-Blöcke liefern das selbe Ergebnis:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "for i=1:5\n",
+    "    f(i)=2^i;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "i=1;\n",
+    "while i<=5\n",
+    "    f(i)=2^i;\n",
+    "    i = i+1;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Best Practice:** Verwenden Sie while-Schleifen, wenn die Anzahl der Durchläufe unbekannt ist und for-Schleifen, wenn sie bekannt ist."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### if-Abfragen\n",
+    "\n",
+    "Oft ist es nützlich, bestimmte Befehle nur auszuführen, wenn eine Bedingung erfüllt ist. Dies erreicht man mit if-Bedingungen."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x =  1.4199\n"
+     ]
+    }
+   ],
+   "source": [
+    "zaehler = rand();\n",
+    "nenner = rand();\n",
+    "if abs(nenner) > 1e-8\n",
+    "    x = zaehler/nenner\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Der Codeblock erstellt nur dann eine Variable `x`, wenn der Nenner des Bruchs größer als $10^{-8}$ ist. Wir sollten den Fall abfangen, wenn diese Bedingung mal nicht erfüllt wird. Dies erreicht man mit if-then-else-Bedingungen."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "x =  0.96087\n"
+     ]
+    }
+   ],
+   "source": [
+    "zaehler = rand();\n",
+    "nenner = rand();\n",
+    "if abs(nenner) > 1e-8\n",
+    "    x = zaehler/nenner\n",
+    "else\n",
+    "    x = 1\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingung. Das kann zum Beispiel Sinn haben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file oldmcdonald.m\n",
+    "% make some animal noises\n",
+    "\n",
+    "animal = \"cow\";\n",
+    "\n",
+    "if strcmp(animal, \"cat\")\n",
+    "    disp(\"Meaow\")\n",
+    "elseif strcmp(animal,  \"dog\")\n",
+    "    disp(\"Woof! Woof!\")\n",
+    "elseif strcmp(animal,  \"cow\")\n",
+    "    disp(\"Moooooh!\")\n",
+    "elseif strcmp(animal,  \"kangaroo\")\n",
+    "    disp(\"Gib mir eine Schnapspraline.\")\n",
+    "else\n",
+    "    disp([\"I don't know what kind of noise a \", animal, \" makes.\"])\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Moooooh!\n"
+     ]
+    }
+   ],
+   "source": [
+    "run oldmcdonald"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "In Matlab können wir Strings nicht mit `==` auf Gleichheit prüfen. Dafür stellt Matlab die Funktion `strcmp` bereit.\n",
+    "\n",
+    "Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms $y(x)= -x^4 + x^3 - x^2 + x + 1$ im Interval $[-1,1]$. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {
+    "tags": [
+     "hide_input"
+    ]
+   },
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "% plot f(x) = -x^4 + x^3 - x^2 + x + 1;\n",
+    "x = linspace(-1,1,100);\n",
+    "y = -x.^4 + x.^3 - x.^2 + x + 1;\n",
+    "plot(x,y, 'LineWidth',5)\n",
+    "set(gca,'XGrid', 'on', 'YGrid', 'on')\n",
+    "xlabel('x')\n",
+    "ylabel('y')\n",
+    "title('y(x) = -x^4 + x^3 - x^2 + x + 1')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird die Größe des Intervalls um die Nullstelle mittels *Bisektion* halbiert. Über eine if-Bedingung wird untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird die for-Schleife mit dem `break` Befehl unterbrochen."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file bisection.m\n",
+    "% find a zero of the polynomial \n",
+    "%\n",
+    "%      y(x)= -x^4 + x^3 - x^2 + x + 1\n",
+    "%\n",
+    "% in the interval [-1,1] using bisection\n",
+    "\n",
+    "%% input parameters:\n",
+    "tolerance = 1e-8;    % if the absolute value of y(x) is smaller than this, we consider\n",
+    "                     % the point x to be a zero.\n",
+    "maxIterations = 100; % maximum number of iterations\n",
+    "xlower = -1;         % lower bound of the interval\n",
+    "xupper = 1;          % upper bound of the invertal. y(xlower) and y(xupper) must have\n",
+    "                     % different signs!\n",
+    "\n",
+    "% this variable is set to true once the iteration converged\n",
+    "converged = false;\n",
+    "\n",
+    "for iteration=1:maxIterations\n",
+    "    \n",
+    "    % take the middle between the two bounds\n",
+    "    midpoint = 0.5*(xupper + xlower);\n",
+    "    \n",
+    "    % check the function value at this point\n",
+    "    fmidpoint = -midpoint^4 + midpoint^3 - midpoint^2 + midpoint + 1;\n",
+    "    \n",
+    "    % if the function value is small enough, we are done\n",
+    "    if abs(fmidpoint) < tolerance\n",
+    "        converged = true;\n",
+    "        break;\n",
+    "    end\n",
+    "    \n",
+    "    % if we reach this point, we have not converged. \n",
+    "    \n",
+    "    % reset the limits and repeat\n",
+    "    if fmidpoint > 0\n",
+    "        xupper = midpoint;\n",
+    "    else\n",
+    "        xlower = midpoint;\n",
+    "    end\n",
+    "end\n",
+    "\n",
+    "result = midpoint;\n",
+    "\n",
+    "if converged\n",
+    "    disp([\"Converged in \", num2str(iteration), \" iterations. The solution is \", num2str(result), \".\"])\n",
+    "else\n",
+    "    disp([\"No convergence to the specified tolerance of \", num2str(tolerance),  ...\n",
+    "          \" within \", num2str(iteration), \" iterations. The current error is \", num2str(fmidpoint), \".\"])\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Converged in 25 iterations. The solution is -0.51879.\n"
+     ]
+    }
+   ],
+   "source": [
+    "run bisection"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Grafische Ausgabe\n",
+    "\n",
+    "Es gibt in Matlab eine Vielzahl von Methoden, um den Inhalt von Vektoren grafisch darzustellen. Die `plot` Funktion ist nützlich, um funktionale Zusammenhänge darzustellen. Sie nimmt als Eingabe zwei gleichgroße Vektoren `x` und `y`, wobei der erste die $x$-Koordinaten und der zweite die $y$-Koordinaten enthält."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 17,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "iVBORw0KGgoAAAANSUhEUgAAAjAAAAGkCAIAAACgjIjwAAAJMmlDQ1BkZWZhdWx0X3JnYi5pY2MAAEiJlZVnUJNZF8fv8zzphUASQodQQ5EqJYCUEFoo0quoQOidUEVsiLgCK4qINEWQRQEXXJUia0UUC4uCAhZ0gywCyrpxFVFBWXDfGZ33HT+8/5l7z2/+c+bec8/5cAEgiINlwct7YlK6wNvJjhkYFMwE3yiMn5bC8fR0A9/VuxEArcR7ut/P+a4IEZFp/OW4uLxy+SmCdACg7GXWzEpPWeGjy0wPj//CZ1dYsFzgMt9Y4eh/eexLzr8s+pLj681dfhUKABwp+hsO/4b/c++KVDiC9NioyGymT3JUelaYIJKZttIJHpfL9BQkR8UmRH5T8P+V/B2lR2anr0RucsomQWx0TDrzfw41MjA0BF9n8cbrS48hRv9/z2dFX73kegDYcwAg+7564ZUAdO4CQPrRV09tua+UfAA67vAzBJn/eqiVDQ0IgALoQAYoAlWgCXSBETADlsAWOAAX4AF8QRDYAPggBiQCAcgCuWAHKABFYB84CKpALWgATaAVnAad4Dy4Aq6D2+AuGAaPgRBMgpdABN6BBQiCsBAZokEykBKkDulARhAbsoYcIDfIGwqCQqFoKAnKgHKhnVARVApVQXVQE/QLdA66At2EBqGH0Dg0A/0NfYQRmATTYQVYA9aH2TAHdoV94fVwNJwK58D58F64Aq6HT8Id8BX4NjwMC+GX8BwCECLCQJQRXYSNcBEPJBiJQgTIVqQQKUfqkVakG+lD7iFCZBb5gMKgaCgmShdliXJG+aH4qFTUVlQxqgp1AtWB6kXdQ42jRKjPaDJaHq2DtkDz0IHoaHQWugBdjm5Et6OvoYfRk+h3GAyGgWFhzDDOmCBMHGYzphhzGNOGuYwZxExg5rBYrAxWB2uF9cCGYdOxBdhK7EnsJewQdhL7HkfEKeGMcI64YFwSLg9XjmvGXcQN4aZwC3hxvDreAu+Bj8BvwpfgG/Dd+Dv4SfwCQYLAIlgRfAlxhB2ECkIr4RphjPCGSCSqEM2JXsRY4nZiBfEU8QZxnPiBRCVpk7ikEFIGaS/pOOky6SHpDZlM1iDbkoPJ6eS95CbyVfJT8nsxmpieGE8sQmybWLVYh9iQ2CsKnqJO4VA2UHIo5ZQzlDuUWXG8uIY4VzxMfKt4tfg58VHxOQmahKGEh0SiRLFEs8RNiWkqlqpBdaBGUPOpx6hXqRM0hKZK49L4tJ20Bto12iQdQ2fRefQ4ehH9Z/oAXSRJlTSW9JfMlqyWvCApZCAMDQaPkcAoYZxmjDA+SilIcaQipfZItUoNSc1Ly0nbSkdKF0q3SQ9Lf5RhyjjIxMvsl+mUeSKLktWW9ZLNkj0ie012Vo4uZynHlyuUOy33SB6W15b3lt8sf0y+X35OQVHBSSFFoVLhqsKsIkPRVjFOsUzxouKMEk3JWilWqUzpktILpiSTw0xgVjB7mSJleWVn5QzlOuUB5QUVloqfSp5Km8oTVYIqWzVKtUy1R1WkpqTmrpar1qL2SB2vzlaPUT+k3qc+r8HSCNDYrdGpMc2SZvFYOawW1pgmWdNGM1WzXvO+FkaLrRWvdVjrrjasbaIdo12tfUcH1jHVidU5rDO4Cr3KfFXSqvpVo7okXY5upm6L7rgeQ89NL0+vU++Vvpp+sP5+/T79zwYmBgkGDQaPDamGLoZ5ht2GfxtpG/GNqo3uryavdly9bXXX6tfGOsaRxkeMH5jQTNxNdpv0mHwyNTMVmLaazpipmYWa1ZiNsulsT3Yx+4Y52tzOfJv5efMPFqYW6RanLf6y1LWMt2y2nF7DWhO5pmHNhJWKVZhVnZXQmmkdan3UWmijbBNmU2/zzFbVNsK20XaKo8WJ45zkvLIzsBPYtdvNcy24W7iX7RF7J/tC+wEHqoOfQ5XDU0cVx2jHFkeRk4nTZqfLzmhnV+f9zqM8BR6f18QTuZi5bHHpdSW5+rhWuT5z03YTuHW7w+4u7gfcx9aqr01a2+kBPHgeBzyeeLI8Uz1/9cJ4eXpVez33NvTO9e7zofls9Gn2eedr51vi+9hP0y/Dr8ef4h/i3+Q/H2AfUBogDNQP3BJ4O0g2KDaoKxgb7B/cGDy3zmHdwXWTISYhBSEj61nrs9ff3CC7IWHDhY2UjWEbz4SiQwNCm0MXwzzC6sPmwnnhNeEiPpd/iP8ywjaiLGIm0iqyNHIqyiqqNGo62ir6QPRMjE1MecxsLDe2KvZ1nHNcbdx8vEf88filhICEtkRcYmjiuSRqUnxSb7JicnbyYIpOSkGKMNUi9WCqSOAqaEyD0tandaXTlz/F/gzNjF0Z45nWmdWZ77P8s85kS2QnZfdv0t60Z9NUjmPOT5tRm/mbe3KVc3fkjm/hbKnbCm0N39qzTXVb/rbJ7U7bT+wg7Ijf8VueQV5p3tudATu78xXyt+dP7HLa1VIgViAoGN1tubv2B9QPsT8M7Fm9p3LP58KIwltFBkXlRYvF/OJbPxr+WPHj0t6ovQMlpiVH9mH2Je0b2W+z/0SpRGlO6cQB9wMdZcyywrK3BzcevFluXF57iHAo45Cwwq2iq1Ktcl/lYlVM1XC1XXVbjXzNnpr5wxGHh47YHmmtVagtqv14NPbogzqnuo56jfryY5hjmceeN/g39P3E/qmpUbaxqPHT8aTjwhPeJ3qbzJqamuWbS1rgloyWmZMhJ+/+bP9zV6tua10bo63oFDiVcerFL6G/jJx2Pd1zhn2m9az62Zp2WnthB9SxqUPUGdMp7ArqGjzncq6n27K7/Ve9X4+fVz5ffUHyQslFwsX8i0uXci7NXU65PHsl+spEz8aex1cDr97v9eoduOZ67cZ1x+tX+zh9l25Y3Th/0+LmuVvsW523TW939Jv0t/9m8lv7gOlAxx2zO113ze92D64ZvDhkM3Tlnv296/d5928Prx0eHPEbeTAaMip8EPFg+mHCw9ePMh8tPN4+hh4rfCL+pPyp/NP637V+bxOaCi+M24/3P/N59niCP/Hyj7Q/Fifzn5Ofl08pTTVNG02fn3Gcufti3YvJlykvF2YL/pT4s+aV5quzf9n+1S8KFE2+Frxe+rv4jcyb42+N3/bMec49fZf4bmG+8L3M+xMf2B/6PgZ8nFrIWsQuVnzS+tT92fXz2FLi0tI/QiyQvpTNDAsAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAddEVYdFNvZnR3YXJlAEdQTCBHaG9zdHNjcmlwdCA5LjI2WJButwAAIABJREFUeJzt3TFsIundx/HHr66LBDhdJI+V3UihGKr1bWHcvfZKUEVCd3hLLB1cSQpYryLhSIsU3S5uXC5EWpcLjmixtOxbBShip5opXGQv8tBEis4LUup9iycvL8GDjWGYeZj5fooT4GHm4bwzP///8zCz9uXLFwEAgNf+y+sBAAAgBIEEAFAEgQQAUAKBBABQAoEEAFACgQQAUAKBBATd5eXl4eHh5eWl1wNB0BFIQKCdnZ3t7e3d3Nx8/fXX7Xbb6+Eg0AgkINAajUYul6tWq7u7ux8+fPB6OAi0Na7UAODTp09bW1vVavXbb7/1eiwILiokIOjOzs62trZev35NGsFbBBJWUrvdXltbW1tbOzs7E0Lc3NzIp4eHh9MWXtIJksPDw8XXfPcIHdnENGdnZ+l0ut1u53K5JW0CmBGBhNV2cXEhhLi8vIxEItOW2dra+vDhw9bW1jIG8ObNm2WfelnqJhqNhhDi66+/nhbngGsIJKywb775Rk5Wnsibw8PD8YLp8vLy2bNnl5eXshDJ5XLyp9VqdWKFE2+Uyx8eHq6vrwshbm5u9vb25AJyZppc7OzsTM6cnqjSJt4+/uK33367tra2vr5uO4b19fW1tbXHjx/L1Y42MVpmb29vtM6tra3Zs1YOst1uj8Z2dnb25f+8fv16xvUAS/EFWEGyYnjx4oX8N7y7uysfv3jx4ocffhBCNBoN+bf/Dz/8IBf+8OGDfPDNN998+PDhyZMnE//+p73x0aNHL168sF1A1mfZbPb3v//9xI9Ggxy9fXzkT548kWOIRCI//fTTxAiz2ezop6NN/PTTT6OVvH37VghxcXHx008/jTY3Wv+LMW/fvp34X/fkyZNHjx7t7u4+evRofJ2A56iQsMKePXsmhGi327IGki9++PDh0aNHFxcXFxcXkUjkdrPr+++/39vb29vbm3h92htfv34tSwdZlBweHl5cXDQajcPDQ1marK+v//nPf5620dHbx71+/Xpvb+/ly5efP38eL33kG6vV6uinNzc3chPjZZacfdBoNOQptPHTP58+fboc87e//W1i09Vq9ccff/z48WO1Wh1fJ+C5r7weALCQ3d3dRqPx+fPn2wEjhMjlcr/61a/mWO34G0dH7Vwu9/jx40ajUa1W37x58+LFC9se18RG7zjoz50H6+vr2WxWfqf1m2++GV9PLpdjegJWFBUSVtjNzc3W1tbZ2Znsv0lbW1s3NzcvX758+fLlp0+fZIUxi3vfeHh4+Pbt29evX9/c3Dx69OjTp09zb1R29mTnbfwMkEwyeWKp0WhEIpFp54eePXv2448/np2djUrD0SDXxtzO6VwuJ1t2uVxu9v85gAuokLDC1tfXv/766zdv3owfdl++fNlut3/+858LIZ48eVKtVme8Stu9b0yn03t7e3KBSCTy/fffywdv3rxpNpsT7717W5eXl2tra0KIt2/fTtQ3FxcX33//vVy5/KncxLNnz8Y/5rfffhuJRD5//jzx5aGJfJooEA8PD//617/KxuCzZ89++OEHJjJAHVypAf7UbrfX19fnmOp97xvlV4K2trZGU+8uLy/l01k22m63nz17JiPh8ePHjx8/vr3M5eWlLP5ub2J8MTnXTp5GAnyAQAJcNQok25Nes9vb2/v48ePi6wHUwTkkwFWPHz9+8eKFbWH0IFtbWxcXF6QR/IQKCQCgBCokAIASCCQAgBIcCCTDMCzLWnw9AIAgW+h7SIPB4ODgQNd1y7J0XS8Wi0+fPtV1XQghnzo0SACA/y0USI1GY3t7WwbP7u7u8+fPdV0/PT11ZmgAgCBZKJASiYR8MBgMhBCWZYXD4VKpFAqFcrlcOBx2YIAAgGBY6BySpmmapnW73YODg1wuNxgMNjY2kslkJBLJ5/NODREAEASLfg+pUqn0+/1CoaBp2vjrqVSq2WzeXj4ajS6yOQCA+q6uruZ410Itu3q93u/3T05O5NNarabrejwev/td8w3UEWuF//ly/N+ebX0tuF9D5rN7PQpv8Nk927qnx7q5C4+FAklO+M5kMvJpoVDI5/OJRMI0zf39/UXWDAAIGuczvNvtynNLtj+NRqMeVkjC0z8c+GvR61F4g8/u9Si84eFn97Y8Egsc552/H9K9LTsAAG7j0kHuCeyfioLPHlR8djxI4ALpy/F/rxX+x+tRAMBSeN6vW0TgAgkAoCYCCQCghCAGEl07AL600v06EcxAAgAoiEACACghoIFE1w6Az6x6v04ENpAAAKohkAAASghuING1A+AbPujXiSAHEgBAKQQSAEAJgQ4kunYAfMAf/ToR8EACAKiDQAIAKCHogUTXDsBK802/ThBIAABFEEgAACUQSHTtAKwqP/XrBIEEAFAEgQQAUAKBJARdOwAryGf9OkEgAQAUQSABAJRAIP0bXTsAK8R//TpBIAEAFEEgAQCUQCD9P7p2AFaCL/t1gkACACiCQAIAKIFA+g907QAozq/9OkEgAQAUQSABAJRAIE2iawdAWT7u1wkCCQCgCAIJAKAEAgkAVoO/+3WCQLLFaSQAcB+BBABQAoEEACvA9/06QSBNQ9cOAFxGIAEAlEAgAQCUQCBNRdcOgCKCcAJJEEgAAEUQSAAAJRBId6FrB8BzAenXCQIJAKAIAgkAoAQC6R507QB4KDj9OkEgAQAUQSABAJRAIN2Prh0ATwSqXycIJACAIggkAIASCKSZ0LUD4LKg9esEgQQAUASBBABQAoE0K7p2AFwTwH6dIJAAAIogkAAASnAgkAzDsCxr/OlgMFh8tQqiawfABcHs1wkhvlrkzYPB4ODgQNd1y7J0XS8Wi5lMRtM00zQLhUI8HndqlAAA31sokBqNxvb2drFYFELs7u7GYjFN08rlsmVZpVKJQAIAzG6hQEokEvKB7NEZhhGLxYQQmqb1er3FB6cg2bULZjUNwAVBPsIsdA5J0zRN07rd7sHBQS6Xk6/IH21vb09719qYRbYOAFCEIwf2RSc1VCqVer1+cnKyv78vhBjNbrijQvoyZsGtAwBU4MiBfaFAqtfr/X7/5OREFkaxWOz6+loIIec4LLJmlTHXDsCSBLlfJxY8hyQnfGcyGfn09PS0VqtVKpVer5fNZh0YHQAgMBYKpHK5PPFKs9nsdrvPnz8fnUwCAGAWzl+pIR6P+z6N6NoBcFzA+3WCSwcBABRBIAEAlEAgzYmuHQAH0a8TBBIAQBEEEgBACQTS/OjaAXAE/TqJQAIAKIFAAgAogUBaCF07AAuiXzdCIAEAlEAgAQCUQCAtiq4dgLnRrxtHIAEAlEAgAQCUQCA5gK4dgDnQr5tAIAEAlEAgAQCUQCA5g64dgAehX3cbgQQAUAKBBABQAoEEAG6jX2eLQHIMp5EAYBEEEgBACQQSALiKft00BJKT6NoBwNwIJACAEggkAIASCCSH0bUDcAdOIN2BQAIAKIFAAgAogUByHl07ALbo192NQAIAKIFAAgAogUBaCrp2ACbQr7sXgQQAUAKBBABQAoG0LHTtAIzQr5sFgQQAUAKBBABQAoG0RHTtAAj6dTMjkAAASiCQAABKIJCWi64dEHD062ZHIAEAlEAgAQCUQCAtHV07ILDo1z0IgQQAUAKBBABQwle2rxqGMRwOx18JhUKxWMyVIfmQ7NpRuQOBwl7/UPaB1Ov1qtWqrutCCMuyhBCapg2Hw2az6eroAACBYR9InU7n3bt3o5Ion8+/evWqWq22Wq1kMuni8AAAQWF/Dsk0TU3TRk9DoZBpmpFIpN/vuzUwv2GuHRAo9OvmYB9I6XQ6n8/X6/VWq1UqlWQ+tVqtRCLh8vgAAAFh37IrFovdbrfT6QghNjc3C4XCcDg8OTkZL5sAALYoj+ZjH0iDwUAIsbOzI5+aphmPx90blE8x1w4A7mAfSEdHR0KIjY2N0SsEEgBgqewD6fz8/OrqyuWhBAFFEuB77ONzmzqpwTAMl4cCAAgy+wpJCHFwcCC/GCudnp66MZwAoEgCfIy9exH2gbS/v88XYAEAbuLiqgAAJdhXSKZpXl9fy8e9Xi8UCt0xy24wGAyHQ76iNDu6doAvsV8vaGrLbvxpPp8fDAbhcNh24Uaj8fnz52KxKIR4+vSpPPOk67p8BQCAWUyd1DBuY2Nj2ndjU6mUaZrfffedEMKyLF3Xmf4wC4okwGfYoxdnH0iVSsU0zdFT0zRzuZztks1ms1KpyMeWZYXD4VKpFAqFcrnctIoKAIDb7AMpmUyOrhskhNB1fZZ0GQwGGxsbOzs7pmnm8/lppdLa2tro8ZcvXx42Xh+hSAJ8g315/MD+61//er6V2AdSq9UaPwNUr9d1Xb/3jrHJZFJOFo/H461Wa9piQQ4hAPCl8QN7NBqdbyWTgWQYxvHxsWmaEy27We4VW6vVdF3nqncAgDlMBlIsFjs9Pa1UKnPMkdve3s7n84lEwjTNiXl6sEXXDvAB9mKnTAbSHFE0Wj4Wi338+LHb7T5//pyvJQEAHmRt4oyOnMZ9ezmnLv4djUa5jvgE/rwCVhf7721zH+cnKyR5rmi+lh0AAHOzv5YdaQQA96I8ctZkhZTJZAqFQqvVmmjccf2F5WFqAwCI24GUy+U0TfvnP/857dIMAAAsw2QgyW8R/eMf/xg9hgsokoCVwz7ruKmXDsrn89wxFgDgGvtA0nX95OTE5aEEHEUSsELYW5fBfpYdX2sFALjMvkI6OjoSQmxsbIxe4XwSAGCp7APp/Pyc6ym4j64dsBLYT5fEvmWXSCQMw3B5KACAILP5YqwQYjgcHhwcMMvOfRRJgOLYQ5fH5ouxnowDABBw9l+MFUIMBgMhRDgcNgzj3nvFwkEUSYCy2DeXyv4cUr1e39vbsyxLCHF0dFQqldwdFQAgcOwDqVqtttttWRg1m03LspjjAABYKvtAGg6H4081TZt4BUslu3ZejwLAf6Bft2z230NKp9P5fD6ZTGqa1ul0TNMsl8sujwwAECiTtzAf6Xa7nU6n3+/HYrF0Oh0Ohx3ZHrcwnx1/jgHqYH+c3dzHefuWnWEYnU5H3jf2+Pj4+Ph4odEBAHAf+0A6Ojra2dkxDMOyrKurK9M0mdQAILAoj9xhH0imacbjcdM0t7e3hRDb29tManAfUxsABIp9IKXT6UqlUq/Xk8lkq9U6Pz8fv4wQAACOsw+kQqEQiUSy2WwsFhsOh+Vy2alJDXgQiiTAc/TrXGM/7TscDmezWfl4f3/fxfEAAALKPpCEEPV6/fr6enNzMxQKxeNxKiSvcGk7wEPsfW6yb9lVKpVWqyWEuL6+7vf7BwcH7o4KABA49oHUaDROTk52dnaEENlsVtf1brfr7sAAAMFiH0ihUGj8qWVZE6/ATUxtADxBv85l9ueQcrmcvGOsZVn5fF4IwS2RAABLNfVadoZhyNNIm5ubDk6041p2c+OPNcBN7HFzm/s4P3WWXa/XM01TPh4MBsyyAwAs1dRZdoZh5HK5XC4nhGCWnQo4kwS4hvLIE/YVUqPRaLfbsiqKx+P5fL7b7cbjcXfHBgAIEPsKSdf18aupWpalaZpbQwIABNFkhVSpVIQQ4XA4lUql02khRK/XE0IQSCrgqg2AC9jLvGLfstvY2JBpJISQd6AAAGCpJgNJ3iV2MBiMpthBKRRJwFKxf3nIvkI6OjoSQmxsbIxeYUYDAGCp7APp/Pycr68CCBrKI29NvWOsYRguDwUz4gtJAHxp6pUa5LXsRk9PT0/dGA4AIKjsA2l/fz+ZTLo8FMyOqQ2A49inPGffsovFYpZldTody7IGg8F4qQQAwDJwx9hVxZkkwEGURyrgjrEAACVwx1gAgBLsA0neMbbVapmmyR1jlUXXDnAE/TpFTJ1lp+t6q9XSdd3ZO8YCAGDLvkKS9y8vFov9fv/o6KhUKrk8LMyIIglYEOWROuwD6ejoaGdnxzAMy7Kurq5M0+TCDQCApbIPJNM04/G4aZry3hPb29vj9+uDUiiSgLlRHill6rXsKpVKvV5PJpOtVuv8/JzvxgIAlso+kAqFQiQSyWazsVhsOByWy+VwOOzyyAAAgbL25csXN7cXjUa5scUy0HkAHoq9ZknmPs7bT/u+fcdYbtAHAFgq7hjrE1z/G3gQ9hcFccdYAIAS7Cc1JBIJvngEwK8oj9Q0WSFlMhkhxHA45I6xK4euHYCVNhlIuVxOPvjXv/4lhPjZz37297///Ze//KXLwwIABM1kyy4ej8fjccuyfve73/3iF7+Ix+N/+tOf5M36oD6u2gDci0aCsuzPIVWr1Xa7LW850Ww2Lcu645TSYDCwLGv01DCMwWDg+EABAP5mH0gTV67TNO2Oa9k1Go3379/Lx5lMpl6vHxwccIdZr1AkAXegPFKZ/bTvdDqdz+eTyaSmaZ1OxzTNcrlsu2QqlTJN87vvvhNCtFotTdPK5bJlWaVSia8uAQBmZ18hFYvFXC53fX1dr9cjkcjJycm09zebTZlGQgjDMGSXT9O0Xq+3jOECAPzKPpCEEPF4vFgsJhKJ6+vrvb29GVenaZp8IO9bYWttzIPGihnRtQNs0a9bHkcO7PYtu1ar1e12z8/PQ6HQ8+fP2+32jKsbzW64o0Jy+XKuAIBlGz+wR6PR+VYyGUiVSuX8/DwcDieTyUKhcH19nc1mZ1xXLBaTk/Esy+L+Sd7iS7LABPYI9U0G0h//+MdEIiHvhNTtdq+vr2dfVzKZrNVqlUql1+vNHmMAAIjb90OyLOv9+/eySNJ1PRQKFYvFB62x2+1qmjY6mTSB+yG5iT8JAYl9wU1zH+cnJzVomlYsFj9+/Pjq1atQKNRoNFKpVK1Wm32N8Xh8WhoBADCN/aQGIUQsFovFYsViUU5wcHNMAIAAuusW5pZlhUKhcDjs4PZo2bmMTgXAXuAyx1p2496/fz9xI3MAAJbkrkCCD/AlWQQc5dEKmQyk8Qt17+zsMD0BAOCOyUBKpVKjux8xXw7ASqM8Wi2TgVQul2u1WiaTGb/FEVYaXTsAK2Fy2nc8Hm82mzKTEonEzs7O6HXXxwYACJCp90P6/Plzo9EYzbIjkFYal7ZDAPFvfuXYBFKr1To+Po7H4+1229kvIQEAMM1kIMmzR+VymZLIZyiSECj8a19Fk5MadF1vNpukkS8xuwEBQRqtqMkK6aHX9gYAwBFcqSFYKJLge5RHq4tAAgAogUAKHIok+Bjl0UojkAD4BGm06gikIKJIAqAgAimgyCT4DOWRDxBIAAAlEEjBRZEE36A88gcCCQCgBAIp0CiS4AOUR75BIAUdmYSVRhr5CYEEAFACgQSKJKwqyiOfIZAAAEogkCAERRJWEOWR/xBI+DcyCSuENPIlAgkAoAQCCf+PIgkrgfLIrwgkAIASCCT8B4okKI7yyMcIJAArgzTyNwIJkyiSAHiCQIINMgkKojzyPQIJAKAEAgn2KJKgFMqjICCQAABKIJAwFUUSFEF5FBAEEu5CJsFzpFFwEEgAACUQSLgHRRI8RHkUKAQSAEAJBBLuR5EET1AeBQ2BhJmQSXAZaRRABBIAQAkEEmZFkQTXUB4FE4EEAFACgYQHoEiCCyiPAotAAqAQ0ijICCQ8DEUSgCUhkPBgZBKWhPIo4AgkAIASCCTMgyIJjqM8AoEEAFACgYQ5USTBQZRHEAQSFkEmwRGkESQCCQCgBAIJC6FIwoIojzBCIAEAlEAgYVEUSZgb5RHGfeXs6p4+farruhBC1/VisejsyqEsmUkcWfAg/JvBBCcDybIsXddPT08dXCcAICCcbNlZlhUOh0ulUqVSGQwGDq4Z6qNxhwehPMJtTgbSYDDY2NhIJpORSCSfz09bbG2Mg1sHAHjFkQP72pcvXxwc00gqlWo2m7dfj0ajV1dXy9giVMCfvZgF/078be7jvJMVUq1W63a7Dq4QK4fGHe5FGmEaJyc1bG9v5/P5RCJhmub+/r6DawYA+J7zLbtut6tpmqZptj+lZRcE/AmMafi3EQRzH+cd/h6SECIejzu+TgCA73GlBjiPM0mwRXmEuxFIAAAlEEhYCookTKA8wr0IJCwLmYQR0gizIJAAAEogkLBEFEkQlEeYGYEEAFACgYTlokgKOMojzI5AwtKRSYFFGuFBCCQAgBIIJLiBIimAKI/wUAQSXEImBQpphDkQSHAPmRQQpBHmQyDBVWSS75FGmBuBBLeRST5GGmERBBI8QCb5EmmEBRFI8AaZ5DOkERZHIMEzZJJvkEZwBIEEL5FJPkAawSkEEjxGJq000ggOIpDgPTJpRZFGcBaBBCWQSSuHNILjCCSogkxaIaQRloFAgkLIpJVAGmFJCCSohUxSHGmE5SGQoBwySVmkEZaKQIKKyCQFkUZYNgIJiiKTlEIawQUEEtRFJimCNII7CCQojUzyHGkE1xBIUB2Z5CHSCG4ikLACyCRPkEZwGYGE1UAmuYw0gvsIJKwMMsk1pBE8QSBhlZBJLiCN4BUCCSuGTFoq0ggeIpCwesikJSGN4C0CCSuJTHIcaQTPEUhYVWSSg0gjqIBAwgojkxxBGkERBBJWG5m0INII6iCQsPLIpLmRRlAKgQQ/IJPmQBpBNQQSfIJMehDSCAoikOAfZNKMSCOoiUCCr5BJ9yKNoCwCCX5DJt2BNILKCCT4EJlkizSC4ggk+BOZNIE0gvoIJPgWmTRCGmElEEjwMzJJkEZYHQQSfC7gmUQaYYV85fUAgKUbz6SAHJ2D9nnhDwQSAmF0XPb3kdrfnw6+RyAhWHyZTH76LAgyAgkB5YNkWt2RA7YIJATdyiXTqowTeCgCCfg3xZNJzVEBDiKQgElKJZMKYwDcQSABU3mYTOQQAohAAu7nWjKRQwgy5wPJMAxN08LhsONrXnVra2tfvnzxehTe8M1nnyOZZvnsfs0h3/ze5xDkzz43hwMpk8lommaaZqFQiMfjzq4cUIcjNZNfcwiYj5OB1Gq1NE0rl8uWZZVKJQIJQTBPzUQOAXacDCTDMGKxmBBC07Rer+fgmgH13ZtM5BBwN4dbdpqmyQfb29vOrhlYFbeTST4gh4C7OXnarVKpbG5u7u/vCyGi0ejV1dXtZaLRqFObAwCoyfb4fy8nK6RYLGYYhhDCsixd122XmW+UAADfc3hiYiqV2t7e7vV62Ww2mUw6uGYAgL85P1O+2+1qmjY6mQQAwCz46hYAQAn/5f4mLcuyLMv97SrCsqzBYOD1KDxgGEYwf++GYQTzNy4C/EuXAruzz32Qd7tCKpVKQgjLspLJpJyPFyiDwWBvb+8vf/mL1wNx1WAwODg40HVdznYpFotej8g9gb12SZB/6VIwd3ax2EHe1Qqp2+0KIcrl8snJiXwcNMfHx6FQKGh/NDUaje3t7XK5fHp6en5+7vVw3DO6dsnJyUm1WvV6OK4K7C99JJg7+4IHeVev9t3pdDY3N+v1uhDi5OTEzU2roFarbW5uWpYVtCvPJhIJ+SBoO2eQr10S2F+6FNidfcGDvNvnkN6/fy+EuL6+zmQyLm/aW4ZhGIaRzWa9HogH5KzLbrd7cHCQy+W8Ho6rAnvtkiD/0oO8s4vFDvJuVEjdblfGphAikUjIrmIqlXJh054bffZut7uxsVGpVOSVZ3O5nO9nxo8++/7+fqVS6ff7Jycnvv/UE0andoNWIQkhAvtLr9VqQdvZxy1ykHcjkOLxuDydW6/Xr6+v5YsBKeRHn13X9eFwKITo9XrJZDIUCnk9tKUb/73LA5PXI3LbLNcu8avA/tKFENlsNmg7+8jm5uYiB3m3Z9nJSzmYphnMWXZCiEwmc3p66vUoXFUqlUzTHO2Wgfr4gb12SZB/6SMB3NnFYgd5D74Yy6UcECj8g0fQzP1vnis1AACU4MGVGgAAuI1AAgAogUACACiBQAIAKIFAAgAogUACACiBQMLK63a7T58+HX0tvFKp5PP524tZlhWNRiuVyh3rWfwSi5VK5Y5NzO6OwYz/KJVKyc3JS0IAK41AwsqLx+PpdPro6EgI0e12z8/PX716dXux9+/fJxIJH9wKQdf1QqEgH5umKW81dHx87OmgAAcQSPCDYrFoWVar1SqVSuVy2faa/+fn59lsNhwOt1ot+UqlUnn69Onu7q68Wr4QYjgc5vP5aDSaz+cHg8FgMCiVStFoNJVKyRKkXq/v7u4+ffp0VJeUSiW5jHyLEKLf72cymdEyt98lhLi95nsHYxhGvV7PZDJ/+MMf5EeQa5M1mWmalUrFMIzxjcrLTt8eodxWJpOp1WqUVlAHgQSfePXq1W9/+9tEImF7Y1bDMMLhcCwWSyaT8r5h3W7XNM12u91sNo+Pj+WR2rKsbDZ7dXUlhDBNs9FohEKhq6urQqHQarVkJDSbzXa7bZpmvV4fDofn5+f7+/ujt8g1l8vldrvd7/flEX/iXUKIiTXPMpjhcHh8fJzL5X7zm9/IDcnaqFgsFotFeVfW4XAofySEuL6+Hg6Ht0c42lahUKhWq/IyoIAKCCT4hGVZoVBodDjudrvjp3NarZau691uNxQKya5dp9NJJpPhcDgcDr97904upuu6vKXexsaG/G+v16vX66FQqFgsypWYpmmapq7r8qrGE28RQqTTaU3TwuHw/v5+p9OxfdfEmmcZjHxljvugT6xntK1YLBa0a5BDca7eMRZYksFgcHR09O7du+Pj41qtls1mNU3b2dmRPwqHw41GI51OdzodIUQoFGq1Wv1+Xy4ghJDH69uSyaSmaa1Wq16va5q2sbFhWZZciRBC3uJrFrffNbFmIcS9g3FQoG6IgBVCIMEP8vl8Op2OxWLlcjmTySQSifGLDbdaLU3TZINLCBGJRLrdbiwW63Q6suBIpVK28yBGFYwQIhqNvnr1qt/vy6e1Wm3aYX10L75Op6Pr+ubm5u13Tay5UCjcO5iH6vV6o5AbJz++vBfG6P6BgAoIJKy8Wq02HA7lwV3TtOfPn+fz+WazOVpEFS0aAAAA4ElEQVRgdPyVEonE3t5eu93O5/OlUknePS8Wi8lzS+M0TSuVSoZh9Hq9dDq9v7/farUymYymaaZpvnv3btQhnJBKpTRNsyzr3bt3chrF+LturzmdTh8cHNw9mLvJs1OJRELObuj3+9PycrQtzh5BNdx+AoEmzyrd0SUbDAbyRnOjZQzDGA6Hd5/LsSzLsqzxZW6/6/aa7x3M3VscDAaxWEyuVtd126mG4v+qIpl8+Xy+UCi40CQEZkEgAcFiWVY+n9/e3hZC9Hq98VIS8BaBBASOZVnn5+cbGxuBuqs61Pe/S6LoRUTRiYIAAAAASUVORK5CYII=\n",
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "x = linspace(-5,5,11);   % Ein Vektor mit Werten von -5 bis 5\n",
+    "y = x.^2;                % Ein Vektor y mit den zugehörigen Funktionswerten \n",
+    "\n",
+    "plot(x, y);             % Erstellen einer grafischen Darstellung\n",
+    "title('Mein erster plot y = x^2')\n",
+    "xlabel('X-Achsenbeschriftung')\n",
+    "ylabel('Y-Achsenbeschriftung')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Über die vielen Funktionen rund um die Visualisierung und deren Optionen informieren Sie sich bitte in der Matlab Dokumentation. An dieser Stelle soll abschließend nur noch auf zwei Features aufmerksam gemacht werden:\n",
+    "\n",
+    " - Häufig möchte man mehrere Graphen in einem Koordinatensystem darstellen. Matlab überschreibt die Ergebnisse standardmäßig. Dieses Verhalten kann aber mit dem Befehl `hold on` ausgehebelt werden.\n",
+    " - Das Koordinatensystem in Matlab ist ein Objekt vom Typ `axes`. Mit dem Befehl `gca`, kurz für *get current axes*, lässt sich ein *handle* für das aktuell verwendete Koordinatensystem wiedergeben. Eigenschaften des Koordinatensystems lassen sich dann mit den Befehlen `set(gca, ...)` und `get(gca, ...)` abfragen bzw. ändern. Das ist ein nützliches Feature, wenn man tiefergreifende Eigenschaften ändern möchte, als nur die Achsenbeschriftungen.\n",
+    " \n",
+    "Im folgenden werden diese beiden Features in einem Skript benutzt, das für zehn verschiedene Parameter $D \\in [0.1, 1.0]$ die Funktion\n",
+    "\n",
+    "$$ y(x) = \\frac{1}{\\sqrt{(1-x^2)^2 + (2Dx)^2}} $$\n",
+    "\n",
+    "über das Interval $x \\in [0, 3]$ plottet.\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/resonance_catastrophe.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file resonance_catastrophe.m\n",
+    "% plot the resonance catastrophe curve \n",
+    "%\n",
+    "%     y(x) = 1./sqrt((1-x.^2).^2 + (2*D*x).^2)\n",
+    "%\n",
+    "% for different damping parameters D\n",
+    "\n",
+    "% x values of the plot = 500 equally spaced points in the interval [0, 3]\n",
+    "x = linspace(0, 3, 500);\n",
+    "\n",
+    "% make sure that each new plot call does not overwrite old results\n",
+    "hold on\n",
+    "\n",
+    "% plot 10 functions depending on a parameter D\n",
+    "for D = 0.1:0.1:1\n",
+    "\n",
+    "    % set some variables denoting properties of the current plot\n",
+    "    plotname = ['D = ', num2str(D)];              % name that shall appear in the legend\n",
+    "    plotcolor = (1-D)*[1, 0, 0] + D*[0, 0, 1];    % RGB value that shall be used for the plot\n",
+    "    \n",
+    "    % plot the function with some additional options\n",
+    "    plot(x, 1./sqrt((1-x.^2).^2 + (2*D*x).^2), ...\n",
+    "         'DisplayName', plotname, ...\n",
+    "         'Color', plotcolor, ...\n",
+    "         'LineWidth', 5)\n",
+    "    \n",
+    "end\n",
+    "\n",
+    "% set some options for the current axis\n",
+    "xlabel('\\Omega/\\omega_0', 'fontsize', 16)\n",
+    "ylabel('(A_\\Omega*k)/F', 'fontsize', 16)\n",
+    "set(gca, 'Box', 'on', 'XGrid', 'on', 'YGrid', 'on')\n",
+    "\n",
+    "% show a legend\n",
+    "legend toggle\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "run resonance_catastrophe.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Funktionen\n",
+    "\n",
+    "Mit Skripten können wir also Algorithmen als eine Abfolge von Anweisungen umsetzen. Funktionen zeichnen sich, im Gegensatz zu Skripten, dadurch aus, dass es eine klare Trennung von Eingabe, Ausgabe und Anweisungen gibt. Dies bietet sich insbesondere dann an, wenn die Funktion einen Algorithmus repräsentiert, der oft an verschiedenen Stellen ausgeführt werden soll.\n",
+    "\n",
+    "### Eingabe und Ausgabe\n",
+    "\n",
+    "Funktionen werden in Matlab mit dem `function` keyword eingeleitet. Das folgende m-file `oldmcdonald.m` definiert eine Funktion mit Namen `oldmcdonald`, die für einen Tiernamen `animal` als Eingabe einen Laut `sound` als Ausgabe ausgibt. Sowohl `animal` und `sound` werden als strings definiert."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file oldmcdonald.m\n",
+    "function sound = oldmcdonald(animal)\n",
+    "% oldmcdonald takes an input string \"animal\" and outputs a \"noise\"\n",
+    "% corresponding to the input. If the animal is unknown, an \n",
+    "% error is thrown.\n",
+    "% \n",
+    "% input:     animal can be any of [\"cat\", \"dog\", \"cow\", \"kangaroo\"]\n",
+    "% output:    noise\n",
+    "%\n",
+    "    if strcmp(animal, \"cat\")\n",
+    "        sound = \"Meaow\";\n",
+    "    elseif strcmp(animal,  \"dog\")\n",
+    "        sound = \"Woof! Woof!\";\n",
+    "    elseif strcmp(animal,  \"cow\")\n",
+    "        sound = \"Moooooh!\";\n",
+    "    elseif strcmp(animal,  \"kangaroo\")\n",
+    "        sound = \"Gib mir eine Schnapspraline.\";\n",
+    "    else\n",
+    "        error([\"I don't know what kind of noise a \", animal, \" makes.\"]);\n",
+    "    end\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Wichtig:** Der Dateiname muss genau dem Funktionsnamen entsprechen.\n",
+    "\n",
+    "Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable `ans` oder einer Variablen mit beliebigem Namen zuordnen:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 21,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans = Meaow\n"
+     ]
+    }
+   ],
+   "source": [
+    "oldmcdonald('cat')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 22,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "noise = Woof! Woof!\n"
+     ]
+    }
+   ],
+   "source": [
+    "noise = oldmcdonald('dog')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 23,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "error: I don't know what kind of noise a penguin makes.\n",
+      "error: called from\n",
+      "    oldmcdonald at line 18 column 9\n"
+     ]
+    }
+   ],
+   "source": [
+    "oldmcdonald('penguin')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 24,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "'oldmcdonald' is a function from the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m\n",
+      "\n",
+      " oldmcdonald takes an input string \"animal\" and outputs a \"noise\"\n",
+      " corresponding to the input. If the animal is unknown, an \n",
+      " error is thrown.\n",
+      " \n",
+      " input:     animal can be any of [\"cat\", \"dog\", \"cow\", \"kangaroo\"]\n",
+      " output:    noise\n",
+      "\n",
+      "\n",
+      "\n",
+      "Additional help for built-in functions and operators is\n",
+      "available in the online version of the manual.  Use the command\n",
+      "'doc <topic>' to search the manual index.\n",
+      "\n",
+      "Help and information about Octave is also available on the WWW\n",
+      "at http://www.octave.org and via the help@octave.org\n",
+      "mailing list.\n"
+     ]
+    }
+   ],
+   "source": [
+    "help oldmcdonald"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Jede Funktion muss in einer Datei mit demselben Namen der Funktion definiert werden. Für kleine Funktionen, die nur in einem bestimmten Skript verwendet werden, bietet Matlab/Octave die Möglichkeit, die Funktion *am Ende des Skriptes* zu definieren:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/martin/Modellbildung-und-Simulation/content/00_einleitung/mylittlefarm.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file mylittlefarm.m\n",
+    "% make a bunch of noises using the oldmcdonald function from before\n",
+    "\n",
+    "% define some animals\n",
+    "animals = {\"cat\", \"dog\", \"cow\", \"kangaroo\"};\n",
+    "\n",
+    "% let each animal have his or her say\n",
+    "for i=1:numel(animals)\n",
+    "    disp(oldmcdonald(animals(i)))\n",
+    "end\n",
+    "\n",
+    "% define the function \"oldmcdonald\"\n",
+    "function sound = oldmcdonald(animal)\n",
+    "    if strcmp(animal, \"cat\")\n",
+    "        sound = \"Meaow\";\n",
+    "    elseif strcmp(animal,  \"dog\")\n",
+    "        sound = \"Woof! Woof!\";\n",
+    "    elseif strcmp(animal,  \"cow\")\n",
+    "        sound = \"Moooooh!\";\n",
+    "    elseif strcmp(animal,  \"kangaroo\")\n",
+    "        sound = \"Gib mir eine Schnapspraline.\";\n",
+    "    else\n",
+    "        error([\"I don't know what kind of noise a \", animal, \" makes.\"]);\n",
+    "    end\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 26,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Meaow\n",
+      "Woof! Woof!\n",
+      "Moooooh!\n",
+      "Gib mir eine Schnapspraline.\n"
+     ]
+    }
+   ],
+   "source": [
+    "run mylittlefarm"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Es ist zwingend notwendig, dass alle Funktionen am Ende eines Skriptes definiert werden.\n",
+    "\n",
+    "Anmerkung: Für die Liste `animals` in `mylittlefarm.m` wird keine Matrix verwendet, sondern eine sogenannte `cell`, die unterschiedlich große Variablen enthalten kann. Das erkennt man an der Verwendung der geschweiften Klammern `{}` anstelle der eckigen Klammern `[]`. Strings unterschiedlicher Länge können nicht in einer Matrix gespeichert werden, da sonst jeder Buchstabe einzeln hinterlegt wird."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Scope von Variablen\n",
+    "\n",
+    "In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff *scope* bezeichnet.\n",
+    "\n",
+    "Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden, nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems innerhalb der Funktion dienen, nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.\n",
+    "\n",
+    "Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 27,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/bisection.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file bisection.m\n",
+    "function result = bisection(xlower, xupper, tolerance, maxIterations)\n",
+    "% find a zero of the polynomial \n",
+    "%\n",
+    "%      y(x)= -x^4 + x^3 - x^2 + x + 1\n",
+    "%\n",
+    "% in the interval xlower and xupper using bisection\n",
+    "%\n",
+    "% input:\n",
+    "%   xlower:        lower bound for the zero.\n",
+    "%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have \n",
+    "%                  different signs!\n",
+    "%   tolerance:     if the absolute value of y(x) is smaller than this, the point \n",
+    "%                  x is considered to be a a zero.\n",
+    "%   maxIterations: maximum number of iterations\n",
+    "%\n",
+    "% output:\n",
+    "%   result:        the calculated zero of the given function\n",
+    "\n",
+    "% check if the bounds have function values with different signs\n",
+    "fxlower =  -xlower^4 + xlower^3 - xlower^2 + xlower + 1;\n",
+    "fxupper =  -xupper^4 + xupper^3 - xupper^2 + xupper + 1;\n",
+    "if sign(fxupper) == sign(fxlower)\n",
+    "    error(\"The bounds xlower and xupper must be chosen, such that their function values have different signs.\")\n",
+    "end\n",
+    "\n",
+    "% this variable is set to true once the iteration converged\n",
+    "converged = false;\n",
+    "\n",
+    "for iteration=1:maxIterations\n",
+    "    \n",
+    "    % take the middle between the two bounds\n",
+    "    midpoint = 0.5*(xupper + xlower);\n",
+    "    \n",
+    "    % check the function value at this point\n",
+    "    fmidpoint = -midpoint^4 + midpoint^3 - midpoint^2 + midpoint + 1;\n",
+    "    \n",
+    "    % if the function value is small enough, we are done\n",
+    "    if abs(fmidpoint) < tolerance\n",
+    "        converged = true;\n",
+    "        break;\n",
+    "    end\n",
+    "    \n",
+    "    % if we reach this point, we have not converged. \n",
+    "    \n",
+    "    % reset the limits and repeat\n",
+    "    if fmidpoint > 0\n",
+    "        xupper = midpoint;\n",
+    "    else\n",
+    "        xlower = midpoint;\n",
+    "    end\n",
+    "end\n",
+    "\n",
+    "result = midpoint;\n",
+    "\n",
+    "if converged\n",
+    "    disp([\"Converged in \", num2str(iteration), \" iterations. The solution is \", num2str(result), \".\"])\n",
+    "else\n",
+    "    disp([\"No convergence to the specified tolerance of \", num2str(tolerance),  ...\n",
+    "          \" within \", num2str(iteration), \" iterations. The current error is \", num2str(fmidpoint), \".\"])\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Im folgenden wird die neue Funktion verwendet. Die Grenzen `xlower` und `xupper` werden über die Variable `a` und `b` an die Funktion übergeben. Der Mittelpunkt des Startintervals wird in der Variable `midpoint` gespeichert."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Converged in 25 iterations. The solution is -0.51879.\n",
+      "0\n",
+      "-0.51879\n"
+     ]
+    }
+   ],
+   "source": [
+    "% define initial points and calculate the midpoint\n",
+    "a = -1;\n",
+    "b = 1;\n",
+    "midpoint = (a+b)/2;\n",
+    "\n",
+    "res = bisection(a, b, 1e-8, 100);\n",
+    "\n",
+    "disp(midpoint)\n",
+    "disp(res)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Obwohl die Funktion ebenfalls eine Variable `midpoint` als Hilfsvariable in der Berechnung verwendet, bleibt die Variable außerhalb der Funktion unverändert. Die beiden Variablen befinden sich in unterschiedlichen *Scopes*. Aus demselben Grund kann während der Rechenvorschrift der Funktion auf keine Variablen mit dem Namen `a` oder `b` zurückgegriffen werden.\n",
+    "\n",
+    "Dieses Verhalten kann mit sogenannten globalen Variablen ausgehebelt werden, wie das folgende Beispiel demonstriert."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/increment_a.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file increment_a.m\n",
+    "function increment_a(n)\n",
+    "    global a\n",
+    "    a = a + n;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "0\n",
+      " 2\n",
+      " 7\n"
+     ]
+    }
+   ],
+   "source": [
+    "global a\n",
+    "a = 0;\n",
+    "disp(a)\n",
+    "increment_a(2)\n",
+    "disp(a)\n",
+    "increment_a(5)\n",
+    "disp(a)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Überall dort, wo der *scope* einer Variablen `x` erweitert werden soll, muss dies explizit durch die Zeile `global x` angegeben werden. In dem obigen Beispiel muss das also sowohl in der Funktion als auch im aufrufenden Skript geschehen.\n",
+    "\n",
+    "Globale Variablen sollten spärlich verwendet werden, da sie gerade die saubere Trennung von Eingabe, Ausgabe und Funktionskörper unterwandern und so für mögliche Fehlerquellen sorgen."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Function Handles\n",
+    "\n",
+    "Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte *function handles* zu definieren. Ein *function handle* ist eine Variable, in der die Funktion gespeichert wird. function handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 49,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "myPolynomial = @(x) -x.^4 + x.^3 - x.^2 + x + 1;"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 33,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans = function_handle\n"
+     ]
+    }
+   ],
+   "source": [
+    "class(myPolynomial)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 34,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans = -3\n"
+     ]
+    }
+   ],
+   "source": [
+    "myPolynomial(-1)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 35,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans =  1\n"
+     ]
+    }
+   ],
+   "source": [
+    "myPolynomial(1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Mit einem vorangestellten `@(x)` wird deklariert, dass `x` als Eingabeparameter für die Funktion interpretiert werden soll. Hier kann man auch eine Abhängigkeit von mehreren Variablen deklarieren, z.B."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans =  1.4142\n"
+     ]
+    }
+   ],
+   "source": [
+    "norm2d = @(x,y) sqrt(x.^2 + y.^2);\n",
+    "norm2d(1,1)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/home/jan/shares/Modellbildung-und-Simulation/content/00_einleitung/bisection.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file bisection.m\n",
+    "function result = bisection(f, xlower, xupper, tolerance, maxIterations)\n",
+    "% bisection finds a zero of a function f in the interval xlower and xupper \n",
+    "% using bisection\n",
+    "%\n",
+    "% input:\n",
+    "%   f:             a function handle to the function f\n",
+    "%   xlower:        lower bound for the zero.\n",
+    "%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have \n",
+    "%                  different signs!\n",
+    "%   tolerance:     if the absolute value of y(x) is smaller than this, the point \n",
+    "%                  x is considered to be a a zero.\n",
+    "%   maxIterations: maximum number of iterations\n",
+    "%\n",
+    "% output:\n",
+    "%   result:        the calculated zero of the given function\n",
+    "\n",
+    "% check if the bounds have function values with different signs\n",
+    "if sign(f(xupper)) == sign(f(xlower))\n",
+    "    error(\"The bounds xlower and xupper must be chosen, such that their function values have different signs.\")\n",
+    "end\n",
+    "\n",
+    "% this variable is set to true once the iteration converged\n",
+    "converged = false;\n",
+    "\n",
+    "for iteration=1:maxIterations\n",
+    "    \n",
+    "    % take the middle between the two bounds\n",
+    "    midpoint = 0.5*(xupper + xlower);\n",
+    "    \n",
+    "    % check the function value at this point\n",
+    "    fmidpoint = f(midpoint);\n",
+    "    \n",
+    "    % if the function value is small enough, we are done\n",
+    "    if abs(fmidpoint) < tolerance\n",
+    "        converged = true;\n",
+    "        break;\n",
+    "    end\n",
+    "    \n",
+    "    % if we reach this point, we have not converged. \n",
+    "    \n",
+    "    % reset the limits and repeat\n",
+    "    if fmidpoint > 0\n",
+    "        xupper = midpoint;\n",
+    "    else\n",
+    "        xlower = midpoint;\n",
+    "    end\n",
+    "end\n",
+    "\n",
+    "result = midpoint;\n",
+    "\n",
+    "if converged\n",
+    "    disp([\"Converged in \", num2str(iteration), \" iterations. The solution is \", num2str(result), \".\"])\n",
+    "else\n",
+    "    disp([\"No convergence to the specified tolerance of \", num2str(tolerance),  ...\n",
+    "          \" within \", num2str(iteration), \" iterations. The current error is \", num2str(fmidpoint), \".\"])\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nicht nur haben wir die Funktion stark erweitert, da sie nun Nullstellen beliebiger Funktionen finden kann, wir haben auch eine potentielle Fehlerquelle beseitigt: Bisher wurde die Funktionsvorschrift des Polynoms an drei Stellen des Algorithmus verwendet. Wenn die Funktion nun geändert werden soll, passiert es schnell, dass sie nicht an allen Stellen geändert wird. In der neuen Version kann das nicht passieren, da überall die Funktion `f` aus der Eingabe verwendet wird.\n",
+    "\n",
+    "Die weiter oben über ein function handle definierte Funktion `myPolynomial` kann nun als Eingabe verwendet werden:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 52,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Converged in 40 iterations. The solution is -0.51879.\n",
+      "ans = -0.51879\n"
+     ]
+    }
+   ],
+   "source": [
+    "bisection(myPolynomial, -1, 1, 1e-12, 100)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Quiz**: Finden Sie die erste positive Nullstelle der Funktion $f(x)=-\\cos(-\\frac{1}{3}x^2 - \\frac{1}{10}x + 1)$. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 45,
+   "metadata": {
+    "tags": [
+     "hide_input"
+    ]
+   },
+   "outputs": [
+    {
+     "data": {
+      "image/png": "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\n",
+      "text/plain": [
+       "<IPython.core.display.Image object>"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "%plot f(x)= -cos(-0.33*x.^2-0.1*x +1)\n",
+    "x = 0:pi/2000:2*pi;\n",
+    "plot(x,-cos(-0.33*x.^2-0.1*x +1),'LineWidth',10)\n",
+    "xlabel('x')\n",
+    "ylabel('y')\n",
+    "xlim([0,2*pi])\n",
+    "set(gca, 'Box', 'on', 'XGrid', 'on', 'YGrid', 'on')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 39,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "% space for quiz answer\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Aus Funktionen, die über ein m-file definiert wurden lassen sich auch function handles erzeugen.\n",
+    "\n",
+    "Function handles lassen sich durch ein vorangestelltes `@` vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein function handle `h` für die Funktion `bisection` erstellt. Die Funktion `bisection` wird anschließend mittelbar über das function handle `h` aufgerufen, um eine Nullstelle der Funktion $f(x) = 2x - \\frac{1}{3}$ aufzufinden."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "h = @bisection\n",
+      "ans = function_handle\n",
+      "Converged in 27 iterations. The solution is 0.165.\n",
+      "ans =  0.16500\n"
+     ]
+    }
+   ],
+   "source": [
+    "h = @bisection\n",
+    "class(h)\n",
+    "h(@(x) 2*x-0.33, 0, 1, 1e-8, 100)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Rekursion\n",
+    "\n",
+    "Zum Schluss sei noch angemerkt, dass Funktionen sich selbst aufrufen können. In vielen Fällen, in denen sich diese *Rekursion* anwenden lässt, sorgt ein rekursiver Aufruf für eine sehr kurze, prägnante Schreibweise. So lässt sich die Fakultät wieder über eine Auswertung der Fakuktät definieren:\n",
+    "\n",
+    "$$ n! = n \\cdot (n-1)! $$\n",
+    "\n",
+    "für alle $n \\in \\mathbb{N}$ und $0! = 1$.\n",
+    "\n",
+    "Als weiteres Beispiel für eine Rekursion sei die ursprüngliche Fibonacci-Folge angegeben. Die ersten beiden Zahlen der Fibonacci-Folge $a_n$ sind $a_1 = 1, a_2 = 1$. Alle weiteren Zahlen ergeben sich aus der Summe der beiden vorherigen:\n",
+    "\n",
+    "$$ a_{n} = a_{n-1} + a_{n-2}.$$\n",
+    "\n",
+    "Die ersten paar Zahlen der Fibonacci-Folge sind demnach:\n",
+    "\n",
+    "$$1,1,2,3,5,8,13,...$$\n",
+    "\n",
+    "Das folgende Programm berechnet die $n$-te Fibonacci-Zahl:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 41,
+   "metadata": {
+    "tags": [
+	 "remove-output"
+    ]
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Created file '/mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/fibonacci.m'.\n"
+     ]
+    }
+   ],
+   "source": [
+    "%%file fibonacci.m\n",
+    "function out = fibonacci(n)\n",
+    "    if (n<3)\n",
+    "        out = 1;\n",
+    "    else\n",
+    "        out = fibonacci(n-1) + fibonacci(n-2);\n",
+    "    end;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 42,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "ans =  610\n"
+     ]
+    }
+   ],
+   "source": [
+    "fibonacci(15)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Die if-then-else-Anweisung garantiert, dass die Rekursion terminiert, da die Funktion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wrid.\n",
+    "\n",
+    "**Zusatzfrage:** Wie ist der Algorithmus hinsichtlich der verwendeten Rechenoperationen zu bewerten? Ist er effizient implementiert oder lässt sich da etwas verbessern?"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "4.2.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

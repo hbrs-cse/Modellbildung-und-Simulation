@@ -1,0 +1,311 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Harmonische Schwingung"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Unter einer harmonischen Schwingung versteht man eine Schwingung, die vollständig mit der Sinus- bzw. Kosinusfunktion beschrieben werden kann:\n",
+    "$y(t) = \\hat y \\cdot \\sin \\left( {\\omega  \\cdot t} \\right)$"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 1: Fadenpendel"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nutzen Sie Matlab/Octave, um das Verhalten eines Fadenpendels zu simulieren. \n",
+    "Stellen Sie dazu zunächst mit Stift und Papier die zu lösende Differentialgleichung auf. \n",
+    "\n",
+    "***Tipp:*** Vielleicht hilft Ihnen eine Skizze und die Energieerhaltung bei der Herleitung!"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nun stehen wir vor der Herausforderung ein zeitkontinuierliches Problem mit unseren endlichen Ressourcen zu lösen! Wie gelingt uns dies? Und wie können wir eine diskrete Zeit in Matlab ausdrücken? \n",
+    "\n",
+    "***Tipp:*** Vielleicht kommen wir mit [dieser Funktion](https://de.mathworks.com/help/matlab/ref/linspace.html) einen Schritt näher?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nun können wir unser Problem Matlab/Octave mitteilen. Dazu geben wir zunächst allen Variablen und konstanten Größen einen Wert:\n",
+    "* Zu Beginn der Simulation soll das Pendel parallel zum Boden ausgelenkt sein und ruhen\n",
+    "* Die Länge des Seils soll 5m betragen\n",
+    "* Die Simulation beginnt zum Zeitpunkt t0 = 0"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "g = ; %Gravitationskonstante\n",
+    "l = ; %Länge des Seils\n",
+    "x0 = [, ]; %Anfangsbedingung \n",
+    "t_start = ; %Zu welchem Zeitpunkt die Simulation beginnt\n",
+    "t_end = ; %Zu welchem Zeitpunkt die Simulation endet \n",
+    "t_steps = ; %Anzahl der Zeitschritte zwischen t_start und t_end \n",
+    "t_interval = ; %Zeitvektor "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Die DGL, die wir zu Beginn aufgestellt haben, können wir nun auch in Vektorform aufschreiben:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "dgl = @(t,x) [ ; ]; %Eine Funktion, mit t und x als Variablen "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Unser nun diskretes Problem können wir problemlos mit den uns zur Verfügung stehenden Hilfsmitteln lösen. Dazu benötigen wir nichts weiter als Stift und Papier... und eine Menge Geduld, wenn wir eine brauchbare Zeitauflösung verfolgen! Wie können wir unsere nun zeitdiskrete Differentialgleichung mit Hilfe von Matlab/Octave lösen? \n",
+    "\n",
+    "***Tipp:*** [Hier](https://de.mathworks.com/help/matlab/ref/ode45.html) finden Sie Informationen zur Anwendung einer der populärlisten Möglichkeiten unser Problem zu lösen!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "[t, x] =  ; %Lösung der dgl nach x in Abhängigkeit von t "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Plotten Sie nun das Ergebnis. Dazu bietet es sich an, zunächst ein Winkel-Zeit-Diagramm und ein Geschwindigkeits-Zeit-Diagramm auszugeben. Die Lösung unserer Differentialgleichung wurde in $x$ gespeichert und besteht aus zwei Spalten, dem Winkel und der Geschwindigkeit. \n",
+    "\n",
+    "***Tipp:*** Wie man auf einzelne Spalten einer Matrix zugreift und weiteres zur Indizierung von Arrays in Matlab/Octave finden Sie zum Beispiel [hier](https://de.mathworks.com/help/matlab/math/array-indexing.html)."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "phi_t = x( , )'; %Auslesen der Winkel-Komponenten aus dem Ergebnisvektor x \n",
+    "omega_t = x( , )'; %Auslesen der Winkelgeschwindigkeits-Komponenten aus dem Ergebnisvektor x "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Mit Hilfe des [plot-Befehls](https://de.mathworks.com/help/matlab/ref/plot.html) können wir nun unsere Diagramme zeichnen lassen, diese sollten ungefähr so aussehen:\n",
+    "\n",
+    "<figure>\n",
+    "  <img src=\"images/plot.png\"/>\n",
+    "  <figcaption>Abbildung 1: Der Verlauf des Winkels zwischen Pendel und Decke über die Zeit</figcaption>\n",
+    "</figure>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**Tipp:** Mit [subplot](https://de.mathworks.com/help/matlab/ref/subplot.html) können mehrere plots nebeneinander dargestellt werden!"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "plot(t, phi_t)\n",
+    "grid on\n",
+    "title('Winkel-Zeit-Diagramm')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Neben statischen Daigrammen ermöglicht Matlab die Animation von Bewegungen. Dies gelingt, indem für jeden Zeitschritt der schon bekannte plot-Befehl ausgeführt wird. Mit dem Befehl [hold](https://de.mathworks.com/help/matlab/ref/hold.html) kann erzwungen werden, das Darstellungsfenster geöffnet zu halten und den neuen Datenpunkt hinzuzufügen. So sollte es Ihnen gelingen eine ähnliche Animation des Winkel-Zeit-Diagrams zu generieren, wie unten dargstellt. (Leider können Animationen nicht interaktiv auf dieser Seite ausgeführt werden, kopieren Sie den Code in Matlab und füllen Sie die Lücken!)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Nutzen Sie die bereitgestellte Code-Struktur, um auch die Bewegung des Pendels zu simulieren."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cartesianx = %zunächst muss der Vektoren mit den Winkeln zu allen Zeitpunkten kartesisch ausgedrückt werden\n",
+    "cartesiany = \n",
+    "frame = 1; %Setze den Framezähler initial auf 1\n",
+    "for i = 1 : t_steps %Für jeden Zeitschritt soll ein Plot erstellt werden\n",
+    "    %Darstellung des animierten Winkel-Zeit-Diagrams\n",
+    "    plot()\n",
+    "    \n",
+    "    \n",
+    "    \n",
+    "    \n",
+    "    %Darstellung Pendel (Die obigen plots sollten nicht überschrieben werden, wie können wir das lösen?)\n",
+    "    plotarrayx = [0 cartesianx(iterations)]; %Das ist der x-Anteil des Seil-Vektors (oben berechnet) \n",
+    "    plotarrayy = [0 cartesiany(iterations)]; %Das ist der y-Anteil des Seil-Vektors (oben berechnet)\n",
+    "    %Jetzt wird einmal die Masse des Pendel als roter Kreis und das Seil als Linie geplotet\n",
+    "    plot(cartesianx(iterations),cartesiany(iterations),'ro',plotarrayx,plotarrayy,'k-') \n",
+    "    title(['Animation in kartesischen Koordinaten'],'fontsize',12)\n",
+    "    xlabel('x [m]','fontsize',12)\n",
+    "    ylabel('y [m]','fontsize',12)\n",
+    "    axis([-l l -l 0]) %Als Ränder unseres Diagrams können wird jeweils die Länge des Seils setzen\n",
+    "    pbaspect([2 1 1]) %Hier wird die Aspect-Ratio des Diagrams so angepasst, sodass 1m in x-Richtung so lang ist, wie 1m in y-Richtung\n",
+    "    iter = iter+1;\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Ihr Ergebnis sollte den hier gezeigten Animationen ähnlich sein (je nachdem welche Parameter sie insbeosndere für die Zeitschrittweite und Schrittanzahl wählen, wird es sich unterscheiden!):"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<figure>\n",
+    "  <img src=\"images/pendulum_halfPI.gif\" width=\"500\"/>\n",
+    "  <figcaption></figcaption>\n",
+    "</figure>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Experementieren Sie mit den Parametern herum: Verhält sich das Pendel immer ihrer Erwartung entsprechend?\n",
+    "\n",
+    "Welche Parameter müssen Sie wählen, um bei den oben genannten Anfangsbedingungen eine Periodendauer von 10 Sekunden zu erreichen?"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 2: Dämpfung\n",
+    "Vergleicht man die bisherigen Ergebnisse mit realen Pendeln wird schnell ersichtlich, dass wir hier etwas realistischer modellieren könnten! In Aufgabe 1 wurde die zu lösende Differentialgleichung mit Hilfe des Energieerhaltungssatzes hergeleitet. Dabei sind wir von einem abgeschlossenen System ausgegangen, d.h. weder Masse noch eine andere Energieform kann über Systemgrenzen mit der Umwelt ausgetauscht werden. Dies entspricht natürlich nicht der Realität, insbesondere die Luftreibung entzieht unserem System kinetische Energie und wandelt diese in Wärme um. Die Geschwindigkeit des Pendels wird reduziert. Um diesen Effekt in unserem Modell zu berücksichtigen müssen wir unserer Differentialgleichung einen Dämpfungsterm hinzufügen.\n",
+    "\n",
+    "Auch hier hilft die Energieerhaltung bei der Herleitung der Differentialgleichung. Die dämpfende Kraft soll mit einer Dämpfungskonstanten modelliert werden und ist abhängig von der Winkelgeschwindigkeit!\n",
+    "\n",
+    "Wenn Sie Ihren Code aus Aufgabe 1 erweitern, sollten sie in Ihrer Animation den dämpfenden Charakter der neuen Differentialgleichung erkennen können (Testen Sie dazu mögliche Dämpfungskonstanten aus):"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<figure>\n",
+    "  <img src=\"images/pendulum_gdmpft.gif\" width=\"500\"/>\n",
+    "  <figcaption></figcaption>\n",
+    "</figure>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Mehr zu Erhaltungssystemen und ihrer Klassifzierung gibt es [hier](https://de.wikipedia.org/wiki/Thermodynamisches_System)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Aufgabe 3: Angeregte Schwingung\n",
+    "Abschließend soll die Simulation um die Anregung einer beliebigen externen Kraft erweitert werden. Wie muss sich dazu die Differentialgleichung ändern? Simulieren Sie eine periodische Anregung und testen Sie verschiedene Anregungsfrequenzen. Was passiert, wenn Sie mit der Eigenfrequenz des Systems anregen? (**TIPP**: $\\omega_0 = \\sqrt{\\frac{k}{m}}$)\n",
+    "\n",
+    "Tatsächlich hätten wir die bisherigen Aufgaben auch analytisch lösen können und wollten nur Arbeit sparen. Diese neue Differentialgleichung können wir aber tatsächlich gar nicht mehr selbst lösen, spätestens jetzt sind wir also auf einen Löser, wie z.B. ode45, angewiesen!\n",
+    "Je nach Anregungsfrequenz und-amplitude, werden Ihre Ergebnisse unterschiedlich aussehen, bei einer Anregungsfrequenz $\\omega = \\frac{\\omega_0}{2}$ sollten Sie folgende Simulation erzeugen können: "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "<figure>\n",
+    "  <img src=\"images/pendulum_angrt.gif\" width=\"500\"/>\n",
+    "  <figcaption></figcaption>\n",
+    "</figure>"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "**TIPP**: Sie können [axis()](https://de.mathworks.com/help/matlab/ref/axis.html) so verändern, dass positive y-Werte dargestellt werden können!\n",
+    "\n",
+    "Wählen Sie eine Dämpfungskonstante $d = 0.3~\\frac{kg}{s}$ und simulieren Sie eine periodische Kraftanregung mit einer Amplitude $A = 1$ und einer Anregungsfrequenz $\\omega = 0.8$, alle anderen Werte wie in Aufgabe 1. Nach welcher Zeit $t$ wird der eingeschwungene Zustand erreicht? Wie groß ist die Amplitude dieser harmonischen Schwingung? Berechnen Sie die analytischen Lösung und vergleichen Ihre Ergebnisse."
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "4.2.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}

@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Durchhang eines flexiblen Kabels &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Temperatur in einem nuklearen Brennstab" href="02_temperatur_in_einem_nuklearen_brennstab.html" />
+    <link rel="prev" title="Randwertprobleme" href="00_randwertprobleme.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../00_einleitung/00_einleitung.html">Einleitung</a>
+  </li>
+  <li class="">
+    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
+  </li>
+  <li class="">
+    <a href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="">
+    <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
+  </li>
+  <li class="">
+    <a href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  </li>
+  <li class="">
+    <a href="../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
+  </li>
+  <li class="">
+    <a href="../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="active">
+    <a href="00_randwertprobleme.html">Randwertprobleme</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Durchhang eines flexiblen Kabels</a>
+    </li>
+    <li class="">
+      <a href="02_temperatur_in_einem_nuklearen_brennstab.html">Temperatur in einem nuklearen Brennstab</a>
+    </li>
+  </ul>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/10_bvp/01_durchhang_eines_flexiblen_kabels.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/10_bvp/01_durchhang_eines_flexiblen_kabels.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/10_bvp/01_durchhang_eines_flexiblen_kabels.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1" class="nav-link">Aufgabe 1</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2" class="nav-link">Aufgabe 2</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/10_bvp/01_durchhang_eines_flexiblen_kabels.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="durchhang-eines-flexiblen-kabels">
+<h1>Durchhang eines flexiblen Kabels<a class="headerlink" href="#durchhang-eines-flexiblen-kabels" title="Permalink to this headline">¶</a></h1>
+<p>Ein flexibles Kabel einheitlicher Dichte ist an zwei Punkten <span class="math notranslate nohighlight">\(y(0) = 10\;\mathrm{m}\)</span> und <span class="math notranslate nohighlight">\(y(20) = 15\;\mathrm{m}\)</span> aufgehängt. Die Form des Kabels folgt der Differentialgleichung</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathrm{d}^2y}{\mathrm{d}x^2} = C \sqrt{1+ \left( \frac{\mathrm{d}y}{\mathrm{d}t} \right)^2}
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(C=0.041\;\mathrm{m}^{-1}\)</span> eine Konstante ist, die das Kabelgewicht pro Einheitslänge sowie den horizontalen Spannungsanteil im tiefsten Punkt des Kabels enthält.</p>
+<figure>
+  <img src="images/flexible_cable.png" alt="Kabel"/>
+</figure>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<p>Verwenden Sie die Matlab-Routine <code class="docutils literal notranslate"><span class="pre">bvp4c</span></code> um den Verlauf des Kabels zwischen <span class="math notranslate nohighlight">\(x = 0\;\mathrm{m}\)</span> und <span class="math notranslate nohighlight">\(\mathrm{x} = 20 \;\mathrm{m}\)</span> zu bestimmen.</p>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Lösen Sie das Randwertproblem nun mit dem so genannten <strong>Schießverfahren</strong>. Wählen Sie hierzu zwei Schätzungen für die unbekannten Ableitungen <span class="math notranslate nohighlight">\(\frac{\mathrm{d}y}{\mathrm{d}x}\)</span> bei <span class="math notranslate nohighlight">\(x=0\)</span>. <em>Schießen</em> sie auf <span class="math notranslate nohighlight">\(x=20\)</span>, indem sie die Differentialgleichung als Anfangswertproblem mit <code class="docutils literal notranslate"><span class="pre">ode45</span></code> für beide Schätzwerte <span class="math notranslate nohighlight">\(\frac{\mathrm{d}y}{\mathrm{d}x}\)</span> lösen. Vergleichen Sie die getroffenen <span class="math notranslate nohighlight">\(y(x=20)\)</span>-Werte mit dem Zielwert <span class="math notranslate nohighlight">\(y(x=20)=15\)</span>. Wenn eine ihrer Schätzungen den Zielwert unterschätzt, und die andere den Zielwert überschätzt, können Sie sich mittels Bisektionsverfahren dem tatsächlichen Wert für <span class="math notranslate nohighlight">\(\frac{\mathrm{d}y}{\mathrm{d}x}(x=0)\)</span> nähern. Führen Sie eine Bisektion durch, um sich dem Zielwert bis auf <code class="docutils literal notranslate"><span class="pre">tol</span></code> <span class="math notranslate nohighlight">\(= 0.01\;\textrm{m}\)</span> zu nähern.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">bvpsm</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="n">sol</span> <span class="o">=</span> <span class="n">bvpsm</span><span class="p">(</span><span class="n">odefun</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ybc</span><span class="p">,</span> <span class="n">yp_lower</span><span class="p">,</span> <span class="n">yp_upper</span><span class="p">,</span> <span class="n">tol</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">this</span> <span class="n">functions</span> <span class="n">solves</span> <span class="n">a</span> <span class="n">boundary</span> <span class="n">value</span> <span class="n">problem</span> <span class="k">with</span> <span class="n">dirichlet</span> <span class="n">boundary</span> <span class="n">conditions</span> <span class="n">using</span>
+<span class="o">%</span> <span class="n">the</span> <span class="n">shooting</span> <span class="n">method</span><span class="o">.</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">Internally</span><span class="p">,</span> <span class="n">the</span> <span class="n">bisection</span> <span class="n">method</span> <span class="ow">is</span> <span class="n">used</span> <span class="n">to</span> <span class="n">dermine</span> <span class="n">the</span> <span class="n">slope</span> <span class="n">af</span> <span class="n">the</span> <span class="n">left</span> <span class="n">boundary</span><span class="o">.</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">INPUTS</span><span class="p">:</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">odefun</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">function</span> <span class="n">handle</span>  <span class="k">for</span> <span class="n">the</span> <span class="n">right</span><span class="o">-</span><span class="n">hand</span> <span class="n">side</span> <span class="n">of</span> <span class="n">the</span> <span class="n">scalar</span> <span class="n">ode</span> 
+<span class="o">%</span>      <span class="n">of</span> <span class="n">second</span> <span class="n">order</span> <span class="n">y</span><span class="s1">&#39;&#39;</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">y</span><span class="s1">&#39;).</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">xa</span><span class="p">,</span> <span class="n">xb</span><span class="p">]</span> <span class="ow">is</span> <span class="n">a</span> <span class="mi">1</span><span class="n">x2</span> <span class="n">vector</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">start</span> <span class="ow">and</span> <span class="n">end</span> <span class="n">value</span> <span class="k">for</span> <span class="n">the</span> <span class="n">interval</span><span class="p">,</span> <span class="n">on</span> 
+<span class="o">%</span>      <span class="n">on</span> <span class="n">which</span> <span class="n">the</span> <span class="n">BVP</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">be</span> <span class="n">solved</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">ybc</span><span class="o">=</span><span class="p">[</span><span class="n">ya</span><span class="p">,</span> <span class="n">yb</span><span class="p">]</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">a</span> <span class="mi">1</span><span class="n">x2</span> <span class="n">vector</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">Dirichlet</span> <span class="n">boundary</span> <span class="n">conditions</span> <span class="n">of</span> <span class="n">the</span> <span class="n">BVP</span><span class="o">.</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">yp_lower</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">lower</span> <span class="n">estimate</span> <span class="n">of</span> <span class="n">the</span> <span class="n">slope</span> <span class="n">of</span> <span class="n">y</span> <span class="ow">and</span> <span class="n">yp_upper</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">upper</span> <span class="n">estimate</span> <span class="n">of</span> <span class="n">the</span> 
+<span class="o">%</span>      <span class="n">slope</span> <span class="n">of</span> <span class="n">y</span> <span class="n">at</span> <span class="n">xa</span><span class="o">.</span> <span class="n">These</span> <span class="n">values</span> <span class="n">are</span> <span class="n">needed</span> <span class="n">by</span> <span class="n">the</span> <span class="n">shooting</span> <span class="n">method</span><span class="o">.</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">tol</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">tolerance</span> <span class="k">for</span> <span class="n">the</span> <span class="n">right</span> <span class="n">boundary</span> <span class="n">condition</span><span class="o">.</span> <span class="n">The</span> <span class="n">problem</span> <span class="ow">is</span> <span class="n">considered</span> <span class="k">as</span> <span class="n">solved</span><span class="p">,</span>
+<span class="o">%</span>      <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span><span class="o">-</span><span class="n">yb</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tol</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">max_iter</span> <span class="n">are</span> <span class="n">the</span> <span class="n">maximum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">iterations</span> <span class="k">for</span> <span class="n">determining</span> <span class="n">the</span> <span class="n">slope</span> <span class="n">at</span> <span class="n">xa</span>
+<span class="o">%</span>
+<span class="o">%</span> <span class="n">OUTPUTS</span><span class="p">:</span>
+<span class="o">%</span>    <span class="o">-</span> <span class="n">sol</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">solution</span> <span class="n">structure</span><span class="p">,</span> <span class="k">as</span> <span class="n">it</span> <span class="ow">is</span> <span class="n">returned</span> <span class="n">by</span> <span class="n">the</span> <span class="n">initial</span> <span class="n">value</span> <span class="n">problem</span> <span class="n">solvers</span>
+<span class="o">%</span>      <span class="n">such</span> <span class="k">as</span> <span class="n">ode45</span>
+
+<span class="o">%</span> <span class="n">PUT</span> <span class="n">YOUR</span> <span class="n">IMPLEMENTATION</span> <span class="n">HERE</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Hinweis:</strong> In Kapitel <a class="reference internal" href="../00_einleitung/02_first_steps/02_skripte_und_funktionen.html#skripte-und-funktionen"><span class="std std-ref">Skripte und Funktionen</span></a> wurde eine Funktion für das Bisektionsverfahren entwickelt. Verwenden Sie diese Funktion in ihrer Implementierung, um das Rad nicht neu erfinden zu müssen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SOLUTION</span><span class="p">:</span> <span class="n">Apply</span> <span class="n">the</span> <span class="n">function</span> <span class="n">bvpsm</span> <span class="n">to</span> <span class="n">solve</span> <span class="n">the</span> <span class="n">BVP</span> <span class="n">of</span> <span class="n">the</span> <span class="n">flexible</span> <span class="n">cable</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "10_bvp"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00_randwertprobleme.html" title="previous page">Randwertprobleme</a>
+    <a class='right-next' id="next-link" href="02_temperatur_in_einem_nuklearen_brennstab.html" title="next page">Temperatur in einem nuklearen Brennstab</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

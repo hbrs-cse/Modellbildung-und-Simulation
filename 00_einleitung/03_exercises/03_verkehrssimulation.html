@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Verkehrssimulation &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/mystnb.js"></script>
+    <script src="../../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Der perfekte Wurf" href="04_der_perfekte_wurf.html" />
+    <link rel="prev" title="Flüssigkeit im Boden" href="02_fluessigkeit_im_boden.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../../index.html">
+  
+  <img src="../../_static/hbrs_logo_text.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="active">
+    <a href="../00_einleitung.html">Einleitung</a>
+  <ul class="nav sidenav_l2">
+    <li class="">
+      <a href="../01_usage/00_verwendung_dieses_buches.html">Verwendung dieses Buches</a>
+    </li>
+    <li class="">
+      <a href="../02_first_steps/00_erste_schritte_in_matlab.html">Erste Schritte in Matlab</a>
+    </li>
+    <li class="active">
+      <a href="00_übungsaufgaben.html">Übungsaufgaben</a>
+      <ul class="nav sidenav_l3">
+      <li class="">
+        <a href="01_matlab_kennenlernen.html">Matlab kennenlernen</a>
+      </li>
+      <li class="">
+        <a href="02_fluessigkeit_im_boden.html">Flüssigkeit im Boden</a>
+      </li>
+      <li class="active">
+        <a href="">Verkehrssimulation</a>
+      </li>
+      <li class="">
+        <a href="04_der_perfekte_wurf.html">Der perfekte Wurf</a>
+      </li>
+    </ul>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../../01_schwingungen/00_schwingungen.html">Schwingungen</a>
+  </li>
+  <li class="">
+    <a href="../../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="">
+    <a href="../../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
+  </li>
+  <li class="">
+    <a href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  </li>
+  <li class="">
+    <a href="../../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
+  </li>
+  <li class="">
+    <a href="../../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="">
+    <a href="../../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../../_sources/00_einleitung/03_exercises/03_verkehrssimulation.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/03_verkehrssimulation.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_exercises/03_verkehrssimulation.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#modellbeschreibung" class="nav-link">Modellbeschreibung</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1" class="nav-link">Aufgabe 1</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2" class="nav-link">Aufgabe 2</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-3" class="nav-link">Aufgabe 3</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#literatur" class="nav-link">Literatur</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/03_verkehrssimulation.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="verkehrssimulation">
+<h1>Verkehrssimulation<a class="headerlink" href="#verkehrssimulation" title="Permalink to this headline">¶</a></h1>
+<p>In dieser Übungsaufgabe soll das Fahrverhalten von Autofahrern und die damit einhergehende Stauentwicklung modelliert werden. In einem 7.5 km langen einspurigen Tunnel bilden sich zu Hauptverkehrszeiten immer wieder Staus, ohne dass ein Unfall oder eine Baustelle als Ursache ausgemacht werden kann. Ampeln gibt es auf der gesamten Strecke nicht. Ihre Aufgabe ist es, ein simples Computermodell zu erstellen, das in der Lage ist dieses Phänomen zu reproduzieren. Welche Durchschnittsgeschwindigkeit kann man bei einer gegebenen Verkehrsdichte erwarten? Wie hängt der Verkehrsfluss von der Verkehrsdichte ab?</p>
+<p><img alt="" src="../../_images/tunnel.jpg" /></p>
+<div class="section" id="modellbeschreibung">
+<h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
+<p>Im Durchschnitt belegt ein Fahrzeug ca. 7.5 m der Strecke in einem Stau. Diese Länge beinhaltet bereits den Abstand zum Auto davor. Die 7.5 km lange Strecke lässt sich demnach in 1000 Zellen zerlegen. Zu jedem Zeitpunkt ist eine Zelle entweder frei oder von einem Auto belegt. In den Tunnel passen maximal 1000 Fahrzeuge. Abbildung 1 zeigt beispielhaft einen Streckenabschnitt aus 10 Zellen mit 5 Fahrzeugen A, B, C, D und E. In Abbildung 1(a) ist der Streckenabschnitt dargestellt. Die Zellen 2, 3, 5, 8 und 10 sind jeweils mit einem Auto belegt. Abbildung 1(b) zeigt eine komprimierte Darstellung. In einem Positionsvektor werden die Zellennummern der 5 Fahrzeuge gespeichert.</p>
+<div class="figure align-default" id="zellnummern">
+<img alt="../../_images/zellnummern.PNG" src="../../_images/zellnummern.PNG" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Zwei Darstellungen für einen 75 m langen Streckenabschnitt mit 5 Fahrzeugen A, B, C, D und E</span><a class="headerlink" href="#zellnummern" title="Permalink to this image">¶</a></p>
+</div>
+<p>Ein Fahrzeug mit einer Geschwindigkeit von 27 km/h = 7.5 m/s rückt innerhalb einer Sekunde genau eine Zelle vor. Die Maximalgeschwindigkeit im Tunnel beträgt 135 km/h, bzw. 5 Zellen pro Sekunde. Simulieren Sie den Verkehrsfluss sekundenweise. Dies entspricht in etwa der Reaktionszeit eines Autofahrers. In jedem Zeitschritt von einer Sekunde ergibt sich die Position und Geschwindigkeit eines Fahrzeuges nach folgenden einfachen Regeln, die in der angegebenen Reihenfolge umgesetzt werden:</p>
+<ol>
+<li><p>Jedes Auto, das noch nicht die Maximalgeschwindigkeit erreicht hat, erhöht seine Geschwindigkeit um eine Zelle pro Sekunde.</p>
+<div class="figure align-default" id="bild1-stau">
+<img alt="../../_images/bild1_stau.png" src="../../_images/bild1_stau.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Beschleunigung aller Fahrzeuge um 1</span><a class="headerlink" href="#bild1-stau" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Falls die Geschwindigkeit eines Fahrzeuges zu einer Kollision mit dem Fahrzeug davor führen würde, reduziert sich die Geschwindigkeit entsprechend. Beispiel: Fahrzeug A befindet sich in Zelle 496 und hat eine Geschwindigkeit von 4 Zellen pro Sekunde. Zelle 499 ist aber von Fahrzeug B belegt. Demnach reduziert sich die Geschwindigkeit von Fahrzeug A auf 2 Zellen pro Sekunde.</p>
+<div class="figure align-default" id="bild2-stau">
+<img alt="../../_images/bild2_stau.png" src="../../_images/bild2_stau.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Abbremsen der unfallgefährdeten Fahrzeuge</span><a class="headerlink" href="#bild2-stau" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Ein Anteil <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span> der Fahrer auf dem Streckenabschnitt sind Sonntagsfahrer. Deren Geschwindigkeit <span class="math notranslate nohighlight">\(v\)</span> reduziert sich um eine Zelle pro Sekunde, sofern sie nicht schon stehen.</p>
+<div class="figure align-default" id="bild3-stau">
+<img alt="../../_images/bild3_stau.png" src="../../_images/bild3_stau.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Abbremsen der zufällig gewählten Sonntagsfahrer</span><a class="headerlink" href="#bild3-stau" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+<li><p>Alle Fahrzeuge rücken entsprechend ihrer Geschwindigkeit vor.
+Die Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> im betrachteten Zeitraum bleibe annähernd konstant. Zu jeder Zeit verlassen also so viele Autos den Steckenabschnitt, wie neue hinzu kommen. Um diesen Effekt zu berücksichtigen, bedienen sie sich eines Tricks: Gehen Sie von periodischen Randbedingungen aus. Sobald ein Auto die 7.5 km lange Strecke verlässt, taucht es am Anfang wieder auf (In anderen Worten: Die Zellen mit den Nummern <code class="docutils literal notranslate"><span class="pre">i</span></code> und <code class="docutils literal notranslate"><span class="pre">1000+i</span></code> sind identisch). Eine Anschauung des Tricks ist es, sich den Tunnel als Ringstraße mit einem Umfang von 7.5 km vorzustellen.</p>
+<div class="figure align-default" id="ringstrasse">
+<img alt="../../_images/ringstrasse.gif" src="../../_images/ringstrasse.gif" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Darstellung der periodischen Randbedingungen als Ringstraße</span><a class="headerlink" href="#ringstrasse" title="Permalink to this image">¶</a></p>
+</div>
+</li>
+</ol>
+<p>Das hier vorgestellte Verkehrsmodell basiert auf <a class="bibtex reference internal" href="#nagel1992" id="id1">[NS92]</a>.</p>
+</div>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p>Erstellen Sie ein Matlab–Skript, das zunächst die folgenden Parameter festlegt:</p>
+<ul class="simple">
+<li><p>normalisierte Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span></p></li>
+<li><p>Maximalgeschwindigkeit <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> (Zellen/Sekunde)</p></li>
+<li><p>Anteil Sonntagsfahrer <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span></p></li>
+<li><p>Streckenlänge <span class="math notranslate nohighlight">\(L\)</span> (Anzahl von Zellen)</p></li>
+<li><p>Simulationszeitraum <span class="math notranslate nohighlight">\(T\)</span> (Sekunden)</p></li>
+</ul>
+</li>
+<li><p>Die normalisierte Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> ist der Anteil der belegten Zellen, also eine einheitslose Zahl zwischen 0 und 1.</p>
+<p>Berechnen Sie die Anzahl der Fahrzeuge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus der Streckenlänge <code class="docutils literal notranslate"><span class="pre">len</span></code> und der normalisierten Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> und erzeugen Sie zwei Vektoren <code class="docutils literal notranslate"><span class="pre">pos</span></code> und <code class="docutils literal notranslate"><span class="pre">vel</span></code> der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> für die Positionen (Zellennummer) und Geschwindigkeiten (Zellen/Sekunde) der Fahrzeuge. Zu Beginn der Simulation sind die Autos beliebig auf der Strecke verteilt. Die Anfangsgeschwindigkeit aller Fahrzeuge beträgt 0 Zellen/Sekunde. <strong>Tipp</strong>: Schauen Sie sich die Matlab–Funktion <code class="docutils literal notranslate"><span class="pre">randperm(m,n)</span></code> an. Sortieren sie den Vektor <code class="docutils literal notranslate"><span class="pre">pos</span></code> zu Beginn der Simulation aufsteigend.</p>
+<p>Berechnen sie die Positionen <code class="docutils literal notranslate"><span class="pre">pos</span></code> und Geschwindigkeiten <code class="docutils literal notranslate"><span class="pre">vel</span></code> aller Fahrzeuge nach den vier oben genannten Regeln für jede Sekunde innerhalb einer Stunde. Tipp: Für die Umsetzung der periodischen Randbedingungen könnte die Funktion <code class="docutils literal notranslate"><span class="pre">mod(k,</span> <span class="pre">n)</span></code> hilfreich sein. Für die Umsetzung von Regel 3 bietet sich wieder <code class="docutils literal notranslate"><span class="pre">randperm(n,</span> <span class="pre">k)</span></code> an.</p>
+<p>Animieren Sie den Verkehrsfluss um zu überprüfen, ob Ihr Modell funktioniert. Gehen Sie dabei von einer Maximalgeschwindigkeit von 5 Zellen/Sekunde, <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span> = 0.2 sowie einer normalisierten Verkehrsdichte von <span class="math notranslate nohighlight">\(\rho\)</span> = 0.4 aus. <strong>Tipp</strong>: Eine Animation kann zum Beispiel mit den Matlab–Funktionen <code class="docutils literal notranslate"><span class="pre">scatter</span></code> und <code class="docutils literal notranslate"><span class="pre">pause(t)</span></code> in der Hauptschleife Ihres Programmes erzeugt werden.</p>
+</li>
+</ol>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="nb">input</span> <span class="n">parameters</span>
+<span class="n">density</span>     <span class="o">=</span> <span class="mf">0.4</span><span class="p">;</span>    <span class="o">%</span> <span class="n">the</span> <span class="n">ratio</span> <span class="n">of</span> <span class="n">road</span> <span class="n">cells</span> <span class="n">occupied</span> <span class="n">by</span> <span class="n">a</span> <span class="n">car</span>
+<span class="n">max_speed</span>   <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>      <span class="o">%</span> <span class="n">the</span> <span class="n">maximally</span> <span class="n">possible</span> <span class="n">speed</span> <span class="p">[</span><span class="n">cells</span><span class="o">/</span><span class="n">second</span><span class="p">]</span>
+<span class="n">p_SF</span>        <span class="o">=</span> <span class="mf">0.20</span><span class="p">;</span>   <span class="o">%</span> <span class="n">the</span> <span class="n">ratio</span> <span class="n">of</span> <span class="s1">&#39;sunday drivers&#39;</span>
+<span class="nb">len</span>         <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>   <span class="o">%</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">road</span> <span class="p">[</span><span class="n">cells</span><span class="p">]</span>
+<span class="n">T</span>           <span class="o">=</span> <span class="mi">3600</span><span class="p">;</span>   <span class="o">%</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">time</span> <span class="p">[</span><span class="n">seconds</span><span class="p">]</span>
+
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+<span class="o">%%</span> <span class="n">initial</span> <span class="n">configuration</span>
+
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+<span class="o">%%</span> <span class="n">main</span> <span class="n">time</span> <span class="n">loop</span>
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">T</span>
+    <span class="o">%</span><span class="mf">1.</span><span class="p">)</span> <span class="n">increase</span> <span class="n">speed</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">cars</span> <span class="n">by</span> <span class="n">one</span>
+
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">2.</span><span class="p">)</span> <span class="n">decrease</span> <span class="n">speed</span> <span class="k">if</span> <span class="n">it</span> <span class="n">would</span> <span class="n">cause</span> <span class="n">a</span> <span class="n">collision</span> <span class="n">otherwise</span>
+
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">3.</span><span class="p">)</span> <span class="n">decrease</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">a</span> <span class="n">random</span> <span class="n">selection</span> 
+    <span class="o">%</span>    <span class="n">of</span> <span class="n">p_SF</span><span class="o">*</span><span class="n">num_cars</span> <span class="n">by</span> <span class="mi">1</span>
+    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">4.</span><span class="p">)</span> <span class="n">move</span> <span class="n">cars</span> <span class="n">according</span> <span class="n">to</span> <span class="n">their</span> <span class="n">speed</span>
+
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">5.</span><span class="p">)</span> <span class="n">animate</span>
+    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+<span class="n">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Wandeln Sie Ihr Skript in eine Matlab–Funktion um, die beim Aufruf eine Simulation ausführt.
+Die Funktion erhält als Eingabe</p>
+<ul class="simple">
+<li><p>normalisierte Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span></p></li>
+<li><p>Maximalgeschwindigkeit <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span></p></li>
+<li><p>Anteil der Sonntagsfahrer <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span></p></li>
+</ul>
+<p>und gibt</p>
+<ul class="simple">
+<li><p>die durchschnittliche Geschwindigkeit <span class="math notranslate nohighlight">\(v_{\text{mean}}\)</span></p></li>
+<li><p>den durchschnittlichen Verkehrsfluss <span class="math notranslate nohighlight">\(Q\)</span></p></li>
+</ul>
+<p>als Ausgabe aus. Legen Sie <code class="docutils literal notranslate"><span class="pre">T</span> <span class="pre">=</span> <span class="pre">3600</span></code> Sekunden und <code class="docutils literal notranslate"><span class="pre">len</span> <span class="pre">=</span> <span class="pre">1000</span></code> Zellen fest. Der Verkehrsfluss <span class="math notranslate nohighlight">\(Q\)</span> entspricht der Anzahl an Autos, die pro Zeiteinheit einen Zähler passieren, z.B. zwischen Zelle 1000 und 1.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">trafficflow</span><span class="o">.</span><span class="n">m</span>
+<span class="n">function</span> <span class="p">[</span><span class="n">v_ave</span><span class="p">,</span><span class="n">q_ave</span><span class="p">]</span> <span class="o">=</span> <span class="n">trafficflow</span><span class="p">(</span><span class="n">density</span><span class="p">,</span><span class="n">max_speed</span><span class="p">,</span><span class="n">p_SF</span><span class="p">)</span>
+
+<span class="nb">len</span>         <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>   <span class="o">%</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">the</span> <span class="n">road</span> <span class="p">[</span><span class="n">cells</span><span class="p">]</span>
+<span class="n">T</span>           <span class="o">=</span> <span class="mi">3600</span><span class="p">;</span>   <span class="o">%</span> <span class="n">the</span> <span class="n">simulation</span> <span class="n">time</span> <span class="p">[</span><span class="n">seconds</span><span class="p">]</span>
+
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+<span class="o">%%</span> <span class="n">initial</span> <span class="n">configuration</span>
+
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+<span class="o">%%</span> <span class="n">main</span> <span class="n">time</span> <span class="n">loop</span>
+<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">T</span>
+    <span class="o">%</span><span class="mf">1.</span><span class="p">)</span> <span class="n">increase</span> <span class="n">speed</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">cars</span> <span class="n">by</span> <span class="n">one</span> <span class="k">if</span> <span class="n">speed</span> <span class="ow">is</span> <span class="ow">not</span> <span class="nb">max</span> <span class="n">yet</span>
+    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">2.</span><span class="p">)</span> <span class="n">decrease</span> <span class="n">speed</span> <span class="k">if</span> <span class="n">it</span> <span class="n">would</span> <span class="n">cause</span> <span class="n">a</span> <span class="n">collision</span> <span class="n">otherwise</span>
+    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">3.</span><span class="p">)</span> <span class="n">decrease</span> <span class="n">velocity</span> <span class="n">of</span> <span class="n">a</span> <span class="n">random</span> <span class="n">selection</span> 
+    <span class="o">%</span>    <span class="n">of</span> <span class="n">p_SF</span><span class="o">*</span><span class="n">num_cars</span> <span class="n">by</span> <span class="mi">1</span>
+    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+    <span class="o">%</span><span class="mf">4.</span><span class="p">)</span> <span class="n">move</span> <span class="n">cars</span> <span class="n">according</span> <span class="n">to</span> <span class="n">their</span> <span class="n">speed</span>
+        
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+        
+    <span class="o">%</span><span class="mf">5.</span><span class="p">)</span> <span class="n">animate</span>
+    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+
+<span class="o">%</span><span class="n">calculate</span> <span class="n">average</span> <span class="n">velocity</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">cars</span> <span class="ow">and</span> <span class="n">time</span> <span class="n">steps</span>
+    
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+<span class="n">end</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In einem weiteren Matlab–Skript berechnen Sie für normalisierte Verkehrsdichten <span class="math notranslate nohighlight">\(\rho\)</span> = 0.05, 0.10, 0.15, 0.20, …, 1 den Verkehrsfluss <span class="math notranslate nohighlight">\(Q\)</span> und die durchschnittliche Geschwindigkeit <span class="math notranslate nohighlight">\(v_{\text{mean}}\)</span> mit Hilfe dieser Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">trafficflow</span></code>. Gehen Sie von <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span> = 0.2 und <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> = 5 Zellen/Sekunde aus.
+Erstellen Sie mit Ihrem Skript sowohl ein <span class="math notranslate nohighlight">\(\rho~–~v_{\text{mean}}~–~\)</span>Diagramm als auch ein <span class="math notranslate nohighlight">\(\rho~–~Q~–~\)</span>Diagramm, um die Abhängigkeiten des Verkehrsflusses bzw. der Durchschnittsgeschwindigkeit von der Verkehrsdichte darzustellen.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="nb">input</span> <span class="n">parameters</span>
+<span class="n">max_speed</span>   <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>      <span class="o">%</span> <span class="n">the</span> <span class="n">maximally</span> <span class="n">possible</span> <span class="n">speed</span> <span class="p">[</span><span class="n">cells</span><span class="o">/</span><span class="n">second</span><span class="p">]</span>
+<span class="n">p_SF</span>        <span class="o">=</span> <span class="mf">0.20</span><span class="p">;</span>   <span class="o">%</span> <span class="n">the</span> <span class="n">ratio</span> <span class="n">of</span> <span class="s1">&#39;sunday drivers&#39;</span>
+
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+<span class="o">%%</span> <span class="n">main</span> <span class="n">loop</span>
+<span class="o">%</span><span class="mf">1.</span><span class="p">)</span> <span class="n">iterate</span> <span class="n">through</span> <span class="n">normalized</span> <span class="n">densities</span>
+
+<span class="o">%</span><span class="k">for</span>    
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+
+    <span class="o">%</span><span class="mf">2.</span><span class="p">)</span> <span class="n">call</span> <span class="n">function</span> <span class="s2">&quot;trafficflow&quot;</span> <span class="ow">and</span> <span class="n">store</span> <span class="n">outputs</span>
+        
+        <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+<span class="o">%</span><span class="n">end</span>
+
+<span class="n">figure</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="o">%</span><span class="mf">3.</span><span class="p">)</span> <span class="n">plot</span> <span class="n">density</span> <span class="n">vs</span><span class="o">.</span> <span class="n">maximal</span> <span class="n">velocity</span>
+
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;density vs. average velocity&#39;</span><span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;normalized density&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;average velocity [km/h]&#39;</span><span class="p">)</span>
+
+<span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> 
+
+<span class="o">%</span><span class="mf">4.</span><span class="p">)</span> <span class="n">plot</span> <span class="n">density</span> <span class="n">vs</span><span class="o">.</span> <span class="n">traffic</span> <span class="n">flow</span>
+    
+    <span class="o">%&lt;&lt;&lt;&lt;&lt;&lt;</span> <span class="n">ADD</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span> <span class="o">&gt;&gt;&gt;&gt;&gt;&gt;%</span>
+    
+<span class="n">title</span><span class="p">(</span><span class="s1">&#39;density vs. traffic flow&#39;</span><span class="p">);</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;normalized density&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;traffic flow [cars/second]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="diagramm-stau">
+<img alt="../../_images/diagramm_stau.PNG" src="../../_images/diagramm_stau.PNG" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text"><span class="math notranslate nohighlight">\(\rho–v\)</span> Diagramm und <span class="math notranslate nohighlight">\(\rho–Q\)</span> Diagramm zum Vergleich mit der eigenen Lösung</span><a class="headerlink" href="#diagramm-stau" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<p>Experimentieren Sie mit den Parametern <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> und <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span>. Wie lässt sich der Einfluss beider Parameter auf die Durchschnittsgeschwindigkeit und den Verkehrsfluss qualitativ beschreiben? Nennen sie eine Möglichkeit den Realismus des Modells zu steigen.</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span> <span class="n">Qualitative</span> <span class="n">Beschreibung</span> <span class="n">des</span> <span class="n">Einflusses</span> <span class="n">von</span> <span class="n">v_max</span> <span class="n">auf</span> <span class="n">v_mean</span> <span class="n">und</span> <span class="n">Q</span><span class="p">:</span>
+
+<span class="o">%%</span> <span class="n">Qualitative</span> <span class="n">Beschreibung</span> <span class="n">des</span> <span class="n">Einflusses</span> <span class="n">von</span> <span class="n">p_SF</span> <span class="n">auf</span> <span class="n">v_mean</span> <span class="n">und</span> <span class="n">Q</span><span class="p">:</span>
+
+<span class="o">%%</span> <span class="n">Steigerung</span> <span class="n">des</span> <span class="n">Realismus</span> <span class="n">durch</span><span class="p">:</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="literatur">
+<h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
+<p id="bibtex-bibliography-00_einleitung/03_exercises/03_verkehrssimulation-0"><dl class="citation">
+<dt class="bibtex label" id="nagel1992"><span class="brackets"><a class="fn-backref" href="#id1">NS92</a></span></dt>
+<dd><p>Kai Nagel and Michael Schreckenberg. A cellular automaton model for freeway traffic. <em>Journal de Physique I</em>, 2:2221, 12 1992. URL: <a class="reference external" href="https://www.researchgate.net/publication/263504490_A_cellular_automaton_model_for_freeway_traffic">https://www.researchgate.net/publication/263504490_A_cellular_automaton_model_for_freeway_traffic</a>, <a class="reference external" href="https://doi.org/10.1051/jp1%3A1992277">doi:10.1051/jp1%3A1992277</a>.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "00_einleitung/03_exercises"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="02_fluessigkeit_im_boden.html" title="previous page">Flüssigkeit im Boden</a>
+    <a class='right-next' id="next-link" href="04_der_perfekte_wurf.html" title="next page">Der perfekte Wurf</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>

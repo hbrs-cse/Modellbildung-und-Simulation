@@ -1,0 +1,951 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Simulation eines Raketenstarts &#8212; Modellbildung und Simulation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/mystnb.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="../_static/thebelab.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Eigenwertprobleme" href="../08_eigenwerte/00_eigenwertprobleme.html" />
+    <link rel="prev" title="Numerik gewöhnlicher Differentialgleichungen" href="00_numerik_gewöhnlicher_differentialgleichungen.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  
+  <ul class="nav sidenav_l1">
+  <li class="">
+    <a href="../00_einleitung/00_einleitung.html">Einleitung</a>
+  </li>
+  <li class="">
+    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
+  </li>
+  <li class="">
+    <a href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
+  </li>
+  <li class="">
+    <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
+  </li>
+  <li class="">
+    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
+  </li>
+  <li class="">
+    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
+  </li>
+  <li class="active">
+    <a href="00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Simulation eines Raketenstarts</a>
+    </li>
+  </ul>
+  </li>
+  <li class="">
+    <a href="../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
+  </li>
+  <li class="">
+    <a href="../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
+  </li>
+  <li class="">
+    <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
+  </li>
+</ul>
+</nav>
+<p class="navbar_footer"><div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div></p>
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+
+            
+            <div class="dropdown-buttons">
+                <!-- ipynb file if we had a myst markdown file -->
+                
+                <!-- Download raw file -->
+                <a class="dropdown-buttons" href="../_sources/07_num_ode/01_simulation_eines_raketenstarts.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <!-- Download PDF via print -->
+                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+            </div>
+            
+        </div>
+
+        <!-- Edit this page -->
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/07_num_ode/01_simulation_eines_raketenstarts.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+        
+        <div class="dropdown-buttons-trigger">
+            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+            <div class="dropdown-buttons">
+                
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/07_num_ode/01_simulation_eines_raketenstarts.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                
+                
+                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
+                
+            </div>
+        </div>
+        
+    </div>
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#ihre-simulationssoftware" class="nav-link">Ihre Simulationssoftware</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#rocket-launch-m" class="nav-link">rocket_launch.m</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#rocket-ode-m" class="nav-link">rocket_ode.m</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#mass-flow-rate-m" class="nav-link">mass_flow_rate.m</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#f-thrust-m" class="nav-link">F_thrust.m</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#rocket-status-m" class="nav-link">rocket_status.m</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#rocket-visualization-m" class="nav-link">rocket_visualization.m</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1" class="nav-link">Aufgabe 1</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2" class="nav-link">Aufgabe 2</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#zusatzaufgabe" class="nav-link">Zusatzaufgabe</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#zusatzinformationen" class="nav-link">Zusatzinformationen</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+
+<div class="tocsection editthispage">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/07_num_ode/01_simulation_eines_raketenstarts.ipynb">
+        <i class="fas fa-pencil-alt"></i> Edit this page
+    </a>
+</div>
+
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="simulation-eines-raketenstarts">
+<h1>Simulation eines Raketenstarts<a class="headerlink" href="#simulation-eines-raketenstarts" title="Permalink to this headline">¶</a></h1>
+<p>Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation <em>(H-BRS)</em> und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen vier Satelliten mit einem Gesamtgewicht von 2952 kg in MEO <em>(Medium Earth Orbit)</em> auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.</p>
+<img src="images/gravity_turn.gif" alt="Rocket launch Animation" width="800"/>
+<p>Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für Sie eigentlich eine Routineuntersuchung, aber da Ihre Mitarbeiter noch nie etwas von <a class="reference external" href="https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Wozu-Versionskontrolle%3F">Versionskontrolle</a> gehört haben, sind leider Teile Ihres Simulationsprogrammes abhandengekommen.</p>
+<div class="section" id="ihre-simulationssoftware">
+<h2>Ihre Simulationssoftware<a class="headerlink" href="#ihre-simulationssoftware" title="Permalink to this headline">¶</a></h2>
+<p>Als Matlab-Experte haben Sie eine einfache Simulationssoftware für die frühe Planungsphase entworfen. Ihr Programm simuliert ein <em>“gravity turn maneuver”</em> in 2D und besteht aus den folgenden sechs Dateien. <em>Durch Klicken auf das Plus-Symbol können Sie sich den Inhalt der Dateien anschauen.</em></p>
+<div class="section" id="rocket-launch-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_launch.m</span></code><a class="headerlink" href="#rocket-launch-m" title="Permalink to this headline">¶</a></h3>
+<p>Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liegende gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet.</p>
+<p><strong>Hinweis:</strong> <em>Die Simulation beinhaltet eine Animation und kann deswegen nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf Ihrem Computer.</em></p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">rocket_launch</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%%</span> <span class="mi">2</span><span class="n">D</span> <span class="n">rocket</span> <span class="n">gravity</span> <span class="n">turn</span> <span class="n">simulation</span>
+
+<span class="o">%</span> <span class="n">this</span> <span class="n">script</span> <span class="n">simulates</span> <span class="n">a</span> <span class="n">gravity</span> <span class="n">turn</span> <span class="n">rocket</span> <span class="n">launch</span> <span class="ow">in</span> <span class="mi">2</span><span class="n">D</span> <span class="n">cartesian</span>
+<span class="o">%</span> <span class="n">coordinates</span> <span class="p">(</span><span class="mi">3</span><span class="n">D</span> <span class="n">earth</span> <span class="ow">is</span> <span class="n">just</span> <span class="k">for</span> <span class="n">visualization</span><span class="p">)</span>
+
+<span class="o">%</span> <span class="n">The</span> <span class="n">physical</span> <span class="n">parameters</span> <span class="n">of</span> <span class="n">the</span> <span class="n">rocket</span> <span class="n">are</span> <span class="n">very</span> <span class="n">unlikely</span> <span class="n">to</span> <span class="n">be</span> <span class="n">realistic</span><span class="o">...</span>
+<span class="o">%</span> <span class="n">Please</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">build</span> <span class="n">a</span> <span class="n">space</span> <span class="n">rocket</span> <span class="n">based</span> <span class="n">on</span> <span class="n">this</span> <span class="n">code</span>
+
+<span class="o">%</span> <span class="n">dependencies</span><span class="p">:</span>
+<span class="o">%</span>   <span class="n">rocket_ode</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%</span>   <span class="n">mass_flow_rate</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%</span>   <span class="n">F_thrust</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%</span>   <span class="n">rocket_status</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%</span>   <span class="n">rocket_visualization</span><span class="o">.</span><span class="n">m</span>
+
+<span class="n">clear</span><span class="p">;</span>
+<span class="n">close</span> <span class="nb">all</span><span class="p">;</span>
+
+<span class="o">%%</span> <span class="n">define</span> <span class="n">parameters</span> <span class="n">inside</span> <span class="k">global</span> <span class="n">struct</span>
+
+<span class="k">global</span> <span class="n">params</span><span class="p">;</span>
+
+<span class="n">params</span><span class="o">.</span><span class="n">G</span> <span class="o">=</span> <span class="mf">6.67408e-11</span><span class="p">;</span>        <span class="o">%</span> <span class="n">gravitational</span> <span class="n">constant</span> <span class="p">[</span><span class="n">m3</span> <span class="n">kg</span><span class="o">-</span><span class="mi">1</span> <span class="n">s</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span>  <span class="o">=</span> <span class="mi">6378137</span><span class="p">;</span>     <span class="o">%</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">earth</span> <span class="n">at</span> <span class="n">the</span> <span class="n">equator</span> <span class="p">[</span><span class="n">m</span><span class="p">]</span>
+<span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">m</span>  <span class="o">=</span> <span class="mf">5.972e24</span><span class="p">;</span>    <span class="o">%</span> <span class="n">mass</span> <span class="n">of</span> <span class="n">the</span> <span class="n">earth</span> <span class="p">[</span><span class="n">kg</span><span class="p">]</span>
+
+<span class="o">%</span> <span class="n">inspired</span> <span class="n">by</span> <span class="n">Ariane</span> <span class="n">flight</span> <span class="n">VA244</span>
+<span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">m0</span>  <span class="o">=</span> <span class="mi">84852</span><span class="p">;</span>          <span class="o">%</span> <span class="n">rocket</span> <span class="n">dry</span> <span class="n">mass</span> <span class="p">(</span><span class="n">inc</span><span class="o">.</span> <span class="n">payload</span><span class="p">,</span> <span class="n">without</span> <span class="n">fuel</span><span class="p">)</span> <span class="p">[</span><span class="n">kg</span><span class="p">]</span>
+<span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">mf</span>  <span class="o">=</span> <span class="mi">660000</span><span class="p">;</span>         <span class="o">%</span> <span class="n">rocket</span> <span class="n">fuel</span> <span class="n">mass</span> <span class="p">[</span><span class="n">kg</span><span class="p">]</span>
+<span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">mfr</span> <span class="o">=</span> <span class="mi">968</span><span class="p">;</span>            <span class="o">%</span> <span class="n">rocket</span> <span class="n">ideal</span> <span class="n">mass</span> <span class="n">flow</span> <span class="n">rate</span> <span class="p">[</span><span class="n">kg</span><span class="o">/</span><span class="n">s</span><span class="p">]</span>
+<span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">ve</span>  <span class="o">=</span> <span class="mi">8135</span><span class="p">;</span>           <span class="o">%</span> <span class="n">exit</span> <span class="n">velocity</span> <span class="n">at</span> <span class="n">nozzle</span> <span class="p">[</span><span class="n">m</span><span class="o">/</span><span class="n">s</span><span class="p">]</span>
+<span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span> <span class="o">=</span>  <span class="mf">22.922e6</span><span class="p">;</span> <span class="o">%</span> <span class="n">target</span> <span class="n">orbit</span> <span class="p">[</span><span class="n">m</span><span class="p">]</span>
+
+<span class="o">%</span> <span class="n">some</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">the</span> <span class="n">simulation</span>
+<span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">tspan</span>             <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">];</span>   <span class="o">%</span> <span class="n">simulation</span> <span class="n">time</span> <span class="p">[</span><span class="n">s</span><span class="p">]</span>
+<span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">plot_during_solve</span> <span class="o">=</span> <span class="n">false</span><span class="p">;</span>        <span class="o">%</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">update</span> <span class="n">graphics</span> <span class="n">during</span> 
+                                             <span class="o">%</span> <span class="n">numerical</span> <span class="n">integration</span>
+<span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">saveScreenShots</span>   <span class="o">=</span> <span class="n">false</span><span class="p">;</span>        <span class="o">%</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">save</span> <span class="n">screenshots</span>
+                                             <span class="o">%</span> <span class="ow">in</span> <span class="n">subdir</span> <span class="s2">&quot;img&quot;</span>
+
+<span class="o">%%</span> <span class="n">initial</span> <span class="n">conditions</span> <span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">velocity</span> <span class="ow">and</span> <span class="n">mass</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">save</span> <span class="n">rocket</span> <span class="n">status</span> <span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">velocity</span> <span class="ow">and</span> <span class="n">mass</span><span class="p">)</span> <span class="ow">in</span> <span class="n">new</span> <span class="n">variable</span> <span class="n">q</span>
+<span class="o">%</span> <span class="n">q</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">;</span><span class="n">x1</span><span class="p">;</span><span class="n">v0</span><span class="p">;</span><span class="n">v1</span><span class="p">,</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">v</span><span class="p">],</span> <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">x0</span><span class="p">;</span><span class="n">x1</span><span class="p">],</span> <span class="n">v</span><span class="o">=</span><span class="p">[</span><span class="n">v0</span><span class="p">;</span><span class="n">v1</span><span class="p">]</span>
+
+<span class="o">%</span> <span class="n">inital</span> <span class="n">flight</span> <span class="n">phase</span> <span class="ow">is</span> <span class="n">called</span> <span class="s1">&#39;lift off&#39;</span>
+<span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;lift off&#39;</span><span class="p">;</span>
+
+<span class="o">%</span> <span class="n">initial</span> <span class="n">position</span> <span class="ow">and</span> <span class="n">velocity</span>
+<span class="n">xinit</span> <span class="o">=</span> <span class="p">[</span><span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span> <span class="mi">0</span><span class="p">];</span>
+<span class="n">vinit</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
+
+<span class="o">%</span> <span class="n">initial</span> <span class="n">mass</span> <span class="ow">is</span> <span class="n">dry</span> <span class="n">mass</span> <span class="o">+</span> <span class="n">mass</span> <span class="n">of</span> <span class="n">propellant</span>
+<span class="n">minit</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">m0</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">mf</span><span class="p">;</span>
+
+<span class="n">qinit</span> <span class="o">=</span> <span class="p">[</span><span class="n">xinit</span><span class="p">;</span> <span class="n">vinit</span><span class="p">;</span> <span class="n">minit</span><span class="p">];</span>
+
+<span class="o">%%</span> <span class="n">solve</span> <span class="n">the</span> <span class="n">ODE</span>
+
+<span class="n">opts</span> <span class="o">=</span> <span class="n">odeset</span><span class="p">(</span><span class="s1">&#39;AbsTol&#39;</span><span class="p">,</span><span class="mf">1e-8</span><span class="p">,</span><span class="s1">&#39;RelTol&#39;</span><span class="p">,</span><span class="mf">1e-8</span><span class="p">,</span><span class="o">...</span>
+              <span class="s1">&#39;OutputFcn&#39;</span><span class="p">,</span><span class="nd">@rocket_visualization</span><span class="p">,</span><span class="o">...</span>
+              <span class="s1">&#39;Events&#39;</span><span class="p">,</span><span class="nd">@rocket_status</span><span class="p">);</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">ode45</span><span class="p">(</span><span class="nd">@rocket_ode</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">tspan</span><span class="p">,</span> <span class="n">qinit</span><span class="p">,</span> <span class="n">opts</span><span class="p">);</span>
+
+<span class="o">%%</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">animation</span>
+
+<span class="k">if</span> <span class="o">~</span><span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">plot_during_solve</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">sol</span><span class="o">.</span><span class="n">x</span><span class="p">(</span><span class="n">end</span><span class="p">),</span> <span class="mi">120</span><span class="p">);</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">deval</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">sol</span><span class="p">);</span>
+    
+    <span class="n">rocket_visualization</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">tspan</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">qinit</span><span class="p">,</span> <span class="s1">&#39;init&#39;</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">xe</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+       <span class="n">ti</span> <span class="o">=</span> <span class="n">t</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+       <span class="n">qi</span> <span class="o">=</span> <span class="n">q</span><span class="p">(:,</span><span class="n">i</span><span class="p">)</span><span class="s1">&#39;;</span>
+       <span class="n">rocket_visualization</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span><span class="n">qi</span><span class="p">,[],</span><span class="n">false</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">xe</span><span class="p">);</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">rocket_launch</span><span class="o">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rocket-ode-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code><a class="headerlink" href="#rocket-ode-m" title="Permalink to this headline">¶</a></h3>
+<p>Das Herzstück Ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung $\dot{\mathbf{q}} = $ <code class="docutils literal notranslate"><span class="pre">rocket_ode</span></code><span class="math notranslate nohighlight">\((t,\mathbf{q})\)</span> mit dem Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code>. Die rechte Seite <code class="docutils literal notranslate"><span class="pre">rocket_ode</span></code> ist in dieser Datei implementiert. Dabei ist <span class="math notranslate nohighlight">\(\mathbf{q} = [x,y, v_x, v_z, m]^T\)</span> ein Spaltenvektor, der die aktuelle Position <span class="math notranslate nohighlight">\((x,y)\)</span>, die aktuelle Geschwindigkeit <span class="math notranslate nohighlight">\((v_x,v_y)\)</span> sowie die aktuelle Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%file rocket_ode.m
+%% Define right hand side of Rocket ODE
+function dq = rocket_ode(t,q)
+
+% q = [z;v;m], z = [x;y], v = [vx;vy]
+%
+% dq1 = dz  = v
+% dq2 = dv = - G*M*z/|z|^3 + F_thrust/m
+% dq3 = g(m,tau)
+
+dq = zeros(5,1);
+
+% why is the code missing here???
+    
+end
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mass-flow-rate-m">
+<h3><code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code><a class="headerlink" href="#mass-flow-rate-m" title="Permalink to this headline">¶</a></h3>
+<p>Teil der Raketen-ODE <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> ist die gewöhnliche Differentialgleichung für die Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete <span class="math notranslate nohighlight">\(\dot{m}=g(m, \tau)\)</span>, wobei <span class="math notranslate nohighlight">\(\tau\)</span> die Antriebsdrossel modelliert (<span class="math notranslate nohighlight">\(\tau=0\)</span> bedeutet kein Antrieb, <span class="math notranslate nohighlight">\(\tau=1\)</span> bedeutet maximaler Antrieb). Die Funktion <span class="math notranslate nohighlight">\(g\)</span> ist in <code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code> implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton’schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Treibstoff ausgestoßen wird, desto höher sind der momentane Impuls und die Gewichtsabnahme der Rakete.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">mass_flow_rate</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%%</span> <span class="n">mass</span> <span class="n">flow</span> <span class="n">rate</span> <span class="p">[</span><span class="n">kg</span><span class="o">/</span><span class="n">s</span><span class="p">]</span>
+
+<span class="o">%</span> <span class="n">assume</span> <span class="n">constant</span> <span class="p">(</span><span class="n">throttle</span><span class="o">-</span><span class="n">dependent</span><span class="p">)</span> <span class="n">mass</span> <span class="n">flow</span> <span class="n">rate</span> 
+<span class="o">%</span> <span class="n">until</span> <span class="n">propellant</span> <span class="ow">is</span> <span class="n">depleted</span>
+
+<span class="n">function</span> <span class="n">dotm</span> <span class="o">=</span> <span class="n">mass_flow_rate</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">throttle</span><span class="p">)</span>
+
+<span class="k">global</span> <span class="n">params</span><span class="p">;</span>
+<span class="k">if</span> <span class="n">m</span><span class="o">&lt;=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">m0</span>
+    <span class="n">dotm</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">else</span>
+    <span class="n">dotm</span> <span class="o">=</span> <span class="o">-</span><span class="n">throttle</span><span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">mfr</span><span class="p">;</span>
+<span class="n">end</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="f-thrust-m">
+<h3><code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code><a class="headerlink" href="#f-thrust-m" title="Permalink to this headline">¶</a></h3>
+<p>In dieser Datei ist die Funktion <span class="math notranslate nohighlight">\(F_{\text{thrust}}(t,\mathbf{q})\)</span> hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung berechnet. Diese Datei haben Sie bereits von Ihren Kollegen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen <em>lift off, pitch over, ascend, 2nd stage,</em> und <em>orbit</em>. Je nach Phase wird in <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit <code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code> den Flugplan der Rakete. Optional kann die berechnete Drosselung <code class="docutils literal notranslate"><span class="pre">throttle</span></code> als zweiter Parameter mit ausgegeben werden. Sie wird unteranderem gebraucht um den Massefluss <span class="math notranslate nohighlight">\(g\)</span> (bzw. <code class="docutils literal notranslate"><span class="pre">mass_flow_rate</span></code>) zu berechnen.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">F_thrust</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%%</span> <span class="n">Thrust</span> <span class="n">of</span> <span class="n">rocket</span> <span class="n">engine</span>
+<span class="n">function</span> <span class="p">[</span><span class="n">F</span><span class="p">,</span> <span class="n">throttle</span><span class="p">]</span> <span class="o">=</span> <span class="n">F_thrust</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">This</span> <span class="n">function</span> <span class="n">takes</span> <span class="n">the</span> <span class="n">arguments</span> <span class="n">of</span> <span class="n">the</span> <span class="n">rocket_ode</span> <span class="n">function</span> <span class="ow">and</span>
+<span class="o">%</span> <span class="n">calculates</span> <span class="n">angine</span> <span class="n">thrust</span> <span class="k">for</span> <span class="n">a</span> <span class="n">specific</span> <span class="n">state</span> <span class="n">of</span> <span class="n">the</span> <span class="n">rocket</span><span class="o">.</span> <span class="n">Depending</span> <span class="n">on</span>
+<span class="o">%</span> <span class="n">the</span> <span class="n">stage</span><span class="p">,</span> <span class="n">throttle</span> <span class="ow">and</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">attack</span> <span class="n">can</span> <span class="n">be</span> <span class="n">varied</span><span class="o">.</span> <span class="n">The</span> <span class="n">status</span> <span class="ow">is</span>
+<span class="o">%</span> <span class="n">determined</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">event</span> <span class="n">function</span> <span class="n">rocket_status</span><span class="o">.</span><span class="n">m</span>
+
+<span class="k">global</span> <span class="n">params</span><span class="p">;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">tspan</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;lift off&#39;</span><span class="p">;</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span><span class="mi">0</span><span class="p">];</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span><span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span><span class="p">);</span>
+<span class="n">end</span>
+
+
+<span class="o">%</span> <span class="n">change</span> <span class="n">throttle</span> <span class="ow">and</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">attack</span><span class="p">,</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">current</span> <span class="n">launch</span> <span class="n">status</span>
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;lift off&#39;</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">initiate</span> <span class="n">pitch</span> <span class="n">over</span> <span class="n">maneuver</span> <span class="k">as</span> <span class="n">soon</span> <span class="k">as</span> <span class="n">velocity</span> <span class="n">reaches</span> <span class="n">a</span> <span class="n">threshold</span>
+    <span class="o">%</span> <span class="n">velocity</span>
+    <span class="n">throttle</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+    
+<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;pitch over&#39;</span><span class="p">)</span>
+    
+    <span class="n">throttle</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">;</span>
+    
+    <span class="o">%</span> <span class="n">tilt</span> <span class="n">the</span> <span class="n">rocket</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    
+<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;ascend&#39;</span><span class="p">)</span>
+    
+    <span class="n">throttle</span> <span class="o">=</span> <span class="mf">0.</span><span class="p">;</span>
+    
+<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;2nd stage&#39;</span><span class="p">)</span>
+    
+    <span class="n">throttle</span> <span class="o">=</span> <span class="mf">0.0625</span><span class="p">;</span>
+    
+    <span class="o">%</span> <span class="n">level</span> <span class="n">the</span> <span class="n">rocket</span> <span class="n">horizontally</span> <span class="ow">and</span> <span class="n">reduce</span> <span class="n">thrust</span> <span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">e</span><span class="o">.</span> <span class="n">smaller</span>
+    <span class="o">%</span> <span class="n">engines</span><span class="p">)</span>
+     <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">90</span><span class="p">);</span>
+    
+<span class="k">else</span>
+    <span class="n">throttle</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">end</span>
+
+<span class="o">%</span><span class="n">calculate</span> <span class="n">current</span> <span class="n">thrust</span> <span class="n">based</span> <span class="n">on</span> <span class="n">rocket</span> <span class="n">equation</span>
+<span class="n">mfr</span> <span class="o">=</span> <span class="n">mass_flow_rate</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">throttle</span><span class="p">);</span>
+<span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span><span class="o">*</span><span class="n">mfr</span><span class="o">*</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">ve</span><span class="p">;</span>
+
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">vec</span> <span class="o">=</span> <span class="n">rotate</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="n">degree</span><span class="p">)</span>
+  <span class="n">vec</span> <span class="o">=</span> <span class="p">[</span><span class="n">cosd</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="o">-</span><span class="n">sind</span><span class="p">(</span><span class="n">degree</span><span class="p">);</span> <span class="n">sind</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="n">cosd</span><span class="p">(</span><span class="n">degree</span><span class="p">)]</span><span class="o">*</span><span class="n">vec</span><span class="p">;</span>
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rocket-status-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code><a class="headerlink" href="#rocket-status-m" title="Permalink to this headline">¶</a></h3>
+<p>Diese Datei wird von <code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code> verwendet. Hier wird je nach Zustand der Rakete nach bestimmten Kriterien die Phase <em>(lift off, pitch over, ascend, 2nd stage, orbit)</em> des Raketenstarts gewechselt. In jeder Phase verhält sich die Funktion <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> etwas anders. Die Syntax ist so gewählt, dass die Funktion vom <em>event handler</em> des ODE-Lösers von Matlab aufgerufen wird.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">rocket_status</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%%</span> <span class="n">event</span> <span class="n">function</span> <span class="k">for</span> <span class="n">the</span> <span class="n">rocket_ode</span>
+<span class="n">function</span> <span class="p">[</span><span class="n">value</span><span class="p">,</span><span class="n">isterminal</span><span class="p">,</span><span class="n">direction</span><span class="p">]</span> <span class="o">=</span> <span class="n">rocket_status</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">this</span> <span class="n">function</span> <span class="n">controls</span> <span class="n">the</span> <span class="n">transitions</span> <span class="n">of</span> <span class="n">flight</span> <span class="n">phases</span><span class="o">.</span> <span class="n">It</span> <span class="n">checks</span> <span class="k">for</span>
+<span class="o">%</span> <span class="n">the</span> <span class="n">following</span> <span class="n">events</span><span class="p">:</span>
+<span class="o">%</span>
+<span class="o">%</span>  <span class="mi">1</span><span class="p">:</span> <span class="n">transition</span> <span class="s1">&#39;lift off&#39;</span> <span class="n">to</span> <span class="s1">&#39;pitch over&#39;</span> <span class="n">maneuver</span>
+<span class="o">%</span>  <span class="mi">2</span><span class="p">:</span> <span class="n">transition</span> <span class="s1">&#39;pitch over&#39;</span> <span class="n">to</span> <span class="s1">&#39;ascend&#39;</span> <span class="n">maneuver</span>
+<span class="o">%</span>  <span class="mi">3</span><span class="p">:</span> <span class="n">transition</span> <span class="s1">&#39;ascend&#39;</span> <span class="n">to</span> <span class="s1">&#39;2nd stage&#39;</span> <span class="n">maneuver</span>
+<span class="o">%</span>  <span class="mi">4</span><span class="p">:</span> <span class="n">transition</span> <span class="s1">&#39;2nd stage&#39;</span> <span class="n">to</span> <span class="s1">&#39;orbit&#39;</span> <span class="n">maneuver</span>
+<span class="o">%</span>  <span class="mi">5</span><span class="p">:</span> <span class="n">crash</span>
+
+<span class="k">global</span> <span class="n">params</span><span class="p">;</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">);</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">);</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+
+<span class="n">value</span>      <span class="o">=</span> <span class="o">-</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">isterminal</span> <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">direction</span>  <span class="o">=</span> <span class="o">-</span><span class="n">ones</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="o">%</span> <span class="n">terminate</span> <span class="k">if</span> <span class="n">height</span> <span class="n">falls</span> <span class="n">below</span> <span class="n">zero</span>
+<span class="n">height</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+<span class="n">value</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="n">height</span><span class="p">;</span>
+<span class="k">if</span> <span class="n">height</span> <span class="o">&lt;</span> <span class="mi">0</span>
+   <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;crash&#39;</span><span class="p">;</span> 
+<span class="n">end</span>
+<span class="n">isterminal</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;lift off&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="o">%</span> <span class="n">switch</span> <span class="n">to</span> <span class="n">pitch</span> <span class="n">over</span> <span class="n">maneuver</span> <span class="n">at</span> <span class="n">a</span> <span class="n">given</span> <span class="n">velocity</span>
+    <span class="k">if</span> <span class="n">v</span><span class="s1">&#39;*v &gt; 400^2</span>
+        <span class="n">value</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;pitch over&#39;</span><span class="p">;</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;pitch over&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="o">%</span> <span class="n">switch</span> <span class="n">to</span> <span class="n">ascend</span> <span class="n">at</span> <span class="n">a</span> <span class="n">certain</span> <span class="n">height</span>
+    <span class="k">if</span> <span class="n">height</span> <span class="o">&gt;</span> <span class="mf">0.0575</span><span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span>
+        <span class="n">value</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;ascend&#39;</span><span class="p">;</span>
+        <span class="o">%</span> <span class="n">to</span> <span class="n">do</span><span class="p">:</span> <span class="n">drop</span> <span class="n">boosters</span> <span class="ow">and</span> <span class="n">core</span> <span class="n">stage</span>
+        <span class="o">%</span> <span class="n">booster</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="mi">33000</span> <span class="n">kg</span><span class="p">,</span> <span class="n">core</span> <span class="n">stage</span><span class="p">:</span> <span class="mi">14700</span> <span class="n">kg</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;ascend&#39;</span><span class="p">)</span>
+    <span class="n">value</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="o">%</span> <span class="n">ignite</span> <span class="n">second</span> <span class="n">stage</span> <span class="k">if</span> <span class="n">radial</span> <span class="n">velocity</span> <span class="n">falls</span> <span class="n">below</span> <span class="n">threshold</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">x</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="k">if</span> <span class="n">n</span><span class="s1">&#39;*v &lt; 250</span>
+        <span class="n">value</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;2nd stage&#39;</span><span class="p">;</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">,</span><span class="s1">&#39;2nd stage&#39;</span><span class="p">)</span>
+   <span class="n">value</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+   <span class="o">%</span> <span class="n">label</span> <span class="n">status</span> <span class="k">as</span> <span class="s1">&#39;orbit&#39;</span> <span class="k">as</span> <span class="n">soon</span> <span class="k">as</span> <span class="n">propellant</span> <span class="ow">is</span> <span class="n">gone</span>
+   <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">mass_flow_rate</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-3</span>
+       <span class="n">value</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span>
+       <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="s1">&#39;orbit&#39;</span><span class="p">;</span>
+   <span class="n">end</span>       
+<span class="n">end</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="rocket-visualization-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_visualization.m</span></code><a class="headerlink" href="#rocket-visualization-m" title="Permalink to this headline">¶</a></h3>
+<p>Diese Datei implementiert die Animation sowie Plots des Raketenstarts. Die Syntax der Funktion ist so gewählt, dass die Funktion während der numerischen Integration in Matlab’s ODE Löser in jedem Zeitschritt einen visuellen Output liefern kann.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">rocket_visualization</span><span class="o">.</span><span class="n">m</span>
+<span class="o">%%</span> <span class="n">callback</span> <span class="n">function</span> <span class="n">to</span> <span class="n">visualize</span> <span class="n">the</span> <span class="n">rocket</span> <span class="n">launch</span>
+<span class="o">%</span>  <span class="n">during</span> <span class="n">numerical</span> <span class="n">integration</span>
+<span class="n">function</span> <span class="n">status</span> <span class="o">=</span> <span class="n">rocket_visualization</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">flag</span><span class="p">,</span><span class="n">simple</span><span class="p">,</span> <span class="n">event_times</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">OutputFcn</span> <span class="k">for</span> <span class="n">Matlab</span><span class="s1">&#39;s ODE solvers. The additional parameter</span>
+<span class="o">%</span> <span class="n">simple</span> <span class="n">can</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">true</span> <span class="n">to</span> <span class="n">only</span> <span class="nb">print</span> <span class="n">some</span> <span class="n">info</span> <span class="n">to</span> <span class="n">the</span> <span class="n">command</span> <span class="n">window</span><span class="o">.</span>
+<span class="o">%</span> <span class="n">event_times</span> <span class="n">can</span> <span class="n">be</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">determine</span> <span class="n">the</span> <span class="n">transition</span> <span class="n">of</span> <span class="n">flight</span> <span class="n">maneuvers</span>
+<span class="o">%</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">ode45</span> <span class="n">output</span> <span class="n">structure</span>
+
+
+<span class="o">%</span> <span class="n">params</span> <span class="n">contains</span> <span class="n">some</span> <span class="n">simulation</span> <span class="k">as</span> <span class="n">well</span> <span class="k">as</span> <span class="n">physical</span> <span class="ow">and</span> <span class="n">rocket</span> <span class="n">parameters</span> 
+<span class="o">%</span> <span class="ow">and</span> <span class="n">handles</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">struct</span> <span class="n">containing</span> <span class="n">handles</span> <span class="n">to</span> <span class="n">the</span> <span class="n">plots</span>
+<span class="k">global</span> <span class="n">handles</span> <span class="n">params</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="n">nargin</span><span class="o">&lt;</span><span class="mi">4</span>
+    <span class="k">if</span> <span class="o">~</span><span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">plot_during_solve</span>
+        <span class="n">simple</span><span class="o">=</span><span class="n">true</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">simple</span><span class="o">=</span><span class="n">false</span><span class="p">;</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">plot_during_solve</span> <span class="o">&amp;&amp;</span> <span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">saveScreenShots</span>
+    <span class="n">warning</span><span class="p">(</span><span class="s1">&#39;You are writing screenshots during an online visualization. This is likely to be slow and create a butt-load of images.&#39;</span><span class="p">)</span>
+<span class="n">end</span>
+
+<span class="o">%</span> <span class="n">This</span> <span class="n">happens</span> <span class="n">sometimes</span><span class="o">.</span> <span class="n">Don</span><span class="s1">&#39;t know why</span>
+<span class="k">if</span> <span class="n">numel</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">0</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span><span class="p">;</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="n">simple</span>
+    <span class="n">disp</span><span class="p">([</span><span class="s1">&#39;t = &#39;</span> <span class="n">num2str</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">))])</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="o">~</span><span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">plot_during_solve</span>
+    <span class="k">if</span> <span class="n">nargin</span><span class="o">&lt;</span><span class="mi">5</span>
+        <span class="n">rocketstatus</span> <span class="o">=</span> <span class="s1">&#39;unknown&#39;</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="o">%</span> <span class="n">determine</span> <span class="n">rocket</span> <span class="n">status</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;lift off&#39;</span><span class="p">,</span> <span class="s1">&#39;pitch over&#39;</span><span class="p">,</span> <span class="s1">&#39;ascend&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd stage&#39;</span><span class="p">,</span> <span class="s1">&#39;orbit&#39;</span><span class="p">};</span>
+        <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">length</span><span class="p">(</span><span class="n">event_times</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">event_times</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+        <span class="n">end</span>
+        <span class="n">rocketstatus</span> <span class="o">=</span> <span class="n">status</span><span class="p">{</span><span class="n">i</span><span class="p">};</span>
+    <span class="n">end</span>
+<span class="k">else</span>
+    <span class="n">rocketstatus</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">status</span><span class="p">;</span>
+<span class="n">end</span>
+
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="s1">&#39;init&#39;</span><span class="p">)</span>
+    
+    <span class="o">%</span> <span class="n">initialize</span> <span class="n">plots</span> <span class="n">using</span> <span class="n">initial</span> <span class="n">conditions</span>
+    <span class="n">figure</span><span class="p">(</span><span class="s1">&#39;units&#39;</span><span class="p">,</span><span class="s1">&#39;normalized&#39;</span><span class="p">,</span><span class="s1">&#39;outerposition&#39;</span><span class="p">,[</span><span class="mi">0</span> <span class="mf">0.1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+    
+    <span class="o">%%</span> <span class="n">animation</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">;</span>
+    <span class="n">end</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3600</span><span class="p">);</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="mi">60</span><span class="p">);</span>
+    <span class="n">sec</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="mi">3600</span> <span class="o">-</span> <span class="nb">min</span><span class="o">*</span><span class="mi">60</span><span class="p">);</span>
+    <span class="n">title</span><span class="p">([</span><span class="s1">&#39;t = &#39;</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%02i</span><span class="s1">&#39;</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="o">...</span>
+                     <span class="n">num2str</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%02i</span><span class="s1">&#39;</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="o">...</span>
+                     <span class="n">num2str</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%02.3f</span><span class="s1">&#39;</span><span class="p">)])</span>
+    
+    <span class="o">%</span> <span class="n">plot</span> <span class="n">earth</span>
+    <span class="n">plot_earth</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">flag</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span> <span class="s1">&#39;Xtick&#39;</span><span class="p">,[],</span> <span class="s1">&#39;YTick&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="s1">&#39;ZTick&#39;</span><span class="p">,</span> <span class="p">[],</span> <span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="s1">&#39;off&#39;</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">on</span>
+    
+    <span class="o">%</span> <span class="n">plot</span> <span class="n">target</span> <span class="n">orbit</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">orbit</span> <span class="o">=</span> <span class="n">rectangle</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,[</span><span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="o">-</span><span class="n">r</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">r</span><span class="p">],</span><span class="o">...</span>
+                              <span class="s1">&#39;curvature&#39;</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="o">...</span>
+                              <span class="s1">&#39;LineStyle&#39;</span><span class="p">,</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="o">...</span>
+                              <span class="s1">&#39;EdgeColor&#39;</span><span class="p">,[</span><span class="mi">0</span> <span class="mf">0.4470</span> <span class="mf">0.7410</span><span class="p">],</span><span class="o">...</span>
+                              <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+
+    <span class="o">%</span> <span class="n">current</span> <span class="n">rocket</span> <span class="n">orientation</span> <span class="p">(</span><span class="n">this</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">work</span> <span class="n">well</span> <span class="k">with</span> <span class="n">postprocessed</span> <span class="n">animation</span><span class="p">)</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">currentori</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">5e5</span><span class="p">],</span><span class="o">...</span>
+                              <span class="p">[</span><span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">)],</span><span class="o">...</span>
+                              <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">...</span>
+                              <span class="s1">&#39;Color&#39;</span><span class="p">,</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
+
+    <span class="o">%</span> <span class="n">trajectory</span> <span class="n">of</span> <span class="n">rocket</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">trajectory</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s1">&#39;Fontsize&#39;</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">xlabel</span><span class="p">([</span><span class="s1">&#39;status: &#39;</span><span class="p">,</span><span class="n">rocketstatus</span><span class="p">]);</span>
+    <span class="n">daspect</span><span class="p">([</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">])</span>
+    
+    <span class="o">%%</span> <span class="n">mass</span> <span class="n">of</span> <span class="n">fueL</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">fuel</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">m0</span><span class="p">);</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">fuel</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">fuel</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">title</span><span class="p">(</span><span class="s1">&#39;mass of propellant&#39;</span><span class="p">)</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t [sec]&#39;</span><span class="p">);</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;propellant mass [t]&#39;</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s1">&#39;Fontsize&#39;</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+    
+    <span class="o">%%</span> <span class="n">height</span> <span class="n">above</span> <span class="n">sea</span> <span class="n">level</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">orbit</span>  <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="o">...</span>
+                          <span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="o">...</span>
+                          <span class="s1">&#39;DisplayName&#39;</span><span class="p">,</span><span class="s1">&#39;target orbit&#39;</span><span class="p">,</span><span class="o">...</span>
+                          <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">on</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">height</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">height</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="o">...</span>
+                          <span class="s1">&#39;DisplayName&#39;</span><span class="p">,</span><span class="s1">&#39;trajectory&#39;</span><span class="p">,</span><span class="o">...</span>
+                          <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t [sec]&#39;</span><span class="p">);</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;height [km]&#39;</span><span class="p">);</span>
+    <span class="n">title</span><span class="p">(</span><span class="s1">&#39;height above sea level&#39;</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s1">&#39;Fontsize&#39;</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">legend</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;southeast&#39;</span><span class="p">)</span>
+    
+    <span class="o">%%</span> <span class="n">lateral</span> <span class="n">velocity</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">veltarget</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">G</span><span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">m</span><span class="o">/</span><span class="n">R</span><span class="p">)</span><span class="o">*</span><span class="mf">3.6</span><span class="p">;</span>
+    <span class="o">%</span><span class="n">vel</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="s1">&#39;*[-q(2);q(1)]/norm(q(1:2))*3.6;</span>
+    <span class="n">vel</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">));</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">targetvel</span>  <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">veltarget</span><span class="p">,</span><span class="o">...</span>
+                              <span class="s1">&#39;-.&#39;</span><span class="p">,</span><span class="o">...</span>
+                              <span class="s1">&#39;DisplayName&#39;</span><span class="p">,</span><span class="s1">&#39;target velocity&#39;</span><span class="p">,</span><span class="o">...</span>
+                              <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">hold</span> <span class="n">on</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">vel</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">vel</span><span class="p">,</span><span class="o">...</span>
+                       <span class="s1">&#39;DisplayName&#39;</span><span class="p">,</span><span class="s1">&#39;flight velocity&#39;</span><span class="p">,</span><span class="o">...</span>
+                       <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;t [sec]&#39;</span><span class="p">);</span>
+    <span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;velocity [km/h]&#39;</span><span class="p">);</span>
+    <span class="n">title</span><span class="p">(</span><span class="s1">&#39;lateral velocity&#39;</span><span class="p">)</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s1">&#39;Fontsize&#39;</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+    <span class="n">legend</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span><span class="s1">&#39;southeast&#39;</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span>
+        <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">i</span><span class="p">);</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">gca</span><span class="p">;</span>
+        <span class="n">outerpos</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">OuterPosition</span><span class="p">;</span>
+        <span class="n">ti</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">TightInset</span><span class="p">;</span> 
+        <span class="n">left</span> <span class="o">=</span> <span class="n">outerpos</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">ti</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">bottom</span> <span class="o">=</span> <span class="n">outerpos</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">ti</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">ax_width</span> <span class="o">=</span> <span class="n">outerpos</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">-</span> <span class="n">ti</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">ti</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">ax_height</span> <span class="o">=</span> <span class="n">outerpos</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="o">-</span> <span class="n">ti</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">ti</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">Position</span> <span class="o">=</span> <span class="p">[</span><span class="n">left</span> <span class="n">bottom</span> <span class="n">ax_width</span> <span class="n">ax_height</span><span class="p">];</span> 
+    <span class="n">end</span>
+    
+    
+<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="s1">&#39;done&#39;</span><span class="p">)</span>
+    <span class="o">%</span> <span class="k">pass</span>
+<span class="k">else</span>
+    <span class="o">%</span> <span class="n">do</span> <span class="n">this</span> <span class="ow">in</span> <span class="n">every</span> <span class="n">time</span> <span class="n">step</span> <span class="n">of</span> <span class="n">tspan</span>
+    <span class="o">%</span> <span class="n">first</span> <span class="n">subplot</span> <span class="ow">is</span> <span class="n">animation</span> <span class="n">of</span> <span class="n">trajectory</span><span class="o">.</span> <span class="n">Title</span> <span class="ow">is</span> <span class="n">Simulation</span> <span class="n">time</span><span class="o">.</span>
+    
+    <span class="o">%</span> <span class="n">rotate</span> <span class="n">earth</span> <span class="ow">and</span> <span class="n">update</span> <span class="n">time</span>
+    <span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;+&#39;</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">;</span>
+    <span class="n">end</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">3600</span><span class="p">);</span>
+    <span class="nb">min</span> <span class="o">=</span> <span class="n">fix</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">60</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="mi">60</span><span class="p">);</span>
+    <span class="n">sec</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">h</span><span class="o">*</span><span class="mi">3600</span> <span class="o">-</span> <span class="nb">min</span><span class="o">*</span><span class="mi">60</span><span class="p">);</span>
+    <span class="n">title</span><span class="p">([</span><span class="s1">&#39;t = &#39;</span><span class="p">,</span><span class="n">s</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%02i</span><span class="s1">&#39;</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="o">...</span>
+                     <span class="n">num2str</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%02i</span><span class="s1">&#39;</span><span class="p">),</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="o">...</span>
+                     <span class="n">num2str</span><span class="p">(</span><span class="n">sec</span><span class="p">,</span><span class="s1">&#39;</span><span class="si">%02.3f</span><span class="s1">&#39;</span><span class="p">)])</span>
+    <span class="n">xlabel</span><span class="p">([</span><span class="s1">&#39;status: &#39;</span><span class="p">,</span><span class="n">rocketstatus</span><span class="p">]);</span>
+    <span class="n">plot_earth</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">flag</span><span class="p">);</span>
+
+    <span class="o">%</span> <span class="n">update</span> <span class="n">current</span> <span class="n">rocket</span> <span class="n">orientation</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">currentori</span><span class="p">,</span> <span class="s1">&#39;Xdata&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mf">5e5</span><span class="p">]);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">currentori</span><span class="p">,</span> <span class="s1">&#39;Ydata&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">dir</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mf">5e5</span><span class="p">]);</span>
+    
+    <span class="o">%</span> <span class="n">update</span> <span class="n">trajectory</span> <span class="n">of</span> <span class="n">rocket</span>
+    <span class="n">X</span><span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">);</span>
+    <span class="n">Y</span><span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">,[</span><span class="n">X</span> <span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">trajectory</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">,[</span><span class="n">Y</span> <span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">)]);</span>
+    
+    <span class="o">%</span> <span class="n">update</span> <span class="n">fuel</span> <span class="n">plot</span>
+    <span class="n">fuel</span> <span class="o">=</span> <span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">m0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="o">~</span><span class="n">strcmp</span><span class="p">(</span><span class="n">rocketstatus</span><span class="p">,</span><span class="s1">&#39;orbit&#39;</span><span class="p">)</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">fuel</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">);</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">fuel</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">);</span>
+        <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">fuel</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">,[</span><span class="n">T</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+        <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">fuel</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">,[</span><span class="n">f</span> <span class="n">fuel</span><span class="o">/</span><span class="mi">1000</span><span class="p">]);</span>
+    <span class="n">end</span>
+    
+    <span class="o">%</span> <span class="n">update</span> <span class="n">height</span> <span class="n">above</span> <span class="n">sea</span> <span class="n">level</span> <span class="n">plot</span>
+    <span class="n">height</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">))</span> <span class="o">-</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">height</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">);</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">height</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">height</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">,[</span><span class="n">T</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">height</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">,[</span><span class="n">H</span> <span class="n">height</span><span class="o">/</span><span class="mi">1000</span><span class="p">]);</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">orbit</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">orbit</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">,[</span><span class="n">T</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">orbit</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">,[</span><span class="n">H</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span><span class="o">/</span><span class="mi">1000</span><span class="p">]);</span>
+    
+    <span class="o">%</span> <span class="n">update</span> <span class="n">velocity</span> <span class="n">plot</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">rocket</span><span class="o">.</span><span class="n">target_orbit</span> <span class="o">+</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">;</span>
+    <span class="n">veltarget</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">G</span><span class="o">*</span><span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">m</span><span class="o">/</span><span class="n">R</span><span class="p">);</span>
+    <span class="o">%</span><span class="n">vel</span> <span class="o">=</span> <span class="n">q</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="o">-</span><span class="n">q</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span><span class="o">/</span><span class="n">norm</span><span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">));</span>
+    <span class="n">vel</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">q</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">));</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">targetvel</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">);</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">targetvel</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">targetvel</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">,[</span><span class="n">T</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">targetvel</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">,[</span><span class="n">H</span> <span class="n">veltarget</span><span class="o">*</span><span class="mf">3.6</span><span class="p">]);</span>
+    <span class="n">H</span> <span class="o">=</span> <span class="n">get</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">vel</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">vel</span><span class="p">,</span><span class="s1">&#39;Xdata&#39;</span><span class="p">,[</span><span class="n">T</span> <span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">)]);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">vel</span><span class="p">,</span><span class="s1">&#39;Ydata&#39;</span><span class="p">,[</span><span class="n">H</span> <span class="n">vel</span><span class="o">*</span><span class="mf">3.6</span><span class="p">]);</span>
+    
+    <span class="n">drawnow</span><span class="p">;</span>
+    
+    <span class="k">if</span> <span class="n">params</span><span class="o">.</span><span class="n">sim</span><span class="o">.</span><span class="n">saveScreenShots</span>
+        <span class="n">step</span><span class="o">=</span><span class="n">size</span><span class="p">(</span><span class="nb">dir</span><span class="p">([</span><span class="s1">&#39;img/*.png&#39;</span><span class="p">]),</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;img/rocket_launch_&#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">step</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%03i</span><span class="s1">&#39;</span><span class="p">),</span><span class="s1">&#39;.png&#39;</span><span class="p">];</span>
+        <span class="n">saveas</span><span class="p">(</span><span class="n">gcf</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
+    <span class="n">end</span>
+<span class="n">end</span>
+    <span class="n">status</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">end</span>
+
+<span class="n">function</span> <span class="n">plot_earth</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span>
+<span class="o">%</span> <span class="n">modified</span> <span class="kn">from</span> <span class="nn">Ryan</span> <span class="n">Gray</span>
+<span class="o">%</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">de</span><span class="o">.</span><span class="n">mathworks</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">matlabcentral</span><span class="o">/</span><span class="n">fileexchange</span><span class="o">/</span><span class="mi">13823</span><span class="o">-</span><span class="mi">3</span><span class="n">d</span><span class="o">-</span><span class="n">earth</span><span class="o">-</span><span class="n">example</span>
+
+<span class="k">global</span> <span class="n">params</span> <span class="n">handles</span><span class="p">;</span>
+
+<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">flag</span><span class="p">,</span> <span class="s1">&#39;init&#39;</span><span class="p">)</span>
+    <span class="o">%</span> <span class="n">initialize</span> <span class="n">the</span> <span class="n">earth</span> <span class="n">surface</span> <span class="n">plot</span>
+    
+    <span class="n">npanels</span> <span class="o">=</span> <span class="mi">180</span><span class="p">;</span>   <span class="o">%</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">globe</span> <span class="n">panels</span> <span class="n">around</span> <span class="n">the</span> <span class="n">equator</span> <span class="n">deg</span><span class="o">/</span><span class="n">panel</span> <span class="o">=</span> <span class="mi">360</span><span class="o">/</span><span class="n">npanels</span>
+    <span class="n">alpha</span>   <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="o">%</span> <span class="n">globe</span> <span class="n">transparency</span> <span class="n">level</span><span class="p">,</span> <span class="mi">1</span> <span class="o">=</span> <span class="n">opaque</span><span class="p">,</span> <span class="n">through</span> <span class="mi">0</span> <span class="o">=</span> <span class="n">invisible</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">]</span> <span class="o">=</span> <span class="n">ellipsoid</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">earth</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="n">npanels</span><span class="p">);</span>
+    <span class="n">handles</span><span class="o">.</span><span class="n">globe</span> <span class="o">=</span> <span class="n">surf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">-</span><span class="n">z</span><span class="p">,</span> <span class="s1">&#39;FaceColor&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="s1">&#39;EdgeColor&#39;</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">]);</span>
+
+    <span class="o">%%</span> <span class="n">Texturemap</span> <span class="n">the</span> <span class="n">globe</span>
+
+    <span class="o">%</span> <span class="n">Load</span> <span class="n">Earth</span> <span class="n">image</span> <span class="k">for</span> <span class="n">texture</span> <span class="nb">map</span>
+    <span class="o">%</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">commons</span><span class="o">.</span><span class="n">wikimedia</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">File</span><span class="p">:</span><span class="n">Land_ocean_ice_2048</span><span class="o">.</span><span class="n">jpg</span>
+    <span class="o">%</span> <span class="n">NASA</span> <span class="n">Goddard</span> <span class="n">Space</span> <span class="n">Flight</span> <span class="n">Center</span> <span class="n">Image</span> <span class="n">by</span> <span class="n">Reto</span> <span class="n">Stöckli</span> <span class="p">(</span><span class="n">land</span> <span class="n">surface</span><span class="p">,</span> 
+    <span class="o">%</span> <span class="n">shallow</span> <span class="n">water</span><span class="p">,</span> <span class="n">clouds</span><span class="p">)</span><span class="o">.</span> <span class="n">Enhancements</span> <span class="n">by</span> <span class="n">Robert</span> <span class="n">Simmon</span> <span class="p">(</span><span class="n">ocean</span> <span class="n">color</span><span class="p">,</span> 
+    <span class="o">%</span> <span class="n">compositing</span><span class="p">,</span> <span class="mi">3</span><span class="n">D</span> <span class="n">globes</span><span class="p">,</span> <span class="n">animation</span><span class="p">)</span><span class="o">.</span> <span class="n">Data</span> <span class="ow">and</span> <span class="n">technical</span> <span class="n">support</span><span class="p">:</span> <span class="n">MODIS</span> 
+    <span class="o">%</span> <span class="n">Land</span> <span class="n">Group</span><span class="p">;</span> <span class="n">MODIS</span> <span class="n">Science</span> <span class="n">Data</span> <span class="n">Support</span> <span class="n">Team</span><span class="p">;</span> <span class="n">MODIS</span> <span class="n">Atmosphere</span> <span class="n">Group</span><span class="p">;</span> 
+    <span class="o">%</span> <span class="n">MODIS</span> <span class="n">Ocean</span> <span class="n">Group</span> <span class="n">Additional</span> <span class="n">data</span><span class="p">:</span> <span class="n">USGS</span> <span class="n">EROS</span> <span class="n">Data</span> <span class="n">Center</span> <span class="p">(</span><span class="n">topography</span><span class="p">);</span> 
+    <span class="o">%</span> <span class="n">USGS</span> <span class="n">Terrestrial</span> <span class="n">Remote</span> <span class="n">Sensing</span> <span class="n">Flagstaff</span> <span class="n">Field</span> <span class="n">Center</span> <span class="p">(</span><span class="n">Antarctica</span><span class="p">);</span> 
+    <span class="o">%</span> <span class="n">Defense</span> <span class="n">Meteorological</span> <span class="n">Satellite</span> <span class="n">Program</span> <span class="p">(</span><span class="n">city</span> <span class="n">lights</span><span class="p">)</span><span class="o">.</span> 
+    <span class="o">%</span> <span class="p">[</span><span class="n">CC</span> <span class="n">BY</span><span class="o">-</span><span class="n">SA</span> <span class="mf">3.0</span> <span class="p">(</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">creativecommons</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">licenses</span><span class="o">/</span><span class="n">by</span><span class="o">-</span><span class="n">sa</span><span class="o">/</span><span class="mf">3.0</span><span class="o">/</span><span class="p">)]</span>
+    
+    <span class="n">worldmap</span> <span class="o">=</span> <span class="s1">&#39;Land_ocean_ice_2048.jpg&#39;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="o">~</span><span class="n">exist</span><span class="p">(</span><span class="n">worldmap</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span>
+        <span class="n">websave</span><span class="p">(</span><span class="n">worldmap</span><span class="p">,</span><span class="o">...</span>
+            <span class="s1">&#39;http://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Land_ocean_ice_2048.jpg/1024px-Land_ocean_ice_2048.jpg&#39;</span><span class="p">);</span>
+    <span class="n">end</span>
+    <span class="n">cdata</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">worldmap</span><span class="p">);</span>
+
+    <span class="o">%</span> <span class="n">Set</span> <span class="n">image</span> <span class="k">as</span> <span class="n">color</span> <span class="n">data</span> <span class="p">(</span><span class="n">cdata</span><span class="p">)</span> <span class="nb">property</span><span class="p">,</span> <span class="ow">and</span> <span class="nb">set</span> <span class="n">face</span> <span class="n">color</span> <span class="n">to</span> <span class="n">indicate</span>
+    <span class="o">%</span> <span class="n">a</span> <span class="n">texturemap</span><span class="p">,</span> <span class="n">which</span> <span class="n">Matlab</span> <span class="n">expects</span> <span class="n">to</span> <span class="n">be</span> <span class="ow">in</span> <span class="n">cdata</span><span class="o">.</span> <span class="n">Turn</span> <span class="n">off</span> <span class="n">the</span> <span class="n">mesh</span> <span class="n">edges</span><span class="o">.</span>
+
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">globe</span><span class="p">,</span> <span class="s1">&#39;FaceColor&#39;</span><span class="p">,</span> <span class="s1">&#39;texturemap&#39;</span><span class="p">,</span> <span class="s1">&#39;CData&#39;</span><span class="p">,</span> <span class="n">cdata</span><span class="p">,</span> <span class="s1">&#39;FaceAlpha&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="s1">&#39;EdgeColor&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">);</span>
+    
+    <span class="n">view</span><span class="p">([</span><span class="mf">0.5</span> <span class="mf">0.25</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="n">end</span>
+
+     <span class="o">%</span><span class="n">rotate</span> <span class="n">earth</span> <span class="n">once</span> <span class="n">around</span> <span class="n">polar</span> <span class="n">axis</span> <span class="n">every</span> <span class="mi">24</span> <span class="n">hours</span>
+    <span class="n">RE</span> <span class="o">=</span> <span class="n">makehgtform</span><span class="p">(</span><span class="s1">&#39;zrotate&#39;</span><span class="p">,(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="mi">24</span><span class="o">*</span><span class="mi">3600</span><span class="p">))</span><span class="o">*</span><span class="n">t</span><span class="p">);</span>
+
+    <span class="o">%</span> <span class="n">rotate</span> <span class="n">earth</span> <span class="n">so</span> <span class="n">that</span> <span class="n">launch</span> <span class="n">position</span> <span class="n">matches</span> <span class="n">H</span><span class="o">-</span><span class="n">BRS</span> <span class="n">coordinates</span>
+    <span class="n">RZ</span> <span class="o">=</span> <span class="n">makehgtform</span><span class="p">(</span><span class="s1">&#39;zrotate&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.18</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">);</span>
+    <span class="n">RY</span> <span class="o">=</span> <span class="n">makehgtform</span><span class="p">(</span><span class="s1">&#39;yrotate&#39;</span><span class="p">,</span> <span class="mf">50.78</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="mi">180</span><span class="p">);</span>
+
+    <span class="n">hgx</span> <span class="o">=</span> <span class="n">hgtransform</span><span class="p">;</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">hgx</span><span class="p">,</span><span class="s1">&#39;Matrix&#39;</span><span class="p">,</span> <span class="n">RY</span><span class="o">*</span><span class="n">RZ</span><span class="o">*</span><span class="n">RE</span><span class="p">);</span>
+    <span class="nb">set</span><span class="p">(</span><span class="n">handles</span><span class="o">.</span><span class="n">globe</span><span class="p">,</span><span class="s1">&#39;Parent&#39;</span><span class="p">,</span><span class="n">hgx</span><span class="p">);</span>
+
+<span class="n">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<p>Damit Ihre Simulationssoftware lauffähig ist, füllen Sie die Datei <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+\ddot{\mathbf{z}} &amp;= \frac{\mathbf{F}_{\text{G}} + \mathbf{F}_{\text{thrust}}}{m}, \notag \\
+\dot{m} &amp;= g(m, \tau). \notag
+\end{align}
+\end{split}\]</div>
+<p>Die erste der beiden DGLs beschreibt die Beschleunigung der Rakete, wobei <span class="math notranslate nohighlight">\(\mathbf{z} = [x, y]^T\)</span> die aktuelle Position in karthesischen Koordinaten ist. Die Beschleunigung setzt sich zusammen aus der Gravitationsbeschleunigung</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\mathbf{F}_{\text{G}}}{m} = -\frac{G\cdot M}{\|\mathbf{z}\|^3} \mathbf{z}
+\]</div>
+<p>und der Beschleunigung durch den Raketenantrieb <span class="math notranslate nohighlight">\(\mathbf{F}_{\text{thrust}}/m\)</span>. Hierbei ist <span class="math notranslate nohighlight">\(G=6.67408 \cdot 10^{-11} \frac{\textrm{m}^3}{\textrm{kg}\cdot\textrm{s}^2}\)</span> die Gravitationskonstante und <span class="math notranslate nohighlight">\(M=5.972 \cdot 10^{24} \textrm{kg}\)</span> die Erdmasse.</p>
+<p>Die zweite Differentialgleichung beschreibt die Masseänderung der Rakete. Der Massefluss hängt von der aktuellen Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete sowie der Drosselung <span class="math notranslate nohighlight">\(\tau\)</span> ab. Die Funktionen <span class="math notranslate nohighlight">\(\mathbf{F}_{\text{thrust}}(t,\mathbf{q})\)</span> sowie <span class="math notranslate nohighlight">\(g(m,\tau)\)</span> sind bereits in den Matlab-files <code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code> und <code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code> implementiert. Die Drosselung (<em>throttle</em>) <span class="math notranslate nohighlight">\(\tau\)</span> wird von <code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code> berechnet und als zweiten Ausgabeparameter bereitgestellt:</p>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Ft</span><span class="p">,</span> <span class="n">throttle</span><span class="p">]</span> <span class="p">=</span> <span class="n">F_thrust</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Hinweis:</strong> Bringen Sie zunächst dieses System von Differentialgleichungen auf erste Ordnung</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\mathbf{q}} = \textrm{rocket_ode}(t, \mathbf{q})
+\]</div>
+<p>mit <span class="math notranslate nohighlight">\(\mathbf{q} = [x,y,v_x, v_y,m]^T\)</span>.</p>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Wie schätzen Sie die Modellierungstiefe des Simulationsprogrammes ein? Nennen Sie die wichtigsten Modellvereinfachungen und diskutieren Sie, welche am kritischsten sind. Welche Modellvereinfachungen würden Sie als erstes angehen, wenn Sie das Modell verfeinern würden? Wie schätzen Sie den Aufwand dafür ein?</p>
+</div>
+<div class="section" id="zusatzaufgabe">
+<h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
+<p>Bestimmen Sie auf Grundlage Ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie einen Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.</p>
+</div>
+<div class="section" id="zusatzinformationen">
+<h2>Zusatzinformationen<a class="headerlink" href="#zusatzinformationen" title="Permalink to this headline">¶</a></h2>
+<p>Der simulierte Raketenstart wurde inspiriert vom Ariane flight VA244 am 25. Juli 2018.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.arianespace.com/mission/ariane-flight-va244/">http://www.arianespace.com/mission/ariane-flight-va244/</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Ariane_flight_VA244">https://en.wikipedia.org/wiki/Ariane_flight_VA244</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Ariane_5#Variants">https://en.wikipedia.org/wiki/Ariane_5#Variants</a></p></li>
+<li><p>Einige der Galileo-Satelliten sind auch in der Datenbank des <a class="reference external" href="https://www.dlr.de/sc/desktopdefault.aspx/tabid-12766/22301_read-51854/">Space Debris Viewers</a> hinterlegt <em>(allerdings noch nicht die Satelliten 23-24-25-26 von flight VA244)</em>.</p></li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/t0BKsk97n6Y?start=1183" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "07_num_ode"
+        }
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+    <a class='left-prev' id="prev-link" href="00_numerik_gewöhnlicher_differentialgleichungen.html" title="previous page">Numerik gewöhnlicher Differentialgleichungen</a>
+    <a class='right-next' id="next-link" href="../08_eigenwerte/00_eigenwertprobleme.html" title="next page">Eigenwertprobleme</a>
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+    <!-- Google Analytics -->
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-134708516-1', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+    <!-- End Google Analytics -->
+    
+  </body>
+</html>
