@@ -85,7 +85,7 @@ sections:
 - file: 10_bvp/00_randwertprobleme
   title: Randwertprobleme
   sections:
-  - file: 10_bvp/01_durchhang_eines_flexiblen_Kabels
+  - file: 10_bvp/01_durchhang_eines_flexiblen_kabels
     title: Durchhang eines flexiblen Kabels
   - file: 10_bvp/02_temperatur_in_einem_nuklearen_brennstab
     title: Temperatur in einem nuklearen Brennstab
