@@ -55,10 +55,10 @@ sections:
     title: Lineare Approximation
   - file: 05_interp_approx/03_spline_interpolation
     title: Spline Interpolation
-- file: 06_Differentiation_Integration/00_differentiation_und_integration
+- file: 06_Differentiation_Integration/00_differentiation_und_integration.md
   title: Differentiation und Integration
   sections:
-  - file: 06_Differentiation_Integration/exercises_00_numeric_integration.ipynb
+  - file: 06_Differentiation_Integration/01_zeitschrittweitensteuerung.ipynb
     title: Numerische Integration mit Schrittweitensteuerung
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
   title: "Numerik gewöhnlicher Differentialgleichungen"
