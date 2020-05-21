@@ -57,6 +57,9 @@ sections:
     title: Spline Interpolation
 - file: 06_Differentiation_Integration/00_differentiation_und_integration
   title: Differentiation und Integration
+  sections:
+  - file: 06_Differentiation_Integration/exercises_00_numeric_integration.ipynb
+    title: Numerische Integration mit Schrittweitensteuerung
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
   title: "Numerik gewöhnlicher Differentialgleichungen"
   sections:
