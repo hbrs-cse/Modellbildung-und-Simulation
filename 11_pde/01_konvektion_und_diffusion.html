@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Lineare Approximation &#8212; Modellbildung und Simulation</title>
+    <title>Konvektion und Diffusion &#8212; Modellbildung und Simulation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
     <link href="../_static/css/index.css" rel="stylesheet">
     <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
@@ -33,8 +33,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Spline-Interpolation" href="03_spline_interpolation.html" />
-    <link rel="prev" title="Lineare Interpolation" href="01_lineare_interpolation.html" />
+    <link rel="prev" title="Numerik partieller Differentialgleichungen" href="00_partielle_differentialgleichungen.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="docsearch:language" content="en">
@@ -84,19 +83,8 @@
   <li class="">
     <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
   </li>
-  <li class="active">
-    <a href="00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="01_lineare_interpolation.html">Lineare Interpolation</a>
-    </li>
-    <li class="active">
-      <a href="">Lineare Approximation</a>
-    </li>
-    <li class="">
-      <a href="03_spline_interpolation.html">Spline Interpolation</a>
-    </li>
-  </ul>
+  <li class="">
+    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
   </li>
   <li class="">
     <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
@@ -113,8 +101,13 @@
   <li class="">
     <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
   </li>
-  <li class="">
-    <a href="../11_pde/00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
+  <li class="active">
+    <a href="00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
+  <ul class="nav sidenav_l2">
+    <li class="active">
+      <a href="">Konvektion und Diffusion</a>
+    </li>
+  </ul>
   </li>
 </ul>
 </nav>
@@ -153,7 +146,7 @@
                 <!-- ipynb file if we had a myst markdown file -->
                 
                 <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/05_interp_approx/02_lineare_approximation.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
+                <a class="dropdown-buttons" href="../_sources/11_pde/01_konvektion_und_diffusion.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
                 <!-- Download PDF via print -->
                 <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
             </div>
@@ -161,7 +154,7 @@
         </div>
 
         <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/05_interp_approx/02_lineare_approximation.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/11_pde/01_konvektion_und_diffusion.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
 
         <!-- Full screen (wrap in <a> to have style consistency -->
         <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
@@ -172,7 +165,7 @@
             <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
             <div class="dropdown-buttons">
                 
-                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/05_interp_approx/02_lineare_approximation.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
+                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/11_pde/01_konvektion_und_diffusion.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
                 
                 
                 <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
@@ -182,9 +175,24 @@
         
     </div>
     <div class="d-none d-md-block col-md-2 bd-toc show">
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
     <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-1-vorarbeit-mit-papier-und-bleistift" class="nav-link">Aufgabe 1: Vorarbeit mit Papier und Bleistift</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#aufgabe-2" class="nav-link">Aufgabe 2</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#zusatzaufgabe" class="nav-link">Zusatzaufgabe</a>
+        </li>
     
     </ul>
 </nav>
@@ -192,7 +200,7 @@
 
 
 <div class="tocsection editthispage">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/05_interp_approx/02_lineare_approximation.ipynb">
+    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/11_pde/01_konvektion_und_diffusion.ipynb">
         <i class="fas fa-pencil-alt"></i> Edit this page
     </a>
 </div>
@@ -204,18 +212,72 @@
         
               <div>
                 
-  <div class="section" id="lineare-approximation">
-<h1>Lineare Approximation<a class="headerlink" href="#lineare-approximation" title="Permalink to this headline">¶</a></h1>
-<p>Erzeugen Sie sich auf Basis folgender Geradengleichung $ y = 2.2 x - 3.1 $ Werte im Intervall <span class="math notranslate nohighlight">\(x \in [0,10]\)</span>. Modifizieren Sie die entsprechenden y-Werte so, dass Sie <strong>normalverteilt</strong>  mit Standardabweichung 1 von der exakten Geradengleichung abweichen (Abbildung). Gehen Sie dabei zunächst von <span class="math notranslate nohighlight">\(n=100\)</span> Messwerten aus.</p>
-<img src="images/approx.png" width="600" />
-<p>Schreiben Sie ein Programm mit dessen Hilfe Sie eine Regressionsgerade durch die zuvor erzeugten Punkte legen können. <strong>Verwenden Sie für diese Aufgabe NICHT die <code class="docutils literal notranslate"><span class="pre">polyfit</span></code>-Funktion!</strong> Berechnen Sie statt dessen die Koeffizienten der Regressionsgeraden direkt mit Hilfe der Messpunkte, <em>vgl. Vorlesung.</em></p>
-<p>Stellen Sie Messpunkte, Regressionsgerade und die exakte Geradengleichung in einem plot dar. Was passiert mit der Regressionsgerade bei kleinen bzw. großen <span class="math notranslate nohighlight">\(n\)</span>? (Sie sollten sich selbst überlegen, was “klein” bzw. was “groß” bedeutet.)</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">THE</span> <span class="n">SOLUTION</span>
-</pre></div>
+  <div class="section" id="konvektion-und-diffusion">
+<h1>Konvektion und Diffusion<a class="headerlink" href="#konvektion-und-diffusion" title="Permalink to this headline">¶</a></h1>
+<p><a title="James Gathany/CDC / Public domain" href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg"><img width="512" alt="Aedes Albopictus" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg"></a></p>
+<p>Wir wollen simulieren wie sich ein Insektengift in einer Blutbahn ausbreitet. Zum einen wird sich durch ein Diffusionsprozess das Insektengift mit dem Blut vermischen. Zum anderen wird es mit der Fließgeschwindigkeit des Blutes transportiert <em>(Konvektion)</em>. Es ergibt sich ein sogenannter Konvektions-Diffusionsprozess. <span class="math notranslate nohighlight">\(\rho(t,x)\)</span> sei die Konzentration des Insektengiftes entlang der Blutbahn.</p>
+<p>Die Kontinuitätsgleichung in einer Dimension lautet</p>
+<div class="math notranslate nohighlight">
+\[
+0 = \frac{\partial \rho}{\partial t} + \frac{\partial}{\partial x} J
+\]</div>
+<p>mit einem Massestrom <span class="math notranslate nohighlight">\(J\)</span>. Dieser besteht aus einem Diffusionsterm <span class="math notranslate nohighlight">\(-a \frac{\partial \rho}{\partial x}\)</span> der den Konzentrationsgradienten des Insektengiftes ausgleicht, sowie einem Geschwindigkeitsterm <span class="math notranslate nohighlight">\(c\rho\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
+\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(c(t)\)</span> die Fließgeschwindigkeit des Blutes zum Zeitpunkt <span class="math notranslate nohighlight">\(t\)</span> bezeichnet. Als Vereinfachung gehen wir von einer zeitlich konstanten Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)=c=\text{const}\)</span> aus. Es sollte nicht allzu schwer sein, das Modell zu einem späteren Zeitpunkt durch eine pulsierende Fließgeschwindigkeit zu erweitern.</p>
+<p>Setzen wir den Massestrom in die Kontinuitätsgleichung ein, erhalten wir die Konvektions-Diffusionsgleichung</p>
+<div class="math notranslate nohighlight" id="equation-convection-diffusion">
+<span class="eqno">(1)<a class="headerlink" href="#equation-convection-diffusion" title="Permalink to this equation">¶</a></span>\[\frac{\partial \rho}{\partial t} + c \frac{\partial \rho}{\partial x} = a \frac{\partial^2}{\partial x^2}\]</div>
+<div class="section" id="aufgabe-1-vorarbeit-mit-papier-und-bleistift">
+<h2>Aufgabe 1: Vorarbeit mit Papier und Bleistift<a class="headerlink" href="#aufgabe-1-vorarbeit-mit-papier-und-bleistift" title="Permalink to this headline">¶</a></h2>
+<p>Führen Sie eine Diskretisierung des Problems durch <em>(örtlich und zeitlich)</em>, um eine Vorschrift zur numerischen Lösung der Gleichung zu ermitteln. Gehen Sie von zeitlich konstanten Dirichlet-Randbedingungen aus. Verwenden Sie für die örtlichen Ableitungen zentrale Differenzenquotienten und für die zeitliche</p>
+<ol class="simple">
+<li><p>das explizite Euler-Verfahren (Untersumme)</p></li>
+<li><p>das Crank-Nicolson-Verfahren (Trapez-Regel)</p></li>
+</ol>
+<p>Gehen Sie wie folgt vor:</p>
+<ol>
+<li><p>Diskretisieren Sie zunächst im Ort, so dass Sie <span class="math notranslate nohighlight">\(N\)</span> neue Funktionen <span class="math notranslate nohighlight">\(y_i(t) \approx \rho(x_i, t), i=1,...,N\)</span> erhalten. Hierbei bezeichnet <span class="math notranslate nohighlight">\(N\)</span> die Anzahl der Diskretisierungspunkte und <span class="math notranslate nohighlight">\(x_i\)</span> bezeichnet den <span class="math notranslate nohighlight">\(i\)</span>-ten Diskretisierungspunkt ihres Intervals.</p></li>
+<li><p>Schreiben Sie die approximierte Lösung <span class="math notranslate nohighlight">\(y_i(t_j)\)</span> der inneren Punkte <span class="math notranslate nohighlight">\(i=2,...,N-1\)</span> in einen Vektor</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+   \mathbf{y}^{(j)} = 
+   \begin{bmatrix}
+   y_2(t_j) \\ \vdots \\ y_{N-1}(t_j)
+   \end{bmatrix}
+   = 
+   \begin{bmatrix}
+   y_2^{(j)} \\ \vdots \\ y_{N-1}^{(j)}
+   \end{bmatrix}
+   \end{split}\]</div>
+</li>
+<li><p>Bringen Sie die Ortsableitungen der DGL auf die rechte Seite, ersetzen Sie die partiellen Ortsableitungen durch Differenzenquotienten, so dass Sie für die inneren Punkte folgendes schreiben können:</p>
+<div class="math notranslate nohighlight">
+\[
+   \frac{\partial \mathbf{y}(t_j)}{\partial t} = A \cdot \mathbf{y}^{j} + \mathbf{b}.
+   \]</div>
+<p>Dabei ergeben sich <span class="math notranslate nohighlight">\(A \in \mathbb{R}^{N-1 \times N-1}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{N-1}\)</span> aus den verwendeten Differenzenquotienten sowie den Randwerten <span class="math notranslate nohighlight">\(\rho(x_0, t) = \rho_a, \rho(x_N, t) = \rho_b\)</span>.</p>
+</li>
+<li><p>Diskretisieren Sie nun in der Zeit, indem Sie eine Vorschrift</p>
+<div class="math notranslate nohighlight">
+\[
+   \mathbf{y}^{(j)} = \mathbf{y}^{(j-1)} + \Delta t \phi(\mathbf{y}^{(j)}, \mathbf{y}^{(j-1)})
+   \]</div>
+<p>finden. Je nachdem ob Sie das explizite Euler-Verfahren oder das Crank-Nicolson-Verfahren verwenden, erhalten Sie eine anderen Gestalt für <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
+</li>
+</ol>
 </div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Schreiben Sie ein Matlab-Programm, das die Gleichung <a class="reference internal" href="#equation-convection-diffusion">(1)</a> für ein beliebiges Zeitinterval <span class="math notranslate nohighlight">\([t_0, t1]\)</span> und Ortsintervall <span class="math notranslate nohighlight">\([x_0, x_1]\)</span> mit zeitlich konstanten Dirichlet-Randbedingungen <span class="math notranslate nohighlight">\(\rho(x_0, t) = \rho_a, \rho(x_N, t) = \rho_b\)</span> löst. Implementieren Sie sowohl das explizite Euler-Verfahren als auch das Crank-Nicolson-Verfahren.</p>
+<p>Visualisieren Sie die Lösung mit Hilfe einer Animation.</p>
+<p><strong>Hinweis:</strong> Beachten Sie bei der Wahl der Diskretisierung die <a class="reference external" href="https://de.wikipedia.org/wiki/CFL-Zahl">Courant-Friedrichs-Lewy-Zahl</a>.</p>
 </div>
+<div class="section" id="zusatzaufgabe">
+<h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
+<p>Erweitern Sie ihr Programm, so dass der Nutzer eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben kann.</p>
 </div>
 </div>
 
@@ -232,7 +294,7 @@
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "05_interp_approx"
+            path: "11_pde"
         }
     }
     </script>
@@ -246,8 +308,7 @@
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="01_lineare_interpolation.html" title="previous page">Lineare Interpolation</a>
-    <a class='right-next' id="next-link" href="03_spline_interpolation.html" title="next page">Spline-Interpolation</a>
+    <a class='left-prev' id="prev-link" href="00_partielle_differentialgleichungen.html" title="previous page">Numerik partieller Differentialgleichungen</a>
 
     </div>
     <footer class="footer mt-5 mt-md-0">
