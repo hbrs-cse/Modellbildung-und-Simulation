@@ -26,6 +26,8 @@ sections:
       title: Verkehrssimulation
     - file: 00_einleitung/03_exercises/04_der_perfekte_wurf
       title: Der perfekte Wurf
+    - file: 00_einleitung/03_exercises/05_conways_game_of_life
+      title: Conways Game of Life
 - file: 01_schwingungen/00_schwingungen
   title: Schwingungen
   sections:
