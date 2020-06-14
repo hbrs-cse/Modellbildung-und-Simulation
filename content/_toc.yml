@@ -44,7 +44,7 @@ sections:
 - file: 04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
   title: Nichtlineare Gleichungssysteme
   sections:
-  - file: 04_nichtlineare_gleichungen/01_uebungen
+  - file: "04_nichtlineare_gleichungen/01_uebungen"
     title: Übungen
   - file: 04_nichtlineare_gleichungen/02_bierschaumzerfall
     title: Bierschaumzerfall
