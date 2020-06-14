@@ -44,8 +44,8 @@ sections:
 - file: 04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
   title: Nichtlineare Gleichungssysteme
   sections:
-  - file: 04_nichtlineare_gleichungen/01_weinglas
-    title: Weinglas
+  - file: 04_nichtlineare_gleichungen/01_uebungen
+    title: Übungen
   - file: 04_nichtlineare_gleichungen/02_bierschaumzerfall
     title: Bierschaumzerfall
 - file: 05_interp_approx/00_interpolation_Und_approximation
