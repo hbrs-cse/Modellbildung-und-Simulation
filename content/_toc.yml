@@ -44,7 +44,7 @@ sections:
 - file: 04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
   title: Nichtlineare Gleichungssysteme
   sections:
-  - file: "04_nichtlineare_gleichungen/01_newton-verfahren"
+  - file: 04_nichtlineare_gleichungen/01_newton-verfahren
     title: Newton-Verfahren
   - file: 04_nichtlineare_gleichungen/02_bierschaumzerfall
     title: Bierschaumzerfall
