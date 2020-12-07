@@ -1,21 +1,39 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Skripte und Funktionen &#8212; Modellbildung und Simulation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -23,21 +41,25 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script async="async" src="../../_static/thebelab.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Best Practices" href="03_best_practice.html" />
     <link rel="prev" title="Matlab Command Window" href="01_matlab_command_window.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -59,78 +81,267 @@
   <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-  <li class="active">
-    <a href="../00_einleitung.html">Einleitung</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="../01_usage/00_verwendung_dieses_buches.html">Verwendung dieses Buches</a>
-    </li>
-    <li class="active">
-      <a href="00_erste_schritte_in_matlab.html">Erste Schritte in Matlab</a>
-      <ul class="nav sidenav_l3">
-      <li class="">
-        <a href="01_matlab_command_window.html">Matlab Command Window</a>
-      </li>
-      <li class="active">
-        <a href="">Skripte und Funktionen</a>
-      </li>
-      <li class="">
-        <a href="03_best_practice.html">Best Practice</a>
-      </li>
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../00_einleitung.html">
+   Einleitung
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="00_erste_schritte_in_matlab.html">
+     Erste Schritte in Matlab
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_matlab_command_window.html">
+       Matlab Command Window
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Skripte und Funktionen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_best_practice.html">
+       Best Practice
+      </a>
+     </li>
     </ul>
-    </li>
-    <li class="">
-      <a href="../03_exercises/00_übungsaufgaben.html">Übungsaufgaben</a>
-    </li>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../03_exercises/00_übungsaufgaben.html">
+     Übungsaufgaben
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_exercises/01_matlab_kennenlernen.html">
+       Matlab kennenlernen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_exercises/02_fluessigkeit_im_boden.html">
+       Flüssigkeit im Boden
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_exercises/03_verkehrssimulation.html">
+       Verkehrssimulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_exercises/04_der_perfekte_wurf.html">
+       Der perfekte Wurf
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
   </ul>
-  </li>
-  <li class="">
-    <a href="../../01_schwingungen/00_schwingungen.html">Schwingungen</a>
-  </li>
-  <li class="">
-    <a href="../../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
-  </li>
-  <li class="">
-    <a href="../../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
-  </li>
-  <li class="">
-    <a href="../../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
-  </li>
-  <li class="">
-    <a href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
-  </li>
-  <li class="">
-    <a href="../../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
-  </li>
-  <li class="">
-    <a href="../../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../../11_pde/00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
-  </li>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../01_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03_gleitkommaarithmetik/01_übungen.html">
+     Übungen
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04_nichtlineare_gleichungen/01_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../05_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_interp_approx/03_spline_interpolation.html">
+     Spline Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../06_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+   Numerik gewöhnlicher Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07_num_ode/01_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../11_pde/00_partielle_differentialgleichungen.html">
+   Numerik partieller Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-</nav>
 
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
@@ -150,111 +361,141 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
 
-        <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
         
     </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#skripte" class="nav-link">Skripte</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#for-schleifen" class="nav-link">for-Schleifen</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#while-schleifen" class="nav-link">while-Schleifen</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#if-abfragen" class="nav-link">if-Abfragen</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#grafische-ausgabe" class="nav-link">Grafische Ausgabe</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#funktionen" class="nav-link">Funktionen</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#eingabe-und-ausgabe" class="nav-link">Eingabe und Ausgabe</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#scope-von-variablen" class="nav-link">Scope von Variablen</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#function-handles" class="nav-link">Function Handles</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#rekursion" class="nav-link">Rekursion</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-    </ul>
-</nav>
-
-
-
-<div class="tocsection editthispage">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_first_steps/02_skripte_und_funktionen.ipynb">
-        <i class="fas fa-pencil-alt"></i> Edit this page
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#skripte">
+   Skripte
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#for-schleifen">
+     for-Schleifen
     </a>
-</div>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#while-schleifen">
+     while-Schleifen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#if-abfragen">
+     if-Abfragen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafische-ausgabe">
+     Grafische Ausgabe
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funktionen">
+   Funktionen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#eingabe-und-ausgabe">
+     Eingabe und Ausgabe
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scope-von-variablen">
+     Scope von Variablen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#function-handles">
+     Function Handles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rekursion">
+     Rekursion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -272,18 +513,18 @@
 Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schaut, sich fragt was man damals eigentlich gemacht hat und sich wünscht, man hätte es besser kommentiert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">myScript</span><span class="o">.</span><span class="n">m</span>
-<span class="o">%</span> <span class="n">Ein</span> <span class="n">kleines</span> <span class="n">Beispielskript</span>
-<span class="o">%</span> <span class="n">mit</span> <span class="n">Kommentaren</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file myScript.m</span>
+<span class="c">% Ein kleines Beispielskript</span>
+<span class="c">% mit Kommentaren</span>
 
-<span class="o">%</span> <span class="n">Initialisiere</span> <span class="n">Variablen</span> <span class="n">a</span> <span class="n">und</span> <span class="n">b</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
+<span class="c">% Initialisiere Variablen a und b</span>
+<span class="n">a</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">;</span>
 
-<span class="o">%</span> <span class="n">Ändere</span> <span class="n">Variable</span> <span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="c">% Ändere Variable a</span>
+<span class="n">a</span> <span class="p">=</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 
-<span class="o">%</span> <span class="n">Ausgabe</span> <span class="n">erzwingen</span><span class="p">,</span> <span class="n">durch</span> <span class="n">weglassen</span> <span class="n">des</span> <span class="n">Semikolons</span> <span class="n">am</span> <span class="n">Ende</span> <span class="n">der</span> <span class="n">Zeile</span>
+<span class="c">% Ausgabe erzwingen, durch weglassen des Semikolons am Ende der Zeile</span>
 <span class="n">a</span>
 <span class="n">b</span>
 </pre></div>
@@ -297,12 +538,12 @@ Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schau
 <p>Dieses Skript wird mit dem <code class="docutils literal notranslate"><span class="pre">run</span></code> Befehl ausgeführt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">myScript</span><span class="o">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">myScript</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>a =  2.5000
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  2.5000
 b =  10
 </pre></div>
 </div>
@@ -314,12 +555,12 @@ b =  10
 <p>Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem <code class="docutils literal notranslate"><span class="pre">help</span></code> Befehl ausgeben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span> <span class="n">myScript</span><span class="o">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">help</span> <span class="n">myScript</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;myScript.m&#39; is the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;myScript.m&#39; is the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/myScript.m
 
  Ein kleines Beispielskript
  mit Kommentaren
@@ -341,9 +582,9 @@ mailing list.
 <p>Wie in anderen Programmiersprachen können in MATLAB auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="n">i</span><span class="p">;</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -352,14 +593,14 @@ mailing list.
 <p>Es besteht die Möglichkeit die Schrittweite der Laufvariablen anzupassen. Auf diese Weise können auch Laufvariablen benutzt werden, die nicht ganzzahlig sind:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">:</span><span class="o">-</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">t</span><span class="p">=</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">:</span><span class="o">-</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">:</span><span class="mi">0</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="nb">cos</span><span class="p">(</span><span class="n">t</span><span class="p">),</span> <span class="nb">sin</span><span class="p">(</span><span class="n">t</span><span class="p">)]</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>x =
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x =
 
    1.0000e+00  -2.4493e-16
 
@@ -378,7 +619,6 @@ x =
 x =
 
    1   0
-
 </pre></div>
 </div>
 </div>
@@ -386,10 +626,10 @@ x =
 <p><strong>Quiz:</strong> Wie sieht der Vektor <span class="math notranslate nohighlight">\(f\)</span> aus, der von folgender for-Schleife erzeugt wird?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">clear</span> <span class="n">f</span>
-<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="n">i</span><span class="p">;</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">clear</span> <span class="n">f</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -401,16 +641,16 @@ x =
 <p>while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife wird solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">x</span> <span class="p">)</span><span class="o">/</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.01</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
-<span class="n">end</span>
-<span class="n">disp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="k">while</span> <span class="nb">abs</span><span class="p">(</span> <span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">x</span> <span class="p">)</span><span class="o">/</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mf">0.01</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="mf">0.99</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+<span class="k">end</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span> 0.24470
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 0.24470
 </pre></div>
 </div>
 </div>
@@ -421,20 +661,20 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Eine for-Schleife kann immer in eine while-Schleife umgeschrieben werden. Folgende Code-Blöcke liefern das selbe Ergebnis:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="n">i</span><span class="p">;</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
-<span class="k">while</span> <span class="n">i</span><span class="o">&lt;=</span><span class="mi">5</span>
-    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="mi">2</span><span class="o">^</span><span class="n">i</span><span class="p">;</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">while</span> <span class="n">i</span><span class="o">&lt;</span><span class="p">=</span><span class="mi">5</span>
+    <span class="n">f</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="mi">2</span>^<span class="n">i</span><span class="p">;</span>
+    <span class="n">i</span> <span class="p">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -446,16 +686,16 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Oft ist es nützlich, bestimmte Befehle nur auszuführen, wenn eine Bedingung erfüllt ist. Dies erreicht man mit if-Bedingungen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
-<span class="n">nenner</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
+<span class="n">nenner</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
 <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">nenner</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-8</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
-<span class="n">end</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>x =  1.4199
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x =  1.4199
 </pre></div>
 </div>
 </div>
@@ -463,18 +703,18 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Der Codeblock erstellt nur dann eine Variable <code class="docutils literal notranslate"><span class="pre">x</span></code>, wenn der Nenner des Bruchs größer als <span class="math notranslate nohighlight">\(10^{-8}\)</span> ist. Wir sollten den Fall abfangen, wenn diese Bedingung mal nicht erfüllt wird. Dies erreicht man mit if-then-else-Bedingungen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
-<span class="n">nenner</span> <span class="o">=</span> <span class="n">rand</span><span class="p">();</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">zaehler</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
+<span class="n">nenner</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">();</span>
 <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">nenner</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-8</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="n">zaehler</span><span class="o">/</span><span class="n">nenner</span>
 <span class="k">else</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">end</span>
+    <span class="n">x</span> <span class="p">=</span> <span class="mi">1</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>x =  0.96087
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x =  0.96087
 </pre></div>
 </div>
 </div>
@@ -482,34 +722,34 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingung. Das kann zum Beispiel Sinn haben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">oldmcdonald</span><span class="o">.</span><span class="n">m</span>
-<span class="o">%</span> <span class="n">make</span> <span class="n">some</span> <span class="n">animal</span> <span class="n">noises</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
+<span class="c">% make some animal noises</span>
 
-<span class="n">animal</span> <span class="o">=</span> <span class="s2">&quot;cow&quot;</span><span class="p">;</span>
+<span class="n">animal</span> <span class="p">=</span> <span class="s">&quot;cow&quot;</span><span class="p">;</span>
 
-<span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">)</span>
-    <span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Meaow&quot;</span><span class="p">)</span>
-<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;dog&quot;</span><span class="p">)</span>
-    <span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
-<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
-    <span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Moooooh!&quot;</span><span class="p">)</span>
-<span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;kangaroo&quot;</span><span class="p">)</span>
-    <span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Meaow&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Woof! Woof!&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;cow&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Moooooh!&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;kangaroo&quot;</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">)</span>
 <span class="k">else</span>
-    <span class="n">disp</span><span class="p">([</span><span class="s2">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s2">&quot; makes.&quot;</span><span class="p">])</span>
-<span class="n">end</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s">&quot; makes.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">oldmcdonald</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">oldmcdonald</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Moooooh!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Moooooh!
 </pre></div>
 </div>
 </div>
@@ -518,14 +758,14 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms <span class="math notranslate nohighlight">\(y(x)= -x^4 + x^3 - x^2 + x + 1\)</span> im Interval <span class="math notranslate nohighlight">\([-1,1]\)</span>. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">plot</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="o">^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
-<span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span><span class="s1">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;y(x) = -x^4 + x^3 - x^2 + x + 1&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% plot f(x) = -x^4 + x^3 - x^2 + x + 1;</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">y</span> <span class="p">=</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span><span class="s">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;y(x) = -x^4 + x^3 - x^2 + x + 1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -536,68 +776,68 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Das Programm macht maximal 100 Iterationen, die über eine for-Schleife realisiert werden. In jeder Iteration wird die Größe des Intervalls um die Nullstelle mittels <em>Bisektion</em> halbiert. Über eine if-Bedingung wird untersucht, ob die gewünschte Genauigkeit erreicht wird. Wenn ja, wird die for-Schleife mit dem <code class="docutils literal notranslate"><span class="pre">break</span></code> Befehl unterbrochen.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%file bisection.m
-% find a zero of the polynomial 
-%
-%      y(x)= -x^4 + x^3 - x^2 + x + 1
-%
-% in the interval [-1,1] using bisection
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
+<span class="c">% find a zero of the polynomial </span>
+<span class="c">%</span>
+<span class="c">%      y(x)= -x^4 + x^3 - x^2 + x + 1</span>
+<span class="c">%</span>
+<span class="c">% in the interval [-1,1] using bisection</span>
 
-%% input parameters:
-tolerance = 1e-8;    % if the absolute value of y(x) is smaller than this, we consider
-                     % the point x to be a zero.
-maxIterations = 100; % maximum number of iterations
-xlower = -1;         % lower bound of the interval
-xupper = 1;          % upper bound of the invertal. y(xlower) and y(xupper) must have
-                     % different signs!
+<span class="c">%% input parameters:</span>
+<span class="n">tolerance</span> <span class="p">=</span> <span class="mf">1e-8</span><span class="p">;</span>    <span class="c">% if the absolute value of y(x) is smaller than this, we consider</span>
+                     <span class="c">% the point x to be a zero.</span>
+<span class="n">maxIterations</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c">% maximum number of iterations</span>
+<span class="n">xlower</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>         <span class="c">% lower bound of the interval</span>
+<span class="n">xupper</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>          <span class="c">% upper bound of the invertal. y(xlower) and y(xupper) must have</span>
+                     <span class="c">% different signs!</span>
 
-% this variable is set to true once the iteration converged
-converged = false;
+<span class="c">% this variable is set to true once the iteration converged</span>
+<span class="n">converged</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
 
-for iteration=1:maxIterations
+<span class="k">for</span> <span class="n">iteration</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">maxIterations</span>
     
-    % take the middle between the two bounds
-    midpoint = 0.5*(xupper + xlower);
+    <span class="c">% take the middle between the two bounds</span>
+    <span class="n">midpoint</span> <span class="p">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">xupper</span> <span class="o">+</span> <span class="n">xlower</span><span class="p">);</span>
     
-    % check the function value at this point
-    fmidpoint = -midpoint^4 + midpoint^3 - midpoint^2 + midpoint + 1;
+    <span class="c">% check the function value at this point</span>
+    <span class="n">fmidpoint</span> <span class="p">=</span> <span class="o">-</span><span class="n">midpoint</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">midpoint</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">midpoint</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">midpoint</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     
-    % if the function value is small enough, we are done
-    if abs(fmidpoint) &lt; tolerance
-        converged = true;
-        break;
-    end
+    <span class="c">% if the function value is small enough, we are done</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+        <span class="n">converged</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">end</span>
     
-    % if we reach this point, we have not converged. 
+    <span class="c">% if we reach this point, we have not converged. </span>
     
-    % reset the limits and repeat
-    if fmidpoint &gt; 0
-        xupper = midpoint;
-    else
-        xlower = midpoint;
-    end
-end
+    <span class="c">% reset the limits and repeat</span>
+    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 
-result = midpoint;
+<span class="n">result</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
 
-if converged
-    disp([&quot;Converged in &quot;, num2str(iteration), &quot; iterations. The solution is &quot;, num2str(result), &quot;.&quot;])
-else
-    disp([&quot;No convergence to the specified tolerance of &quot;, num2str(tolerance),  ...
-          &quot; within &quot;, num2str(iteration), &quot; iterations. The current error is &quot;, num2str(fmidpoint), &quot;.&quot;])
-end
+<span class="k">if</span> <span class="n">converged</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;Converged in &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The solution is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;No convergence to the specified tolerance of &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">tolerance</span><span class="p">),</span>  <span class="p">...</span>
+          <span class="s">&quot; within &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The current error is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">bisection</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">bisection</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Converged in 25 iterations. The solution is -0.51879.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converged in 25 iterations. The solution is -0.51879.
 </pre></div>
 </div>
 </div>
@@ -608,13 +848,13 @@ end
 <p>Es gibt in Matlab eine Vielzahl von Methoden, um den Inhalt von Vektoren grafisch darzustellen. Die <code class="docutils literal notranslate"><span class="pre">plot</span></code> Funktion ist nützlich, um funktionale Zusammenhänge darzustellen. Sie nimmt als Eingabe zwei gleichgroße Vektoren <code class="docutils literal notranslate"><span class="pre">x</span></code> und <code class="docutils literal notranslate"><span class="pre">y</span></code>, wobei der erste die <span class="math notranslate nohighlight">\(x\)</span>-Koordinaten und der zweite die <span class="math notranslate nohighlight">\(y\)</span>-Koordinaten enthält.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">);</span>   <span class="o">%</span> <span class="n">Ein</span> <span class="n">Vektor</span> <span class="n">mit</span> <span class="n">Werten</span> <span class="n">von</span> <span class="o">-</span><span class="mi">5</span> <span class="n">bis</span> <span class="mi">5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>                <span class="o">%</span> <span class="n">Ein</span> <span class="n">Vektor</span> <span class="n">y</span> <span class="n">mit</span> <span class="n">den</span> <span class="n">zugehörigen</span> <span class="n">Funktionswerten</span> 
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">11</span><span class="p">);</span>   <span class="c">% Ein Vektor mit Werten von -5 bis 5</span>
+<span class="n">y</span> <span class="p">=</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">;</span>                <span class="c">% Ein Vektor y mit den zugehörigen Funktionswerten </span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>             <span class="o">%</span> <span class="n">Erstellen</span> <span class="n">einer</span> <span class="n">grafischen</span> <span class="n">Darstellung</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Mein erster plot y = x^2&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;X-Achsenbeschriftung&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Y-Achsenbeschriftung&#39;</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">);</span>             <span class="c">% Erstellen einer grafischen Darstellung</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Mein erster plot y = x^2&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;X-Achsenbeschriftung&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Y-Achsenbeschriftung&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -633,48 +873,48 @@ end
 <p>über das Interval <span class="math notranslate nohighlight">\(x \in [0, 3]\)</span> plottet.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">resonance_catastrophe</span><span class="o">.</span><span class="n">m</span>
-<span class="o">%</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">resonance</span> <span class="n">catastrophe</span> <span class="n">curve</span> 
-<span class="o">%</span>
-<span class="o">%</span>     <span class="n">y</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">%</span>
-<span class="o">%</span> <span class="k">for</span> <span class="n">different</span> <span class="n">damping</span> <span class="n">parameters</span> <span class="n">D</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file resonance_catastrophe.m</span>
+<span class="c">% plot the resonance catastrophe curve </span>
+<span class="c">%</span>
+<span class="c">%     y(x) = 1./sqrt((1-x.^2).^2 + (2*D*x).^2)</span>
+<span class="c">%</span>
+<span class="c">% for different damping parameters D</span>
 
-<span class="o">%</span> <span class="n">x</span> <span class="n">values</span> <span class="n">of</span> <span class="n">the</span> <span class="n">plot</span> <span class="o">=</span> <span class="mi">500</span> <span class="n">equally</span> <span class="n">spaced</span> <span class="n">points</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">interval</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
+<span class="c">% x values of the plot = 500 equally spaced points in the interval [0, 3]</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">500</span><span class="p">);</span>
 
-<span class="o">%</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">that</span> <span class="n">each</span> <span class="n">new</span> <span class="n">plot</span> <span class="n">call</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">overwrite</span> <span class="n">old</span> <span class="n">results</span>
-<span class="n">hold</span> <span class="n">on</span>
+<span class="c">% make sure that each new plot call does not overwrite old results</span>
+<span class="nb">hold</span> <span class="n">on</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="mi">10</span> <span class="n">functions</span> <span class="n">depending</span> <span class="n">on</span> <span class="n">a</span> <span class="n">parameter</span> <span class="n">D</span>
-<span class="k">for</span> <span class="n">D</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">1</span>
+<span class="c">% plot 10 functions depending on a parameter D</span>
+<span class="k">for</span> <span class="n">D</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="mi">1</span>
 
-    <span class="o">%</span> <span class="nb">set</span> <span class="n">some</span> <span class="n">variables</span> <span class="n">denoting</span> <span class="n">properties</span> <span class="n">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">plot</span>
-    <span class="n">plotname</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;D = &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">D</span><span class="p">)];</span>              <span class="o">%</span> <span class="n">name</span> <span class="n">that</span> <span class="n">shall</span> <span class="n">appear</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">legend</span>
-    <span class="n">plotcolor</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">D</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>    <span class="o">%</span> <span class="n">RGB</span> <span class="n">value</span> <span class="n">that</span> <span class="n">shall</span> <span class="n">be</span> <span class="n">used</span> <span class="k">for</span> <span class="n">the</span> <span class="n">plot</span>
+    <span class="c">% set some variables denoting properties of the current plot</span>
+    <span class="n">plotname</span> <span class="p">=</span> <span class="p">[</span><span class="s">&#39;D = &#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">D</span><span class="p">)];</span>              <span class="c">% name that shall appear in the legend</span>
+    <span class="n">plotcolor</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">D</span><span class="p">)</span><span class="o">*</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">D</span><span class="o">*</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>    <span class="c">% RGB value that shall be used for the plot</span>
     
-    <span class="o">%</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">function</span> <span class="k">with</span> <span class="n">some</span> <span class="n">additional</span> <span class="n">options</span>
-    <span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="o">...</span>
-         <span class="s1">&#39;DisplayName&#39;</span><span class="p">,</span> <span class="n">plotname</span><span class="p">,</span> <span class="o">...</span>
-         <span class="s1">&#39;Color&#39;</span><span class="p">,</span> <span class="n">plotcolor</span><span class="p">,</span> <span class="o">...</span>
-         <span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="c">% plot the function with some additional options</span>
+    <span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mf">1.</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">D</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">),</span> <span class="p">...</span>
+         <span class="s">&#39;DisplayName&#39;</span><span class="p">,</span> <span class="n">plotname</span><span class="p">,</span> <span class="p">...</span>
+         <span class="s">&#39;Color&#39;</span><span class="p">,</span> <span class="n">plotcolor</span><span class="p">,</span> <span class="p">...</span>
+         <span class="s">&#39;LineWidth&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
     
-<span class="n">end</span>
+<span class="k">end</span>
 
-<span class="o">%</span> <span class="nb">set</span> <span class="n">some</span> <span class="n">options</span> <span class="k">for</span> <span class="n">the</span> <span class="n">current</span> <span class="n">axis</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;\Omega/\omega_0&#39;</span><span class="p">,</span> <span class="s1">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;(A_\Omega*k)/F&#39;</span><span class="p">,</span> <span class="s1">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span> <span class="s1">&#39;Box&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<span class="c">% set some options for the current axis</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;\Omega/\omega_0&#39;</span><span class="p">,</span> <span class="s">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;(A_\Omega*k)/F&#39;</span><span class="p">,</span> <span class="s">&#39;fontsize&#39;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span> <span class="s">&#39;Box&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">)</span>
 
-<span class="o">%</span> <span class="n">show</span> <span class="n">a</span> <span class="n">legend</span>
-<span class="n">legend</span> <span class="n">toggle</span>
+<span class="c">% show a legend</span>
+<span class="nb">legend</span> <span class="n">toggle</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">resonance_catastrophe</span><span class="o">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">resonance_catastrophe</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -692,27 +932,27 @@ end
 <p>Funktionen werden in Matlab mit dem <code class="docutils literal notranslate"><span class="pre">function</span></code> keyword eingeleitet. Das folgende m-file <code class="docutils literal notranslate"><span class="pre">oldmcdonald.m</span></code> definiert eine Funktion mit Namen <code class="docutils literal notranslate"><span class="pre">oldmcdonald</span></code>, die für einen Tiernamen <code class="docutils literal notranslate"><span class="pre">animal</span></code> als Eingabe einen Laut <code class="docutils literal notranslate"><span class="pre">sound</span></code> als Ausgabe ausgibt. Sowohl <code class="docutils literal notranslate"><span class="pre">animal</span></code> und <code class="docutils literal notranslate"><span class="pre">sound</span></code> werden als strings definiert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">oldmcdonald</span><span class="o">.</span><span class="n">m</span>
-<span class="n">function</span> <span class="n">sound</span> <span class="o">=</span> <span class="n">oldmcdonald</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
-<span class="o">%</span> <span class="n">oldmcdonald</span> <span class="n">takes</span> <span class="n">an</span> <span class="nb">input</span> <span class="n">string</span> <span class="s2">&quot;animal&quot;</span> <span class="ow">and</span> <span class="n">outputs</span> <span class="n">a</span> <span class="s2">&quot;noise&quot;</span>
-<span class="o">%</span> <span class="n">corresponding</span> <span class="n">to</span> <span class="n">the</span> <span class="nb">input</span><span class="o">.</span> <span class="n">If</span> <span class="n">the</span> <span class="n">animal</span> <span class="ow">is</span> <span class="n">unknown</span><span class="p">,</span> <span class="n">an</span> 
-<span class="o">%</span> <span class="n">error</span> <span class="ow">is</span> <span class="n">thrown</span><span class="o">.</span>
-<span class="o">%</span> 
-<span class="o">%</span> <span class="nb">input</span><span class="p">:</span>     <span class="n">animal</span> <span class="n">can</span> <span class="n">be</span> <span class="nb">any</span> <span class="n">of</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="s2">&quot;kangaroo&quot;</span><span class="p">]</span>
-<span class="o">%</span> <span class="n">output</span><span class="p">:</span>    <span class="n">noise</span>
-<span class="o">%</span>
-    <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Meaow&quot;</span><span class="p">;</span>
-    <span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;dog&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Woof! Woof!&quot;</span><span class="p">;</span>
-    <span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Moooooh!&quot;</span><span class="p">;</span>
-    <span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;kangaroo&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">;</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
+<span class="k">function</span><span class="w"> </span>sound <span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span><span class="w"></span>
+<span class="c">% oldmcdonald takes an input string &quot;animal&quot; and outputs a &quot;noise&quot;</span>
+<span class="c">% corresponding to the input. If the animal is unknown, an </span>
+<span class="c">% error is thrown.</span>
+<span class="c">% </span>
+<span class="c">% input:     animal can be any of [&quot;cat&quot;, &quot;dog&quot;, &quot;cow&quot;, &quot;kangaroo&quot;]</span>
+<span class="c">% output:    noise</span>
+<span class="c">%</span>
+    <span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Meaow&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Woof! Woof!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;cow&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Moooooh!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;kangaroo&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="n">error</span><span class="p">([</span><span class="s2">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s2">&quot; makes.&quot;</span><span class="p">]);</span>
-    <span class="n">end</span>
-<span class="n">end</span>
+        <span class="nb">error</span><span class="p">([</span><span class="s">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s">&quot; makes.&quot;</span><span class="p">]);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -721,36 +961,36 @@ end
 <p>Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable <code class="docutils literal notranslate"><span class="pre">ans</span></code> oder einer Variablen mit beliebigem Namen zuordnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;cat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ans = Meaow
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = Meaow
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="o">=</span> <span class="n">oldmcdonald</span><span class="p">(</span><span class="s1">&#39;dog&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">noise</span> <span class="p">=</span> <span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;dog&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>noise = Woof! Woof!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>noise = Woof! Woof!
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s1">&#39;penguin&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;penguin&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>error: I don&#39;t know what kind of noise a penguin makes.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: I don&#39;t know what kind of noise a penguin makes.
 error: called from
     oldmcdonald at line 18 column 9
 </pre></div>
@@ -759,12 +999,12 @@ error: called from
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">help</span> <span class="n">oldmcdonald</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">help</span> <span class="n">oldmcdonald</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;oldmcdonald&#39; is a function from the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;oldmcdonald&#39; is a function from the file /mnt/d/documents/modellbildung-und-simulation/content/00_einleitung/oldmcdonald.m
 
  oldmcdonald takes an input string &quot;animal&quot; and outputs a &quot;noise&quot;
  corresponding to the input. If the animal is unknown, an 
@@ -789,43 +1029,43 @@ mailing list.
 <p>Jede Funktion muss in einer Datei mit demselben Namen der Funktion definiert werden. Für kleine Funktionen, die nur in einem bestimmten Skript verwendet werden, bietet Matlab/Octave die Möglichkeit, die Funktion <em>am Ende des Skriptes</em> zu definieren:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">mylittlefarm</span><span class="o">.</span><span class="n">m</span>
-<span class="o">%</span> <span class="n">make</span> <span class="n">a</span> <span class="n">bunch</span> <span class="n">of</span> <span class="n">noises</span> <span class="n">using</span> <span class="n">the</span> <span class="n">oldmcdonald</span> <span class="n">function</span> <span class="kn">from</span> <span class="nn">before</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file mylittlefarm.m</span>
+<span class="c">% make a bunch of noises using the oldmcdonald function from before</span>
 
-<span class="o">%</span> <span class="n">define</span> <span class="n">some</span> <span class="n">animals</span>
-<span class="n">animals</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;cow&quot;</span><span class="p">,</span> <span class="s2">&quot;kangaroo&quot;</span><span class="p">};</span>
+<span class="c">% define some animals</span>
+<span class="n">animals</span> <span class="p">=</span> <span class="p">{</span><span class="s">&quot;cat&quot;</span><span class="p">,</span> <span class="s">&quot;dog&quot;</span><span class="p">,</span> <span class="s">&quot;cow&quot;</span><span class="p">,</span> <span class="s">&quot;kangaroo&quot;</span><span class="p">};</span>
 
-<span class="o">%</span> <span class="n">let</span> <span class="n">each</span> <span class="n">animal</span> <span class="n">have</span> <span class="n">his</span> <span class="ow">or</span> <span class="n">her</span> <span class="n">say</span>
-<span class="k">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">:</span><span class="n">numel</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
-    <span class="n">disp</span><span class="p">(</span><span class="n">oldmcdonald</span><span class="p">(</span><span class="n">animals</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-<span class="n">end</span>
+<span class="c">% let each animal have his or her say</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="nb">numel</span><span class="p">(</span><span class="n">animals</span><span class="p">)</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="n">oldmcdonald</span><span class="p">(</span><span class="n">animals</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<span class="k">end</span>
 
-<span class="o">%</span> <span class="n">define</span> <span class="n">the</span> <span class="n">function</span> <span class="s2">&quot;oldmcdonald&quot;</span>
-<span class="n">function</span> <span class="n">sound</span> <span class="o">=</span> <span class="n">oldmcdonald</span><span class="p">(</span><span class="n">animal</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Meaow&quot;</span><span class="p">;</span>
-    <span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;dog&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Woof! Woof!&quot;</span><span class="p">;</span>
-    <span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;cow&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Moooooh!&quot;</span><span class="p">;</span>
-    <span class="n">elseif</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s2">&quot;kangaroo&quot;</span><span class="p">)</span>
-        <span class="n">sound</span> <span class="o">=</span> <span class="s2">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">;</span>
+<span class="c">% define the function &quot;oldmcdonald&quot;</span>
+<span class="k">function</span><span class="w"> </span>sound <span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Meaow&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Woof! Woof!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;cow&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Moooooh!&quot;</span><span class="p">;</span>
+    <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;kangaroo&quot;</span><span class="p">)</span>
+        <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Gib mir eine Schnapspraline.&quot;</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="n">error</span><span class="p">([</span><span class="s2">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s2">&quot; makes.&quot;</span><span class="p">]);</span>
-    <span class="n">end</span>
-<span class="n">end</span>
+        <span class="nb">error</span><span class="p">([</span><span class="s">&quot;I don&#39;t know what kind of noise a &quot;</span><span class="p">,</span> <span class="n">animal</span><span class="p">,</span> <span class="s">&quot; makes.&quot;</span><span class="p">]);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">run</span> <span class="n">mylittlefarm</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">mylittlefarm</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Meaow
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Meaow
 Woof! Woof!
 Moooooh!
 Gib mir eine Schnapspraline.
@@ -843,67 +1083,67 @@ Gib mir eine Schnapspraline.
 <p>Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%file bisection.m
-function result = bisection(xlower, xupper, tolerance, maxIterations)
-% find a zero of the polynomial 
-%
-%      y(x)= -x^4 + x^3 - x^2 + x + 1
-%
-% in the interval xlower and xupper using bisection
-%
-% input:
-%   xlower:        lower bound for the zero.
-%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have 
-%                  different signs!
-%   tolerance:     if the absolute value of y(x) is smaller than this, the point 
-%                  x is considered to be a a zero.
-%   maxIterations: maximum number of iterations
-%
-% output:
-%   result:        the calculated zero of the given function
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
+<span class="k">function</span><span class="w"> </span>result <span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>xlower, xupper, tolerance, maxIterations<span class="p">)</span><span class="w"></span>
+<span class="c">% find a zero of the polynomial </span>
+<span class="c">%</span>
+<span class="c">%      y(x)= -x^4 + x^3 - x^2 + x + 1</span>
+<span class="c">%</span>
+<span class="c">% in the interval xlower and xupper using bisection</span>
+<span class="c">%</span>
+<span class="c">% input:</span>
+<span class="c">%   xlower:        lower bound for the zero.</span>
+<span class="c">%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have </span>
+<span class="c">%                  different signs!</span>
+<span class="c">%   tolerance:     if the absolute value of y(x) is smaller than this, the point </span>
+<span class="c">%                  x is considered to be a a zero.</span>
+<span class="c">%   maxIterations: maximum number of iterations</span>
+<span class="c">%</span>
+<span class="c">% output:</span>
+<span class="c">%   result:        the calculated zero of the given function</span>
 
-% check if the bounds have function values with different signs
-fxlower =  -xlower^4 + xlower^3 - xlower^2 + xlower + 1;
-fxupper =  -xupper^4 + xupper^3 - xupper^2 + xupper + 1;
-if sign(fxupper) == sign(fxlower)
-    error(&quot;The bounds xlower and xupper must be chosen, such that their function values have different signs.&quot;)
-end
+<span class="c">% check if the bounds have function values with different signs</span>
+<span class="n">fxlower</span> <span class="p">=</span>  <span class="o">-</span><span class="n">xlower</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">xlower</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">xlower</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">xlower</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">fxupper</span> <span class="p">=</span>  <span class="o">-</span><span class="n">xupper</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">xupper</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">xupper</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">xupper</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">if</span> <span class="nb">sign</span><span class="p">(</span><span class="n">fxupper</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sign</span><span class="p">(</span><span class="n">fxlower</span><span class="p">)</span>
+    <span class="nb">error</span><span class="p">(</span><span class="s">&quot;The bounds xlower and xupper must be chosen, such that their function values have different signs.&quot;</span><span class="p">)</span>
+<span class="k">end</span>
 
-% this variable is set to true once the iteration converged
-converged = false;
+<span class="c">% this variable is set to true once the iteration converged</span>
+<span class="n">converged</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
 
-for iteration=1:maxIterations
+<span class="k">for</span> <span class="n">iteration</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">maxIterations</span>
     
-    % take the middle between the two bounds
-    midpoint = 0.5*(xupper + xlower);
+    <span class="c">% take the middle between the two bounds</span>
+    <span class="n">midpoint</span> <span class="p">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">xupper</span> <span class="o">+</span> <span class="n">xlower</span><span class="p">);</span>
     
-    % check the function value at this point
-    fmidpoint = -midpoint^4 + midpoint^3 - midpoint^2 + midpoint + 1;
+    <span class="c">% check the function value at this point</span>
+    <span class="n">fmidpoint</span> <span class="p">=</span> <span class="o">-</span><span class="n">midpoint</span>^<span class="mi">4</span> <span class="o">+</span> <span class="n">midpoint</span>^<span class="mi">3</span> <span class="o">-</span> <span class="n">midpoint</span>^<span class="mi">2</span> <span class="o">+</span> <span class="n">midpoint</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
     
-    % if the function value is small enough, we are done
-    if abs(fmidpoint) &lt; tolerance
-        converged = true;
-        break;
-    end
+    <span class="c">% if the function value is small enough, we are done</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+        <span class="n">converged</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">end</span>
     
-    % if we reach this point, we have not converged. 
+    <span class="c">% if we reach this point, we have not converged. </span>
     
-    % reset the limits and repeat
-    if fmidpoint &gt; 0
-        xupper = midpoint;
-    else
-        xlower = midpoint;
-    end
-end
+    <span class="c">% reset the limits and repeat</span>
+    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 
-result = midpoint;
+<span class="n">result</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
 
-if converged
-    disp([&quot;Converged in &quot;, num2str(iteration), &quot; iterations. The solution is &quot;, num2str(result), &quot;.&quot;])
-else
-    disp([&quot;No convergence to the specified tolerance of &quot;, num2str(tolerance),  ...
-          &quot; within &quot;, num2str(iteration), &quot; iterations. The current error is &quot;, num2str(fmidpoint), &quot;.&quot;])
-end
+<span class="k">if</span> <span class="n">converged</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;Converged in &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The solution is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;No convergence to the specified tolerance of &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">tolerance</span><span class="p">),</span>  <span class="p">...</span>
+          <span class="s">&quot; within &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The current error is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -911,20 +1151,20 @@ end
 <p>Im folgenden wird die neue Funktion verwendet. Die Grenzen <code class="docutils literal notranslate"><span class="pre">xlower</span></code> und <code class="docutils literal notranslate"><span class="pre">xupper</span></code> werden über die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> an die Funktion übergeben. Der Mittelpunkt des Startintervals wird in der Variable <code class="docutils literal notranslate"><span class="pre">midpoint</span></code> gespeichert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">define</span> <span class="n">initial</span> <span class="n">points</span> <span class="ow">and</span> <span class="n">calculate</span> <span class="n">the</span> <span class="n">midpoint</span>
-<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">midpoint</span> <span class="o">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% define initial points and calculate the midpoint</span>
+<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">midpoint</span> <span class="p">=</span> <span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+<span class="n">res</span> <span class="p">=</span> <span class="n">bisection</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
 
-<span class="n">disp</span><span class="p">(</span><span class="n">midpoint</span><span class="p">)</span>
-<span class="n">disp</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">midpoint</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Converged in 25 iterations. The solution is -0.51879.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converged in 25 iterations. The solution is -0.51879.
 0
 -0.51879
 </pre></div>
@@ -935,29 +1175,29 @@ end
 <p>Dieses Verhalten kann mit sogenannten globalen Variablen ausgehebelt werden, wie das folgende Beispiel demonstriert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">increment_a</span><span class="o">.</span><span class="n">m</span>
-<span class="n">function</span> <span class="n">increment_a</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">global</span> <span class="n">a</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file increment_a.m</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">increment_a</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">global</span> <span class="n">a</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">a</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">global</span> <span class="n">a</span>
+<span class="n">a</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">increment_a</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">increment_a</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="n">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">disp</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
  2
  7
 </pre></div>
@@ -972,43 +1212,43 @@ end
 <p>Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte <em>function handles</em> zu definieren. Ein <em>function handle</em> ist eine Variable, in der die Funktion gespeichert wird. function handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span> <span class="o">=</span> <span class="o">@</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">class</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">class</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ans = function_handle
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = function_handle
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ans = -3
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = -3
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ans =  1
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  1
 </pre></div>
 </div>
 </div>
@@ -1016,13 +1256,13 @@ end
 <p>Mit einem vorangestellten <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span></code> wird deklariert, dass <code class="docutils literal notranslate"><span class="pre">x</span></code> als Eingabeparameter für die Funktion interpretiert werden soll. Hier kann man auch eine Abhängigkeit von mehreren Variablen deklarieren, z.B.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">norm2d</span> <span class="o">=</span> <span class="o">@</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">norm2d</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="nb">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
 <span class="n">norm2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ans =  1.4142
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  1.4142
 </pre></div>
 </div>
 </div>
@@ -1030,63 +1270,63 @@ end
 <p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>%%file bisection.m
-function result = bisection(f, xlower, xupper, tolerance, maxIterations)
-% bisection finds a zero of a function f in the interval xlower and xupper 
-% using bisection
-%
-% input:
-%   f:             a function handle to the function f
-%   xlower:        lower bound for the zero.
-%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have 
-%                  different signs!
-%   tolerance:     if the absolute value of y(x) is smaller than this, the point 
-%                  x is considered to be a a zero.
-%   maxIterations: maximum number of iterations
-%
-% output:
-%   result:        the calculated zero of the given function
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
+<span class="k">function</span><span class="w"> </span>result <span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>f, xlower, xupper, tolerance, maxIterations<span class="p">)</span><span class="w"></span>
+<span class="c">% bisection finds a zero of a function f in the interval xlower and xupper </span>
+<span class="c">% using bisection</span>
+<span class="c">%</span>
+<span class="c">% input:</span>
+<span class="c">%   f:             a function handle to the function f</span>
+<span class="c">%   xlower:        lower bound for the zero.</span>
+<span class="c">%   xupper:        upper bound for the zero. y(xupper) and y(xlower) must have </span>
+<span class="c">%                  different signs!</span>
+<span class="c">%   tolerance:     if the absolute value of y(x) is smaller than this, the point </span>
+<span class="c">%                  x is considered to be a a zero.</span>
+<span class="c">%   maxIterations: maximum number of iterations</span>
+<span class="c">%</span>
+<span class="c">% output:</span>
+<span class="c">%   result:        the calculated zero of the given function</span>
 
-% check if the bounds have function values with different signs
-if sign(f(xupper)) == sign(f(xlower))
-    error(&quot;The bounds xlower and xupper must be chosen, such that their function values have different signs.&quot;)
-end
+<span class="c">% check if the bounds have function values with different signs</span>
+<span class="k">if</span> <span class="nb">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xupper</span><span class="p">))</span> <span class="o">==</span> <span class="nb">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xlower</span><span class="p">))</span>
+    <span class="nb">error</span><span class="p">(</span><span class="s">&quot;The bounds xlower and xupper must be chosen, such that their function values have different signs.&quot;</span><span class="p">)</span>
+<span class="k">end</span>
 
-% this variable is set to true once the iteration converged
-converged = false;
+<span class="c">% this variable is set to true once the iteration converged</span>
+<span class="n">converged</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
 
-for iteration=1:maxIterations
+<span class="k">for</span> <span class="n">iteration</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">maxIterations</span>
     
-    % take the middle between the two bounds
-    midpoint = 0.5*(xupper + xlower);
+    <span class="c">% take the middle between the two bounds</span>
+    <span class="n">midpoint</span> <span class="p">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">xupper</span> <span class="o">+</span> <span class="n">xlower</span><span class="p">);</span>
     
-    % check the function value at this point
-    fmidpoint = f(midpoint);
+    <span class="c">% check the function value at this point</span>
+    <span class="n">fmidpoint</span> <span class="p">=</span> <span class="n">f</span><span class="p">(</span><span class="n">midpoint</span><span class="p">);</span>
     
-    % if the function value is small enough, we are done
-    if abs(fmidpoint) &lt; tolerance
-        converged = true;
-        break;
-    end
+    <span class="c">% if the function value is small enough, we are done</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">tolerance</span>
+        <span class="n">converged</span> <span class="p">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">end</span>
     
-    % if we reach this point, we have not converged. 
+    <span class="c">% if we reach this point, we have not converged. </span>
     
-    % reset the limits and repeat
-    if fmidpoint &gt; 0
-        xupper = midpoint;
-    else
-        xlower = midpoint;
-    end
-end
+    <span class="c">% reset the limits and repeat</span>
+    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+        <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">else</span>
+        <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
+    <span class="k">end</span>
+<span class="k">end</span>
 
-result = midpoint;
+<span class="n">result</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
 
-if converged
-    disp([&quot;Converged in &quot;, num2str(iteration), &quot; iterations. The solution is &quot;, num2str(result), &quot;.&quot;])
-else
-    disp([&quot;No convergence to the specified tolerance of &quot;, num2str(tolerance),  ...
-          &quot; within &quot;, num2str(iteration), &quot; iterations. The current error is &quot;, num2str(fmidpoint), &quot;.&quot;])
-end
+<span class="k">if</span> <span class="n">converged</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;Converged in &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The solution is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">else</span>
+    <span class="nb">disp</span><span class="p">([</span><span class="s">&quot;No convergence to the specified tolerance of &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">tolerance</span><span class="p">),</span>  <span class="p">...</span>
+          <span class="s">&quot; within &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">iteration</span><span class="p">),</span> <span class="s">&quot; iterations. The current error is &quot;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">),</span> <span class="s">&quot;.&quot;</span><span class="p">])</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -1095,12 +1335,12 @@ end
 <p>Die weiter oben über ein function handle definierte Funktion <code class="docutils literal notranslate"><span class="pre">myPolynomial</span></code> kann nun als Eingabe verwendet werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bisection</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">bisection</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Converged in 40 iterations. The solution is -0.51879.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Converged in 40 iterations. The solution is -0.51879.
 ans = -0.51879
 </pre></div>
 </div>
@@ -1109,13 +1349,13 @@ ans = -0.51879
 <p><strong>Quiz</strong>: Finden Sie die erste positive Nullstelle der Funktion <span class="math notranslate nohighlight">\(f(x)=-\cos(-\frac{1}{3}x^2 - \frac{1}{10}x + 1)\)</span>.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">plot</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">=</span> <span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.33</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="n">pi</span><span class="o">/</span><span class="mi">2000</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">;</span>
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.33</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
-<span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">])</span>
-<span class="nb">set</span><span class="p">(</span><span class="n">gca</span><span class="p">,</span> <span class="s1">&#39;Box&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="s1">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s1">&#39;on&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%plot f(x)= -cos(-0.33*x.^2-0.1*x +1)</span>
+<span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2000</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.33</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y&#39;</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">])</span>
+<span class="k">set</span><span class="p">(</span><span class="nb">gca</span><span class="p">,</span> <span class="s">&#39;Box&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;XGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">,</span> <span class="s">&#39;YGrid&#39;</span><span class="p">,</span> <span class="s">&#39;on&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1365,7 @@ ans = -0.51879
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">space</span> <span class="k">for</span> <span class="n">quiz</span> <span class="n">answer</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% space for quiz answer</span>
 </pre></div>
 </div>
 </div>
@@ -1134,14 +1374,14 @@ ans = -0.51879
 <p>Function handles lassen sich durch ein vorangestelltes <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein function handle <code class="docutils literal notranslate"><span class="pre">h</span></code> für die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> erstellt. Die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> wird anschließend mittelbar über das function handle <code class="docutils literal notranslate"><span class="pre">h</span></code> aufgerufen, um eine Nullstelle der Funktion <span class="math notranslate nohighlight">\(f(x) = 2x - \frac{1}{3}\)</span> aufzufinden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="nd">@bisection</span>
-<span class="n">class</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
-<span class="n">h</span><span class="p">(</span><span class="o">@</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mf">0.33</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="p">=</span> <span class="p">@</span><span class="n">bisection</span>
+<span class="nb">class</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="n">h</span><span class="p">(@(</span><span class="n">x</span><span class="p">)</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mf">0.33</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>h = @bisection
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>h = @bisection
 ans = function_handle
 Converged in 27 iterations. The solution is 0.165.
 ans =  0.16500
@@ -1165,26 +1405,26 @@ ans =  0.16500
 <p>Das folgende Programm berechnet die <span class="math notranslate nohighlight">\(n\)</span>-te Fibonacci-Zahl:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">fibonacci</span><span class="o">.</span><span class="n">m</span>
-<span class="n">function</span> <span class="n">out</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fibonacci.m</span>
+<span class="k">function</span><span class="w"> </span>out <span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">out</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">else</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
-    <span class="n">end</span><span class="p">;</span>
-<span class="n">end</span>
+        <span class="n">out</span> <span class="p">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">end</span><span class="p">;</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">fibonacci</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>ans =  610
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  610
 </pre></div>
 </div>
 </div>
@@ -1199,7 +1439,7 @@ ans =  0.16500
     {
         requestKernel: true,
         binderOptions: {
-            repo: "joergbrech/Modellbildung-und-Simulation",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -1208,8 +1448,9 @@ ans =  0.16500
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "00_einleitung/02_first_steps"
-        }
+            path: "./00_einleitung/02_first_steps"
+        },
+        predefinedOutput: true
     }
     </script>
     <script>kernelName = 'octave'</script>
@@ -1242,7 +1483,10 @@ ans =  0.16500
       </div>
     </div>
 
-    <script src="../../_static/js/index.js"></script>
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

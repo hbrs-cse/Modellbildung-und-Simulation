@@ -1,21 +1,39 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Der perfekte Wurf &#8212; Modellbildung und Simulation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
@@ -23,21 +41,25 @@
     <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/mystnb.js"></script>
-    <script src="../../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script async="async" src="../../_static/thebelab.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Schwingungen" href="../../01_schwingungen/00_schwingungen.html" />
     <link rel="prev" title="Verkehrssimulation" href="03_verkehrssimulation.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -59,81 +81,267 @@
   <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-  <li class="active">
-    <a href="../00_einleitung.html">Einleitung</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="../01_usage/00_verwendung_dieses_buches.html">Verwendung dieses Buches</a>
-    </li>
-    <li class="">
-      <a href="../02_first_steps/00_erste_schritte_in_matlab.html">Erste Schritte in Matlab</a>
-    </li>
-    <li class="active">
-      <a href="00_übungsaufgaben.html">Übungsaufgaben</a>
-      <ul class="nav sidenav_l3">
-      <li class="">
-        <a href="01_matlab_kennenlernen.html">Matlab kennenlernen</a>
-      </li>
-      <li class="">
-        <a href="02_fluessigkeit_im_boden.html">Flüssigkeit im Boden</a>
-      </li>
-      <li class="">
-        <a href="03_verkehrssimulation.html">Verkehrssimulation</a>
-      </li>
-      <li class="active">
-        <a href="">Der perfekte Wurf</a>
-      </li>
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="../00_einleitung.html">
+   Einleitung
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../02_first_steps/00_erste_schritte_in_matlab.html">
+     Erste Schritte in Matlab
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_first_steps/01_matlab_command_window.html">
+       Matlab Command Window
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_first_steps/02_skripte_und_funktionen.html">
+       Skripte und Funktionen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../02_first_steps/03_best_practice.html">
+       Best Practice
+      </a>
+     </li>
     </ul>
-    </li>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 current active collapsible-parent">
+    <a class="reference internal" href="00_übungsaufgaben.html">
+     Übungsaufgaben
+    </a>
+    <ul class="current collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_matlab_kennenlernen.html">
+       Matlab kennenlernen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_fluessigkeit_im_boden.html">
+       Flüssigkeit im Boden
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_verkehrssimulation.html">
+       Verkehrssimulation
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       Der perfekte Wurf
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
   </ul>
-  </li>
-  <li class="">
-    <a href="../../01_schwingungen/00_schwingungen.html">Schwingungen</a>
-  </li>
-  <li class="">
-    <a href="../../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
-  </li>
-  <li class="">
-    <a href="../../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
-  </li>
-  <li class="">
-    <a href="../../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
-  </li>
-  <li class="">
-    <a href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
-  </li>
-  <li class="">
-    <a href="../../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
-  </li>
-  <li class="">
-    <a href="../../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../../11_pde/00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
-  </li>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../01_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03_gleitkommaarithmetik/01_übungen.html">
+     Übungen
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04_nichtlineare_gleichungen/01_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../05_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_interp_approx/03_spline_interpolation.html">
+     Spline Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../06_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+   Numerik gewöhnlicher Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07_num_ode/01_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../../11_pde/00_partielle_differentialgleichungen.html">
+   Numerik partieller Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-</nav>
 
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
@@ -153,113 +361,143 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../../_sources/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
 
-        <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
         
     </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#modellbeschreibung" class="nav-link">Modellbeschreibung</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#aufgabe-1-aufstellen-der-bewegungsgleichung" class="nav-link">Aufgabe 1: Aufstellen der Bewegungsgleichung</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#modellierung" class="nav-link">Modellierung</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#aufgabe-2-freiwurf-eines-punktformigen-balles" class="nav-link">Aufgabe 2: Freiwurf eines punktförmigen Balles</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#a-abwurfwinkel" class="nav-link">a) Abwurfwinkel</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#b-anpassen-der-korbgrosze" class="nav-link">b) Anpassen der Korbgröße</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#c-niemand-ist-perfekt" class="nav-link">c) Niemand ist perfekt!</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#d-abweichungen-in-der-abwurfgeschwindigkeit" class="nav-link">d) Abweichungen in der Abwurfgeschwindigkeit</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#e-bank-shots-erlaubt" class="nav-link">e) Bank Shots erlaubt!</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h4">
-            <a href="#f-ausblick" class="nav-link">f) Ausblick</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-            </ul>
-        </li>
-    
-    </ul>
-</nav>
-
-
-
-<div class="tocsection editthispage">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/04_der_perfekte_wurf.ipynb">
-        <i class="fas fa-pencil-alt"></i> Edit this page
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellbeschreibung">
+   Modellbeschreibung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-1-aufstellen-der-bewegungsgleichung">
+     Aufgabe 1: Aufstellen der Bewegungsgleichung
     </a>
-</div>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellierung">
+   Modellierung
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-2-freiwurf-eines-punktformigen-balles">
+     Aufgabe 2: Freiwurf eines punktförmigen Balles
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-abwurfwinkel">
+       a) Abwurfwinkel
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-anpassen-der-korbgrosze">
+       b) Anpassen der Korbgröße
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-niemand-ist-perfekt">
+       c) Niemand ist perfekt!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-abweichungen-in-der-abwurfgeschwindigkeit">
+       d) Abweichungen in der Abwurfgeschwindigkeit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-bank-shots-erlaubt">
+       e) Bank Shots erlaubt!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-ausblick">
+       f) Ausblick
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
 
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -344,7 +582,7 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 </figure></div>
 <div class="section" id="b-anpassen-der-korbgrosze">
 <h4>b) Anpassen der Korbgröße<a class="headerlink" href="#b-anpassen-der-korbgrosze" title="Permalink to this headline">¶</a></h4>
-<p>Der Korb ist in der Realität größer als der Ball, so dass dieser für einen Treffer nicht exakt mittig durch den Korb fallen muss. Erweitern Sie ihr Programm so, dass der Ball an jedem Punkt durch den Korb fallen kann. Gehen Sie dann von einer Anfangsgeschwindigkeit von $ v_A = 8 \frac{\mathrm{m}}{\mathrm{s}}$ aus und variieren Sie den Abwurfwinkel. Zwischen welchen Werten darf der Abwurfwinkel nun für einen Treffer schwanken? Visualisieren Sie die Bahnkurve für den minimalen, maximalen und optimalen (Ball landet mittig im Korb) Abwurfwinkel.</p>
+<p>Der Korb ist in der Realität größer als der Ball, so dass dieser für einen Treffer nicht exakt mittig durch den Korb fallen muss. Erweitern Sie ihr Programm so, dass der Ball an jedem Punkt durch den Korb fallen kann. Gehen Sie dann von einer Anfangsgeschwindigkeit von <span class="math notranslate nohighlight">\( v_A = 8 \frac{\mathrm{m}}{\mathrm{s}}\)</span> aus und variieren Sie den Abwurfwinkel. Zwischen welchen Werten darf der Abwurfwinkel nun für einen Treffer schwanken? Visualisieren Sie die Bahnkurve für den minimalen, maximalen und optimalen (Ball landet mittig im Korb) Abwurfwinkel.</p>
 <figure>
   <img src="images/basketball_2.png" alt="Ergebnis 2."/>
   <figcaption>Abbildung 3: Mögliches Ergebnis Aufgabenteil b)</figcaption>
@@ -376,90 +614,88 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 <p>Nennen Sie mindestens drei Einflussfaktoren eines realen Basketballwurfes, die bisher nicht in das Modell eingeflossen sind. Beschreiben Sie kurz (3-5 Sätze) wie Sie das Modell um mindestens einen dieser Faktoren möglichst einfach erweitern könnten. Stellen Sie sich vor, Sie sind Coach und möchten ihr Modell im Training einsetzen. Was kann Ihre Mannchaft aus Ihren Simulationen lernen (2-3 Sätze)? Und wie können Sie Ihr Modell durch Messungen im Training validieren? <strong>keine Programmierung</strong></p>
 <div class="cell tag_hide_output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>% Umgebungskonstanten
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Umgebungskonstanten</span>
 
 
-% Wurfparameter
+<span class="c">% Wurfparameter</span>
 
 
-% Wurfwinkel
-%Vorgabe von Winkelintervallen
+<span class="c">% Wurfwinkel</span>
+<span class="c">%Vorgabe von Winkelintervallen</span>
 
 
-% Wurfgeschwindigkeit
+<span class="c">% Wurfgeschwindigkeit</span>
 
 
-% Visualisierungsparameter
+<span class="c">% Visualisierungsparameter</span>
 
 
-%%%% HAUPTPROGRAMM
-% Berechnung der Sollwinkel für alle Würfe
+<span class="c">%%%% HAUPTPROGRAMM</span>
+<span class="c">% Berechnung der Sollwinkel für alle Würfe</span>
 
-% Berechnung der Sollgeschwindigkeit für alle Würfe
-
-
-% Berechnen der optimalen Geschwindigkeiten in m/s,
-% falls keine Geschwindigkeit vorgegeben
+<span class="c">% Berechnung der Sollgeschwindigkeit für alle Würfe</span>
 
 
-% Hilfsvariablen
+<span class="c">% Berechnen der optimalen Geschwindigkeiten in m/s,</span>
+<span class="c">% falls keine Geschwindigkeit vorgegeben</span>
 
 
-% Schleife über mehrere Wurfserien
-for s=1:n_serien
+<span class="c">% Hilfsvariablen</span>
+
+
+<span class="c">% Schleife über mehrere Wurfserien</span>
+<span class="k">for</span> <span class="n">s</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">n_serien</span>
     
-    %Vorinitialisierung von Vektoren
+    <span class="c">%Vorinitialisierung von Vektoren</span>
 
     
-    % Schleife über Würfe
-    for i = 1:n_wuerfe
+    <span class="c">% Schleife über Würfe</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n_wuerfe</span>
         
-        % Addieren von zufälligen Winkelabweichungen
+        <span class="c">% Addieren von zufälligen Winkelabweichungen</span>
   
         
-        % Addieren von Zufällige Geschwindigkeitsabweichungen
+        <span class="c">% Addieren von Zufällige Geschwindigkeitsabweichungen</span>
 
         
-        % Berechnung der Ballhöhe am Brett
+        <span class="c">% Berechnung der Ballhöhe am Brett</span>
 
         
-        % Trifft Ball das Brett?
+        <span class="c">% Trifft Ball das Brett?</span>
  
         
-        % Berechnung der Weite bei Korbhöhe
+        <span class="c">% Berechnung der Weite bei Korbhöhe</span>
 
         
-        % Zählen der direkten Treffer
+        <span class="c">% Zählen der direkten Treffer</span>
   
         
-        % Zählen der Treffer über Brettabpraller
+        <span class="c">% Zählen der Treffer über Brettabpraller</span>
 
         
-        % Berechnung der Trajektorien
+        <span class="c">% Berechnung der Trajektorien</span>
         
-    end
-    % Änderung der Trajektorien bei Abprallern
+    <span class="k">end</span>
+    <span class="c">% Änderung der Trajektorien bei Abprallern</span>
 
     
-    % Plot der gewünschten Flugkurven
+    <span class="c">% Plot der gewünschten Flugkurven</span>
 
-    end
+    <span class="k">end</span>
     
     
-    % Koordinatensystem
+    <span class="c">% Koordinatensystem</span>
 
     
-    % Plot des Korbes und des Brettes
+    <span class="c">% Plot des Korbes und des Brettes</span>
 
     
-    % Ausgabe der Trefferstatistik für diese Wurfserie
+    <span class="c">% Ausgabe der Trefferstatistik für diese Wurfserie</span>
 
     
-end
+<span class="k">end</span>
 
-% Statistik über alle Wurfserien
-
-
+<span class="c">% Statistik über alle Wurfserien</span>
 </pre></div>
 </div>
 </div>
@@ -473,7 +709,7 @@ end
     {
         requestKernel: true,
         binderOptions: {
-            repo: "joergbrech/Modellbildung-und-Simulation",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -482,8 +718,9 @@ end
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "00_einleitung/03_exercises"
-        }
+            path: "./00_einleitung/03_exercises"
+        },
+        predefinedOutput: true
     }
     </script>
     <script>kernelName = 'octave'</script>
@@ -516,7 +753,10 @@ end
       </div>
     </div>
 
-    <script src="../../_static/js/index.js"></script>
+    
+  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

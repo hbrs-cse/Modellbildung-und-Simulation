@@ -1,21 +1,39 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Bierschaumzerfall &#8212; Modellbildung und Simulation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -23,21 +41,25 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script async="async" src="../_static/thebelab.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Interpolation und Approximation" href="../05_interp_approx/00_interpolation_Und_approximation.html" />
     <link rel="prev" title="Nichtlineare Gleichungssysteme" href="00_nichtlineare_gleichungssysteme.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -59,61 +81,267 @@
   <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="../00_einleitung/00_einleitung.html">Einleitung</a>
-  </li>
-  <li class="">
-    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
-  </li>
-  <li class="">
-    <a href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
-  </li>
-  <li class="active">
-    <a href="00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
-  <ul class="nav sidenav_l2">
-    <li class="active">
-      <a href="">Bierschaumzerfall</a>
-    </li>
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../00_einleitung/00_einleitung.html">
+   Einleitung
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/01_usage/00_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../00_einleitung/02_first_steps/00_erste_schritte_in_matlab.html">
+     Erste Schritte in Matlab
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/02_first_steps/01_matlab_command_window.html">
+       Matlab Command Window
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/02_first_steps/02_skripte_und_funktionen.html">
+       Skripte und Funktionen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/02_first_steps/03_best_practice.html">
+       Best Practice
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../00_einleitung/03_exercises/00_übungsaufgaben.html">
+     Übungsaufgaben
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/01_matlab_kennenlernen.html">
+       Matlab kennenlernen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/02_fluessigkeit_im_boden.html">
+       Flüssigkeit im Boden
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/03_verkehrssimulation.html">
+       Verkehrssimulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/04_der_perfekte_wurf.html">
+       Der perfekte Wurf
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
   </ul>
-  </li>
-  <li class="">
-    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
-  </li>
-  <li class="">
-    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
-  </li>
-  <li class="">
-    <a href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
-  </li>
-  <li class="">
-    <a href="../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
-  </li>
-  <li class="">
-    <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../11_pde/00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
-  </li>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_gleitkommaarithmetik/01_übungen.html">
+     Übungen
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/03_spline_interpolation.html">
+     Spline Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+   Numerik gewöhnlicher Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/01_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../11_pde/00_partielle_differentialgleichungen.html">
+   Numerik partieller Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/01_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-</nav>
 
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
@@ -133,125 +361,158 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
 
-        <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
         
     </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#experimenteller-aufbau" class="nav-link">Experimenteller Aufbau</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#modellbeschreibung" class="nav-link">Modellbeschreibung</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#die-methode-der-kleinsten-quadrate" class="nav-link">Die Methode der kleinsten Quadrate</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#die-grundidee" class="nav-link">Die Grundidee</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#anwendung-auf-den-bierschaum" class="nav-link">Anwendung auf den Bierschaum</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#aufgabe-1-das-nichtlineare-gleichungssystem" class="nav-link">Aufgabe 1: Das nichtlineare Gleichungssystem</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#das-newton-verfahren" class="nav-link">Das Newton-Verfahren</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#aufgabe-2-approximation-der-jacobi-matrix" class="nav-link">Aufgabe 2: Approximation der Jacobi-Matrix</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#aufgabe-3-parameterbestimmung" class="nav-link">Aufgabe 3: Parameterbestimmung</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#optimierungsverfahren" class="nav-link">Optimierungsverfahren</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#aufgabe-4-algorithmus-zur-minimierung-einer-funktion" class="nav-link">Aufgabe 4: Algorithmus zur Minimierung einer Funktion</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#zusatzliche-informationen" class="nav-link">Zusätzliche Informationen</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#literatur" class="nav-link">Literatur</a>
-        </li>
-    
-    </ul>
-</nav>
-
-
-
-<div class="tocsection editthispage">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb">
-        <i class="fas fa-pencil-alt"></i> Edit this page
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experimenteller-aufbau">
+   Experimenteller Aufbau
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modellbeschreibung">
+   Modellbeschreibung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-methode-der-kleinsten-quadrate">
+   Die Methode der kleinsten Quadrate
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-grundidee">
+     Die Grundidee
     </a>
-</div>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anwendung-auf-den-bierschaum">
+     Anwendung auf den Bierschaum
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-1-das-nichtlineare-gleichungssystem">
+     Aufgabe 1: Das nichtlineare Gleichungssystem
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#das-newton-verfahren">
+   Das Newton-Verfahren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-2-approximation-der-jacobi-matrix">
+     Aufgabe 2: Approximation der Jacobi-Matrix
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-3-parameterbestimmung">
+     Aufgabe 3: Parameterbestimmung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optimierungsverfahren">
+   Optimierungsverfahren
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-4-algorithmus-zur-minimierung-einer-funktion">
+     Aufgabe 4: Algorithmus zur Minimierung einer Funktion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#zusatzliche-informationen">
+     Zusätzliche Informationen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literatur">
+   Literatur
+  </a>
+ </li>
+</ul>
 
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -369,24 +630,24 @@
 <p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus, um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. <span class="math notranslate nohighlight">\(2 \cdot 0.02 = 0.04\)</span> Litern und ca. <span class="math notranslate nohighlight">\(1\)</span> Sekunde ausgehen, ergibt sich folgendes Bild</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hold</span> <span class="n">on</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="n">measurement</span>
-<span class="o">%</span> <span class="n">Note</span><span class="p">:</span> <span class="n">The</span> <span class="n">syntax</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errorbar</span> <span class="n">function</span> <span class="n">differs</span> <span class="ow">in</span> <span class="n">Matlab</span><span class="p">,</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">line</span> <span class="n">only</span> <span class="n">works</span> <span class="k">with</span> <span class="n">Octave</span><span class="o">.</span> 
-<span class="o">%</span> <span class="n">Refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Matlab</span> <span class="n">Documentation</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="n">h_meas</span> <span class="o">=</span> <span class="n">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s1">&#39;~&gt;.&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;volume [liters]&#39;</span><span class="p">)</span>
+<span class="c">% plot measurement</span>
+<span class="c">% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. </span>
+<span class="c">% Refer to the Matlab Documentation for more information.</span>
+<span class="n">h_meas</span> <span class="p">=</span> <span class="nb">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s">&#39;~&gt;.&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;volume [liters]&#39;</span><span class="p">)</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="n">model</span>
-<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">0.58</span><span class="p">;</span>
-<span class="n">tfine</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="n">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
-<span class="n">yfine</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
-<span class="n">h_model</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
+<span class="c">% plot model</span>
+<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mf">0.58</span><span class="p">;</span>
+<span class="n">tfine</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">yfine</span> <span class="p">=</span> <span class="n">b</span><span class="o">*</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
+<span class="n">h_model</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
 
-<span class="n">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s1">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s1">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
+<span class="nb">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -403,7 +664,7 @@
 <p>mit einer uns unbekannten Proportionalitätskonstante <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span>. Diese Differentialgleichung kommt sehr häufig vor, denn sie beschreibt exponentielles Wachstum, bzw. - je nach Vorzeichen von <span class="math notranslate nohighlight">\(a\)</span> - exponentiellen Zerfall. Wir machen also, wie gewohnt, einen Ansatz</p>
 <div class="math notranslate nohighlight">
 \[ V(t) = b \cdot e^{c \cdot t}.\]</div>
-<p>Setzen wir <span class="math notranslate nohighlight">\(V(t)\)</span> in die Differentialgleichung $ \dot{V} = a \cdot V $ ein,</p>
+<p>Setzen wir <span class="math notranslate nohighlight">\(V(t)\)</span> in die Differentialgleichung <span class="math notranslate nohighlight">\( \dot{V} = a \cdot V \)</span> ein,</p>
 <div class="math notranslate nohighlight">
 \[ c b \cdot e^{c \cdot t} = a \cdot b e^{c \cdot t}, \]</div>
 <p>stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichung ist, unter der Voraussetzung, dass <span class="math notranslate nohighlight">\(c = a\)</span> gilt.</p>
@@ -412,24 +673,24 @@
 <p>Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>. <span class="math notranslate nohighlight">\(b\)</span> muss offensichtlich der y-Achsenabschnitt sein, da <span class="math notranslate nohighlight">\(V(0)=b \cdot e^0 = b\)</span>, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate <span class="math notranslate nohighlight">\(a\)</span> zu raten. Für <span class="math notranslate nohighlight">\(a=-0.001 \frac{1}{\text{s}}\)</span> und <span class="math notranslate nohighlight">\(b=0.575\)</span> <span class="math notranslate nohighlight">\(l\)</span> ergibt sich folgender Verlauf.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hold</span> <span class="n">on</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="n">measurement</span>
-<span class="o">%</span> <span class="n">Note</span><span class="p">:</span> <span class="n">The</span> <span class="n">syntax</span> <span class="n">of</span> <span class="n">the</span> <span class="n">errorbar</span> <span class="n">function</span> <span class="n">differs</span> <span class="ow">in</span> <span class="n">Matlab</span><span class="p">,</span> <span class="n">the</span> <span class="nb">next</span> <span class="n">line</span> <span class="n">only</span> <span class="n">works</span> <span class="k">with</span> <span class="n">Octave</span><span class="o">.</span> 
-<span class="o">%</span> <span class="n">Refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">Matlab</span> <span class="n">Documentation</span> <span class="k">for</span> <span class="n">more</span> <span class="n">information</span><span class="o">.</span>
-<span class="n">h_meas</span> <span class="o">=</span> <span class="n">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s1">&#39;~&gt;.&#39;</span><span class="p">);</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;volume [liters]&#39;</span><span class="p">)</span>
+<span class="c">% plot measurement</span>
+<span class="c">% Note: The syntax of the errorbar function differs in Matlab, the next line only works with Octave. </span>
+<span class="c">% Refer to the Matlab Documentation for more information.</span>
+<span class="n">h_meas</span> <span class="p">=</span> <span class="nb">errorbar</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="n">t_err</span><span class="p">,</span> <span class="n">V_err</span><span class="p">,</span> <span class="s">&#39;~&gt;.&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Measurement of beer foam volume over time&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;volume [liters]&#39;</span><span class="p">)</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="n">model</span>
-<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mf">0.58</span><span class="p">;</span>
-<span class="n">tfine</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="n">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
-<span class="n">yfine</span> <span class="o">=</span> <span class="n">b</span><span class="o">*</span><span class="n">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
-<span class="n">h_model</span> <span class="o">=</span> <span class="n">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
+<span class="c">% plot model</span>
+<span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.001</span><span class="p">;</span>
+<span class="n">b</span> <span class="p">=</span> <span class="mf">0.58</span><span class="p">;</span>
+<span class="n">tfine</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="n">t</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">t</span><span class="p">(</span><span class="k">end</span><span class="p">),</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">yfine</span> <span class="p">=</span> <span class="n">b</span><span class="o">*</span><span class="nb">exp</span><span class="p">(</span><span class="n">a</span><span class="o">*</span><span class="n">tfine</span><span class="p">);</span>
+<span class="n">h_model</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">tfine</span><span class="p">,</span> <span class="n">yfine</span><span class="p">);</span>
 
-<span class="n">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s1">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s1">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
+<span class="nb">legend</span><span class="p">([</span><span class="n">h_meas</span><span class="p">,</span> <span class="n">h_model</span><span class="p">],{</span><span class="s">&#39;measurement data&#39;</span><span class="p">,</span> <span class="s">&#39;model with guessed parameters&#39;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -507,16 +768,16 @@
 <p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung <span class="math notranslate nohighlight">\(F\)</span> für beliebige Parameter <span class="math notranslate nohighlight">\(\mathbf{p}=[a,b]^T \in \mathbb{R}^2\)</span> und Messwerte <span class="math notranslate nohighlight">\(t \in \mathbb{R}^m\)</span>, <span class="math notranslate nohighlight">\(V \in \mathbb{R}^m\)</span> auswertet:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">F</span><span class="o">.</span><span class="n">m</span>
-<span class="n">function</span> <span class="n">e</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">V</span><span class="p">)</span>
-<span class="o">%</span> <span class="n">define</span> <span class="n">the</span> <span class="n">nonlinear</span> <span class="n">system</span> <span class="n">of</span> <span class="n">equations</span> <span class="n">that</span> <span class="n">need</span> <span class="n">to</span> <span class="n">be</span> <span class="n">solved</span> <span class="n">within</span> <span class="n">the</span> <span class="n">least</span> <span class="n">squares</span> <span class="n">fit</span>
-<span class="o">%</span> <span class="n">of</span> <span class="n">the</span> <span class="n">beer</span> <span class="n">froth</span> <span class="n">experiment</span>
-<span class="o">%</span>
-<span class="o">%</span> <span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">]</span><span class="s1">&#39; is a vector of the model parameters</span>
-<span class="o">%</span>
-<span class="o">%</span> <span class="n">t</span> <span class="ow">and</span> <span class="n">V</span> <span class="n">are</span> <span class="n">vectors</span> <span class="n">containing</span> <span class="n">the</span> <span class="n">experimental</span> <span class="n">data</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file F.m</span>
+<span class="k">function</span><span class="w"> </span>e <span class="p">=</span><span class="w"> </span><span class="nf">F</span><span class="p">(</span>p,t,V<span class="p">)</span><span class="w"></span>
+<span class="c">% define the nonlinear system of equations that need to be solved within the least squares fit</span>
+<span class="c">% of the beer froth experiment</span>
+<span class="c">%</span>
+<span class="c">% p = [a,b]&#39; is a vector of the model parameters</span>
+<span class="c">%</span>
+<span class="c">% t and V are vectors containing the experimental data</span>
 
-<span class="o">%</span> <span class="n">PUT</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span>
+<span class="c">% PUT YOUR CODE HERE</span>
 </pre></div>
 </div>
 </div>
@@ -541,18 +802,18 @@
 <p>Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">jacobian</span><span class="o">.</span><span class="n">m</span>
-<span class="n">function</span> <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-<span class="o">%</span> <span class="n">J</span> <span class="o">=</span> <span class="n">jacobian</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="n">returns</span> <span class="n">the</span> <span class="p">(</span><span class="n">m</span> <span class="n">x</span> <span class="n">n</span><span class="p">)</span> <span class="n">Jacobian</span> <span class="n">matrix</span> <span class="n">of</span> <span class="n">F</span> <span class="n">evaluated</span> <span class="n">at</span> <span class="n">x</span>
-<span class="o">%</span>
-<span class="o">%</span>   <span class="o">|</span>  <span class="n">dF1</span><span class="o">/</span><span class="n">dx1</span> <span class="o">...</span> <span class="n">dF1</span><span class="o">/</span><span class="n">dxn</span> <span class="o">|</span>
-<span class="o">%</span>   <span class="o">|</span>     <span class="o">.</span>           <span class="o">.</span>    <span class="o">|</span>
-<span class="o">%</span>   <span class="o">|</span>  <span class="n">dFm</span><span class="o">/</span><span class="n">dx1</span> <span class="o">...</span> <span class="n">dFm</span><span class="o">/</span><span class="n">dxn</span> <span class="o">|</span>
-<span class="o">%</span>
-<span class="o">%</span> <span class="n">It</span> <span class="n">uses</span> <span class="n">finite</span> <span class="n">difference</span> <span class="n">approximations</span><span class="o">.</span> <span class="n">x</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">column</span> <span class="n">vector</span> <span class="ow">and</span> <span class="n">F</span> <span class="n">must</span> <span class="n">be</span> <span class="n">a</span> <span class="n">function</span>
-<span class="o">%</span> <span class="n">taking</span> <span class="n">an</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">vector</span> <span class="k">as</span> <span class="n">an</span> <span class="nb">input</span><span class="o">.</span> <span class="n">m</span> <span class="ow">is</span> <span class="n">deduced</span> <span class="kn">from</span> <span class="nn">F.</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file jacobian.m</span>
+<span class="k">function</span><span class="w"> </span>J <span class="p">=</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span>F,x<span class="p">)</span><span class="w"></span>
+<span class="c">% J = jacobian(F,x) returns the (m x n) Jacobian matrix of F evaluated at x</span>
+<span class="c">%</span>
+<span class="c">%   |  dF1/dx1 ... dF1/dxn |</span>
+<span class="c">%   |     .           .    |</span>
+<span class="c">%   |  dFm/dx1 ... dFm/dxn |</span>
+<span class="c">%</span>
+<span class="c">% It uses finite difference approximations. x must be a (n,1)-column vector and F must be a function</span>
+<span class="c">% taking an (n,1)-vector as an input. m is deduced from F.</span>
 
-<span class="o">%</span> <span class="n">PUT</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span>
+<span class="c">% PUT YOUR CODE HERE</span>
 </pre></div>
 </div>
 </div>
@@ -560,7 +821,7 @@
 <p>Wenn Sie Ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von <span class="math notranslate nohighlight">\(sin(x)\)</span> an der Stelle <span class="math notranslate nohighlight">\(x=0.25\)</span> auszuwerten:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">jacobian</span><span class="p">(</span><span class="nd">@sin</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">jacobian</span><span class="p">(@</span><span class="nb">sin</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -575,13 +836,13 @@
 <p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="o">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Es gilt <code class="docutils literal notranslate"><span class="pre">F(p,t,V)</span></code> $= J_G(\mathbf{p})^T
-$ mit</p>
+<p>Es gilt <code class="docutils literal notranslate"><span class="pre">F(p,t,V)</span></code> <span class="math notranslate nohighlight">\(= J_G(\mathbf{p})^T
+\)</span> mit</p>
 <div class="math notranslate nohighlight">
 \[
 G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
@@ -593,17 +854,17 @@ G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
 <p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> aus Aufgabe 2.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">newton</span><span class="o">.</span><span class="n">m</span>
-<span class="n">function</span> <span class="n">z</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="n">z0</span><span class="p">,</span><span class="n">tol</span><span class="p">,</span><span class="n">maxit</span><span class="p">)</span>
-<span class="o">%</span> <span class="n">z</span> <span class="o">=</span> <span class="n">newton</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="n">z0</span><span class="p">,</span><span class="n">tol</span><span class="p">,</span><span class="n">maxit</span><span class="p">)</span> <span class="n">solves</span> <span class="n">the</span> <span class="n">nonlinear</span> <span class="n">system</span> <span class="mi">0</span><span class="o">=</span><span class="n">func</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-<span class="o">%</span>
-<span class="o">%</span> <span class="n">inputs</span><span class="p">:</span>
-<span class="o">%</span>   <span class="n">func</span>    <span class="n">a</span> <span class="n">handle</span> <span class="n">to</span> <span class="n">the</span> <span class="n">nonlinear</span> <span class="n">function</span>
-<span class="o">%</span>   <span class="n">z0</span>      <span class="n">initial</span> <span class="n">guess</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Newton</span> <span class="n">method</span>
-<span class="o">%</span>   <span class="n">atol</span>    <span class="n">absolute</span> <span class="n">tolerance</span>
-<span class="o">%</span>   <span class="n">maxit</span>   <span class="n">maximum</span> <span class="n">number</span> <span class="n">of</span> <span class="n">Newton</span> <span class="n">iterations</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file newton.m</span>
+<span class="k">function</span><span class="w"> </span>z <span class="p">=</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span>func,z0,tol,maxit<span class="p">)</span><span class="w"></span>
+<span class="c">% z = newton(F,z0,tol,maxit) solves the nonlinear system 0=func(z)</span>
+<span class="c">%</span>
+<span class="c">% inputs:</span>
+<span class="c">%   func    a handle to the nonlinear function</span>
+<span class="c">%   z0      initial guess for the Newton method</span>
+<span class="c">%   atol    absolute tolerance</span>
+<span class="c">%   maxit   maximum number of Newton iterations</span>
 
-<span class="o">%</span> <span class="n">YOUR</span> <span class="n">CODE</span> <span class="n">HERE</span>
+<span class="c">% YOUR CODE HERE</span>
 </pre></div>
 </div>
 </div>
@@ -611,7 +872,7 @@ G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
 <p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="o">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -624,7 +885,7 @@ G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SOLUTION</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR SOLUTION</span>
 </pre></div>
 </div>
 </div>
@@ -677,9 +938,9 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="n">file</span> <span class="n">minimize</span><span class="o">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file minimize.m</span>
 
-<span class="o">%</span><span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SOLUTION</span>
+<span class="c">%SPACE FOR SOLUTION</span>
 </pre></div>
 </div>
 </div>
@@ -687,7 +948,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 <p><strong>Hinweis:</strong> <em>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.</em> Vermeiden Sie duplizierten Code!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">SPACE</span> <span class="n">FOR</span> <span class="n">SCRIPT</span> <span class="n">SOLUTION</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR SCRIPT SOLUTION</span>
 </pre></div>
 </div>
 </div>
@@ -716,7 +977,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
     {
         requestKernel: true,
         binderOptions: {
-            repo: "joergbrech/Modellbildung-und-Simulation",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -725,8 +986,9 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "04_nichtlineare_gleichungen"
-        }
+            path: "./04_nichtlineare_gleichungen"
+        },
+        predefinedOutput: true
     }
     </script>
     <script>kernelName = 'octave'</script>
@@ -759,7 +1021,10 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

@@ -1,21 +1,39 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Vuvuzela Filter &#8212; Modellbildung und Simulation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -23,21 +41,25 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script async="async" src="../_static/thebelab.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Randwertprobleme" href="../10_bvp/00_randwertprobleme.html" />
     <link rel="prev" title="Der Doppler Effekt" href="03_der_doppler_effekt.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -59,70 +81,267 @@
   <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-  <li class="">
-    <a href="../00_einleitung/00_einleitung.html">Einleitung</a>
-  </li>
-  <li class="">
-    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
-  </li>
-  <li class="">
-    <a href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
-  </li>
-  <li class="">
-    <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
-  </li>
-  <li class="">
-    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
-  </li>
-  <li class="">
-    <a href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
-  </li>
-  <li class="">
-    <a href="../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
-  </li>
-  <li class="active">
-    <a href="00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="01_approximation_von_periodischen_signalen.html">Approximation von periodischen Signalen</a>
-    </li>
-    <li class="">
-      <a href="02_filtern_verrauschter_signale.html">Filtern verrauschter Signale</a>
-    </li>
-    <li class="">
-      <a href="03_der_doppler_effekt.html">Der Doppler Effekt</a>
-    </li>
-    <li class="active">
-      <a href="">Vuvuzela Filter</a>
-    </li>
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../00_einleitung/00_einleitung.html">
+   Einleitung
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/01_usage/00_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../00_einleitung/02_first_steps/00_erste_schritte_in_matlab.html">
+     Erste Schritte in Matlab
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/02_first_steps/01_matlab_command_window.html">
+       Matlab Command Window
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/02_first_steps/02_skripte_und_funktionen.html">
+       Skripte und Funktionen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/02_first_steps/03_best_practice.html">
+       Best Practice
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="../00_einleitung/03_exercises/00_übungsaufgaben.html">
+     Übungsaufgaben
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/01_matlab_kennenlernen.html">
+       Matlab kennenlernen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/02_fluessigkeit_im_boden.html">
+       Flüssigkeit im Boden
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/03_verkehrssimulation.html">
+       Verkehrssimulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../00_einleitung/03_exercises/04_der_perfekte_wurf.html">
+       Der perfekte Wurf
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
   </ul>
-  </li>
-  <li class="">
-    <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../11_pde/00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
-  </li>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_gleitkommaarithmetik/01_übungen.html">
+     Übungen
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_nichtlineare_gleichungen/01_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/03_spline_interpolation.html">
+     Spline Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+   Numerik gewöhnlicher Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/01_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../11_pde/00_partielle_differentialgleichungen.html">
+   Numerik partieller Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/01_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-</nav>
 
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
@@ -142,113 +361,147 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
 
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/09_dft/04_vuvuzela_filter.ipynb.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.ipynb</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/09_dft/04_vuvuzela_filter.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
 
-        <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/09_dft/04_vuvuzela_filter.ipynb"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/09_dft/04_vuvuzela_filter.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
 
         <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
 
         <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-            <div class="dropdown-buttons">
-                
-                <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/09_dft/04_vuvuzela_filter.ipynb"><button type="button" class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip" data-placement="left"><img class="binder-button-logo" src="../_static/images/logo_binder.svg" alt="Interact on binder">Binder</button></a>
-                
-                
-                <button type="button" class="btn btn-secondary topbarbtn thebelab-launch-button" onclick="initThebelab()" title="Launch Thebelab" data-toggle="tooltip" data-placement="left"><i class="fas fa-rocket"></i><span style="margin-left: .4em;">ThebeLab</span></button>
-                
-            </div>
-        </div>
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/09_dft/04_vuvuzela_filter.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
         
     </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
     <div class="d-none d-md-block col-md-2 bd-toc show">
-<div class="tocsection onthispage pt-5 pb-3">
-    <i class="fas fa-list"></i> On this page
-</div>
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#schritt-1-die-aufnahme" class="nav-link">Schritt 1: Die Aufnahme</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#schritt-2-die-frequenzanalyse" class="nav-link">Schritt 2: Die Frequenzanalyse</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#die-vuvuzela-frequenzen" class="nav-link">Die Vuvuzela-Frequenzen</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#schritt-3-filterkonstruktion" class="nav-link">Schritt 3: Filterkonstruktion</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#nebenbei" class="nav-link">Nebenbei:</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#schritt-4-testen-des-filters-an-der-ursprunglichen-aufnahme" class="nav-link">Schritt 4: Testen des Filters an der ursprünglichen Aufnahme</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#schritt-5-wenden-wir-den-filter-an-einem-beispiel-an" class="nav-link">Schritt 5: Wenden wir den Filter an einem Beispiel an</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h2">
-            <a href="#reproduzierbarkeit" class="nav-link">Reproduzierbarkeit</a><ul class="nav section-nav flex-column">
-                
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#abschlieszende-bemerkungen" class="nav-link">Abschließende Bemerkungen</a>
-        </li>
-    
-        <li class="nav-item toc-entry toc-h3">
-            <a href="#kommentare-zum-matlab-beispiel" class="nav-link">Kommentare zum Matlab-Beispiel:</a>
-        </li>
-    
-            </ul>
-        </li>
-    
-    </ul>
-</nav>
-
-
-
-<div class="tocsection editthispage">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/09_dft/04_vuvuzela_filter.ipynb">
-        <i class="fas fa-pencil-alt"></i> Edit this page
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schritt-1-die-aufnahme">
+   Schritt 1: Die Aufnahme
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schritt-2-die-frequenzanalyse">
+   Schritt 2: Die Frequenzanalyse
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#die-vuvuzela-frequenzen">
+     Die
+     <em>
+      Vuvuzela
+     </em>
+     -Frequenzen
     </a>
-</div>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schritt-3-filterkonstruktion">
+   Schritt 3: Filterkonstruktion
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nebenbei">
+     Nebenbei:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schritt-4-testen-des-filters-an-der-ursprunglichen-aufnahme">
+   Schritt 4: Testen des Filters an der ursprünglichen Aufnahme
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schritt-5-wenden-wir-den-filter-an-einem-beispiel-an">
+   Schritt 5: Wenden wir den Filter an einem Beispiel an
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reproduzierbarkeit">
+   Reproduzierbarkeit
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#abschlieszende-bemerkungen">
+     Abschließende Bemerkungen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kommentare-zum-matlab-beispiel">
+     Kommentare zum Matlab-Beispiel:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
+        </nav>
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -273,18 +526,18 @@
 <p>Packen Sie ihre Vuvuzela aus! Wir können mit Matlab den <em>Vuvuzla</em>-Ton aufnehmen. Wir verwenden eine Samplingrate von <span class="math notranslate nohighlight">\(44,1\;\mathrm{kHz}\)</span>, eine Klangtiefe von <span class="math notranslate nohighlight">\(8\;\textrm{Bit}\)</span> und wollen nur einen Kanal (Mono):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">recordTime</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>   <span class="o">%</span> <span class="n">record</span> <span class="k">for</span> <span class="mi">5</span> <span class="n">seconds</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">recordTime</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>   <span class="c">% record for 5 seconds</span>
 
-<span class="n">recObj</span> <span class="o">=</span> <span class="n">audiorecorder</span><span class="p">(</span><span class="mi">44100</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-<span class="n">disp</span><span class="p">(</span><span class="s1">&#39;Get ready...&#39;</span><span class="p">);</span> <span class="n">pause</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="n">disp</span><span class="p">(</span><span class="s1">&#39;Set...&#39;</span><span class="p">);</span> <span class="n">pause</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-<span class="n">disp</span><span class="p">(</span><span class="s1">&#39;Recording...&#39;</span><span class="p">)</span>
+<span class="n">recObj</span> <span class="p">=</span> <span class="n">audiorecorder</span><span class="p">(</span><span class="mi">44100</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Get ready...&#39;</span><span class="p">);</span> <span class="nb">pause</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Set...&#39;</span><span class="p">);</span> <span class="nb">pause</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Recording...&#39;</span><span class="p">)</span>
 <span class="n">recordblocking</span><span class="p">(</span><span class="n">recObj</span><span class="p">,</span> <span class="n">recordTime</span><span class="p">);</span>
-<span class="n">disp</span><span class="p">(</span><span class="s1">&#39;            [Ok].&#39;</span><span class="p">);</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&#39;            [Ok].&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Get ready...
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Get ready...
 Set...
 Recording...
             [Ok].
@@ -295,7 +548,7 @@ Recording...
 <p>Hat alles geklappt? Hören wir uns es mal an…</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">play</span><span class="p">(</span><span class="n">recObj</span><span class="p">);</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">play</span><span class="p">(</span><span class="n">recObj</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -303,16 +556,16 @@ Recording...
 <p>Wir holen uns die Rohdaten der Aufnahme und betrachten das Signal im <strong>Bildraum</strong>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vuvuzela</span> <span class="o">=</span> <span class="n">getaudiodata</span><span class="p">(</span><span class="n">recObj</span><span class="p">);</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">vuvuzela</span> <span class="p">=</span> <span class="n">getaudiodata</span><span class="p">(</span><span class="n">recObj</span><span class="p">);</span>
 
-<span class="n">N</span> <span class="o">=</span> <span class="n">length</span><span class="p">(</span><span class="n">vuvuzela</span><span class="p">);</span>
-<span class="n">time</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">recordTime</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+<span class="n">N</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">vuvuzela</span><span class="p">);</span>
+<span class="nb">time</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">recordTime</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">vuvuzela</span><span class="p">);</span>
-<span class="n">xlim</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">])</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Time Domain&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time [s]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="nb">time</span><span class="p">,</span> <span class="n">vuvuzela</span><span class="p">);</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.01</span><span class="p">])</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Time Domain&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;time [s]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Amplitude&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -328,15 +581,15 @@ Recording...
 <p><strong>Hinweis:</strong> <em>Das dient nur zur Anschauung, wir können auch alles mit den komplexen Koeffizienten machen.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">fft</span><span class="p">(</span><span class="n">vuvuzela</span><span class="p">);</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">Z</span> <span class="p">=</span> <span class="nb">fft</span><span class="p">(</span><span class="n">vuvuzela</span><span class="p">);</span>
 
-<span class="o">%%</span> <span class="n">OPTIONAL</span><span class="p">:</span>
+<span class="c">%% OPTIONAL:</span>
 
-<span class="o">%</span> <span class="n">convert</span> <span class="n">integer</span> <span class="n">frequencies</span> <span class="n">to</span> <span class="n">Hz</span>
-<span class="n">freq</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">recordTime</span><span class="p">;</span>
+<span class="c">% convert integer frequencies to Hz</span>
+<span class="n">freq</span><span class="p">=(</span><span class="mi">0</span><span class="p">:</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">recordTime</span><span class="p">;</span>
 
-<span class="o">%</span> <span class="n">calculate</span> <span class="n">real</span> <span class="n">Fourier</span><span class="o">-</span><span class="n">coefficients</span> <span class="kn">from</span> <span class="nn">FFT</span>
-<span class="n">coeffs</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">2</span><span class="o">*</span><span class="n">real</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">imag</span><span class="p">(</span><span class="n">Z</span><span class="p">)]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
+<span class="c">% calculate real Fourier-coefficients from FFT</span>
+<span class="n">coeffs</span> <span class="p">=</span> <span class="p">[</span> <span class="mi">2</span><span class="o">*</span><span class="nb">real</span><span class="p">(</span><span class="n">Z</span><span class="p">),</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="nb">imag</span><span class="p">(</span><span class="n">Z</span><span class="p">)]</span><span class="o">/</span><span class="n">N</span><span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -345,13 +598,13 @@ Recording...
 <p><em>Erinnerung: Das komplexe Spektrum ist konjugiert symmetrisch, daher reichen in der reellen Darstellung die ersten <span class="math notranslate nohighlight">\(N/2\)</span> Koeffizienten.</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">stem</span><span class="p">(</span><span class="n">freq</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span> <span class="n">coeffs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),:),</span><span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">%</span><span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1200</span><span class="p">]);</span> <span class="o">%</span> <span class="n">zoom</span> <span class="n">into</span> <span class="n">the</span> <span class="n">low</span> <span class="n">frequencies</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">stem</span><span class="p">(</span><span class="n">freq</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span> <span class="n">coeffs</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),:),</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c">%xlim([0, 1200]); % zoom into the low frequencies</span>
 <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]);</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency Domain&#39;</span><span class="p">)</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency [Hz]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fourier coefficients&#39;</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="s1">&#39;a_k&#39;</span><span class="p">,</span><span class="s1">&#39;b_k&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Frequency Domain&#39;</span><span class="p">)</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency [Hz]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Fourier coefficients&#39;</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;a_k&#39;</span><span class="p">,</span><span class="s">&#39;b_k&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -365,8 +618,8 @@ Recording...
 <p>Wir wollen nun einen Filter konstruieren, der im Frequenzraum arbeitet. Dazu wollen wir die folgenden <em>Vuvuzela</em>-Frequenzen <code class="docutils literal notranslate"><span class="pre">F</span></code>, jeweils mit einer kleinen Umgebung mit Radius <code class="docutils literal notranslate"><span class="pre">Fband</span></code> aus dem Spektrum entfernen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="o">=</span>     <span class="p">[</span><span class="mi">240</span><span class="p">;</span> <span class="mi">320</span><span class="p">;</span> <span class="mi">475</span><span class="p">;</span> <span class="mi">650</span><span class="p">;</span> <span class="mi">800</span><span class="p">;</span> <span class="mi">940</span><span class="p">;</span> <span class="mi">1180</span><span class="p">];</span> <span class="o">%</span> <span class="n">frequencies</span> <span class="n">to</span> <span class="n">be</span> <span class="n">filtered</span>
-<span class="n">Fband</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">50</span><span class="p">;</span>  <span class="mi">25</span><span class="p">;</span>  <span class="mi">50</span><span class="p">;</span>  <span class="mi">50</span><span class="p">;</span>  <span class="mi">60</span><span class="p">;</span>  <span class="mi">50</span><span class="p">;</span>   <span class="mi">50</span><span class="p">];</span> <span class="o">%</span> <span class="n">radius</span> <span class="n">of</span> <span class="n">the</span> <span class="n">frequency</span> <span class="n">band</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="p">=</span>     <span class="p">[</span><span class="mi">240</span><span class="p">;</span> <span class="mi">320</span><span class="p">;</span> <span class="mi">475</span><span class="p">;</span> <span class="mi">650</span><span class="p">;</span> <span class="mi">800</span><span class="p">;</span> <span class="mi">940</span><span class="p">;</span> <span class="mi">1180</span><span class="p">];</span> <span class="c">% frequencies to be filtered</span>
+<span class="n">Fband</span> <span class="p">=</span> <span class="p">[</span> <span class="mi">50</span><span class="p">;</span>  <span class="mi">25</span><span class="p">;</span>  <span class="mi">50</span><span class="p">;</span>  <span class="mi">50</span><span class="p">;</span>  <span class="mi">60</span><span class="p">;</span>  <span class="mi">50</span><span class="p">;</span>   <span class="mi">50</span><span class="p">];</span> <span class="c">% radius of the frequency band</span>
 </pre></div>
 </div>
 </div>
@@ -379,12 +632,12 @@ Recording...
 <p>Um den Multiplikator zu konstruieren, verwenden wir die sogenannte logistische Funktion <span class="math notranslate nohighlight">\(f(x) = \frac{1}{1+e^{-k\cdot(x-x_0)}}\)</span></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">logistic</span> <span class="o">=</span> <span class="o">@</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)));</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">logistic</span> <span class="p">=</span> <span class="p">@(</span><span class="n">k</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="nb">exp</span><span class="p">(</span><span class="o">-</span><span class="n">k</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)));</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="n">an</span> <span class="n">example</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span> 
-<span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Logistische Funktion um 200&#39;</span><span class="p">)</span>
+<span class="c">% plot an example</span>
+<span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span> 
+<span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Logistische Funktion um 200&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -395,8 +648,8 @@ Recording...
 <p>Betrachten wir ein Beispiel, wie man mit der logistischen Funktion einen <em>Notch</em>-Filter konstruieren kann:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.05</span> <span class="p">,</span><span class="mi">600</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span> 
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Notch-Filter um 500 mit Radius 100&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.05</span> <span class="p">,</span><span class="mi">600</span><span class="p">,</span> <span class="n">x</span><span class="p">));</span> 
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Notch-Filter um 500 mit Radius 100&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -417,18 +670,18 @@ Recording...
 <p>Wir definieren uns mit der logistischen Funktion einen Multiplikator, der die Vuvuzela–Frequenzen <em>sanft</em> aus dem Spektrum entfernt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">multiplier</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">freq</span><span class="p">));</span>
-<span class="k">for</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
-    <span class="n">multiplier</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">-</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.125</span><span class="p">,</span> <span class="n">F</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">Fband</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">freq</span><span class="p">);</span>
-    <span class="n">multiplier</span> <span class="o">=</span> <span class="n">multiplier</span> <span class="o">+</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.125</span><span class="p">,</span> <span class="n">F</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="n">Fband</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">freq</span><span class="p">);</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">multiplier</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">freq</span><span class="p">));</span>
+<span class="k">for</span> <span class="n">k</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+    <span class="n">multiplier</span> <span class="p">=</span> <span class="n">multiplier</span> <span class="o">-</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.125</span><span class="p">,</span> <span class="n">F</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="n">Fband</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">freq</span><span class="p">);</span>
+    <span class="n">multiplier</span> <span class="p">=</span> <span class="n">multiplier</span> <span class="o">+</span> <span class="n">logistic</span><span class="p">(</span><span class="mf">0.125</span><span class="p">,</span> <span class="n">F</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="n">Fband</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">freq</span><span class="p">);</span>
+<span class="k">end</span>
 
-<span class="o">%</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">the</span> <span class="n">multiplier</span> <span class="n">takes</span> <span class="n">values</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">multiplier</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">multiplier</span><span class="p">);</span>
-<span class="n">multiplier</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">multiplier</span><span class="p">);</span>
+<span class="c">% make sure the multiplier takes values in [0,1]</span>
+<span class="n">multiplier</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">multiplier</span><span class="p">);</span>
+<span class="n">multiplier</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">multiplier</span><span class="p">);</span>
 
-<span class="o">%</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">that</span> <span class="n">the</span> <span class="nb">filter</span> <span class="ow">is</span> <span class="n">symmetric</span>
-<span class="n">multiplier</span><span class="p">(</span><span class="n">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">end</span> <span class="o">-</span> <span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="o">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+<span class="c">% make sure that the filter is symmetric</span>
+<span class="n">multiplier</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="k">end</span> <span class="o">-</span> <span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span> <span class="p">=</span> <span class="n">multiplier</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -436,11 +689,11 @@ Recording...
 <p>Wie sieht unser Notch-Filter aus?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">)</span>
-<span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1500</span><span class="p">])</span> <span class="o">%</span> <span class="n">zoom</span> <span class="n">into</span> <span class="n">the</span> <span class="n">low</span> <span class="n">frequencies</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Filter in Freq. domain&#39;</span><span class="p">);</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency [Hz]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Multiplier&#39;</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">plot</span><span class="p">(</span><span class="n">freq</span><span class="p">,</span> <span class="n">multiplier</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1500</span><span class="p">])</span> <span class="c">% zoom into the low frequencies</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Filter in Freq. domain&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency [Hz]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Multiplier&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -454,17 +707,17 @@ Recording...
 <h2>Schritt 4: Testen des Filters an der ursprünglichen Aufnahme<a class="headerlink" href="#schritt-4-testen-des-filters-an-der-ursprunglichen-aufnahme" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">apply</span> <span class="nb">filter</span> <span class="n">to</span> <span class="n">real</span> <span class="n">Fourier</span> <span class="n">coefficients</span>
-<span class="n">filteredsignal</span> <span class="o">=</span> <span class="p">[</span><span class="n">multiplier</span><span class="s1">&#39;.*coeffs(:,1) multiplier&#39;</span><span class="o">.*</span><span class="n">coeffs</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)];</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% apply filter to real Fourier coefficients</span>
+<span class="n">filteredsignal</span> <span class="p">=</span> <span class="p">[</span><span class="n">multiplier</span><span class="o">&#39;.*</span><span class="n">coeffs</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span> <span class="n">multiplier</span><span class="o">&#39;.*</span><span class="n">coeffs</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)];</span>
 
-<span class="o">%</span> <span class="n">plot</span> <span class="n">the</span> <span class="n">filtered</span> <span class="n">coefficients</span>
-<span class="n">stem</span><span class="p">(</span><span class="n">freq</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span> <span class="n">filteredsignal</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),:),</span><span class="s1">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1200</span><span class="p">])</span>
+<span class="c">% plot the filtered coefficients</span>
+<span class="nb">stem</span><span class="p">(</span><span class="n">freq</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">)),</span> <span class="n">filteredsignal</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">),:),</span><span class="s">&#39;LineWidth&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1200</span><span class="p">])</span>
 <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]);</span>
-<span class="n">title</span><span class="p">(</span><span class="s1">&#39;Filtered Signal in Frequency Domain&#39;</span><span class="p">);</span>
-<span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency [Hz]&#39;</span><span class="p">)</span>
-<span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>
-<span class="n">legend</span><span class="p">(</span><span class="s1">&#39;a_k&#39;</span><span class="p">,</span><span class="s1">&#39;b_k&#39;</span><span class="p">);</span>
+<span class="nb">title</span><span class="p">(</span><span class="s">&#39;Filtered Signal in Frequency Domain&#39;</span><span class="p">);</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;Frequency [Hz]&#39;</span><span class="p">)</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;Amplitude&#39;</span><span class="p">)</span>
+<span class="nb">legend</span><span class="p">(</span><span class="s">&#39;a_k&#39;</span><span class="p">,</span><span class="s">&#39;b_k&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -476,24 +729,24 @@ Recording...
 <p>Dazu müssen wir zurücktransformieren und uns das Ergebnis mit <code class="docutils literal notranslate"><span class="pre">soundsc</span></code> wiedergeben lassen. Wir verwenden die Samplingrate des Aufnahmegerätes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">apply</span> <span class="n">the</span> <span class="n">multiplier</span> <span class="ow">and</span> <span class="n">do</span> <span class="n">the</span> <span class="n">inverse</span> <span class="n">Fouriertransform</span>
-<span class="n">vuvuzela_filtered</span> <span class="o">=</span> <span class="n">ifft</span><span class="p">(</span><span class="n">multiplier</span><span class="s1">&#39;.*Z);</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% apply the multiplier and do the inverse Fouriertransform</span>
+<span class="n">vuvuzela_filtered</span> <span class="p">=</span> <span class="nb">ifft</span><span class="p">(</span><span class="n">multiplier</span><span class="o">&#39;.*</span><span class="n">Z</span><span class="p">);</span>
 
-<span class="o">%</span> <span class="n">due</span> <span class="n">to</span> <span class="n">numerical</span> <span class="nb">round</span><span class="o">-</span><span class="n">off</span> <span class="n">errors</span><span class="p">,</span> <span class="n">we</span> <span class="n">have</span> <span class="n">a</span> <span class="n">small</span> <span class="n">imaginary</span> <span class="n">contributation</span><span class="p">,</span> <span class="n">that</span> <span class="n">can</span> <span class="n">be</span> <span class="n">ignored</span><span class="o">.</span>
-<span class="n">vuvuzela_filtered</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span><span class="n">vuvuzela_filtered</span><span class="p">);</span>
+<span class="c">% due to numerical round-off errors, we have a small imaginary contributation, that can be ignored.</span>
+<span class="n">vuvuzela_filtered</span> <span class="p">=</span> <span class="nb">real</span><span class="p">(</span><span class="n">vuvuzela_filtered</span><span class="p">);</span>
 
-<span class="o">%</span> <span class="n">play</span> <span class="n">the</span> <span class="n">original</span> <span class="n">recording</span>
-<span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Original recording&quot;</span><span class="p">)</span>
-<span class="n">soundsc</span><span class="p">(</span><span class="n">vuvuzela</span><span class="p">,</span> <span class="n">recObj</span><span class="o">.</span><span class="n">sampleRate</span><span class="p">);</span> <span class="n">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
+<span class="c">% play the original recording</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Original recording&quot;</span><span class="p">)</span>
+<span class="n">soundsc</span><span class="p">(</span><span class="n">vuvuzela</span><span class="p">,</span> <span class="n">recObj</span><span class="p">.</span><span class="n">sampleRate</span><span class="p">);</span> <span class="nb">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
 
-<span class="o">%</span> <span class="n">play</span> <span class="n">the</span> <span class="n">filtered</span> <span class="n">recording</span>
-<span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Filtered recording&quot;</span><span class="p">)</span>
-<span class="n">soundsc</span><span class="p">(</span><span class="n">vuvuzela_filtered</span><span class="p">,</span> <span class="n">recObj</span><span class="o">.</span><span class="n">sampleRate</span><span class="p">);</span> <span class="n">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
+<span class="c">% play the filtered recording</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Filtered recording&quot;</span><span class="p">)</span>
+<span class="n">soundsc</span><span class="p">(</span><span class="n">vuvuzela_filtered</span><span class="p">,</span> <span class="n">recObj</span><span class="p">.</span><span class="n">sampleRate</span><span class="p">);</span> <span class="nb">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original recording
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original recording
 Filtered recording
 </pre></div>
 </div>
@@ -505,18 +758,18 @@ Filtered recording
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HFISx1j0kak?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><p><strong>Ich habe da mal etwas vorbereitet…</strong> und die Tonspur des vorherigen Videos als mp3 heruntergeladen. Diese lässt sich mit Matlab importieren:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">soundfile</span> <span class="o">=</span> <span class="s1">&#39;Vuvuzela_Tshabalala_Goal.mp3&#39;</span><span class="p">;</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">soundfile</span> <span class="p">=</span> <span class="s">&#39;Vuvuzela_Tshabalala_Goal.mp3&#39;</span><span class="p">;</span>
 
-<span class="n">startTime</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="n">endTime</span>   <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
-<span class="n">Fs</span> <span class="o">=</span> <span class="mi">44100</span><span class="p">;</span>
+<span class="n">startTime</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">endTime</span>   <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">Fs</span> <span class="p">=</span> <span class="mi">44100</span><span class="p">;</span>
 
-<span class="o">%</span> <span class="n">read</span> <span class="n">a</span> <span class="n">fraction</span> <span class="n">of</span> <span class="n">the</span> <span class="n">sound</span> <span class="n">file</span>
-<span class="n">samples</span> <span class="o">=</span> <span class="n">Fs</span><span class="o">*</span><span class="p">[</span><span class="n">startTime</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">Fs</span><span class="p">,</span> <span class="n">endTime</span><span class="p">];</span>
-<span class="n">youtubeSound</span> <span class="o">=</span> <span class="n">audioread</span><span class="p">(</span><span class="n">soundfile</span><span class="p">,</span> <span class="n">samples</span><span class="p">);</span>
+<span class="c">% read a fraction of the sound file</span>
+<span class="n">samples</span> <span class="p">=</span> <span class="n">Fs</span><span class="o">*</span><span class="p">[</span><span class="n">startTime</span> <span class="o">+</span> <span class="mi">1</span><span class="o">/</span><span class="n">Fs</span><span class="p">,</span> <span class="n">endTime</span><span class="p">];</span>
+<span class="n">youtubeSound</span> <span class="p">=</span> <span class="n">audioread</span><span class="p">(</span><span class="n">soundfile</span><span class="p">,</span> <span class="n">samples</span><span class="p">);</span>
 
-<span class="o">%</span><span class="n">convert</span> <span class="n">stereo</span> <span class="n">to</span> <span class="n">mono</span> <span class="n">by</span> <span class="n">avaraging</span> <span class="n">the</span> <span class="n">two</span> <span class="n">signals</span>
-<span class="n">youtubeSound</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="n">youtubeSound</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+<span class="c">%convert stereo to mono by avaraging the two signals</span>
+<span class="n">youtubeSound</span> <span class="p">=</span> <span class="nb">mean</span><span class="p">(</span><span class="n">youtubeSound</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -524,24 +777,24 @@ Filtered recording
 <p>Unser Filter lässt sich nun durch nur eine Zeile Code anwenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">a</span><span class="p">)</span> <span class="n">calculate</span> <span class="n">Fouriertransform</span>
-<span class="o">%</span> <span class="n">b</span><span class="p">)</span> <span class="n">apply</span> <span class="n">the</span> <span class="nb">filter</span> <span class="p">(</span><span class="n">multiply</span> <span class="n">by</span> <span class="n">multiplier</span><span class="p">)</span>
-<span class="o">%</span> <span class="n">c</span><span class="p">)</span> <span class="n">calculate</span> <span class="n">inverse</span> <span class="n">Fouriertransform</span>
-<span class="o">%</span> <span class="n">d</span><span class="p">)</span> <span class="n">take</span> <span class="n">real</span> <span class="n">part</span> <span class="n">due</span> <span class="n">to</span> <span class="nb">round</span><span class="o">-</span><span class="n">of</span> <span class="n">errors</span>
-<span class="n">youtubeSoundFiltered</span> <span class="o">=</span> <span class="n">real</span><span class="p">(</span> <span class="n">ifft</span><span class="p">(</span> <span class="n">multiplier</span><span class="s1">&#39;.*fft(youtubeSound) ) );</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% a) calculate Fouriertransform</span>
+<span class="c">% b) apply the filter (multiply by multiplier)</span>
+<span class="c">% c) calculate inverse Fouriertransform</span>
+<span class="c">% d) take real part due to round-of errors</span>
+<span class="n">youtubeSoundFiltered</span> <span class="p">=</span> <span class="nb">real</span><span class="p">(</span> <span class="nb">ifft</span><span class="p">(</span> <span class="n">multiplier</span><span class="o">&#39;.*</span><span class="nb">fft</span><span class="p">(</span><span class="n">youtubeSound</span><span class="p">)</span> <span class="p">)</span> <span class="p">);</span>
 
-<span class="o">%</span> <span class="n">play</span> <span class="n">the</span> <span class="n">original</span> <span class="n">recording</span>
-<span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Original recording&quot;</span><span class="p">)</span>
-<span class="n">soundsc</span><span class="p">(</span><span class="n">youtubeSound</span><span class="p">,</span> <span class="mi">44100</span><span class="p">);</span> <span class="n">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
+<span class="c">% play the original recording</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Original recording&quot;</span><span class="p">)</span>
+<span class="n">soundsc</span><span class="p">(</span><span class="n">youtubeSound</span><span class="p">,</span> <span class="mi">44100</span><span class="p">);</span> <span class="nb">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
 
-<span class="o">%</span> <span class="n">play</span> <span class="n">the</span> <span class="n">filtered</span> <span class="n">recording</span>
-<span class="n">disp</span><span class="p">(</span><span class="s2">&quot;Filtered recording&quot;</span><span class="p">)</span>
-<span class="n">soundsc</span><span class="p">(</span><span class="n">youtubeSoundFiltered</span><span class="p">,</span> <span class="mi">44100</span><span class="p">);</span> <span class="n">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
+<span class="c">% play the filtered recording</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&quot;Filtered recording&quot;</span><span class="p">)</span>
+<span class="n">soundsc</span><span class="p">(</span><span class="n">youtubeSoundFiltered</span><span class="p">,</span> <span class="mi">44100</span><span class="p">);</span> <span class="nb">pause</span><span class="p">(</span><span class="n">recordTime</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>Original recording
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original recording
 Filtered recording
 </pre></div>
 </div>
@@ -558,7 +811,7 @@ Filtered recording
 <p>sollten wir unser <em>Matlab-Workspace</em> in einer Datei abspeichern.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">([</span><span class="s1">&#39;vuvuzela_filter_&#39;</span><span class="p">,</span> <span class="n">datestr</span><span class="p">(</span><span class="n">now</span><span class="p">,</span><span class="s1">&#39;yyyy_mm_dd-HH_MM_SS&#39;</span><span class="p">),</span> <span class="s1">&#39;.mat&#39;</span><span class="p">])</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">save</span><span class="p">([</span><span class="s">&#39;vuvuzela_filter_&#39;</span><span class="p">,</span> <span class="nb">datestr</span><span class="p">(</span><span class="nb">now</span><span class="p">,</span><span class="s">&#39;yyyy_mm_dd-HH_MM_SS&#39;</span><span class="p">),</span> <span class="s">&#39;.mat&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -584,7 +837,7 @@ Filtered recording
     {
         requestKernel: true,
         binderOptions: {
-            repo: "joergbrech/Modellbildung-und-Simulation",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -593,8 +846,9 @@ Filtered recording
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "09_dft"
-        }
+            path: "./09_dft"
+        },
+        predefinedOutput: true
     }
     </script>
     <script>kernelName = 'octave'</script>
@@ -627,7 +881,10 @@ Filtered recording
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>

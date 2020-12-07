@@ -1,21 +1,39 @@
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Einleitung &#8212; Modellbildung und Simulation</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
-    <link href="../_static/css/index.css" rel="stylesheet">
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
@@ -23,21 +41,25 @@
     <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/mystnb.js"></script>
-    <script src="../_static/sphinx-book-theme.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .secondtoggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
-    <script async="async" src="../_static/thebelab.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Verwendung dieses Buches" href="01_usage/00_verwendung_dieses_buches.html" />
     <link rel="prev" title="Modellbildung und Simulation" href="../intro.html" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="docsearch:language" content="en">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
 
 
 
@@ -59,67 +81,267 @@
   <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
   
 </a>
-</div>
-
-<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
-
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-  
-  <ul class="nav sidenav_l1">
-  <li class="active">
-    <a href="">Einleitung</a>
-  <ul class="nav sidenav_l2">
-    <li class="">
-      <a href="01_usage/00_verwendung_dieses_buches.html">Verwendung dieses Buches</a>
-    </li>
-    <li class="">
-      <a href="02_first_steps/00_erste_schritte_in_matlab.html">Erste Schritte in Matlab</a>
-    </li>
-    <li class="">
-      <a href="03_exercises/00_übungsaufgaben.html">Übungsaufgaben</a>
-    </li>
+    <ul class="current nav sidenav_l1">
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="current reference internal" href="#">
+   Einleitung
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_usage/00_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="02_first_steps/00_erste_schritte_in_matlab.html">
+     Erste Schritte in Matlab
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_first_steps/01_matlab_command_window.html">
+       Matlab Command Window
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_first_steps/02_skripte_und_funktionen.html">
+       Skripte und Funktionen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_first_steps/03_best_practice.html">
+       Best Practice
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
+   <li class="toctree-l2 collapsible-parent">
+    <a class="reference internal" href="03_exercises/00_übungsaufgaben.html">
+     Übungsaufgaben
+    </a>
+    <ul class="collapse-ul">
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_exercises/01_matlab_kennenlernen.html">
+       Matlab kennenlernen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_exercises/02_fluessigkeit_im_boden.html">
+       Flüssigkeit im Boden
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_exercises/03_verkehrssimulation.html">
+       Verkehrssimulation
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="03_exercises/04_der_perfekte_wurf.html">
+       Der perfekte Wurf
+      </a>
+     </li>
+    </ul>
+    <i class="fas fa-chevron-down">
+    </i>
+   </li>
   </ul>
-  </li>
-  <li class="">
-    <a href="../01_schwingungen/00_schwingungen.html">Schwingungen</a>
-  </li>
-  <li class="">
-    <a href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">Lineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">Gleitkommaarithmetik</a>
-  </li>
-  <li class="">
-    <a href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">Nichtlineare Gleichungssysteme</a>
-  </li>
-  <li class="">
-    <a href="../05_interp_approx/00_interpolation_Und_approximation.html">Interpolation und Approximation</a>
-  </li>
-  <li class="">
-    <a href="../06_Differentiation_Integration/00_differentiation_und_integration.html">Differentiation und Integration</a>
-  </li>
-  <li class="">
-    <a href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">Numerik gewöhnlicher Differentialgleichungen</a>
-  </li>
-  <li class="">
-    <a href="../08_eigenwerte/00_eigenwertprobleme.html">Eigenwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../09_dft/00_diskrete_fouriertransformation.html">Diskrete Fouriertransformation</a>
-  </li>
-  <li class="">
-    <a href="../10_bvp/00_randwertprobleme.html">Randwertprobleme</a>
-  </li>
-  <li class="">
-    <a href="../11_pde/00_partielle_differentialgleichungen.html">Numerik partieller Differentialgleichungen</a>
-  </li>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../01_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_gleitkommaarithmetik/01_übungen.html">
+     Übungen
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_nichtlineare_gleichungen/01_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_interp_approx/03_spline_interpolation.html">
+     Spline Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../06_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+   Numerik gewöhnlicher Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/01_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../11_pde/00_partielle_differentialgleichungen.html">
+   Numerik partieller Differentialgleichungen
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/01_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
 </ul>
-</nav>
 
- <!-- To handle the deprecated key -->
+</nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
   <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
@@ -139,52 +361,61 @@
     </div>
     <div class="col pl-2 topbar-main">
         
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse" data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu" aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation" title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
             <i class="fas fa-bars"></i>
             <i class="fas fa-arrow-left"></i>
             <i class="fas fa-arrow-up"></i>
         </button>
         
-        <div class="dropdown-buttons-trigger">
-            <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i class="fas fa-download"></i></button>
-
-            
-            <div class="dropdown-buttons">
-                <!-- ipynb file if we had a myst markdown file -->
-                
-                <!-- Download raw file -->
-                <a class="dropdown-buttons" href="../_sources/00_einleitung/00_einleitung.md.txt"><button type="button" class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip" data-placement="left">.md</button></a>
-                <!-- Download PDF via print -->
-                <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF" onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-            </div>
-            
-        </div>
-
-        <!-- Edit this page -->
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/00_einleitung.md"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" title="Edit this page"><i class="fas fa-pencil-alt"></i></button></a>
-
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i class="fas fa-expand"></i></button></a>
-
-        <!-- Launch buttons -->
         
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/00_einleitung/00_einleitung.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-
-<nav id="bd-toc-nav">
-    <ul class="nav section-nav flex-column">
-    
-    </ul>
-</nav>
-
-
-
-<div class="tocsection editthispage">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/00_einleitung.md">
-        <i class="fas fa-pencil-alt"></i> Edit this page
-    </a>
 </div>
 
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/00_einleitung.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
     </div>
 </div>
     <div id="main-content" class="row">
@@ -203,7 +434,7 @@
     {
         requestKernel: true,
         binderOptions: {
-            repo: "joergbrech/Modellbildung-und-Simulation",
+            repo: "binder-examples/jupyter-stacks-datascience",
             ref: "master",
         },
         codeMirrorConfig: {
@@ -212,8 +443,9 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "00_einleitung"
-        }
+            path: "./00_einleitung"
+        },
+        predefinedOutput: true
     }
     </script>
     <script>kernelName = 'python3'</script>
@@ -246,7 +478,10 @@
       </div>
     </div>
 
-    <script src="../_static/js/index.js"></script>
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
     
     <!-- Google Analytics -->
     <script>
