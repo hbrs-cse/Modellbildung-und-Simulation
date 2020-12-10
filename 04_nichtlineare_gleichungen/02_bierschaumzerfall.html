@@ -56,7 +56,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Interpolation und Approximation" href="../05_interp_approx/00_interpolation_Und_approximation.html" />
-    <link rel="prev" title="Nichtlineare Gleichungssysteme" href="00_nichtlineare_gleichungssysteme.html" />
+    <link rel="prev" title="Newton-Verfahren" href="01_newton-verfahren.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -201,6 +201,11 @@
    Nichtlineare Gleichungssysteme
   </a>
   <ul class="current collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Bierschaumzerfall
@@ -379,7 +384,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/04_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -396,7 +401,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -416,7 +421,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/04_nichtlineare_gleichungen/01_bierschaumzerfall.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/04_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -468,21 +473,9 @@
      Aufgabe 1: Das nichtlineare Gleichungssystem
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#das-newton-verfahren">
-   Das Newton-Verfahren
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgabe-2-approximation-der-jacobi-matrix">
-     Aufgabe 2: Approximation der Jacobi-Matrix
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgabe-3-parameterbestimmung">
-     Aufgabe 3: Parameterbestimmung
+    <a class="reference internal nav-link" href="#aufgabe-2-das-newton-verfahren">
+     Aufgabe 2: Das Newton-Verfahren
     </a>
    </li>
   </ul>
@@ -493,8 +486,8 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgabe-4-algorithmus-zur-minimierung-einer-funktion">
-     Aufgabe 4: Algorithmus zur Minimierung einer Funktion
+    <a class="reference internal nav-link" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
+     Aufgabe 3: Algorithmus zur Minimierung einer Funktion
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -652,7 +645,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/01_bierschaumzerfall_2_0.png" src="../_images/01_bierschaumzerfall_2_0.png" />
+<img alt="../_images/02_bierschaumzerfall_2_0.png" src="../_images/02_bierschaumzerfall_2_0.png" />
 </div>
 </div>
 </div>
@@ -695,7 +688,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/01_bierschaumzerfall_4_0.png" src="../_images/01_bierschaumzerfall_4_0.png" />
+<img alt="../_images/02_bierschaumzerfall_4_0.png" src="../_images/02_bierschaumzerfall_4_0.png" />
 </div>
 </div>
 <p>Wir können immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut.</p>
@@ -758,8 +751,7 @@
 <p>Im Folgenden wird das Problem schrittweise gelöst.</p>
 <ol class="simple">
 <li><p>Wir implementieren eine Matlab-Funktion, mit der wir <span class="math notranslate nohighlight">\(F\)</span> auswerten können.</p></li>
-<li><p>Wir implementieren eine Matlab-Funktion, die uns für eine gegebene Funktion <span class="math notranslate nohighlight">\(F\)</span> die Jacobimatrix ausrechnet.</p></li>
-<li><p>Wir implementieren das Newton-Verfahren unter Zuhilfenahme der Funktion für die Jacobimatrix. Anschließend wenden wir das Newton-Verfahren auf <span class="math notranslate nohighlight">\(F\)</span> an, um unsere Parameter zu bestimmen.</p></li>
+<li><p>Wir greifen auf unsere Implementierung des Newton-Verfahrens mit Auswertung der Jacobi-Matrix aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurück. Damit können wir das Newton-Verfahren auf <span class="math notranslate nohighlight">\(F\)</span> anwenden, um unsere Parameter zu bestimmen.</p></li>
 <li><p>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</p></li>
 </ol>
 </div>
@@ -784,22 +776,9 @@
 </div>
 <p>Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> bestimmen zu können.</p>
 </div>
-</div>
-<div class="section" id="das-newton-verfahren">
-<h2>Das Newton-Verfahren<a class="headerlink" href="#das-newton-verfahren" title="Permalink to this headline">¶</a></h2>
-<p>Aus der Vorlesung kennen Sie das Newton-Verfahren zum Lösen nichtlinearer Gleichungssysteme. Angefangen mit einem Startwert <span class="math notranslate nohighlight">\(\mathbf{p}^{(0)}\)</span> muss in jeder Iteration ein lineares Gleichungssystem gelöst werden:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{align}
- J_F(\mathbf{p}^{(i)}) \Delta \mathbf{p}^{(i+1)} &amp;= - F(\mathbf{p}^{(i)}), \notag \\
- \mathbf{p}^{(i+1)} &amp;= \mathbf{p}^{(i)} + \Delta \mathbf{p}^{(i+1)}, \notag
-\end{align}
-\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(i=1,2,3,...\)</span></p>
-<p>Um die Jacobi-Matrix <span class="math notranslate nohighlight">\(J_F(\mathbf{p}^{(i)})\)</span> in jeder Iteration zu bestimmen, müssen wir die partiellen Ableitungen von <span class="math notranslate nohighlight">\(F\)</span> nach <span class="math notranslate nohighlight">\(p_1 = a\)</span> und <span class="math notranslate nohighlight">\(p_2=b\)</span> ausrechnen. Theoretisch kann man das in unserem Fall noch analytisch machen. Einfacher ist es aber, die Jacobi-Matrix mittels finiter Differenzen zu approximieren. Dadurch verlieren wir zwar an Genauigkeit, aber wir können unser Verfahren dadurch auch auf komplexere Modellgleichungen anwenden, die sich nicht mehr so einfach ableiten lassen.</p>
-<div class="section" id="aufgabe-2-approximation-der-jacobi-matrix">
-<h3>Aufgabe 2: Approximation der Jacobi-Matrix<a class="headerlink" href="#aufgabe-2-approximation-der-jacobi-matrix" title="Permalink to this headline">¶</a></h3>
-<p>Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
+<div class="section" id="aufgabe-2-das-newton-verfahren">
+<span id="bierschaum-newton"></span><h3>Aufgabe 2: Das Newton-Verfahren<a class="headerlink" href="#aufgabe-2-das-newton-verfahren" title="Permalink to this headline">¶</a></h3>
+<p>Hier können wir unsere Implementierung des Newton-Verfahrens aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurückgreifen. Da unser Newton-Verfahren auf der approximation der Jacobimatrix beruht, müssen wir diese zuerst implementieren. Kopieren sie dazu ihre Lösung aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> oder schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file jacobian.m</span>
@@ -826,13 +805,6 @@
 </div>
 </div>
 </div>
-<p><strong>Hinweise:</strong></p>
-<ul class="simple">
-<li><p>Machen Sie sich mit <em>function handles</em> und <em>anonymous functions</em> in Matlab vertraut.</p></li>
-<li><p>Implementieren Sie eine Schleife über die Spalten der Jacobi-Matrix, pro Spalte müssen Sie einen Differenzenquotienten bilden.</p></li>
-<li><p>Ihr Programm sollte mit <span class="math notranslate nohighlight">\(n+1\)</span> Funktionsaufrufen von <code class="docutils literal notranslate"><span class="pre">F</span></code> auskommen.</p></li>
-<li><p>Achten Sie darauf, dass alle Funktionen <span class="math notranslate nohighlight">\(F: \mathbb{R}^n \to \mathbb{R}^m\)</span> auf die Sie die <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> Funktion anwenden <em>Spalten</em>vektoren auf <em>Spalten</em>vektoren abbilden.</p></li>
-</ul>
 <p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -841,17 +813,7 @@
 </div>
 </div>
 </div>
-<p>Es gilt <code class="docutils literal notranslate"><span class="pre">F(p,t,V)</span></code> <span class="math notranslate nohighlight">\(= J_G(\mathbf{p})^T
-\)</span> mit</p>
-<div class="math notranslate nohighlight">
-\[
-G(\mathbf{p}) = \frac{1}{m} \sum_{i=1}^m (y_i - f(\mathbf{p},t_i))^2.
-\]</div>
-<p>Einerseits haben Sie in Aufgabe 1 eine Funktion geschrieben, die <code class="docutils literal notranslate"><span class="pre">F</span></code> berechnet, andererseits können Sie mit Ihrer Funktion aus Aufgabe 2 die Jacobi-Matrix <span class="math notranslate nohighlight">\(J_G(\mathbf{p})\in \mathbb{R}^{1 \times n}\)</span> mit Hilfe von Differenzenquotienten approximieren. Vergleichen Sie die beiden Ergebnisse für verschiedene <span class="math notranslate nohighlight">\(\mathbf{p}\)</span>. In welcher Größenordung befindet sich in etwa der relative Fehler der Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> für Ihr Problem?</p>
-</div>
-<div class="section" id="aufgabe-3-parameterbestimmung">
-<h3>Aufgabe 3: Parameterbestimmung<a class="headerlink" href="#aufgabe-3-parameterbestimmung" title="Permalink to this headline">¶</a></h3>
-<p>Schreiben Sie eine Matlab-Funktion, die das Newton-Verfahren implementiert. Verwenden Sie dazu Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code> aus Aufgabe 2.</p>
+<p>Mithilfe der <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>-Funktion können Sie nun das Newton-Verfahren implementieren. Dazu können Sie auch hier entweder Ihre Lösung aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> wiederverwenden oder eine neue Funktion implementieren.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file newton.m</span>
@@ -923,8 +885,8 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \end{bmatrix}
 \end{split}\]</div>
 <p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
-<div class="section" id="aufgabe-4-algorithmus-zur-minimierung-einer-funktion">
-<h3>Aufgabe 4: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-4-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
+<h3>Aufgabe 3: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">¶</a></h3>
 <p>Schreiben Sie eine neue Funktion <code class="docutils literal notranslate"><span class="pre">minimize(func,x0,tol,maxit)</span></code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code class="docutils literal notranslate"><span class="pre">func</span></code><span class="math notranslate nohighlight">\(: \mathbb{R}^n \to \mathbb{R}\)</span> minimiert. Verwenden Sie Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
 <ul>
 <li><p>Lösen Sie das ursprüngliche Minimierungsproblem</p>
@@ -945,7 +907,10 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </div>
 </div>
 </div>
-<p><strong>Hinweis:</strong> <em>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.</em> Vermeiden Sie duplizierten Code!</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.* Vermeiden Sie duplizierten Code!</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR SCRIPT SOLUTION</span>
@@ -961,7 +926,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </div>
 <div class="section" id="literatur">
 <h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
-<p id="bibtex-bibliography-04_nichtlineare_gleichungen/01_bierschaumzerfall-0"><dl class="citation">
+<p id="bibtex-bibliography-04_nichtlineare_gleichungen/02_bierschaumzerfall-0"><dl class="citation">
 <dt class="bibtex label" id="leike2001"><span class="brackets"><a class="fn-backref" href="#id2">Lei01</a></span></dt>
 <dd><p>A Leike. Demonstration of the exponential decay law using beer froth. <em>European Journal of Physics</em>, 23(1):21–26, dec 2001. URL: <a class="reference external" href="https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304">https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304</a>, <a class="reference external" href="https://doi.org/10.1088/0143-0807/23/1/304">doi:10.1088/0143-0807/23/1/304</a>.</p>
 </dd>
@@ -1001,7 +966,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
     
     <div class='prev-next-bottom'>
         
-    <a class='left-prev' id="prev-link" href="00_nichtlineare_gleichungssysteme.html" title="previous page">Nichtlineare Gleichungssysteme</a>
+    <a class='left-prev' id="prev-link" href="01_newton-verfahren.html" title="previous page">Newton-Verfahren</a>
     <a class='right-next' id="next-link" href="../05_interp_approx/00_interpolation_Und_approximation.html" title="next page">Interpolation und Approximation</a>
 
     </div>
