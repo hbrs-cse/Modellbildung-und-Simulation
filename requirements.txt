@@ -1,3 +1,2 @@
-jupyter-book==0.8.3
-sphinx==3.3.1
+jupyter-book==0.7.2
 octave_kernel
