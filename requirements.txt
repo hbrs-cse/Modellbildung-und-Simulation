@@ -1,2 +1,2 @@
-jupyter-book==0.7.2
+jupyter-book==0.8.3
 octave_kernel
