@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lineare Approximation &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -24,12 +25,14 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -43,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -122,7 +125,7 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../00_einleitung/03_exercises/00_übungsaufgaben.html">
+    <a class="reference internal" href="../00_einleitung/03_exercises/00_%C3%BCbungsaufgaben.html">
      Übungsaufgaben
     </a>
     <ul class="collapse-ul">
@@ -188,7 +191,7 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_gleitkommaarithmetik/01_übungen.html">
+    <a class="reference internal" href="../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
     </a>
    </li>
@@ -245,7 +248,7 @@
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
    Numerik gewöhnlicher Differentialgleichungen
   </a>
   <ul class="collapse-ul">
@@ -448,7 +451,7 @@
   <div class="section" id="lineare-approximation">
 <h1>Lineare Approximation<a class="headerlink" href="#lineare-approximation" title="Permalink to this headline">¶</a></h1>
 <p>Erzeugen Sie sich auf Basis folgender Geradengleichung <span class="math notranslate nohighlight">\( y = 2.2 x - 3.1 \)</span> Werte im Intervall <span class="math notranslate nohighlight">\(x \in [0,10]\)</span>. Modifizieren Sie die entsprechenden y-Werte so, dass Sie <strong>normalverteilt</strong>  mit Standardabweichung 1 von der exakten Geradengleichung abweichen (Abbildung). Gehen Sie dabei zunächst von <span class="math notranslate nohighlight">\(n=100\)</span> Messwerten aus.</p>
-<img src="images/approx.png" width="600" />
+<a class="reference internal image-reference" href="../_images/approx.png"><img alt="../_images/approx.png" src="../_images/approx.png" style="width: 600px;" /></a>
 <p>Schreiben Sie ein Programm mit dessen Hilfe Sie eine Regressionsgerade durch die zuvor erzeugten Punkte legen können. <strong>Verwenden Sie für diese Aufgabe NICHT die <code class="docutils literal notranslate"><span class="pre">polyfit</span></code>-Funktion!</strong> Berechnen Sie statt dessen die Koeffizienten der Regressionsgeraden direkt mit Hilfe der Messpunkte, <em>vgl. Vorlesung.</em></p>
 <p>Stellen Sie Messpunkte, Regressionsgerade und die exakte Geradengleichung in einem plot dar. Was passiert mit der Regressionsgerade bei kleinen bzw. großen <span class="math notranslate nohighlight">\(n\)</span>? (Sie sollten sich selbst überlegen, was “klein” bzw. was “groß” bedeutet.)</p>
 <div class="cell docutils container">

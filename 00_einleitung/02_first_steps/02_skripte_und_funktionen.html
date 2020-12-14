@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skripte und Funktionen &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -24,12 +25,14 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -43,7 +46,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -122,7 +125,7 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../03_exercises/00_übungsaufgaben.html">
+    <a class="reference internal" href="../03_exercises/00_%C3%BCbungsaufgaben.html">
      Übungsaufgaben
     </a>
     <ul class="collapse-ul">
@@ -188,7 +191,7 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../03_gleitkommaarithmetik/01_übungen.html">
+    <a class="reference internal" href="../../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
     </a>
    </li>
@@ -245,7 +248,7 @@
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+  <a class="reference internal" href="../../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
    Numerik gewöhnlicher Differentialgleichungen
   </a>
   <ul class="collapse-ul">
@@ -536,11 +539,14 @@ Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schau
 </div>
 </div>
 </div>
-<p><strong>Hinweis:</strong> <em>Die allererste Zeile</em></p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p><em>Die allererste Zeile</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myScript.m</span></code></p>
 <p><em>besagt nur, dass alles was folgt Inhalt der Datei <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Ein</span> <span class="pre">kleines</span> <span class="pre">Beispielskript</span></code>.</p>
 <p>Dieses Skript wird mit dem <code class="docutils literal notranslate"><span class="pre">run</span></code> Befehl ausgeführt.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">myScript</span><span class="p">.</span><span class="n">m</span>
@@ -556,7 +562,7 @@ b =  10
 </div>
 <p>Wir dürfen an dieser Stelle die Dateiendung <code class="docutils literal notranslate"><span class="pre">.m</span></code> weglassen. Tatsächlich ist der <code class="docutils literal notranslate"><span class="pre">run</span></code> Befehl auch nicht zwingend nötig. Die Befehle <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">myScript.m</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">myScript</span></code>, <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code>, <code class="docutils literal notranslate"><span class="pre">myScript</span></code> haben alle denselben Effekt: Die Befehle in <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code> werden ausgeführt.</p>
 <p>Im Matlab-Editor kann das aktuell geöffnete Skript mit <code class="docutils literal notranslate"><span class="pre">F5</span></code> oder per Mausklick auf den großen grünen Play-Button gestartet werden.</p>
-<img src="images/matlab_run_button.png" alt="Interacte Mode Code-Cell" style="width:500px;"/>
+<img alt="Interacte Mode Code-Cell" src="../../_images/matlab_run_button.png" />
 <p>Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem <code class="docutils literal notranslate"><span class="pre">help</span></code> Befehl ausgeben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

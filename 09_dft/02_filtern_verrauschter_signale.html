@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Filtern verrauschter Signale &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -24,12 +25,14 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -43,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -122,7 +125,7 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../00_einleitung/03_exercises/00_übungsaufgaben.html">
+    <a class="reference internal" href="../00_einleitung/03_exercises/00_%C3%BCbungsaufgaben.html">
      Übungsaufgaben
     </a>
     <ul class="collapse-ul">
@@ -188,7 +191,7 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_gleitkommaarithmetik/01_übungen.html">
+    <a class="reference internal" href="../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
     </a>
    </li>
@@ -245,7 +248,7 @@
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
    Numerik gewöhnlicher Differentialgleichungen
   </a>
   <ul class="collapse-ul">
@@ -455,7 +458,10 @@ S = a_1 \sin(2 \pi f_1 t) + a_2 \sin(2 \pi f_2 t) + a_3 \sin(2 \pi f_3 t)
 <p>mit <span class="math notranslate nohighlight">\(a_1 = 0.3\)</span>, <span class="math notranslate nohighlight">\(a_2 = 0.1\)</span>, <span class="math notranslate nohighlight">\(a_3=0.4\)</span> und <span class="math notranslate nohighlight">\(f_1 = 50\)</span> Hz, <span class="math notranslate nohighlight">\(f_2 = 40\)</span> Hz und <span class="math notranslate nohighlight">\(f_3 = 30\)</span> Hz und zufällig aufgeprägtem Rauschen. Machen Sie sich dazu mit der Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fft</span></code> vertraut und lassen sie sich das Frequenzspektrum graphisch ausgeben.</p>
 <p><img alt="" src="../_images/verrauschtesSignal.jpg" /></p>
 <p>Verwenden Sie dann einen digitalen Filter um das Rauschen des Signals zu unterdrücken und vergleichen anschließend das gefilterte mit dem unverrauschten Signal S. Wie könnten Sie den Filter konstruieren? Experimentieren Sie mit unterschiedlich stark verrauschten Signalen.</p>
-<p><em>Hinweis:</em> Das Signal mit normalverteiltem Rauschen können Sie wie folgt erzeugen:</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Das Signal mit normalverteiltem Rauschen können Sie wie folgt erzeugen:</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>

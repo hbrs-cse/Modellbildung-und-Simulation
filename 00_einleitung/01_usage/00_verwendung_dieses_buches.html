@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verwendung dieses Buches &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -24,12 +25,14 @@
     href="../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -43,7 +46,7 @@
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -122,7 +125,7 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../03_exercises/00_übungsaufgaben.html">
+    <a class="reference internal" href="../03_exercises/00_%C3%BCbungsaufgaben.html">
      Übungsaufgaben
     </a>
     <ul class="collapse-ul">
@@ -188,7 +191,7 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../03_gleitkommaarithmetik/01_übungen.html">
+    <a class="reference internal" href="../../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
     </a>
    </li>
@@ -245,7 +248,7 @@
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+  <a class="reference internal" href="../../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
    Numerik gewöhnlicher Differentialgleichungen
   </a>
   <ul class="collapse-ul">
@@ -502,22 +505,22 @@
 <span id="verwendung"></span><h1>Verwendung dieses Buches<a class="headerlink" href="#verwendung-dieses-buches" title="Permalink to this headline">¶</a></h1>
 <p>Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.</p>
 <p>Alle Seiten, die Codeblöcke enthalten, haben oben in der Kopfzeile zwei Buttons, einen auf dem “Thebelab” steht, und einen auf dem “Interact” steht.</p>
-<img src="images/usage_buttons.png" alt="Interact buttons" style="width: 250px;"/>
+<img alt="Interact buttons" src="../../_images/usage_buttons.png" />
 <p>Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editier- und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave-Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.</p>
 <p>Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service <a class="reference external" href="https://mybinder.org/">Binder</a> auf, sodass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.</p>
 <div class="section" id="thebelab">
 <h2>Thebelab<a class="headerlink" href="#thebelab" title="Permalink to this headline">¶</a></h2>
 <p>Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über Thebelab. Per Klick auf die Taste “run”, wird der Code ausgeführt, mit “restart” wird der im Hintergrund laufende Octave-Kernel neu gestartet.</p>
-<img src="images/usage_thebe.png" alt="Binder Loading Page" style="width: 800px;"/>
+<img alt="Binder Loading Page" src="../../_images/usage_thebe.png" />
 <p>Alternativ kann Thebelab über das Bleistift-Symbol in jedem Code-Block gestartet werden.</p>
-<img src="images/usage_thebe2.png" alt="Interacte Mode Code-Cell" style="width: 1000px;"/>
+<img alt="Interacte Mode Code-Cell" src="../../_images/usage_thebe2.png" />
 <p>Denken Sie daran, dass die Code-Zellen unter Umständen von einander abhängig sein könnten. Wenn zum Beispiel in einer Code-Zelle auf eine Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> zugegriffen wird, muss diese auch im Workspace zur Verfügung stehen. Ist dies nicht der Fall, haben Sie wahrscheinlich die Code-Zelle weiter oben, in der <code class="docutils literal notranslate"><span class="pre">x</span></code> initialisiert wird, nicht ausgeführt.</p>
 </div>
 <div class="section" id="interact">
 <h2>Interact<a class="headerlink" href="#interact" title="Permalink to this headline">¶</a></h2>
 <p>Der Nachteil der “Interact”-Methode ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über <a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">Jupyter Lab</a> zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft.</p>
-<img src="images/usage_binder.png" alt="Jupyter Lab Screenshot" style="width: 1200px;"/>
-<img src="images/usage_binder_launcher.png" alt="Jupyter Lab Screenshot 2" style="width: 1200px;"/>
+<img alt="Jupyter Lab Screenshot" src="../../_images/usage_binder.png" />
+<img alt="Jupyter Lab Screenshot 2" src="../../_images/usage_binder_launcher.png" />
 <p>Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auch neue Dokumente, wie z.B. m-files, erstellen oder hochladen, Dokumente herunterladen und eine Linux-Konsole starten. Das Ganze funktioniert über einen <a class="reference external" href="https://de.wikipedia.org/wiki/Docker_(Software)">Docker-Container</a>, der über den <a class="reference external" href="https://mybinder.org/">Binder</a> Service geladen wird.</p>
 <p><img src="images/attention.svg" alt="" style="width: 25px; display: inline;" />    <strong>Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!</strong> Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.</p>
 </div>
@@ -732,9 +735,9 @@ function test_fac_array
 <h3>Bekannte bzw. erwartete Probleme:<a class="headerlink" href="#bekannte-bzw-erwartete-probleme" title="Permalink to this headline">¶</a></h3>
 <ol>
 <li><p><strong>Wenn ich auf <code class="docutils literal notranslate"><span class="pre">run</span></code> klicke, steht da nur <code class="docutils literal notranslate"><span class="pre">Waiting</span> <span class="pre">for</span> <span class="pre">kernel...</span></code> und nichts passiert.</strong></p>
-<img src="images/usage_waiting.png" alt="Drawing" style="width: 400px;"/>
+<img alt="Drawing" src="../../_images/usage_waiting.png" />
 <p><em>Lösung:</em> Geduld. Wahrscheinlich wurden gerade Änderungen an diesem Buch vorgenommen und Sie sind die erste Person, die seitdem interaktive Inhalte nutzen will. Damit haben sie ein <em>rebuild des binder image getriggert</em>. Das kann schon mal eine Weile dauern. Dasselbe gilt für die “Interact” Funktion. Hier erhält man aber ausführlichere Informationen über eine Konsolenausgabe beim Start.</p>
-<img src="images/usage_binder_waiting.png" alt="Binder Loading Page" style="width: 1200px;"/>
+<img alt="Binder Loading Page" src="../../_images/usage_binder_waiting.png" />
 </li>
 <li><p><strong>Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.</strong></p>
 <p><em>Lösung:</em> Ab und zu wird der Code fälschlicherweise an einen <em>Python</em>-Interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen. Vergessen Sie aber nicht, Ihren eingetragenen Code vorher zu kopieren, damit er beim Neuladen nicht abhanden kommt!</p>

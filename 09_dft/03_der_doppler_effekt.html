@@ -1,9 +1,10 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Der Doppler Effekt &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
@@ -24,12 +25,14 @@
     href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
   <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
 
@@ -43,7 +46,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
@@ -122,7 +125,7 @@
     </i>
    </li>
    <li class="toctree-l2 collapsible-parent">
-    <a class="reference internal" href="../00_einleitung/03_exercises/00_übungsaufgaben.html">
+    <a class="reference internal" href="../00_einleitung/03_exercises/00_%C3%BCbungsaufgaben.html">
      Übungsaufgaben
     </a>
     <ul class="collapse-ul">
@@ -188,7 +191,7 @@
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_gleitkommaarithmetik/01_übungen.html">
+    <a class="reference internal" href="../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
     </a>
    </li>
@@ -245,7 +248,7 @@
   </a>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../07_num_ode/00_numerik_gewöhnlicher_differentialgleichungen.html">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
    Numerik gewöhnlicher Differentialgleichungen
   </a>
   <ul class="collapse-ul">
@@ -471,12 +474,14 @@
                 
   <div class="section" id="der-doppler-effekt">
 <h1>Der Doppler Effekt<a class="headerlink" href="#der-doppler-effekt" title="Permalink to this headline">¶</a></h1>
-<p><em>Hinweis</em>: Der Inhalt dieser Seite lässt sich nicht interaktiv auf dieser Seite ausführen.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Der Inhalt dieser Seite lässt sich nicht interaktiv auf dieser Seite ausführen.</p>
+</div>
 <p>In <a class="reference external" href="https://www.youtube.com/watch?v=a3RfULw7aAY">dem folgenden Video</a> ist kurz ein Verkehrsschild zu sehen: Hier ist eine Maximalgeschwindigkeit von 50 mph, bzw. ca. 80 km/h vorgeschrieben.</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a3RfULw7aAY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 <p>Eine Frage drängt sich nahezu auf: <em><strong>Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung?</strong></em></p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" alt="Matlab Logo" style="width: 200px;"/>
-<p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug an einem vorbei fährt, klingt die Sirene plötzlich viel tiefer. Er ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
+<img alt="Matlab Logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" /><p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug an einem vorbei fährt, klingt die Sirene plötzlich viel tiefer. Er ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
 <div class="section" id="frequenzanalyse">
 <h2>Frequenzanalyse<a class="headerlink" href="#frequenzanalyse" title="Permalink to this headline">¶</a></h2>
 <p>Mit einem beliebigen Online <em>Youtube-zu-mp3-Converter</em> lässt sich die Tonspur des Videos extrahieren und mit der Funktion <code class="docutils literal notranslate"><span class="pre">audioread</span></code> in Matlab einlesen. Mit Hilfe der Signalverarbeitungstoolbox kann man sich dann ein Spektrogramm erstellen:</p>
@@ -495,8 +500,7 @@
 <h2>Ursache des Dopplereffektes<a class="headerlink" href="#ursache-des-dopplereffektes" title="Permalink to this headline">¶</a></h2>
 <p>Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus.</p>
 <p>Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.</p>
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg" alt="Matlab Logo" style="width: 600px;"/>
-<p>Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz als die gestreckten Wellenberge hinter dem Fahrzeug und werden deshalb auch als höherer Ton wahrgenommen.</p>
+<img alt="Matlab Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg" /><p>Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz als die gestreckten Wellenberge hinter dem Fahrzeug und werden deshalb auch als höherer Ton wahrgenommen.</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" /></p>
 <div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" > [CC BY-SA 3.0], via Wikimedia Commons </a></div></div>
 <div class="section" id="zuruck-zur-ursprunglichen-fragestellung">
