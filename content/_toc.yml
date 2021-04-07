@@ -31,32 +31,32 @@ sections:
   sections:
   - file: 01_schwingungen/01_harmonische_schwingung
     title: Harmonische Schwingung
-- file: 02_lineare_gleichungen/00_lineare_gleichungssysteme
-  title: Lineare Gleichungssysteme
-  sections:
-  - file: 02_lineare_gleichungen/01_modellierung_einer_highline
-    title: Modellierung einer Highline
-- file: 03_gleitkommaarithmetik/00_gleitkommaarithmetik
+- file: 02_gleitkommaarithmetik/00_gleitkommaarithmetik
   title: Gleitkommaarithmetik
   sections:
-  - file: "03_gleitkommaarithmetik/01_\xFCbungen"
-    title: "Übungen"
-- file: 04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
-  title: Nichtlineare Gleichungssysteme
-  sections:
-  - file: 04_nichtlineare_gleichungen/01_newton-verfahren
-    title: Newton-Verfahren
-  - file: 04_nichtlineare_gleichungen/02_bierschaumzerfall
-    title: Bierschaumzerfall
-- file: 05_interp_approx/00_interpolation_Und_approximation
+  - file: "02_gleitkommaarithmetik/01_\xFCbungen"
+    title: "Übungen" 
+- file: 03_interp_approx/00_interpolation_Und_approximation
   title: Interpolation und Approximation
   sections:
-  - file: 05_interp_approx/01_lineare_interpolation
+  - file: 03_interp_approx/01_lineare_interpolation
     title: Lineare Interpolation
-  - file: 05_interp_approx/02_lineare_approximation
+  - file: 03_interp_approx/02_lineare_approximation
     title: Lineare Approximation
-  - file: 05_interp_approx/03_spline_interpolation
-    title: Spline Interpolation
+  - file: 03_interp_approx/03_spline_interpolation
+    title: Spline Interpolation 
+- file: 04_lineare_gleichungen/00_lineare_gleichungssysteme
+  title: Lineare Gleichungssysteme
+  sections:
+  - file: 04_lineare_gleichungen/01_modellierung_einer_highline
+    title: Modellierung einer Highline
+- file: 05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
+  title: Nichtlineare Gleichungssysteme
+  sections:
+  - file: 05_nichtlineare_gleichungen/01_newton-verfahren
+    title: Newton-Verfahren
+  - file: 05_nichtlineare_gleichungen/02_bierschaumzerfall
+    title: Bierschaumzerfall
 - file: 06_Differentiation_Integration/00_differentiation_und_integration
   title: Differentiation und Integration
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
