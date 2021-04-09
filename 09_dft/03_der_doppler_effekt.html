@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Der Doppler Effekt &#8212; Modellbildung und Simulation</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +27,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,9 +45,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -54,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -363,21 +364,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -395,7 +396,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -410,13 +411,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -438,13 +439,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -467,6 +469,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -474,7 +477,7 @@
         
               <div>
                 
-  <div class="section" id="der-doppler-effekt">
+  <section id="der-doppler-effekt">
 <h1>Der Doppler Effekt<a class="headerlink" href="#der-doppler-effekt" title="Permalink to this headline">¶</a></h1>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
@@ -484,7 +487,7 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/a3RfULw7aAY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 <p>Eine Frage drängt sich nahezu auf: <em><strong>Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung?</strong></em></p>
 <img alt="Matlab Logo" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" /><p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug an einem vorbei fährt, klingt die Sirene plötzlich viel tiefer. Er ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
-<div class="section" id="frequenzanalyse">
+<section id="frequenzanalyse">
 <h2>Frequenzanalyse<a class="headerlink" href="#frequenzanalyse" title="Permalink to this headline">¶</a></h2>
 <p>Mit einem beliebigen Online <em>Youtube-zu-mp3-Converter</em> lässt sich die Tonspur des Videos extrahieren und mit der Funktion <code class="docutils literal notranslate"><span class="pre">audioread</span></code> in Matlab einlesen. Mit Hilfe der Signalverarbeitungstoolbox kann man sich dann ein Spektrogramm erstellen:</p>
 <p><img alt="" src="../_images/honking_car_spectogram.png" /></p>
@@ -497,15 +500,15 @@
 <li><p>Die zweite Frequenz von 1104 Hz fällt beim Vorbeifahren auf 964 Hz ab.</p></li>
 <li><p>Die dritte Frequenz von 456 Hz fällt herab auf 399 Hz.</p></li>
 </ul>
-</div>
-<div class="section" id="ursache-des-dopplereffektes">
+</section>
+<section id="ursache-des-dopplereffektes">
 <h2>Ursache des Dopplereffektes<a class="headerlink" href="#ursache-des-dopplereffektes" title="Permalink to this headline">¶</a></h2>
 <p>Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus.</p>
 <p>Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.</p>
 <img alt="Matlab Logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg" /><p>Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz als die gestreckten Wellenberge hinter dem Fahrzeug und werden deshalb auch als höherer Ton wahrgenommen.</p>
 <p><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" /></p>
-<div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" > [CC BY-SA 3.0], via Wikimedia Commons </a></div></div>
-<div class="section" id="zuruck-zur-ursprunglichen-fragestellung">
+<div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" > [CC BY-SA 3.0], via Wikimedia Commons </a></div></section>
+<section id="zuruck-zur-ursprunglichen-fragestellung">
 <h2>Zurück zur ursprünglichen Fragestellung<a class="headerlink" href="#zuruck-zur-ursprunglichen-fragestellung" title="Permalink to this headline">¶</a></h2>
 <p>Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt <span class="math notranslate nohighlight">\(f_A\)</span>. Das Signal breitet sich mit der Schallgeschwindigkeit von c = 340 m/s aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons, ist dann</p>
 <div class="math notranslate nohighlight">
@@ -554,8 +557,8 @@
 </div>
 <p>Die Toleranzen bei Geschwindigkeitsmessungen in USA liegen im Ermessen des Verkehrsbeamten, in der Regel geht man aber von ca. 5 mph aus. Glück gehabt!</p>
 <p><img alt="" src="https://media1.popsugar-assets.com/files/thumbor/X4YCyk7qgj3rZJ_o2UbD_SazRsM/fit-in/1200x630/filters:format_auto-%21%21-:strip_icc-%21%21-:fill-%21white%21-/2018/01/04/870/n/1922398/addurlFvJTS6/i/When-He-Literally-Doppler-Effect.gif" /></p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -579,15 +582,15 @@
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="02_filtern_verrauschter_signale.html" title="previous page">Filtern verrauschter Signale</a>
     <a class='right-next' id="next-link" href="04_vuvuzela_filter.html" title="next page">Vuvuzela Filter</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -606,7 +609,7 @@
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

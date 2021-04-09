@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Modellierung einer Highline &#8212; Modellbildung und Simulation</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +27,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,9 +45,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -54,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -363,21 +364,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -395,7 +396,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -410,13 +411,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -438,13 +439,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -489,6 +491,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -496,15 +499,15 @@
         
               <div>
                 
-  <div class="section" id="modellierung-einer-highline">
+  <section id="modellierung-einer-highline">
 <h1>Modellierung einer Highline<a class="headerlink" href="#modellierung-einer-highline" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C6MtzvQ5hZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Mittels einer Reihenschaltung von Federdämpfer-Systemen lässt sich ein einfaches zweidimensionales Modell einer Highline erstellen.</p>
-<div class="section" id="modellbeschreibung">
+<section id="modellbeschreibung">
 <h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
 <p><img alt="" src="../_images/bridge.png" /></p>
 <p>Die Highline wird als eine Kette von <span class="math notranslate nohighlight">\(N\)</span> Massepunkten modelliert, die jeweils mit Feder- und Dämpferelementen in horizontaler und vertikaler Richtung miteinader verbunden sind.</p>
-<div class="section" id="kraftebilanzierung">
+<section id="kraftebilanzierung">
 <h3>Kräftebilanzierung<a class="headerlink" href="#kraftebilanzierung" title="Permalink to this headline">¶</a></h3>
 <p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen <span class="math notranslate nohighlight">\(\mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix}\)</span> der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null, <span class="math notranslate nohighlight">\(\mathbf{z}_{0}=\mathbf{z}_{N+1}=\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span>.</p>
 <p>Angenommen jeder Massepunkt hat die Masse <span class="math notranslate nohighlight">\(m\)</span> und die Federdämpferelemente haben die Steifigkeiten <span class="math notranslate nohighlight">\(k\)</span> und Dämpfungskoeffizienten <span class="math notranslate nohighlight">\(d\)</span>. Durch Freischneiden und Kraftbilanzierung lassen sich für alle Massepunkte die Bewegungsgleichungen aufstellen. Sei <span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{ext}} \in \mathbb{R}^2\)</span> die externe Kraft, die auf den Massepunkt mit Index <span class="math notranslate nohighlight">\(i\)</span> wirkt. Dann gilt</p>
@@ -535,8 +538,8 @@
 <div class="math notranslate nohighlight">
 \[M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}\]</div>
 <p>an, nur dass die Koeffizienten <span class="math notranslate nohighlight">\(M, D\)</span> und <span class="math notranslate nohighlight">\(K\)</span> nun matrixwertig sind und die unbekannte Verschiebungsfunktion <span class="math notranslate nohighlight">\(\mathbf{z}(t)\)</span> vektorwertig mit <span class="math notranslate nohighlight">\(2N\)</span> Einträgen ist: Ein Eintrag pro Raumrichtung und beweglichem Massepunkt der Highline.</p>
-</div>
-<div class="section" id="ein-stationarer-lastfall">
+</section>
+<section id="ein-stationarer-lastfall">
 <h3>Ein stationärer Lastfall<a class="headerlink" href="#ein-stationarer-lastfall" title="Permalink to this headline">¶</a></h3>
 <p>Es soll zunächst der stationäre Lastfall untersucht werden, bei dem nur die Schwerkraft auf die Highline wirkt, d.h. Sie gehen von einer konstanten Kraft
 <span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{ext}}=\begin{bmatrix} 0 \\ -m g \end{bmatrix}\)</span>
@@ -563,9 +566,9 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 <p>gelöst wird. Die Verschiebungen <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> erhält man aus der <em>entdimensionalisierten</em> Lösung <span class="math notranslate nohighlight">\(\tilde{\mathbf{z}}\)</span> des Gleichunssystemes mittels</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{z} = - \frac{m_{\text{ges}}\cdot g}{N^2 \cdot k_{\text{ges}}} \tilde{\mathbf{z}}.\]</div>
-</div>
-</div>
-<div class="section" id="aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht">
+</section>
+</section>
+<section id="aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht">
 <h2>Aufgabe 1 - Durchhang der Highline ohne Zusatzgewicht<a class="headerlink" href="#aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht" title="Permalink to this headline">¶</a></h2>
 <p>Lösen Sie das Gleichungssystem <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} = \mathbf{b}\)</span> mit <span class="math notranslate nohighlight">\(S \in \mathbb{R}^{2N \times 2N}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{2N}\)</span> für verschiedene Werte für <span class="math notranslate nohighlight">\(N\)</span> mit Hilfe des backslash-Operators <code class="docutils literal notranslate"><span class="pre">S\b</span></code> und berechnen Sie anschließend die Verschiebung der Massepunkte <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>.</p>
 <div class="cell docutils container">
@@ -593,8 +596,8 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 <li><p>Wie hoch muss die Auflösung <span class="math notranslate nohighlight">\(N\)</span> Ihrer Ansicht nach mindestens sein, um dem Ergebnis vertrauen zu können? Begründen Sie Ihre Antwort mit konkreten Zahlen!</p></li>
 </ul>
 <p><strong>Tipp:</strong> Verwenden Sie den Matlabbefehl <code class="docutils literal notranslate"><span class="pre">diag</span></code> um die Matrix zu erstellen.</p>
-</div>
-<div class="section" id="aufgabe-2-dunnbesetzte-matrizen">
+</section>
+<section id="aufgabe-2-dunnbesetzte-matrizen">
 <h2>Aufgabe 2 - Dünnbesetzte Matrizen<a class="headerlink" href="#aufgabe-2-dunnbesetzte-matrizen" title="Permalink to this headline">¶</a></h2>
 <p>Die Matrix <span class="math notranslate nohighlight">\(S\)</span> enthält viele Einträge die Null sind. Diese verbrauchen erstens unnötig viel Speicher, und zweitens, werden bei vielen Algorithmen oft unnötige Rechenoperationen mit diesen Einträgen ausgeführt, was den Rechenaufwand insbesondere bei sehr großen Matrizen erhöht. Mit dem folgenden Matlab-Code wird die Matrix in einem Speicherformat für dünnbesetzte Matrizen erzeugt. Es werden nur die von Null verschiedenen Einträge zusammen mit ihren jeweiligen Indizes gespeichert.</p>
 <div class="cell docutils container">
@@ -647,8 +650,8 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="aufgabe-3-iterative-gleichungssystemloser">
+</section>
+<section id="aufgabe-3-iterative-gleichungssystemloser">
 <h2>Aufgabe 3 - Iterative Gleichungssystemlöser<a class="headerlink" href="#aufgabe-3-iterative-gleichungssystemloser" title="Permalink to this headline">¶</a></h2>
 <p>Ab einer bestimmten Größe des Gleichungssystems sind iterative Verfahren zum Lösen von linearen Gleichungssystem besser geeignet als direkte Lösungsverfahren wie das LU-Verfahren.</p>
 <p>Prominente Vertreter iterativer Verfahren für lineare Gleichungssysteme sind das konjugierte Gradientenverfahren <em>(Matlab: <code class="docutils literal notranslate"><span class="pre">cgs</span></code>)</em>, das Minres-Verfahren <em>(Matlab: <code class="docutils literal notranslate"><span class="pre">minres</span></code>)</em> sowie das BiCGstab-Verfahren <em>(Matlab: <code class="docutils literal notranslate"><span class="pre">bicgstab</span></code>)</em>.</p>
@@ -737,8 +740,8 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="aufgabe-4-simulation-des-slackliners">
+</section>
+<section id="aufgabe-4-simulation-des-slackliners">
 <h2>Aufgabe 4 - Simulation des Slackliners<a class="headerlink" href="#aufgabe-4-simulation-des-slackliners" title="Permalink to this headline">¶</a></h2>
 <p>In einer sogenannten <em>quasistatischen</em> Simulation wird ein zeitabhängiger Prozess so simuliert, dass in jedem Zeitschritt ein stationärer Zustand berechnet wird. So wird die Dynamik (z.B. Oszillation der Slackline) vernachlässigt, was die Berechnung deutlich vereinfacht. Schließlich muss keine Differentialgleichung gelöst werden, es reicht eine Abfolge von linearen Gleichungssystemen zu lösen.</p>
 <a class="reference internal image-reference" href="../_images/slackline_animation.gif"><img alt="Slackline Animation" src="../_images/slackline_animation.gif" style="width: 800px;" /></a>
@@ -761,8 +764,8 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -786,15 +789,15 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="00_lineare_gleichungssysteme.html" title="previous page">Lineare Gleichungssysteme</a>
     <a class='right-next' id="next-link" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html" title="next page">Gleitkommaarithmetik</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -813,7 +816,7 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

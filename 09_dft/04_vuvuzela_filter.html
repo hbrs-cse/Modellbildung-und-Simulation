@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Vuvuzela Filter &#8212; Modellbildung und Simulation</title>
     
-  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +27,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -34,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -44,9 +45,7 @@
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -54,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -363,21 +364,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -395,7 +396,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -410,13 +411,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -438,13 +439,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -512,6 +514,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -519,7 +522,7 @@
         
               <div>
                 
-  <div class="section" id="vuvuzela-filter">
+  <section id="vuvuzela-filter">
 <h1>Vuvuzela Filter<a class="headerlink" href="#vuvuzela-filter" title="Permalink to this headline">¶</a></h1>
 <p>Erinnern Sie sich noch an die WM 2010 in Südafrika?</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HFISx1j0kak?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><div class="admonition-hinweis admonition">
@@ -534,7 +537,7 @@
 <li><p>Wir testen den Filter anhand unserer Aufnahme.</p></li>
 <li><p>Wir wenden den Filter auf eine Aufnahme der WM 2010 an um die Vuvuzelas aus dem Audiokanal zu entfernen oder zumindest etwas zu dämpfen.</p></li>
 </ol>
-<div class="section" id="schritt-1-die-aufnahme">
+<section id="schritt-1-die-aufnahme">
 <h2>Schritt 1: Die Aufnahme<a class="headerlink" href="#schritt-1-die-aufnahme" title="Permalink to this headline">¶</a></h2>
 <p>Packen Sie ihre Vuvuzela aus! Wir können mit Matlab den <em>Vuvuzla</em>-Ton aufnehmen. Wir verwenden eine Samplingrate von <span class="math notranslate nohighlight">\(44,1\;\mathrm{kHz}\)</span>, eine Klangtiefe von <span class="math notranslate nohighlight">\(8\;\textrm{Bit}\)</span> und wollen nur einen Kanal (Mono):</p>
 <div class="cell docutils container">
@@ -587,8 +590,8 @@ Recording...
 </div>
 </div>
 <p>Ok, das Signal ist eindeutig übersteuert. Die wesentlichen Frequenzen sind aber hoffentlich im Signal vorhanden.</p>
-</div>
-<div class="section" id="schritt-2-die-frequenzanalyse">
+</section>
+<section id="schritt-2-die-frequenzanalyse">
 <h2>Schritt 2: Die Frequenzanalyse<a class="headerlink" href="#schritt-2-die-frequenzanalyse" title="Permalink to this headline">¶</a></h2>
 <p>Schauen wir uns das Signal im Frequenzraum an. Dazu berechnen wir erstmal die reellen Koeffizenten.</p>
 <div class="admonition-hinweis admonition">
@@ -628,7 +631,7 @@ Recording...
 <img alt="../_images/04_vuvuzela_filter_15_0.png" src="../_images/04_vuvuzela_filter_15_0.png" />
 </div>
 </div>
-<div class="section" id="die-vuvuzela-frequenzen">
+<section id="die-vuvuzela-frequenzen">
 <h3>Die <em>Vuvuzela</em>-Frequenzen<a class="headerlink" href="#die-vuvuzela-frequenzen" title="Permalink to this headline">¶</a></h3>
 <p>Aus dem Plot der Fourierkoeffizienten können wir die Frequenzen der Vuvuzela ablesen. Es gibt einen Grundton sowie mehrere Obertöne, die alle um eine bestimmte Frequenz normalverteilt sind.</p>
 <p>Wir wollen nun einen Filter konstruieren, der im Frequenzraum arbeitet. Dazu wollen wir die folgenden <em>Vuvuzela</em>-Frequenzen <code class="docutils literal notranslate"><span class="pre">F</span></code>, jeweils mit einer kleinen Umgebung mit Radius <code class="docutils literal notranslate"><span class="pre">Fband</span></code> aus dem Spektrum entfernen:</p>
@@ -640,9 +643,9 @@ Recording...
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="schritt-3-filterkonstruktion">
+</section>
+</section>
+<section id="schritt-3-filterkonstruktion">
 <h2>Schritt 3: Filterkonstruktion<a class="headerlink" href="#schritt-3-filterkonstruktion" title="Permalink to this headline">¶</a></h2>
 <p><strong>Strategie:</strong> Wir ordnen jeder Frequenz einen Multiplikator zu. Wollen wir die Frequenz behalten, ist der Multiplikator 1, wollen wir die Frequenz entfernen, ist der Multiplikator 0.</p>
 <p>Um den Multiplikator zu konstruieren, verwenden wir die sogenannte logistische Funktion <span class="math notranslate nohighlight">\(f(x) = \frac{1}{1+e^{-k\cdot(x-x_0)}}\)</span></p>
@@ -673,7 +676,7 @@ Recording...
 <img alt="../_images/04_vuvuzela_filter_23_0.png" src="../_images/04_vuvuzela_filter_23_0.png" />
 </div>
 </div>
-<div class="section" id="nebenbei">
+<section id="nebenbei">
 <h3>Nebenbei:<a class="headerlink" href="#nebenbei" title="Permalink to this headline">¶</a></h3>
 <p>Neben zwei logistischen Funktionen haben wir viele andere Optionen:</p>
 <ul class="simple">
@@ -717,9 +720,9 @@ Recording...
 <img alt="../_images/04_vuvuzela_filter_28_0.png" src="../_images/04_vuvuzela_filter_28_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="schritt-4-testen-des-filters-an-der-ursprunglichen-aufnahme">
+</section>
+</section>
+<section id="schritt-4-testen-des-filters-an-der-ursprunglichen-aufnahme">
 <h2>Schritt 4: Testen des Filters an der ursprünglichen Aufnahme<a class="headerlink" href="#schritt-4-testen-des-filters-an-der-ursprunglichen-aufnahme" title="Permalink to this headline">¶</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -768,8 +771,8 @@ Filtered recording
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="schritt-5-wenden-wir-den-filter-an-einem-beispiel-an">
+</section>
+<section id="schritt-5-wenden-wir-den-filter-an-einem-beispiel-an">
 <h2>Schritt 5: Wenden wir den Filter an einem Beispiel an<a class="headerlink" href="#schritt-5-wenden-wir-den-filter-an-einem-beispiel-an" title="Permalink to this headline">¶</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HFISx1j0kak?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe><p><strong>Ich habe da mal etwas vorbereitet…</strong> und die Tonspur des vorherigen Videos als mp3 heruntergeladen. Diese lässt sich mit Matlab importieren:</p>
 <div class="cell docutils container">
@@ -816,8 +819,8 @@ Filtered recording
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="reproduzierbarkeit">
+</section>
+<section id="reproduzierbarkeit">
 <h2>Reproduzierbarkeit<a class="headerlink" href="#reproduzierbarkeit" title="Permalink to this headline">¶</a></h2>
 <p>Um später nachvollziehen zu können,</p>
 <ul class="simple">
@@ -832,22 +835,22 @@ Filtered recording
 </div>
 </div>
 </div>
-<div class="section" id="abschlieszende-bemerkungen">
+<section id="abschlieszende-bemerkungen">
 <h3>Abschließende Bemerkungen<a class="headerlink" href="#abschlieszende-bemerkungen" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Wir haben einen sehr naiven Notch-Filter-Ansatz verwendet, moderne Filter in der Tontechnik sind viel komplizierter.</p></li>
 <li><p>Nichtsdestotrotz finden die meisten Filter direkt im Frequenzraum statt und Notch-Filter, wenn auch etwas komplexer, finden eine weite Anwendung.</p></li>
 </ul>
-</div>
-<div class="section" id="kommentare-zum-matlab-beispiel">
+</section>
+<section id="kommentare-zum-matlab-beispiel">
 <h3>Kommentare zum Matlab-Beispiel:<a class="headerlink" href="#kommentare-zum-matlab-beispiel" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p>Im präsentierten Beispiel hat das Signal des Youtube-Videos dieselbe Länge wie die Vuvuzela-Aufnahme, da wir ein gleichgroßes Zeitfenster von 5 Sekunden und dieselbe Abtastfrequenz von 44,1 kHz verwenden.</p></li>
 <li><p>Wenn wir den Filter auf ein längeres Video anwenden wollen, müssen wir den Multiplier neu ausrechnen, damit er die korrekte Länge hat. Am besten schreibt man sich eine Funktion <code class="docutils literal notranslate"><span class="pre">multiplier</span> <span class="pre">=</span> <span class="pre">function(F,</span> <span class="pre">Fband,</span> <span class="pre">freq)</span></code> um Code-Dopplung zu vermeiden.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -871,15 +874,15 @@ Filtered recording
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="03_der_doppler_effekt.html" title="previous page">Der Doppler Effekt</a>
     <a class='right-next' id="next-link" href="../10_bvp/00_randwertprobleme.html" title="next page">Randwertprobleme</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -898,7 +901,7 @@ Filtered recording
     </div>
 
     
-  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     

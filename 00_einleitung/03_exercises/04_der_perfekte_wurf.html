@@ -4,10 +4,11 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+
     <title>Der perfekte Wurf &#8212; Modellbildung und Simulation</title>
     
-  <link rel="stylesheet" href="../../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+  <link rel="stylesheet" href="../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
     
   <link rel="stylesheet"
@@ -26,7 +27,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -34,7 +35,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.3da636dd464baa7582d2.js">
+  <link rel="preload" as="script" href="../../_static/js/index.d3f166471bb80abb5163.js">
 
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -44,9 +45,7 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script src="../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -54,6 +53,8 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -363,21 +364,21 @@
           
 <main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
     
-    <div class="row topbar fixed-top container-xl">
-    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
-    </div>
-    <div class="col pl-2 topbar-main">
-        
-        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-arrow-left"></i>
-            <i class="fas fa-arrow-up"></i>
-        </button>
-        
-        
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
             class="fas fa-download"></i></button>
@@ -395,7 +396,7 @@
     </div>
 </div>
 
-        <!-- Source interaction buttons -->
+            <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -410,13 +411,13 @@
 </div>
 
 
-        <!-- Full screen (wrap in <a> to have style consistency -->
-        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                title="Fullscreen mode"><i
-                    class="fas fa-expand"></i></button></a>
+            <!-- Full screen (wrap in <a> to have style consistency -->
+            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                    title="Fullscreen mode"><i
+                        class="fas fa-expand"></i></button></a>
 
-        <!-- Launch buttons -->
+            <!-- Launch buttons -->
 
 <div class="dropdown-buttons-trigger">
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
@@ -438,13 +439,14 @@
     </div>
 </div>
 
-    </div>
+        </div>
 
-    <!-- Table of contents -->
-    <div class="d-none d-md-block col-md-2 bd-toc show">
-        
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
         <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i> Contents
+            <i class="fas fa-list"></i>
+            Contents
         </div>
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
@@ -508,6 +510,7 @@
 
         </nav>
         
+        </div>
     </div>
 </div>
     <div id="main-content" class="row">
@@ -515,18 +518,18 @@
         
               <div>
                 
-  <div class="section" id="der-perfekte-wurf">
+  <section id="der-perfekte-wurf">
 <h1>Der perfekte Wurf<a class="headerlink" href="#der-perfekte-wurf" title="Permalink to this headline">¶</a></h1>
 <p>Man könnte annehmen, dass das (erfolgreiche) Werfen eines Freiwurfs für alle hochbezahlten Basketballstars eine reine Formalität ist. Erstaunlicherweise ist dem nicht so! Während der deutsche NBA Star Dirk Nowitzki in der Saison 2008/09 laut NBA Media Ventures (2009) immerhin eine Trefferquote von 89% hatte, gibt es andere NBA Superstars, die in dieser Hinsicht weniger erfolgreich sind. Ein prominentes Beispiel ist Shaquille O’Neal, der am Ende der Saison 2008/09 gerade einmal eine Trefferquote von 59% hatte, in seiner gesamten Karriere sogar nur eine Quote von 52.4%. Er ist kein Einzelfall: Fast ein Drittel der NBA-Spieler haben beim Freiwurf eine Trefferquote von weniger als 75%. Für uns stellt sich die Frage: Woher kommen diese Unterschiede und ist es eventuell möglich ein Modell zu erstellen, das den ’perfekten Wurf’ wiedergibt?</p>
 <figure>
   <img src="images/basketball_title.jpg" alt="Wurf"/>
-</figure><div class="section" id="modellbeschreibung">
+</figure><section id="modellbeschreibung">
 <h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
 <p>In Abbildung 1 sind die Messungen eines aufgezeichneten Wurfes dargestellt. Der Ball geht ins Netz, wobei er knapp die Hände von Spieler B streift. Die Größe des Balles wird hier vernachlässigt und das Problem wird nur in zwei Dimensionen betrachtet. Der Ball vollführt eine geradlinige Bewegung in horizantler Richtung und eine gleichförmig beschleunigte Bewegung in vertikaler Richtung. Das Koordinatensystem kann frei gewählt werden, hier wird der Ursprung an die Position des werfenden Spielers auf Bodenhöhe gelegt. Dabei soll die <span class="math notranslate nohighlight">\(x\)</span>-Achse in Richtung des Baseketballkorbes und die <span class="math notranslate nohighlight">\(y\)</span>-Achse nach oben zeigen.</p>
 <figure>
   <img src="images/Ballwurf.jpg" alt="Wurf" width="500"/>
   <figcaption>Abbildung 1: Aufgezeichneter Basketballwurf</figcaption>
-</figure><div class="section" id="aufgabe-1-aufstellen-der-bewegungsgleichung">
+</figure><section id="aufgabe-1-aufstellen-der-bewegungsgleichung">
 <h3>Aufgabe 1: Aufstellen der Bewegungsgleichung<a class="headerlink" href="#aufgabe-1-aufstellen-der-bewegungsgleichung" title="Permalink to this headline">¶</a></h3>
 <p>Zunächst soll mit Bleistift und Papier die Grundlage geschaffen werden, um in den folgenden Aufgaben mit Hilfe von Matlab den Wurf eines Basketballes zu simulieren.
 Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung können leicht für die gegebene Bewegung hergeleitet werden.</p>
@@ -544,12 +547,12 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 <p>c) Stellen Sie <span class="math notranslate nohighlight">\(x(t)\)</span> und <span class="math notranslate nohighlight">\(y(t)\)</span> als Funktionen des Abwurfwinkels dar.</p>
 <p><span class="math notranslate nohighlight">\(x(t) =\)</span></p>
 <p><span class="math notranslate nohighlight">\(y(t) =\)</span></p>
-</div>
-</div>
-<div class="section" id="modellierung">
+</section>
+</section>
+<section id="modellierung">
 <h2>Modellierung<a class="headerlink" href="#modellierung" title="Permalink to this headline">¶</a></h2>
 <p>Mit Hilfe der zuvor aufgestellen Bewegungsgleichungen sollen im Folgenden verschiedene Freiwurf-Szenarien simuliert werden.</p>
-<div class="section" id="aufgabe-2-freiwurf-eines-punktformigen-balles">
+<section id="aufgabe-2-freiwurf-eines-punktformigen-balles">
 <h3>Aufgabe 2: Freiwurf eines punktförmigen Balles<a class="headerlink" href="#aufgabe-2-freiwurf-eines-punktformigen-balles" title="Permalink to this headline">¶</a></h3>
 <p>Schreiben Sie auf Basis der zuvor aufgestellten Bewegungsgleichungen ein Programm, in welchem Sie die Bahnkurve des Balls beim Freiwurf für beliebige Abwurfwinkel <span class="math notranslate nohighlight">\(\alpha\)</span> berechnen können. Am Ende dieser Seite steht dazu bereits ein Code-Gerüst. Dieses können Sie interaktiv auf dieser Seite nach und nach füllen und ausführen, oder in Matlab kopieren. Die Aufgaben sind so strukturiert, dass Sie Ihr Skript zur Lösung jeder weiteren Aufgabe erweitern können.</p>
 <p>Gehen Sie von einem punktförmigen Ball aus; einen gültigen Wurf erhalten Sie dann, wenn der Ball mittig im Korb landet. Binden Sie Korb und Brett in die Visualisierung ein. Verwenden Sie folgende Maße für die Beschreibung des Problems (Maße für alle Aufgabenteile):</p>
@@ -583,36 +586,36 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 </tr>
 </tbody>
 </table>
-<div class="section" id="a-abwurfwinkel">
+<section id="a-abwurfwinkel">
 <h4>a) Abwurfwinkel<a class="headerlink" href="#a-abwurfwinkel" title="Permalink to this headline">¶</a></h4>
 <p>Überlegen Sie sich, welche Abwurfwinkel realistisch sind und legen Sie auf dieser Basis ein Intervall fest, für das Sie Würfe simulieren wollen. Plotten Sie innerhalb dieses Intervalls alle Bahnkurven im Abstand von 0.1 Grad.</p>
 <figure>
   <img src="images/basketball_1.png" alt="Ergebnis a."/>
   <figcaption>Abbildung 2: Mögliches Ergebnis Aufgabenteil a)</figcaption>
-</figure></div>
-<div class="section" id="b-anpassen-der-korbgrosze">
+</figure></section>
+<section id="b-anpassen-der-korbgrosze">
 <h4>b) Anpassen der Korbgröße<a class="headerlink" href="#b-anpassen-der-korbgrosze" title="Permalink to this headline">¶</a></h4>
 <p>Der Korb ist in der Realität größer als der Ball, so dass dieser für einen Treffer nicht exakt mittig durch den Korb fallen muss. Erweitern Sie ihr Programm so, dass der Ball an jedem Punkt durch den Korb fallen kann. Gehen Sie dann von einer Anfangsgeschwindigkeit von <span class="math notranslate nohighlight">\( v_A = 8 \frac{\mathrm{m}}{\mathrm{s}}\)</span> aus und variieren Sie den Abwurfwinkel. Zwischen welchen Werten darf der Abwurfwinkel nun für einen Treffer schwanken? Visualisieren Sie die Bahnkurve für den minimalen, maximalen und optimalen (Ball landet mittig im Korb) Abwurfwinkel.</p>
 <figure>
   <img src="images/basketball_2.png" alt="Ergebnis 2."/>
   <figcaption>Abbildung 3: Mögliches Ergebnis Aufgabenteil b)</figcaption>
 </figure>
-</div>
-<div class="section" id="c-niemand-ist-perfekt">
+</section>
+<section id="c-niemand-ist-perfekt">
 <h4>c) Niemand ist perfekt!<a class="headerlink" href="#c-niemand-ist-perfekt" title="Permalink to this headline">¶</a></h4>
 <p>Niemand ist in der Lage den optimalen Abwurfwinkel bei jedem Wurf zu treffen, dieser schwankt in der Realität. Gehen Sie nun von <span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span> plus einem zufälligem Verwackler von <span class="math notranslate nohighlight">\(\pm 5^\circ\)</span> (<u>im Mittel</u>, max. <span class="math notranslate nohighlight">\(\pm 12^\circ\)</span>) aus. Wie viele Treffer werden nach 1000 Würfen in etwa erzielt? (Mittelwert und Standardabweichung!)</p>
 <figure>
   <img src="images/basketball_3.png" alt="Ergebnis 3."/>
   <figcaption>Abbildung 4: Mögliches Ergebnis Aufgabnteil c)</figcaption>
-</figure></div>
-<div class="section" id="d-abweichungen-in-der-abwurfgeschwindigkeit">
+</figure></section>
+<section id="d-abweichungen-in-der-abwurfgeschwindigkeit">
 <h4>d) Abweichungen in der Abwurfgeschwindigkeit<a class="headerlink" href="#d-abweichungen-in-der-abwurfgeschwindigkeit" title="Permalink to this headline">¶</a></h4>
 <p>Erweitern Sie Ihr Programm so, dass zusätzlich ein Fehler in der Abwurfgeschwindigkeit von <span class="math notranslate nohighlight">\(\pm 0.5\frac{\mathrm{m}}{\mathrm{s}}\)</span> (<u>im Mittel</u>, max. <span class="math notranslate nohighlight">\(\pm 1\frac{\mathrm{m}}{\mathrm{s}}\)</span>) berücksichtigt wird. Wie viele Treffer werden mit dieser zusätzlichen Eigenschaft nach 1000 Würfen in etwa erzielt (<span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span>)?</p>
 <figure>
   <img src="images/basketball_4.png" alt="Ergebnis 4."/>
   <figcaption>Abbildung 5: Mögliches Ergebnis Aufgabenteil d)</figcaption>
-</figure></div>
-<div class="section" id="e-bank-shots-erlaubt">
+</figure></section>
+<section id="e-bank-shots-erlaubt">
 <h4>e) Bank Shots erlaubt!<a class="headerlink" href="#e-bank-shots-erlaubt" title="Permalink to this headline">¶</a></h4>
 <p>Erweitern Sie Ihr Programm so, dass der Ball beim Auftreffen am Brett ideal elastisch zurückgestoßen wird. Wie viele Treffer werden nun erzielt (<span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span>)?</p>
 <div class="admonition-hinweis admonition">
@@ -622,8 +625,8 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 <figure>
   <img src="images/basketball_5.png" alt="Ergebnis 5."/>
   <figcaption>Abbildung 6: Mögliches Ergebnis Aufgabenteil e)</figcaption>
-</figure></div>
-<div class="section" id="f-ausblick">
+</figure></section>
+<section id="f-ausblick">
 <h4>f) Ausblick<a class="headerlink" href="#f-ausblick" title="Permalink to this headline">¶</a></h4>
 <p>Nennen Sie mindestens drei Einflussfaktoren eines realen Basketballwurfes, die bisher nicht in das Modell eingeflossen sind. Beschreiben Sie kurz (3-5 Sätze) wie Sie das Modell um mindestens einen dieser Faktoren möglichst einfach erweitern könnten. Stellen Sie sich vor, Sie sind Coach und möchten ihr Modell im Training einsetzen. Was kann Ihre Mannchaft aus Ihren Simulationen lernen (2-3 Sätze)? Und wie können Sie Ihr Modell durch Messungen im Training validieren? <strong>keine Programmierung</strong></p>
 <div class="cell tag_hide_output docutils container">
@@ -714,10 +717,10 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 </div>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -741,15 +744,15 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 
               </div>
               
-        </div>
-    </div>
-    
-    
-    <div class='prev-next-bottom'>
         
+        <div class='prev-next-bottom'>
+            
     <a class='left-prev' id="prev-link" href="03_verkehrssimulation.html" title="previous page">Verkehrssimulation</a>
     <a class='right-next' id="next-link" href="../../01_schwingungen/00_schwingungen.html" title="next page">Schwingungen</a>
 
+        </div>
+        
+        </div>
     </div>
     <footer class="footer mt-5 mt-md-0">
     <div class="container">
@@ -768,7 +771,7 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
     </div>
 
     
-  <script src="../../_static/js/index.3da636dd464baa7582d2.js"></script>
+  <script src="../../_static/js/index.d3f166471bb80abb5163.js"></script>
 
 
     
