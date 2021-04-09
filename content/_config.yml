@@ -69,3 +69,7 @@ parse:
     "html_image"
     ]
 
+#######################################################################################
+# Citation settings
+bibtex_bibfiles:
+   - references.bib
