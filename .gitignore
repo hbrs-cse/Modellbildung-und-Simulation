@@ -163,3 +163,6 @@ _build
 *.aux 
 *.fdb_latexmk
 *.fls 
+
+# table of contents (is generated using CI)
+_toc.yml
