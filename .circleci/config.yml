@@ -30,7 +30,8 @@ jobs:
           name: Build page intermediate HTML files
           command: |
             cd content
-            jupyter-book build -W .
+            jupyter-book toc .
+            jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
