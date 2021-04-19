@@ -20,9 +20,13 @@
         } 
     ],
     "contributors": [
-        {
+	{
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
-            "name": "Philipp Rosauer"
+            "name": "Jasmin Breuer"
+        },
+	{
+            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
+            "name": "Sandro Elsweijer"
         }, 
         {
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
@@ -30,7 +34,12 @@
         },
 	{
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
-            "name": "Sandro Elsweijer"
+            "name": "Philipp Spelten"
+	},
+	{
+            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
+            "name": "Philipp Rosauer"
         }
+	    
     ]
 }
