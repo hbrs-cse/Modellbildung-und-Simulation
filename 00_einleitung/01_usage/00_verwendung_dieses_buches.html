@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>Verwendung dieses Buches &#8212; Modellbildung und Simulation</title>
     
@@ -451,13 +451,13 @@
         <nav id="bd-toc-nav">
             <ul class="nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#thebelab">
-   Thebelab
+  <a class="reference internal nav-link" href="#live-code">
+   Live Code
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#interact">
-   Interact
+  <a class="reference internal nav-link" href="#binder">
+   Binder
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -486,13 +486,6 @@
   <a class="reference internal nav-link" href="#troubleshooting">
    Troubleshooting
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#bekannte-bzw-erwartete-probleme">
-     Bekannte bzw. erwartete Probleme:
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -508,30 +501,36 @@
                 
   <section id="verwendung-dieses-buches">
 <span id="verwendung"></span><h1>Verwendung dieses Buches<a class="headerlink" href="#verwendung-dieses-buches" title="Permalink to this headline">¶</a></h1>
-<p>Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.</p>
-<p>Alle Seiten, die Codeblöcke enthalten, haben oben in der Kopfzeile zwei Buttons, einen auf dem “Thebelab” steht, und einen auf dem “Interact” steht.</p>
-<img alt="Interact buttons" src="../../_images/usage_buttons.png" />
+<p>Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese Features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.</p>
+<p>Auf allen Seiten, die Codeblöcke enthalten, verbergen sich hinter dem Raketen-Symbol in der Kopfzeile zwei Buttons, einen auf dem “Binder” steht und einen auf dem “Live Code” steht.</p>
+<a class="reference internal image-reference" href="../../_images/usage_buttons.png"><img alt="Interact buttons" class="align-center" src="../../_images/usage_buttons.png" style="width: 250px;" /></a>
 <p>Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editier- und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave-Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.</p>
 <p>Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service <a class="reference external" href="https://mybinder.org/">Binder</a> auf, sodass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.</p>
-<section id="thebelab">
-<h2>Thebelab<a class="headerlink" href="#thebelab" title="Permalink to this headline">¶</a></h2>
-<p>Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über Thebelab. Per Klick auf die Taste “run”, wird der Code ausgeführt, mit “restart” wird der im Hintergrund laufende Octave-Kernel neu gestartet.</p>
-<img alt="Binder Loading Page" src="../../_images/usage_thebe.png" />
-<p>Alternativ kann Thebelab über das Bleistift-Symbol in jedem Code-Block gestartet werden.</p>
-<img alt="Interacte Mode Code-Cell" src="../../_images/usage_thebe2.png" />
+<p>Rechts neben dem beschriebenen Raketen-Symbol befindet sich das GitHub-Logo (das mit der Katze). Über diesen Button ist es möglich Verbesserungsvorschläge oder Bugs selbst zu beheben und zur Verbesserung dieses Buches beizutragen. Falls die Verbesserung nicht selbst durchgeführt werden kann, ist es auch möglich auf GitHub einen <a class="reference external" href="https://github.com/joergbrech/Modellbildung-und-Simulation/issues/new">Issue</a> mit einer Kurzbeschreibung des Problems zu eröffnen. Dieser wird dann schnellstmöglich bearbeitet.</p>
+<section id="live-code">
+<h2>Live Code<a class="headerlink" href="#live-code" title="Permalink to this headline">¶</a></h2>
+<p>Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über den Button “Live Code”. Per Klick auf die Taste “run”, wird der Code ausgeführt, mit “restart” wird der im Hintergrund laufende Octave-Kernel neu gestartet.</p>
+<a class="reference internal image-reference" href="../../_images/usage_thebe.png"><img alt="Binder Loading Page" class="align-center" src="../../_images/usage_thebe.png" style="width: 820px;" /></a>
 <p>Denken Sie daran, dass die Code-Zellen unter Umständen von einander abhängig sein könnten. Wenn zum Beispiel in einer Code-Zelle auf eine Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> zugegriffen wird, muss diese auch im Workspace zur Verfügung stehen. Ist dies nicht der Fall, haben Sie wahrscheinlich die Code-Zelle weiter oben, in der <code class="docutils literal notranslate"><span class="pre">x</span></code> initialisiert wird, nicht ausgeführt.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Beim Aufrufen von Dateien mit der “Live Code”-Methode kann es zu Komplikationen kommen. Die Lösungen für viele bekannte Probleme sind hier beschrieben: <a class="reference internal" href="#troubleshooting"><span class="std std-ref">Troubleshooting</span></a></p>
+</div>
 </section>
-<section id="interact">
-<h2>Interact<a class="headerlink" href="#interact" title="Permalink to this headline">¶</a></h2>
-<p>Der Nachteil der “Interact”-Methode ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über <a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">Jupyter Lab</a> zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft.</p>
-<img alt="Jupyter Lab Screenshot" src="../../_images/usage_binder.png" />
-<img alt="Jupyter Lab Screenshot 2" src="../../_images/usage_binder_launcher.png" />
+<section id="binder">
+<h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h2>
+<p>Der Nachteil von Binder ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über <a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">Jupyter Lab</a> zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft.</p>
+<a class="reference internal image-reference" href="../../_images/usage_binder.png"><img alt="Jupyter Lab Screenshot" class="align-center" src="../../_images/usage_binder.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../../_images/usage_binder_launcher.png"><img alt="Jupyter Lab Screenshot 2" class="align-center" src="../../_images/usage_binder_launcher.png" style="width: 1200px;" /></a>
 <p>Sie können nicht nur die Code-Blöcke editieren und ausführen, sie können auch neue Dokumente, wie z.B. m-files, erstellen oder hochladen, Dokumente herunterladen und eine Linux-Konsole starten. Das Ganze funktioniert über einen <a class="reference external" href="https://de.wikipedia.org/wiki/Docker_(Software)">Docker-Container</a>, der über den <a class="reference external" href="https://mybinder.org/">Binder</a> Service geladen wird.</p>
-<p><img alt="" src="../../_images/attention.svg" />    <strong>Wichtig: Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!</strong> Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.</p>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p><strong>Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!</strong> Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.</p>
+</div>
 </section>
 <section id="dateien-erstellen">
 <h2>Dateien erstellen<a class="headerlink" href="#dateien-erstellen" title="Permalink to this headline">¶</a></h2>
-<p>In Jupyter Lab (“Interact” Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der Thebelab Funktionalität erstellen. Wenn ein Code-Block mit der Zeile <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myfile.m</span></code> beginnt, wird der folgende Inhalt des Blocks in eine Datei <code class="docutils literal notranslate"><span class="pre">myfile.m</span></code> geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.</p>
+<p>In Jupyter Lab (“Binder” Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der “Live Code”-Methode erstellen. Wenn ein Code-Block mit der Zeile <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myfile.m</span></code> beginnt, wird der folgende Inhalt des Blocks in eine Datei <code class="docutils literal notranslate"><span class="pre">myfile.m</span></code> geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file hello_world.m</span>
@@ -542,11 +541,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/hello_world.m&#39;.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,17 +548,11 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World, how is your day?
-Hello World, how is your day?
-Hello World, how is your day?
-Hello World, how is your day?
-Hello World, how is your day?
-</pre></div>
 </div>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p>Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.</p>
 </div>
-</div>
-<p><img alt="" src="../../_images/attention.svg" /> <strong>Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.</strong></p>
 </section>
 <section id="unit-testing">
 <h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h2>
@@ -583,26 +571,11 @@ Hello World, how is your day?
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m&#39;.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Die bereitgestellten Unit Tests befinden sich in der Datei <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>. Diese Tests überprüfen, ob die Funktion sich so verhält wie erwartet. Der Test wird mit folgendem Befehl ausgeführt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 6 tests
-......
---------------------------------------------------
-
-OK (passed=6)
-ans = 1
 </pre></div>
 </div>
 </div>
@@ -618,46 +591,11 @@ ans = 1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/fac.m&#39;.
-</pre></div>
-</div>
-</div>
 </div>
 <p>Mal sehen, ob immer noch alle Tests durchlaufen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 6 tests
-...FFF
---------------------------------------------------
-
-failure: No exception was raised
-  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
-  test_fac&gt;test_fac_exception_negative:31 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
-
-failure: No exception was raised
-  assertExceptionThrown:84 (/home/jan/tools/MOxUnit/MOxUnit/assertExceptionThrown.m)
-  test_fac&gt;test_fac_exception_noninteger:35 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
-
-failure: inputs are not of the same size
-
-First input: 1x1 double
-1
-
-Second input: 2x3 double
-[1 1 2;6 24 120]
-  assertEqual:70 (/home/jan/tools/MOxUnit/MOxUnit/assertEqual.m)
-  test_fac&gt;test_fac_array:39 (/data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
-
---------------------------------------------------
-
-FAILED (passed=3, failure=3)
-ans = 0
 </pre></div>
 </div>
 </div>
@@ -671,52 +609,7 @@ ans = 0
 <p>bedeutet, dass die letzten drei Tests fehlgeschlagen sind. Zusätzlich gibt jeder fehlgeschlagene Test Informationen darüber aus, welches Verhalten erwartet wurde und welches tatsächlich eingetroffen ist. Manchmal sind diese Ausgaben etwas kryptisch, dann lohnt es sich einen Blick in die Implementierung der Tests zu werfen. Mit dem Befehl <code class="docutils literal notranslate"><span class="pre">type</span></code> lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code> genauer anzuschauen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_fac.m is the user-defined function defined from: /data/work/H_BRS/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
-
-function test_suite=test_fac
-% initialize unit tets
-    try
-        test_functions=localfunctions();
-    catch
-    end
-    initTestSuite;
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%     Basic tests     %
-%%%%%%%%%%%%%%%%%%%%%%%
-    
-function test_fac_0
-% test if fac(0)==1
-    assertEqual(fac(0),1);
-
-function test_fac_1
-% test if fac(1)==1
-    assertEqual(fac(1),1);
-    
-function test_fac_5
-% test if fac(5)==120
-    assertEqual(fac(5),120);
-    
-%%%%%%%%%%%%%%%%%%%%%%%
-% More advanced tests %
-%%%%%%%%%%%%%%%%%%%%%%%
-
-function test_fac_exception_negative
-% test if exceptions are thrown for negative values
-    assertExceptionThrown(@()fac(-1));
-    
-function test_fac_exception_noninteger
-% test if exceptions are thrown for noninteger values
-    assertExceptionThrown(@()fac(1.5),&#39;*&#39;);
-    
-function test_fac_array
-% test if fac works on array inputs
-    assertEqual(fac([0 1 2; 3 4 5]),[1 1 2; 6 24 120]);
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="p">..</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
@@ -734,15 +627,12 @@ function test_fac_array
 </section>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
-<p>Falls es Probleme oder Verbesserungsvorschläge gibt, freue ich mich über eine <a class="reference external" href="mailto:jan&#46;kleinert&#37;&#52;&#48;h-brs&#46;de">Email</a> oder noch besser, über einen Eintrag im <a class="reference external" href="https://github.com/joergbrech/Modellbildung-und-Simulation/issues">Issue tracker</a> auf Github.</p>
-<section id="bekannte-bzw-erwartete-probleme">
-<h3>Bekannte bzw. erwartete Probleme:<a class="headerlink" href="#bekannte-bzw-erwartete-probleme" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p><strong>Wenn ich auf <code class="docutils literal notranslate"><span class="pre">run</span></code> klicke, steht da nur <code class="docutils literal notranslate"><span class="pre">Waiting</span> <span class="pre">for</span> <span class="pre">kernel...</span></code> und nichts passiert.</strong></p>
-<img alt="Drawing" src="../../_images/usage_waiting.png" />
+<a class="reference internal image-reference" href="../../_images/usage_waiting.png"><img alt="Drawing" class="align-center" src="../../_images/usage_waiting.png" style="width: 400px;" /></a>
 <p><em>Lösung:</em> Geduld. Wahrscheinlich wurden gerade Änderungen an diesem Buch vorgenommen und Sie sind die erste Person, die seitdem interaktive Inhalte nutzen will. Damit haben sie ein <em>rebuild des binder image getriggert</em>. Das kann schon mal eine Weile dauern. Dasselbe gilt für die “Interact” Funktion. Hier erhält man aber ausführlichere Informationen über eine Konsolenausgabe beim Start.</p>
-<img alt="Binder Loading Page" src="../../_images/usage_binder_waiting.png" />
+<a class="reference internal image-reference" href="../../_images/usage_binder_waiting.png"><img alt="Binder Loading Page" class="align-center" src="../../_images/usage_binder_waiting.png" style="width: 1200px;" /></a>
 </li>
 <li><p><strong>Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.</strong></p>
 <p><em>Lösung:</em> Ab und zu wird der Code fälschlicherweise an einen <em>Python</em>-Interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen. Vergessen Sie aber nicht, Ihren eingetragenen Code vorher zu kopieren, damit er beim Neuladen nicht abhanden kommt!</p>
@@ -750,7 +640,7 @@ function test_fac_array
 <li><p><strong>Ich bin mir sicher, dass ich die Übungsaufgabe richtig bearbeitet habe, aber der Unit Test gibt Fehler aus.</strong></p>
 <p><em>Lösung:</em> Möglicherweise wurde für die Bearbeitung der Übungsaufgabe Matlab-Code geschrieben, der nicht mit Octave kompatibel ist. In diesem Fall sollte es schon helfen, den Unit Test lokal in der eigenen Matlab Installation laufen zu lassen.</p>
 </li>
-<li><p><strong>Beim Ausführen des unit tests im interaktiven Modus (<em>Thebelab</em>) erhalte ich folgende Fehlermeldung:</strong></p></li>
+<li><p><strong>Beim Ausführen des unit tests mit der “Live Code”-Methode erhalte ich folgende Fehlermeldung:</strong></p></li>
 </ol>
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span>   <span class="n">moxunit_runtests</span> <span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
    
@@ -760,12 +650,11 @@ function test_fac_array
       <span class="n">moxunit_runtests</span> <span class="n">at</span> <span class="nb">line</span> <span class="mi">72</span> <span class="n">column</span> <span class="mi">11</span>
 </pre></div>
 </div>
-<p>Das ist ein <a class="reference external" href="https://github.com/jupyter/jupyter-book/issues/107">bekanntes Problem</a>, an dem gerade gearbeitet wird. Die einfachste Lösung ist einfach die “interact”-Methode statt der “Thebelab”-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus <code class="docutils literal notranslate"><span class="pre">content</span></code> sowie dem akutellen Unterordner dieser Seite, der sich aus der url ablesen lässt. Für diese Seite lautet er <code class="docutils literal notranslate"><span class="pre">00_einleitung</span></code>. Der Befehl</p>
+<p>Das ist ein <a class="reference external" href="https://github.com/jupyter/jupyter-book/issues/107">bekanntes Problem</a>, an dem gerade gearbeitet wird. Die einfachste Lösung ist einfach die Binder statt der “Live Code”-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus <code class="docutils literal notranslate"><span class="pre">content</span></code> sowie dem akutellen Unterordner dieser Seite, der sich aus der url ablesen lässt. Für diese Seite lautet er <code class="docutils literal notranslate"><span class="pre">00_einleitung</span></code>. Der Befehl</p>
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span>    <span class="n">moxunit_runtests</span> <span class="n">content</span><span class="o">/</span><span class="mi">00</span><span class="n">_einleitung</span><span class="o">/</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 <p>sollte funktionieren.</p>
-</section>
 </section>
 </section>
 
