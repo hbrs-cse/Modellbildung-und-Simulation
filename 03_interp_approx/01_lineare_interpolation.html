@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Spline-Interpolation &#8212; Modellbildung und Simulation</title>
+    <title>Lineare Interpolation &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -58,8 +58,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Differentiation und Integration" href="../06_Differentiation_Integration/00_differentiation_und_integration.html" />
-    <link rel="prev" title="Lineare Approximation" href="02_lineare_approximation.html" />
+    <link rel="next" title="Lineare Approximation" href="02_lineare_approximation.html" />
+    <link rel="prev" title="Interpolation und Approximation" href="00_interpolation_Und_approximation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -172,46 +172,13 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
-   Lineare Gleichungssysteme
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html">
-     Modellierung einer Highline
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
    Gleitkommaarithmetik
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
-   Nichtlineare Gleichungssysteme
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04_nichtlineare_gleichungen/01_newton-verfahren.html">
-     Newton-Verfahren
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../04_nichtlineare_gleichungen/02_bierschaumzerfall.html">
-     Bierschaumzerfall
     </a>
    </li>
   </ul>
@@ -223,8 +190,8 @@
    Interpolation und Approximation
   </a>
   <ul class="current collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="01_lineare_interpolation.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Lineare Interpolation
     </a>
    </li>
@@ -233,9 +200,42 @@
      Lineare Approximation
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_spline_interpolation.html">
      Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
     </a>
    </li>
   </ul>
@@ -387,7 +387,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05_interp_approx/03_spline_interpolation.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/03_interp_approx/01_lineare_interpolation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -404,7 +404,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/05_interp_approx/03_spline_interpolation.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/03_interp_approx/01_lineare_interpolation.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -424,7 +424,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/05_interp_approx/03_spline_interpolation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/03_interp_approx/01_lineare_interpolation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -444,26 +444,6 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-1">
-   Aufgabe 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2">
-   Aufgabe 2
-  </a>
- </li>
-</ul>
-
-        </nav>
-        
         </div>
     </div>
 </div>
@@ -472,88 +452,80 @@
         
               <div>
                 
-  <section id="spline-interpolation">
-<h1>Spline-Interpolation<a class="headerlink" href="#spline-interpolation" title="Permalink to this headline">¶</a></h1>
-<p>Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechanik bekannt ist.</p>
-<a class="reference internal image-reference" href="../_images/spline_interpolation_inks.svg"><img alt="../_images/spline_interpolation_inks.svg" height="315" src="../_images/spline_interpolation_inks.svg" width="400" /></a>
-<p>Messungen der Biegelinie an verschiedenen Punkten ergaben folgende Werte:</p>
+  <section id="lineare-interpolation">
+<h1>Lineare Interpolation<a class="headerlink" href="#lineare-interpolation" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/linear_interpolation.png"><img alt="../_images/linear_interpolation.png" src="../_images/linear_interpolation.png" style="width: 400px; height: 315px;" /></a>
+<p>Gegeben seien die Messpunkte <span class="math notranslate nohighlight">\((t_i; y_i)\)</span>, <span class="math notranslate nohighlight">\(i = 1; ..; n\)</span> eines Versuches. Dabei bezeichnet <span class="math notranslate nohighlight">\(t_i\)</span> einen Messzeitpunkt aus dem Intervall <span class="math notranslate nohighlight">\([a; b]\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span> den dazu gehörigen Messwert. Programmieren Sie eine Funktion, die für ein beliebiges <span class="math notranslate nohighlight">\(t \in [a; b]\)</span> einen Wert liefert, der auf der Verbindungslinie der benachbarten Messpunkte <span class="math notranslate nohighlight">\((t_j ; y_j)\)</span> und <span class="math notranslate nohighlight">\((t_{j+1}; y_{j+1})\)</span> liegt (lineare Interpolation).</p>
+<p>Arbeiten Sie mit folgenden Angaben:<br />
+<span class="math notranslate nohighlight">\(n = 11, [a; b] = [0; 1]\)</span></p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p><span class="math notranslate nohighlight">\(x [m]\)</span></p></th>
+<tr class="row-odd"><th class="text-align:left head"><p><span class="math notranslate nohighlight">\(t_i\)</span></p></th>
 <th class="text-align:left head"><p>0</p></th>
+<th class="text-align:left head"><p>0.1</p></th>
+<th class="text-align:left head"><p>0.2</p></th>
+<th class="text-align:left head"><p>0.3</p></th>
+<th class="text-align:left head"><p>0.4</p></th>
 <th class="text-align:left head"><p>0.5</p></th>
-<th class="text-align:left head"><p>1</p></th>
-<th class="text-align:left head"><p>1.5</p></th>
-<th class="text-align:left head"><p>2</p></th>
+<th class="text-align:left head"><p>0.6</p></th>
+<th class="text-align:left head"><p>0.7</p></th>
+<th class="text-align:left head"><p>0.8</p></th>
+<th class="text-align:left head"><p>0.9</p></th>
+<th class="text-align:left head"><p>1.0</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(z [m]\)</span></p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(y_i\)</span></p></td>
 <td class="text-align:left"><p>0.00</p></td>
-<td class="text-align:left"><p>0.0125</p></td>
-<td class="text-align:left"><p>0.05</p></td>
-<td class="text-align:left"><p>0.1125</p></td>
-<td class="text-align:left"><p>0.2</p></td>
+<td class="text-align:left"><p>0.31</p></td>
+<td class="text-align:left"><p>0.59</p></td>
+<td class="text-align:left"><p>0.81</p></td>
+<td class="text-align:left"><p>0.95</p></td>
+<td class="text-align:left"><p>1.00</p></td>
+<td class="text-align:left"><p>0.95</p></td>
+<td class="text-align:left"><p>0.81</p></td>
+<td class="text-align:left"><p>0.59</p></td>
+<td class="text-align:left"><p>0.31</p></td>
+<td class="text-align:left"><p>0.00</p></td>
 </tr>
 </tbody>
 </table>
-<p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Hierbei keine fertige MATLAB Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
-<section id="aufgabe-1">
-<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<p>Konstruieren sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle (alles Bleistift und Papier!).
-Bestimmen sie die Koeffizienten der gesuchten Parabeln <span class="math notranslate nohighlight">\(z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]\)</span>.</p>
-<div class="admonition-hinweis admonition">
-<p class="admonition-title">Hinweis</p>
-<p>Zur eindeutigen Bestimmung der einzelnen Polynome sind drei Bedingungen notwendig. Zwei sind durch
-den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamten Spline zu vermeiden
-wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen
-(dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?</p>
-</div>
-</section>
-<section id="aufgabe-2">
-<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Implementieren Sie eine Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">zfine</span> <span class="pre">=</span> <span class="pre">quadraticSpline(x,</span> <span class="pre">z,</span> <span class="pre">xfine,</span> <span class="pre">bc)</span></code>, die für gegebene x- und z-Werte sowie Randbedingung an den von <code class="docutils literal notranslate"><span class="pre">xfine</span></code> definierten Punkten die entsprechenden z-Werte des Splines berechnet.</p></li>
-</ul>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file quadraticSpline.m</span>
-<span class="k">function</span><span class="w"> </span>zfine<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">quadraticSpline</span><span class="p">(</span>x, z, xfine, bc<span class="p">)</span><span class="w"></span>
-<span class="c">% z = quadraticSpline(x, z, xfine, bc) calculates the quadratic spline going through the</span>
-<span class="c">% points defined by xi and zi and evaluates the spline at the points in xfine.</span>
-
-<span class="p">...</span>
-
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten 5 der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle 9 unit tests zu erfüllen?</p></li>
-</ul>
+<p>Erstellen Sie dazu zunächst eine (gut dokumentierte) Funktion für die Interpolation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% test the quadraticSpline function</span>
-<span class="n">moxunit_runtests</span> <span class="n">test_quadraticSpline</span><span class="p">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file linint.m</span>
+<span class="k">function</span><span class="w"> </span>y<span class="p">=</span><span class="nf">linint</span><span class="p">(</span>t,tv,yv<span class="p">)</span><span class="w"></span>
+<span class="c">% Die Funktion linint interpoliert die in den Vektoren abgelegten Daten tv,yv linear.</span>
+<span class="c">% Dazu sollten die Daten in tv sortiert sein und ein t zwischen dem ersten</span>
+<span class="c">% und letzten Eintrag von tv eingegeben werden</span>
+<span class="c">%</span>
+<span class="c">% Eingabeparameter: tv, yv = Zeitpunkte und Messwerte,</span>
+<span class="c">% t = gewünschter Auswertezeitpunkt</span>
+<span class="c">% Ausgabeparameter: y = linear interpolierter Messwert zum Zeitpunkt t</span>
+<span class="c">%</span>
+<span class="c">%</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Nun soll der Biegungsverlauf des gesamten Balkens mit einer Schrittweite von 1 mm interpoliert werden. Erstellen Sie dazu ein Skript, in welchem Ihre Funktion auf die obigen Messwerte angewandt wird. Stellen Sie den interpolierten Spline bzw. die Biegelinie in einem Plot dar.</p></li>
-</ul>
+<p>… und dann ein Hauptprogramm, in welchem Sie die Funktion aufrufen und die Daten bereitstellen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%script to apply function to the given values</span>
-
-<span class="c">%uncomment to equalize axis:</span>
-<span class="c">%axis equal</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% zunächst werden zwei Vektoren tv und yv definiert,</span>
+<span class="c">% die alle Daten von t und y enthalten</span>
+<span class="c">%</span>
+<span class="n">tv</span><span class="p">=[</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">];</span>
+<span class="n">yv</span><span class="p">=[</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.59</span><span class="p">,</span> <span class="mf">0.31</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">];</span>
+<span class="c">%</span>
+<span class="c">% Dann können sie Ihre Funktion linint testen, z.B. mit t=0.15</span>
+<span class="c">%</span>
+<span class="n">t</span><span class="p">=</span><span class="mf">0.15</span><span class="p">;</span>
+<span class="n">y</span><span class="p">=</span><span class="n">linint</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">tv</span><span class="p">,</span><span class="n">yv</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
+<p>Schreiben Sie das Programm nun so um, dass Sie die oben dargestellte Visualisierung erhalten.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -569,7 +541,7 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./05_interp_approx"
+            path: "./03_interp_approx"
         },
         predefinedOutput: true
     }
@@ -581,8 +553,8 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="02_lineare_approximation.html" title="previous page">Lineare Approximation</a>
-    <a class='right-next' id="next-link" href="../06_Differentiation_Integration/00_differentiation_und_integration.html" title="next page">Differentiation und Integration</a>
+    <a class='left-prev' id="prev-link" href="00_interpolation_Und_approximation.html" title="previous page">Interpolation und Approximation</a>
+    <a class='right-next' id="next-link" href="02_lineare_approximation.html" title="next page">Lineare Approximation</a>
 
         </div>
         

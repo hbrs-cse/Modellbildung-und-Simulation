@@ -58,7 +58,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Interpolation und Approximation" href="../05_interp_approx/00_interpolation_Und_approximation.html" />
+    <link rel="next" title="Differentiation und Integration" href="../06_Differentiation_Integration/00_differentiation_und_integration.html" />
     <link rel="prev" title="Newton-Verfahren" href="01_newton-verfahren.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -172,13 +172,13 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
-   Lineare Gleichungssysteme
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html">
-     Modellierung einer Highline
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
+     Übungen
     </a>
    </li>
   </ul>
@@ -186,13 +186,37 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../03_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
-   Gleitkommaarithmetik
+  <a class="reference internal" href="../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen
+    <a class="reference internal" href="../03_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/03_spline_interpolation.html">
+     Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
     </a>
    </li>
   </ul>
@@ -212,30 +236,6 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Bierschaumzerfall
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05_interp_approx/00_interpolation_Und_approximation.html">
-   Interpolation und Approximation
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05_interp_approx/01_lineare_interpolation.html">
-     Lineare Interpolation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05_interp_approx/02_lineare_approximation.html">
-     Lineare Approximation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05_interp_approx/03_spline_interpolation.html">
-     Spline-Interpolation
     </a>
    </li>
   </ul>
@@ -387,7 +387,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/04_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/05_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -404,7 +404,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/04_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/05_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -424,7 +424,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/04_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/05_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -959,7 +959,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./04_nichtlineare_gleichungen"
+            path: "./05_nichtlineare_gleichungen"
         },
         predefinedOutput: true
     }
@@ -972,7 +972,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="01_newton-verfahren.html" title="previous page">Newton-Verfahren</a>
-    <a class='right-next' id="next-link" href="../05_interp_approx/00_interpolation_Und_approximation.html" title="next page">Interpolation und Approximation</a>
+    <a class='right-next' id="next-link" href="../06_Differentiation_Integration/00_differentiation_und_integration.html" title="next page">Differentiation und Integration</a>
 
         </div>
         

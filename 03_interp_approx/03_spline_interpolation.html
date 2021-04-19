@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Gleitkommaarithmetik &#8212; Modellbildung und Simulation</title>
+    <title>Spline-Interpolation &#8212; Modellbildung und Simulation</title>
     
   <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -53,11 +53,13 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Übungen" href="01_%C3%BCbungen.html" />
-    <link rel="prev" title="Modellierung einer Highline" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html" />
+    <link rel="next" title="Lineare Gleichungssysteme" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html" />
+    <link rel="prev" title="Lineare Approximation" href="02_lineare_approximation.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -170,26 +172,12 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../02_lineare_gleichungen/00_lineare_gleichungssysteme.html">
-   Lineare Gleichungssysteme
-  </a>
-  <ul class="collapse-ul">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html">
-     Modellierung einer Highline
-    </a>
-   </li>
-  </ul>
-  <i class="fas fa-chevron-down">
-  </i>
- </li>
- <li class="toctree-l1 current active collapsible-parent">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
    Gleitkommaarithmetik
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_%C3%BCbungen.html">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
      Übungen
     </a>
    </li>
@@ -197,19 +185,24 @@
   <i class="fas fa-chevron-down">
   </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../04_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
-   Nichtlineare Gleichungssysteme
+ <li class="toctree-l1 current active collapsible-parent">
+  <a class="reference internal" href="00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_nichtlineare_gleichungen/01_newton-verfahren.html">
-     Newton-Verfahren
+    <a class="reference internal" href="01_lineare_interpolation.html">
+     Lineare Interpolation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_nichtlineare_gleichungen/02_bierschaumzerfall.html">
-     Bierschaumzerfall
+    <a class="reference internal" href="02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Spline-Interpolation
     </a>
    </li>
   </ul>
@@ -217,23 +210,32 @@
   </i>
  </li>
  <li class="toctree-l1 collapsible-parent">
-  <a class="reference internal" href="../05_interp_approx/00_interpolation_Und_approximation.html">
-   Interpolation und Approximation
+  <a class="reference internal" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
-    <a class="reference internal" href="../05_interp_approx/01_lineare_interpolation.html">
-     Lineare Interpolation
+    <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+  <i class="fas fa-chevron-down">
+  </i>
+ </li>
+ <li class="toctree-l1 collapsible-parent">
+  <a class="reference internal" href="../05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <ul class="collapse-ul">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05_interp_approx/02_lineare_approximation.html">
-     Lineare Approximation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05_interp_approx/03_spline_interpolation.html">
-     Spline-Interpolation
+    <a class="reference internal" href="../05_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
     </a>
    </li>
   </ul>
@@ -385,9 +387,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03_gleitkommaarithmetik/00_gleitkommaarithmetik.md"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/03_interp_approx/03_spline_interpolation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -402,7 +404,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/03_gleitkommaarithmetik/00_gleitkommaarithmetik.md"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/03_interp_approx/03_spline_interpolation.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -417,11 +419,51 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/03_interp_approx/03_spline_interpolation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -430,11 +472,88 @@
         
               <div>
                 
-  <section id="gleitkommaarithmetik">
-<h1>Gleitkommaarithmetik<a class="headerlink" href="#gleitkommaarithmetik" title="Permalink to this headline">¶</a></h1>
-<p>Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Gleitkommaarithmetik.</p>
-<div class="toctree-wrapper compound">
+  <section id="spline-interpolation">
+<h1>Spline-Interpolation<a class="headerlink" href="#spline-interpolation" title="Permalink to this headline">¶</a></h1>
+<p>Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechanik bekannt ist.</p>
+<a class="reference internal image-reference" href="../_images/spline_interpolation_inks.svg"><img alt="../_images/spline_interpolation_inks.svg" height="315" src="../_images/spline_interpolation_inks.svg" width="400" /></a>
+<p>Messungen der Biegelinie an verschiedenen Punkten ergaben folgende Werte:</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:left head"><p><span class="math notranslate nohighlight">\(x [m]\)</span></p></th>
+<th class="text-align:left head"><p>0</p></th>
+<th class="text-align:left head"><p>0.5</p></th>
+<th class="text-align:left head"><p>1</p></th>
+<th class="text-align:left head"><p>1.5</p></th>
+<th class="text-align:left head"><p>2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(z [m]\)</span></p></td>
+<td class="text-align:left"><p>0.00</p></td>
+<td class="text-align:left"><p>0.0125</p></td>
+<td class="text-align:left"><p>0.05</p></td>
+<td class="text-align:left"><p>0.1125</p></td>
+<td class="text-align:left"><p>0.2</p></td>
+</tr>
+</tbody>
+</table>
+<p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Hierbei keine fertige MATLAB Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
+<section id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<p>Konstruieren sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle (alles Bleistift und Papier!).
+Bestimmen sie die Koeffizienten der gesuchten Parabeln <span class="math notranslate nohighlight">\(z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]\)</span>.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Zur eindeutigen Bestimmung der einzelnen Polynome sind drei Bedingungen notwendig. Zwei sind durch
+den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamten Spline zu vermeiden
+wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen
+(dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?</p>
 </div>
+</section>
+<section id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Implementieren Sie eine Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">zfine</span> <span class="pre">=</span> <span class="pre">quadraticSpline(x,</span> <span class="pre">z,</span> <span class="pre">xfine,</span> <span class="pre">bc)</span></code>, die für gegebene x- und z-Werte sowie Randbedingung an den von <code class="docutils literal notranslate"><span class="pre">xfine</span></code> definierten Punkten die entsprechenden z-Werte des Splines berechnet.</p></li>
+</ul>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file quadraticSpline.m</span>
+<span class="k">function</span><span class="w"> </span>zfine<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">quadraticSpline</span><span class="p">(</span>x, z, xfine, bc<span class="p">)</span><span class="w"></span>
+<span class="c">% z = quadraticSpline(x, z, xfine, bc) calculates the quadratic spline going through the</span>
+<span class="c">% points defined by xi and zi and evaluates the spline at the points in xfine.</span>
+
+<span class="p">...</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten 5 der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle 9 unit tests zu erfüllen?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% test the quadraticSpline function</span>
+<span class="n">moxunit_runtests</span> <span class="n">test_quadraticSpline</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Nun soll der Biegungsverlauf des gesamten Balkens mit einer Schrittweite von 1 mm interpoliert werden. Erstellen Sie dazu ein Skript, in welchem Ihre Funktion auf die obigen Messwerte angewandt wird. Stellen Sie den interpolierten Spline bzw. die Biegelinie in einem Plot dar.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%script to apply function to the given values</span>
+
+<span class="c">%uncomment to equalize axis:</span>
+<span class="c">%axis equal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -446,24 +565,24 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./03_gleitkommaarithmetik"
+            kernelName: "octave",
+            path: "./03_interp_approx"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
               </div>
               
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../02_lineare_gleichungen/01_modellierung_einer_highline.html" title="previous page">Modellierung einer Highline</a>
-    <a class='right-next' id="next-link" href="01_%C3%BCbungen.html" title="next page">Übungen</a>
+    <a class='left-prev' id="prev-link" href="02_lineare_approximation.html" title="previous page">Lineare Approximation</a>
+    <a class='right-next' id="next-link" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html" title="next page">Lineare Gleichungssysteme</a>
 
         </div>
         
