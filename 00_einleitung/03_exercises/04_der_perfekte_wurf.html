@@ -521,15 +521,12 @@
   <section id="der-perfekte-wurf">
 <h1>Der perfekte Wurf<a class="headerlink" href="#der-perfekte-wurf" title="Permalink to this headline">¶</a></h1>
 <p>Man könnte annehmen, dass das (erfolgreiche) Werfen eines Freiwurfs für alle hochbezahlten Basketballstars eine reine Formalität ist. Erstaunlicherweise ist dem nicht so! Während der deutsche NBA Star Dirk Nowitzki in der Saison 2008/09 laut NBA Media Ventures (2009) immerhin eine Trefferquote von 89% hatte, gibt es andere NBA Superstars, die in dieser Hinsicht weniger erfolgreich sind. Ein prominentes Beispiel ist Shaquille O’Neal, der am Ende der Saison 2008/09 gerade einmal eine Trefferquote von 59% hatte, in seiner gesamten Karriere sogar nur eine Quote von 52.4%. Er ist kein Einzelfall: Fast ein Drittel der NBA-Spieler haben beim Freiwurf eine Trefferquote von weniger als 75%. Für uns stellt sich die Frage: Woher kommen diese Unterschiede und ist es eventuell möglich ein Modell zu erstellen, das den ’perfekten Wurf’ wiedergibt?</p>
-<figure>
-  <img src="images/basketball_title.jpg" alt="Wurf"/>
-</figure><section id="modellbeschreibung">
+<img alt="Wurf" class="align-center" src="../../_images/basketball_title.jpg" />
+<section id="modellbeschreibung">
 <h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
 <p>In Abbildung 1 sind die Messungen eines aufgezeichneten Wurfes dargestellt. Der Ball geht ins Netz, wobei er knapp die Hände von Spieler B streift. Die Größe des Balles wird hier vernachlässigt und das Problem wird nur in zwei Dimensionen betrachtet. Der Ball vollführt eine geradlinige Bewegung in horizantler Richtung und eine gleichförmig beschleunigte Bewegung in vertikaler Richtung. Das Koordinatensystem kann frei gewählt werden, hier wird der Ursprung an die Position des werfenden Spielers auf Bodenhöhe gelegt. Dabei soll die <span class="math notranslate nohighlight">\(x\)</span>-Achse in Richtung des Baseketballkorbes und die <span class="math notranslate nohighlight">\(y\)</span>-Achse nach oben zeigen.</p>
-<figure>
-  <img src="images/Ballwurf.jpg" alt="Wurf" width="500"/>
-  <figcaption>Abbildung 1: Aufgezeichneter Basketballwurf</figcaption>
-</figure><section id="aufgabe-1-aufstellen-der-bewegungsgleichung">
+<a class="reference internal image-reference" href="../../_images/Ballwurf.jpg"><img alt="Wurf" class="align-center" src="../../_images/Ballwurf.jpg" style="width: 500px;" /></a>
+<section id="aufgabe-1-aufstellen-der-bewegungsgleichung">
 <h3>Aufgabe 1: Aufstellen der Bewegungsgleichung<a class="headerlink" href="#aufgabe-1-aufstellen-der-bewegungsgleichung" title="Permalink to this headline">¶</a></h3>
 <p>Zunächst soll mit Bleistift und Papier die Grundlage geschaffen werden, um in den folgenden Aufgaben mit Hilfe von Matlab den Wurf eines Basketballes zu simulieren.
 Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung können leicht für die gegebene Bewegung hergeleitet werden.</p>
@@ -589,32 +586,23 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 <section id="a-abwurfwinkel">
 <h4>a) Abwurfwinkel<a class="headerlink" href="#a-abwurfwinkel" title="Permalink to this headline">¶</a></h4>
 <p>Überlegen Sie sich, welche Abwurfwinkel realistisch sind und legen Sie auf dieser Basis ein Intervall fest, für das Sie Würfe simulieren wollen. Plotten Sie innerhalb dieses Intervalls alle Bahnkurven im Abstand von 0.1 Grad.</p>
-<figure>
-  <img src="images/basketball_1.png" alt="Ergebnis a."/>
-  <figcaption>Abbildung 2: Mögliches Ergebnis Aufgabenteil a)</figcaption>
-</figure></section>
+<img alt="Ergebnis a." class="align-center" src="../../_images/basketball_1.png" />
+</section>
 <section id="b-anpassen-der-korbgrosze">
 <h4>b) Anpassen der Korbgröße<a class="headerlink" href="#b-anpassen-der-korbgrosze" title="Permalink to this headline">¶</a></h4>
 <p>Der Korb ist in der Realität größer als der Ball, so dass dieser für einen Treffer nicht exakt mittig durch den Korb fallen muss. Erweitern Sie ihr Programm so, dass der Ball an jedem Punkt durch den Korb fallen kann. Gehen Sie dann von einer Anfangsgeschwindigkeit von <span class="math notranslate nohighlight">\( v_A = 8 \frac{\mathrm{m}}{\mathrm{s}}\)</span> aus und variieren Sie den Abwurfwinkel. Zwischen welchen Werten darf der Abwurfwinkel nun für einen Treffer schwanken? Visualisieren Sie die Bahnkurve für den minimalen, maximalen und optimalen (Ball landet mittig im Korb) Abwurfwinkel.</p>
-<figure>
-  <img src="images/basketball_2.png" alt="Ergebnis 2."/>
-  <figcaption>Abbildung 3: Mögliches Ergebnis Aufgabenteil b)</figcaption>
-</figure>
+<img alt="Ergebnis 2." class="align-center" src="../../_images/basketball_2.png" />
 </section>
 <section id="c-niemand-ist-perfekt">
 <h4>c) Niemand ist perfekt!<a class="headerlink" href="#c-niemand-ist-perfekt" title="Permalink to this headline">¶</a></h4>
 <p>Niemand ist in der Lage den optimalen Abwurfwinkel bei jedem Wurf zu treffen, dieser schwankt in der Realität. Gehen Sie nun von <span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span> plus einem zufälligem Verwackler von <span class="math notranslate nohighlight">\(\pm 5^\circ\)</span> (<u>im Mittel</u>, max. <span class="math notranslate nohighlight">\(\pm 12^\circ\)</span>) aus. Wie viele Treffer werden nach 1000 Würfen in etwa erzielt? (Mittelwert und Standardabweichung!)</p>
-<figure>
-  <img src="images/basketball_3.png" alt="Ergebnis 3."/>
-  <figcaption>Abbildung 4: Mögliches Ergebnis Aufgabnteil c)</figcaption>
-</figure></section>
+<img alt="Ergebnis 3." class="align-center" src="../../_images/basketball_3.png" />
+</section>
 <section id="d-abweichungen-in-der-abwurfgeschwindigkeit">
 <h4>d) Abweichungen in der Abwurfgeschwindigkeit<a class="headerlink" href="#d-abweichungen-in-der-abwurfgeschwindigkeit" title="Permalink to this headline">¶</a></h4>
 <p>Erweitern Sie Ihr Programm so, dass zusätzlich ein Fehler in der Abwurfgeschwindigkeit von <span class="math notranslate nohighlight">\(\pm 0.5\frac{\mathrm{m}}{\mathrm{s}}\)</span> (<u>im Mittel</u>, max. <span class="math notranslate nohighlight">\(\pm 1\frac{\mathrm{m}}{\mathrm{s}}\)</span>) berücksichtigt wird. Wie viele Treffer werden mit dieser zusätzlichen Eigenschaft nach 1000 Würfen in etwa erzielt (<span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span>)?</p>
-<figure>
-  <img src="images/basketball_4.png" alt="Ergebnis 4."/>
-  <figcaption>Abbildung 5: Mögliches Ergebnis Aufgabenteil d)</figcaption>
-</figure></section>
+<img alt="Ergebnis 4." class="align-center" src="../../_images/basketball_4.png" />
+</section>
 <section id="e-bank-shots-erlaubt">
 <h4>e) Bank Shots erlaubt!<a class="headerlink" href="#e-bank-shots-erlaubt" title="Permalink to this headline">¶</a></h4>
 <p>Erweitern Sie Ihr Programm so, dass der Ball beim Auftreffen am Brett ideal elastisch zurückgestoßen wird. Wie viele Treffer werden nun erzielt (<span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span>)?</p>
@@ -622,10 +610,8 @@ Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</sp
 <p class="admonition-title">Hinweis</p>
 <p>Beachten Sie den Abstand zwischen Korb und Brett.</p>
 </div>
-<figure>
-  <img src="images/basketball_5.png" alt="Ergebnis 5."/>
-  <figcaption>Abbildung 6: Mögliches Ergebnis Aufgabenteil e)</figcaption>
-</figure></section>
+<img alt="Ergebnis 5." class="align-center" src="../../_images/basketball_5.png" />
+</section>
 <section id="f-ausblick">
 <h4>f) Ausblick<a class="headerlink" href="#f-ausblick" title="Permalink to this headline">¶</a></h4>
 <p>Nennen Sie mindestens drei Einflussfaktoren eines realen Basketballwurfes, die bisher nicht in das Modell eingeflossen sind. Beschreiben Sie kurz (3-5 Sätze) wie Sie das Modell um mindestens einen dieser Faktoren möglichst einfach erweitern könnten. Stellen Sie sich vor, Sie sind Coach und möchten ihr Modell im Training einsetzen. Was kann Ihre Mannchaft aus Ihren Simulationen lernen (2-3 Sätze)? Und wie können Sie Ihr Modell durch Messungen im Training validieren? <strong>keine Programmierung</strong></p>

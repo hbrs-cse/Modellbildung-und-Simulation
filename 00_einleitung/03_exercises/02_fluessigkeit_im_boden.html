@@ -485,10 +485,9 @@
   <section id="flussigkeit-im-boden">
 <h1>Flüssigkeit im Boden<a class="headerlink" href="#flussigkeit-im-boden" title="Permalink to this headline">¶</a></h1>
 <p>Erstellen Sie ein Programm, in dem das Versickern einer Flüssigkeit im Boden in 2D modelliert wird. Legen Sie dazu eine Matrix an, die einen Bodenausschnitt mit <strong>beliebiger</strong> Breite <span class="math notranslate nohighlight">\(w\)</span> und Tiefe <span class="math notranslate nohighlight">\(d\)</span> darstellt. Die Oberfläche des Bodens sei im Bereich <span class="math notranslate nohighlight">\([\frac{w}{4},\frac{3w}{4}]\)</span> mit Flüssigkeit benetzt.</p>
-<figure>
-  <img src="images/fluessigkeit.png" alt="Flüssigkeit"/>
-</figure>
-Die Flüssigkeit dringt mit einer Wahrscheinlichkeit $p$ (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit $\frac{p}{2}$. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle binär ist.<section id="aufgabe-1-parametrierung-des-bodenmodells">
+<img alt="Flüssigkeit" class="align-center" src="../../_images/fluessigkeit.png" />
+<p>Die Flüssigkeit dringt mit einer Wahrscheinlichkeit <span class="math notranslate nohighlight">\(p\)</span> (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit <span class="math notranslate nohighlight">\(\frac{p}{2}\)</span>. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle binär ist.</p>
+<section id="aufgabe-1-parametrierung-des-bodenmodells">
 <h2>Aufgabe 1 - Parametrierung des Bodenmodells<a class="headerlink" href="#aufgabe-1-parametrierung-des-bodenmodells" title="Permalink to this headline">¶</a></h2>
 <p>Schreiben Sie eine Matlab-Funktion, die diesen Prozess simuliert:</p>
 <div class="cell tag_remove-output docutils container">
