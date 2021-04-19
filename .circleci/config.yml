@@ -18,6 +18,12 @@ jobs:
     docker:
       - image: mtmiller/octave
     steps:
+      - run:
+          name: Install ssh
+          command: |
+            apt update
+            apt -y install ssh
+    
       # Get our data and merge with upstream
       - checkout
 
