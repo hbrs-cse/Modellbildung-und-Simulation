@@ -25,6 +25,10 @@
             "name": "Dirk Reith",
 	        "orcid": "0000-0003-1480-6745"
         },
+		{
+            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
+            "name": "Philipp Rosauer"
+        },
 	    {
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Philipp Spelten"
@@ -33,10 +37,6 @@
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Gerd Steinebach",
 	        "orcid": "0000-0002-1954-9736"
-        },
-	    {
-            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
-            "name": "Philipp Rosauer"
         }
     ]
 }
