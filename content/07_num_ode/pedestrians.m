@@ -1,6 +1,6 @@
 classdef pedestrians < handle
     % pedestrians is an object to create the excitation caused by
-    % pedestrians on a hanging bridge.
+    % pedestrians on a bridge.
     properties
         N;                      % no. of nodes of the bridge (i.e. mass points)
         L;                      % length of the bridge [m]

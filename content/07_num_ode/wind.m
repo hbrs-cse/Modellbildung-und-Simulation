@@ -1,6 +1,6 @@
 classdef wind < handle
-    % pedestrians is an object to create the excitation caused by
-    % pedestrians on a hanging bridge.
+    % wind is an object to create the excitation caused by
+    % wind on a highline.
     properties
         amplitude = 12;         % amplitude of the nodal forces due to wind [N]
         frequency = 5.39506;    % frequency of the nodal forces due to wind [1/s]
