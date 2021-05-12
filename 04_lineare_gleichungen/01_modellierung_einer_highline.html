@@ -288,6 +288,11 @@
      Stabilität Eulerverfahren
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/03_modellierung_einer_highline_dynamisch.html">
+     Modellierung einer Highline - Zeitliche Auflösung
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -540,7 +545,7 @@
               <div>
                 
   <section id="modellierung-einer-highline">
-<h1>Modellierung einer Highline<a class="headerlink" href="#modellierung-einer-highline" title="Permalink to this headline">¶</a></h1>
+<span id="content-references-highline-static"></span><h1>Modellierung einer Highline<a class="headerlink" href="#modellierung-einer-highline" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C6MtzvQ5hZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <p>Mittels einer Reihenschaltung von Federdämpfer-Systemen lässt sich ein einfaches zweidimensionales Modell einer Highline erstellen.</p>
 <section id="modellbeschreibung">
@@ -548,7 +553,7 @@
 <img alt="../_images/bridge.png" class="align-center" src="../_images/bridge.png" />
 <p>Die Highline wird als eine Kette von <span class="math notranslate nohighlight">\(N\)</span> Massepunkten modelliert, die jeweils mit Feder- und Dämpferelementen in horizontaler und vertikaler Richtung miteinader verbunden sind.</p>
 <section id="kraftebilanzierung">
-<h3>Kräftebilanzierung<a class="headerlink" href="#kraftebilanzierung" title="Permalink to this headline">¶</a></h3>
+<span id="content-references-model-description-balance-of-forces"></span><h3>Kräftebilanzierung<a class="headerlink" href="#kraftebilanzierung" title="Permalink to this headline">¶</a></h3>
 <p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen <span class="math notranslate nohighlight">\(\mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix}\)</span> der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null, <span class="math notranslate nohighlight">\(\mathbf{z}_{0}=\mathbf{z}_{N+1}=\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span>.</p>
 <p>Angenommen jeder Massepunkt hat die Masse <span class="math notranslate nohighlight">\(m\)</span> und die Federdämpferelemente haben die Steifigkeiten <span class="math notranslate nohighlight">\(k\)</span> und Dämpfungskoeffizienten <span class="math notranslate nohighlight">\(d\)</span>. Durch Freischneiden und Kraftbilanzierung lassen sich für alle Massepunkte die Bewegungsgleichungen aufstellen. Sei <span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{ext}} \in \mathbb{R}^2\)</span> die externe Kraft, die auf den Massepunkt mit Index <span class="math notranslate nohighlight">\(i\)</span> wirkt. Dann gilt</p>
 <div class="math notranslate nohighlight">
@@ -803,6 +808,10 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Es geht weiter mit der Highline</p>
+<p>Um die Highline dynamisch zu simulieren, sehen Sie sich die Übung <a class="reference internal" href="../07_num_ode/03_modellierung_einer_highline_dynamisch.html#content-references-highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> an.</p>
 </div>
 </section>
 </section>
