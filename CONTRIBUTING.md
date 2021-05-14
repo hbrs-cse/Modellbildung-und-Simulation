@@ -103,7 +103,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  suffices.
  * Once you are fully satisfied with the changes, go to Github and create a Pull-Request from your branch.
 
-### Review the final result online
+#### Review the final result online
 
 This repository uses Circle CI to build a demo site with each `git push`. This way you can see the effect that your commits will have on the website, even before your changes are merged into the master branch.
 To view the demo site, click on *"Details"* next to the check *"ci/circleci:html_demo artifact"*.
@@ -111,3 +111,54 @@ To view the demo site, click on *"Details"* next to the check *"ci/circleci:html
 ![PR Status](./docs/media/pr_status.png)
 
 If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
+
+
+## Tips and best practices
+
+Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt every occurence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
+
+#### Embedding images
+
+Images can be embedded with the following code block. All lines starting with a `:` are optional, but help us with formatting the book.
+````
+```{image} path/to/image.png
+:alt: Name of image
+:width: 1200px
+:align: center
+```
+````
+This format also accepts internet links to images like https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1280px-Jupyter_logo.svg.png
+
+#### Licensing of images
+
+When using licensed images whe have to credit this. Often we can just copy the licensing from another page. Here are two examples from our Book:
+```
+<div style="text-align: right"><a href="https://commons.m.wikimedia.org/wiki/File:A_glass_of_red_wine.jpg" > [CC BY-SA 2.0], via Wikimedia Commons </a></div>
+```
+```
+<div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg" > James Gathany/CDC, Public domain, via Wikimedia Commons </a></div>
+```
+
+#### Special content boxes and admonitions
+
+Jupyter Book has a convenient way to mark special content like tips or warnings.
+We are using three different styles of these boxes, one for admonitions, one for tips and one for warnings. Thex are formatted like this:
+````
+```{admonition} Hinweis
+Dies ist ein Hinweis.
+```
+````
+````
+```{admonition} Tipp
+:class: tip
+
+Dies ist ein Tipp.
+```
+````
+````
+```{admonition} Achtung
+:class: warning
+
+Dies ist eine Warnung.
+```
+````
