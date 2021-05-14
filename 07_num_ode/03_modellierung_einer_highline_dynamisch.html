@@ -505,13 +505,6 @@
   <a class="reference internal nav-link" href="#aufgabe-1">
    Aufgabe 1
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#tipps">
-     Tipps:
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aufgabe-2">
@@ -521,6 +514,11 @@
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aufgabe-3">
    Aufgabe 3
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4">
+   Aufgabe 4
   </a>
  </li>
 </ul>
@@ -539,14 +537,14 @@
 <p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie unter <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-model-description-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
 <section id="neu-die-dynamische-simulation">
 <h2>Neu: Die dynamische Simulation<a class="headerlink" href="#neu-die-dynamische-simulation" title="Permalink to this headline">¶</a></h2>
-<p>Anstatt einen stationären Lastfall zu betrachten und so die Gleichung zu <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} =\mathbf{b}\)</span> zu vereinfachen, betrachten wir weiterhin die oben stehende Gleichung inklusive der Dämpfungsmatrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>.</p>
-<p>Nehmen Sie dafür als Gesamtdämpfung <span class="math notranslate nohighlight">\(0.2 Ns/m\)</span> an.</p>
+<p>Anstatt einen stationären Lastfall zu betrachten und so die Gleichung zu <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} =\mathbf{b}\)</span> zu vereinfachen, betrachten wir weiterhin die oben stehende Gleichung inklusive der Dämpfungsmatrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>. Die <span class="math notranslate nohighlight">\(L = 50 m\)</span> lange Highline wird mit <span class="math notranslate nohighlight">\(N = 100\)</span> Elementen diskretisiert.</p>
+<p>Nehmen Sie als Dämpfung <span class="math notranslate nohighlight">\(d = 0.2 Ns/m\)</span>, als Gewicht <span class="math notranslate nohighlight">\(m_{ges} = 3.15 kg\)</span> und als Steifigkeit <span class="math notranslate nohighlight">\(k = 1000 N/m\)</span> an.</p>
 </section>
 <section id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <p>Lösen Sie die Differentialgleichung mit der Matlab–Routine <code class="docutils literal notranslate"><span class="pre">ode45</span></code> auf einem Zeitinterval von 90 Sekunden. Als externte Kraft <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> soll zunächst nur die Schwerkraft auf die Brückenknoten wirken. Verwenden Sie <span class="math notranslate nohighlight">\(\mathbf{z}(0)=\mathbf{\dot{z}}(0)=0\)</span> als Anfangsbedingungen. Zunächst nehmen wir <span class="math notranslate nohighlight">\(\mathbf{F}_{ext} = \text{const.} = \mathbf{F}_g\)</span> an.</p>
-<section id="tipps">
-<h3>Tipps:<a class="headerlink" href="#tipps" title="Permalink to this headline">¶</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Tipp</p>
 <ul class="simple">
 <li><p>Bringen Sie die DGL auf die Form</p></li>
 </ul>
@@ -556,7 +554,9 @@
 <ul class="simple">
 <li><p>Mit Ihrem Paramter <code class="docutils literal notranslate"><span class="pre">L</span></code> und den Ausgaben <code class="docutils literal notranslate"><span class="pre">[t,q]</span></code> aus <code class="docutils literal notranslate"><span class="pre">ode45</span></code> können Sie die hinterlegte Funktion <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code> nutzen, um sich eine Animation Ihrer Simulation anzeigen zu lassen. Keine Sorge: In dieser Teilaufgabe darf die Auslenkung der Brücke noch unrealistisch hoch sein.</p></li>
 <li><p>Holen Sie sich Inspiration aus den vorherigen Aufgaben, insbesondere Simulation eines Raketenstarts.</p></li>
+<li><p>Sie müssen <span class="math notranslate nohighlight">\(k\)</span> anhand der Dehnbarkeit abhängig von der Länge Ihrer Elemente berechnen.</p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% space for the solution</span>
@@ -570,11 +570,11 @@
 <span class="c">% z = ...</span>
 <span class="c">% q = ...</span>
 <span class="c">% tspan = ...</span>
-<span class="c">% y0 = ...</span>
+<span class="c">% q0 = ...</span>
 
 <span class="c">%highlineode = ...</span>
 
-<span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">highlineode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">y0</span><span class="p">);</span>
+<span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">highlineode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">q0</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,8 @@
 </div>
 </div>
 </div>
-</section>
+<p>So sollte die sich einschwingende Highline aussehen:</p>
+<a class="reference internal image-reference" href="../_images/animated_highline.gif"><img alt="Highline Animation beim Einschwingen" class="align-center" src="../_images/animated_highline.gif" style="width: 400px;" /></a>
 </section>
 <section id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
@@ -660,10 +661,10 @@
     <span class="c">% person_on_highline is an object to create the excitation caused by</span>
     <span class="c">% a person on a highline.</span>
     <span class="k">properties</span>
-        <span class="n">N</span><span class="p">;</span>                      <span class="c">% no. of nodes of the highline (i.e. mass points)</span>
-        <span class="n">L</span><span class="p">;</span>                      <span class="c">% length of the highline [m]</span>
-        <span class="n">weight</span> <span class="p">=</span> <span class="mi">75</span><span class="p">;</span>            <span class="c">% weight of the person</span>
-        <span class="n">velocity</span>  <span class="p">=</span> <span class="mf">1.7988</span><span class="p">;</span>     <span class="c">% velocity of the person [m/s]</span>
+        <span class="n">N</span><span class="p">;</span>                  <span class="c">% no. of nodes of the highline (i.e. mass points)</span>
+        <span class="n">L</span><span class="p">;</span>                  <span class="c">% length of the highline [m]</span>
+        <span class="n">weight</span> <span class="p">=</span> <span class="mi">75</span><span class="p">;</span>        <span class="c">% weight of the person</span>
+        <span class="n">velocity</span> <span class="p">=</span> <span class="mf">0.4</span><span class="p">;</span>     <span class="c">% velocity of the person [m/s]</span>
     <span class="k">end</span>
     <span class="k">methods</span>
         <span class="c">%% constructor (creates the object)</span>
@@ -685,21 +686,23 @@
             <span class="n">x</span><span class="p">=</span><span class="n">obj</span><span class="p">.</span><span class="n">velocity</span><span class="o">*</span><span class="n">t</span><span class="p">;</span>
             
             <span class="c">%restrict position and weight to the highline</span>
-            <span class="n">weight</span><span class="p">=</span><span class="n">obj</span><span class="p">.</span><span class="n">weights</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="p">=</span><span class="n">obj</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
+            <span class="n">weight</span><span class="p">=</span><span class="n">obj</span><span class="p">.</span><span class="n">weight</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="p">=</span><span class="n">obj</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
             <span class="n">x</span><span class="p">=</span><span class="n">x</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="p">=</span><span class="n">obj</span><span class="p">.</span><span class="n">L</span><span class="p">);</span>
             
+            <span class="k">if</span> <span class="o">~</span><span class="nb">isempty</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
             <span class="c">%find the two nearest nodes to the person</span>
-            <span class="n">N0</span><span class="p">=</span><span class="nb">floor</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">seglen</span><span class="p">);</span>
-            <span class="n">N1</span><span class="p">=</span><span class="nb">ceil</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">seglen</span><span class="p">);</span>
-                
-            <span class="c">%distribute the weight of the person to the two</span>
-            <span class="c">%nearest nodes</span>
-            <span class="n">a</span><span class="p">=(</span><span class="n">x</span><span class="o">-</span><span class="n">N0</span><span class="o">*</span><span class="n">seglen</span><span class="p">)</span><span class="o">/</span><span class="n">seglen</span><span class="p">;</span>
-            <span class="k">if</span> <span class="n">N0</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">N0</span><span class="o">&lt;</span><span class="n">obj</span><span class="p">.</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
-                <span class="n">F</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N0</span><span class="p">)=</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">weight</span><span class="o">*</span><span class="mf">9.81</span><span class="p">;</span>
-            <span class="k">end</span>
-            <span class="k">if</span> <span class="n">N1</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">N1</span><span class="o">&lt;</span><span class="n">obj</span><span class="p">.</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
-                <span class="n">F</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N1</span><span class="p">)=</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">weight</span><span class="o">*</span><span class="mf">9.81</span><span class="p">;</span>
+                <span class="n">N0</span><span class="p">=</span><span class="nb">floor</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">seglen</span><span class="p">);</span>
+                <span class="n">N1</span><span class="p">=</span><span class="nb">ceil</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">seglen</span><span class="p">);</span>
+
+                <span class="c">%distribute the weight of the person to the two</span>
+                <span class="c">%nearest nodes</span>
+                <span class="n">a</span><span class="p">=(</span><span class="n">x</span><span class="o">-</span><span class="n">N0</span><span class="o">*</span><span class="n">seglen</span><span class="p">)</span><span class="o">/</span><span class="n">seglen</span><span class="p">;</span>
+                <span class="k">if</span> <span class="n">N0</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">N0</span><span class="o">&lt;</span><span class="n">obj</span><span class="p">.</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
+                    <span class="n">F</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N0</span><span class="p">)=</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">*</span><span class="n">weight</span><span class="o">*</span><span class="mf">9.81</span><span class="p">;</span>
+                <span class="k">end</span>
+                <span class="k">if</span> <span class="n">N1</span><span class="o">&gt;</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">N1</span><span class="o">&lt;</span><span class="n">obj</span><span class="p">.</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
+                    <span class="n">F</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N1</span><span class="p">)=</span><span class="o">-</span><span class="n">a</span><span class="o">*</span><span class="n">weight</span><span class="o">*</span><span class="mf">9.81</span><span class="p">;</span>
+                <span class="k">end</span>
             <span class="k">end</span>
         <span class="k">end</span> <span class="c">%excitation function</span>
         
@@ -724,7 +727,7 @@
     <span class="c">% wind is an object to create the excitation caused by</span>
     <span class="c">% wind on a highline.</span>
     <span class="k">properties</span>
-        <span class="n">amplitude</span> <span class="p">=</span> <span class="mi">12</span><span class="p">;</span>         <span class="c">% amplitude of the nodal forces due to wind [N]</span>
+        <span class="n">amplitude</span> <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>        <span class="c">% amplitude of the nodal forces due to wind [N]</span>
         <span class="n">frequency</span> <span class="p">=</span> <span class="mf">5.39506</span><span class="p">;</span>    <span class="c">% frequency of the nodal forces due to wind [1/s]</span>
         <span class="n">weights</span><span class="p">;</span>                <span class="c">% nodal weights for the force evaluation</span>
     <span class="k">end</span>
@@ -763,11 +766,15 @@
 <p>Simulieren Sie die Brücke für einen Zeitraum von 180 Sekunden. Erstellen Sie eine Animation mit dem Befehl</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">animate_highline</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">,</span> <span class="n">highliner</span><span class="p">)</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">animate_highline</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">highliner</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>Animation nur mit Wind (über <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code>):</p>
+<a class="reference internal image-reference" href="../_images/animated_highline_with_wind.gif"><img alt="Highline Animation mit Wind" class="align-center" src="../_images/animated_highline_with_wind.gif" style="width: 800px;" /></a>
+<p>Animation mit Wind und Person auf der Highline:</p>
+<a class="reference internal image-reference" href="../_images/animated_highline_with_person.gif"><img alt="Highline Animation mit Highliner" class="align-center" src="../_images/animated_highline_with_person.gif" style="width: 800px;" /></a>
 </section>
 <section id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
@@ -778,6 +785,14 @@
 </ul>
 <p>Gibt es eine einfache Maßnahme, mit der für die gegebene Anregung <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> die Schwingungsamplitude
 der Brückenmitte verringert werden kann? Belegen Sie Ihre Antwort möglichst mit Simulationsergebnissen. Wie gut lässt sich Ihre Maßnahme in der Praxis umsetzen?</p>
+</section>
+<section id="aufgabe-4">
+<h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
+<p>Reale Slacklines haben eine Dehung von etwa 15 % bei 15 kN (siehe <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-dehnung/">hier</a> und <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-gewichtbruchlast/">hier</a>) und ein Gewicht von 60 g/m.</p>
+<ul class="simple">
+<li><p>Wie können Sie die Dehnung in die Federsteifigkeit übertragen? Können Sie unabhängig von <span class="math notranslate nohighlight">\(N\)</span> die gleichen Ergebnisse erzielen?</p></li>
+<li><p>Warum muss <code class="docutils literal notranslate"><span class="pre">ode45</span></code> so viele Auswertungen machen?</p></li>
+</ul>
 </section>
 </section>
 
