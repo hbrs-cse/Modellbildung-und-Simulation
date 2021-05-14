@@ -27,7 +27,7 @@ classdef person_on_highline < handle
             x=obj.velocity*t;
             
             %restrict position and weight to the highline
-            weight=obj.weights(x<=obj.L);
+            weight=obj.weight(x<=obj.L);
             x=x(x<=obj.L);
             
             %find the two nearest nodes to the person
