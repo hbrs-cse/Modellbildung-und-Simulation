@@ -115,11 +115,11 @@ If the book generation failed for some reason, there will be a red cross instead
 
 ## Tips and best practices
 
-Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt every occurence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
+Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt the new format to every occurrence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
 
 #### Embedding images
 
-Images can be embedded with the following code block. All lines starting with a `:` are optional, but help us with formatting the book.
+Images can be embedded with the following code block. All lines starting with a `:` are optional but help with formatting the book.
 ````
 ```{image} path/to/image.png
 :alt: Name of image
@@ -127,11 +127,11 @@ Images can be embedded with the following code block. All lines starting with a 
 :align: center
 ```
 ````
-This format also accepts internet links to images like https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1280px-Jupyter_logo.svg.png
+This format also accepts internet links to images instead of `path/to/image.png`.
 
 #### Licensing of images
 
-When using licensed images whe have to credit this. Often we can just copy the licensing from another page. Here are two examples from our Book:
+When using licensed images whe have to credit this. Often we can just copy the licensing from another page. Here are two examples from our Book. These code block are placed below the embedded image.
 ```
 <div style="text-align: right"><a href="https://commons.m.wikimedia.org/wiki/File:A_glass_of_red_wine.jpg" > [CC BY-SA 2.0], via Wikimedia Commons </a></div>
 ```
@@ -142,7 +142,7 @@ When using licensed images whe have to credit this. Often we can just copy the l
 #### Special content boxes and admonitions
 
 Jupyter Book has a convenient way to mark special content like tips or warnings.
-We are using three different styles of these boxes, one for admonitions, one for tips and one for warnings. Thex are formatted like this:
+We are using three different styles of these boxes, one for admonitions, one for tips and one for warnings. They are formatted like this:
 ````
 ```{admonition} Hinweis
 Dies ist ein Hinweis.
