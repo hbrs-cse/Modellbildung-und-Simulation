@@ -2,7 +2,7 @@ classdef wind < handle
     % wind is an object to create the excitation caused by
     % wind on a highline.
     properties
-        amplitude = 12;         % amplitude of the nodal forces due to wind [N]
+        amplitude = 0.1;         % amplitude of the nodal forces due to wind [N]
         frequency = 5.39506;    % frequency of the nodal forces due to wind [1/s]
         weights;                % nodal weights for the force evaluation
     end
