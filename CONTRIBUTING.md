@@ -121,9 +121,9 @@ Hereafter we will list our tips and best practices to keep a consistent look to 
 
 Images can be embedded with the following code block. All lines starting with a `:` are optional but help with formatting the book.
 ````
-```{image} path/to/image.png
+```{image} image/image.png
 :alt: Name of image
-:width: 1200px
+:width: 800px
 :align: center
 ```
 ````
