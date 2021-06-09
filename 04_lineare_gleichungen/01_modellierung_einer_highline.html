@@ -387,7 +387,12 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../11_pde/01_konvektion_und_diffusion.html">
+    <a class="reference internal" href="../11_pde/01_modellierung_einer_highline_dynamisch_pde.html">
+     Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/02_konvektion_und_diffusion.html">
      Konvektion und Diffusion
     </a>
    </li>
@@ -681,13 +686,15 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 <ul class="simple">
 <li><p>Erstellen Sie ein Balkendiagramm, das die Rechenzeiten für die Lösung des Gleichungssystems jeweils für die vollbesestzte sowie dünnbesetzte Matrixformatierung und <span class="math notranslate nohighlight">\(N = 5, 50, 500, 5000\)</span> darstellt (Insgesamt also acht Rechnungen).</p></li>
 </ul>
-<p><strong>Tipps:</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Tipp</p>
 <ul class="simple">
 <li><p>Verwenden Sie die Matlabbefehle <code class="docutils literal notranslate"><span class="pre">tic</span></code> und <code class="docutils literal notranslate"><span class="pre">toc</span></code> für die Zeitmessung.</p></li>
 <li><p>Machen Sie sich mit dünnbesetzten Matrizen <em>(sparse matrix)</em> in Matlab vertraut.</p></li>
 <li><p>Berücksichtigen Sie die Rechenzeit der Matrix-Assemblierung (Erstellen von <span class="math notranslate nohighlight">\(S\)</span> und <span class="math notranslate nohighlight">\(b\)</span>).</p></li>
 <li><p>Unter Umständen müssen Sie die y-Achse logarithmisch skalieren!</p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% space for the solution</span>
@@ -773,11 +780,13 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 <ul class="simple">
 <li><p>Ab welcher Auflösung <span class="math notranslate nohighlight">\(N\)</span> ist das Schnellste der sechs iterativen Verfahren schneller als das klassische LU-Verfahren?</p></li>
 </ul>
-<p><strong>Tipps:</strong></p>
+<div class="tip admonition">
+<p class="admonition-title">Tipp</p>
 <ul class="simple">
 <li><p>Unter Umständen müssen Sie die maximal erlaubte Anzahl an Iterationen für die iterativen Verfahren anpassen.</p></li>
 <li><p>Denken Sie daran, die Konstruktion des Vorkonditionierers in der Rechenzeit zu berücksichtigen!</p></li>
 </ul>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% space for the solution</span>
