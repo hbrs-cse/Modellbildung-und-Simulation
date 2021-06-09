@@ -543,11 +543,26 @@
 <section id="neu-die-dynamische-simulation">
 <h2>Neu: Die dynamische Simulation<a class="headerlink" href="#neu-die-dynamische-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Anstatt einen stationären Lastfall zu betrachten und so die Gleichung zu <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} =\mathbf{b}\)</span> zu vereinfachen, betrachten wir weiterhin die oben stehende Gleichung inklusive der Dämpfungsmatrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>. Die <span class="math notranslate nohighlight">\(L = 50 m\)</span> lange Highline wird mit <span class="math notranslate nohighlight">\(N = 100\)</span> Elementen diskretisiert.</p>
-<p>Nehmen Sie als Dämpfung <span class="math notranslate nohighlight">\(d = 0.2 Ns/m\)</span>, als Gewicht <span class="math notranslate nohighlight">\(m_{ges} = 3.15 kg\)</span> und als Steifigkeit <span class="math notranslate nohighlight">\(k = 1000 N/m\)</span> an.</p>
+<p>Nehmen Sie als Gesamtgewicht <span class="math notranslate nohighlight">\(m_{ges} = 3.15 kg\)</span>, als Dämpfung der Elemente <span class="math notranslate nohighlight">\(d = 10 Ns/m\)</span>, und als Steifigkeit der Elemente <span class="math notranslate nohighlight">\(k = 2\cdot10^4 N/m\)</span> an.</p>
+<p>Zur Erinnerung, das Gleichungssystem und die Matrizen sind:</p>
+<div class="math notranslate nohighlight">
+\[M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}, K = k \cdot S, D=d \cdot S, \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split} \mathbf{z}=\left[ \begin{array}{c} \mathbf{z}_1 \\ \vdots \\ \mathbf{z}_N \end{array} \right] \in \mathbb{R}^{2N}, \quad \mathbf{F}_{\text{ext}} = \left[ \begin{array}{c} \mathbf{F}_{1,\text{ext}} \\ \vdots \\ \mathbf{F}_{N,\text{ext}} \end{array} \right] \in \mathbb{R}^{2N}, \quad M = \left[ \begin{array}{cccc} m &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; m &amp; \ddots &amp; \vdots \\ \vdots &amp; \ddots &amp; \ddots &amp; 0 \\ 0 &amp; \cdots &amp; 0 &amp; m \end{array} \right] \in \mathbb{R}^{2N \times 2N} \quad \text{und} \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}S = \left[ \begin{array}{rrrrrrr}
+2 &amp; 0 &amp; -1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0  \\
+0 &amp; 2 &amp; 0 &amp; -1 &amp; \ddots &amp;  &amp; \vdots \\
+-1 &amp; 0 &amp; 2 &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots \\
+0 &amp; -1 &amp; 0 &amp; 2 &amp; \ddots &amp; \ddots &amp; 0 \\
+\vdots &amp; \ddots &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; -1 \\
+\vdots &amp; &amp; \ddots &amp; \ddots  &amp; \ddots &amp; \ddots &amp; 0 \\
+0 &amp; \cdots &amp; \cdots &amp; 0 &amp; -1 &amp; 0 &amp; 2
+\end{array}  \right] \in \mathbb{R}^{2N \times 2N}.\end{split}\]</div>
 </section>
 <section id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<p>Lösen Sie die Differentialgleichung mit der Matlab–Routine <code class="docutils literal notranslate"><span class="pre">ode45</span></code> auf einem Zeitinterval von 90 Sekunden. Als externte Kraft <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> soll zunächst nur die Schwerkraft auf die Brückenknoten wirken. Verwenden Sie <span class="math notranslate nohighlight">\(\mathbf{z}(0)=\mathbf{\dot{z}}(0)=0\)</span> als Anfangsbedingungen. Zunächst nehmen wir <span class="math notranslate nohighlight">\(\mathbf{F}_{ext} = \text{const.} = \mathbf{F}_g\)</span> an.</p>
+<p>Lösen Sie die Differentialgleichung mit der Matlab–Routine <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> auf einem Zeitinterval von 40 Sekunden. Als externte Kraft <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> soll zunächst nur die Schwerkraft auf die Brückenknoten wirken. Verwenden Sie <span class="math notranslate nohighlight">\(\mathbf{z}(0)=\mathbf{\dot{z}}(0)=0\)</span> als Anfangsbedingungen. Zunächst nehmen wir <span class="math notranslate nohighlight">\(\mathbf{F}_{ext} = \text{const.} = \mathbf{F}_g\)</span> an.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tipp</p>
 <ul class="simple">
@@ -557,7 +572,7 @@
 \[\begin{split}\mathbf{\dot{q}}=F(t,\mathbf{q})\text{, mit } \mathbf{q} = \left[ \begin{array}{c} \mathbf{q}_0 \\ \mathbf{q}_1 \end{array} \right] := \left[ \begin{array}{c} \mathbf{z} \\ \mathbf{\dot{z}} \end{array} \right] \in \mathbb{R}^{4N}\end{split}\]</div>
 <p>mit einer geeigneten Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^{4N}\to\mathbb{R}^{4N}\)</span></p>
 <ul class="simple">
-<li><p>Mit Ihrem Paramter <code class="docutils literal notranslate"><span class="pre">L</span></code> und den Ausgaben <code class="docutils literal notranslate"><span class="pre">[t,q]</span></code> aus <code class="docutils literal notranslate"><span class="pre">ode45</span></code> können Sie die hinterlegte Funktion <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code> nutzen, um sich eine Animation Ihrer Simulation anzeigen zu lassen. Keine Sorge: In dieser Teilaufgabe darf die Auslenkung der Brücke noch unrealistisch hoch sein.</p></li>
+<li><p>Mit Ihrem Paramter <code class="docutils literal notranslate"><span class="pre">L</span></code> und den Ausgaben <code class="docutils literal notranslate"><span class="pre">[t,q]</span></code> aus <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> können Sie die hinterlegte Funktion <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code> nutzen, um sich eine Animation Ihrer Simulation anzeigen zu lassen. Keine Sorge: In dieser Teilaufgabe darf die Auslenkung der Brücke noch unrealistisch hoch sein.</p></li>
 <li><p>Holen Sie sich Inspiration aus den vorherigen Aufgaben, insbesondere Simulation eines Raketenstarts.</p></li>
 <li><p>Sie müssen <span class="math notranslate nohighlight">\(k\)</span> anhand der Dehnbarkeit abhängig von der Länge Ihrer Elemente berechnen.</p></li>
 </ul>
@@ -579,7 +594,7 @@
 
 <span class="c">%highlineode = ...</span>
 
-<span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(</span><span class="n">highlineode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">q0</span><span class="p">);</span>
+<span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode15s</span><span class="p">(</span><span class="n">highlineode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">q0</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -593,12 +608,13 @@
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">animate_highline</span><span class="p">(</span>L,t,q,person_on_highline<span class="p">)</span><span class="w"></span>
 
 <span class="n">dt</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>                <span class="c">% time step size for animation</span>
-<span class="n">Ta</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>             <span class="c">% start time</span>
-<span class="n">Te</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>             <span class="c">% end time</span>
+<span class="n">Ta</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>           <span class="c">% start time</span>
+<span class="n">Te</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>           <span class="c">% end time</span>
 
 <span class="n">N</span> <span class="p">=</span> <span class="nb">floor</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">4</span><span class="p">);</span>  <span class="c">% get number of mass points from q</span>
 <span class="n">n</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">;</span>
 
+<span class="c">%% animating</span>
 <span class="n">timestep</span><span class="p">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="k">for</span> <span class="n">ti</span><span class="p">=</span><span class="n">Ta</span><span class="p">:</span><span class="n">dt</span><span class="p">:</span><span class="n">Te</span>
     <span class="n">timestep</span> <span class="p">=</span> <span class="n">timestep</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
@@ -616,21 +632,29 @@
     <span class="n">Yvalues</span><span class="p">=[</span><span class="mi">0</span> <span class="n">positions_y</span> <span class="mi">0</span><span class="p">];</span>
     
     <span class="k">if</span> <span class="nb">nargin</span><span class="o">&gt;</span><span class="mi">3</span>
-        <span class="c">% position of the person (could be multiple when using class pedestrians instead of person_on_highline)</span>
+        <span class="c">% positions of the pedestrians</span>
         <span class="n">posx</span> <span class="p">=</span> <span class="n">person_on_highline</span><span class="p">.</span><span class="n">positions</span><span class="p">(</span><span class="n">ti</span><span class="p">);</span>
         <span class="n">posy</span> <span class="p">=</span> <span class="n">interp1</span><span class="p">(</span><span class="n">Xvalues</span><span class="p">,</span><span class="n">Yvalues</span><span class="p">,</span><span class="n">posx</span><span class="p">);</span>
+        <span class="k">if</span> <span class="n">posx</span> <span class="o">&lt;</span> <span class="n">L</span>
+            <span class="n">posxs</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span> <span class="p">=</span> <span class="n">posx</span><span class="p">;</span>
+            <span class="n">posys</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span> <span class="p">=</span> <span class="n">posy</span><span class="p">;</span>
+        <span class="k">else</span>
+            <span class="n">posxs</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span> <span class="p">=</span> <span class="n">L</span><span class="p">;</span>
+            <span class="n">posys</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">end</span>
     <span class="k">end</span>
     
-    <span class="c">%% plot the animation of the highline with a person</span>
+    <span class="c">%% plot the animation of the highline with pedestrians</span>
     <span class="nb">cla</span><span class="p">;</span>
     <span class="nb">hold</span> <span class="n">on</span>
-    <span class="nb">plot</span><span class="p">(</span><span class="n">Xvalues</span><span class="p">,</span><span class="n">Yvalues</span><span class="p">,</span><span class="s">&#39;kx&#39;</span><span class="p">);</span>
+    <span class="nb">plot</span><span class="p">(</span><span class="n">Xvalues</span><span class="p">,</span><span class="n">Yvalues</span><span class="p">,</span><span class="s">&#39;-b&#39;</span><span class="p">,</span> <span class="s">&#39;linewidth&#39;</span><span class="p">,</span><span class="mf">1.5</span><span class="p">);</span>
     <span class="k">if</span> <span class="nb">nargin</span><span class="o">&gt;</span><span class="mi">3</span>
         <span class="nb">scatter</span><span class="p">(</span><span class="n">posx</span><span class="p">,</span><span class="n">posy</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="s">&#39;fill&#39;</span><span class="p">);</span>
+        <span class="nb">plot</span><span class="p">(</span><span class="n">posxs</span><span class="p">,</span><span class="n">posys</span><span class="p">,</span><span class="s">&#39;-r&#39;</span><span class="p">,</span> <span class="s">&#39;linewidth&#39;</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">);</span>
     <span class="k">end</span>
-    <span class="nb">axis</span> <span class="n">equal</span>
+    <span class="c">%axis equal</span>
     <span class="nb">box</span> <span class="n">on</span>
-    <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="n">ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]);</span>
     <span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">L</span><span class="p">]);</span>
     <span class="nb">title</span><span class="p">([</span><span class="s">&#39;t = &#39;</span><span class="p">,</span><span class="n">num2str</span><span class="p">(</span><span class="n">ti</span><span class="p">,</span><span class="s">&#39;%1.2f&#39;</span><span class="p">),</span><span class="s">&#39; s&#39;</span><span class="p">])</span>
     <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;horizontal direction [m]&#39;</span><span class="p">)</span>
@@ -768,35 +792,29 @@
 <p class="admonition-title">Hinweis</p>
 <p>Sollten Sie offline in Octave arbeiten, speichern Sie <code class="docutils literal notranslate"><span class="pre">wind.m</span></code> und <code class="docutils literal notranslate"><span class="pre">person_on_highline.m</span></code> in separaten Dateien.</p>
 </div>
-<p>Simulieren Sie die Brücke für einen Zeitraum von 180 Sekunden. Erstellen Sie eine Animation mit dem Befehl</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">animate_highline</span><span class="p">(</span><span class="n">L</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">highliner</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Animation nur mit Wind (über <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code>):</p>
+<p>Simulieren Sie die Highline für den Zeitraum, den die Person zur Überquerung benötigt. Erstellen Sie eine Animation mit dem Befehl <code class="docutils literal notranslate"><span class="pre">animate_highline(...)</span></code>.</p>
+<p>Animation nur mit Wind (mit <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code>):</p>
 <a class="reference internal image-reference" href="../_images/animated_highline_with_wind.gif"><img alt="Highline Animation mit Wind" class="align-center" src="../_images/animated_highline_with_wind.gif" style="width: 800px;" /></a>
-<p>Animation mit Wind und Person auf der Highline:</p>
+<p>Animation mit Wind und Person auf der Highline (mit <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q,highliner)</span></code>):</p>
 <a class="reference internal image-reference" href="../_images/animated_highline_with_person.gif"><img alt="Highline Animation mit Highliner" class="align-center" src="../_images/animated_highline_with_person.gif" style="width: 800px;" /></a>
 </section>
 <section id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
 <p>Modifizieren Sie Ihr Skript, so dass es die folgenden Plots erstellt:</p>
 <ul class="simple">
-<li><p>Ein Plot, der die Verschiebung der Brückenmitte über die Zeit darstellt.</p></li>
-<li><p>Ein Plot, der die Beschleunigungen der Brückenmitte über die Zeit darstellt.</p></li>
+<li><p>Ein Plot, der die Verschiebung der Mitte der Highline über die Zeit darstellt.</p></li>
+<li><p>Ein Plot, der die Beschleunigungen der Mitte der Highline über die Zeit darstellt.</p></li>
 </ul>
 <p>Gibt es eine einfache Maßnahme, mit der für die gegebene Anregung <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> die Schwingungsamplitude
-der Brückenmitte verringert werden kann? Belegen Sie Ihre Antwort möglichst mit Simulationsergebnissen. Wie gut lässt sich Ihre Maßnahme in der Praxis umsetzen?</p>
+der Highline verringert werden kann? Belegen Sie Ihre Antwort möglichst mit Simulationsergebnissen. Wie gut lässt sich Ihre Maßnahme in der Praxis umsetzen?</p>
 </section>
 <section id="aufgabe-4">
 <h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
 <p>Reale Slacklines haben eine Dehung von etwa 15 % bei 15 kN (siehe <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-dehnung/">hier</a> und <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-gewichtbruchlast/">hier</a>) und ein Gewicht von 60 g/m.</p>
 <ul class="simple">
-<li><p>Wie können Sie die Dehnung in die Federsteifigkeit übertragen? Können Sie unabhängig von <span class="math notranslate nohighlight">\(N\)</span> die gleichen Ergebnisse erzielen?</p></li>
-<li><p>Warum muss <code class="docutils literal notranslate"><span class="pre">ode45</span></code> so viele Auswertungen machen?</p></li>
+<li><p>Wie können Sie die Dehnung in die Federsteifigkeit für variable <span class="math notranslate nohighlight">\(L\)</span> übertragen? Können Sie unabhängig von <span class="math notranslate nohighlight">\(N\)</span> die gleichen Ergebnisse erzielen?</p></li>
+<li><p>Probieren Sie anstelle von <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> den ‘klassischen’ Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code>aus. Warum benötigt dieser so lang und warum ist <code class="docutils literal notranslate"><span class="pre">ode15s</span></code>so viel performanter? Lassen Sie sich dazu Eckdaten der Löser ausgeben.</p></li>
+<li><p>Wirkt die Dämpfung realistisch? Lässt sich das System auch mit einer geringeren Dämpfung gut simulieren?</p></li>
 </ul>
 </section>
 </section>
