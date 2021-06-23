@@ -1,12 +1,13 @@
-function animate_highline(L,t,q,pedestrians)
+function animate_highline(L,t,q,person_on_highline)
 
 dt = 0.2;                % time step size for animation
-Ta = min(t);             % start time
-Te = max(t);             % end time
+Ta = min(t);           % start time
+Te = max(t);           % end time
 
 N = floor(size(q,2)/4);  % get number of mass points from q
 n = 2*N;
 
+%% animating
 timestep=0;
 for ti=Ta:dt:Te
     timestep = timestep + 1;
@@ -25,20 +26,28 @@ for ti=Ta:dt:Te
     
     if nargin>3
         % positions of the pedestrians
-        posx = pedestrians.positions(ti);
+        posx = person_on_highline.positions(ti);
         posy = interp1(Xvalues,Yvalues,posx);
+        if posx < L
+            posxs(timestep) = posx;
+            posys(timestep) = posy;
+        else
+            posxs(timestep) = L;
+            posys(timestep) = 0;
+        end
     end
     
     %% plot the animation of the highline with pedestrians
     cla;
     hold on
-    plot(Xvalues,Yvalues,'kx');
+    plot(Xvalues,Yvalues,'-b', 'linewidth',1.5);
     if nargin>3
         scatter(posx,posy,50,'fill');
+        plot(posxs,posys,'-r', 'linewidth', 1.5);
     end
-    axis equal
+    %axis equal
     box on
-    ylim([-10,2]);
+    ylim([-2,0.1]);
     xlim([0,L]);
     title(['t = ',num2str(ti,'%1.2f'),' s'])
     xlabel('horizontal direction [m]')
