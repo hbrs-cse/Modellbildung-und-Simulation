@@ -45,16 +45,16 @@ function test_numInt_stepsWidth
     tol = 10^-6;
     [I, df] = numInt(f,a,b,tol);
     % !!! width (2^-9) determined via testing !!! 0.001953125000000
-    assertVectorsAlmostEqual([I, df],[e - 1/e, 2^-9]) 
+    assertVectorsAlmostEqual([I, df],[exp(1) - 1/exp(1), 2^-9]) 
     
-function test_numInt_stepsWidth
+function test_numInt_stepsWidth_2
 % test function of 1-cos(-0.33*x.^2-0.1*x +1) where step width control is necessary
     a = 0;
     b = 10;
-    f = @(x) 1-cos(-0.33*x.^2-0.1*x +1)
+    f = @(x) 1-cos(-0.33*x.^2-0.1*x +1);
     tol = 10^-6;
     [I, df] = numInt(f,a,b,tol);
-    assertVectorsAlmostEqual(I,quadcc (f, a, b, tol)) 
+    assertVectorsAlmostEqual(I,integral(f, a, b)) 
     
 %%%%%%%%%%%%%%%%%%%%%%%
 % More advanced tests %
@@ -70,7 +70,7 @@ function test_numInt_invertedInterval
     assertVectorsAlmostEqual(I,-0.5)
     
 function test_numInt_poleInIntervall
- test function of 
+% test function of 1/x
     a = -0.5;
     b = 1;
     f = @(x) 1/x;
