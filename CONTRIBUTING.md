@@ -72,8 +72,12 @@ In this section, it is assumed that you are in the root directory of your clone 
  ```
  Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser. 
  * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/joergbrech/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
- * Edit `toc.yml` to include any newly created content files in the table of contents. Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyter.org/jupyter-book/guide/01_overview) and the [demo notebook](https://jupyterbook.org/intro.html).
+ * Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyterbook.org/start/overview.html) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
+ ```bash
+ jupyter-book toc content/
+ ```
+ to automatically generate the table of contents based on the page titles. Then run
  ```bash
  jupyter-book build content/
  ```
@@ -99,7 +103,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  suffices.
  * Once you are fully satisfied with the changes, go to Github and create a Pull-Request from your branch.
 
-### Review the final result online
+#### Review the final result online
 
 This repository uses Circle CI to build a demo site with each `git push`. This way you can see the effect that your commits will have on the website, even before your changes are merged into the master branch.
 To view the demo site, click on *"Details"* next to the check *"ci/circleci:html_demo artifact"*.
@@ -107,3 +111,54 @@ To view the demo site, click on *"Details"* next to the check *"ci/circleci:html
 ![PR Status](./docs/media/pr_status.png)
 
 If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
+
+
+## Tips and best practices
+
+Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt the new format to every occurrence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
+
+#### Embedding images
+
+Images can be embedded with the following code block. All lines starting with a `:` are optional but help with formatting the book.
+````
+```{image} image/image.png
+:alt: Name of image
+:width: 800px
+:align: center
+```
+````
+This format also accepts internet links to images instead of `path/to/image.png`.
+
+#### Licensing of images
+
+When using licensed images whe have to credit this. Often we can just copy the licensing from another page. Here are two examples from our Book. These code block are placed below the embedded image.
+```
+<div style="text-align: right"><a href="https://commons.m.wikimedia.org/wiki/File:A_glass_of_red_wine.jpg" > [CC BY-SA 2.0], via Wikimedia Commons </a></div>
+```
+```
+<div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg" > James Gathany/CDC, Public domain, via Wikimedia Commons </a></div>
+```
+
+#### Special content boxes and admonitions
+
+Jupyter Book has a convenient way to mark special content like tips or warnings.
+We are using three different styles of these boxes, one for admonitions, one for tips and one for warnings. They are formatted like this:
+````
+```{admonition} Hinweis
+Dies ist ein Hinweis.
+```
+````
+````
+```{admonition} Tipp
+:class: tip
+
+Dies ist ein Tipp.
+```
+````
+````
+```{admonition} Achtung
+:class: warning
+
+Dies ist eine Warnung.
+```
+````

@@ -45,7 +45,7 @@ launch_buttons:
   notebook_interface        : "jupyterlab"  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url             : "https://mybinder.org"  # The URL of the BinderHub (e.g., https://mybinder.org)
   jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
-  thebelab                  : true  # Add a thebelab button to pages (requires the repository to run on Binder)
+  thebe                     : true  # Add a thebelab button to pages (requires the repository to run on Binder)
 
 repository:
   url                       : https://github.com/joergbrech/Modellbildung-und-Simulation  # The URL to your book's repository
@@ -55,5 +55,21 @@ repository:
 #######################################################################################
 # Advanced and power-user settings
 sphinx:
-  extra_extensions          : ""  # A list of extra extensions to load by Sphinx.
-  config                    : ""  # key-value pairs to directly over-ride the Sphinx configuration
+  extra_extensions          : []  # A list of extra extensions to load by Sphinx.
+  config                    : null  # key-value pairs to directly over-ride the Sphinx configuration
+  
+#######################################################################################
+# Extended syntax for admonitions (https://jupyterbook.org/content/content-blocks.html#new-style-admonitions)
+parse:
+  myst_enable_extensions : [
+    "amsmath",
+    "colon_fence",
+    "dollarmath",
+    "html_admonition",
+    "html_image"
+    ]
+
+#######################################################################################
+# Citation settings
+bibtex_bibfiles:
+   - references.bib

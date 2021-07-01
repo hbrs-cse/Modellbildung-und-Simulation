@@ -18,6 +18,12 @@ jobs:
     docker:
       - image: mtmiller/octave
     steps:
+      - run:
+          name: Install ssh
+          command: |
+            apt update
+            apt -y install ssh
+    
       # Get our data and merge with upstream
       - checkout
 
@@ -30,7 +36,9 @@ jobs:
           name: Build page intermediate HTML files
           command: |
             cd content
-            jupyter-book build -W .
+            jupyter-book toc .
+            cat _toc.yml
+            jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
