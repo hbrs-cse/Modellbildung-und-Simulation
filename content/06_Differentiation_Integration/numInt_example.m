@@ -8,7 +8,15 @@ h = b-a; n = 1;
 trap = h/2*(f(a) + f(b));
 sim = h/6*(f(a)+4*f(a+h/2)+f(b));
 while abs(trap-sim) > tol
-    h = h/2;
+    h = h/2
+    if h < 10^(-7)
+        msgID = 'numInt:convergence';
+        msg = 'does not converge';
+        %exception = MException(msgID,msg);
+        error(msgID,msg);
+        %throw(exception);
+        break;
+    end
     n=n*2;
     sum_sim = 0; sum_trap = 0;
     x = a;
@@ -20,14 +28,6 @@ while abs(trap-sim) > tol
     end
     trap = h/2*sum_trap;
     sim = h/6*sum_sim;
-    if h < 10^(-9)
-        msgID = 'numInt:convergence';
-        msg = 'does not converge';
-        %exception = MException(msgID,msg);
-        error(msgID,msg);
-        %throw(exception);
-        break;
-    end
 end
 I = sim;
 dt = h;
