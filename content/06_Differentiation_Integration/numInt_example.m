@@ -8,7 +8,7 @@ h = b-a; n = 1;
 trap = h/2*(f(a) + f(b));
 sim = h/6*(f(a)+4*f(a+h/2)+f(b));
 while abs(trap-sim) > tol
-    h = h/2
+    h = h/2;
     if h < 10^(-7)
         msgID = 'numInt:convergence';
         msg = 'does not converge';
@@ -30,5 +30,12 @@ while abs(trap-sim) > tol
     sim = h/6*sum_sim;
 end
 I = sim;
+if I == Inf
+    msgID = 'numInt:inf';
+    msg = 'infinite integral - check with analytical solution';
+    %exception = MException(msgID,msg);
+    error(msgID,msg);
+    %throw(exception);
+end
 dt = h;
 end

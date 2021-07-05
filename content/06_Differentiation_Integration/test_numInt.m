@@ -68,7 +68,7 @@ function test_numInt_invertedInterval
     tol = 10^-6;
     [I, df] = numInt(f,a,b,tol);
     assertVectorsAlmostEqual(I,-0.5)
-    
+  
 function test_numInt_poleInIntervall
 % test function of 1/x
     a = -0.5;
@@ -76,3 +76,12 @@ function test_numInt_poleInIntervall
     f = @(x) 1/x;
     tol = 10^-6;
     assertExceptionThrown(@() numInt(f,a,b,tol))
+    
+function test_numInt_symmetricIntegral
+% test function of 1/x
+    a = -1;
+    b = 1;
+    f = @(x) 1/x;
+    tol = 10^-6;
+    [I, df] = numInt(f,a,b,tol);
+    assertVectorsAlmostEqual(I,0)
