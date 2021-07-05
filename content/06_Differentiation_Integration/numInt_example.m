@@ -9,7 +9,7 @@ trap = h/2*(f(a) + f(b));
 sim = h/6*(f(a)+4*f(a+h/2)+f(b));
 while abs(trap-sim) > tol
     h = h/2;
-    if h < 10^(-7)
+    if h < max(tol/100,10^-9)
         msgID = 'numInt:convergence';
         msg = 'does not converge';
         %exception = MException(msgID,msg);
