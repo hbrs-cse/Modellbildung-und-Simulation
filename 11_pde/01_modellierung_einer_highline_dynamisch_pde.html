@@ -506,6 +506,19 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literatur">
+   Literatur
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -516,49 +529,76 @@
                 
   <section id="modellierung-einer-highline-die-losung-als-pde">
 <span id="content-references-highline-dynamic-pde"></span><h1>Modellierung einer Highline - Die Lösung als PDE<a class="headerlink" href="#modellierung-einer-highline-die-losung-als-pde" title="Permalink to this headline">¶</a></h1>
-<p>Wie in <a class="reference internal" href="../07_num_ode/03_modellierung_einer_highline_dynamisch.html#content-references-highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> wollen wir nun die Highline aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> als partielle Differentialgleichung (Partial Differential Equation, PDE) lösen. Im Unterschied zu den gewöhnlichen Differentialgleichungen gibt es hier Ableitungen nach mehr als einer Variablen, häufig nach Raumgrößen und der Zeit (z.B. <span class="math notranslate nohighlight">\(f(\varphi_x,\varphi_t)\)</span>).</p>
-<p>Auch wenn es nicht so aussah, beinhaltet bereits die die Kräftebilanzierung aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> eine partielle Differentialgleichung. Für einen allgemeinen Massepunkt mit den Koordinaten <span class="math notranslate nohighlight">\(\mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix}\)</span> ergibt sich aus der Kräftebilanz <span class="math notranslate nohighlight">\(m_i \mathbf{\ddot{z}}_i = \mathbf{F}_{i,\text{Feder}} + \mathbf{F}_{i,\text{Dämpfer}} + \mathbf{F}_{i,\text{ext}}, i = 1,...,N\)</span> mit <span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{Feder}} = k \mathbf{z}_{xx}, \mathbf{F}_{i,\text{Dämpfer}} = d \mathbf{\dot{z}}_xx\)</span> und <span class="math notranslate nohighlight">\(m_i = m, k_i = k, d_i = d\)</span> die PDE</p>
+<p>Wie in <a class="reference internal" href="../07_num_ode/03_modellierung_einer_highline_dynamisch.html#content-references-highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> wollen wir nun die Highline aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> als partielle Differentialgleichung (Partial Differential Equation, PDE) lösen. Im Unterschied zu den gewöhnlichen Differentialgleichungen gibt es hier Ableitungen nach mehr als einer Variablen, häufig nach Raumgrößen und der Zeit (z.B. <span class="math notranslate nohighlight">\(\frac{\partial f(t,x)}{\partial t}, \frac{\partial f(t,x)}{\partial x}\)</span>).</p>
+<p>Auch wenn es nicht so aussah, beinhaltet bereits die die Kräftebilanzierung aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> eine partielle Differentialgleichung. Allgmein lässt sich die Highline gemäß <span id="id1">[<a class="reference internal" href="#id5"><span>Opr20</span></a>]</span> als PDE aufstellen.</p>
 <div class="math notranslate nohighlight">
-\[m \cdot \frac{\partial^2 \mathbf{z}}{\partial t^2} = k \cdot \frac{\partial^2 \mathbf{z}}{\partial x^2} + d \cdot \frac{\partial^2 \frac{\partial \mathbf{z}}{\partial t}}{\partial x^2} + \mathbf{F}_{\text{ext}}(t)\]</div>
-<p>oder</p>
-<div class="math notranslate nohighlight">
-\[m \mathbf{z}_{tt} = k \mathbf{z}_{xx} + d {\mathbf{z}_t}_{xx} + \mathbf{F}_{\text{ext}}(t).\]</div>
+\[\rho_L \cdot \mathbf{\ddot{z}} = E \cdot A \cdot \mathbf{z}_{xx} + c \cdot \mathbf{\dot{z}}_{xx} + \Delta\mathbf{F}(t)\]</div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Die Ableitung nach dem Ort in beide Raumrichtungen <span class="math notranslate nohighlight">\(\frac{\partial}{\partial x}\)</span> ist nicht zu verwechseln mit der einzelnen Raumkoordinaten <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<ul class="simple">
+<li><p>Die Gleichung ist ein partielles Kräftegleichgewicht der <span class="math notranslate nohighlight">\(\Delta\mathbf{F} = \left[\frac{kg}{s^2}\right]\)</span>, mit <span class="math notranslate nohighlight">\(\Delta = \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\)</span> dem Laplace-Operator (in unserem Fall nur in 2D).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{\partial^2 z}{\partial x^2}\)</span> ist die Dehnung des Seils. <span class="math notranslate nohighlight">\(\frac{\partial z}{\partial x}\)</span> wäre die Steigung des Seils.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho_L\)</span> ist die Dichte der Highline bezogen auf die Länge, also <span class="math notranslate nohighlight">\(\rho_L=\rho \cdot A=\frac{m_{ges}}{L} \left[\frac{kg}{m}\right]\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c \cdot \mathbf{\dot{z}}_{xx}\)</span> ist die Dämpfung der Highline. Die Dämpfung ist schwer aus den Stoffeigenschaften wie der Viskosität herzuleiten, weshalb üblicherweise Annahmen getroffen werden müssen. In <span id="id2">[<a class="reference internal" href="#id5"><span>Opr20</span></a>]</span> handelt es sich um eine Gitarrensaite, die durch die Luft eine lineare Dämpfung <span class="math notranslate nohighlight">\(c \cdot \mathbf{\dot{z}}\)</span> erfährt. In unserem Fall hängt die Dämpfung durch die Annahme der Feder-Masse-Dämpfer-Elemente vom Geschwindigkeitsgradienten entlang der Highline ab. Wir nehmen also an, dass <span class="math notranslate nohighlight">\(c = d \cdot dx\)</span> mit <span class="math notranslate nohighlight">\(dx\)</span> der Länge der Dämpfer-Elemente und <span class="math notranslate nohighlight">\([c] = \text{Ns}\)</span>. Anstelle von <span class="math notranslate nohighlight">\(c\)</span> könnte aber auch eine nichtlineare Dämpfung und eine Abhängigkeit von anderen Faktoren angenommen werden.</p></li>
+<li><p><span class="math notranslate nohighlight">\(E\)</span> ist der Modul der Highline</p></li>
+<li><p><span class="math notranslate nohighlight">\(A\)</span> ist der Querschnitt der Highline</p></li>
+<li><p>Andere Schreibweisen wären</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\rho_L \frac{\partial^2 \mathbf{z}}{\partial t^2} = E \cdot A \cdot \frac{\partial^2 \mathbf{z}}{\partial x^2} + c \frac{\partial^3 \mathbf{z}}{\partial x^2 \partial t} + \Delta\mathbf{F}(t)\]</div>
+<p>oder</p>
+<div class="math notranslate nohighlight">
+\[\rho_L \mathbf{z}_{tt} = E \cdot \mathbf{z}_{xx} + \mu_L \mathbf{z}_{xxt} + \Delta\mathbf{F}(t).\]</div>
+<ul class="simple">
+<li><p>Die Ableitung nach dem Ort <span class="math notranslate nohighlight">\(\frac{\partial}{\partial x}\)</span> ist nicht zu verwechseln mit der einzelnen Raumkoordinaten <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+</ul>
 </div>
-<p>Um diese PDE in ein System von ODEs zu überführen, muss ein sogenannter Differenzenstern für die Ortsableitungen gebildet werden. Im Eindimensionalen ist der Differenzenstern für die zweite Ableitung der zentrale Differenzenquotient. Dieser ergibt sich aus dem zentralen Differenzenquotienten</p>
+<p>Um diese PDE in ein System von ODEs zu überführen, muss ein sogenannter Differenzenstern für die Ortsableitungen gebildet werden. Im Eindimensionalen ist ein möglicher Differenzenstern für die zweite Ableitung der zentrale Differenzenquotient.</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial z}{\partial x} \approx \frac{z(x+h)-z(x-h)}{h}\]</div>
-<p>zu</p>
+\[\frac{\partial^2 f}{\partial x^2} \approx \frac{f(x-h)-2f(x)+f(x+h)}{h^2}.\]</div>
+<p>Nachdem wir elementweise für <span class="math notranslate nohighlight">\(i = 1,...N\)</span> diskretisieren ist der zentrale Differenzenquotient</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial^2 z}{\partial x^2} \approx \frac{z(x-h)-2z(x)+z(x+h)}{h^2} \to \frac{\partial^2 z_i}{\partial x^2} = \frac{z_{i-1}-2z_i+z_{i+1}}{dx^2}.\]</div>
-<p>Nach der Übertragung von <span class="math notranslate nohighlight">\(k\)</span> und <span class="math notranslate nohighlight">\(d\)</span> auf Elementweise <span class="math notranslate nohighlight">\(k\)</span> und <span class="math notranslate nohighlight">\(d\)</span> entsteht die bekannte Gleichung aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>:</p>
+\[\frac{\partial^2 \mathbf{z}_i}{\partial x^2} = \frac{\mathbf{z}_{i-1}-2\mathbf{z}_i+\mathbf{z}_{i+1}}{dx^2}.\]</div>
+<p>Damit wird die PDE zu</p>
+<div class="math notranslate nohighlight">
+\[\rho_L \mathbf{\ddot{z}}_i = \frac{E \cdot A}{dx^2} (\mathbf{z}_{i-1}-2\mathbf{z}_i+\mathbf{z}_{i+1}) + \frac{c}{dx^2} (\mathbf{\dot{z}}_{i-1}-2\mathbf{\dot{z}}_i+\mathbf{\dot{z}}_{i+1}) + \Delta\mathbf{F}(t).\]</div>
+<p><em>Das erinnert uns schon ein bisschen an eine Gleichung, die wir bereits kennen…</em></p>
+<p>Mit <span class="math notranslate nohighlight">\(m_{ges} = m \cdot N\)</span> und <span class="math notranslate nohighlight">\(N = \frac{L}{dx}\)</span> wird <span class="math notranslate nohighlight">\(\rho_L = \frac{m_{ges}}{L} = \frac{m}{dx}\)</span>, mit <span class="math notranslate nohighlight">\(m\)</span> der Masse pro Masseelement.</p>
+<p>Mit <span class="math notranslate nohighlight">\(\frac{E \cdot A}{dx} = k\)</span>, <span class="math notranslate nohighlight">\(\frac{c}{dx} = d\)</span> und <span class="math notranslate nohighlight">\(\Delta\mathbf{F} = \frac{\mathbf{F}_{\text{i,ext}}(t)}{dx}\)</span> wird aus der PDE</p>
+<div class="math notranslate nohighlight">
+\[\frac{m}{dx} {\mathbf{\ddot{z}}_i} = \frac{k}{dx} (\mathbf{z}_{i-1}-2\mathbf{z}_i+\mathbf{z}_{i+1}) + \frac{d}{dx} (\mathbf{\dot{z}}_{i-1}-2\mathbf{\dot{z}}_i+\mathbf{\dot{z}}_{i+1}) + \frac{1}{dx}\mathbf{F}_{\text{i,ext}}(t)\]</div>
+<p>Nach Kürzen von <span class="math notranslate nohighlight">\(\frac{1}{dx}\)</span> (die PDE war ja bezogen auf ein relatives Ortsintervall) entsteht die bekannte Gleichung aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>:</p>
 <div class="math notranslate nohighlight">
 \[m \ddot{\mathbf{z}}_i = k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}}\]</div>
-<p>Achtung: Für den ersten und den letzten Massenpunkt (<span class="math notranslate nohighlight">\(i=1\)</span> und <span class="math notranslate nohighlight">\(i=N\)</span>) sind zusätzlich die Geschwindigkeit und Verschiebung der Massenpunkte an den Rändern für die finiten Differenzen notwendig. Es entsteht also ein System mit <span class="math notranslate nohighlight">\(N+4\)</span> Unbekannten (beziehungsweise <span class="math notranslate nohighlight">\(2N\)</span> Unbekannte, falls wir die Vektoren in ihre Raumrichtungen zerlegen) und nur <span class="math notranslate nohighlight">\(N\)</span> Gleichungen.</p>
-<p>Daher müssen Randbedingungen festgelegt werden. Diese ist für die Highline ganz logisch und einfach festzulegen: Die  Geschwindigkeit und Verschiebung der äußeren Elemente sind natürlich <span class="math notranslate nohighlight">\(\mathbf{\dot{z}}_0=\mathbf{\dot{z}}_{N+1}=0, \mathbf{z}_0=\mathbf{z}_{N+1}=0\)</span>.</p>
+<p>Für den ersten und den letzten Massenpunkt (<span class="math notranslate nohighlight">\(i=1\)</span> und <span class="math notranslate nohighlight">\(i=N\)</span>) sind zusätzlich die Geschwindigkeit und Verschiebung der Massenpunkte an den Rändern für die finiten Differenzen notwendig. Es entsteht also ein System mit <span class="math notranslate nohighlight">\(N+4\)</span> Unbekannten (beziehungsweise <span class="math notranslate nohighlight">\(2N+8\)</span> Unbekannte, falls wir die Vektoren in ihre Raumrichtungen zerlegen) und nur <span class="math notranslate nohighlight">\(N\)</span> Gleichungen.</p>
+<p>Daher müssen Randbedingungen festgelegt werden. Diese ist für die Highline ganz logisch und einfach festzulegen: Die  Geschwindigkeit und Verschiebung der äußeren Elemente sind natürlich <span class="math notranslate nohighlight">\(\mathbf{z}_0=\mathbf{z}_{N+1}=0, \mathbf{\dot{z}}_0=\mathbf{\dot{z}}_{N+1}=0\)</span>.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Diese Randbedingungen werden Dirichlet-Randbedingungen genannt. Andere bekannte RBs sind die Neumann-RB, die die Ortsableitungen an den Rändern festlegen.</p>
 </div>
-<p>Damit werden die Gleichungen für <span class="math notranslate nohighlight">\(i=1\)</span> und <span class="math notranslate nohighlight">\(i=N\)</span> etwas kürzer und es ergeben sich die beiden zusätzlichen Gleichungen für <span class="math notranslate nohighlight">\(\ddot{z}\)</span> bei <span class="math notranslate nohighlight">\(i=0\)</span> und <span class="math notranslate nohighlight">\(i=N+1\)</span> und wir erhalten das Gleichungssystem</p>
+<p>Damit werden die Gleichungen für <span class="math notranslate nohighlight">\(i=1\)</span> und <span class="math notranslate nohighlight">\(i=N\)</span> etwas kürzer und wir erhalten das Gleichungssystem für die verbleibenden Unbekannten <span class="math notranslate nohighlight">\(\mathbf{z}_1,...,\mathbf{z}_N\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
- m \ddot{\mathbf{z}}_0 &amp;= 0 \notag \\
  m \ddot{\mathbf{z}}_1 &amp;= -k \mathbf{z}_1 - d \dot{\mathbf{z}}_1 -k(\mathbf{z}_1-\mathbf{z}_2) - d(\dot{\mathbf{z}}_1-\dot{\mathbf{z}}_2) + \mathbf{F}_{1,\text{ext}} \notag \\
  m \ddot{\mathbf{z}}_i &amp;= k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}}, \hskip4em \text{für } i=2,...,N-1 \notag \\
- m \ddot{\mathbf{z}}_N &amp;= -k \mathbf{z}_N - d \dot{\mathbf{z}}_N + k(\mathbf{z}_{N-1}-\mathbf{z}_N) + d(\dot{\mathbf{z}}_{N-1}-\dot{\mathbf{z}}_N) + \mathbf{F}_{N,\text{ext}} \notag \\
- m \ddot{\mathbf{z}}_{N+1} &amp;= 0 \notag
-\end{align}
+ m \ddot{\mathbf{z}}_N &amp;= -k \mathbf{z}_N - d \dot{\mathbf{z}}_N + k(\mathbf{z}_{N-1}-\mathbf{z}_N) + d(\dot{\mathbf{z}}_{N-1}-\dot{\mathbf{z}}_N) + \mathbf{F}_{N,\text{ext}} \notag\end{align}
 \end{split}\]</div>
 <p>, für das wir die Lösung bereits gelernt haben.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Diese Lösungsstrategie nennt sich übrigens <strong>Finite-Differenzen-Methode</strong> (FDM):</p>
+<p>Diese Lösungsstrategie nennt sich übrigens <strong>Linienmethode</strong>:</p>
 <p>Die Ortsableitungen in der PDE werden durch finite Differenzenquotienten ersetzt. Zusammen mit den Randbedingungen ergibt sich ein System gewöhnlicher Differentialgleichungen.</p>
 </div>
+<section id="literatur">
+<h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
+<p id="id3"><dl class="citation">
+<dt class="label" id="id5"><span class="brackets">Opr20</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
+<dd><p>Adriano Oprandi. <em>4. Die Wellengleichung der gedämpft schwingenden Saite</em>, pages 20–21. De Gruyter Oldenbourg, 2020. URL: <a class="reference external" href="https://doi.org/10.1515/9783110684148-004">https://doi.org/10.1515/9783110684148-004</a>, <a class="reference external" href="https://doi.org/doi:10.1515/9783110684148-004">doi:doi:10.1515/9783110684148-004</a>.</p>
+</dd>
+</dl>
+</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
