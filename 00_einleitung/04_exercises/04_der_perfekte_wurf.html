@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Flüssigkeit im Boden &#8212; Modellbildung und Simulation</title>
+    <title>Der perfekte Wurf &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -55,8 +55,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Verkehrssimulation" href="03_verkehrssimulation.html" />
-    <link rel="prev" title="Matlab kennenlernen" href="01_matlab_kennenlernen.html" />
+    <link rel="next" title="Schwingungen" href="../../01_schwingungen/00_schwingungen.html" />
+    <link rel="prev" title="Verkehrssimulation mit zellulären Automaten" href="03_verkehrssimulation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,12 +98,17 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html">
+    <a class="reference internal" href="../01_motivation/00_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_usage/00_verwendung_dieses_buches.html">
      Verwendung dieses Buches
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../02_first_steps/00_erste_schritte_in_matlab.html">
+    <a class="reference internal" href="../03_first_steps/00_erste_schritte_in_matlab.html">
      Erste Schritte in Matlab
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -113,17 +118,17 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/01_matlab_command_window.html">
+      <a class="reference internal" href="../03_first_steps/01_matlab_command_window.html">
        Matlab Command Window
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/02_skripte_und_funktionen.html">
+      <a class="reference internal" href="../03_first_steps/02_skripte_und_funktionen.html">
        Skripte und Funktionen
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/03_best_practice.html">
+      <a class="reference internal" href="../03_first_steps/03_best_practice.html">
        Best Practices
       </a>
      </li>
@@ -144,18 +149,18 @@
        Matlab kennenlernen
       </a>
      </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="02_fluessigkeit_im_boden.html">
        Flüssigkeit im Boden
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="03_verkehrssimulation.html">
-       Verkehrssimulation
+       Verkehrssimulation mit zellulären Automaten
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="04_der_perfekte_wurf.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Der perfekte Wurf
       </a>
      </li>
@@ -392,6 +397,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_motivationPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../11_pde/02_konvektion_und_diffusion.html">
      Konvektion und Diffusion
     </a>
@@ -439,7 +449,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/00_einleitung/03_exercises/02_fluessigkeit_im_boden.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/04_exercises/04_der_perfekte_wurf.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -456,7 +466,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/02_fluessigkeit_im_boden.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/04_exercises/04_der_perfekte_wurf.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -476,7 +486,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_exercises/02_fluessigkeit_im_boden.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/04_exercises/04_der_perfekte_wurf.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -502,24 +512,60 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-1-parametrierung-des-bodenmodells">
-   Aufgabe 1 - Parametrierung des Bodenmodells
+  <a class="reference internal nav-link" href="#modellbeschreibung">
+   Modellbeschreibung
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-1-aufstellen-der-bewegungsgleichung">
+     Aufgabe 1: Aufstellen der Bewegungsgleichung
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2-unregelmaszigkeiten-im-boden">
-   Aufgabe 2 - Unregelmäßigkeiten im Boden
+  <a class="reference internal nav-link" href="#modellierung">
+   Modellierung
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-3-einfluss-der-tiefe">
-   Aufgabe 3 - Einfluss der Tiefe
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-4-gesteigerter-realismus">
-   Aufgabe 4 - Gesteigerter Realismus
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aufgabe-2-freiwurf-eines-punktformigen-balles">
+     Aufgabe 2: Freiwurf eines punktförmigen Balles
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#a-abwurfwinkel">
+       a) Abwurfwinkel
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#b-anpassen-der-korbgrosze">
+       b) Anpassen der Korbgröße
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#c-niemand-ist-perfekt">
+       c) Niemand ist perfekt!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#d-abweichungen-in-der-abwurfgeschwindigkeit">
+       d) Abweichungen in der Abwurfgeschwindigkeit
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#e-bank-shots-erlaubt">
+       e) Bank Shots erlaubt!
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#f-ausblick">
+       f) Ausblick
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -532,149 +578,193 @@
         
               <div>
                 
-  <section id="flussigkeit-im-boden">
-<h1>Flüssigkeit im Boden<a class="headerlink" href="#flussigkeit-im-boden" title="Permalink to this headline">¶</a></h1>
-<p>Erstellen Sie ein Programm, in dem das Versickern einer Flüssigkeit im Boden in 2D modelliert wird. Legen Sie dazu eine Matrix an, die einen Bodenausschnitt mit <strong>beliebiger</strong> Breite <span class="math notranslate nohighlight">\(w\)</span> und Tiefe <span class="math notranslate nohighlight">\(d\)</span> darstellt. Die Oberfläche des Bodens sei im Bereich <span class="math notranslate nohighlight">\([\frac{w}{4},\frac{3w}{4}]\)</span> mit Flüssigkeit benetzt.</p>
-<img alt="Flüssigkeit" class="align-center" src="../../_images/fluessigkeit.png" />
-<p>Die Flüssigkeit dringt mit einer Wahrscheinlichkeit <span class="math notranslate nohighlight">\(p\)</span> (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit <span class="math notranslate nohighlight">\(\frac{p}{2}\)</span>. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle binär ist.</p>
-<section id="aufgabe-1-parametrierung-des-bodenmodells">
-<h2>Aufgabe 1 - Parametrierung des Bodenmodells<a class="headerlink" href="#aufgabe-1-parametrierung-des-bodenmodells" title="Permalink to this headline">¶</a></h2>
-<p>Schreiben Sie eine Matlab-Funktion, die diesen Prozess simuliert:</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
-<span class="k">function</span><span class="w"> </span>ground<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">groundwater_sim</span><span class="p">(</span>depth, width, probability<span class="p">)</span><span class="w"></span>
-<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
-<span class="c">%</span>
-<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
-<span class="c">%   depth x width. </span>
-<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
-<span class="c">% according to a certain probability. Initially, the central </span>
-<span class="c">% half of the surface is covered by fluid</span>
-<span class="c">%</span>
-<span class="c">% Inputs:</span>
-<span class="c">%   - depth:       The depth of the regular 2D grid</span>
-<span class="c">%   - width:       The width of the regular 2D grid</span>
-<span class="c">%   - probability: The seeping probability into lower cells</span>
-<span class="c">%</span>
-<span class="c">% Outputs:</span>
-<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
-<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
-
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Tipp:</strong></p>
-<ul class="simple">
-<li><p>Für die Visualisierung können Sie zum Beispiel die Funktion <code class="docutils literal notranslate"><span class="pre">spy</span></code> oder <code class="docutils literal notranslate"><span class="pre">imagesc</span></code> verwenden.</p></li>
-<li><p>Die Ränder der Bodenmatrix sind gesondert zu behandeln.</p></li>
-</ul>
-<p>Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse Ihrer Funktion zu überprüfuen:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_groundwater_sim</span><span class="p">.</span><span class="n">m</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Parametrieren Sie den Bodenparameter <span class="math notranslate nohighlight">\(p\)</span> so, dass über 1000 Simulationen gemittelt am unteren Ende circa drei Zellen befeuchtet sind. Berechnen Sie dann Mittelwert und Standardabweichung. Verwenden Sie hierfür konkret <span class="math notranslate nohighlight">\(d=80\)</span> und <span class="math notranslate nohighlight">\(w=250\)</span>. Schreiben Sie dazu ein Matlab-Skript, das die Funktion <code class="docutils literal notranslate"><span class="pre">groundwater_sim</span></code> verwendet.</p>
+  <section id="der-perfekte-wurf">
+<h1>Der perfekte Wurf<a class="headerlink" href="#der-perfekte-wurf" title="Permalink to this headline">¶</a></h1>
+<p>Man könnte annehmen, dass das (erfolgreiche) Werfen eines Freiwurfs für alle hochbezahlten Basketballstars eine reine Formalität ist. Erstaunlicherweise ist dem nicht so! Während der deutsche NBA Star Dirk Nowitzki in der Saison 2008/09 laut NBA Media Ventures (2009) immerhin eine Trefferquote von 89% hatte, gibt es andere NBA Superstars, die in dieser Hinsicht weniger erfolgreich sind. Ein prominentes Beispiel ist Shaquille O’Neal, der am Ende der Saison 2008/09 gerade einmal eine Trefferquote von 59% hatte, in seiner gesamten Karriere sogar nur eine Quote von 52.4%. Er ist kein Einzelfall: Fast ein Drittel der NBA-Spieler haben beim Freiwurf eine Trefferquote von weniger als 75%. Für uns stellt sich die Frage: Woher kommen diese Unterschiede und ist es eventuell möglich ein Modell zu erstellen, das den ’perfekten Wurf’ wiedergibt?</p>
+<img alt="Wurf" class="align-center" src="../../_images/basketball_title.jpg" />
+<section id="modellbeschreibung">
+<h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
+<p>In Abbildung 1 sind die Messungen eines aufgezeichneten Wurfes dargestellt. Der Ball geht ins Netz, wobei er knapp die Hände von Spieler B streift. Die Größe des Balles wird hier vernachlässigt und das Problem wird nur in zwei Dimensionen betrachtet. Der Ball vollführt eine geradlinige Bewegung in horizantler Richtung und eine gleichförmig beschleunigte Bewegung in vertikaler Richtung. Das Koordinatensystem kann frei gewählt werden, hier wird der Ursprung an die Position des werfenden Spielers auf Bodenhöhe gelegt. Dabei soll die <span class="math notranslate nohighlight">\(x\)</span>-Achse in Richtung des Baseketballkorbes und die <span class="math notranslate nohighlight">\(y\)</span>-Achse nach oben zeigen.</p>
+<a class="reference internal image-reference" href="../../_images/Ballwurf.jpg"><img alt="Wurf" class="align-center" src="../../_images/Ballwurf.jpg" style="width: 500px;" /></a>
+<section id="aufgabe-1-aufstellen-der-bewegungsgleichung">
+<h3>Aufgabe 1: Aufstellen der Bewegungsgleichung<a class="headerlink" href="#aufgabe-1-aufstellen-der-bewegungsgleichung" title="Permalink to this headline">¶</a></h3>
+<p>Zunächst soll mit Bleistift und Papier die Grundlage geschaffen werden, um in den folgenden Aufgaben mit Hilfe von Matlab den Wurf eines Basketballes zu simulieren.
+Die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung können leicht für die gegebene Bewegung hergeleitet werden.</p>
+<p>In <span class="math notranslate nohighlight">\(x\)</span>-Richtung wird der Ball nicht beschleunigt, er besitzt aber eine Anfangsgeschwindigkeit in <span class="math notranslate nohighlight">\(x\)</span>-Richtung <span class="math notranslate nohighlight">\(v_x\)</span>. Wegen der Wahl des Ursprungs gilt außerdem <span class="math notranslate nohighlight">\(x(t=0)=0\)</span>.</p>
+<p>a) Stellen Sie die Bewegungsgleichungen in x-Richtung auf.</p>
+<p><span class="math notranslate nohighlight">\(x''(t) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(x'(t) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(x(t) =\)</span></p>
+<p>In vertikaler Richtung wird der Ball mit der Erdbeschleunigung <span class="math notranslate nohighlight">\(g = 9.81 \;\mathrm{m/s^2}\)</span> beschleunigt und besitzt eine Anfangsgeschwindigkeit in <span class="math notranslate nohighlight">\(y\)</span>-Richtung <span class="math notranslate nohighlight">\(v_y\)</span> und eine Abwurfhöhe von <span class="math notranslate nohighlight">\(h_A\)</span>.</p>
+<p>b) Stellen Sie die Bewegungsgleichungen in <span class="math notranslate nohighlight">\(y\)</span>-Richtung auf.</p>
+<p><span class="math notranslate nohighlight">\(y''(t) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(y'(t) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(y(t) =\)</span></p>
+<p>Mittels einfacher Trigonometrie können <span class="math notranslate nohighlight">\(x(t)\)</span> und <span class="math notranslate nohighlight">\(y(t)\)</span> als Funktionen des Abwurfwinkels <span class="math notranslate nohighlight">\(\alpha\)</span> und des Betrags <span class="math notranslate nohighlight">\(v_a\)</span> ausgedrückt werden. Führen Sie sich diesen Zusammenhang, wenn nötig, mit Hilfe einer einfachen Skizze vor Augen.</p>
+<p>c) Stellen Sie <span class="math notranslate nohighlight">\(x(t)\)</span> und <span class="math notranslate nohighlight">\(y(t)\)</span> als Funktionen des Abwurfwinkels dar.</p>
+<p><span class="math notranslate nohighlight">\(x(t) =\)</span></p>
+<p><span class="math notranslate nohighlight">\(y(t) =\)</span></p>
 </section>
-<section id="aufgabe-2-unregelmaszigkeiten-im-boden">
-<h2>Aufgabe 2 - Unregelmäßigkeiten im Boden<a class="headerlink" href="#aufgabe-2-unregelmaszigkeiten-im-boden" title="Permalink to this headline">¶</a></h2>
-<p>Reale Böden sind in der Regel sehr unregelmäßig strukturiert, sodass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von <code class="docutils literal notranslate"><span class="pre">ratio_absorb</span></code> aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. die Flüssigkeit am weiteren Versickern im Boden hindert. Modifizieren Sie Ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.</p>
-<p>Geben Sie als zusätzliche Ausgabe die Matrix aus, die das absorbierende Material repräsentiert.</p>
-<div class="cell tag_remove-output docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
-<span class="k">function</span><span class="w"> </span><span class="nf">[ground, absorb_mat] = groundwater_sim</span><span class="p">(</span>depth, width, probability, ratio_absorb<span class="p">)</span><span class="w"></span>
-<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
-<span class="c">%</span>
-<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
-<span class="c">%   depth x width. </span>
-<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
-<span class="c">% according to a certain probability. Initially, the central </span>
-<span class="c">% half of the surface is covered by fluid</span>
-<span class="c">%</span>
-<span class="c">% Inputs:</span>
-<span class="c">%   - depth:        The depth of the regulear 2D grid</span>
-<span class="c">%   - width:        The width of the regular 2D grid</span>
-<span class="c">%   - probability:  The seeping probability into lower cells</span>
-<span class="c">%   - ratio_absorb: Ratio of absorbing material in the ground</span>
-<span class="c">%                   values between 0 and 1</span>
-<span class="c">%</span>
-<span class="c">% Outputs:</span>
-<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
-<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
-<span class="c">%   - absorb_mat:  2D-grid representing the absorbing material </span>
-<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
-
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Geben Sie <span class="math notranslate nohighlight">\(p\)</span> aus Aufgabe 1 vor und variieren Sie <code class="docutils literal notranslate"><span class="pre">ratio_absorb</span></code> ausgehend von 10%. Wie groß muss der Anteil <em>mindestens</em> sein, damit über 1000 Simulationen gemittelt weniger als eine Zelle am unteren Ende des Bodensegments von Flüssigkeit erreicht wird (<span class="math notranslate nohighlight">\(d=80\)</span> und <span class="math notranslate nohighlight">\(w=250\)</span>)?</p>
-<p><strong>Tipp</strong>: Die Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">randperm</span></code> könnte nützlich sein.</p>
 </section>
-<section id="aufgabe-3-einfluss-der-tiefe">
-<h2>Aufgabe 3 - Einfluss der Tiefe<a class="headerlink" href="#aufgabe-3-einfluss-der-tiefe" title="Permalink to this headline">¶</a></h2>
-<p>In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie Ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter <code class="docutils literal notranslate"><span class="pre">depth_influence</span></code> ein, um die Stärke dieses Effektes zu regulieren. <strong>Wichtig:</strong> <em>Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!</em></p>
-<p>Um die Eingabeparameter Ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem <em>Structure array</em> mit Namen <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
-<div class="cell tag_remove-output docutils container">
+<section id="modellierung">
+<h2>Modellierung<a class="headerlink" href="#modellierung" title="Permalink to this headline">¶</a></h2>
+<p>Mit Hilfe der zuvor aufgestellen Bewegungsgleichungen sollen im Folgenden verschiedene Freiwurf-Szenarien simuliert werden.</p>
+<section id="aufgabe-2-freiwurf-eines-punktformigen-balles">
+<h3>Aufgabe 2: Freiwurf eines punktförmigen Balles<a class="headerlink" href="#aufgabe-2-freiwurf-eines-punktformigen-balles" title="Permalink to this headline">¶</a></h3>
+<p>Schreiben Sie auf Basis der zuvor aufgestellten Bewegungsgleichungen ein Programm, in welchem Sie die Bahnkurve des Balls beim Freiwurf für beliebige Abwurfwinkel <span class="math notranslate nohighlight">\(\alpha\)</span> berechnen können. Am Ende dieser Seite steht dazu bereits ein Code-Gerüst. Dieses können Sie interaktiv auf dieser Seite nach und nach füllen und ausführen, oder in Matlab kopieren. Die Aufgaben sind so strukturiert, dass Sie Ihr Skript zur Lösung jeder weiteren Aufgabe erweitern können.</p>
+<p>Gehen Sie von einem punktförmigen Ball aus; einen gültigen Wurf erhalten Sie dann, wenn der Ball mittig im Korb landet. Binden Sie Korb und Brett in die Visualisierung ein. Verwenden Sie folgende Maße für die Beschreibung des Problems (Maße für alle Aufgabenteile):</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Wert <span class="math notranslate nohighlight">\([\mathrm{m}]\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Abwurfhöhe</p></td>
+<td><p><span class="math notranslate nohighlight">\(2.31\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Korbhöhe</p></td>
+<td><p><span class="math notranslate nohighlight">\(3.05\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Korbradius</p></td>
+<td><p><span class="math notranslate nohighlight">\(0.225\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Wurfdistanz</p></td>
+<td><p><span class="math notranslate nohighlight">\(4.115\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Höhe Unterkante Brett</p></td>
+<td><p><span class="math notranslate nohighlight">\(2.9\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Vertikale Länge des Bretts</p></td>
+<td><p><span class="math notranslate nohighlight">\(1.05\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Abstand Brett-Korb</p></td>
+<td><p><span class="math notranslate nohighlight">\(0.15\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<section id="a-abwurfwinkel">
+<h4>a) Abwurfwinkel<a class="headerlink" href="#a-abwurfwinkel" title="Permalink to this headline">¶</a></h4>
+<p>Überlegen Sie sich, welche Abwurfwinkel realistisch sind und legen Sie auf dieser Basis ein Intervall fest, für das Sie Würfe simulieren wollen. Plotten Sie innerhalb dieses Intervalls alle Bahnkurven im Abstand von 0.1 Grad.</p>
+<img alt="Ergebnis a." class="align-center" src="../../_images/basketball_1.png" />
+</section>
+<section id="b-anpassen-der-korbgrosze">
+<h4>b) Anpassen der Korbgröße<a class="headerlink" href="#b-anpassen-der-korbgrosze" title="Permalink to this headline">¶</a></h4>
+<p>Der Korb ist in der Realität größer als der Ball, so dass dieser für einen Treffer nicht exakt mittig durch den Korb fallen muss. Erweitern Sie ihr Programm so, dass der Ball an jedem Punkt durch den Korb fallen kann. Gehen Sie dann von einer Anfangsgeschwindigkeit von <span class="math notranslate nohighlight">\( v_A = 8 \frac{\mathrm{m}}{\mathrm{s}}\)</span> aus und variieren Sie den Abwurfwinkel. Zwischen welchen Werten darf der Abwurfwinkel nun für einen Treffer schwanken? Visualisieren Sie die Bahnkurve für den minimalen, maximalen und optimalen (Ball landet mittig im Korb) Abwurfwinkel.</p>
+<img alt="Ergebnis 2." class="align-center" src="../../_images/basketball_2.png" />
+</section>
+<section id="c-niemand-ist-perfekt">
+<h4>c) Niemand ist perfekt!<a class="headerlink" href="#c-niemand-ist-perfekt" title="Permalink to this headline">¶</a></h4>
+<p>Niemand ist in der Lage den optimalen Abwurfwinkel bei jedem Wurf zu treffen, dieser schwankt in der Realität. Gehen Sie nun von <span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span> plus einem zufälligem Verwackler von <span class="math notranslate nohighlight">\(\pm 5^\circ\)</span> (<u>im Mittel</u>, max. <span class="math notranslate nohighlight">\(\pm 12^\circ\)</span>) aus. Wie viele Treffer werden nach 1000 Würfen in etwa erzielt? (Mittelwert und Standardabweichung!)</p>
+<img alt="Ergebnis 3." class="align-center" src="../../_images/basketball_3.png" />
+</section>
+<section id="d-abweichungen-in-der-abwurfgeschwindigkeit">
+<h4>d) Abweichungen in der Abwurfgeschwindigkeit<a class="headerlink" href="#d-abweichungen-in-der-abwurfgeschwindigkeit" title="Permalink to this headline">¶</a></h4>
+<p>Erweitern Sie Ihr Programm so, dass zusätzlich ein Fehler in der Abwurfgeschwindigkeit von <span class="math notranslate nohighlight">\(\pm 0.5\frac{\mathrm{m}}{\mathrm{s}}\)</span> (<u>im Mittel</u>, max. <span class="math notranslate nohighlight">\(\pm 1\frac{\mathrm{m}}{\mathrm{s}}\)</span>) berücksichtigt wird. Wie viele Treffer werden mit dieser zusätzlichen Eigenschaft nach 1000 Würfen in etwa erzielt (<span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span>)?</p>
+<img alt="Ergebnis 4." class="align-center" src="../../_images/basketball_4.png" />
+</section>
+<section id="e-bank-shots-erlaubt">
+<h4>e) Bank Shots erlaubt!<a class="headerlink" href="#e-bank-shots-erlaubt" title="Permalink to this headline">¶</a></h4>
+<p>Erweitern Sie Ihr Programm so, dass der Ball beim Auftreffen am Brett ideal elastisch zurückgestoßen wird. Wie viele Treffer werden nun erzielt (<span class="math notranslate nohighlight">\(\theta = 60^\circ\)</span>)?</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Beachten Sie den Abstand zwischen Korb und Brett.</p>
+</div>
+<img alt="Ergebnis 5." class="align-center" src="../../_images/basketball_5.png" />
+</section>
+<section id="f-ausblick">
+<h4>f) Ausblick<a class="headerlink" href="#f-ausblick" title="Permalink to this headline">¶</a></h4>
+<p>Nennen Sie mindestens drei Einflussfaktoren eines realen Basketballwurfes, die bisher nicht in das Modell eingeflossen sind. Beschreiben Sie kurz (3-5 Sätze) wie Sie das Modell um mindestens einen dieser Faktoren möglichst einfach erweitern könnten. Stellen Sie sich vor, Sie sind Coach und möchten ihr Modell im Training einsetzen. Was kann Ihre Mannchaft aus Ihren Simulationen lernen (2-3 Sätze)? Und wie können Sie Ihr Modell durch Messungen im Training validieren? <strong>keine Programmierung</strong></p>
+<div class="cell tag_hide_output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
-<span class="k">function</span><span class="w"> </span><span class="nf">[ground, absorb_mat] = groundwater_sim</span><span class="p">(</span>depth, width, params<span class="p">)</span><span class="w"></span>
-<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
-<span class="c">%</span>
-<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
-<span class="c">%   depth x width. </span>
-<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
-<span class="c">% according to a certain probability. Initially, the central </span>
-<span class="c">% half of the surface is covered by fluid</span>
-<span class="c">%</span>
-<span class="c">% Inputs:</span>
-<span class="c">%   - depth:       The depth of the regulear 2D grid</span>
-<span class="c">%   - width:       The width of the regular 2D grid</span>
-<span class="c">%</span>
-<span class="c">%   - params.probability:        The seeping probability into </span>
-<span class="c">%                                lower cells</span>
-<span class="c">%   - params.ratio_absorb:       Ratio of absorbing material in </span>
-<span class="c">%                                the ground values between 0 and 1</span>
-<span class="c">%   - params.depth_influence:    influence of the depth on the</span>
-<span class="c">%                                seeping probability (FURTHER EXPLANATION NEEDED!)</span>
-<span class="c">%</span>
-<span class="c">% Outputs:</span>
-<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
-<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
-<span class="c">%   - absorb_mat:  2D-grid representing  the absorbing material </span>
-<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Umgebungskonstanten</span>
 
+
+<span class="c">% Wurfparameter</span>
+
+
+<span class="c">% Wurfwinkel</span>
+<span class="c">%Vorgabe von Winkelintervallen</span>
+
+
+<span class="c">% Wurfgeschwindigkeit</span>
+
+
+<span class="c">% Visualisierungsparameter</span>
+
+
+<span class="c">%%%% HAUPTPROGRAMM</span>
+<span class="c">% Berechnung der Sollwinkel für alle Würfe</span>
+
+<span class="c">% Berechnung der Sollgeschwindigkeit für alle Würfe</span>
+
+
+<span class="c">% Berechnen der optimalen Geschwindigkeiten in m/s,</span>
+<span class="c">% falls keine Geschwindigkeit vorgegeben</span>
+
+
+<span class="c">% Hilfsvariablen</span>
+
+
+<span class="c">% Schleife über mehrere Wurfserien</span>
+<span class="k">for</span> <span class="n">s</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">n_serien</span>
+    
+    <span class="c">%Vorinitialisierung von Vektoren</span>
+
+    
+    <span class="c">% Schleife über Würfe</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n_wuerfe</span>
+        
+        <span class="c">% Addieren von zufälligen Winkelabweichungen</span>
+  
+        
+        <span class="c">% Addieren von Zufällige Geschwindigkeitsabweichungen</span>
+
+        
+        <span class="c">% Berechnung der Ballhöhe am Brett</span>
+
+        
+        <span class="c">% Trifft Ball das Brett?</span>
+ 
+        
+        <span class="c">% Berechnung der Weite bei Korbhöhe</span>
+
+        
+        <span class="c">% Zählen der direkten Treffer</span>
+  
+        
+        <span class="c">% Zählen der Treffer über Brettabpraller</span>
+
+        
+        <span class="c">% Berechnung der Trajektorien</span>
+        
+    <span class="k">end</span>
+    <span class="c">% Änderung der Trajektorien bei Abprallern</span>
+
+    
+    <span class="c">% Plot der gewünschten Flugkurven</span>
+
+    <span class="k">end</span>
+    
+    
+    <span class="c">% Koordinatensystem</span>
+
+    
+    <span class="c">% Plot des Korbes und des Brettes</span>
+
+    
+    <span class="c">% Ausgabe der Trefferstatistik für diese Wurfserie</span>
+
+    
 <span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>In einem Skript können Sie die Parameter im Structure array speichern und so gesammelt an die Funktion übergeben:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">depth</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">width</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
 
-<span class="n">params</span><span class="p">.</span><span class="n">probability</span>     <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">params</span><span class="p">.</span><span class="n">ratio_absorb</span>    <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
-<span class="n">params</span><span class="p">.</span><span class="n">depth_influence</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
-
-<span class="p">[</span><span class="n">G</span><span class="p">,</span> <span class="n">A</span><span class="p">]</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
+<span class="c">% Statistik über alle Wurfserien</span>
 </pre></div>
 </div>
 </div>
 </div>
 </section>
-<section id="aufgabe-4-gesteigerter-realismus">
-<h2>Aufgabe 4 - Gesteigerter Realismus<a class="headerlink" href="#aufgabe-4-gesteigerter-realismus" title="Permalink to this headline">¶</a></h2>
-<p>Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie Ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?</p>
+</section>
 </section>
 </section>
 
@@ -691,7 +781,7 @@
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./00_einleitung/03_exercises"
+            path: "./00_einleitung/04_exercises"
         },
         predefinedOutput: true
     }
@@ -703,8 +793,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01_matlab_kennenlernen.html" title="previous page">Matlab kennenlernen</a>
-    <a class='right-next' id="next-link" href="03_verkehrssimulation.html" title="next page">Verkehrssimulation</a>
+    <a class='left-prev' id="prev-link" href="03_verkehrssimulation.html" title="previous page">Verkehrssimulation mit zellulären Automaten</a>
+    <a class='right-next' id="next-link" href="../../01_schwingungen/00_schwingungen.html" title="next page">Schwingungen</a>
 
         </div>
         

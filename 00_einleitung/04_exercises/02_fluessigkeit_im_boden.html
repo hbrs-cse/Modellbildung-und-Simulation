@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Matlab kennenlernen &#8212; Modellbildung und Simulation</title>
+    <title>Flüssigkeit im Boden &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -55,8 +55,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Flüssigkeit im Boden" href="02_fluessigkeit_im_boden.html" />
-    <link rel="prev" title="Übungsaufgaben" href="00_%C3%BCbungsaufgaben.html" />
+    <link rel="next" title="Verkehrssimulation mit zellulären Automaten" href="03_verkehrssimulation.html" />
+    <link rel="prev" title="Matlab kennenlernen" href="01_matlab_kennenlernen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -98,12 +98,17 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html">
+    <a class="reference internal" href="../01_motivation/00_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_usage/00_verwendung_dieses_buches.html">
      Verwendung dieses Buches
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../02_first_steps/00_erste_schritte_in_matlab.html">
+    <a class="reference internal" href="../03_first_steps/00_erste_schritte_in_matlab.html">
      Erste Schritte in Matlab
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -113,17 +118,17 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/01_matlab_command_window.html">
+      <a class="reference internal" href="../03_first_steps/01_matlab_command_window.html">
        Matlab Command Window
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/02_skripte_und_funktionen.html">
+      <a class="reference internal" href="../03_first_steps/02_skripte_und_funktionen.html">
        Skripte und Funktionen
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/03_best_practice.html">
+      <a class="reference internal" href="../03_first_steps/03_best_practice.html">
        Best Practices
       </a>
      </li>
@@ -139,19 +144,19 @@
      </i>
     </label>
     <ul class="current">
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+     <li class="toctree-l3">
+      <a class="reference internal" href="01_matlab_kennenlernen.html">
        Matlab kennenlernen
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="02_fluessigkeit_im_boden.html">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Flüssigkeit im Boden
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="03_verkehrssimulation.html">
-       Verkehrssimulation
+       Verkehrssimulation mit zellulären Automaten
       </a>
      </li>
      <li class="toctree-l3">
@@ -392,6 +397,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_motivationPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../11_pde/02_konvektion_und_diffusion.html">
      Konvektion und Diffusion
     </a>
@@ -439,7 +449,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/00_einleitung/03_exercises/01_matlab_kennenlernen.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/04_exercises/02_fluessigkeit_im_boden.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -456,7 +466,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/01_matlab_kennenlernen.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/04_exercises/02_fluessigkeit_im_boden.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -476,7 +486,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_exercises/01_matlab_kennenlernen.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/04_exercises/02_fluessigkeit_im_boden.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -502,13 +512,23 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-1-machen-sie-sich-vertraut-mit-matlab">
-   Aufgabe 1: Machen Sie sich vertraut mit Matlab
+  <a class="reference internal nav-link" href="#aufgabe-1-parametrierung-des-bodenmodells">
+   Aufgabe 1 - Parametrierung des Bodenmodells
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2-binomialkoeffizienten">
-   Aufgabe 2: Binomialkoeffizienten
+  <a class="reference internal nav-link" href="#aufgabe-2-unregelmaszigkeiten-im-boden">
+   Aufgabe 2 - Unregelmäßigkeiten im Boden
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3-einfluss-der-tiefe">
+   Aufgabe 3 - Einfluss der Tiefe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4-gesteigerter-realismus">
+   Aufgabe 4 - Gesteigerter Realismus
   </a>
  </li>
 </ul>
@@ -522,88 +542,149 @@
         
               <div>
                 
-  <section id="matlab-kennenlernen">
-<h1>Matlab kennenlernen<a class="headerlink" href="#matlab-kennenlernen" title="Permalink to this headline">¶</a></h1>
-<section id="aufgabe-1-machen-sie-sich-vertraut-mit-matlab">
-<h2>Aufgabe 1: Machen Sie sich vertraut mit Matlab<a class="headerlink" href="#aufgabe-1-machen-sie-sich-vertraut-mit-matlab" title="Permalink to this headline">¶</a></h2>
-<p>Lesen Sie sich die Kapitel <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html#verwendung"><span class="std std-ref">Verwendung dieses Buches</span></a> und <a class="reference internal" href="../02_first_steps/00_erste_schritte_in_matlab.html#erste-schritte"><span class="std std-ref">Erste Schritte in Matlab</span></a> durch. Können Sie die folgenden Fragen beantworten?</p>
-<ol class="simple">
-<li><p>Beschreiben Sie die Funktionalität des <em>Command Window</em>, <em>Editor</em> und <em>Workspace</em> in Matlab.</p></li>
-<li><p>Was ist der Unterschied zwischen einer Funktion und einem Skript?</p></li>
-<li><p>Was verbirgt sich hinter dem Wort <em>scope</em>?</p></li>
-<li><p>Was ist ein <em>function handle</em>?</p></li>
-<li><p>Aus welchen Gründen sollte ich for-Schleifen vermeiden?</p></li>
-<li><p>Was ist das Grundprinzip hinter dem <em>Bisektionsverfahren</em>?</p></li>
-<li><p>Wie kann ich die Operationen <code class="docutils literal notranslate"><span class="pre">*</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">^</span></code> elementweise ausführen?</p></li>
-<li><p>Warum sollte ich reelle Zahlen nie mit <code class="docutils literal notranslate"><span class="pre">==</span></code> auf Gleichheit prüfen?</p></li>
-<li><p>Was bedeutet logische Indizierung?</p></li>
-<li><p>Wie kann ich eine Matrix transponieren?</p></li>
-<li><p>Warum sollte ich strings nie mit <code class="docutils literal notranslate"><span class="pre">==</span></code> auf Gleichheit prüfen?</p></li>
-<li><p>Nennen Sie ein Tool zur Versionskontrolle.</p></li>
-<li><p>Was bewirkt der Befehl <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">on</span></code>?</p></li>
-</ol>
+  <section id="flussigkeit-im-boden">
+<h1>Flüssigkeit im Boden<a class="headerlink" href="#flussigkeit-im-boden" title="Permalink to this headline">¶</a></h1>
+<p>Erstellen Sie ein Programm, in dem das Versickern einer Flüssigkeit im Boden in 2D modelliert wird. Legen Sie dazu eine Matrix an, die einen Bodenausschnitt mit <strong>beliebiger</strong> Breite <span class="math notranslate nohighlight">\(w\)</span> und Tiefe <span class="math notranslate nohighlight">\(d\)</span> darstellt. Die Oberfläche des Bodens sei im Bereich <span class="math notranslate nohighlight">\([\frac{w}{4},\frac{3w}{4}]\)</span> mit Flüssigkeit benetzt.</p>
+<img alt="Flüssigkeit" class="align-center" src="../../_images/fluessigkeit.png" />
+<p>Die Flüssigkeit dringt mit einer Wahrscheinlichkeit <span class="math notranslate nohighlight">\(p\)</span> (Bodenparameter) senkrecht in die nächste Lage des Bodens ein. Zusätzlich kann es passieren, dass die Flüssigkeit in diagonal versetzte Bodenelemente eindringt, jeweils mit der Wahrscheinlichkeit <span class="math notranslate nohighlight">\(\frac{p}{2}\)</span>. Als Modellvereinfachung gehen Sie davon aus, dass jede Zelle entweder Flüssigkeit enthält oder nicht, d.h. der Zustand jeder Zelle binär ist.</p>
+<section id="aufgabe-1-parametrierung-des-bodenmodells">
+<h2>Aufgabe 1 - Parametrierung des Bodenmodells<a class="headerlink" href="#aufgabe-1-parametrierung-des-bodenmodells" title="Permalink to this headline">¶</a></h2>
+<p>Schreiben Sie eine Matlab-Funktion, die diesen Prozess simuliert:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
+<span class="k">function</span><span class="w"> </span>ground<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">groundwater_sim</span><span class="p">(</span>depth, width, probability<span class="p">)</span><span class="w"></span>
+<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
+<span class="c">%</span>
+<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
+<span class="c">%   depth x width. </span>
+<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
+<span class="c">% according to a certain probability. Initially, the central </span>
+<span class="c">% half of the surface is covered by fluid</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   - depth:       The depth of the regular 2D grid</span>
+<span class="c">%   - width:       The width of the regular 2D grid</span>
+<span class="c">%   - probability: The seeping probability into lower cells</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Tipp:</strong></p>
+<ul class="simple">
+<li><p>Für die Visualisierung können Sie zum Beispiel die Funktion <code class="docutils literal notranslate"><span class="pre">spy</span></code> oder <code class="docutils literal notranslate"><span class="pre">imagesc</span></code> verwenden.</p></li>
+<li><p>Die Ränder der Bodenmatrix sind gesondert zu behandeln.</p></li>
+</ul>
+<p>Wenn Sie möchten, können Sie zur Selbstkontrolle den folgenden Unit Test benutzen, um die Plausibilität der Ergebnisse Ihrer Funktion zu überprüfuen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_groundwater_sim</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Parametrieren Sie den Bodenparameter <span class="math notranslate nohighlight">\(p\)</span> so, dass über 1000 Simulationen gemittelt am unteren Ende circa drei Zellen befeuchtet sind. Berechnen Sie dann Mittelwert und Standardabweichung. Verwenden Sie hierfür konkret <span class="math notranslate nohighlight">\(d=80\)</span> und <span class="math notranslate nohighlight">\(w=250\)</span>. Schreiben Sie dazu ein Matlab-Skript, das die Funktion <code class="docutils literal notranslate"><span class="pre">groundwater_sim</span></code> verwendet.</p>
 </section>
-<section id="aufgabe-2-binomialkoeffizienten">
-<h2>Aufgabe 2: Binomialkoeffizienten<a class="headerlink" href="#aufgabe-2-binomialkoeffizienten" title="Permalink to this headline">¶</a></h2>
-<p>Erstellen Sie ein Programm für die Berechnung der Binomialkoeffizienten</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{k! \cdot (n-k)!}, \end{split}\]</div>
-<p>wobei <span class="math notranslate nohighlight">\(n\)</span> und <span class="math notranslate nohighlight">\(k\)</span> ganze Zahlen mit <span class="math notranslate nohighlight">\(n \geq k \geq 0\)</span> sind.</p>
-<p><strong>Hinweise</strong>:</p>
-<ul class="simple">
-<li><p>Schreiben Sie eine Funktion, die die Fakultät berechnet:</p></li>
-</ul>
+<section id="aufgabe-2-unregelmaszigkeiten-im-boden">
+<h2>Aufgabe 2 - Unregelmäßigkeiten im Boden<a class="headerlink" href="#aufgabe-2-unregelmaszigkeiten-im-boden" title="Permalink to this headline">¶</a></h2>
+<p>Reale Böden sind in der Regel sehr unregelmäßig strukturiert, sodass Flüssigkeiten an verschiedenen Punkten auch unterschiedlich gut in den Boden eindringen können. Gehen Sie nun davon aus, dass der Boden zu einem Anteil von <code class="docutils literal notranslate"><span class="pre">ratio_absorb</span></code> aus zufällig verteiltem Material besteht, welches Flüssigkeit absorbieren kann, d.h. die Flüssigkeit am weiteren Versickern im Boden hindert. Modifizieren Sie Ihr Programm aus Aufgabe 1 so, dass diese Unregelmäßigkeit des Bodens zusätzlich berücksichtigt wird.</p>
+<p>Geben Sie als zusätzliche Ausgabe die Matrix aus, die das absorbierende Material repräsentiert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fac.m</span>
-<span class="c">% calculate the factorial of an integer n</span>
-<span class="k">function</span><span class="w"> </span>z<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fac</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
-<span class="w">    </span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">[ground, absorb_mat] = groundwater_sim</span><span class="p">(</span>depth, width, probability, ratio_absorb<span class="p">)</span><span class="w"></span>
+<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
+<span class="c">%</span>
+<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
+<span class="c">%   depth x width. </span>
+<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
+<span class="c">% according to a certain probability. Initially, the central </span>
+<span class="c">% half of the surface is covered by fluid</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   - depth:        The depth of the regulear 2D grid</span>
+<span class="c">%   - width:        The width of the regular 2D grid</span>
+<span class="c">%   - probability:  The seeping probability into lower cells</span>
+<span class="c">%   - ratio_absorb: Ratio of absorbing material in the ground</span>
+<span class="c">%                   values between 0 and 1</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+<span class="c">%   - absorb_mat:  2D-grid representing the absorbing material </span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+
 <span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten drei der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle sechs unit tests zu erfüllen?</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% test the fac function</span>
-<span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>Schreiben Sie nun die Funktion, die den Binominialkoeffizienten berechnet. Verwenden Sie Ihre neue Funktion zur Berechnung der Fakultät.</p></li>
-</ul>
+<p>Geben Sie <span class="math notranslate nohighlight">\(p\)</span> aus Aufgabe 1 vor und variieren Sie <code class="docutils literal notranslate"><span class="pre">ratio_absorb</span></code> ausgehend von 10%. Wie groß muss der Anteil <em>mindestens</em> sein, damit über 1000 Simulationen gemittelt weniger als eine Zelle am unteren Ende des Bodensegments von Flüssigkeit erreicht wird (<span class="math notranslate nohighlight">\(d=80\)</span> und <span class="math notranslate nohighlight">\(w=250\)</span>)?</p>
+<p><strong>Tipp</strong>: Die Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">randperm</span></code> könnte nützlich sein.</p>
+</section>
+<section id="aufgabe-3-einfluss-der-tiefe">
+<h2>Aufgabe 3 - Einfluss der Tiefe<a class="headerlink" href="#aufgabe-3-einfluss-der-tiefe" title="Permalink to this headline">¶</a></h2>
+<p>In größerer Tiefe ist das Bodenmaterial stärker verdichtet als nahe der Oberfläche. Erweitern Sie Ihr Programm aus Aufgabe 2 so, dass sich die Flüssigkeit bei zunehmender Tiefe schlechter durch den Boden bewegt. Führen Sie einen Parameter <code class="docutils literal notranslate"><span class="pre">depth_influence</span></code> ein, um die Stärke dieses Effektes zu regulieren. <strong>Wichtig:</strong> <em>Vergessen Sie nicht in der Dokumentation der Funktion anzugeben, wie dieser Parameter zu verstehen ist und welche Werte erlaubt sind!</em></p>
+<p>Um die Eingabeparameter Ihrer Funktion übersichtlich zu gestalten, sammeln Sie alle Bodenparameter in einem <em>Structure array</em> mit Namen <code class="docutils literal notranslate"><span class="pre">params</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file binomial_coefficient.m</span>
-<span class="k">function</span><span class="w"> </span>c<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">binomial_coefficient</span><span class="p">(</span>n,k<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c">% ADD CODE HERE</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file groundwater_sim.m</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">[ground, absorb_mat] = groundwater_sim</span><span class="p">(</span>depth, width, params<span class="p">)</span><span class="w"></span>
+<span class="c">% simulate diffusion of groundwater using cellular automata.</span>
+<span class="c">%</span>
+<span class="c">% The ground is modelled as a rectangular 2D-grid of size </span>
+<span class="c">%   depth x width. </span>
+<span class="c">% Fluid from a cell or the surface propagates to cells below</span>
+<span class="c">% according to a certain probability. Initially, the central </span>
+<span class="c">% half of the surface is covered by fluid</span>
+<span class="c">%</span>
+<span class="c">% Inputs:</span>
+<span class="c">%   - depth:       The depth of the regulear 2D grid</span>
+<span class="c">%   - width:       The width of the regular 2D grid</span>
+<span class="c">%</span>
+<span class="c">%   - params.probability:        The seeping probability into </span>
+<span class="c">%                                lower cells</span>
+<span class="c">%   - params.ratio_absorb:       Ratio of absorbing material in </span>
+<span class="c">%                                the ground values between 0 and 1</span>
+<span class="c">%   - params.depth_influence:    influence of the depth on the</span>
+<span class="c">%                                seeping probability (FURTHER EXPLANATION NEEDED!)</span>
+<span class="c">%</span>
+<span class="c">% Outputs:</span>
+<span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+<span class="c">%   - absorb_mat:  2D-grid representing  the absorbing material </span>
+<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+
 <span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Testen Sie die Funktionsweise Ihrer neuen Funktion (diesmal ohne explizit einen unit test zu verwenden):</p></li>
-</ul>
+<p>In einem Skript können Sie die Parameter im Structure array speichern und so gesammelt an die Funktion übergeben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% run some quick tests without explicitly using a unit test</span>
-<span class="n">binomial_coefficient</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c">% expected value: 10</span>
-<span class="n">binomial_coefficient</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c">% expected value: 13983816</span>
-<span class="n">binomial_coefficient</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c">% expected value: 1</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">depth</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">width</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+
+<span class="n">params</span><span class="p">.</span><span class="n">probability</span>     <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">params</span><span class="p">.</span><span class="n">ratio_absorb</span>    <span class="p">=</span> <span class="mf">0.1</span><span class="p">;</span>
+<span class="n">params</span><span class="p">.</span><span class="n">depth_influence</span> <span class="p">=</span> <span class="mf">0.5</span><span class="p">;</span>
+
+<span class="p">[</span><span class="n">G</span><span class="p">,</span> <span class="n">A</span><span class="p">]</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">params</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Haben Sie Ideen, wie Sie die Anzahl nötiger Rechenoperationen verringern können?</p></li>
-</ul>
+</section>
+<section id="aufgabe-4-gesteigerter-realismus">
+<h2>Aufgabe 4 - Gesteigerter Realismus<a class="headerlink" href="#aufgabe-4-gesteigerter-realismus" title="Permalink to this headline">¶</a></h2>
+<p>Überlegen Sie sich einen weiteren Einflussparameter mit dem der Prozess des Versickerns realistischer simuliert werden kann und modifizieren Sie Ihr Programm aus Aufgabe 3 entsprechend. In welchen Grenzen kann man diesen Parameter sinnvoll wählen?</p>
 </section>
 </section>
 
@@ -620,7 +701,7 @@
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./00_einleitung/03_exercises"
+            path: "./00_einleitung/04_exercises"
         },
         predefinedOutput: true
     }
@@ -632,8 +713,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="00_%C3%BCbungsaufgaben.html" title="previous page">Übungsaufgaben</a>
-    <a class='right-next' id="next-link" href="02_fluessigkeit_im_boden.html" title="next page">Flüssigkeit im Boden</a>
+    <a class='left-prev' id="prev-link" href="01_matlab_kennenlernen.html" title="previous page">Matlab kennenlernen</a>
+    <a class='right-next' id="next-link" href="03_verkehrssimulation.html" title="next page">Verkehrssimulation mit zellulären Automaten</a>
 
         </div>
         

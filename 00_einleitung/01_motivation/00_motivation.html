@@ -1,0 +1,911 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Das Stauproblem - Motivation zur Benutzung dieses Buches &#8212; Modellbildung und Simulation</title>
+    
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Verwendung dieses Buches" href="../02_usage/00_verwendung_dieses_buches.html" />
+    <link rel="prev" title="Einleitung" href="../00_einleitung.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      <img src="../../_static/hbrs_logo_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../00_einleitung.html">
+   Einleitung
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_usage/00_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../03_first_steps/00_erste_schritte_in_matlab.html">
+     Erste Schritte in Matlab
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_first_steps/01_matlab_command_window.html">
+       Matlab Command Window
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_first_steps/02_skripte_und_funktionen.html">
+       Skripte und Funktionen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../03_first_steps/03_best_practice.html">
+       Best Practices
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../04_exercises/00_%C3%BCbungsaufgaben.html">
+     Übungsaufgaben
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_exercises/01_matlab_kennenlernen.html">
+       Matlab kennenlernen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_exercises/02_fluessigkeit_im_boden.html">
+       Flüssigkeit im Boden
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_exercises/03_verkehrssimulation.html">
+       Verkehrssimulation mit zellulären Automaten
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../04_exercises/04_der_perfekte_wurf.html">
+       Der perfekte Wurf
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../01_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../01_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
+     Übungen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../03_interp_approx/03_spline_interpolation.html">
+     Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../04_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../05_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../06_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
+   Numerik gewöhnlicher Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07_num_ode/01_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07_num_ode/02_stabilitaet_eulerverfahren.html">
+     Stabilität Eulerverfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../07_num_ode/03_modellierung_einer_highline_dynamisch.html">
+     Modellierung einer Highline - Zeitliche Auflösung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../11_pde/00_partielle_differentialgleichungen.html">
+   Numerik partieller Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_modellierung_einer_highline_dynamisch_pde.html">
+     Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_motivationPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/02_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/01_motivation/00_motivation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/01_motivation/00_motivation.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/01_motivation/00_motivation.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabenstellung">
+   Aufgabenstellung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extremwertaufgaben-in-funf-akten">
+   Extremwertaufgaben in fünf Akten
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameterauswahl-und-modellreduktion">
+     1. Parameterauswahl und Modellreduktion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematische-formulierung-der-fragestellung">
+     2. Mathematische Formulierung der Fragestellung
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#konstruktion-von-nebenbedingungen">
+     3. Konstruktion von Nebenbedingungen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#mathematische-losung-des-modells">
+     4. Mathematische Lösung des Modells
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prufung-der-gultigkeit-und-randstellen">
+     5. Prüfung der Gültigkeit und Randstellen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ingenieurs-know-how">
+   Ingenieurs-Know-How
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verbesserung-des-modells">
+     Verbesserung des Modells
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusammenfassung">
+   Zusammenfassung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ausblick">
+   Ausblick
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <section id="das-stauproblem-motivation-zur-benutzung-dieses-buches">
+<span id="content-references-intro-traffic"></span><h1>Das Stauproblem - Motivation zur Benutzung dieses Buches<a class="headerlink" href="#das-stauproblem-motivation-zur-benutzung-dieses-buches" title="Permalink to this headline">¶</a></h1>
+<p>Modellbildung und Simulation verbindet eine Vielzahl von Disziplinen, von grundlegender Mathematik über numerische Lösungsalgorithmen und Computernumerik hin zu der Syntax verschiedener Programmiersprachen. Dabei fällt es manchmal schwer, den Überblick zu behalten. Dieses Übungsbuch soll dabei helfen, die Modellbildung und Simulation durch ihre Schichten hindurch zu durchdringen und sie (be-)greifbar zu machen.</p>
+<p>Als Beispiel hierfür nehmen wir uns eine Extremwertaufgabe vor. Diese spielen in der Praxis oft eine große Rolle.</p>
+<section id="aufgabenstellung">
+<h2>Aufgabenstellung<a class="headerlink" href="#aufgabenstellung" title="Permalink to this headline">¶</a></h2>
+<p>Angenommen das Schweizer Verkehrsministerium macht eine Anfrage an Sie, die bestehenden Tempolimits Ihrer Autobahnen
+zu überprüfen, unter dem konkreten Aspekt:</p>
+<p><em><strong>“Wie können möglichst viele Fahrzeuge eine Engstelle, z.B. einen Tunnel passieren?”</strong></em></p>
+<a class="reference internal image-reference" href="../../_images/tunnel-pixabay.jpg"><img alt="high v high s" class="align-center" src="../../_images/tunnel-pixabay.jpg" style="width: 800px;" /></a>
+<div style="text-align: right"><a href="https://pixabay.com/de/photos/tunnel-verkehr-stau-miniatur-ampel-3518875/" > [torstensimon], via Creative Commons CC0 </a></div>
+<p>Nun ist Ihre Expertenmeinung gefragt!</p>
+</section>
+<section id="extremwertaufgaben-in-funf-akten">
+<h2>Extremwertaufgaben in fünf Akten<a class="headerlink" href="#extremwertaufgaben-in-funf-akten" title="Permalink to this headline">¶</a></h2>
+<section id="parameterauswahl-und-modellreduktion">
+<h3>1. Parameterauswahl und Modellreduktion<a class="headerlink" href="#parameterauswahl-und-modellreduktion" title="Permalink to this headline">¶</a></h3>
+<p>Um diese Frage beantworten zu können, brauchen wir ein Modell. Aber welche <em>Größen</em> kommen dabei in Betracht? Zum Beispiel können wir uns fokussieren auf</p>
+<ul class="simple">
+<li><p>Länge und Geschwindigkeit der Fahrzeuge</p></li>
+<li><p>Zusammensetzung der Fahrzeugarten (PKW vs. LKW)</p></li>
+<li><p>Anzahl der Fahrspuren, Zu und Abfahrten</p></li>
+<li><p>Sichtverhältnisse, Fahrbahnbeschaffenheit</p></li>
+<li><p>(Sicherheits -)Abstand zwischen den Fahrzeugen</p></li>
+<li><p>…und potentiell einige mehr.</p></li>
+</ul>
+<p>Hierbei kommt die Frage auf: <em>Wie können alle Parameter in diesem Modell berücksichtigt werden?</em></p>
+<p>Das ist gar nicht unbedingt nötig, da ein Modell die
+Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathematisch behandelbares Optimierungsproblem unter den Annahmen</p>
+<ul class="simple">
+<li><p>die Fahrbahn sei einspurig</p></li>
+<li><p>alle Fahrzeuge seien PKWs gleicher Länge</p></li>
+<li><p>alle Fahrzeuge fahren mit der gleichen Geschwindigkeit</p></li>
+<li><p>alle Fahrer halten den gleichen Sicherheitsabstand ein</p></li>
+</ul>
+<p><em>Das ist für einen langen Tunnel in den Alpen nicht mal allzu unrealistisch…</em></p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Dies entspricht dem <strong>ersten Schritt</strong> im Lösungsschema von Extremwertaufgaben: “Vereinfachtes Modell der Natur erstellen”</p>
+</div>
+</section>
+<section id="mathematische-formulierung-der-fragestellung">
+<h3>2. Mathematische Formulierung der Fragestellung<a class="headerlink" href="#mathematische-formulierung-der-fragestellung" title="Permalink to this headline">¶</a></h3>
+<p>Was wir uns eigentlich fragen, ist: <em>Was ist besser…?</em></p>
+<ol class="simple">
+<li><p>Hohes Tempo = Großer Sicherheitsabstand</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/highv_highs.png"><img alt="high v high s" class="align-center" src="../../_images/highv_highs.png" style="width: 800px;" /></a>
+<p>oder</p>
+<ol class="simple">
+<li><p>Niedriges Tempo Kleiner Sicherheitsabstand</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/lowv_lows.png"><img alt="low v low s" class="align-center" src="../../_images/lowv_lows.png" style="width: 800px;" /></a>
+<p>Um eine mathematische Funktion für unser Tunnel Modell aufstellen zu können, müssen wir nur noch etwas konkreter fragen,</p>
+<p><em><strong>“Bei welcher Geschwindigkeit ist der Verkehrsfluss F <span class="math notranslate nohighlight">\(\left[\frac{\text{Fahrzeuge}}{\text{h}}\right]\)</span>, d.h. die Anzahl der passierenden Fahrzeuge pro Stunde, am größten?”</strong></em></p>
+<p>Da wir das Modell bereits genügend vereinfacht haben, bleiben nur drei Variablen:</p>
+<ol class="simple">
+<li><p>Geschwindigkeit <span class="math notranslate nohighlight">\(v \,\text{[m/s]}\)</span></p></li>
+<li><p>Abstand der Fahrzeuge <span class="math notranslate nohighlight">\(s \,\text{[m]}\)</span></p></li>
+<li><p>Fahrzeuglänge <span class="math notranslate nohighlight">\(L \,\text{[m]}\)</span></p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/trafficvariables.png"><img alt="traffic variables" class="align-center" src="../../_images/trafficvariables.png" style="width: 800px;" /></a>
+<p>Diese können wir in eine mathematische Funktion für den Verkehrsfluss überführen.</p>
+<div class="math notranslate nohighlight">
+\[F = F(v,s,L) = \frac{1000 \cdot v}{L+s}, F&gt;0\]</div>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Dies entspricht dem <strong>zweiten Schritt</strong> im Schema zur Lösung von Extremwertaufgaben: “Die Ermittlung der Zielfunktion”</p>
+</div>
+</section>
+<section id="konstruktion-von-nebenbedingungen">
+<h3>3. Konstruktion von Nebenbedingungen<a class="headerlink" href="#konstruktion-von-nebenbedingungen" title="Permalink to this headline">¶</a></h3>
+<p>Um die Gleichung besser lösen zu können, können wir <em>Nebenbedingungen</em> konstruieren, welche die Variablen in Beziehung zueinander setzen:</p>
+<ol class="simple">
+<li><p>Lege die Fahrzeuglänge <span class="math notranslate nohighlight">\(L\)</span> als Konstante fest, z.B. <span class="math notranslate nohighlight">\(L=4.5 \text{ m}\)</span>.</p></li>
+<li><p>Für den Sicherheitsabstand kennen wir aus der Fahrschule die Faustregeln</p></li>
+</ol>
+<ul class="simple">
+<li><p>“Bremsweg-Regel” <span class="math notranslate nohighlight">\(s(v) = \frac{v}{10} \cdot \frac{v}{10} = \frac{v^2}{100}\)</span></p></li>
+<li><p>“Tacho-Halbe-Regel” <span class="math notranslate nohighlight">\(s = s(v) = \frac{v}{2}\)</span></p></li>
+</ul>
+<p>Diese Regeln sind einheitenlos, daher rechnen wir einheitenlos so weiter, dass <span class="math notranslate nohighlight">\(F\)</span> die Einheit <span class="math notranslate nohighlight">\(\left[\frac{\text{Fahrzeuge}}{\text{h}}\right]\)</span> erhält. Mithilfe der “Bremsweg-Regel” und der Konstanten Fahrzeuglänge vereinfachen wir die Funktion zu</p>
+<div class="math notranslate nohighlight">
+\[\max{F(v)} = \frac{1000 \cdot v}{4.5} + \frac{v^2}{100}, v\in[0,\infty)\]</div>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Dies entspricht dem <strong>dritten Schritt</strong> im Lösungsschema: “Eliminierung von Variablen durch Nebenbedingungen”</p>
+</div>
+</section>
+<section id="mathematische-losung-des-modells">
+<h3>4. Mathematische Lösung des Modells<a class="headerlink" href="#mathematische-losung-des-modells" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-einschub-definition-und-satze-zu-extremwerten admonition">
+<p class="admonition-title">Einschub: Definition und Sätze zu Extremwerten</p>
+<p><em>Definition</em>: Ein <em>lokales Maximum (Minimum)</em> ist der Wert der Funktion <span class="math notranslate nohighlight">\(f\)</span> an einer Stelle <span class="math notranslate nohighlight">\(x_0\)</span>, wenn in einer <span class="math notranslate nohighlight">\(\varepsilon\)</span> Umgebung von <span class="math notranslate nohighlight">\(x_0\)</span> die Funktion keine größeren (kleineren) Werte annimmt.</p>
+<p><em>Notwendige Bedingung für ein lokales Extremum:</em> Die differenzierbare Funktion <span class="math notranslate nohighlight">\(f\)</span> besitzt in <span class="math notranslate nohighlight">\(x_0\)</span> eine waagerechte Tangente, d.h. <span class="math notranslate nohighlight">\(f'(x_0)=0\)</span>.</p>
+<p><em>Hinreichende Bedingung für ein lokales Extremum:</em> Gilt für die mindestens zweimal differenzierbare Funktion <span class="math notranslate nohighlight">\(f\)</span></p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(f'(x_0)=0\)</span> und <span class="math notranslate nohighlight">\(f''(x_0)&lt;0\)</span>, dann hat <span class="math notranslate nohighlight">\(f\)</span> dort ein <em>lokales Maximum</em>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f'(x_0)=0\)</span> und <span class="math notranslate nohighlight">\(f''(x_0)&gt;0\)</span>, dann hat <span class="math notranslate nohighlight">\(f\)</span> dort ein <em>lokales Minimum</em>.</p></li>
+</ol>
+</div>
+<p>Für die Gleichung setzen wir also <span class="math notranslate nohighlight">\(F' = 0\)</span> und <span class="math notranslate nohighlight">\(F'' &lt; 0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+F'(v) = \frac{\left(4.5 + \frac{v^2}{100}\right)\cdot 1000 - 1000 \cdot v \frac{2\cdot v}{100}}{\left(4.5 + \frac{v^2}{100}\right)^2} &amp;= 0 \\
+\rightarrow 4500 - 10 v^2 &amp;= 0 \\
+\rightarrow v_{1/2} &amp;= \pm \sqrt{450} \,\frac{\text{km}}{\text{h}} = \pm 21.21 \,\frac{\text{km}}{\text{h}}
+\end{align}
+\end{split}\]</div>
+<p>Prüfung mit <span class="math notranslate nohighlight">\(F''(v_{1/2})\)</span> zeigt, dass für <span class="math notranslate nohighlight">\(v_1 = +21.21 \,\frac{\text{km}}{\text{h}}\)</span> ein lokales Maximum vorliegt.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Dies entspricht dem <strong>vierten Schritt</strong> im Lösungsschema: “Bestimmung der lokalen Extremstellen”</p>
+</div>
+</section>
+<section id="prufung-der-gultigkeit-und-randstellen">
+<h3>5. Prüfung der Gültigkeit und Randstellen<a class="headerlink" href="#prufung-der-gultigkeit-und-randstellen" title="Permalink to this headline">¶</a></h3>
+<p>Es bleiben noch zwei letzte Tests:</p>
+<ol class="simple">
+<li><p>Liegt die oben errechnete Lösung im Definitionsbereich von <span class="math notranslate nohighlight">\(F\)</span>? <span class="math notranslate nohighlight">\(\rightarrow\)</span> JA!</p></li>
+<li><p>Am Rand des Definitionsbereichs könnten noch (globale) “Randextrama” liegen. Ist dies hier der Fall? <span class="math notranslate nohighlight">\(\rightarrow\)</span> NEIN!</p></li>
+</ol>
+<p>Das Ganze geht auch ganz einfach in Octave:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="p">=</span> <span class="p">@(</span><span class="n">V</span><span class="p">)</span> <span class="o">-</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">V</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="mf">4.5</span> <span class="o">+</span> <span class="p">(</span><span class="n">V</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">);</span> <span class="c">% set F as negative to be able to use minimize function</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">fminbnd</span> <span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">Fmax</span> <span class="p">=</span> <span class="o">-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 21.213
+Fmax = 2357.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Dies entspricht dem <strong>fünften Schritt</strong> im Lösungsschema: “Gültigkeits- und Randstellen Prüfung”</p>
+</div>
+<p>Damit erhalten wir die <strong>Lösung</strong>: Bei <span class="math notranslate nohighlight">\(v=21.21 \frac{\text{km}}{\text{h}}\)</span> wird ein maximaler Fahrzeugdurchsatz von <span class="math notranslate nohighlight">\(F\left(21.21 \frac{\text{km}}{\text{h}}\right) = 2357 \frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
+</section>
+</section>
+<section id="ingenieurs-know-how">
+<h2>Ingenieurs-Know-How<a class="headerlink" href="#ingenieurs-know-how" title="Permalink to this headline">¶</a></h2>
+<p>Bevor wir die Ergebnisse an das Schweizer Verkehrsministerium übergeben, müssen wir zuletzt noch fragen: <strong>Als wie realistisch schätzen wir diese Lösung ein?</strong></p>
+<p>Dazu variieren wir die Faustformel für den Sicherheitsabstand zur “Tacho-Halbe-Regel”. Daraus ergibt sich</p>
+<div class="math notranslate nohighlight">
+\[F(v) = \frac{1000 \cdot v}{4.5 + \frac{v}{2}}\]</div>
+<div class="math notranslate nohighlight">
+\[F'(v) = \frac{\left(4.5 + \frac{v}{2}\right)\cdot 1000 - 1000 \cdot v \cdot \frac{1}{2}}{\left(4.5 + \frac{v}{2}\right)^2} = 0 \rightarrow 4500 = 0\]</div>
+<p><span class="math notranslate nohighlight">\(F\)</span> hat also keine <em>lokalen Extrema</em>. Die Überprüfung der Randstellen liefert</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(F(0)=0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{v\to\infty}{F(v)}=\lim_{v\to\infty}{\frac{1000v}{4.5 + \frac{v}{2}}} \to 2000 \frac{\text{Fahrzeuge}}{\text{h}}\)</span></p></li>
+</ol>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% graphische Darstellung von F(v) für beide Abstandsmodelle</span>
+<span class="nb">graphics_toolkit</span><span class="p">(</span><span class="s">&quot;gnuplot&quot;</span><span class="p">)</span>
+
+<span class="n">vmax</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="n">dv</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">v</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="n">vmax</span><span class="o">*</span><span class="n">dv</span><span class="p">);</span>
+<span class="n">L</span> <span class="p">=</span> <span class="mf">4.5</span><span class="p">;</span>
+<span class="n">s_bremsweg</span> <span class="p">=</span> <span class="p">(</span><span class="n">v</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">F_bremsweg</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_bremsweg</span><span class="p">);</span>
+<span class="n">s_tachohalbe</span> <span class="p">=</span> <span class="n">v</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">F_tachohalbe</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_tachohalbe</span><span class="p">);</span>
+
+<span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">)</span>
+
+<span class="n">h</span> <span class="p">=</span> <span class="nb">legend</span> <span class="p">(</span><span class="s">&quot;Bremsweg-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Tacho-Halbe-Modell&quot;</span><span class="p">);</span>
+<span class="nb">legend</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&quot;location&quot;</span><span class="p">,</span> <span class="s">&quot;northeast&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/00_motivation_10_0.png" src="../../_images/00_motivation_10_0.png" />
+</div>
+</div>
+<p>Die Modelle liefern also sehr unterschiedliche Ergebnisse, mit denen wir noch nicht voll zufrieden sein können. Daraus ergibt sich die Frage:</p>
+<p><em><strong>Können wir einfachen Mitteln zu einer deutlich realistischeren Beschreibung des Problems kommen?</strong></em></p>
+<p>Die Antwort: Ja, durch etwas mehr Gehirnschmalz und Einsatz von ein wenig mehr Physik.</p>
+<section id="verbesserung-des-modells">
+<h3>Verbesserung des Modells<a class="headerlink" href="#verbesserung-des-modells" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p><strong>Mehr Physik</strong><br />
+Tatsächlich besteht der Anhalteweg u.a. aus dem Reaktionsweg und dem Bremsweg. Letzterer kann mit dem realen Beschleunigungsgesetz genauer berechnet werden: <span class="math notranslate nohighlight">\(s_\text{B} = \frac{v^2}{2\cdot a}\)</span> (Verzögerung <span class="math notranslate nohighlight">\(a\)</span> = <em>negative Beschleunigung</em>!)</p></li>
+<li><p><strong>Mehr Gehirnschmalz</strong><br />
+Bisher wird beim Sicherheitsabstand so getan, als ob im Bremsfall der Vorfahrende instantan von <span class="math notranslate nohighlight">\(v\)</span> auf <span class="math notranslate nohighlight">\(0 \,\frac{\text{km}}{\text{h}}\)</span> stoppt. Dessen Bremsweg <span class="math notranslate nohighlight">\(s_{\text{VF}} = \frac{v^2}{2\cdot a_{\text{VF}}}\)</span> wird in der Fahrpraxis oft vom eigenen Bremsweg abgezogen.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/Bremsvorgang.svg"><img alt="Quelle: Wikipedia" class="align-center" src="../../_images/Bremsvorgang.svg" width="600px" /></a>
+<div style="text-align: right"><a href="https://upload.wikimedia.org/wikipedia/commons/b/b8/Bremsvorgang.svg" > [CC BY-SA 3.0], via Wikimedia Commons </a></div>
+<p>Wenn man beides berücksichtigt, ergibt sich mit Hilfe der Reaktionszeit <span class="math notranslate nohighlight">\(t_\text{R}\)</span> und der Verzögerung <span class="math notranslate nohighlight">\(a\)</span> als neuer Sicherheitsabstand <span class="math notranslate nohighlight">\(s\)</span>:
+$<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text{VF}},t_\text{R})=\frac{v}{3.6}\cdot t_\text{R} + \frac{\left(\frac{v}{3.6}\right)^2}{2\cdot a_{\text{selbst}}} - \frac{\left(\frac{v}{3.6}\right)^2}{2\cdot a_{\text{VF}}}\)</span>$</p>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p><span class="math notranslate nohighlight">\(v\)</span> muss in dem Fall von <span class="math notranslate nohighlight">\(\frac{\text{km}}{\text{h}}\)</span> auf <span class="math notranslate nohighlight">\(\frac{\text{m}}{\text{s}}\)</span> umgerechnet werden.</p>
+</div>
+<p>Wieder müssen wir mit Nebenbedingungen (hier: Konstanten) das Problem vereinfachen:</p>
+<ol class="simple">
+<li><p><span class="math notranslate nohighlight">\(t_\text{R}=1 \text{ s}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(a=30 \,\frac{\text{m}}{\text{s}^2}\)</span></p></li>
+</ol>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% graphische Darstellung von F(v) für die drei Abstandsmodelle</span>
+<span class="nb">graphics_toolkit</span><span class="p">(</span><span class="s">&quot;gnuplot&quot;</span><span class="p">)</span>
+
+<span class="n">vmax</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="n">dv</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">v</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="n">vmax</span><span class="o">*</span><span class="n">dv</span><span class="p">);</span>
+<span class="n">L</span> <span class="p">=</span> <span class="mf">4.5</span><span class="p">;</span>
+<span class="n">s_bremsweg</span> <span class="p">=</span> <span class="p">(</span><span class="n">v</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">F_bremsweg</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_bremsweg</span><span class="p">);</span>
+<span class="n">s_tachohalbe</span> <span class="p">=</span> <span class="n">v</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">F_tachohalbe</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_tachohalbe</span><span class="p">);</span>
+
+<span class="n">t_R</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">a_selbst</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
+<span class="n">a_VF</span> <span class="p">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="n">s_physik</span> <span class="p">=</span> <span class="n">v</span><span class="o">/</span><span class="mf">3.6</span><span class="o">*</span><span class="n">t_R</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="mf">3.6</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_selbst</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="mf">3.6</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_VF</span><span class="p">);</span>
+<span class="n">F_physik</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_physik</span><span class="p">);</span>
+
+<span class="p">[</span><span class="n">maxF</span><span class="p">,</span><span class="n">bestv</span><span class="p">]</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">F_physik</span><span class="p">);</span>
+<span class="n">maxF</span>
+<span class="n">bestv</span> <span class="p">=</span> <span class="n">bestv</span><span class="o">/</span><span class="n">dv</span>
+
+<span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_physik</span><span class="p">)</span>
+
+<span class="n">h</span> <span class="p">=</span> <span class="nb">legend</span> <span class="p">(</span><span class="s">&quot;Bremsweg-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Tacho-Halbe-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Physikalisches Modell&quot;</span><span class="p">);</span>
+<span class="nb">legend</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&quot;location&quot;</span><span class="p">,</span> <span class="s">&quot;northeast&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also wird bei <span class="math notranslate nohighlight">\(71 \,\frac{\text{km}}{\text{h}}\)</span> der maximale Fahrzeugdurchsatz <span class="math notranslate nohighlight">\(F\left(v = 71 \,\frac{\text{km}}{\text{h}}\right) = 2461 \,\frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
+</section>
+</section>
+<section id="zusammenfassung">
+<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+<p>Das neue Modell kommt den tatsächlichen Tempolimits schon recht nahe. Damit könnte man dem Schweizer Verkehrsministerium durchaus Rat geben!</p>
+<p>Das Lösen von solchen Extremwertaufgaben besteht also aus fünf Schritten, die wir alle hier kennengelernt haben:</p>
+<ol class="simple">
+<li><p>Vereinfachtes Modell der Natur erstellen</p></li>
+<li><p>Die Ermittlung der Zielfunktion</p></li>
+<li><p>Eliminierung von Variablen durch Nebenbedingungen</p></li>
+<li><p>Bestimmung der lokalen Extremstellen</p></li>
+<li><p>Gültigkeits- und Randstellen-Prüfung</p></li>
+</ol>
+<p>Außerdem haben wir eine wichtige Lektion gelernt:</p>
+<p><em><strong>Für eine gute Simulation ist ein Bewusstsein für die Modellannahmen entscheident.</strong></em></p>
+</section>
+<section id="ausblick">
+<h2>Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
+<p>In dieser Lösung sind natürlich einige Modellannahmen getroffen worden, die der Realität nicht standhalten, wie variierende Abstände und riskante Fahrweisen.</p>
+<p>Ein sehr bekanntes Modell zur Verkehrssimulation ist das <strong>Nagel-Schreckenberg-Modell</strong>. Damit können Phänomene wie der “Stau-aus-dem-nichts” oder Knotennetze mit Kreuzungen und Ampelschaltungen einfach simuliert werden. Ein Beispiel dafür finden Sie in <a class="reference internal" href="../04_exercises/03_verkehrssimulation.html#content-exercises-naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a> wieder.</p>
+<p>Eine weitere Möglichkeit, Verkehr zu simulieren, ist mit <strong>Partiellen Differentialgleichungen</strong>. Diese lernen Sie in <a class="reference internal" href="../../11_pde/01_motivationPDE.html#content-references-pdes-traffic"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a> kennen.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./00_einleitung/01_motivation"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../00_einleitung.html" title="previous page">Einleitung</a>
+    <a class='right-next' id="next-link" href="../02_usage/00_verwendung_dieses_buches.html" title="next page">Verwendung dieses Buches</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jan Kleinert<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-134708516-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </body>
+</html>

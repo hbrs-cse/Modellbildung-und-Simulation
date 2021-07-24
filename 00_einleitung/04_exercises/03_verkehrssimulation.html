@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Verkehrssimulation &#8212; Modellbildung und Simulation</title>
+    <title>Verkehrssimulation mit zellulären Automaten &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -98,12 +98,17 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html">
+    <a class="reference internal" href="../01_motivation/00_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_usage/00_verwendung_dieses_buches.html">
      Verwendung dieses Buches
     </a>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../02_first_steps/00_erste_schritte_in_matlab.html">
+    <a class="reference internal" href="../03_first_steps/00_erste_schritte_in_matlab.html">
      Erste Schritte in Matlab
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -113,17 +118,17 @@
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/01_matlab_command_window.html">
+      <a class="reference internal" href="../03_first_steps/01_matlab_command_window.html">
        Matlab Command Window
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/02_skripte_und_funktionen.html">
+      <a class="reference internal" href="../03_first_steps/02_skripte_und_funktionen.html">
        Skripte und Funktionen
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../02_first_steps/03_best_practice.html">
+      <a class="reference internal" href="../03_first_steps/03_best_practice.html">
        Best Practices
       </a>
      </li>
@@ -151,7 +156,7 @@
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Verkehrssimulation
+       Verkehrssimulation mit zellulären Automaten
       </a>
      </li>
      <li class="toctree-l3">
@@ -392,6 +397,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_motivationPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../11_pde/02_konvektion_und_diffusion.html">
      Konvektion und Diffusion
     </a>
@@ -439,7 +449,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/00_einleitung/03_exercises/03_verkehrssimulation.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/04_exercises/03_verkehrssimulation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -456,7 +466,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_exercises/03_verkehrssimulation.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/04_exercises/03_verkehrssimulation.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -476,7 +486,7 @@
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_exercises/03_verkehrssimulation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/04_exercises/03_verkehrssimulation.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../../_static/images/logo_binder.svg"
@@ -537,8 +547,8 @@
         
               <div>
                 
-  <section id="verkehrssimulation">
-<h1>Verkehrssimulation<a class="headerlink" href="#verkehrssimulation" title="Permalink to this headline">¶</a></h1>
+  <section id="verkehrssimulation-mit-zellularen-automaten">
+<span id="content-exercises-naschr"></span><h1>Verkehrssimulation mit zellulären Automaten<a class="headerlink" href="#verkehrssimulation-mit-zellularen-automaten" title="Permalink to this headline">¶</a></h1>
 <p>In dieser Übungsaufgabe soll das Fahrverhalten von Autofahrern und die damit einhergehende Stauentwicklung modelliert werden. In einem 7.5 km langen einspurigen Tunnel bilden sich zu Hauptverkehrszeiten immer wieder Staus, ohne dass ein Unfall oder eine Baustelle als Ursache ausgemacht werden kann. Ampeln gibt es auf der gesamten Strecke nicht. Ihre Aufgabe ist es, ein simples Computermodell zu erstellen, das in der Lage ist dieses Phänomen zu reproduzieren. Welche Durchschnittsgeschwindigkeit kann man bei einer gegebenen Verkehrsdichte erwarten? Wie hängt der Verkehrsfluss von der Verkehrsdichte ab?</p>
 <img alt="../../_images/tunnel.jpg" class="align-center" src="../../_images/tunnel.jpg" />
 <section id="modellbeschreibung">
@@ -802,7 +812,7 @@ Erstellen Sie mit Ihrem Skript sowohl ein <span class="math notranslate nohighli
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./00_einleitung/03_exercises"
+            path: "./00_einleitung/04_exercises"
         },
         predefinedOutput: true
     }

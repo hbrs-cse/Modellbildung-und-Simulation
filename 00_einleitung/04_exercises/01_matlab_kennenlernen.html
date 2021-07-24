@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Erste Schritte in Matlab &#8212; Modellbildung und Simulation</title>
+    <title>Matlab kennenlernen &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -24,7 +24,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -50,11 +50,13 @@
         const thebe_selector_output = ".output,.cell_output"
     </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Matlab Command Window" href="01_matlab_command_window.html" />
-    <link rel="prev" title="Verwendung dieses Buches" href="../01_usage/00_verwendung_dieses_buches.html" />
+    <link rel="next" title="Flüssigkeit im Boden" href="02_fluessigkeit_im_boden.html" />
+    <link rel="prev" title="Übungsaufgaben" href="00_%C3%BCbungsaufgaben.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -96,64 +98,69 @@
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_usage/00_verwendung_dieses_buches.html">
+    <a class="reference internal" href="../01_motivation/00_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_usage/00_verwendung_dieses_buches.html">
      Verwendung dieses Buches
     </a>
    </li>
-   <li class="toctree-l2 current active has-children">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../03_first_steps/00_erste_schritte_in_matlab.html">
      Erste Schritte in Matlab
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="01_matlab_command_window.html">
+      <a class="reference internal" href="../03_first_steps/01_matlab_command_window.html">
        Matlab Command Window
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="02_skripte_und_funktionen.html">
+      <a class="reference internal" href="../03_first_steps/02_skripte_und_funktionen.html">
        Skripte und Funktionen
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="03_best_practice.html">
+      <a class="reference internal" href="../03_first_steps/03_best_practice.html">
        Best Practices
       </a>
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="../03_exercises/00_%C3%BCbungsaufgaben.html">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="00_%C3%BCbungsaufgaben.html">
      Übungsaufgaben
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
     <label for="toctree-checkbox-3">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../03_exercises/01_matlab_kennenlernen.html">
+    <ul class="current">
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
        Matlab kennenlernen
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_exercises/02_fluessigkeit_im_boden.html">
+      <a class="reference internal" href="02_fluessigkeit_im_boden.html">
        Flüssigkeit im Boden
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_exercises/03_verkehrssimulation.html">
-       Verkehrssimulation
+      <a class="reference internal" href="03_verkehrssimulation.html">
+       Verkehrssimulation mit zellulären Automaten
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../03_exercises/04_der_perfekte_wurf.html">
+      <a class="reference internal" href="04_der_perfekte_wurf.html">
        Der perfekte Wurf
       </a>
      </li>
@@ -390,6 +397,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../../11_pde/01_motivationPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../../11_pde/02_konvektion_und_diffusion.html">
      Konvektion und Diffusion
     </a>
@@ -437,9 +449,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/00_einleitung/02_first_steps/00_erste_schritte_in_matlab.md"><button type="button"
+        <a class="dropdown-buttons" href="../../_sources/00_einleitung/04_exercises/01_matlab_kennenlernen.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -454,7 +466,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_first_steps/00_erste_schritte_in_matlab.md"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/04_exercises/01_matlab_kennenlernen.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -469,6 +481,26 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/04_exercises/01_matlab_kennenlernen.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
@@ -480,18 +512,13 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#matlab-alternativen">
-   Matlab Alternativen
+  <a class="reference internal nav-link" href="#aufgabe-1-machen-sie-sich-vertraut-mit-matlab">
+   Aufgabe 1: Machen Sie sich vertraut mit Matlab
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#installation">
-   Installation
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#basics">
-   Basics
+  <a class="reference internal nav-link" href="#aufgabe-2-binomialkoeffizienten">
+   Aufgabe 2: Binomialkoeffizienten
   </a>
  </li>
 </ul>
@@ -505,54 +532,88 @@
         
               <div>
                 
-  <section id="erste-schritte-in-matlab">
-<span id="erste-schritte"></span><h1>Erste Schritte in Matlab<a class="headerlink" href="#erste-schritte-in-matlab" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://de.wikipedia.org/wiki/Matlab">Matlab</a> ist eine interpretierte Skriptsprache, die insbesondere für numerische Berechnungen, Modellbildung und Simulation verwendet wird. Interpretierte Skriptsprachen zeichnen sich dadurch aus, dass sie von speziellen Computerprogrammen, sogenannten <em>Interpretern</em>, direkt interpretiert und ausgeführt werden. Im Kontrast dazu stehen Sprachen wie C/C++, die zunächst von einem Compiler in eine maschinenlesbare Datei übersetzt werden müssen.</p>
-<a class="reference internal image-reference" href="../../_images/Matlab_Logo.png"><img alt="Matlab Logo" class="align-center" src="../../_images/Matlab_Logo.png" style="width: 200px;" /></a>
-<p>Die Sprache wird von <a class="reference external" href="https://de.wikipedia.org/wiki/The_MathWorks">The Mathworks Inc.</a> entwickelt. Dieses Unternehmen vertreibt kommerziell die gleichnamige Entwicklungsumgebung und den gleichnamigen Interpreter.</p>
-<section id="matlab-alternativen">
-<h2>Matlab Alternativen<a class="headerlink" href="#matlab-alternativen" title="Permalink to this headline">¶</a></h2>
-<p>Matlab ist nicht kostengünstig. Es gibt aber frei verfügbare Alternativen. Zum Beispiel gibt es die kostenfreien Matlab-Klone <a class="reference external" href="http://www.octave.org">Octave</a> oder <a class="reference external" href="http://www.scilab.org">Scilab</a>. Octave- bzw. Scilab-Skripte sind weitestgehend mit Matlab kompatibel.</p>
-<p>An einigen Stellen dieses Online-Lehrbuchs tauchen Textboxen mit Matlab-Code auf, der sich interaktiv ausführen lässt. Die Umsetzung basiert auf einem Octave-Kern, der im Hintergrund auf einer virtuellen Maschine läuft. <a class="reference external" href="https://en.wikibooks.org/wiki/MATLAB_Programming/Differences_between_Octave_and_MATLAB">Hier</a> finden Sie eine Liste syntaktischer Unterschiede zwischen Octave und Matlab.</p>
-<p>Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte. Die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich des wissenschaftlichen Rechnens sind wahrscheinlich</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://www.python.org/">Python</a> - Extrem vielseitige und weitverbreitete Sprache, <a class="reference external" href="https://hackernoon.com/10-reasons-to-learn-python-in-2018-f473dc35e2ee">jeder sollte irgendwann mal Python lernen</a>.</p></li>
-<li><p><a class="reference external" href="https://www.r-project.org/">R</a> - Insbesondere für statistische Anwendungen geeignet</p></li>
-<li><p><a class="reference external" href="https://julialang.org/">Julia</a> - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter <em>Just-In-Time-Compiler</em> zum Einsatz.</p></li>
-</ul>
-<p>Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es so viele kostenfreie Alternativen gibt? Zugegeben, sehr viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen:</p>
+  <section id="matlab-kennenlernen">
+<h1>Matlab kennenlernen<a class="headerlink" href="#matlab-kennenlernen" title="Permalink to this headline">¶</a></h1>
+<section id="aufgabe-1-machen-sie-sich-vertraut-mit-matlab">
+<h2>Aufgabe 1: Machen Sie sich vertraut mit Matlab<a class="headerlink" href="#aufgabe-1-machen-sie-sich-vertraut-mit-matlab" title="Permalink to this headline">¶</a></h2>
+<p>Lesen Sie sich die Kapitel <a class="reference internal" href="../02_usage/00_verwendung_dieses_buches.html#verwendung"><span class="std std-ref">Verwendung dieses Buches</span></a> und <a class="reference internal" href="../03_first_steps/00_erste_schritte_in_matlab.html#erste-schritte"><span class="std std-ref">Erste Schritte in Matlab</span></a> durch. Können Sie die folgenden Fragen beantworten?</p>
 <ol class="simple">
-<li><p>Es ist eine ausgereifte, vielseitige, robuste und einfach zu erlernende Skriptsprache, mit der man in sehr kurzer Zeit komplexe Modelle erstellen kann.</p></li>
-<li><p>Die sehr gute Benutzerumgebung liefert viele praktische Werkzeuge wie Profiler oder Debugging Tools.</p></li>
-<li><p>Studenten erhalten in der Regel kostenfrei Zugang zu einer Campuslizenz.</p></li>
+<li><p>Beschreiben Sie die Funktionalität des <em>Command Window</em>, <em>Editor</em> und <em>Workspace</em> in Matlab.</p></li>
+<li><p>Was ist der Unterschied zwischen einer Funktion und einem Skript?</p></li>
+<li><p>Was verbirgt sich hinter dem Wort <em>scope</em>?</p></li>
+<li><p>Was ist ein <em>function handle</em>?</p></li>
+<li><p>Aus welchen Gründen sollte ich for-Schleifen vermeiden?</p></li>
+<li><p>Was ist das Grundprinzip hinter dem <em>Bisektionsverfahren</em>?</p></li>
+<li><p>Wie kann ich die Operationen <code class="docutils literal notranslate"><span class="pre">*</span></code> bzw. <code class="docutils literal notranslate"><span class="pre">^</span></code> elementweise ausführen?</p></li>
+<li><p>Warum sollte ich reelle Zahlen nie mit <code class="docutils literal notranslate"><span class="pre">==</span></code> auf Gleichheit prüfen?</p></li>
+<li><p>Was bedeutet logische Indizierung?</p></li>
+<li><p>Wie kann ich eine Matrix transponieren?</p></li>
+<li><p>Warum sollte ich strings nie mit <code class="docutils literal notranslate"><span class="pre">==</span></code> auf Gleichheit prüfen?</p></li>
+<li><p>Nennen Sie ein Tool zur Versionskontrolle.</p></li>
+<li><p>Was bewirkt der Befehl <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">on</span></code>?</p></li>
 </ol>
-<p>Also: Matlab ist super! Bevor man aber ganz viel Geld ausgibt, lohnt sich ein Blick auf die Alternativen.</p>
 </section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>Es gibt verschiedene Wege mit Matlab zu arbeiten.</p>
+<section id="aufgabe-2-binomialkoeffizienten">
+<h2>Aufgabe 2: Binomialkoeffizienten<a class="headerlink" href="#aufgabe-2-binomialkoeffizienten" title="Permalink to this headline">¶</a></h2>
+<p>Erstellen Sie ein Programm für die Berechnung der Binomialkoeffizienten</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \left( \begin{array}{c} n \\ k \end{array} \right) = \frac{n!}{k! \cdot (n-k)!}, \end{split}\]</div>
+<p>wobei <span class="math notranslate nohighlight">\(n\)</span> und <span class="math notranslate nohighlight">\(k\)</span> ganze Zahlen mit <span class="math notranslate nohighlight">\(n \geq k \geq 0\)</span> sind.</p>
+<p><strong>Hinweise</strong>:</p>
 <ul class="simple">
-<li><p><strong>Installation des Software-Pakets</strong>: Das ist mit Sicherheit der sinnvollste Weg, wenn man viel mit Matlab arbeitet. Für Studenten der Hochschule Bonn-Rhein-Sieg wird <a class="reference external" href="https://www.h-brs.de/de/emt/matlab">hier</a> beschrieben, wie man Matlab installiert und über die Campuslizenz aktiviert. Am Fachbereich 3 der Hochschule Bonn-Rhein-Sieg ist auf allen Computern der Räume B107 und B114 bereits Matlab installiert.</p></li>
-<li><p><strong>Matlab Online</strong>: Inzwischen gibt es eine <a class="reference external" href="https://matlab.mathworks.com/">browser-basierte Version von Matlab</a>, die ohne Installation funktioniert. Hierfür muss man sich nur über seinen MathWorks-Account einloggen und dort eine valide Lizenz hinterlegt haben.</p></li>
-<li><p><strong>Matlab Mobile</strong>: Es gibt eine <a class="reference external" href="https://play.google.com/store/apps/details?id=com.mathworks.matlabmobile&amp;hl=de">App von MathWorks</a>, die sich anfühlt wie Matlab. Kommandos werden übers Internet zu einem Server geschickt, dort ausgeführt und das Ergebnis wird auf dem Smartphone angezeigt.</p></li>
+<li><p>Schreiben Sie eine Funktion, die die Fakultät berechnet:</p></li>
 </ul>
-</section>
-<section id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">¶</a></h2>
-<p>In diesem Lehrbuch geht es hauptsächlich um Methodik und weniger um die Computersprache, in der die Algorithmen umgesetzt werden. Es ist also nicht Ziel, das drölfmillionste Tutorial für Matlab zur Verfügung zu stellen. Hierfür gibt es bereits viele sehr gute Anlaufstellen:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://de.mathworks.com/learn/tutorials/matlab-onramp.html">Matlab Onramp - <strong>Sehr empfehlenswert</strong></a></p></li>
-<li><p><a class="reference external" href="https://matlabacademy.mathworks.com/">https://matlabacademy.mathworks.com/</a></p></li>
-<li><p><a class="reference external" href="http://www.mathworks.com/videos/">http://www.mathworks.com/videos/</a></p></li>
-<li><p><a class="reference external" href="http://www.mathworks.de/academia/student_center/tutorials">http://www.mathworks.de/academia/student_center/tutorials</a></p></li>
-<li><p><a class="reference external" href="http://www.mathworks.com/academia/courseware">http://www.mathworks.com/academia/courseware</a></p></li>
-<li><p><a class="reference external" href="http://www.mathworks.de/matlabcentral/fileexchange/">http://www.mathworks.de/matlabcentral/fileexchange/</a></p></li>
-<li><p><a class="reference external" href="http://lmgtfy.com/?q=matlab+tutorial+beginner">let me google that for you…</a></p></li>
-</ul>
-<p>Genauso hilft immer ein Blick in die Dokumentation. Nichtsdestotrotz sollen hier die absoluten Basics einmal beschrieben werden. Die wichtigsten Fenster von Matlab werden am Anfang das <em>Command Window</em>, der <em>Editor</em> und der <em>Workspace</em> sein.</p>
-<a class="reference internal image-reference" href="../../_images/matlabonline.PNG"><img alt="Matlab Screenshot" class="align-center" src="../../_images/matlabonline.PNG" style="width: 1200px;" /></a>
-<div class="toctree-wrapper compound">
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fac.m</span>
+<span class="c">% calculate the factorial of an integer n</span>
+<span class="k">function</span><span class="w"> </span>z<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fac</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="w">    </span>
+<span class="k">end</span>
+</pre></div>
 </div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten drei der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle sechs unit tests zu erfüllen?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% test the fac function</span>
+<span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Schreiben Sie nun die Funktion, die den Binominialkoeffizienten berechnet. Verwenden Sie Ihre neue Funktion zur Berechnung der Fakultät.</p></li>
+</ul>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file binomial_coefficient.m</span>
+<span class="k">function</span><span class="w"> </span>c<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">binomial_coefficient</span><span class="p">(</span>n,k<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% ADD CODE HERE</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Testen Sie die Funktionsweise Ihrer neuen Funktion (diesmal ohne explizit einen unit test zu verwenden):</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% run some quick tests without explicitly using a unit test</span>
+<span class="n">binomial_coefficient</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="c">% expected value: 10</span>
+<span class="n">binomial_coefficient</span><span class="p">(</span><span class="mi">49</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="c">% expected value: 13983816</span>
+<span class="n">binomial_coefficient</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span> <span class="c">% expected value: 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>Haben Sie Ideen, wie Sie die Anzahl nötiger Rechenoperationen verringern können?</p></li>
+</ul>
 </section>
 </section>
 
@@ -565,24 +626,24 @@
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./00_einleitung/02_first_steps"
+            kernelName: "octave",
+            path: "./00_einleitung/04_exercises"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
               </div>
               
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../01_usage/00_verwendung_dieses_buches.html" title="previous page">Verwendung dieses Buches</a>
-    <a class='right-next' id="next-link" href="01_matlab_command_window.html" title="next page">Matlab Command Window</a>
+    <a class='left-prev' id="prev-link" href="00_%C3%BCbungsaufgaben.html" title="previous page">Übungsaufgaben</a>
+    <a class='right-next' id="next-link" href="02_fluessigkeit_im_boden.html" title="next page">Flüssigkeit im Boden</a>
 
         </div>
         
