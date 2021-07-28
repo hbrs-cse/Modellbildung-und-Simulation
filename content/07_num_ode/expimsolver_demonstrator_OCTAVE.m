@@ -1,20 +1,25 @@
 %graphics_toolkit (gt)
 
 close all
-clear all
+clearvars
 
 fi.fig = figure(1,'position',[0.5 0.5 1450 700]);
 fi.ax = axes("position",[0.05 0.3 0.6 0.7]);
 % get(0,"screensize")/2);%
 
 
-function updatefig(obj, init = false)
+function updatefig(obj, init)
   %global y0 tmin tmax tspan g g0 h_i lambda fi
+  if nargin <2
+    init = false;
+  else
+    init = true;
+  endif
   
   fi = guidata(obj);
   replot = false;
   recalc = false;
-  switch (gcbo)
+  switch (obj)
     case {fi.update_button}
       recalc = true;
       replot = true;
@@ -32,8 +37,8 @@ function updatefig(obj, init = false)
     fi.h_i = get(fi.h_i_slide, 'value');
     y0 = get(fi.y0_slide, 'value');
     fi.lambda = get(fi.lambda_slide, 'value');
-    
     fi.fcn_g = str2func(get(fi.g_field,'string'));
+    
     %% Explizite Form der DGL mit g nach finiter Differenz abgeleitet
     fi.fcn_proth = @(t,y) - fi.lambda* (y - fi.fcn_g(t)) + (fi.fcn_g(t+fi.h_i)-fi.fcn_g(t-fi.h_i))/(2*fi.h_i);
     
