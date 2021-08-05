@@ -1,6 +1,6 @@
 # <img src="content/images/logo/favicon.ico" width=40 /> Modellbildung und Simulation
 
-| **Visit the site:** | https://tinyurl.com/hbrs-modsim |
+| **Visit the site:** | [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)](https://joergbrech.github.io/Modellbildung-und-Simulation/intro) |
 |--|--|
 | **License:** | [![License: CC BY-SA 4.0](https://upload.wikimedia.org/wikipedia/commons/d/d0/CC-BY-SA_icon.svg)](https://creativecommons.org/licenses/by-sa/4.0/) |
 | **Cite this book:** | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg)](https://doi.org/10.5281/zenodo.2560551) |
