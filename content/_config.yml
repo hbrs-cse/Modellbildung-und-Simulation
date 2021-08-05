@@ -38,6 +38,9 @@ html:
   home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
   use_edit_page_button      : true  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
   baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  comments:
+    utterances:
+      repo: https://github.com/joergbrech/Modellbildung-und-Simulation
 
 #######################################################################################
 # Launch button settings
