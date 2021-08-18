@@ -89,7 +89,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Konvektion und Diffusion" href="02_konvektion_und_diffusion.html" />
+    <link rel="next" title="Konvektion und Diffusion" href="03_konvektion_und_diffusion.html" />
     <link rel="prev" title="Modellierung einer Highline - Die Lösung als PDE" href="01_modellierung_einer_highline_dynamisch_pde.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -436,7 +436,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_konvektion_und_diffusion.html">
+    <a class="reference internal" href="03_konvektion_und_diffusion.html">
      Konvektion und Diffusion
     </a>
    </li>
@@ -483,7 +483,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/11_pde/01_motivationPDE.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/11_pde/02_trafficPDE.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -500,7 +500,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/11_pde/01_motivationPDE.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/11_pde/02_trafficPDE.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -520,7 +520,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/11_pde/01_motivationPDE.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/11_pde/02_trafficPDE.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -577,25 +577,42 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Für die Geschwindigkeit lässt sich eine Funktion abhängig von der lokalen Verkehrsdichte aufstellen:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}u(\rho) = \left\{ \begin{matrix} u_\text{max} &amp; \text{, falls } \rho &lt; \rho_\text{krit}\\ c \cdot \ln \left( \frac{\rho}{\rho_\text{max}}\right) &amp; \text{, falls } \rho \ge \rho_\text{krit}\end{matrix} \right. \end{split}\]</div>
+<p>Das bedeutet, dass bis zu einer kritischen Verkehrsdichte alle Fahrzeuge mit der maximal möglichen Geschwindigkeit fahren können. Danach nimmt die durchschnittliche Geschwindigkeit logarithmisch ab, bis alle Fahrzeuge bei der maximalen Dichte direkt hintereinander zum Stillstand kommen. In der unten stehenden Grafik ist als maximale Geschwindigkeit <span class="math notranslate nohighlight">\(130 \frac{\text{km}}{\text{h}}\)</span>, für die kritische Dichte <span class="math notranslate nohighlight">\(\frac{1 \text{ Fahrzeug}}{100 \text{ m}}\)</span> und für die maximale Dichte <span class="math notranslate nohighlight">\(\frac{1 \text{ Fahrzeug}}{6 \text{ m}}\)</span> angenommen.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Diese Funktion lässt sich auch mit dem Nagel-Schreckenberg-Modell herleiten, siehe Übung <a class="reference internal" href="../00_einleitung/04_exercises/03_verkehrssimulation.html#content-exercises-naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a>.</p>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">rho</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">:</span><span class="mf">0.5</span><span class="p">);</span>
-<span class="k">function</span><span class="w"> </span>u<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">u</span><span class="p">(</span>rho<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="n">rho_krit</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">;</span>
-    <span class="n">u_max</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span>
-    <span class="k">if</span> <span class="n">rho</span> <span class="o">&lt;</span> <span class="n">rho_krit</span>
-        <span class="n">u</span> <span class="p">=</span> <span class="n">u_max</span><span class="p">;</span>
-    <span class="k">else</span>
-        <span class="n">u</span> <span class="p">=</span> <span class="n">ln</span><span class="p">(</span><span class="n">rho</span><span class="o">/</span><span class="n">rho_krit</span><span class="p">);</span>
-    <span class="k">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% if your Octave kernel does not plot, write `graphics_toolkit(&quot;gnuplot&quot;)`</span>
+<span class="n">rho</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">rho_max</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">rho_krit</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">u_max</span> <span class="p">=</span> <span class="mi">130</span><span class="p">;</span>
+<span class="n">rho_max</span> <span class="p">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">c</span> <span class="p">=</span> <span class="n">u_max</span><span class="o">/</span><span class="nb">log</span><span class="p">(</span><span class="n">rho_krit</span><span class="o">/</span><span class="n">rho_max</span><span class="p">);</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="nb">length</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">rho</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">rho_krit</span>
+      <span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">u_max</span><span class="p">;</span>
+  <span class="k">else</span>
+      <span class="n">u</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="n">c</span><span class="o">*</span><span class="nb">log</span><span class="p">(</span><span class="n">rho</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">rho_max</span><span class="p">);</span>
+  <span class="k">end</span>
 <span class="k">end</span>
-<span class="nb">plot</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">u</span><span class="p">(</span><span class="n">rho</span><span class="p">))</span>
+
+<span class="nb">figure</span>
+<span class="nb">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span><span class="n">u</span><span class="p">)</span>
+<span class="n">ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">u_max</span><span class="o">+</span><span class="mi">5</span><span class="p">])</span>
+<span class="nb">xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="n">rho_max</span><span class="p">])</span>
+<span class="nb">title</span><span class="p">({</span><span class="s">&#39;average velocity over density&#39;</span><span class="p">,</span><span class="s">&#39;as derived from Nagel-Schreckenberg model&#39;</span><span class="p">});</span>
+<span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;density&#39;</span><span class="p">);</span>
+<span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;average velocity [km/h]&#39;</span><span class="p">);</span>
+<span class="nb">drawnow</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/02_trafficPDE_1_0.png" src="../_images/02_trafficPDE_1_0.png" />
 </div>
 </div>
 </section>
@@ -608,7 +625,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <a class="reference internal image-reference" href="../_images/highway_light_green.gif"><img alt="highway_light_green" class="align-center" src="../_images/highway_light_green.gif" style="width: 800px;" /></a>
 <p>Auffahren an eine rote Ampel:</p>
 <a class="reference internal image-reference" href="../_images/highway_light_red.gif"><img alt="highway_light_red" class="align-center" src="../_images/highway_light_red.gif" style="width: 800px;" /></a>
-<div class="cell tag_hide_input docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">autobahn</span>
 <span class="c">%-- mit FV WENO-Verfahren 3. Ordnung</span>
@@ -787,7 +804,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="01_modellierung_einer_highline_dynamisch_pde.html" title="previous page">Modellierung einer Highline - Die Lösung als PDE</a>
-    <a class='right-next' id="next-link" href="02_konvektion_und_diffusion.html" title="next page">Konvektion und Diffusion</a>
+    <a class='right-next' id="next-link" href="03_konvektion_und_diffusion.html" title="next page">Konvektion und Diffusion</a>
 
         </div>
         
