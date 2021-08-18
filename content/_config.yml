@@ -40,7 +40,7 @@ html:
   baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     utterances:
-      repo: https://github.com/joergbrech/Modellbildung-und-Simulation
+      repo: "joergbrech/Modellbildung-und-Simulation"
 
 #######################################################################################
 # Launch button settings
