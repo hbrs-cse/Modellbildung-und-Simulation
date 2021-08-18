@@ -5,11 +5,8 @@ clearvars
 
 fi.fig = figure(1,'position',[0.5 0.5 1450 700]);
 fi.ax = axes("position",[0.05 0.3 0.6 0.7]);
-% get(0,"screensize")/2);%
-
 
 function updatefig(obj, init)
-  %global y0 tmin tmax tspan g g0 h_i lambda fi
   if nargin <2
     init = false;
   else
@@ -32,29 +29,25 @@ function updatefig(obj, init)
   endswitch
   
   if (recalc || init)
-    %% Input-Params
+    %% input parameters
     h_e = get(fi.h_e_slide, 'value');
     fi.h_i = get(fi.h_i_slide, 'value');
     y0 = get(fi.y0_slide, 'value');
     fi.lambda = get(fi.lambda_slide, 'value');
     fi.fcn_g = str2func(get(fi.g_field,'string'));
     
-    %% Explizite Form der DGL mit g nach finiter Differenz abgeleitet
+    %% explicit form of ODE, g' with finite differences
     fi.fcn_proth = @(t,y) - fi.lambda* (y - fi.fcn_g(t)) + (fi.fcn_g(t+fi.h_i)-fi.fcn_g(t-fi.h_i))/(2*fi.h_i);
     
-    %% Timescale
+    %% time scale
     tmin = 0;
     tmax = 10;
     tspan = tmin:0.1:tmax;
     
-    %% Annäherungsfunktion
+    %% base function g
     g0 = fi.fcn_g(0);
     
-    %% Schrittweite fuer explizite Loesung
-    %h_lim = 2/abs(lambda);
-    %h_e = 0.5 * h_lim;
-
-    %% Loesung mit explizitem Eulerverfahren
+    %% solving with explizit Euler method
     t_e = tmin:h_e:tmax;
     fi.y_e = zeros(size(t_e));
     y_e(1) = y0;
@@ -62,16 +55,14 @@ function updatefig(obj, init)
         y_e(i) = y_e(i-1) + h_e * fi.fcn_proth(t_e(i-1),y_e(i-1));
     end
 
-    %% Loesung mit implizitem Eulerverfahren
+    %% solving with implicit Euler method
     t_i = tmin:fi.h_i:tmax;
     y_i=zeros(size(t_i));
     y_i(1)=y0;
     for i = 2:length(t_i)
-        %y_i(i) = ( y_i(i-1) + fi.h_i*fi.lambda*fi.fcn_g(t_i(i))) / (1+fi.h_i*fi.lambda);
         y_i(i) = ( y_i(i-1) + fi.h_i*fi.lambda*fi.fcn_g(t_i(i)) + fi.fcn_g(t_i(i))-fi.fcn_g(t_i(i-1))) / (1+fi.h_i*fi.lambda);
     end
 
-    %% Graphische Ausgabe
     replot = true;
   endif
   
@@ -80,12 +71,10 @@ function updatefig(obj, init)
     
     fi.plotlabel = legend('implicit solution', 'explicit solution', 'exact solution', 'e-function contribution');
     
-    %set(get(fi.ax,'title'),'string', sprintf('lambda = %.1f, h_e = %.3f', lambda, h_e));
     fi.h_e_label = uicontrol ("style", "text",...
                           "string", sprintf("h for explicit solver = %.3f, %d steps", h_e, tmax/h_e),...
                           "horizontalalignment", "left",...
                           "position", [600,10,400,30]);
-                          
     
     fi.h_i_label = uicontrol ("style", "text",...
                           "string", sprintf("h for implicit solver = %.3f, %d steps", fi.h_i, tmax/fi.h_i),...
@@ -108,7 +97,6 @@ function updatefig(obj, init)
                           'position', [900, 100, 500, 30]);
     
     if h_e / (2/abs(fi.lambda)) >= 1
-      %set (get(fi.lambda_check_label,'string'), 'color', 'red');
       set (fi.lambda_check_label, 'foregroundcolor', 'red');
       set (fi.lambda_check_label, 'string', sprintf('h_e = %.1f * h_lim (h_lim = 2/abs(lambda)), divergence!', h_e / (2/abs(fi.lambda))));
     endif
