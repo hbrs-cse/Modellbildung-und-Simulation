@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Nullstellen von Polynomen &#8212; Modellbildung und Simulation</title>
+    <title>Numerische Intergration mit Schrittweitensteuerung &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
   <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -89,8 +89,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Schwingungsmoden eines eindimensionalen Balkens" href="03_schwingungsmoden_eines_eindimensionalen_balkens.html" />
-    <link rel="prev" title="Das QR Verfahren" href="01_das_qr_verfahren.html" />
+    <link rel="next" title="Numerik gewöhnlicher Differentialgleichungen" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html" />
+    <link rel="prev" title="Numerische Differentiation" href="01_differentiation.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -307,23 +307,23 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06_Differentiation_Integration/00_differentiation_und_integration.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_differentiation_und_integration.html">
    Differentiation und Integration
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
   <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_Differentiation_Integration/01_differentiation.html">
+    <a class="reference internal" href="01_differentiation.html">
      Numerische Differentiation
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06_Differentiation_Integration/02_integration_and_stepcontrol.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Numerische Intergration mit Schrittweitensteuerung
     </a>
    </li>
@@ -356,28 +356,28 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_eigenwertprobleme.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08_eigenwerte/00_eigenwertprobleme.html">
    Eigenwertprobleme
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
   <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_das_qr_verfahren.html">
+    <a class="reference internal" href="../08_eigenwerte/01_das_qr_verfahren.html">
      Das QR Verfahren
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/02_nullstellen_von_polynomen.html">
      Nullstellen von Polynomen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+    <a class="reference internal" href="../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
      Schwingungsmoden eines eindimensionalen Balkens
     </a>
    </li>
@@ -505,7 +505,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/08_eigenwerte/02_nullstellen_von_polynomen.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06_Differentiation_Integration/02_integration_and_stepcontrol.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -522,7 +522,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/08_eigenwerte/02_nullstellen_von_polynomen.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/06_Differentiation_Integration/02_integration_and_stepcontrol.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -542,7 +542,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/08_eigenwerte/02_nullstellen_von_polynomen.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/06_Differentiation_Integration/02_integration_and_stepcontrol.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -568,39 +568,24 @@ commentsRunWhenDOMLoaded(addUtterances);
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-1-stimmt-das">
-   Aufgabe 1 - Stimmt das?
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2-nullstellen-berechnen">
-   Aufgabe 2 - Nullstellen berechnen
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-3-automatisches-testen">
-   Aufgabe 3 - Automatisches Testen
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-quadratic-polynomial">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       test_quadratic_polynomial
-      </span>
-     </code>
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#test-compare-to-roots">
-     <code class="docutils literal notranslate">
-      <span class="pre">
-       test_compare_to_roots
-      </span>
-     </code>
-    </a>
-   </li>
-  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4">
+   Aufgabe 4
+  </a>
  </li>
 </ul>
 
@@ -613,56 +598,65 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="nullstellen-von-polynomen">
-<h1>Nullstellen von Polynomen<a class="headerlink" href="#nullstellen-von-polynomen" title="Permalink to this headline">¶</a></h1>
-<p>Die sogenannte Begleitmatrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}
--c_{1} &amp; -c_{2} &amp; \cdots &amp; -c_{n-1} &amp; -c_n \\
-1 &amp; 0 &amp; \cdots &amp; &amp; 0 \\
-0 &amp; 1 &amp; 0 &amp; \cdots 0 \\
-\vdots &amp; &amp; \ddots &amp; &amp; \vdots \\
-0 &amp; \cdots &amp; 0 &amp; 1 &amp; 0
-\end{bmatrix}
-\end{split}\]</div>
-<p>besitzt das charakteristische Polynom <span class="math notranslate nohighlight">\(p(x)=x^n + c_{1}x^{n-1} + ... + c_{n-1}x + c_n\)</span>.</p>
-<p>Sie wird häufig in der Steuerungstechnik genutzt um die Eigenwerte (und somit die dynamischen Eigenschaften) des linearen Systems zu bestimmen.</p>
-<section id="aufgabe-1-stimmt-das">
-<h2>Aufgabe 1 - Stimmt das?<a class="headerlink" href="#aufgabe-1-stimmt-das" title="Permalink to this headline">¶</a></h2>
-<p>Zeigen Sie für <span class="math notranslate nohighlight">\(n=2\)</span>, dass das angegebene charakteristische Polynom zur Begleitmatrix passt.</p>
+  <section id="numerische-intergration-mit-schrittweitensteuerung">
+<h1>Numerische Intergration mit Schrittweitensteuerung<a class="headerlink" href="#numerische-intergration-mit-schrittweitensteuerung" title="Permalink to this headline">¶</a></h1>
+<section id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<p>Entwickeln Sie mit Stift und Papier (und am besten auch einer Skizze) die Trapezregel zur numerischen Approximation von Integralen beliebiger Funktionen auf beliebigen Intervallen.</p>
 </section>
-<section id="aufgabe-2-nullstellen-berechnen">
-<h2>Aufgabe 2 - Nullstellen berechnen<a class="headerlink" href="#aufgabe-2-nullstellen-berechnen" title="Permalink to this headline">¶</a></h2>
-<p>Entwerfen Sie eine Matlab Funktion, mit welcher Sie auf dieser Basis die Nullstellen eines beliebigen Polynoms unter Verwendung der Funktion <code class="docutils literal notranslate"><span class="pre">eig</span></code> berechnen können.</p>
+<section id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Die Simpson-Regel erweitert dieses Konzept, statt einer Geraden wird hier zur Approximation eine Parabel durch die Randpunkte und den Mittelpunkt des Intervals gelegt und der Flächeninhalt darunter bestimmt. So kann die Fehlerordnung der Approximation erhöht werden. Die Integrationsformel lautet dann</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_i}^{x_{i+1}} f(x) dx = \frac{x_{i+1} - x_i}{6}\left(f(x_i)+4f\left(\frac{x_i+x_{i+1}}{2}\right)+f(x_{i+1})\right)\]</div>
+<p>Schreiben Sie ein Programm zur numerischen Berechnung von <span class="math notranslate nohighlight">\(\int_{a}^{b} f(x) dx\)</span> mit der zusammengesetzten Simpson- und Trapezregel. Das heißt, beide Regeln werden auf einzelne Teilintervalle angewendet und die Ergebnisse zum Gesamtintegral aufsummiert. Dabei soll die Anzahl der verwendeten Teilintervalle so lange verdoppelt werden, bis die Differenz zwischen Simpson- und Trapezregel kleiner als die vom Benutzer vorgegebenen Toleranz <code class="docutils literal notranslate"><span class="pre">tol</span></code> ist.</p>
+<p>Der Vergleich der beiden Ergebnisse ermöglicht es, abzuschätzen, bei welcher Anzahl an Zeitschritten die gewünschte Genauigkeit erreicht wird. Durch eine derartige Schrittweitensteuerung kann zusätzlicher Rechenaufwand durch zu kleine Zeitschrittweiten vermieden werden und trotzdem auf allen Intervallen die geforderte Genauigkeit erreicht werden.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Achtung
+Denken Sie daran, dass Eingaben nicht immer mit der Funktionsweise Ihrer Funktion kompatibel sein müssen! Möchte jemand bspw. <span class="math notranslate nohighlight">\(\int_{-1}^{1} \frac{1}{x} dx\)</span> berechnen, wie geht ihre Funktion mit der Polstelle um? Überlegen Sie sich eine Abbruchbedingung für den Fehlerfall!</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file my_roots.m</span>
-<span class="k">function</span><span class="w"> </span>z<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">my_roots</span><span class="p">(</span>C<span class="p">)</span><span class="w"></span>
-<span class="c">% Find polynomial roots.</span>
-<span class="c">%</span>
-<span class="c">%    roots(C) computes the roots of the polynomial whose coefficients</span>
-<span class="c">%    are the elements of the vector C. If C has N+1 components,</span>
-<span class="c">%    the polynomial is C(1)*X^N + ... + C(N)*X + C(N+1).</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file numInt.m</span>
+<span class="c">%function [I, dt]= numInt(f,a,b,tol)</span>
+<span class="c">% Compute numeric integral of f on [a, b] to tolerance tol via Simpson&#39;s rule. Step width is regulated via comparison to result of Trapezoidal rule.</span>
+<span class="c">% Inputs: function, lower boundary, upper boundary, tolerance</span>
+<span class="c">% Output: integration result, step size</span>
 
-<span class="c">% INSERT CODE HERE</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">[I, dt] = numInt</span><span class="p">(</span>f,a,b,tol<span class="p">)</span><span class="w"></span>
+<span class="c">% insert your code here</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
 </div>
-<ul class="simple">
-<li><p>Überprüfen Sie händisch anhand eines einfachen quadratischen Polynoms, ob ihr Programm funktioniert, z.B. <span class="math notranslate nohighlight">\(p(x)=3x^2-9x+6\)</span>.</p></li>
-<li><p>Wie lauten die Nullstellen von <span class="math notranslate nohighlight">\(p(x) = 2x^4 -20x^3 + 70x^2 -100x +48\)</span>?</p></li>
-</ul>
 </section>
-<section id="aufgabe-3-automatisches-testen">
-<h2>Aufgabe 3 - Automatisches Testen<a class="headerlink" href="#aufgabe-3-automatisches-testen" title="Permalink to this headline">¶</a></h2>
-<p>Schreiben Sie nun unit tests für ihre neue Funktion. Diese unit tests verwenden das Framework <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">MOxUnit</a>, das sowohl mit Matlab als auch Octave kompatibel ist. Wenn Sie die Tests auch lokal auf ihrem Rechner ausführen wollen, benötigen Sie eine Installation von MOxUnit.</p>
-<p>Erstellen Sie zunächst zueine Datei mit folgendem Inhalt:</p>
-<div class="cell tag_remove-output docutils container">
+<section id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<p>Testen Sie Ihre Funktion mit dem <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">test</span></code>. Sie sollten zumindest die ersten 5 der 8 Anforderungen erfüllen.</p>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file test_my_roots.m</span>
-<span class="k">function</span><span class="w"> </span><span class="nf">test_suite</span><span class="p">=</span><span class="n">test_my_roots</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">test_numInt</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Den Quellcode des <code class="docutils literal notranslate"><span class="pre">unit</span> <span class="pre">test</span></code> können Sie hier ausklappen. Sehen Sie sich das Kapitel <a class="reference internal" href="../00_einleitung/02_usage/00_verwendung_dieses_buches.html#content-references-unit-testing-intro"><span class="std std-ref">Unit Testing</span></a> an, um Ihre Erinnerung an Unit Tests aufzufrischen.</p>
+<p>Es werden die Ergebnisse von sieben Funktionen anhand der analytischen Lösungen (bzw. der numerisch zu erwartenden Reaktion) getestet. Der Vergleich läuft über die Funktion <code class="docutils literal notranslate"><span class="pre">assertVectorsAlmostEqual()</span></code>.</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\int_0^1 x dx = 0.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-1}^1 x dx = 0.5\)</span>. Hier sollte <code class="docutils literal notranslate"><span class="pre">df</span></code> = 2 sein.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_0^1 x^5+x dx = \frac{2}{3}\)</span>. Hier sollte <code class="docutils literal notranslate"><span class="pre">df</span></code>= <span class="math notranslate nohighlight">\(2^-10\)</span> sein.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-1}^1 e^x dx = e - \frac{1}{e}\)</span>. Hier sollte <code class="docutils literal notranslate"><span class="pre">df</span></code>= <span class="math notranslate nohighlight">\(2^-9\)</span> sein.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-1}^1 (1-cos(-0.33x^2-0.1x +1)) dx\)</span>. Hier ist eine Zeitschrittweitensteuerung notwending. Das Ergebnis wird mit der MATLAB-Routine <code class="docutils literal notranslate"><span class="pre">integral()</span></code> getestet.</p></li>
+<li><p>Das Integral sollte auch von rechts nach links funktionieren für <span class="math notranslate nohighlight">\(\int_1^0 x dx = 0.5\)</span>.</p></li>
+<li><p>Für <span class="math notranslate nohighlight">\(\int_{-0.5}^{1} \frac{1}{x} dx\)</span> dürfte die Zeitschrittweite schnell zu klein werden. Dafür testet <code class="docutils literal notranslate"><span class="pre">test_numInt</span></code>, ob <code class="docutils literal notranslate"><span class="pre">numInt.m</span></code> für dieses Integral eine Fehlermeldung auswirft. Das geschieht mit <code class="docutils literal notranslate"><span class="pre">assertExceptionThrown</span></code>.</p></li>
+<li><p>Ebenso sollte <span class="math notranslate nohighlight">\(\int_{-1}^{1} \frac{1}{x} dx = 0\)</span>.</p></li>
+</ul>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">test_suite</span><span class="p">=</span><span class="n">test_numInt</span>
 <span class="c">% initialize unit tets</span>
     <span class="k">try</span>
         <span class="n">test_functions</span><span class="p">=</span><span class="n">localfunctions</span><span class="p">();</span>
@@ -670,45 +664,98 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="k">end</span>
     <span class="n">initTestSuite</span><span class="p">;</span>
 
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadratic_polynomial</span>
-    <span class="c">% tests, wether my_roots correctly determines the </span>
-    <span class="c">% roots of a quadratic polynomial</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">%     Basic tests     %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
 
-    <span class="c">% INSERT CODE HERE. Use assertElementsAlmostEqual(a, b, tol)</span>
-    <span class="c">% to test, wether two values are equal up to a tolerance tol.</span>
-    <span class="c">% Never compare flaoting point numbers with ==</span>
-    <span class="c">% Remove the next line to get started</span>
-    <span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_basic</span>
+<span class="c">% test function of basic function</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
     
-<span class="k">function</span><span class="w"> </span><span class="nf">test_compare_to_roots</span>
-    <span class="c">% tests, wether my_roots yields the same results as roots</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_negativeStartOfInterval</span>
+<span class="c">% test function of negative start of interval</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">([</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_moreComplexFunction</span>
+<span class="c">% test function of x^5 + x</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="n">x</span>^<span class="mi">5</span><span class="o">+</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">([</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">],[</span><span class="mi">2</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span>^<span class="o">-</span><span class="mi">10</span><span class="p">])</span> 
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_stepsWidth</span>
+<span class="c">% test function of exp(x) to see if step width is correct</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="nb">exp</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="c">% !!! width (2^-9) determined via testing !!! 0.001953125000000</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">([</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">],[</span><span class="nb">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="nb">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="mi">2</span>^<span class="o">-</span><span class="mi">9</span><span class="p">])</span> 
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_stepsWidth_2</span>
+<span class="c">% test function of 1-cos(-0.33*x.^2-0.1*x +1) where step width control is necessary</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="mi">1</span><span class="o">-</span><span class="nb">cos</span><span class="p">(</span><span class="o">-</span><span class="mf">0.33</span><span class="o">*</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="o">-</span><span class="mf">0.1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="n">integral</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">))</span> 
+    
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% More advanced tests %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
 
-    <span class="c">% INSERT CODE HERE. Use assertElementsAlmostEqual(a, b, tol)</span>
-    <span class="c">% to test, wether two values are equal up to a tolerance tol.</span>
-    <span class="c">% Never compare flaoting point numbers with ==</span>
-    <span class="c">% Remove the next line to get started</span>
-    <span class="n">assertEqual</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_invertedInterval</span>
+<span class="c">% test function of inverted interval (start after end)</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="n">x</span><span class="p">;</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+  
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_poleInIntervall</span>
+<span class="c">% test function of 1/x</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="n">assertExceptionThrown</span><span class="p">(@()</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">))</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_numInt_symmetricIntegral</span>
+<span class="c">% test function of 1/x</span>
+    <span class="n">a</span> <span class="p">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">b</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">f</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="mi">1</span><span class="o">/</span><span class="n">x</span><span class="p">;</span>
+    <span class="n">tol</span> <span class="p">=</span> <span class="mi">10</span>^<span class="o">-</span><span class="mi">6</span><span class="p">;</span>
+    <span class="p">[</span><span class="no">I</span><span class="p">,</span> <span class="n">df</span><span class="p">]</span> <span class="p">=</span> <span class="n">numInt</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">tol</span><span class="p">);</span>
+    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="no">I</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>In dieser Datei sind zwei unit tests <code class="docutils literal notranslate"><span class="pre">test_quadratic_polynomial</span></code> und <code class="docutils literal notranslate"><span class="pre">test_compare_to_roots</span></code> vorbereitet, die beide wegen der Zeile <code class="docutils literal notranslate"><span class="pre">assertEqual(1,0)</span></code> garantiert fehlschlagen werden. Ändern Sie die unit tests wie folgt ab:</p>
-<section id="test-quadratic-polynomial">
-<h3><code class="docutils literal notranslate"><span class="pre">test_quadratic_polynomial</span></code><a class="headerlink" href="#test-quadratic-polynomial" title="Permalink to this headline">¶</a></h3>
-<p>Erstellen Sie ein zufälliges quadratisches Polynom, berechnen Sie die Nullstellen mit der abc- oder der pq-Formel und überprüfen Sie mit <code class="docutils literal notranslate"><span class="pre">assertElementsAlmostEqual(a,</span> <span class="pre">b,</span> <span class="pre">tol)</span></code>, ob ihre Funktion <code class="docutils literal notranslate"><span class="pre">my_roots</span></code> das selbe Ergebnis liefert.</p>
 </section>
-<section id="test-compare-to-roots">
-<h3><code class="docutils literal notranslate"><span class="pre">test_compare_to_roots</span></code><a class="headerlink" href="#test-compare-to-roots" title="Permalink to this headline">¶</a></h3>
-<p>Erstellen Sie eine zufällige natürliche Zahl <span class="math notranslate nohighlight">\(n\)</span> zwischen 1 und 10 und anschließend ein zufälliges Polynom <span class="math notranslate nohighlight">\(n\)</span>-ten Grades und überprüfen Sie mit <code class="docutils literal notranslate"><span class="pre">assertElementsAlmostEqual(a,</span> <span class="pre">b,</span> <span class="pre">tol)</span></code>, ob ihre Funktion <code class="docutils literal notranslate"><span class="pre">my_roots</span></code> das selbe Ergebnis liefert wie die eingebaute Funktion <code class="docutils literal notranslate"><span class="pre">roots</span></code>.</p>
-<p>Besteht ihre Funktion die unit tests?</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_my_roots</span><span class="p">.</span><span class="n">m</span><span class="p">;</span>
-</pre></div>
+<section id="aufgabe-4">
+<h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
+<p>Vergleichen Sie ihre Ergebnisse auch mit der Matlabroutine <code class="docutils literal notranslate"><span class="pre">Integral</span></code>. Überlegen Sie sich dazu wichtige Kenngrößen und Testfunktionen.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Neben der reinen Funktion, die sie jetzt offensichtlich sehr gut realisiert haben, hat Code allerdings noch weitere Qualitätskriterien. Ein wichtiges ist z. B. der Rechenaufwand bzw. die Zeit, die eine Ausführung benötigt.
+Dieser kann hier noch optimiert werden, indem die berechneten Werte aus der jeweils vorherigen Iteration weiterverwendet werden, wodurch in jeder Iteration nur ein Drittel so viele Werte berechnet werden wie in der einfachen Implementierung. Aber das soll Ihnen vorläufig erspart bleiben.</p>
 </div>
-</div>
-</div>
-</section>
 </section>
 </section>
 
@@ -725,7 +772,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./08_eigenwerte"
+            path: "./06_Differentiation_Integration"
         },
         predefinedOutput: true
     }
@@ -742,19 +789,19 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="01_das_qr_verfahren.html" title="previous page">
+        <a class="left-prev" href="01_differentiation.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Das QR Verfahren</p>
+                <p class="prevnext-title">Numerische Differentiation</p>
             </div>
         </a>
     </div>
      <div id="next">
-        <a class="right-next" href="03_schwingungsmoden_eines_eindimensionalen_balkens.html" title="next page">
+        <a class="right-next" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html" title="next page">
             <div class="prevnext-info">
                 <p class="prevnext-label">next</p>
-                <p class="prevnext-title">Schwingungsmoden eines eindimensionalen Balkens</p>
+                <p class="prevnext-title">Numerik gewöhnlicher Differentialgleichungen</p>
             </div>
             <i class="prevnext-label fas fa-angle-right"></i>
         </a>
