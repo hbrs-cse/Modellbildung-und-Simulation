@@ -75,7 +75,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  * Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyterbook.org/start/overview.html) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
  ```bash
- jupyter-book toc content/
+ jupyter-book toc from-project -e .ipynb -e .md -f jb-book content/ > content/_toc.yml
  ```
  to automatically generate the table of contents based on the page titles. Then run
  ```bash
