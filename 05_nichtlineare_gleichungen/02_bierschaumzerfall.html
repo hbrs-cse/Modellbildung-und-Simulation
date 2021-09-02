@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bierschaumzerfall &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -637,11 +636,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="bierschaumzerfall">
+  <div class="section" id="bierschaumzerfall">
 <h1>Bierschaumzerfall<a class="headerlink" href="#bierschaumzerfall" title="Permalink to this headline">¶</a></h1>
 <img alt="../_images/weizenbier.jpg" class="align-center" src="../_images/weizenbier.jpg" />
 <p>Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?</p>
-<section id="experimenteller-aufbau">
+<div class="section" id="experimenteller-aufbau">
 <h2>Experimenteller Aufbau<a class="headerlink" href="#experimenteller-aufbau" title="Permalink to this headline">¶</a></h2>
 <p>Messen wir es einfach nach! Wir benutzen einen Messbecher, Wasser und einen wasserfesten Marker, um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber, etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
 <a class="reference internal image-reference" href="../_images/20190521_bierschaum_01.jpg"><img alt="../_images/20190521_bierschaum_01.jpg" class="align-center" src="../_images/20190521_bierschaum_01.jpg" style="width: 500px;" /></a>
@@ -772,8 +771,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <img alt="../_images/02_bierschaumzerfall_2_0.png" src="../_images/02_bierschaumzerfall_2_0.png" />
 </div>
 </div>
-</section>
-<section id="modellbeschreibung">
+</div>
+<div class="section" id="modellbeschreibung">
 <h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
 <p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können, und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung <span class="math notranslate nohighlight">\(\dot{V}\)</span> des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
 <div class="math notranslate nohighlight">
@@ -817,11 +816,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <p>Wir können immer noch keine quantifizierbare Aussage darüber treffen, wie schnell das Bier sich abbaut.</p>
 <p>Wie können wir <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.</p>
-</section>
-<section id="die-methode-der-kleinsten-quadrate">
+</div>
+<div class="section" id="die-methode-der-kleinsten-quadrate">
 <h2>Die Methode der kleinsten Quadrate<a class="headerlink" href="#die-methode-der-kleinsten-quadrate" title="Permalink to this headline">¶</a></h2>
 <p>Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können noch unbekannte Parameter <span class="math notranslate nohighlight">\(p_1,...,p_n\)</span> eines Modells <span class="math notranslate nohighlight">\(y = f(p_1,...,p_n,t)\)</span> so angepasst werden, dass es vorher ermittelte experimentelle Daten <span class="math notranslate nohighlight">\((t_1,y_1),...,(t_m, y_m)\)</span> möglichst gut wiederspiegelt.</p>
-<section id="die-grundidee">
+<div class="section" id="die-grundidee">
 <h3>Die Grundidee<a class="headerlink" href="#die-grundidee" title="Permalink to this headline">¶</a></h3>
 <p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte <span class="math notranslate nohighlight">\(t_i\)</span> soll die Differenz <span class="math notranslate nohighlight">\(y_i - f(p_1,...,p_n,t_i)\)</span> betragsmäßig klein werden.</p>
 <p>Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:</p>
@@ -853,8 +852,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 -\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
 \end{bmatrix}
 \end{split}\]</div>
-</section>
-<section id="anwendung-auf-den-bierschaum">
+</div>
+<div class="section" id="anwendung-auf-den-bierschaum">
 <h3>Anwendung auf den Bierschaum<a class="headerlink" href="#anwendung-auf-den-bierschaum" title="Permalink to this headline">¶</a></h3>
 <p>Im Falle des Bierschaumes gilt <span class="math notranslate nohighlight">\(p_1 = a, p_2 = b\)</span> und</p>
 <div class="math notranslate nohighlight">
@@ -878,8 +877,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Wir greifen auf unsere Implementierung des Newton-Verfahrens mit Auswertung der Jacobi-Matrix aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurück. Damit können wir das Newton-Verfahren auf <span class="math notranslate nohighlight">\(F\)</span> anwenden, um unsere Parameter zu bestimmen.</p></li>
 <li><p>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</p></li>
 </ol>
-</section>
-<section id="aufgabe-1-das-nichtlineare-gleichungssystem">
+</div>
+<div class="section" id="aufgabe-1-das-nichtlineare-gleichungssystem">
 <h3>Aufgabe 1: Das nichtlineare Gleichungssystem<a class="headerlink" href="#aufgabe-1-das-nichtlineare-gleichungssystem" title="Permalink to this headline">¶</a></h3>
 <p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung <span class="math notranslate nohighlight">\(F\)</span> für beliebige Parameter <span class="math notranslate nohighlight">\(\mathbf{p}=[a,b]^T \in \mathbb{R}^2\)</span> und Messwerte <span class="math notranslate nohighlight">\(t \in \mathbb{R}^m\)</span>, <span class="math notranslate nohighlight">\(V \in \mathbb{R}^m\)</span> auswertet:</p>
 <div class="cell tag_remove-output docutils container">
@@ -899,8 +898,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <p>Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> bestimmen zu können.</p>
-</section>
-<section id="aufgabe-2-das-newton-verfahren">
+</div>
+<div class="section" id="aufgabe-2-das-newton-verfahren">
 <span id="bierschaum-newton"></span><h3>Aufgabe 2: Das Newton-Verfahren<a class="headerlink" href="#aufgabe-2-das-newton-verfahren" title="Permalink to this headline">¶</a></h3>
 <p>Hier können wir unsere Implementierung des Newton-Verfahrens aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurückgreifen. Da unser Newton-Verfahren auf der approximation der Jacobimatrix beruht, müssen wir diese zuerst implementieren. Kopieren sie dazu ihre Lösung aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> oder schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
@@ -976,9 +975,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="optimierungsverfahren">
+</div>
+</div>
+<div class="section" id="optimierungsverfahren">
 <h2>Optimierungsverfahren<a class="headerlink" href="#optimierungsverfahren" title="Permalink to this headline">¶</a></h2>
 <p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion <span class="math notranslate nohighlight">\(G: \mathbb{R}^n \to \mathbb{R}\)</span> bestimmen lässt, indem das nichtlineare Gleichungssystem</p>
 <div class="math notranslate nohighlight">
@@ -1009,7 +1008,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \end{bmatrix}
 \end{split}\]</div>
 <p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
-<section id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
+<div class="section" id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
 <h3>Aufgabe 3: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">¶</a></h3>
 <p>Schreiben Sie eine neue Funktion <code class="docutils literal notranslate"><span class="pre">minimize(func,x0,tol,maxit)</span></code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code class="docutils literal notranslate"><span class="pre">func</span></code><span class="math notranslate nohighlight">\(: \mathbb{R}^n \to \mathbb{R}\)</span> minimiert. Verwenden Sie Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
 <ul>
@@ -1042,13 +1041,13 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </div>
 </div>
 </div>
-</section>
-<section id="zusatzliche-informationen">
+</div>
+<div class="section" id="zusatzliche-informationen">
 <h3>Zusätzliche Informationen<a class="headerlink" href="#zusatzliche-informationen" title="Permalink to this headline">¶</a></h3>
-<p>Zusätzliche Informationen zum Verfall von Bierschaum finden Sie in <span id="id1">[<a class="reference internal" href="#id6"><span>The09</span></a>,<a class="reference internal" href="#id5"><span>Lei01</span></a>]</span>.</p>
-</section>
-</section>
-<section id="literatur">
+<p>Zusätzliche Informationen zum Verfall von Bierschaum finden Sie in <span id="id1">[<a class="reference internal" href="#id5">Lei01</a>, <a class="reference internal" href="#id6">The09</a>]</span>.</p>
+</div>
+</div>
+<div class="section" id="literatur">
 <h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
 <p id="id2"><dl class="citation">
 <dt class="label" id="id5"><span class="brackets"><a class="fn-backref" href="#id1">Lei01</a></span></dt>
@@ -1059,8 +1058,8 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </dd>
 </dl>
 </p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

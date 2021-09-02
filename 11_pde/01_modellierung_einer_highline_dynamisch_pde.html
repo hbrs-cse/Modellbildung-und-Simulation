@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modellierung einer Highline - Die Lösung als PDE &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -583,10 +582,10 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="modellierung-einer-highline-die-losung-als-pde">
+  <div class="section" id="modellierung-einer-highline-die-losung-als-pde">
 <span id="content-references-highline-dynamic-pde"></span><h1>Modellierung einer Highline - Die Lösung als PDE<a class="headerlink" href="#modellierung-einer-highline-die-losung-als-pde" title="Permalink to this headline">¶</a></h1>
 <p>Wie in <a class="reference internal" href="../07_num_ode/03_modellierung_einer_highline_dynamisch.html#content-references-highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> wollen wir nun die Highline aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> als partielle Differentialgleichung (Partial Differential Equation, PDE) lösen. Im Unterschied zu den gewöhnlichen Differentialgleichungen gibt es hier Ableitungen nach mehr als einer Variablen, häufig nach Raumgrößen und der Zeit (z.B. <span class="math notranslate nohighlight">\(\frac{\partial f(t,x)}{\partial t}, \frac{\partial f(t,x)}{\partial x}\)</span>).</p>
-<p>Auch wenn es nicht so aussah, beinhaltet bereits die die Kräftebilanzierung aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> eine partielle Differentialgleichung. Allgmein lässt sich die Highline gemäß <span id="id1">[<a class="reference internal" href="#id5"><span>Opr20</span></a>]</span> als PDE aufstellen.</p>
+<p>Auch wenn es nicht so aussah, beinhaltet bereits die die Kräftebilanzierung aus <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> eine partielle Differentialgleichung. Allgmein lässt sich die Highline gemäß <span id="id1">[<a class="reference internal" href="#id5">Opr20</a>]</span> als PDE aufstellen.</p>
 <div class="math notranslate nohighlight">
 \[\rho_L \cdot \mathbf{\ddot{z}} = E \cdot A \cdot \mathbf{z}_{xx} + c \cdot \mathbf{\dot{z}}_{xx} + \Delta\mathbf{F}(t)\]</div>
 <div class="admonition-hinweis admonition">
@@ -595,7 +594,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Die Gleichung ist ein partielles Kräftegleichgewicht der <span class="math notranslate nohighlight">\(\Delta\mathbf{F} = \left[\frac{kg}{s^2}\right]\)</span>, mit <span class="math notranslate nohighlight">\(\Delta = \frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}\)</span> dem Laplace-Operator (in unserem Fall nur in 2D).</p></li>
 <li><p><span class="math notranslate nohighlight">\(\frac{\partial^2 z}{\partial x^2}\)</span> ist die Dehnung des Seils. <span class="math notranslate nohighlight">\(\frac{\partial z}{\partial x}\)</span> wäre die Steigung des Seils.</p></li>
 <li><p><span class="math notranslate nohighlight">\(\rho_L\)</span> ist die Dichte der Highline bezogen auf die Länge, also <span class="math notranslate nohighlight">\(\rho_L=\rho \cdot A=\frac{m_{ges}}{L} \left[\frac{kg}{m}\right]\)</span>.</p></li>
-<li><p><span class="math notranslate nohighlight">\(c \cdot \mathbf{\dot{z}}_{xx}\)</span> ist die Dämpfung der Highline. Die Dämpfung ist schwer aus den Stoffeigenschaften wie der Viskosität herzuleiten, weshalb üblicherweise Annahmen getroffen werden müssen. In <span id="id2">[<a class="reference internal" href="#id5"><span>Opr20</span></a>]</span> handelt es sich um eine Gitarrensaite, die durch die Luft eine lineare Dämpfung <span class="math notranslate nohighlight">\(c \cdot \mathbf{\dot{z}}\)</span> erfährt. In unserem Fall hängt die Dämpfung durch die Annahme der Feder-Masse-Dämpfer-Elemente vom Geschwindigkeitsgradienten entlang der Highline ab. Wir nehmen also an, dass <span class="math notranslate nohighlight">\(c = d \cdot dx\)</span> mit <span class="math notranslate nohighlight">\(dx\)</span> der Länge der Dämpfer-Elemente und <span class="math notranslate nohighlight">\([c] = \text{Ns}\)</span>. Anstelle von <span class="math notranslate nohighlight">\(c\)</span> könnte aber auch eine nichtlineare Dämpfung und eine Abhängigkeit von anderen Faktoren angenommen werden.</p></li>
+<li><p><span class="math notranslate nohighlight">\(c \cdot \mathbf{\dot{z}}_{xx}\)</span> ist die Dämpfung der Highline. Die Dämpfung ist schwer aus den Stoffeigenschaften wie der Viskosität herzuleiten, weshalb üblicherweise Annahmen getroffen werden müssen. In <span id="id2">[<a class="reference internal" href="#id5">Opr20</a>]</span> handelt es sich um eine Gitarrensaite, die durch die Luft eine lineare Dämpfung <span class="math notranslate nohighlight">\(c \cdot \mathbf{\dot{z}}\)</span> erfährt. In unserem Fall hängt die Dämpfung durch die Annahme der Feder-Masse-Dämpfer-Elemente vom Geschwindigkeitsgradienten entlang der Highline ab. Wir nehmen also an, dass <span class="math notranslate nohighlight">\(c = d \cdot dx\)</span> mit <span class="math notranslate nohighlight">\(dx\)</span> der Länge der Dämpfer-Elemente und <span class="math notranslate nohighlight">\([c] = \text{Ns}\)</span>. Anstelle von <span class="math notranslate nohighlight">\(c\)</span> könnte aber auch eine nichtlineare Dämpfung und eine Abhängigkeit von anderen Faktoren angenommen werden.</p></li>
 <li><p><span class="math notranslate nohighlight">\(E\)</span> ist der Modul der Highline</p></li>
 <li><p><span class="math notranslate nohighlight">\(A\)</span> ist der Querschnitt der Highline</p></li>
 <li><p>Andere Schreibweisen wären</p></li>
@@ -646,7 +645,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Diese Lösungsstrategie nennt sich übrigens <strong>Linienmethode</strong>:</p>
 <p>Die Ortsableitungen in der PDE werden durch finite Differenzenquotienten ersetzt. Zusammen mit den Randbedingungen ergibt sich ein System gewöhnlicher Differentialgleichungen.</p>
 </div>
-<section id="literatur">
+<div class="section" id="literatur">
 <h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
 <p id="id3"><dl class="citation">
 <dt class="label" id="id5"><span class="brackets">Opr20</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>)</span></dt>
@@ -654,8 +653,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </dd>
 </dl>
 </p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

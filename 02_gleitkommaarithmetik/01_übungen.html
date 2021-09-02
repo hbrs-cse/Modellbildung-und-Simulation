@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Übungen &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -608,9 +607,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="ubungen">
+  <div class="section" id="ubungen">
 <h1>Übungen<a class="headerlink" href="#ubungen" title="Permalink to this headline">¶</a></h1>
-<section id="aufgabe-1-gleitpunktarithmetik">
+<div class="section" id="aufgabe-1-gleitpunktarithmetik">
 <h2>Aufgabe 1: Gleitpunktarithmetik<a class="headerlink" href="#aufgabe-1-gleitpunktarithmetik" title="Permalink to this headline">¶</a></h2>
 <p>Welches Ergebnis erhalten Sie für die Rechnung</p>
 <p><span class="math notranslate nohighlight">\(2590 + 4 + 4 + 4\)</span></p>
@@ -618,8 +617,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>(a) von links nach rechts und</p>
 <p>(b) von rechts nach links</p>
 <p>abarbeiten? Welche allgemeine Konsequenz lässt sich daraus ableiten?</p>
-</section>
-<section id="aufgabe-2-ausloschung">
+</div>
+<div class="section" id="aufgabe-2-ausloschung">
 <h2>Aufgabe 2: Auslöschung<a class="headerlink" href="#aufgabe-2-ausloschung" title="Permalink to this headline">¶</a></h2>
 <p>Berechnen Sie mit dem Taschenrechner</p>
 <p><span class="math notranslate nohighlight">\(f(x)=\ln(\sqrt{x^2+1}-x)\)</span></p>
@@ -629,15 +628,15 @@ Wie können Sie das Ergebnis umformen, um ein richtiges Ergebnis zu erhalten?</p
 <p class="admonition-title">Hinweis</p>
 <p>Vermeiden Sie die Subtraktion von etwa gleich großen Zahlen)</p>
 </div>
-</section>
-<section id="aufgabe-3-overflow">
+</div>
+<div class="section" id="aufgabe-3-overflow">
 <h2>Aufgabe 3: Overflow<a class="headerlink" href="#aufgabe-3-overflow" title="Permalink to this headline">¶</a></h2>
 <p>Die Beträge von <span class="math notranslate nohighlight">\(x\)</span> und <span class="math notranslate nohighlight">\(y\)</span> in der Formel</p>
 <p><span class="math notranslate nohighlight">\(r=\sqrt{x^2 + y^2}\)</span></p>
 <p>seien so groß, dass die Auswertung von <span class="math notranslate nohighlight">\(x^2+y^2\)</span> zu einem Overflow führt, obwohl <span class="math notranslate nohighlight">\(r\)</span> im zulässigen Bereich der Maschinenzahlen liegt.
 Formen Sie die Formel so um, dass ein Overflow vermieden wird.</p>
-</section>
-<section id="aufgabe-4-zahlentypen">
+</div>
+<div class="section" id="aufgabe-4-zahlentypen">
 <h2>Aufgabe 4: Zahlentypen<a class="headerlink" href="#aufgabe-4-zahlentypen" title="Permalink to this headline">¶</a></h2>
 <p>a) Stellen Sie fest, mit welchem Zahlentyp MATLAB arbeitet, indem Sie <code class="docutils literal notranslate"><span class="pre">realmin</span></code>, <code class="docutils literal notranslate"><span class="pre">realmax</span></code> und <code class="docutils literal notranslate"><span class="pre">eps</span></code> abfragen.</p>
 <div class="cell docutils container">
@@ -670,8 +669,8 @@ beliebige Maschinenzahl ist.</p>
 </div>
 </div>
 </div>
-</section>
-<section id="aufgabe-5-rundungsfehler">
+</div>
+<div class="section" id="aufgabe-5-rundungsfehler">
 <h2>Aufgabe 5: Rundungsfehler<a class="headerlink" href="#aufgabe-5-rundungsfehler" title="Permalink to this headline">¶</a></h2>
 <p>François Viète hat 1593 als erster eine analytische Gleichung für die Kreiszahl <span class="math notranslate nohighlight">\(\pi\)</span> veröffentlicht. Zu diesem Zeitpunkt gab es zwar bereits einige Ansätze <span class="math notranslate nohighlight">\(\pi\)</span> zu approximieren, doch seine Darstellung als unendliches Produkt</p>
 <div class="math notranslate nohighlight">
@@ -705,8 +704,8 @@ z_n &amp;= 2^{n+\frac{1}{2}}\sqrt{1-\sqrt{1-4^{-n}z_{n-1}^2}}, \text{ für } n =
 </div>
 </div>
 </div>
-</section>
-<section id="aufgabe-6-rechengenauigkeit">
+</div>
+<div class="section" id="aufgabe-6-rechengenauigkeit">
 <h2>Aufgabe 6: Rechengenauigkeit<a class="headerlink" href="#aufgabe-6-rechengenauigkeit" title="Permalink to this headline">¶</a></h2>
 <p>Zunächst schauen wir uns an wie Matlab/Octave Variablen speichert, denen wir einen Wert zu weisen. Dies kann einfach mit dem Befehl <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/whos.html"><span class="math notranslate nohighlight">\(whos()\)</span></a> abgefragt werden. Dabei werden alle Variablen, ihre Größen (für Matlab/Octave ist jede Variable eine Matrix), ihr Speicherbedarf sowie ihre Klasse aufgelistet.</p>
 <div class="cell docutils container">
@@ -838,8 +837,8 @@ Ab welchem Wert findet Auslöschung auch bei doppelter Genauigkeit statt (<span 
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

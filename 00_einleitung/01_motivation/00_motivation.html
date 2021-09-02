@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Das Stauproblem - Motivation zur Benutzung dieses Buches &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -637,11 +636,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="das-stauproblem-motivation-zur-benutzung-dieses-buches">
+  <div class="section" id="das-stauproblem-motivation-zur-benutzung-dieses-buches">
 <span id="content-references-intro-traffic"></span><h1>Das Stauproblem - Motivation zur Benutzung dieses Buches<a class="headerlink" href="#das-stauproblem-motivation-zur-benutzung-dieses-buches" title="Permalink to this headline">¶</a></h1>
 <p>Modellbildung und Simulation verbindet eine Vielzahl von Disziplinen, von grundlegender Mathematik über numerische Lösungsalgorithmen und Computernumerik hin zu der Syntax verschiedener Programmiersprachen. Dabei fällt es manchmal schwer, den Überblick zu behalten. Dieses Übungsbuch soll dabei helfen, die Modellbildung und Simulation durch ihre Schichten hindurch zu durchdringen und sie (be-)greifbar zu machen.</p>
 <p>Als Beispiel hierfür nehmen wir uns eine Extremwertaufgabe vor. Diese spielen in der Praxis oft eine große Rolle.</p>
-<section id="aufgabenstellung">
+<div class="section" id="aufgabenstellung">
 <h2>Aufgabenstellung<a class="headerlink" href="#aufgabenstellung" title="Permalink to this headline">¶</a></h2>
 <p>Angenommen das Schweizer Verkehrsministerium macht eine Anfrage an Sie, die bestehenden Tempolimits Ihrer Autobahnen
 zu überprüfen, unter dem konkreten Aspekt:</p>
@@ -649,10 +648,10 @@ zu überprüfen, unter dem konkreten Aspekt:</p>
 <a class="reference internal image-reference" href="../../_images/tunnel-pixabay.jpg"><img alt="high v high s" class="align-center" src="../../_images/tunnel-pixabay.jpg" style="width: 800px;" /></a>
 <div style="text-align: right"><a href="https://pixabay.com/de/photos/tunnel-verkehr-stau-miniatur-ampel-3518875/" > [torstensimon], via Creative Commons CC0 </a></div>
 <p>Nun ist Ihre Expertenmeinung gefragt!</p>
-</section>
-<section id="extremwertaufgaben-in-funf-akten">
+</div>
+<div class="section" id="extremwertaufgaben-in-funf-akten">
 <h2>Extremwertaufgaben in fünf Akten<a class="headerlink" href="#extremwertaufgaben-in-funf-akten" title="Permalink to this headline">¶</a></h2>
-<section id="parameterauswahl-und-modellreduktion">
+<div class="section" id="parameterauswahl-und-modellreduktion">
 <h3>1. Parameterauswahl und Modellreduktion<a class="headerlink" href="#parameterauswahl-und-modellreduktion" title="Permalink to this headline">¶</a></h3>
 <p>Um diese Frage beantworten zu können, brauchen wir ein Modell. Aber welche <em>Größen</em> kommen dabei in Betracht? Zum Beispiel können wir uns fokussieren auf</p>
 <ul class="simple">
@@ -677,8 +676,8 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>ersten Schritt</strong> im Lösungsschema von Extremwertaufgaben: “Vereinfachtes Modell der Natur erstellen”</p>
 </div>
-</section>
-<section id="mathematische-formulierung-der-fragestellung">
+</div>
+<div class="section" id="mathematische-formulierung-der-fragestellung">
 <h3>2. Mathematische Formulierung der Fragestellung<a class="headerlink" href="#mathematische-formulierung-der-fragestellung" title="Permalink to this headline">¶</a></h3>
 <p>Was wir uns eigentlich fragen, ist: <em>Was ist besser…?</em></p>
 <ol class="simple">
@@ -706,8 +705,8 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>zweiten Schritt</strong> im Schema zur Lösung von Extremwertaufgaben: “Die Ermittlung der Zielfunktion”</p>
 </div>
-</section>
-<section id="konstruktion-von-nebenbedingungen">
+</div>
+<div class="section" id="konstruktion-von-nebenbedingungen">
 <h3>3. Konstruktion von Nebenbedingungen<a class="headerlink" href="#konstruktion-von-nebenbedingungen" title="Permalink to this headline">¶</a></h3>
 <p>Um die Gleichung besser lösen zu können, können wir <em>Nebenbedingungen</em> konstruieren, welche die Variablen in Beziehung zueinander setzen:</p>
 <ol class="simple">
@@ -725,8 +724,8 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>dritten Schritt</strong> im Lösungsschema: “Eliminierung von Variablen durch Nebenbedingungen”</p>
 </div>
-</section>
-<section id="mathematische-losung-des-modells">
+</div>
+<div class="section" id="mathematische-losung-des-modells">
 <h3>4. Mathematische Lösung des Modells<a class="headerlink" href="#mathematische-losung-des-modells" title="Permalink to this headline">¶</a></h3>
 <div class="admonition-einschub-definition-und-satze-zu-extremwerten admonition">
 <p class="admonition-title">Einschub: Definition und Sätze zu Extremwerten</p>
@@ -752,8 +751,8 @@ F'(v) = \frac{\left(4.5 + \frac{v^2}{100}\right)\cdot 1000 - 1000 \cdot v \frac{
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>vierten Schritt</strong> im Lösungsschema: “Bestimmung der lokalen Extremstellen”</p>
 </div>
-</section>
-<section id="prufung-der-gultigkeit-und-randstellen">
+</div>
+<div class="section" id="prufung-der-gultigkeit-und-randstellen">
 <h3>5. Prüfung der Gültigkeit und Randstellen<a class="headerlink" href="#prufung-der-gultigkeit-und-randstellen" title="Permalink to this headline">¶</a></h3>
 <p>Es bleiben noch zwei letzte Tests:</p>
 <ol class="simple">
@@ -781,9 +780,9 @@ Fmax = 2357.0
 <p>Dies entspricht dem <strong>fünften Schritt</strong> im Lösungsschema: “Gültigkeits- und Randstellen Prüfung”</p>
 </div>
 <p>Damit erhalten wir die <strong>Lösung</strong>: Bei <span class="math notranslate nohighlight">\(v=21.21 \frac{\text{km}}{\text{h}}\)</span> wird ein maximaler Fahrzeugdurchsatz von <span class="math notranslate nohighlight">\(F\left(21.21 \frac{\text{km}}{\text{h}}\right) = 2357 \frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
-</section>
-</section>
-<section id="ingenieurs-know-how">
+</div>
+</div>
+<div class="section" id="ingenieurs-know-how">
 <h2>Ingenieurs-Know-How<a class="headerlink" href="#ingenieurs-know-how" title="Permalink to this headline">¶</a></h2>
 <p>Bevor wir die Ergebnisse an das Schweizer Verkehrsministerium übergeben, müssen wir zuletzt noch fragen: <strong>Als wie realistisch schätzen wir diese Lösung ein?</strong></p>
 <p>Dazu variieren wir die Faustformel für den Sicherheitsabstand zur “Tacho-Halbe-Regel”. Daraus ergibt sich</p>
@@ -824,7 +823,7 @@ Fmax = 2357.0
 <p>Die Modelle liefern also sehr unterschiedliche Ergebnisse, mit denen wir noch nicht voll zufrieden sein können. Daraus ergibt sich die Frage:</p>
 <p><em><strong>Können wir einfachen Mitteln zu einer deutlich realistischeren Beschreibung des Problems kommen?</strong></em></p>
 <p>Die Antwort: Ja, durch etwas mehr Gehirnschmalz und Einsatz von ein wenig mehr Physik.</p>
-<section id="verbesserung-des-modells">
+<div class="section" id="verbesserung-des-modells">
 <h3>Verbesserung des Modells<a class="headerlink" href="#verbesserung-des-modells" title="Permalink to this headline">¶</a></h3>
 <ol class="simple">
 <li><p><strong>Mehr Physik</strong><br />
@@ -878,9 +877,9 @@ $<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text
 </div>
 </div>
 <p>Also wird bei <span class="math notranslate nohighlight">\(71 \,\frac{\text{km}}{\text{h}}\)</span> der maximale Fahrzeugdurchsatz <span class="math notranslate nohighlight">\(F\left(v = 71 \,\frac{\text{km}}{\text{h}}\right) = 2461 \,\frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
-</section>
-</section>
-<section id="zusammenfassung">
+</div>
+</div>
+<div class="section" id="zusammenfassung">
 <h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
 <p>Das neue Modell kommt den tatsächlichen Tempolimits schon recht nahe. Damit könnte man dem Schweizer Verkehrsministerium durchaus Rat geben!</p>
 <p>Das Lösen von solchen Extremwertaufgaben besteht also aus fünf Schritten, die wir alle hier kennengelernt haben:</p>
@@ -893,14 +892,14 @@ $<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text
 </ol>
 <p>Außerdem haben wir eine wichtige Lektion gelernt:</p>
 <p><em><strong>Für eine gute Simulation ist ein Bewusstsein für die Modellannahmen entscheident.</strong></em></p>
-</section>
-<section id="ausblick">
+</div>
+<div class="section" id="ausblick">
 <h2>Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
 <p>In dieser Lösung sind natürlich einige Modellannahmen getroffen worden, die der Realität nicht standhalten, wie variierende Abstände und riskante Fahrweisen.</p>
 <p>Ein sehr bekanntes Modell zur Verkehrssimulation ist das <strong>Nagel-Schreckenberg-Modell</strong>. Damit können Phänomene wie der “Stau-aus-dem-nichts” oder Knotennetze mit Kreuzungen und Ampelschaltungen einfach simuliert werden. Ein Beispiel dafür finden Sie in <a class="reference internal" href="../04_exercises/04_verkehrssimulation.html#content-exercises-naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a> wieder.</p>
 <p>Eine weitere Möglichkeit, Verkehr zu simulieren, ist mit <strong>Partiellen Differentialgleichungen</strong>. Diese lernen Sie in <a class="reference internal" href="../../11_pde/02_trafficPDE.html#content-references-pdes-traffic"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a> kennen.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

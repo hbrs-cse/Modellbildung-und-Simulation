@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Schwingungsmoden eines eindimensionalen Balkens &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -605,12 +604,12 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="schwingungsmoden-eines-eindimensionalen-balkens">
+  <div class="section" id="schwingungsmoden-eines-eindimensionalen-balkens">
 <h1>Schwingungsmoden eines eindimensionalen Balkens<a class="headerlink" href="#schwingungsmoden-eines-eindimensionalen-balkens" title="Permalink to this headline">¶</a></h1>
 <p>Wir wollen einen flexiblen Balken simulieren. Dazu diskretisieren wir ihn durch <span class="math notranslate nohighlight">\(N\)</span> Massepunkte der Masse <span class="math notranslate nohighlight">\(m\)</span> und verbinden diese mit Federn der Steifigkeit <span class="math notranslate nohighlight">\(k\)</span>.</p>
 <p>Wir vernachlässigen zur Vereinfachung Torsionssteifigkeiten und betrachten das System bei Schwerelosigkeit.</p>
 <img alt="../_images/rod.png" class="align-center" src="../_images/rod.png" />
-<section id="die-modellgleichungen">
+<div class="section" id="die-modellgleichungen">
 <h2>Die Modellgleichungen<a class="headerlink" href="#die-modellgleichungen" title="Permalink to this headline">¶</a></h2>
 <p>Da Bild kommt uns bekannt vor! Wir können dieselben Modellgleichungen wie in <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html"><span class="doc std std-doc">dieser Aufgabe zu linearen Gleichungssystemen</span></a> verwenden, allerdings vernachlässigen wir die externe Kraft und die Dämpfung.</p>
 <p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen</p>
@@ -641,8 +640,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p><span class="math notranslate nohighlight">\(M\)</span> ist die <em>Massematrix</em> und <span class="math notranslate nohighlight">\(K = k \cdot S\)</span> die <em>Steifigkeitsmatrix</em> des gekoppelten Systems. Zusammengesetzt ergibt sich folgende Differentialgleichung:</p>
 <div class="math notranslate nohighlight">
 \[M \ddot{\mathbf{z}} + K\mathbf{z} = \boldsymbol{0}\]</div>
-</section>
-<section id="was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun">
+</div>
+<div class="section" id="was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun">
 <h2>Was hat das mit Eigenwerten und Eigenvektoren zu tun?<a class="headerlink" href="#was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun" title="Permalink to this headline">¶</a></h2>
 <p>Wir erkennen die harmonische Schwingungsgleichung und machen einen entsprechenden Ansatz für die Lösung <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -756,19 +755,19 @@ M^{-1}K \boldsymbol{\phi} = \omega^2 \boldsymbol{\phi}.
 </div>
 <img alt="../_images/modes.gif" class="align-center" src="../_images/modes.gif" />
 <p>Die ersten beiden Schwingungsmoden zum Eigenwert 0 <em>(genauer: Singulärewert)</em> sind die sogenannte <strong>Starrkörpermoden</strong>, bei denen keine Verformung stattfindet.</p>
-</section>
-<section id="ihre-aufgabe">
+</div>
+<div class="section" id="ihre-aufgabe">
 <h2>Ihre Aufgabe<a class="headerlink" href="#ihre-aufgabe" title="Permalink to this headline">¶</a></h2>
 <p>Modifizieren Sie das Skript so, dass der eindimensionale Balken</p>
-<section id="a-einseitig-eingespannt-ist">
+<div class="section" id="a-einseitig-eingespannt-ist">
 <h3>(a) einseitig eingespannt ist.<a class="headerlink" href="#a-einseitig-eingespannt-ist" title="Permalink to this headline">¶</a></h3>
-</section>
-<section id="b-beidseitig-eingespannt-ist">
+</div>
+<div class="section" id="b-beidseitig-eingespannt-ist">
 <h3>(b) beidseitig eingespannt ist.<a class="headerlink" href="#b-beidseitig-eingespannt-ist" title="Permalink to this headline">¶</a></h3>
 <p><strong>Tipp:</strong> Nehmen Sie Änderungen an der Matrix <span class="math notranslate nohighlight">\(S\)</span> vor.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

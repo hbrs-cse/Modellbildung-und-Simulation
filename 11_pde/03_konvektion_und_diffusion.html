@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Konvektion und Diffusion &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -592,7 +591,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="konvektion-und-diffusion">
+  <div class="section" id="konvektion-und-diffusion">
 <h1>Konvektion und Diffusion<a class="headerlink" href="#konvektion-und-diffusion" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg"><img alt="Aedes Albopictus" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg" style="width: 512px;" /></a>
 <div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg" > James Gathany/CDC, Public domain, via Wikimedia Commons </a></div>
@@ -611,7 +610,7 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 <p>Setzen wir den Massestrom in die Kontinuitätsgleichung ein, erhalten wir die Konvektions-Diffusionsgleichung</p>
 <div class="math notranslate nohighlight" id="equation-convection-diffusion">
 <span class="eqno">(1)<a class="headerlink" href="#equation-convection-diffusion" title="Permalink to this equation">¶</a></span>\[\frac{\partial \rho}{\partial t} + c \frac{\partial \rho}{\partial x} = a \frac{\partial^2}{\partial x^2}\]</div>
-<section id="aufgabe-1-vorarbeit-mit-papier-und-bleistift">
+<div class="section" id="aufgabe-1-vorarbeit-mit-papier-und-bleistift">
 <h2>Aufgabe 1: Vorarbeit mit Papier und Bleistift<a class="headerlink" href="#aufgabe-1-vorarbeit-mit-papier-und-bleistift" title="Permalink to this headline">¶</a></h2>
 <p>Führen Sie eine Diskretisierung des Problems durch <em>(örtlich und zeitlich)</em>, um eine Vorschrift zur numerischen Lösung der Gleichung zu ermitteln. Gehen Sie von zeitlich konstanten Dirichlet-Randbedingungen aus. Verwenden Sie für die örtlichen Ableitungen zentrale Differenzenquotienten und für die zeitliche</p>
 <ol class="simple">
@@ -649,8 +648,8 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 <p>finden. Je nachdem ob Sie das explizite Euler-Verfahren oder das Crank-Nicolson-Verfahren verwenden, erhalten Sie eine anderen Gestalt für <span class="math notranslate nohighlight">\(\phi\)</span>.</p>
 </li>
 </ol>
-</section>
-<section id="aufgabe-2">
+</div>
+<div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Schreiben Sie ein Matlab-Programm, das die Gleichung <a class="reference internal" href="#equation-convection-diffusion">(1)</a> für ein beliebiges Zeitinterval <span class="math notranslate nohighlight">\([t_0, t1]\)</span> und Ortsintervall <span class="math notranslate nohighlight">\([x_0, x_1]\)</span> mit zeitlich konstanten Dirichlet-Randbedingungen <span class="math notranslate nohighlight">\(\rho(x_0, t) = \rho_a, \rho(x_N, t) = \rho_b\)</span> löst. Implementieren Sie sowohl das explizite Euler-Verfahren als auch das Crank-Nicolson-Verfahren.</p>
 <p>Visualisieren Sie die Lösung mit Hilfe einer Animation.</p>
@@ -658,12 +657,12 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 <p class="admonition-title">Hinweis</p>
 <p>Beachten Sie bei der Wahl der Diskretisierung die <a class="reference external" href="https://de.wikipedia.org/wiki/CFL-Zahl">Courant-Friedrichs-Lewy-Zahl</a>.</p>
 </div>
-</section>
-<section id="zusatzaufgabe">
+</div>
+<div class="section" id="zusatzaufgabe">
 <h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
 <p>Erweitern Sie ihr Programm, so dass der Nutzer eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben kann.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

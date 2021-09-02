@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verwendung dieses Buches &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -615,7 +614,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="verwendung-dieses-buches">
+  <div class="section" id="verwendung-dieses-buches">
 <span id="verwendung"></span><h1>Verwendung dieses Buches<a class="headerlink" href="#verwendung-dieses-buches" title="Permalink to this headline">¶</a></h1>
 <p>Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese Features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.</p>
 <p>Auf allen Seiten, die Codeblöcke enthalten, verbergen sich hinter dem Raketen-Symbol in der Kopfzeile zwei Buttons, einen auf dem “Binder” steht und einen auf dem “Live Code” steht.</p>
@@ -623,7 +622,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editier- und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave-Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.</p>
 <p>Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service <a class="reference external" href="https://mybinder.org/">Binder</a> auf, sodass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.</p>
 <p>Rechts neben dem beschriebenen Raketen-Symbol befindet sich das GitHub-Logo (das mit der Katze). Über diesen Button ist es möglich Verbesserungsvorschläge oder Bugs selbst zu beheben und zur Verbesserung dieses Buches beizutragen. Falls die Verbesserung nicht selbst durchgeführt werden kann, ist es auch möglich auf GitHub einen <a class="reference external" href="https://github.com/joergbrech/Modellbildung-und-Simulation/issues/new">Issue</a> mit einer Kurzbeschreibung des Problems zu eröffnen. Dieser wird dann schnellstmöglich bearbeitet.</p>
-<section id="live-code">
+<div class="section" id="live-code">
 <h2>Live Code<a class="headerlink" href="#live-code" title="Permalink to this headline">¶</a></h2>
 <p>Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über den Button “Live Code”. Per Klick auf die Taste “run”, wird der Code ausgeführt, mit “restart” wird der im Hintergrund laufende Octave-Kernel neu gestartet.</p>
 <a class="reference internal image-reference" href="../../_images/usage_thebe.png"><img alt="Binder Loading Page" class="align-center" src="../../_images/usage_thebe.png" style="width: 820px;" /></a>
@@ -632,8 +631,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Hinweis</p>
 <p>Beim Aufrufen von Dateien mit der “Live Code”-Methode kann es zu Komplikationen kommen. Die Lösungen für viele bekannte Probleme sind hier beschrieben: <a class="reference internal" href="#troubleshooting"><span class="std std-ref">Troubleshooting</span></a></p>
 </div>
-</section>
-<section id="binder">
+</div>
+<div class="section" id="binder">
 <h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h2>
 <p>Der Nachteil von Binder ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über <a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">Jupyter Lab</a> zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft.</p>
 <a class="reference internal image-reference" href="../../_images/usage_binder.png"><img alt="Jupyter Lab Screenshot" class="align-center" src="../../_images/usage_binder.png" style="width: 1200px;" /></a>
@@ -643,8 +642,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Achtung</p>
 <p><strong>Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!</strong> Laden Sie erstellte Dateien unbedingt runter, bevor sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.</p>
 </div>
-</section>
-<section id="dateien-erstellen">
+</div>
+<div class="section" id="dateien-erstellen">
 <h2>Dateien erstellen<a class="headerlink" href="#dateien-erstellen" title="Permalink to this headline">¶</a></h2>
 <p>In Jupyter Lab (“Binder” Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der “Live Code”-Methode erstellen. Wenn ein Code-Block mit der Zeile <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myfile.m</span></code> beginnt, wird der folgende Inhalt des Blocks in eine Datei <code class="docutils literal notranslate"><span class="pre">myfile.m</span></code> geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.</p>
 <div class="cell docutils container">
@@ -669,12 +668,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Achtung</p>
 <p>Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.</p>
 </div>
-</section>
-<section id="unit-testing">
+</div>
+<div class="section" id="unit-testing">
 <span id="content-references-unit-testing-intro"></span><h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://lmgtfy.com/?q=unit+testing"><em>Unit Testing</em></a> ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihre Funktionsfähigkeit prüfen. Ein weit verbreitetes <a class="reference external" href="https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">Programmierparadigma</a> besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt.</p>
 <p>Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für Ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.</p>
-<section id="unit-tests-auf-dieser-seite-ausfuhren">
+<div class="section" id="unit-tests-auf-dieser-seite-ausfuhren">
 <h3>Unit Tests auf dieser Seite ausführen<a class="headerlink" href="#unit-tests-auf-dieser-seite-ausfuhren" title="Permalink to this headline">¶</a></h3>
 <p>Sowohl Matlab als auch Octave bieten Werkzeuge für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle <a class="reference external" href="https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit">MOxUnit</a> verwendet. MoXUnit ist ein freies open source unit testing framework, das sowohl mit Matlab als auch Octave funktioniert.</p>
 <p>Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion <code class="docutils literal notranslate"><span class="pre">fac</span></code> zu schreiben, die die Fakultät <span class="math notranslate nohighlight">\(n!\)</span> einer Zahl <span class="math notranslate nohighlight">\(n\)</span> berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion <code class="docutils literal notranslate"><span class="pre">factorial</span></code>, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:</p>
@@ -731,8 +730,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <p>Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden, wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird.</p>
-</section>
-<section id="unit-tests-offline-ausfuhren">
+</div>
+<div class="section" id="unit-tests-offline-ausfuhren">
 <h3>Unit Tests offline ausführen.<a class="headerlink" href="#unit-tests-offline-ausfuhren" title="Permalink to this headline">¶</a></h3>
 <p>Wenn Sie möchten, können Sie die Unit tests auch offline ausführen. Dazu müssen Sie die jeweilige <em>Test Suite</em>, in diesem Fall <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>, herunterladen und das MOxUnit framework lokal installiert haben.</p>
 <ul class="simple">
@@ -740,9 +739,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Laden Sie sich den entsprechenden Unit Test von dieser Seite herunter. Wenn die Funktion, die getestet werden soll, <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> heißt, ist der Unit Test in der Datei <code class="docutils literal notranslate"><span class="pre">test_myFunction.m</span></code> gespeichert. Sie können sich mit dem Befehl <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">test_myFunction.m</span></code> den Inhalt der Datei wiedergeben lassen, oder mit dem “Interact”-Button eine interaktive Session starten und die Datei per Mausklick herunterladen.</p></li>
 <li><p>Führen Sie den Unit Test mit <code class="docutils literal notranslate"><span class="pre">moxunit_runtests</span> <span class="pre">test_myFunction.m</span></code> aus.</p></li>
 </ul>
-</section>
-</section>
-<section id="troubleshooting">
+</div>
+</div>
+<div class="section" id="troubleshooting">
 <span id="id1"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p><strong>Wenn ich auf <code class="docutils literal notranslate"><span class="pre">run</span></code> klicke, steht da nur <code class="docutils literal notranslate"><span class="pre">Waiting</span> <span class="pre">for</span> <span class="pre">kernel...</span></code> und nichts passiert.</strong></p>
@@ -771,8 +770,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 <p>sollte funktionieren.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

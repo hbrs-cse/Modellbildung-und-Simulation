@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spline-Interpolation &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -588,7 +587,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="spline-interpolation">
+  <div class="section" id="spline-interpolation">
 <h1>Spline-Interpolation<a class="headerlink" href="#spline-interpolation" title="Permalink to this headline">¶</a></h1>
 <p>Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechanik bekannt ist.</p>
 <a class="reference internal image-reference" href="../_images/spline_interpolation_inks.svg"><img alt="../_images/spline_interpolation_inks.svg" class="align-center" height="315px" src="../_images/spline_interpolation_inks.svg" width="400px" /></a>
@@ -614,7 +613,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </tbody>
 </table>
 <p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Hierbei keine fertige MATLAB Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
-<section id="aufgabe-1">
+<div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <p>Konstruieren sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle (alles Bleistift und Papier!).
 Bestimmen sie die Koeffizienten der gesuchten Parabeln <span class="math notranslate nohighlight">\(z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]\)</span>.</p>
@@ -625,8 +624,8 @@ den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamt
 wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen
 (dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?</p>
 </div>
-</section>
-<section id="aufgabe-2">
+</div>
+<div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Implementieren Sie eine Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">zfine</span> <span class="pre">=</span> <span class="pre">quadraticSpline(x,</span> <span class="pre">z,</span> <span class="pre">xfine,</span> <span class="pre">bc)</span></code>, die für gegebene x- und z-Werte sowie Randbedingung an den von <code class="docutils literal notranslate"><span class="pre">xfine</span></code> definierten Punkten die entsprechenden z-Werte des Splines berechnet.</p></li>
@@ -669,8 +668,8 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

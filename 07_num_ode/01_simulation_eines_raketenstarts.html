@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simulation eines Raketenstarts &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -654,15 +653,15 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="simulation-eines-raketenstarts">
+  <div class="section" id="simulation-eines-raketenstarts">
 <h1>Simulation eines Raketenstarts<a class="headerlink" href="#simulation-eines-raketenstarts" title="Permalink to this headline">¶</a></h1>
 <p>Sie sind Wissenschaftler im Head-Bureau for Rocket Simulation <em>(H-BRS)</em> und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen vier Satelliten mit einem Gesamtgewicht von 2952 kg in MEO <em>(Medium Earth Orbit)</em> auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.</p>
 <a class="reference internal image-reference" href="../_images/gravity_turn.gif"><img alt="Rocket launch Animation" class="align-center" src="../_images/gravity_turn.gif" style="width: 800px;" /></a>
 <p>Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für Sie eigentlich eine Routineuntersuchung, aber da Ihre Mitarbeiter noch nie etwas von <a class="reference external" href="https://git-scm.com/book/de/v1/Los-geht%E2%80%99s-Wozu-Versionskontrolle%3F">Versionskontrolle</a> gehört haben, sind leider Teile Ihres Simulationsprogrammes abhandengekommen.</p>
-<section id="ihre-simulationssoftware">
+<div class="section" id="ihre-simulationssoftware">
 <h2>Ihre Simulationssoftware<a class="headerlink" href="#ihre-simulationssoftware" title="Permalink to this headline">¶</a></h2>
 <p>Als Matlab-Experte haben Sie eine einfache Simulationssoftware für die frühe Planungsphase entworfen. Ihr Programm simuliert ein <em>“gravity turn maneuver”</em> in 2D und besteht aus den folgenden sechs Dateien. <em>Durch Klicken auf das Plus-Symbol können Sie sich den Inhalt der Dateien anschauen.</em></p>
-<section id="rocket-launch-m">
+<div class="section" id="rocket-launch-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_launch.m</span></code><a class="headerlink" href="#rocket-launch-m" title="Permalink to this headline">¶</a></h3>
 <p>Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liegende gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet.</p>
 <div class="admonition-hinweis admonition">
@@ -760,8 +759,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="rocket-ode-m">
+</div>
+<div class="section" id="rocket-ode-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code><a class="headerlink" href="#rocket-ode-m" title="Permalink to this headline">¶</a></h3>
 <p>Das Herzstück Ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung <span class="math notranslate nohighlight">\(\dot{\mathbf{q}} = \)</span> <code class="docutils literal notranslate"><span class="pre">rocket_ode</span></code><span class="math notranslate nohighlight">\((t,\mathbf{q})\)</span> mit dem Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code>. Die rechte Seite <code class="docutils literal notranslate"><span class="pre">rocket_ode</span></code> ist in dieser Datei implementiert. Dabei ist <span class="math notranslate nohighlight">\(\mathbf{q} = [x,y, v_x, v_z, m]^T\)</span> ein Spaltenvektor, der die aktuelle Position <span class="math notranslate nohighlight">\((x,y)\)</span>, die aktuelle Geschwindigkeit <span class="math notranslate nohighlight">\((v_x,v_y)\)</span> sowie die aktuelle Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete beschreibt. Leider fehlt ausgerechnet diese Datei.</p>
 <div class="cell tag_hide_input docutils container">
@@ -785,8 +784,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="mass-flow-rate-m">
+</div>
+<div class="section" id="mass-flow-rate-m">
 <h3><code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code><a class="headerlink" href="#mass-flow-rate-m" title="Permalink to this headline">¶</a></h3>
 <p>Teil der Raketen-ODE <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> ist die gewöhnliche Differentialgleichung für die Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete <span class="math notranslate nohighlight">\(\dot{m}=g(m, \tau)\)</span>, wobei <span class="math notranslate nohighlight">\(\tau\)</span> die Antriebsdrossel modelliert (<span class="math notranslate nohighlight">\(\tau=0\)</span> bedeutet kein Antrieb, <span class="math notranslate nohighlight">\(\tau=1\)</span> bedeutet maximaler Antrieb). Die Funktion <span class="math notranslate nohighlight">\(g\)</span> ist in <code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code> implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton’schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Treibstoff ausgestoßen wird, desto höher sind der momentane Impuls und die Gewichtsabnahme der Rakete.</p>
 <div class="cell tag_hide_input docutils container">
@@ -811,8 +810,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="f-thrust-m">
+</div>
+<div class="section" id="f-thrust-m">
 <h3><code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code><a class="headerlink" href="#f-thrust-m" title="Permalink to this headline">¶</a></h3>
 <p>In dieser Datei ist die Funktion <span class="math notranslate nohighlight">\(F_{\text{thrust}}(t,\mathbf{q})\)</span> hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung berechnet. Diese Datei haben Sie bereits von Ihren Kollegen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen <em>lift off, pitch over, ascend, 2nd stage,</em> und <em>orbit</em>. Je nach Phase wird in <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit <code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code> den Flugplan der Rakete. Optional kann die berechnete Drosselung <code class="docutils literal notranslate"><span class="pre">throttle</span></code> als zweiter Parameter mit ausgegeben werden. Sie wird unteranderem gebraucht um den Massefluss <span class="math notranslate nohighlight">\(g\)</span> (bzw. <code class="docutils literal notranslate"><span class="pre">mass_flow_rate</span></code>) zu berechnen.</p>
 <div class="cell tag_hide_input docutils container">
@@ -881,8 +880,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="rocket-status-m">
+</div>
+<div class="section" id="rocket-status-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code><a class="headerlink" href="#rocket-status-m" title="Permalink to this headline">¶</a></h3>
 <p>Diese Datei wird von <code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code> verwendet. Hier wird je nach Zustand der Rakete nach bestimmten Kriterien die Phase <em>(lift off, pitch over, ascend, 2nd stage, orbit)</em> des Raketenstarts gewechselt. In jeder Phase verhält sich die Funktion <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> etwas anders. Die Syntax ist so gewählt, dass die Funktion vom <em>event handler</em> des ODE-Lösers von Matlab aufgerufen wird.</p>
 <div class="cell tag_hide_input docutils container">
@@ -961,8 +960,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-<section id="rocket-visualization-m">
+</div>
+<div class="section" id="rocket-visualization-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_visualization.m</span></code><a class="headerlink" href="#rocket-visualization-m" title="Permalink to this headline">¶</a></h3>
 <p>Diese Datei implementiert die Animation sowie Plots des Raketenstarts. Die Syntax der Funktion ist so gewählt, dass die Funktion während der numerischen Integration in Matlab’s ODE Löser in jedem Zeitschritt einen visuellen Output liefern kann.</p>
 <div class="cell tag_hide_input docutils container">
@@ -1257,9 +1256,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="aufgabe-1">
+</div>
+</div>
+<div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <p>Damit Ihre Simulationssoftware lauffähig ist, füllen Sie die Datei <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> mit neuem Inhalt. Die Differentialgleichungen die gelöst werden müssen lauten</p>
 <div class="math notranslate nohighlight">
@@ -1288,12 +1287,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 \dot{\mathbf{q}} = \textrm{rocket_ode}(t, \mathbf{q})
 \]</div>
 <p>mit <span class="math notranslate nohighlight">\(\mathbf{q} = [x,y,v_x, v_y,m]^T\)</span>.</p>
-</section>
-<section id="aufgabe-2">
+</div>
+<div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Wie schätzen Sie die Modellierungstiefe des Simulationsprogrammes ein? Nennen Sie die wichtigsten Modellvereinfachungen und diskutieren Sie, welche am kritischsten sind. Welche Modellvereinfachungen würden Sie als erstes angehen, wenn Sie das Modell verfeinern würden? Wie schätzen Sie den Aufwand dafür ein?</p>
-</section>
-<section id="zusatzaufgabe">
+</div>
+<div class="section" id="zusatzaufgabe">
 <h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
 <p>Bestimmen Sie auf Grundlage Ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie einen Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.</p>
 <div class="tip admonition">
@@ -1307,8 +1306,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/t0BKsk97n6Y?start=1183" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

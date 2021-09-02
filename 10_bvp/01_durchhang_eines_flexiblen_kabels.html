@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Durchhang eines flexiblen Kabels &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -588,7 +587,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="durchhang-eines-flexiblen-kabels">
+  <div class="section" id="durchhang-eines-flexiblen-kabels">
 <h1>Durchhang eines flexiblen Kabels<a class="headerlink" href="#durchhang-eines-flexiblen-kabels" title="Permalink to this headline">¶</a></h1>
 <p>Ein flexibles Kabel einheitlicher Dichte ist an zwei Punkten <span class="math notranslate nohighlight">\(y(0) = 10\;\mathrm{m}\)</span> und <span class="math notranslate nohighlight">\(y(20) = 15\;\mathrm{m}\)</span> aufgehängt. Die Form des Kabels folgt der Differentialgleichung</p>
 <div class="math notranslate nohighlight">
@@ -597,11 +596,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 \]</div>
 <p>wobei <span class="math notranslate nohighlight">\(C=0.041\;\mathrm{m}^{-1}\)</span> eine Konstante ist, die das Kabelgewicht pro Einheitslänge sowie den horizontalen Spannungsanteil im tiefsten Punkt des Kabels enthält.</p>
 <a class="reference internal image-reference" href="../_images/flexible_cable.png"><img alt="Kabel" class="align-center" src="../_images/flexible_cable.png" style="width: 400px;" /></a>
-<section id="aufgabe-1">
+<div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <p>Verwenden Sie die Matlab-Routine <code class="docutils literal notranslate"><span class="pre">bvp4c</span></code> um den Verlauf des Kabels zwischen <span class="math notranslate nohighlight">\(x = 0\;\mathrm{m}\)</span> und <span class="math notranslate nohighlight">\(\mathrm{x} = 20 \;\mathrm{m}\)</span> zu bestimmen.</p>
-</section>
-<section id="aufgabe-2">
+</div>
+<div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Lösen Sie das Randwertproblem nun mit dem so genannten <strong>Schießverfahren</strong>. Wählen Sie hierzu zwei Schätzungen für die unbekannten Ableitungen <span class="math notranslate nohighlight">\(\frac{\mathrm{d}y}{\mathrm{d}x}\)</span> bei <span class="math notranslate nohighlight">\(x=0\)</span>. <em>Schießen</em> sie auf <span class="math notranslate nohighlight">\(x=20\)</span>, indem sie die Differentialgleichung als Anfangswertproblem mit <code class="docutils literal notranslate"><span class="pre">ode45</span></code> für beide Schätzwerte <span class="math notranslate nohighlight">\(\frac{\mathrm{d}y}{\mathrm{d}x}\)</span> lösen. Vergleichen Sie die getroffenen <span class="math notranslate nohighlight">\(y(x=20)\)</span>-Werte mit dem Zielwert <span class="math notranslate nohighlight">\(y(x=20)=15\)</span>. Wenn eine ihrer Schätzungen den Zielwert unterschätzt, und die andere den Zielwert überschätzt, können Sie sich mittels Bisektionsverfahren dem tatsächlichen Wert für <span class="math notranslate nohighlight">\(\frac{\mathrm{d}y}{\mathrm{d}x}(x=0)\)</span> nähern. Führen Sie eine Bisektion durch, um sich dem Zielwert bis auf <code class="docutils literal notranslate"><span class="pre">tol</span></code> <span class="math notranslate nohighlight">\(= 0.01\;\textrm{m}\)</span> zu nähern.</p>
 <div class="cell docutils container">
@@ -645,8 +644,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

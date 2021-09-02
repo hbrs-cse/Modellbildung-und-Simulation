@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Harmonische Schwingung &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -593,11 +592,11 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="harmonische-schwingung">
+  <div class="section" id="harmonische-schwingung">
 <h1>Harmonische Schwingung<a class="headerlink" href="#harmonische-schwingung" title="Permalink to this headline">¶</a></h1>
 <p>Unter einer harmonischen Schwingung versteht man eine Schwingung, die vollständig mit der Sinus- bzw. Kosinusfunktion beschrieben werden kann:
 <span class="math notranslate nohighlight">\(y(t) = \hat y \cdot \sin \left( {\omega  \cdot t} \right)\)</span></p>
-<section id="aufgabe-1-fadenpendel">
+<div class="section" id="aufgabe-1-fadenpendel">
 <h2>Aufgabe 1: Fadenpendel<a class="headerlink" href="#aufgabe-1-fadenpendel" title="Permalink to this headline">¶</a></h2>
 <p>Nutzen Sie Matlab/Octave, um das Verhalten eines Fadenpendels zu simulieren.
 Stellen Sie dazu zunächst mit Stift und Papier die zu lösende Differentialgleichung auf.</p>
@@ -696,16 +695,16 @@ Stellen Sie dazu zunächst mit Stift und Papier die zu lösende Differentialglei
 <a class="reference internal image-reference" href="../_images/pendulum_halfPI.gif"><img alt="../_images/pendulum_halfPI.gif" class="align-center" src="../_images/pendulum_halfPI.gif" style="width: 500px;" /></a>
 <p>Experementieren Sie mit den Parametern herum: Verhält sich das Pendel immer ihrer Erwartung entsprechend?</p>
 <p>Welche Parameter müssen Sie wählen, um bei den oben genannten Anfangsbedingungen eine Periodendauer von 10 Sekunden zu erreichen?</p>
-</section>
-<section id="aufgabe-2-dampfung">
+</div>
+<div class="section" id="aufgabe-2-dampfung">
 <h2>Aufgabe 2: Dämpfung<a class="headerlink" href="#aufgabe-2-dampfung" title="Permalink to this headline">¶</a></h2>
 <p>Vergleicht man die bisherigen Ergebnisse mit realen Pendeln wird schnell ersichtlich, dass wir hier etwas realistischer modellieren könnten! In Aufgabe 1 wurde die zu lösende Differentialgleichung mit Hilfe des Energieerhaltungssatzes hergeleitet. Dabei sind wir von einem abgeschlossenen System ausgegangen, d.h. weder Masse noch eine andere Energieform kann über Systemgrenzen mit der Umwelt ausgetauscht werden. Dies entspricht natürlich nicht der Realität, insbesondere die Luftreibung entzieht unserem System kinetische Energie und wandelt diese in Wärme um. Die Geschwindigkeit des Pendels wird reduziert. Um diesen Effekt in unserem Modell zu berücksichtigen müssen wir unserer Differentialgleichung einen Dämpfungsterm hinzufügen.</p>
 <p>Auch hier hilft die Energieerhaltung bei der Herleitung der Differentialgleichung. Die dämpfende Kraft soll mit einer Dämpfungskonstanten modelliert werden und ist abhängig von der Winkelgeschwindigkeit!</p>
 <p>Wenn Sie Ihren Code aus Aufgabe 1 erweitern, sollten sie in Ihrer Animation den dämpfenden Charakter der neuen Differentialgleichung erkennen können (Testen Sie dazu mögliche Dämpfungskonstanten aus):</p>
 <a class="reference internal image-reference" href="../_images/pendulum_gdmpft.gif"><img alt="../_images/pendulum_gdmpft.gif" class="align-center" src="../_images/pendulum_gdmpft.gif" style="width: 500px;" /></a>
 <p>Mehr zu Erhaltungssystemen und ihrer Klassifzierung gibt es <a class="reference external" href="https://de.wikipedia.org/wiki/Thermodynamisches_System">hier</a></p>
-</section>
-<section id="aufgabe-3-angeregte-schwingung">
+</div>
+<div class="section" id="aufgabe-3-angeregte-schwingung">
 <h2>Aufgabe 3: Angeregte Schwingung<a class="headerlink" href="#aufgabe-3-angeregte-schwingung" title="Permalink to this headline">¶</a></h2>
 <p>Abschließend soll die Simulation um die Anregung einer beliebigen externen Kraft erweitert werden. Wie muss sich dazu die Differentialgleichung ändern? Simulieren Sie eine periodische Anregung und testen Sie verschiedene Anregungsfrequenzen. Was passiert, wenn Sie mit der Eigenfrequenz des Systems anregen? (<strong>TIPP</strong>: <span class="math notranslate nohighlight">\(\omega_0 = \sqrt{\frac{k}{m}}\)</span>)</p>
 <p>Tatsächlich hätten wir die bisherigen Aufgaben auch analytisch lösen können und wollten nur Arbeit sparen. Diese neue Differentialgleichung können wir aber tatsächlich gar nicht mehr selbst lösen, spätestens jetzt sind wir also auf einen Löser, wie z.B. ode45, angewiesen!
@@ -713,8 +712,8 @@ Je nach Anregungsfrequenz und-amplitude, werden Ihre Ergebnisse unterschiedlich 
 <a class="reference internal image-reference" href="../_images/pendulum_angrt.gif"><img alt="../_images/pendulum_angrt.gif" class="align-center" src="../_images/pendulum_angrt.gif" style="width: 500px;" /></a>
 <p><strong>TIPP</strong>: Sie können <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/axis.html">axis()</a> so verändern, dass positive y-Werte dargestellt werden können!</p>
 <p>Wählen Sie eine Dämpfungskonstante <span class="math notranslate nohighlight">\(d = 0.3~\frac{kg}{s}\)</span> und simulieren Sie eine periodische Kraftanregung mit einer Amplitude <span class="math notranslate nohighlight">\(A = 1\)</span> und einer Anregungsfrequenz <span class="math notranslate nohighlight">\(\omega = 0.8\)</span>, alle anderen Werte wie in Aufgabe 1. Nach welcher Zeit <span class="math notranslate nohighlight">\(t\)</span> wird der eingeschwungene Zustand erreicht? Wie groß ist die Amplitude dieser harmonischen Schwingung? Berechnen Sie die analytischen Lösung und vergleichen Ihre Ergebnisse.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

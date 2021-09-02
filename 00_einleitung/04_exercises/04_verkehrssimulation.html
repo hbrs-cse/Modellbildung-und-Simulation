@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verkehrssimulation mit zellulären Automaten &#8212; Modellbildung und Simulation</title>
     
   <link href="../../_static/css/theme.css" rel="stylesheet" />
@@ -603,58 +602,48 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="verkehrssimulation-mit-zellularen-automaten">
+  <div class="section" id="verkehrssimulation-mit-zellularen-automaten">
 <span id="content-exercises-naschr"></span><h1>Verkehrssimulation mit zellulären Automaten<a class="headerlink" href="#verkehrssimulation-mit-zellularen-automaten" title="Permalink to this headline">¶</a></h1>
 <p>In dieser Übungsaufgabe soll das Fahrverhalten von Autofahrern und die damit einhergehende Stauentwicklung modelliert werden. In einem 7.5 km langen einspurigen Tunnel bilden sich zu Hauptverkehrszeiten immer wieder Staus, ohne dass ein Unfall oder eine Baustelle als Ursache ausgemacht werden kann. Ampeln gibt es auf der gesamten Strecke nicht. Ihre Aufgabe ist es, ein simples Computermodell zu erstellen, das in der Lage ist dieses Phänomen zu reproduzieren. Welche Durchschnittsgeschwindigkeit kann man bei einer gegebenen Verkehrsdichte erwarten? Wie hängt der Verkehrsfluss von der Verkehrsdichte ab?</p>
 <img alt="../../_images/tunnel.jpg" class="align-center" src="../../_images/tunnel.jpg" />
-<section id="modellbeschreibung">
+<div class="section" id="modellbeschreibung">
 <h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
 <p>Im Durchschnitt belegt ein Fahrzeug ca. 7.5 m der Strecke in einem Stau. Diese Länge beinhaltet bereits den Abstand zum Auto davor. Die 7.5 km lange Strecke lässt sich demnach in 1000 Zellen zerlegen. Zu jedem Zeitpunkt ist eine Zelle entweder frei oder von einem Auto belegt. In den Tunnel passen maximal 1000 Fahrzeuge. Abbildung 1 zeigt beispielhaft einen Streckenabschnitt aus 10 Zellen mit 5 Fahrzeugen A, B, C, D und E. In Abbildung 1(a) ist der Streckenabschnitt dargestellt. Die Zellen 2, 3, 5, 8 und 10 sind jeweils mit einem Auto belegt. Abbildung 1(b) zeigt eine komprimierte Darstellung. In einem Positionsvektor werden die Zellennummern der 5 Fahrzeuge gespeichert.</p>
-<figure class="align-default" id="zellnummern">
+<div class="figure align-default" id="zellnummern">
 <img alt="../../_images/zellnummern.PNG" src="../../_images/zellnummern.PNG" />
-<figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Zwei Darstellungen für einen 75 m langen Streckenabschnitt mit 5 Fahrzeugen A, B, C, D und E</span><a class="headerlink" href="#zellnummern" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Zwei Darstellungen für einen 75 m langen Streckenabschnitt mit 5 Fahrzeugen A, B, C, D und E</span><a class="headerlink" href="#zellnummern" title="Permalink to this image">¶</a></p>
+</div>
 <p>Ein Fahrzeug mit einer Geschwindigkeit von 27 km/h = 7.5 m/s rückt innerhalb einer Sekunde genau eine Zelle vor. Die Maximalgeschwindigkeit im Tunnel beträgt 135 km/h, bzw. 5 Zellen pro Sekunde. Simulieren Sie den Verkehrsfluss sekundenweise. Dies entspricht in etwa der Reaktionszeit eines Autofahrers. In jedem Zeitschritt von einer Sekunde ergibt sich die Position und Geschwindigkeit eines Fahrzeuges nach folgenden einfachen Regeln, die in der angegebenen Reihenfolge umgesetzt werden:</p>
 <ol>
 <li><p>Jedes Auto, das noch nicht die Maximalgeschwindigkeit erreicht hat, erhöht seine Geschwindigkeit um eine Zelle pro Sekunde.</p>
-<figure class="align-default" id="bild1-stau">
+<div class="figure align-default" id="bild1-stau">
 <img alt="../../_images/bild1_stau.png" src="../../_images/bild1_stau.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Beschleunigung aller Fahrzeuge um 1</span><a class="headerlink" href="#bild1-stau" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Beschleunigung aller Fahrzeuge um 1</span><a class="headerlink" href="#bild1-stau" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 <li><p>Falls die Geschwindigkeit eines Fahrzeuges zu einer Kollision mit dem Fahrzeug davor führen würde, reduziert sich die Geschwindigkeit entsprechend. Beispiel: Fahrzeug A befindet sich in Zelle 496 und hat eine Geschwindigkeit von 4 Zellen pro Sekunde. Zelle 499 ist aber von Fahrzeug B belegt. Demnach reduziert sich die Geschwindigkeit von Fahrzeug A auf 2 Zellen pro Sekunde.</p>
-<figure class="align-default" id="bild2-stau">
+<div class="figure align-default" id="bild2-stau">
 <img alt="../../_images/bild2_stau.png" src="../../_images/bild2_stau.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Abbremsen der unfallgefährdeten Fahrzeuge</span><a class="headerlink" href="#bild2-stau" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Abbremsen der unfallgefährdeten Fahrzeuge</span><a class="headerlink" href="#bild2-stau" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 <li><p>Ein Anteil <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span> der Fahrer auf dem Streckenabschnitt sind Sonntagsfahrer. Deren Geschwindigkeit <span class="math notranslate nohighlight">\(v\)</span> reduziert sich um eine Zelle pro Sekunde, sofern sie nicht schon stehen.</p>
-<figure class="align-default" id="bild3-stau">
+<div class="figure align-default" id="bild3-stau">
 <img alt="../../_images/bild3_stau.png" src="../../_images/bild3_stau.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Abbremsen der zufällig gewählten Sonntagsfahrer</span><a class="headerlink" href="#bild3-stau" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Abbremsen der zufällig gewählten Sonntagsfahrer</span><a class="headerlink" href="#bild3-stau" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 <li><p>Alle Fahrzeuge rücken entsprechend ihrer Geschwindigkeit vor.
 Die Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> im betrachteten Zeitraum bleibe annähernd konstant. Zu jeder Zeit verlassen also so viele Autos den Steckenabschnitt, wie neue hinzu kommen. Um diesen Effekt zu berücksichtigen, bedienen sie sich eines Tricks: Gehen Sie von periodischen Randbedingungen aus. Sobald ein Auto die 7.5 km lange Strecke verlässt, taucht es am Anfang wieder auf (In anderen Worten: Die Zellen mit den Nummern <code class="docutils literal notranslate"><span class="pre">i</span></code> und <code class="docutils literal notranslate"><span class="pre">1000+i</span></code> sind identisch). Eine Anschauung des Tricks ist es, sich den Tunnel als Ringstraße mit einem Umfang von 7.5 km vorzustellen.</p>
-<figure class="align-default" id="ringstrasse">
+<div class="figure align-default" id="ringstrasse">
 <img alt="../../_images/ringstrasse.gif" src="../../_images/ringstrasse.gif" />
-<figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Darstellung der periodischen Randbedingungen als Ringstraße</span><a class="headerlink" href="#ringstrasse" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Darstellung der periodischen Randbedingungen als Ringstraße</span><a class="headerlink" href="#ringstrasse" title="Permalink to this image">¶</a></p>
+</div>
 </li>
 </ol>
-<p>Das hier vorgestellte Verkehrsmodell basiert auf <span id="id1">[<a class="reference internal" href="#id3"><span>NS92</span></a>]</span>.</p>
-</section>
-<section id="aufgabe-1">
+<p>Das hier vorgestellte Verkehrsmodell basiert auf <span id="id1">[<a class="reference internal" href="#id3">NS92</a>]</span>.</p>
+</div>
+<div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <ol>
 <li><p>Erstellen Sie ein Matlab–Skript, das zunächst die folgenden Parameter festlegt:</p>
@@ -714,8 +703,8 @@ Die Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> im
 </div>
 </div>
 </div>
-</section>
-<section id="aufgabe-2">
+</div>
+<div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Wandeln Sie Ihr Skript in eine Matlab–Funktion um, die beim Aufruf eine Simulation ausführt.
 Die Funktion erhält als Eingabe</p>
@@ -822,14 +811,12 @@ Erstellen Sie mit Ihrem Skript sowohl ein <span class="math notranslate nohighli
 </div>
 </div>
 </div>
-<figure class="align-default" id="diagramm-stau">
+<div class="figure align-default" id="diagramm-stau">
 <img alt="../../_images/diagramm_stau.PNG" src="../../_images/diagramm_stau.PNG" />
-<figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text"><span class="math notranslate nohighlight">\(\rho–v\)</span> Diagramm und <span class="math notranslate nohighlight">\(\rho–Q\)</span> Diagramm zum Vergleich mit der eigenen Lösung</span><a class="headerlink" href="#diagramm-stau" title="Permalink to this image">¶</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="aufgabe-3">
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text"><span class="math notranslate nohighlight">\(\rho–v\)</span> Diagramm und <span class="math notranslate nohighlight">\(\rho–Q\)</span> Diagramm zum Vergleich mit der eigenen Lösung</span><a class="headerlink" href="#diagramm-stau" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
 <p>Experimentieren Sie mit den Parametern <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> und <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span>. Wie lässt sich der Einfluss beider Parameter auf die Durchschnittsgeschwindigkeit und den Verkehrsfluss qualitativ beschreiben? Nennen sie eine Möglichkeit den Realismus des Modells zu steigen.</p>
 <div class="cell tag_remove-output docutils container">
@@ -843,8 +830,8 @@ Erstellen Sie mit Ihrem Skript sowohl ein <span class="math notranslate nohighli
 </div>
 </div>
 </div>
-</section>
-<section id="literatur">
+</div>
+<div class="section" id="literatur">
 <h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
 <p id="id2"><dl class="citation">
 <dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">NS92</a></span></dt>
@@ -852,8 +839,8 @@ Erstellen Sie mit Ihrem Skript sowohl ein <span class="math notranslate nohighli
 </dd>
 </dl>
 </p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

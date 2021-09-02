@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Das QR Verfahren &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -588,7 +587,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="das-qr-verfahren">
+  <div class="section" id="das-qr-verfahren">
 <h1>Das QR Verfahren<a class="headerlink" href="#das-qr-verfahren" title="Permalink to this headline">¶</a></h1>
 <p>Folgender iterativer Algorithmus liegt dem sogenanneten <em>QR-Verfahren</em> zur Berechnung der Eigenwerte einer Matrix zugrunde:</p>
 <ol>
@@ -601,7 +600,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </li>
 <li><p>Setze <span class="math notranslate nohighlight">\(A^{(k+1)}=R^{(k)}Q^{(k)}\)</span></p></li>
 </ol>
-<section id="aufgabe-1-implementieren-sie-den-qr-algorithmus">
+<div class="section" id="aufgabe-1-implementieren-sie-den-qr-algorithmus">
 <h2>Aufgabe 1 - Implementieren Sie den QR-Algorithmus<a class="headerlink" href="#aufgabe-1-implementieren-sie-den-qr-algorithmus" title="Permalink to this headline">¶</a></h2>
 <p>Schreiben Sie eine Funktion, die dieses Verfahren implementiert um die Eigenwerte einer Matrix zu berechnen. Brechen Sie die Iteration ab sobald eine maximale Anzahl an Iterationen erreicht wurde, oder die relative Änderung <span class="math notranslate nohighlight">\(\frac{\|diag(A^{(k)}) - diag(A^{(k-1)})\|}{\|diag(A^{(k)})\|}\)</span> eine vom Benutzer vorgegebene Toleranz unterschreitet.</p>
 <div class="cell tag_remove-output docutils container">
@@ -644,8 +643,8 @@ OK (passed=3)
 </div>
 </div>
 </div>
-</section>
-<section id="aufgabe-2-testen-sie-ihre-funktion-von-hand">
+</div>
+<div class="section" id="aufgabe-2-testen-sie-ihre-funktion-von-hand">
 <h2>Aufgabe 2 - Testen Sie ihre Funktion von Hand<a class="headerlink" href="#aufgabe-2-testen-sie-ihre-funktion-von-hand" title="Permalink to this headline">¶</a></h2>
 <p>Berechnen Sie die Eigenwerte der Matrix</p>
 <div class="math notranslate nohighlight">
@@ -658,8 +657,8 @@ OK (passed=3)
 \end{bmatrix}
 \end{split}\]</div>
 <p>mit der Matlab/Octave-Funktion <code class="docutils literal notranslate"><span class="pre">eig</span></code>und vergleichen Sie das Ergebnis mit der Ausgabe ihrer Funktion <code class="docutils literal notranslate"><span class="pre">my_eig</span></code>.</p>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stabilität Eulerverfahren &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -593,28 +592,28 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="stabilitat-eulerverfahren">
+  <div class="section" id="stabilitat-eulerverfahren">
 <h1>Stabilität Eulerverfahren<a class="headerlink" href="#stabilitat-eulerverfahren" title="Permalink to this headline">¶</a></h1>
 <p>Bestimmte ODEs lassen sich mit impliziten Verfahren besser lösen als mit expliziten Verfahren. Diese ODEs bezeichnen wir als <strong>steif</strong>.</p>
 <p>Das liegt vor allem an der hohen Lipschitzkonstante <span class="math notranslate nohighlight">\(\lambda\)</span>. Diese beschreibt den maximalen Betrag der Steigung. Also:</p>
 <div class="math notranslate nohighlight">
 \[\lambda \ge \left|\frac{f(x_1)-f(x_2)|}{x_1-x_2}\right| \,\forall\, x_1,x_2 \in \mathbb{D}\]</div>
 <p>Für explizite Verfahren impliziert <span class="math notranslate nohighlight">\(\lambda\)</span> eine sehr kleine Schrittweite <span class="math notranslate nohighlight">\(h\)</span>. Hier gilt <span class="math notranslate nohighlight">\(h&lt;\frac{2}{|\lambda|}\)</span>.</p>
-<section id="stabilitat-der-dahlquist-und-prothero-robinson-gleichungen">
+<div class="section" id="stabilitat-der-dahlquist-und-prothero-robinson-gleichungen">
 <h2>Stabilität der Dahlquist- und Prothero-Robinson-Gleichungen<a class="headerlink" href="#stabilitat-der-dahlquist-und-prothero-robinson-gleichungen" title="Permalink to this headline">¶</a></h2>
 <p>Ein weiteres Stabilitätsproblem ist die inhomogene Prothero-Robinson-Gleichung mit <span class="math notranslate nohighlight">\(y'=-λ(y-g)+g',λ&gt;0\)</span>. <span class="math notranslate nohighlight">\(g(t)\)</span> ist eine glatte Funktion. Da <span class="math notranslate nohighlight">\(e^{(-λt)}\)</span> für <span class="math notranslate nohighlight">\(λ≫1\)</span> schnell gegen 0 geht, sollte die Lösung schnell gegen <span class="math notranslate nohighlight">\(g(t)\)</span> konvergieren. Außerdem ist die Lipschitzkonstante leicht zu ermitteln mit <span class="math notranslate nohighlight">\(|y'|_\text{max} = \lambda\)</span>, also <span class="math notranslate nohighlight">\( h &lt; \frac{2}{\lambda} \)</span>.</p>
 <p>Für <span class="math notranslate nohighlight">\(g(t) = 0\)</span> entspricht die Prothero-Robinson-Gleichung der Dahlquist-Gleichung, also der ODE der Form <span class="math notranslate nohighlight">\(y'=-λy,λ&gt;0,y_0=1\)</span> mit der exakten Lösung <span class="math notranslate nohighlight">\(y(t)=e^{(-λt)}\)</span>.</p>
 <p>Für <span class="math notranslate nohighlight">\(g(t) = const.\)</span> lautet die DGL <span class="math notranslate nohighlight">\(y' = -\lambda (y - g)\)</span> mit der Lösung <span class="math notranslate nohighlight">\(y(t) = g + e^{(-λt)}\)</span>, die gegen <span class="math notranslate nohighlight">\(g\)</span> konvergiert. Diese lässt sich leicht für das implizite Eulerverfahren umformen zu <span class="math notranslate nohighlight">\(y_{k+1} = \frac{y_k + h\lambda g}{1+h\lambda}\)</span>.</p>
-</section>
-<section id="aufgabe-1">
+</div>
+<div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Weisen Sie nach, dass <span class="math notranslate nohighlight">\(y(t)=g(t)+e^{(-λt)} (y_0-g_0)\)</span> die exakte Lösung der ODE für allgemeine <span class="math notranslate nohighlight">\(g(t)\)</span> ist.</p></li>
 <li><p>Wie sieht die implizite Form der ODE für <span class="math notranslate nohighlight">\(g(t) = t^2\)</span> aus?</p></li>
 <li><p>Können Sie die implizite Form der ODE für eine allgemeine Funktion <span class="math notranslate nohighlight">\(g(t)\)</span> formulieren?</p></li>
 </ul>
-</section>
-<section id="aufgabe-2">
+</div>
+<div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Variieren Sie nun mithilfe der App aus dem unten stehenden Code die verfügbaren Parameter sowie die Funtionen für <span class="math notranslate nohighlight">\(g\)</span>. Gegebenenfalls müssen Sie den Code lokal ausführen.</p>
 <ul class="simple">
@@ -949,8 +948,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p><a class="reference external" href="https://blogs.mathworks.com/cleve/2014/06/09/ordinary-differential-equations-stiffness/">https://blogs.mathworks.com/cleve/2014/06/09/ordinary-differential-equations-stiffness/</a></p></li>
 </ul>
 </div>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

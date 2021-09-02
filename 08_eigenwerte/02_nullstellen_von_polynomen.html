@@ -4,8 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nullstellen von Polynomen &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet" />
@@ -613,7 +612,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         
               <div>
                 
-  <section id="nullstellen-von-polynomen">
+  <div class="section" id="nullstellen-von-polynomen">
 <h1>Nullstellen von Polynomen<a class="headerlink" href="#nullstellen-von-polynomen" title="Permalink to this headline">¶</a></h1>
 <p>Die sogenannte Begleitmatrix</p>
 <div class="math notranslate nohighlight">
@@ -628,11 +627,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 \end{split}\]</div>
 <p>besitzt das charakteristische Polynom <span class="math notranslate nohighlight">\(p(x)=x^n + c_{1}x^{n-1} + ... + c_{n-1}x + c_n\)</span>.</p>
 <p>Sie wird häufig in der Steuerungstechnik genutzt um die Eigenwerte (und somit die dynamischen Eigenschaften) des linearen Systems zu bestimmen.</p>
-<section id="aufgabe-1-stimmt-das">
+<div class="section" id="aufgabe-1-stimmt-das">
 <h2>Aufgabe 1 - Stimmt das?<a class="headerlink" href="#aufgabe-1-stimmt-das" title="Permalink to this headline">¶</a></h2>
 <p>Zeigen Sie für <span class="math notranslate nohighlight">\(n=2\)</span>, dass das angegebene charakteristische Polynom zur Begleitmatrix passt.</p>
-</section>
-<section id="aufgabe-2-nullstellen-berechnen">
+</div>
+<div class="section" id="aufgabe-2-nullstellen-berechnen">
 <h2>Aufgabe 2 - Nullstellen berechnen<a class="headerlink" href="#aufgabe-2-nullstellen-berechnen" title="Permalink to this headline">¶</a></h2>
 <p>Entwerfen Sie eine Matlab Funktion, mit welcher Sie auf dieser Basis die Nullstellen eines beliebigen Polynoms unter Verwendung der Funktion <code class="docutils literal notranslate"><span class="pre">eig</span></code> berechnen können.</p>
 <div class="cell docutils container">
@@ -654,8 +653,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Überprüfen Sie händisch anhand eines einfachen quadratischen Polynoms, ob ihr Programm funktioniert, z.B. <span class="math notranslate nohighlight">\(p(x)=3x^2-9x+6\)</span>.</p></li>
 <li><p>Wie lauten die Nullstellen von <span class="math notranslate nohighlight">\(p(x) = 2x^4 -20x^3 + 70x^2 -100x +48\)</span>?</p></li>
 </ul>
-</section>
-<section id="aufgabe-3-automatisches-testen">
+</div>
+<div class="section" id="aufgabe-3-automatisches-testen">
 <h2>Aufgabe 3 - Automatisches Testen<a class="headerlink" href="#aufgabe-3-automatisches-testen" title="Permalink to this headline">¶</a></h2>
 <p>Schreiben Sie nun unit tests für ihre neue Funktion. Diese unit tests verwenden das Framework <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">MOxUnit</a>, das sowohl mit Matlab als auch Octave kompatibel ist. Wenn Sie die Tests auch lokal auf ihrem Rechner ausführen wollen, benötigen Sie eine Installation von MOxUnit.</p>
 <p>Erstellen Sie zunächst zueine Datei mit folgendem Inhalt:</p>
@@ -693,11 +692,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <p>In dieser Datei sind zwei unit tests <code class="docutils literal notranslate"><span class="pre">test_quadratic_polynomial</span></code> und <code class="docutils literal notranslate"><span class="pre">test_compare_to_roots</span></code> vorbereitet, die beide wegen der Zeile <code class="docutils literal notranslate"><span class="pre">assertEqual(1,0)</span></code> garantiert fehlschlagen werden. Ändern Sie die unit tests wie folgt ab:</p>
-<section id="test-quadratic-polynomial">
+<div class="section" id="test-quadratic-polynomial">
 <h3><code class="docutils literal notranslate"><span class="pre">test_quadratic_polynomial</span></code><a class="headerlink" href="#test-quadratic-polynomial" title="Permalink to this headline">¶</a></h3>
 <p>Erstellen Sie ein zufälliges quadratisches Polynom, berechnen Sie die Nullstellen mit der abc- oder der pq-Formel und überprüfen Sie mit <code class="docutils literal notranslate"><span class="pre">assertElementsAlmostEqual(a,</span> <span class="pre">b,</span> <span class="pre">tol)</span></code>, ob ihre Funktion <code class="docutils literal notranslate"><span class="pre">my_roots</span></code> das selbe Ergebnis liefert.</p>
-</section>
-<section id="test-compare-to-roots">
+</div>
+<div class="section" id="test-compare-to-roots">
 <h3><code class="docutils literal notranslate"><span class="pre">test_compare_to_roots</span></code><a class="headerlink" href="#test-compare-to-roots" title="Permalink to this headline">¶</a></h3>
 <p>Erstellen Sie eine zufällige natürliche Zahl <span class="math notranslate nohighlight">\(n\)</span> zwischen 1 und 10 und anschließend ein zufälliges Polynom <span class="math notranslate nohighlight">\(n\)</span>-ten Grades und überprüfen Sie mit <code class="docutils literal notranslate"><span class="pre">assertElementsAlmostEqual(a,</span> <span class="pre">b,</span> <span class="pre">tol)</span></code>, ob ihre Funktion <code class="docutils literal notranslate"><span class="pre">my_roots</span></code> das selbe Ergebnis liefert wie die eingebaute Funktion <code class="docutils literal notranslate"><span class="pre">roots</span></code>.</p>
 <p>Besteht ihre Funktion die unit tests?</p>
@@ -708,9 +707,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
