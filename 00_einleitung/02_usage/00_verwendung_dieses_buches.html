@@ -656,10 +656,24 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/hello_world.m&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">hello_world</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
 </pre></div>
 </div>
 </div>
@@ -686,11 +700,26 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/fac.m&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Die bereitgestellten Unit Tests befinden sich in der Datei <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>. Diese Tests überprüfen, ob die Funktion sich so verhält wie erwartet. Der Test wird mit folgendem Befehl ausgeführt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 6 tests
+......
+--------------------------------------------------
+
+OK (passed=6)
+ans = 1
 </pre></div>
 </div>
 </div>
@@ -706,11 +735,46 @@ commentsRunWhenDOMLoaded(addUtterances);
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/fac.m&#39;.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Mal sehen, ob immer noch alle Tests durchlaufen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 6 tests
+...FFF
+--------------------------------------------------
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/user/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac&gt;test_fac_exception_negative:31 (/home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/user/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac&gt;test_fac_exception_noninteger:35 (/home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: inputs are not of the same size
+
+First input: 1x1 double
+1
+
+Second input: 2x3 double
+[1 1 2;6 24 120]
+  assertEqual:70 (/home/user/MOxUnit/MOxUnit/assertEqual.m)
+  test_fac&gt;test_fac_array:39 (/home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+--------------------------------------------------
+
+FAILED (passed=3, failure=3)
+ans = 0
 </pre></div>
 </div>
 </div>
@@ -724,7 +788,52 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>bedeutet, dass die letzten drei Tests fehlgeschlagen sind. Zusätzlich gibt jeder fehlgeschlagene Test Informationen darüber aus, welches Verhalten erwartet wurde und welches tatsächlich eingetroffen ist. Manchmal sind diese Ausgaben etwas kryptisch, dann lohnt es sich einen Blick in die Implementierung der Tests zu werfen. Mit dem Befehl <code class="docutils literal notranslate"><span class="pre">type</span></code> lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code> genauer anzuschauen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="p">..</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../test_fac.m is the user-defined function defined from: /home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
+
+function test_suite=test_fac
+% initialize unit tets
+    try
+        test_functions=localfunctions();
+    catch
+    end
+    initTestSuite;
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%     Basic tests     %
+%%%%%%%%%%%%%%%%%%%%%%%
+    
+function test_fac_0
+% test if fac(0)==1
+    assertEqual(fac(0),1);
+
+function test_fac_1
+% test if fac(1)==1
+    assertEqual(fac(1),1);
+    
+function test_fac_5
+% test if fac(5)==120
+    assertEqual(fac(5),120);
+    
+%%%%%%%%%%%%%%%%%%%%%%%
+% More advanced tests %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+function test_fac_exception_negative
+% test if exceptions are thrown for negative values
+    assertExceptionThrown(@()fac(-1));
+    
+function test_fac_exception_noninteger
+% test if exceptions are thrown for noninteger values
+    assertExceptionThrown(@()fac(1.5),&#39;*&#39;);
+    
+function test_fac_array
+% test if fac works on array inputs
+    assertEqual(fac([0 1 2; 3 4 5]),[1 1 2; 6 24 120]);
 </pre></div>
 </div>
 </div>
