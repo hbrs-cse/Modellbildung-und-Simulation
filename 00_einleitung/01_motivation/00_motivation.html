@@ -690,7 +690,7 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 </ol>
 <a class="reference internal image-reference" href="../../_images/lowv_lows.png"><img alt="low v low s" class="align-center" src="../../_images/lowv_lows.png" style="width: 800px;" /></a>
 <p>Um eine mathematische Funktion für unser Tunnel Modell aufstellen zu können, müssen wir nur noch etwas konkreter fragen,</p>
-<p><em><strong>“Bei welcher Geschwindigkeit ist der Verkehrsfluss F <span class="math notranslate nohighlight">\(\left[\frac{\text{Fahrzeuge}}{\text{h}}\right]\)</span>, d.h. die Anzahl der passierenden Fahrzeuge pro Stunde, am größten?”</strong></em></p>
+<p><em><strong>“Bei welcher Geschwindigkeit ist der Verkehrsfluss <span class="math notranslate nohighlight">\(F \left[\frac{\text{Fahrzeuge}}{\text{h}}\right]\)</span>, d.h. die Anzahl der passierenden Fahrzeuge pro Stunde, am größten?”</strong></em></p>
 <p>Da wir das Modell bereits genügend vereinfacht haben, bleiben nur drei Variablen:</p>
 <ol class="simple">
 <li><p>Geschwindigkeit <span class="math notranslate nohighlight">\(v \,\text{[m/s]}\)</span></p></li>
@@ -698,9 +698,9 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <li><p>Fahrzeuglänge <span class="math notranslate nohighlight">\(L \,\text{[m]}\)</span></p></li>
 </ol>
 <a class="reference internal image-reference" href="../../_images/trafficvariables.png"><img alt="traffic variables" class="align-center" src="../../_images/trafficvariables.png" style="width: 800px;" /></a>
-<p>Diese können wir in eine mathematische Funktion für den Verkehrsfluss überführen.</p>
+<p>Diese können wir in eine mathematische Funktion für den Verkehrsfluss (in SI-Einheiten) überführen.</p>
 <div class="math notranslate nohighlight">
-\[F = F(v,s,L) = \frac{1000 \cdot v}{L+s}, F&gt;0\]</div>
+\[F = F(v,s,L) = \frac{v}{L+s}, F&gt;0, F = \left[\frac{\text{Fahrzeuge}}{\text{s}}\right]\]</div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>zweiten Schritt</strong> im Schema zur Lösung von Extremwertaufgaben: “Die Ermittlung der Zielfunktion”</p>
@@ -715,11 +715,16 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 </ol>
 <ul class="simple">
 <li><p>“Bremsweg-Regel” <span class="math notranslate nohighlight">\(s(v) = \frac{v}{10} \cdot \frac{v}{10} = \frac{v^2}{100}\)</span></p></li>
-<li><p>“Tacho-Halbe-Regel” <span class="math notranslate nohighlight">\(s = s(v) = \frac{v}{2}\)</span></p></li>
+<li><p>“Tacho-Halbe-Regel” <span class="math notranslate nohighlight">\(s(v) = \frac{v}{2}\)</span></p></li>
 </ul>
-<p>Diese Regeln sind einheitenlos, daher rechnen wir einheitenlos so weiter, dass <span class="math notranslate nohighlight">\(F\)</span> die Einheit <span class="math notranslate nohighlight">\(\left[\frac{\text{Fahrzeuge}}{\text{h}}\right]\)</span> erhält. Mithilfe der “Bremsweg-Regel” und der Konstanten Fahrzeuglänge vereinfachen wir die Funktion zu</p>
+<p>Diese Regeln sind Faustregeln, bei denen die Einheiten als umgeformt angenommen werden. Daher formulieren wir sie in SI-Einheiten um:</p>
+<ul class="simple">
+<li><p>“Bremsweg-Regel” <span class="math notranslate nohighlight">\(s\left(v\,\left[\frac{\text{m}}{\text{s}}\right]\right) = \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\)</span></p></li>
+<li><p>“Tacho-Halbe-Regel” <span class="math notranslate nohighlight">\(s\left(v\,\left[\frac{\text{m}}{\text{s}}\right]\right) = \frac{v\cdot 3.6\,\text{s}}{2}\)</span></p></li>
+</ul>
+<p>Mithilfe der “Bremsweg-Regel” und der konstanten Fahrzeuglänge vereinfachen wir die Funktion zu</p>
 <div class="math notranslate nohighlight">
-\[\max{F(v)} = \frac{1000 \cdot v}{4.5} + \frac{v^2}{100}, v\in[0,\infty)\]</div>
+\[\max{F(v)} = \frac{v}{4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}}, v\in[0,\infty)\]</div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>dritten Schritt</strong> im Lösungsschema: “Eliminierung von Variablen durch Nebenbedingungen”</p>
@@ -737,16 +742,16 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <li><p><span class="math notranslate nohighlight">\(f'(x_0)=0\)</span> und <span class="math notranslate nohighlight">\(f''(x_0)&gt;0\)</span>, dann hat <span class="math notranslate nohighlight">\(f\)</span> dort ein <em>lokales Minimum</em>.</p></li>
 </ol>
 </div>
-<p>Für die Gleichung setzen wir also <span class="math notranslate nohighlight">\(F' = 0\)</span> und <span class="math notranslate nohighlight">\(F'' &lt; 0\)</span>:</p>
+<p>Für die Gleichung setzen wir also <span class="math notranslate nohighlight">\(F' = 0\)</span> und <span class="math notranslate nohighlight">\(F'' &lt; 0\)</span>. <span class="math notranslate nohighlight">\(F'\)</span> erhalten wir mit der Quotientenregel:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-F'(v) = \frac{\left(4.5 + \frac{v^2}{100}\right)\cdot 1000 - 1000 \cdot v \frac{2\cdot v}{100}}{\left(4.5 + \frac{v^2}{100}\right)^2} &amp;= 0 \\
-\rightarrow 4500 - 10 v^2 &amp;= 0 \\
-\rightarrow v_{1/2} &amp;= \pm \sqrt{450} \,\frac{\text{km}}{\text{h}} = \pm 21.21 \,\frac{\text{km}}{\text{h}}
+F'(v) = \frac{\left(4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\right) - v \cdot \frac{2\cdot v\cdot (3.6\,\text{s})^2}{100\,\text{m}}}{\left(4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\right)^2} &amp;= 0 \\
+\rightarrow 4.5 \,\text{m} - \frac{(3.6\,\text{s})^2}{100\,\text{m}} v^2 &amp;= 0 \\
+\rightarrow v_{1/2} &amp;= \pm \sqrt{\frac{450\,\text{m}^2}{(3.6\,\text{s})^2}} = \pm 5.89 \,\frac{\text{m}}{\text{s}}
 \end{align}
 \end{split}\]</div>
-<p>Prüfung mit <span class="math notranslate nohighlight">\(F''(v_{1/2})\)</span> zeigt, dass für <span class="math notranslate nohighlight">\(v_1 = +21.21 \,\frac{\text{km}}{\text{h}}\)</span> ein lokales Maximum vorliegt.</p>
+<p>Prüfung mit <span class="math notranslate nohighlight">\(F''(v_1)\)</span> (<span class="math notranslate nohighlight">\(v_2\)</span> liegt außerhalb des Definitionsbereichs) zeigt, dass für <span class="math notranslate nohighlight">\(v_1 = +5.89\,\frac{\text{m}}{\text{s}} = +21.21 \,\frac{\text{km}}{\text{h}}\)</span> ein lokales Maximum vorliegt.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>vierten Schritt</strong> im Lösungsschema: “Bestimmung der lokalen Extremstellen”</p>
@@ -762,15 +767,15 @@ F'(v) = \frac{\left(4.5 + \frac{v^2}{100}\right)\cdot 1000 - 1000 \cdot v \frac{
 <p>Das Ganze geht auch ganz einfach in Octave:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="p">=</span> <span class="p">@(</span><span class="n">V</span><span class="p">)</span> <span class="o">-</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">V</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="mf">4.5</span> <span class="o">+</span> <span class="p">(</span><span class="n">V</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">);</span> <span class="c">% set F as negative to be able to use minimize function</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">F</span> <span class="p">=</span> <span class="p">@(</span><span class="n">V</span><span class="p">)</span> <span class="o">-</span><span class="p">(</span><span class="n">V</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="mf">4.5</span> <span class="o">+</span> <span class="p">((</span><span class="n">V</span><span class="o">*</span><span class="mf">3.6</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">);</span> <span class="c">% set F as negative to be able to use minimize function</span>
 <span class="n">x</span> <span class="p">=</span> <span class="n">fminbnd</span> <span class="p">(</span><span class="n">F</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 <span class="n">Fmax</span> <span class="p">=</span> <span class="o">-</span><span class="n">F</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 21.213
-Fmax = 2357.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x = 5.8926
+Fmax = 0.6547
 </pre></div>
 </div>
 </div>
@@ -779,7 +784,7 @@ Fmax = 2357.0
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>fünften Schritt</strong> im Lösungsschema: “Gültigkeits- und Randstellen Prüfung”</p>
 </div>
-<p>Damit erhalten wir die <strong>Lösung</strong>: Bei <span class="math notranslate nohighlight">\(v=21.21 \frac{\text{km}}{\text{h}}\)</span> wird ein maximaler Fahrzeugdurchsatz von <span class="math notranslate nohighlight">\(F\left(21.21 \frac{\text{km}}{\text{h}}\right) = 2357 \frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
+<p>Damit erhalten wir die <strong>Lösung</strong>: Bei <span class="math notranslate nohighlight">\(v=21.21 \frac{\text{km}}{\text{h}}\)</span> wird ein maximaler Fahrzeugdurchsatz von <span class="math notranslate nohighlight">\(F\left(21.21 \frac{\text{km}}{\text{h}}\right) = 0.6547 \frac{\text{Fahrzeuge}}{\text{s}} = 2357 \frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
 </div>
 </div>
 <div class="section" id="ingenieurs-know-how">
@@ -787,13 +792,13 @@ Fmax = 2357.0
 <p>Bevor wir die Ergebnisse an das Schweizer Verkehrsministerium übergeben, müssen wir zuletzt noch fragen: <strong>Als wie realistisch schätzen wir diese Lösung ein?</strong></p>
 <p>Dazu variieren wir die Faustformel für den Sicherheitsabstand zur “Tacho-Halbe-Regel”. Daraus ergibt sich</p>
 <div class="math notranslate nohighlight">
-\[F(v) = \frac{1000 \cdot v}{4.5 + \frac{v}{2}}\]</div>
+\[F(v) = \frac{v}{4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}}\]</div>
 <div class="math notranslate nohighlight">
-\[F'(v) = \frac{\left(4.5 + \frac{v}{2}\right)\cdot 1000 - 1000 \cdot v \cdot \frac{1}{2}}{\left(4.5 + \frac{v}{2}\right)^2} = 0 \rightarrow 4500 = 0\]</div>
+\[F'(v) = \frac{\left(4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}\right) - v \cdot \frac{3.6 \,\text{s}}{2}}{\left(4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}\right)^2} = 0 \rightarrow 4.5\,\text{m} = 0\]</div>
 <p><span class="math notranslate nohighlight">\(F\)</span> hat also keine <em>lokalen Extrema</em>. Die Überprüfung der Randstellen liefert</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(F(0)=0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\lim_{v\to\infty}{F(v)}=\lim_{v\to\infty}{\frac{1000v}{4.5 + \frac{v}{2}}} \to 2000 \frac{\text{Fahrzeuge}}{\text{h}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{v\to\infty}{F(v)}=\lim_{v\to\infty}{\frac{v}{4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}}} \to 0.555 \frac{\text{Fahrzeuge}}{\text{s}} = 2000 \frac{\text{Fahrzeuge}}{\text{h}}\)</span></p></li>
 </ol>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -810,6 +815,8 @@ Fmax = 2357.0
 <span class="n">F_tachohalbe</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_tachohalbe</span><span class="p">);</span>
 
 <span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">)</span>
+<span class="nb">xlabel</span> <span class="p">(</span><span class="s">&quot;Geschwindigkeit [km/h]&quot;</span><span class="p">);</span>
+<span class="nb">ylabel</span> <span class="p">(</span><span class="s">&quot;Fahrzeugdurchsatz [Fahrzeuge/h]&quot;</span><span class="p">);</span>
 
 <span class="n">h</span> <span class="p">=</span> <span class="nb">legend</span> <span class="p">(</span><span class="s">&quot;Bremsweg-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Tacho-Halbe-Modell&quot;</span><span class="p">);</span>
 <span class="nb">legend</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&quot;location&quot;</span><span class="p">,</span> <span class="s">&quot;northeast&quot;</span><span class="p">);</span>
@@ -829,16 +836,12 @@ Fmax = 2357.0
 <li><p><strong>Mehr Physik</strong><br />
 Tatsächlich besteht der Anhalteweg u.a. aus dem Reaktionsweg und dem Bremsweg. Letzterer kann mit dem realen Beschleunigungsgesetz genauer berechnet werden: <span class="math notranslate nohighlight">\(s_\text{B} = \frac{v^2}{2\cdot a}\)</span> (Verzögerung <span class="math notranslate nohighlight">\(a\)</span> = <em>negative Beschleunigung</em>!)</p></li>
 <li><p><strong>Mehr Gehirnschmalz</strong><br />
-Bisher wird beim Sicherheitsabstand so getan, als ob im Bremsfall der Vorfahrende instantan von <span class="math notranslate nohighlight">\(v\)</span> auf <span class="math notranslate nohighlight">\(0 \,\frac{\text{km}}{\text{h}}\)</span> stoppt. Dessen Bremsweg <span class="math notranslate nohighlight">\(s_{\text{VF}} = \frac{v^2}{2\cdot a_{\text{VF}}}\)</span> wird in der Fahrpraxis oft vom eigenen Bremsweg abgezogen.</p></li>
+Bisher wird beim Sicherheitsabstand so getan, als ob im Bremsfall der Vorfahrende instantan von <span class="math notranslate nohighlight">\(v\)</span> auf <span class="math notranslate nohighlight">\(0 \,\frac{\text{m}}{\text{s}}\)</span> stoppt. Dessen Bremsweg <span class="math notranslate nohighlight">\(s_{\text{VF}} = \frac{v^2}{2\cdot a_{\text{VF}}}\)</span> wird in der Fahrpraxis oft vom eigenen Bremsweg abgezogen.</p></li>
 </ol>
 <a class="reference internal image-reference" href="../../_images/Bremsvorgang.svg"><img alt="Quelle: Wikipedia" class="align-center" src="../../_images/Bremsvorgang.svg" width="600px" /></a>
 <div style="text-align: right"><a href="https://upload.wikimedia.org/wikipedia/commons/b/b8/Bremsvorgang.svg" > [CC BY-SA 3.0], via Wikimedia Commons </a></div>
 <p>Wenn man beides berücksichtigt, ergibt sich mit Hilfe der Reaktionszeit <span class="math notranslate nohighlight">\(t_\text{R}\)</span> und der Verzögerung <span class="math notranslate nohighlight">\(a\)</span> als neuer Sicherheitsabstand <span class="math notranslate nohighlight">\(s\)</span>:
-$<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text{VF}},t_\text{R})=\frac{v}{3.6}\cdot t_\text{R} + \frac{\left(\frac{v}{3.6}\right)^2}{2\cdot a_{\text{selbst}}} - \frac{\left(\frac{v}{3.6}\right)^2}{2\cdot a_{\text{VF}}}\)</span>$</p>
-<div class="warning admonition">
-<p class="admonition-title">Achtung</p>
-<p><span class="math notranslate nohighlight">\(v\)</span> muss in dem Fall von <span class="math notranslate nohighlight">\(\frac{\text{km}}{\text{h}}\)</span> auf <span class="math notranslate nohighlight">\(\frac{\text{m}}{\text{s}}\)</span> umgerechnet werden.</p>
-</div>
+$<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text{VF}},t_\text{R})=v\cdot t_\text{R} + \frac{v^2}{2\cdot a_{\text{selbst}}} - \frac{v^2}{2\cdot a_{\text{VF}}}\)</span>$</p>
 <p>Wieder müssen wir mit Nebenbedingungen (hier: Konstanten) das Problem vereinfachen:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(t_\text{R}=1 \text{ s}\)</span></p></li>
@@ -849,34 +852,43 @@ $<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% graphische Darstellung von F(v) für die drei Abstandsmodelle</span>
 <span class="nb">graphics_toolkit</span><span class="p">(</span><span class="s">&quot;gnuplot&quot;</span><span class="p">)</span>
 
-<span class="n">vmax</span> <span class="p">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="n">vmax</span> <span class="p">=</span> <span class="mi">200</span><span class="o">/</span><span class="mf">3.6</span><span class="p">;</span>
 <span class="n">dv</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">v</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="n">vmax</span><span class="o">*</span><span class="n">dv</span><span class="p">);</span>
 <span class="n">L</span> <span class="p">=</span> <span class="mf">4.5</span><span class="p">;</span>
-<span class="n">s_bremsweg</span> <span class="p">=</span> <span class="p">(</span><span class="n">v</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span>
-<span class="n">F_bremsweg</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_bremsweg</span><span class="p">);</span>
-<span class="n">s_tachohalbe</span> <span class="p">=</span> <span class="n">v</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
-<span class="n">F_tachohalbe</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_tachohalbe</span><span class="p">);</span>
+<span class="n">s_bremsweg</span> <span class="p">=</span> <span class="p">((</span><span class="n">v</span><span class="o">*</span><span class="mf">3.6</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">;</span>
+<span class="n">F_bremsweg</span> <span class="p">=</span> <span class="n">v</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_bremsweg</span><span class="p">);</span>
+<span class="n">s_tachohalbe</span> <span class="p">=</span> <span class="n">v</span><span class="o">*</span><span class="mf">3.6</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">F_tachohalbe</span> <span class="p">=</span> <span class="n">v</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_tachohalbe</span><span class="p">);</span>
 
 <span class="n">t_R</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
 <span class="n">a_selbst</span> <span class="p">=</span> <span class="mi">6</span><span class="p">;</span>
 <span class="n">a_VF</span> <span class="p">=</span> <span class="mi">7</span><span class="p">;</span>
-<span class="n">s_physik</span> <span class="p">=</span> <span class="n">v</span><span class="o">/</span><span class="mf">3.6</span><span class="o">*</span><span class="n">t_R</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="mf">3.6</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_selbst</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">v</span><span class="o">/</span><span class="mf">3.6</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_VF</span><span class="p">);</span>
-<span class="n">F_physik</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_physik</span><span class="p">);</span>
+<span class="n">s_physik</span> <span class="p">=</span> <span class="n">v</span><span class="o">*</span><span class="n">t_R</span> <span class="o">+</span> <span class="n">v</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_selbst</span><span class="p">)</span> <span class="o">-</span> <span class="n">v</span><span class="o">.^</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a_VF</span><span class="p">);</span>
+<span class="n">F_physik</span> <span class="p">=</span> <span class="n">v</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_physik</span><span class="p">);</span>
 
 <span class="p">[</span><span class="n">maxF</span><span class="p">,</span><span class="n">bestv</span><span class="p">]</span> <span class="p">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">F_physik</span><span class="p">);</span>
 <span class="n">maxF</span>
 <span class="n">bestv</span> <span class="p">=</span> <span class="n">bestv</span><span class="o">/</span><span class="n">dv</span>
 
 <span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_physik</span><span class="p">)</span>
+<span class="nb">xlabel</span> <span class="p">(</span><span class="s">&quot;Geschwindigkeit [m/s]&quot;</span><span class="p">);</span>
+<span class="nb">ylabel</span> <span class="p">(</span><span class="s">&quot;Fahrzeugdurchsatz [Fahrzeuge/s]&quot;</span><span class="p">);</span>
 
 <span class="n">h</span> <span class="p">=</span> <span class="nb">legend</span> <span class="p">(</span><span class="s">&quot;Bremsweg-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Tacho-Halbe-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Physikalisches Modell&quot;</span><span class="p">);</span>
 <span class="nb">legend</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&quot;location&quot;</span><span class="p">,</span> <span class="s">&quot;northeast&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maxF = 0.6836
+bestv = 20
+</pre></div>
 </div>
-<p>Also wird bei <span class="math notranslate nohighlight">\(71 \,\frac{\text{km}}{\text{h}}\)</span> der maximale Fahrzeugdurchsatz <span class="math notranslate nohighlight">\(F\left(v = 71 \,\frac{\text{km}}{\text{h}}\right) = 2461 \,\frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
+<img alt="../../_images/00_motivation_13_1.png" src="../../_images/00_motivation_13_1.png" />
+</div>
+</div>
+<p>Also wird bei <span class="math notranslate nohighlight">\(20\,\frac{\text{m}}{\text{s}} = 72 \,\frac{\text{km}}{\text{h}}\)</span> der maximale Fahrzeugdurchsatz <span class="math notranslate nohighlight">\(F\left(v = 71 \,\frac{\text{km}}{\text{h}}\right) = 0.6836 \,\frac{\text{Fahrzeuge}}{\text{s}} = 2461 \,\frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
 </div>
 </div>
 <div class="section" id="zusammenfassung">
