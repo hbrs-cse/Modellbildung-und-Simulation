@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8f53015daec13862f6db5e763c41738.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -107,6 +107,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
       
       <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
       
@@ -610,10 +614,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 \[\int_{x_i}^{x_{i+1}} f(x) dx = \frac{x_{i+1} - x_i}{6}\left(f(x_i)+4f\left(\frac{x_i+x_{i+1}}{2}\right)+f(x_{i+1})\right)\]</div>
 <p>Schreiben Sie ein Programm zur numerischen Berechnung von <span class="math notranslate nohighlight">\(\int_{a}^{b} f(x) dx\)</span> mit der zusammengesetzten Simpson- und Trapezregel. Das heißt, beide Regeln werden auf einzelne Teilintervalle angewendet und die Ergebnisse zum Gesamtintegral aufsummiert. Dabei soll die Anzahl der verwendeten Teilintervalle so lange verdoppelt werden, bis die Differenz zwischen Simpson- und Trapezregel kleiner als die vom Benutzer vorgegebenen Toleranz <code class="docutils literal notranslate"><span class="pre">tol</span></code> ist.</p>
 <p>Der Vergleich der beiden Ergebnisse ermöglicht es, abzuschätzen, bei welcher Anzahl an Zeitschritten die gewünschte Genauigkeit erreicht wird. Durch eine derartige Schrittweitensteuerung kann zusätzlicher Rechenaufwand durch zu kleine Zeitschrittweiten vermieden werden und trotzdem auf allen Intervallen die geforderte Genauigkeit erreicht werden.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Achtung
-Denken Sie daran, dass Eingaben nicht immer mit der Funktionsweise Ihrer Funktion kompatibel sein müssen! Möchte jemand bspw. <span class="math notranslate nohighlight">\(\int_{-1}^{1} \frac{1}{x} dx\)</span> berechnen, wie geht ihre Funktion mit der Polstelle um? Überlegen Sie sich eine Abbruchbedingung für den Fehlerfall!</p>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p>Denken Sie daran, dass Eingaben nicht immer mit der Funktionsweise Ihrer Funktion kompatibel sein müssen! Möchte jemand bspw. <span class="math notranslate nohighlight">\(\int_{-1}^{1} \frac{1}{x} dx\)</span> berechnen, wie geht ihre Funktion mit der Polstelle um? Überlegen Sie sich eine Abbruchbedingung für den Fehlerfall!</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -810,7 +813,7 @@ Dieser kann hier noch optimiert werden, indem die berechneten Werte aus der jewe
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
