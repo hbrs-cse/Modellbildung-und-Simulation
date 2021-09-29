@@ -43,6 +43,7 @@ sections:
   - file: 07_num_ode/01_simulation_eines_raketenstarts
   - file: 07_num_ode/02_stabilitaet_eulerverfahren
   - file: 07_num_ode/03_modellierung_einer_highline_dynamisch
+  - file: 07_num_ode/04_mass-spring-mass
 - file: 08_eigenwerte/00_eigenwertprobleme
   sections:
   - file: 08_eigenwerte/01_das_qr_verfahren
