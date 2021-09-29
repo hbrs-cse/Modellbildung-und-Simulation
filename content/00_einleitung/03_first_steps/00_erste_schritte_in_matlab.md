@@ -1,3 +1,14 @@
+````{panels}
+Voraussetzungen
+^^^
+- keine
+---
+
+Lernziele
+^^^
+- Kennenlernen von Matlab
+````
+
 (erste-schritte)=
 # Erste Schritte in Matlab
 

@@ -1,5 +1,6 @@
-file: intro
-sections:
+format: jb-book
+root: intro
+chapters:
 - file: 00_einleitung/00_einleitung
   sections:
   - file: 00_einleitung/01_motivation/00_motivation
@@ -63,3 +64,4 @@ sections:
   - file: 11_pde/01_modellierung_einer_highline_dynamisch_pde
   - file: 11_pde/02_trafficPDE
   - file: 11_pde/03_konvektion_und_diffusion
+
