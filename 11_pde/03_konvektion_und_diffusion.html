@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -584,6 +584,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    Zusatzaufgabe
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#literatur">
+   Literatur
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -656,28 +661,42 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Schreiben Sie ein Matlab-Programm, das die Gleichung <a class="reference internal" href="#equation-convection-diffusion">(1)</a> für ein beliebiges Zeitinterval <span class="math notranslate nohighlight">\([t_0, t_1]\)</span> und Ortsintervall <span class="math notranslate nohighlight">\([x_0, x_1]\)</span> mit zeitlich konstanten Dirichlet-Randbedingungen <span class="math notranslate nohighlight">\(\rho(x_0, t) = \rho_a, \rho(x_N, t) = \rho_b\)</span> löst. Implementieren Sie sowohl das explizite Euler-Verfahren als auch das Crank-Nicolson-Verfahren.</p>
-<p>Visualisieren Sie die Lösung mit Hilfe einer Animation.</p>
+<p>Visualisieren Sie die Lösung mit Hilfe einer Animation. Unten sehen Sie eine Beispiellösung.</p>
 <div class="warning admonition">
 <p class="admonition-title">Achtung</p>
 <p>Beachten Sie bei der Wahl der Diskretisierung die <a class="reference external" href="https://de.wikipedia.org/wiki/CFL-Zahl">Courant-Friedrichs-Lewy-Zahl</a>.</p>
 </div>
-<p>Ihre Lösung kann beispielsweise für das Parameterset</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(a = 1\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(c = 5\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(t \in [0, 0.5]\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x \in [0, 5]\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(dx = 0.05\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(dt = 1e-4\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\rho_a = \rho_b = 0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\rho(x,0) = \rho_0(x) = 1 \,\forall\, x \in [0.2,0.4]\)</span>
-so aussehen (nur jeder 20. Zeitschritt wurde ausgegeben):</p></li>
-</ul>
-<a class="reference internal image-reference" href="../_images/blood_animated.gif"><img alt="blood_animated" class="align-center" src="../_images/blood_animated.gif" style="width: 800px;" /></a>
 </div>
 <div class="section" id="zusatzaufgabe">
 <h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
-<p>Erweitern Sie ihr Programm, so dass der Nutzer eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben kann.</p>
+<p>Erweitern Sie ihr Programm, so dass der Nutzer eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben kann. Passen Sie gegebenenfalls die Schrittweite an, um die CFL-Zahl einzuhalten.</p>
+<p>Ihre Lösungen können beispielsweise für das Parameterset</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(a = 1 \,\frac{\text{m}^2}{\text{s}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c_\text{const} = 5 \,\frac{\text{m}}{\text{s}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(c_\text{dynamic} = (5 + 5\cdot\sin(4\pi \,t/\text{s})) \,\frac{\text{m}}{\text{s}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t \in [0, 1 \,\text{s}]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x \in [0, 10 \,\text{m}]\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dx = 0.05 \,\text{m}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dt = 1e-4 \,\text{s}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho_a = \rho_b = 0 \,\frac{1}{\text{m}^3}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rho(x,0) = \rho_0(x) = 1 \,\frac{1}{\text{m}^3} \,\forall\, x \in [0.2\,\text{m},0.4\,\text{m}]\)</span>
+so aussehen (nur jeder 50. Zeitschritt wurde ausgegeben):</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/blood_animated_cos4pit.gif"><img alt="blood_animated_cos4pit" class="align-center" src="../_images/blood_animated_cos4pit.gif" style="width: 800px;" /></a>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Die Parameter sind so gewählt, dass die physikalischen Effekte in der graphischen Ausgabe wahrnehmbar ist. Realistischer wären Parameter wie <span class="math notranslate nohighlight">\(c = 22.88 + 1.58\cdot\sin(2\cdot\pi \,t/\text{s}) \,\frac{\text{cm}}{\text{s}}\)</span> (vgl. <span id="id1">[<a class="reference internal" href="#id3">MMDKS17</a>]</span>), <span class="math notranslate nohighlight">\(a\)</span> in der Größenordnung <span class="math notranslate nohighlight">\(10^{-9}\)</span> (vgl. <a class="reference external" href="https://de.wikipedia.org/wiki/Diffusionskoeffizient">Wikipedia</a>), Strecken in der Größenordnung <span class="math notranslate nohighlight">\(\text{cm}\)</span> und ein Puls von 60-80, statt wie hier 120.</p>
+</div>
+</div>
+<div class="section" id="literatur">
+<h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
+<p id="id2"><dl class="citation">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id1">MMDKS17</a></span></dt>
+<dd><p>Alireza Mohammadkarim, Manijhe Mokhtari-Dizaji, Ali Kazemian, and Hazhir Saberi. Hemodynamic analysis of radiation-induced damage in common carotid arteries by using color doppler ultrasonography. <em>Ultrasonography (Seoul, Korea)</em>, 37:, 04 2017. <a class="reference external" href="https://doi.org/10.14366/usg.17016">doi:10.14366/usg.17016</a>.</p>
+</dd>
+</dl>
+</p>
 </div>
 </div>
 
