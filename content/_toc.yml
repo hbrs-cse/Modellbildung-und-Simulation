@@ -4,15 +4,10 @@ sections:
   sections:
   - file: 00_einleitung/01_motivation/00_motivation
   - file: 00_einleitung/02_usage/00_verwendung_dieses_buches
-  - file: 00_einleitung/03_first_steps/00_erste_schritte_in_matlab
     sections:
-    - file: 00_einleitung/03_first_steps/01_matlab_command_window
-    - file: 00_einleitung/03_first_steps/02_skripte_und_funktionen
-    - file: 00_einleitung/03_first_steps/03_best_practice
+    - file: 00_einleitung/02_usage/03_best_practice
   - file: "00_einleitung/04_exercises/00_\xFCbungsaufgaben"
     sections:
-    - file: 00_einleitung/04_exercises/01_matlab_kennenlernen
-    - file: 00_einleitung/04_exercises/02_matlab_videos
     - file: 00_einleitung/04_exercises/03_fluessigkeit_im_boden
     - file: 00_einleitung/04_exercises/04_verkehrssimulation
     - file: 00_einleitung/04_exercises/05_der_perfekte_wurf
@@ -63,3 +58,13 @@ sections:
   - file: 11_pde/01_modellierung_einer_highline_dynamisch_pde
   - file: 11_pde/02_trafficPDE
   - file: 11_pde/03_konvektion_und_diffusion
+- file: 12_matlab/00_MATLAB_introduction
+  sections:
+  - file: 12_matlab/01_matlab_command_window
+  - file: 12_matlab/02_erste_schritte_in_matlab
+  - file: 12_matlab/03_skripte_und_funktionen
+  - file: 12_matlab/04_matlab_kennenlernen
+  - file: 12_matlab/05_matlab_videos/00_matlab_videos
+    sections:
+    - file: 12_matlab/05_matlab_videos/01_exercise1
+    - file: 12_matlab/05_matlab_videos/02_exercise2
