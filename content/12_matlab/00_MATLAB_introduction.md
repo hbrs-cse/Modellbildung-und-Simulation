@@ -1,5 +1,3 @@
 # MATLAB Einführung
 
-Dieser Abschnitt bietet Ihnen eine Einführung in die Nutzung von MATLAB zur Lösung von Übungsaufgaben.
-
-D
+Dieser Abschnitt bietet Ihnen eine Einführung in die Nutzung von MATLAB zur Lösung von Übungsaufgaben. Sie werden durch die Installation und einfachere Rechnungen unter Verwendung der Syntax geführt. MATLAB bzw. die open-source Version OCTAVE sind eine von verschiedenen Syntaxen, die zur Lösung von Simulationsaufgaben genutzt werden können. Grundsätzlich können Sie alternativ versuchen, die Aufgaben mit beispielsweise Python oder Julia zu lösen.
