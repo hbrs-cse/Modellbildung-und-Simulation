@@ -165,4 +165,4 @@ _build
 *.fls 
 
 # table of contents (is generated using CI)
-_toc.yml
+content/_toc.yml
