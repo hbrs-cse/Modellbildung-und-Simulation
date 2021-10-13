@@ -624,14 +624,30 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
-<p>Variieren Sie nun mithilfe der App aus dem unten stehenden Code die verfügbaren Parameter sowie die Funtionen für <span class="math notranslate nohighlight">\(g\)</span>. Gegebenenfalls müssen Sie den Code lokal ausführen.</p>
+<p>In dieser Übung sollen Sie <strong>optisch</strong> kennen lernen, wie sich die Lösungen des expliziten und impliziten Eulerverfahrens unterscheiden. Damit können Sie auch ein Gefühl dafür entwickeln, was steife Funktionen auszeichnet.</p>
+<p>Mit dem unten stehenden können Sie in Octave bzw. MATLAB eine App ausführen, die Ihnen erlaubt, die Prothero-Robinson-Gleichung mit dem für Sie fertig implementierten expliziten und impliziten Eulerverfahren zu lösen, und die Lösungen zu vergleichen. Sie können die wesentlichen Parameter (<span class="math notranslate nohighlight">\(lambda, y_0, h_\text{explizit}, h_\text{implizit}\)</span>) mit Schiebereglern variieren.</p>
+<p>Variieren Sie nun mithilfe der App die verfügbaren Parameter sowie die Funtion für <span class="math notranslate nohighlight">\(g(t)\)</span>. Gegebenenfalls müssen Sie den Code lokal ausführen.</p>
 <ul class="simple">
 <li><p>Wie unterscheiden sich die Lösungen beider Verfahren?</p></li>
-<li><p>Was passiert, wenn <span class="math notranslate nohighlight">\(h\)</span> für das explizite Verfahren nur minimal kleiner als <span class="math notranslate nohighlight">\(\frac{2}{|\lambda|}\)</span> ist? Was passiert, wenn <span class="math notranslate nohighlight">\(h\)</span> größer ist? Wo liegt der Unterschied zum impliziten Verfahren?</p></li>
-<li><p>Bei welchen Funktionen ist das explizite Verfahren nicht mehr hilfreich? Was macht die “Steifheit” dieser Funktionen qualitativ aus?</p></li>
+<li><p>Erkennen Sie für <span class="math notranslate nohighlight">\(t=0\)</span>, dass die explizite Lösung immer genau die Steigung der Lösung annimmt?</p></li>
+<li><p>Was passiert, wenn <span class="math notranslate nohighlight">\(h\)</span> für das explizite Verfahren nur minimal kleiner als <span class="math notranslate nohighlight">\(\frac{2}{|\lambda|}\)</span> ist? Was passiert, wenn <span class="math notranslate nohighlight">\(h\)</span> größer ist?</p></li>
+<li><p>Bei welchen Parametern ist das explizite Verfahren nicht mehr hilfreich? Was macht die “Steifheit” der resultierenden Funktionen qualitativ aus?</p></li>
+</ul>
+<p>Probieren Sie für <span class="math notranslate nohighlight">\(g(t)\)</span> beispielsweise aus</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(g(t) = 0\)</span> (entspricht der Dahlquist-Gleichung)</p></li>
+<li><p><span class="math notranslate nohighlight">\(g(t) = \)</span> <code class="docutils literal notranslate"><span class="pre">t.^2</span></code> (da die Rechnung mit Matrizen durchgeführt wird, ist die Punkt-Notation nötig)</p></li>
+<li><p><span class="math notranslate nohighlight">\(g(t) = cos(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(g(t) = sin(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(g(t) = \)</span> <code class="docutils literal notranslate"><span class="pre">heaviside(t-5)</span></code> ist die Stufenfunktion von 0 auf 1 bei <span class="math notranslate nohighlight">\(t=5\)</span>. Hierfür benötigen Sie das “symbolic package” bzw. die “Symbolic Math Toolbox”. Wie reagieren die Löser auf den Sprung? Setzen Sie <span class="math notranslate nohighlight">\(\lambda = 0\)</span>, um die Funktion ohne den e-Funktion Beitrag zu betrachten.</p></li>
+<li><p>…</p></li>
 </ul>
 <p><strong>Octave Code</strong></p>
-<div class="cell tag_hide_input docutils container">
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Falls Sie Octave von Ihrer Konsole aufrufen, rufen Sie <code class="docutils literal notranslate"><span class="pre">octave</span> <span class="pre">--persist</span> <span class="pre">&lt;filename&gt;</span></code> auf, um das Ausgabefenster geöffnet zu halten.</p>
+</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%graphics_toolkit (gt)</span>
 
@@ -677,7 +693,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="c">%% time scale</span>
     <span class="n">tmin</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">tmax</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">tspan</span> <span class="p">=</span> <span class="n">tmin</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="n">tmax</span><span class="p">;</span>
+    <span class="n">tspan</span> <span class="p">=</span> <span class="n">tmin</span><span class="p">:</span><span class="mf">0.01</span><span class="p">:</span><span class="n">tmax</span><span class="p">;</span>
     
     <span class="c">%% base function g</span>
     <span class="n">g0</span> <span class="p">=</span> <span class="n">fi</span><span class="p">.</span><span class="n">fcn_g</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -707,12 +723,12 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="n">fi</span><span class="p">.</span><span class="n">plotlabel</span> <span class="p">=</span> <span class="nb">legend</span><span class="p">(</span><span class="s">&#39;implicit solution&#39;</span><span class="p">,</span> <span class="s">&#39;explicit solution&#39;</span><span class="p">,</span> <span class="s">&#39;exact solution&#39;</span><span class="p">,</span> <span class="s">&#39;e-function contribution&#39;</span><span class="p">);</span>
     
     <span class="n">fi</span><span class="p">.</span><span class="n">h_e_label</span> <span class="p">=</span> <span class="n">uicontrol</span> <span class="p">(</span><span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,...</span>
-                          <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;h for explicit solver = %.3f, %.0f steps&quot;</span><span class="p">,</span> <span class="n">h_e</span><span class="p">,</span> <span class="n">tmax</span><span class="o">/</span><span class="n">h_e</span><span class="p">),...</span>
+                          <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;h for explicit solver = %.3f, %d steps&quot;</span><span class="p">,</span> <span class="n">h_e</span><span class="p">,</span> <span class="n">tmax</span><span class="o">/</span><span class="n">h_e</span><span class="p">),...</span>
                           <span class="s">&quot;horizontalalignment&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,...</span>
                           <span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">600</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
     
     <span class="n">fi</span><span class="p">.</span><span class="n">h_i_label</span> <span class="p">=</span> <span class="n">uicontrol</span> <span class="p">(</span><span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,...</span>
-                          <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;h for implicit solver = %.3f, %.0f steps&quot;</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">h_i</span><span class="p">,</span> <span class="n">tmax</span><span class="o">/</span><span class="n">fi</span><span class="p">.</span><span class="n">h_i</span><span class="p">),...</span>
+                          <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;h for implicit solver = %.3f, %d steps&quot;</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">h_i</span><span class="p">,</span> <span class="n">tmax</span><span class="o">/</span><span class="n">fi</span><span class="p">.</span><span class="n">h_i</span><span class="p">),...</span>
                           <span class="s">&quot;horizontalalignment&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,...</span>
                           <span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">600</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
                           
@@ -730,6 +746,12 @@ commentsRunWhenDOMLoaded(addUtterances);
                           <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;h_e = %.1f * h_lim (h_lim = 2/abs(lambda))&#39;</span><span class="p">,</span> <span class="n">h_e</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">lambda</span><span class="p">))),...</span>
                           <span class="s">&#39;horizontalalignment&#39;</span><span class="p">,</span><span class="s">&#39;left&#39;</span><span class="p">,...</span>
                           <span class="s">&#39;position&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
+                          
+    <span class="n">fi</span><span class="p">.</span><span class="n">g</span> <span class="p">=</span> <span class="nb">substr</span><span class="p">(</span><span class="k">get</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">g_field</span><span class="p">,</span><span class="s">&#39;string&#39;</span><span class="p">),</span><span class="mi">6</span><span class="p">);</span>
+    <span class="n">fi</span><span class="p">.</span><span class="n">ydot</span> <span class="p">=</span> <span class="n">uicontrol</span> <span class="p">(</span><span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,...</span>
+                          <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;ODE: y&#39; = -%.1f (y - %s) + [%s]&#39;&quot;</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">lambda</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">g</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">g</span><span class="p">),...</span>
+                          <span class="s">&quot;horizontalalignment&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,...</span>
+                          <span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
     
     <span class="k">if</span> <span class="n">h_e</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">lambda</span><span class="p">))</span> <span class="o">&gt;</span><span class="p">=</span> <span class="mi">1</span>
       <span class="k">set</span> <span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">lambda_check_label</span><span class="p">,</span> <span class="s">&#39;foregroundcolor&#39;</span><span class="p">,</span> <span class="s">&#39;red&#39;</span><span class="p">);</span>
@@ -776,11 +798,16 @@ commentsRunWhenDOMLoaded(addUtterances);
                       <span class="s">&#39;value&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,...</span>
                       <span class="s">&#39;callback&#39;</span><span class="p">,@</span><span class="n">updatefig</span><span class="p">,...</span>
                       <span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
+                      
+<span class="n">fi</span><span class="p">.</span><span class="n">g_label</span> <span class="p">=</span> <span class="n">uicontrol</span> <span class="p">(</span><span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,...</span>
+                      <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;g(t) = &quot;</span><span class="p">),...</span>
+                      <span class="s">&quot;horizontalalignment&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,...</span>
+                      <span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
 
 <span class="n">fi</span><span class="p">.</span><span class="n">g_field</span> <span class="p">=</span> <span class="n">uicontrol</span><span class="p">(</span><span class="s">&#39;style&#39;</span><span class="p">,</span><span class="s">&#39;edit&#39;</span><span class="p">,...</span>
                       <span class="s">&#39;string&#39;</span><span class="p">,</span><span class="s">&#39;@(t) cos(t)&#39;</span><span class="p">,...</span>
                       <span class="s">&#39;callback&#39;</span><span class="p">,@</span><span class="n">updatefig</span><span class="p">,...</span>
-                      <span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
+                      <span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mi">1050</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
                       
 <span class="k">set</span> <span class="p">(</span><span class="nb">gcf</span><span class="p">,</span> <span class="s">&quot;color&quot;</span><span class="p">,</span> <span class="k">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;defaultuicontrolbackgroundcolor&quot;</span><span class="p">))</span>
 <span class="n">guidata</span><span class="p">(</span><span class="nb">gcf</span><span class="p">,</span><span class="n">fi</span><span class="p">);</span>
@@ -837,11 +864,16 @@ commentsRunWhenDOMLoaded(addUtterances);
                       <span class="s">&#39;value&#39;</span><span class="p">,</span><span class="mi">2</span><span class="p">,...</span>
                       <span class="s">&#39;callback&#39;</span><span class="p">,@</span><span class="n">updatefig</span><span class="p">,...</span>
                       <span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mi">150</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
+                      
+<span class="n">fi</span><span class="p">.</span><span class="n">g_label</span> <span class="p">=</span> <span class="n">uicontrol</span> <span class="p">(</span><span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,...</span>
+                      <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;g(t) = &quot;</span><span class="p">),...</span>
+                      <span class="s">&quot;horizontalalignment&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,...</span>
+                      <span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
 
 <span class="n">fi</span><span class="p">.</span><span class="n">g_field</span> <span class="p">=</span> <span class="n">uicontrol</span><span class="p">(</span><span class="s">&#39;style&#39;</span><span class="p">,</span><span class="s">&#39;edit&#39;</span><span class="p">,...</span>
                       <span class="s">&#39;string&#39;</span><span class="p">,</span><span class="s">&#39;@(t) cos(t)&#39;</span><span class="p">,...</span>
                       <span class="s">&#39;callback&#39;</span><span class="p">,@</span><span class="n">updatefig</span><span class="p">,...</span>
-                      <span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
+                      <span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mi">1050</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
                       
 <span class="k">set</span> <span class="p">(</span><span class="nb">gcf</span><span class="p">,</span> <span class="s">&quot;color&quot;</span><span class="p">,</span> <span class="k">get</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s">&quot;defaultuicontrolbackgroundcolor&quot;</span><span class="p">))</span>
 <span class="n">guidata</span><span class="p">(</span><span class="nb">gcf</span><span class="p">,</span><span class="n">fi</span><span class="p">);</span>
@@ -883,7 +915,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="c">%% time scale</span>
     <span class="n">tmin</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="n">tmax</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">tspan</span> <span class="p">=</span> <span class="n">tmin</span><span class="p">:</span><span class="mf">0.1</span><span class="p">:</span><span class="n">tmax</span><span class="p">;</span>
+    <span class="n">tspan</span> <span class="p">=</span> <span class="n">tmin</span><span class="p">:</span><span class="mf">0.01</span><span class="p">:</span><span class="n">tmax</span><span class="p">;</span>
     
     <span class="c">%% base function g</span>
     <span class="n">g0</span> <span class="p">=</span> <span class="n">fi</span><span class="p">.</span><span class="n">fcn_g</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
@@ -936,6 +968,12 @@ commentsRunWhenDOMLoaded(addUtterances);
                           <span class="s">&#39;string&#39;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&#39;h_e = %.1f * h_lim (h_lim = 2/abs(lambda))&#39;</span><span class="p">,</span> <span class="n">h_e</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">lambda</span><span class="p">))),...</span>
                           <span class="s">&#39;horizontalalignment&#39;</span><span class="p">,</span><span class="s">&#39;left&#39;</span><span class="p">,...</span>
                           <span class="s">&#39;position&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">30</span><span class="p">]);</span>
+                          
+    <span class="n">fi</span><span class="p">.</span><span class="n">g</span> <span class="p">=</span> <span class="n">extractAfter</span><span class="p">(</span><span class="k">get</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">g_field</span><span class="p">,</span><span class="s">&#39;string&#39;</span><span class="p">),</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">fi</span><span class="p">.</span><span class="n">ydot</span> <span class="p">=</span> <span class="n">uicontrol</span> <span class="p">(</span><span class="s">&quot;style&quot;</span><span class="p">,</span> <span class="s">&quot;text&quot;</span><span class="p">,...</span>
+                          <span class="s">&quot;string&quot;</span><span class="p">,</span> <span class="nb">sprintf</span><span class="p">(</span><span class="s">&quot;ODE: y&#39; = -%.1f (y - %s) + [%s]&#39;&quot;</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">lambda</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">g</span><span class="p">,</span> <span class="n">fi</span><span class="p">.</span><span class="n">g</span><span class="p">),...</span>
+                          <span class="s">&quot;horizontalalignment&quot;</span><span class="p">,</span> <span class="s">&quot;left&quot;</span><span class="p">,...</span>
+                          <span class="s">&quot;position&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">30</span><span class="p">]);</span>
     
     <span class="k">if</span> <span class="n">h_e</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">lambda</span><span class="p">))</span> <span class="o">&gt;</span><span class="p">=</span> <span class="mi">1</span>
       <span class="k">set</span> <span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">lambda_check_label</span><span class="p">,</span> <span class="s">&#39;foregroundcolor&#39;</span><span class="p">,</span> <span class="s">&#39;red&#39;</span><span class="p">);</span>
