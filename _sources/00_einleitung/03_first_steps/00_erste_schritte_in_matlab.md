@@ -8,6 +8,7 @@
 :width: 200px
 :align: center
 ```
+<div style="text-align: right"> "Matlab Logo", <a href="https://commons.wikimedia.org/wiki/User:Jarekt" >Jarekt</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:Matlab_Logo.png">Wikimedia Commons</a></div> <br>
 
 Die Sprache wird von [The Mathworks Inc.](https://de.wikipedia.org/wiki/The_MathWorks) entwickelt. Dieses Unternehmen vertreibt kommerziell die gleichnamige Entwicklungsumgebung und den gleichnamigen Interpreter.
 
