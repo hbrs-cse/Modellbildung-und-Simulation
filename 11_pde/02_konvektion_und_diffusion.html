@@ -88,7 +88,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Verkehrssimulation mit finiten Volumen" href="02_trafficPDE.html" />
+    <link rel="next" title="Verkehrssimulation mit finiten Volumen" href="03_trafficPDE.html" />
+    <link rel="prev" title="Modellierung einer Highline - Die Lösung als PDE" href="01_modellierung_einer_highline_dynamisch_pde.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -459,14 +460,14 @@ commentsRunWhenDOMLoaded(addUtterances);
      Modellierung einer Highline - Die Lösung als PDE
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_trafficPDE.html">
-     Verkehrssimulation mit finiten Volumen
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_trafficPDE.html">
+     Verkehrssimulation mit finiten Volumen
     </a>
    </li>
   </ul>
@@ -512,7 +513,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/11_pde/03_konvektion_und_diffusion.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/11_pde/02_konvektion_und_diffusion.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -529,7 +530,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/11_pde/03_konvektion_und_diffusion.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/11_pde/02_konvektion_und_diffusion.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -549,7 +550,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/11_pde/03_konvektion_und_diffusion.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/11_pde/02_konvektion_und_diffusion.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -580,13 +581,26 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2">
-   Aufgabe 2
+  <a class="reference internal nav-link" href="#aufgabe-2-programmierung">
+   Aufgabe 2: Programmierung
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zusatzaufgabe">
-   Zusatzaufgabe
+  <a class="reference internal nav-link" href="#aufgabe-3-cfl-grenzwert">
+   Aufgabe 3: CFL Grenzwert
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-4-zeitabhangige-flieszgeschwindigkeit-c-t">
+   Aufgabe 4: Zeitabhängige Fließgeschwindigkeit
+   <span class="math notranslate nohighlight">
+    \(c(t)\)
+   </span>
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusatzaufgabe-vermeidung-numerischer-oszillationen">
+   Zusatzaufgabe: Vermeidung numerischer Oszillationen
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -663,8 +677,8 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 </li>
 </ol>
 </div>
-<div class="section" id="aufgabe-2">
-<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aufgabe-2-programmierung">
+<h2>Aufgabe 2: Programmierung<a class="headerlink" href="#aufgabe-2-programmierung" title="Permalink to this headline">¶</a></h2>
 <p>Schreiben Sie ein Matlab-Programm, das die Gleichung <a class="reference internal" href="#equation-convection-diffusion">(1)</a> für ein beliebiges Zeitinterval <span class="math notranslate nohighlight">\([t_0, t_1]\)</span> und Ortsintervall <span class="math notranslate nohighlight">\([x_0, x_1]\)</span> mit zeitlich konstanten Dirichlet-Randbedingungen <span class="math notranslate nohighlight">\(\rho(x_0, t) = \rho_a, \rho(x_N, t) = \rho_b\)</span> löst. Implementieren Sie sowohl das explizite Euler-Verfahren als auch das Crank-Nicolson-Verfahren.</p>
 <p>Visualisieren Sie die Lösung mit Hilfe einer Animation. Unten sehen Sie eine Beispiellösung.</p>
 <div class="warning admonition">
@@ -672,8 +686,12 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 <p>Beachten Sie bei der Wahl der Diskretisierung die <a class="reference external" href="https://de.wikipedia.org/wiki/CFL-Zahl">Courant-Friedrichs-Lewy-Zahl</a>.</p>
 </div>
 </div>
-<div class="section" id="zusatzaufgabe">
-<h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aufgabe-3-cfl-grenzwert">
+<h2>Aufgabe 3: CFL Grenzwert<a class="headerlink" href="#aufgabe-3-cfl-grenzwert" title="Permalink to this headline">¶</a></h2>
+<p>Prüfen Sie, für welche CFL-Zahl das explizite Euler-Verfahren nicht mehr funktioniert. Stellen Sie durch Ausprobieren auf 2 Nachkommastellen fest, wo der Grenzwert ist. Der Wert liegt vermutlich zwischen 0.1 und 1. Stellen Sie Ihren Code so ein, dass die CFL-Zahl direkt von Ihnen - auf einen klein genugen Wert - festgelegt werden kann.</p>
+</div>
+<div class="section" id="aufgabe-4-zeitabhangige-flieszgeschwindigkeit-c-t">
+<h2>Aufgabe 4: Zeitabhängige Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span><a class="headerlink" href="#aufgabe-4-zeitabhangige-flieszgeschwindigkeit-c-t" title="Permalink to this headline">¶</a></h2>
 <p>Erweitern Sie ihr Programm, so dass der Nutzer eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben kann. Passen Sie gegebenenfalls die Schrittweite an, um die CFL-Zahl einzuhalten.</p>
 <p>Ihre Lösungen können beispielsweise für das Parameterset</p>
 <ul class="simple">
@@ -692,6 +710,17 @@ so aussehen (nur jeder 50. Zeitschritt wurde ausgegeben):</p></li>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Die Parameter sind so gewählt, dass die physikalischen Effekte in der graphischen Ausgabe wahrnehmbar ist. Realistischer wären Parameter wie <span class="math notranslate nohighlight">\(c = 22.88 + 1.58\cdot\sin(2\cdot\pi \,t/\text{s}) \,\frac{\text{cm}}{\text{s}}\)</span> (vgl. <span id="id1">[<a class="reference internal" href="#id3">MMDKS17</a>]</span>), <span class="math notranslate nohighlight">\(a\)</span> in der Größenordnung <span class="math notranslate nohighlight">\(10^{-9}\)</span> (vgl. <a class="reference external" href="https://de.wikipedia.org/wiki/Diffusionskoeffizient">Wikipedia</a>), Strecken in der Größenordnung <span class="math notranslate nohighlight">\(\text{cm}\)</span> und ein Puls von 60-80, statt wie hier 120.</p>
+</div>
+</div>
+<div class="section" id="zusatzaufgabe-vermeidung-numerischer-oszillationen">
+<h2>Zusatzaufgabe: Vermeidung numerischer Oszillationen<a class="headerlink" href="#zusatzaufgabe-vermeidung-numerischer-oszillationen" title="Permalink to this headline">¶</a></h2>
+<p>Für <span class="math notranslate nohighlight">\(a \ll 1\)</span> (hier <span class="math notranslate nohighlight">\(a=0.01\)</span>) hängen sich unabhängig von der Lösungsmethode hinter dem “Hauptstrom” Oszillationen an:</p>
+<a class="reference internal image-reference" href="../_images/blood_animated_a001.gif"><img alt="blood_animated_a001" class="align-center" src="../_images/blood_animated_a001.gif" style="width: 800px;" /></a>
+<p>Der Ursprung dieser Oszillationen liegt in der Numerik: Die Steilheit der linken Flanke führt dazu, dass die Dichte unter- und später überschätzt wird. Dies lässt sich auch mit einem Differenzenquotienten höherer Ordnung für den Diffusionsanteil nicht lösen. Eine dagegen einfache Abhilfe ist die Verwendung von mehr Ortsschritten (hier <span class="math notranslate nohighlight">\(x_n = 500\)</span> statt <span class="math notranslate nohighlight">\(100\)</span>):</p>
+<a class="reference internal image-reference" href="../_images/blood_animated_a001_xn500.gif"><img alt="blood_animated_a001_xn500" class="align-center" src="../_images/blood_animated_a001_xn500.gif" style="width: 800px;" /></a>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Weiterführend können Sie sich über ENO (Essentially Non-Oscillatory) Methoden informieren. Diese sind speziell dafür entwickelt, numerische Oszillationen zu vermeiden. Ein Beispiel für eine ENO Methode finden Sie in <a class="reference internal" href="03_trafficPDE.html#content-references-pdes-traffic"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a>.</p>
 </div>
 </div>
 <div class="section" id="literatur">
@@ -735,14 +764,23 @@ so aussehen (nur jeder 50. Zeitschritt wurde ausgegeben):</p></li>
 <div class='prev-next-bottom'>
     
     <div id="prev">
-        <a class="left-prev" href="02_trafficPDE.html" title="previous page">
+        <a class="left-prev" href="01_modellierung_einer_highline_dynamisch_pde.html" title="previous page">
             <i class="prevnext-label fas fa-angle-left"></i>
             <div class="prevnext-info">
                 <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Verkehrssimulation mit finiten Volumen</p>
+                <p class="prevnext-title">Modellierung einer Highline - Die Lösung als PDE</p>
             </div>
         </a>
     </div>
+     <div id="next">
+        <a class="right-next" href="03_trafficPDE.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">Verkehrssimulation mit finiten Volumen</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
 
 </div>
         
