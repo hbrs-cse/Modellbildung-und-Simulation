@@ -63,6 +63,6 @@ chapters:
 - file: 11_pde/00_partielle_differentialgleichungen
   sections:
   - file: 11_pde/01_modellierung_einer_highline_dynamisch_pde
-  - file: 11_pde/02_trafficPDE
-  - file: 11_pde/03_konvektion_und_diffusion
+  - file: 11_pde/02_konvektion_und_diffusion
+  - file: 11_pde/03_trafficPDE
 
