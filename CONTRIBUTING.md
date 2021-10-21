@@ -131,7 +131,7 @@ This format also accepts internet links to images instead of `path/to/image.png`
 
 #### Licensing of images
 
-When using licensed images whe have to credit this. For license statements it is obligatory to mention information in the sense of the [TULLU-rule](https://open-educational-resources.de/oer-tullu-regel/). 
+When using licensed images we have to credit this. It is obligatory to mention information based on the [TULLU-Rule](https://open-educational-resources.de/oer-tullu-regel/). 
 Here is our scheme for license information and an example from our Book. These code block are placed below the embedded image.
 ```
 <div style="text-align: right"> "Title (if available)", <a href="Link to author (if available)" >Author</a>, <a href="Link to license type" >[License (incl. version)]</a> via <a href="Link to original" >Place of origin</a></div> <br>
