@@ -131,12 +131,13 @@ This format also accepts internet links to images instead of `path/to/image.png`
 
 #### Licensing of images
 
-When using licensed images whe have to credit this. Often we can just copy the licensing from another page. Here are two examples from our Book. These code block are placed below the embedded image.
+When using licensed images whe have to credit this. For license statements it is obligatory to mention information in the sense of the [TULLU-rule](https://open-educational-resources.de/oer-tullu-regel/). 
+Here is our scheme for license information and an example from our Book. These code block are placed below the embedded image.
 ```
-<div style="text-align: right"><a href="https://commons.m.wikimedia.org/wiki/File:A_glass_of_red_wine.jpg" > [CC BY-SA 2.0], via Wikimedia Commons </a></div>
+<div style="text-align: right"> "Title (if available)", <a href="Link to author (if available)" >Author</a>, <a href="Link to license type" >[License (incl. version)]</a> via <a href="Link to original" >Place of origin</a></div> <br>
 ```
 ```
-<div style="text-align: right"><a href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg" > James Gathany/CDC, Public domain, via Wikimedia Commons </a></div>
+<div style="text-align: right"> "Bremsvorgang", <a href="https://commons.wikimedia.org/wiki/User:Stefan-Xp" >Stefan-Xp</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Bremsvorgang.svg" >Wikimedia Commons</a></div> <br>
 ```
 
 #### Special content boxes and admonitions
