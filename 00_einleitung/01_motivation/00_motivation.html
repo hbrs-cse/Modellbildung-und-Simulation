@@ -751,15 +751,44 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <li><p><span class="math notranslate nohighlight">\(f'(x_0)=0\)</span> und <span class="math notranslate nohighlight">\(f''(x_0)&gt;0\)</span>, dann hat <span class="math notranslate nohighlight">\(f\)</span> dort ein <em>lokales Minimum</em>.</p></li>
 </ol>
 </div>
-<p>Für die Gleichung setzen wir also <span class="math notranslate nohighlight">\(F' = 0\)</span> und <span class="math notranslate nohighlight">\(F'' &lt; 0\)</span>. <span class="math notranslate nohighlight">\(F'\)</span> erhalten wir mit der Quotientenregel:</p>
+<p>Für die Gleichung setzen wir also <span class="math notranslate nohighlight">\(F' = 0\)</span> und es muss gelten <span class="math notranslate nohighlight">\(F'' &lt; 0\)</span>. <br>
+Die Berechnung von <span class="math notranslate nohighlight">\(F'(v)\)</span> finden Sie hier zum Aufklappen (Click to show)!</p>
+<div class="toggle docutils container">
+<p><span class="math notranslate nohighlight">\(F'\)</span> erhalten wir mit der Quotientenregel:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-F'(v) = \frac{\left(4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\right) - v \cdot \frac{2\cdot v\cdot (3.6\,\text{s})^2}{100\,\text{m}}}{\left(4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\right)^2} &amp;= 0 \\
-\rightarrow 4.5 \,\text{m} - \frac{(3.6\,\text{s})^2}{100\,\text{m}} v^2 &amp;= 0 \\
-\rightarrow v_{1/2} &amp;= \pm \sqrt{\frac{450\,\text{m}^2}{(3.6\,\text{s})^2}} = \pm 5.89 \,\frac{\text{m}}{\text{s}}
+F'(v) &amp;= \frac{\left(4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\right) - v \cdot \frac{2\cdot v\cdot (3.6\,\text{s})^2}{100\,\text{m}}}{\left(4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\right)^2} = 0 \\
+&amp;\Rightarrow 4.5 \,\text{m} + \frac{(3.6\,\text{s})^2}{100\,\text{m}} v^2 - \frac{(3.6\,\text{s})^2}{100\,\text{m}} 2v^2 = 0 \\
+&amp;\Rightarrow 4.5 \,\text{m} - \frac{(3.6\,\text{s})^2}{100\,\text{m}} v^2 = 0 \\
+&amp;\Rightarrow v^2 = \frac{4.5 \,\text{m}} {\frac{(3.6\,\text{s})^2}{100\,\text{m}}} \\
 \end{align}
 \end{split}\]</div>
+</div>
+<p>Somit ergibt sich:</p>
+<div class="math notranslate nohighlight">
+\[
+\begin{align}
+\Rightarrow v_{1/2} &amp;= \pm \sqrt{\frac{450\,\text{m}^2}{(3.6\,\text{s})^2}} = \pm 5.89 \,\frac{\text{m}}{\text{s}}
+\end{align}
+\]</div>
+<p>Die Berechnung von <span class="math notranslate nohighlight">\(F''(v)\)</span> finden Sie hier ebenfalls zum Aufklappen!</p>
+<div class="toggle docutils container">
+<p><span class="math notranslate nohighlight">\(F''\)</span> erhalten wir ebenfalls mit der Quotientenregel und zusätzlich der Kettenregel:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+F''(v) &amp;= \frac{d}{dv} \left[ \frac{4.5 - \frac{(3.6)^2}{100} v^2 }{ \left(4.5 + \frac{(v\cdot 3.6)^2}{100}\right)^2 } \right]  \\
+&amp;= \frac{d}{dv} \left[ \frac{ 45000-1296 \cdot v^2 }{ (450+12.96 \cdot v^2)^2 }  \right]  \\
+&amp;= \frac{ -1296\cdot2v (450+12.96 v^2)^2 - (45000-1296 v^2) \cdot2 (450+12.96 v^2) \cdot 12.96 \cdot 2v }{ (450+12.96 v^2)^4 }  \\
+&amp;= \frac{-2592v (450+12.96 v^2) - (45000-1296 v^2) \cdot 51.84v }{ (450+12.96 v^2)^3 } \\
+&amp;= \frac{ -1166400v - 33592.32 v^3 - 2332800v + 67184.64 v^3 }{ (450+12.96 v^2)^3 } \\
+&amp;= \frac{ -3499200v + 33592.32 v^3 }{ (450+12.96 v^2)^3 } \\
+\end{align}
+\end{split}\]</div>
+<p>Somit ergibt sich: <span class="math notranslate nohighlight">\(F''(5.89) = -0.019\)</span></p>
+</div>
+<br>
 <p>Prüfung mit <span class="math notranslate nohighlight">\(F''(v_1)\)</span> (<span class="math notranslate nohighlight">\(v_2\)</span> liegt außerhalb des Definitionsbereichs) zeigt, dass für <span class="math notranslate nohighlight">\(v_1 = +5.89\,\frac{\text{m}}{\text{s}} = +21.21 \,\frac{\text{km}}{\text{h}}\)</span> ein lokales Maximum vorliegt.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
@@ -803,12 +832,13 @@ Fmax = 0.6547
 <div class="math notranslate nohighlight">
 \[F(v) = \frac{v}{4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}}\]</div>
 <div class="math notranslate nohighlight">
-\[F'(v) = \frac{\left(4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}\right) - v \cdot \frac{3.6 \,\text{s}}{2}}{\left(4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}\right)^2} = 0 \rightarrow 4.5\,\text{m} = 0\]</div>
+\[F'(v) = \frac{\left(4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}\right) - v \cdot \frac{3.6 \,\text{s}}{2}}{\left(4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}\right)^2} = 0 \Rightarrow 4.5\,\text{m} = 0\]</div>
 <p><span class="math notranslate nohighlight">\(F\)</span> hat also keine <em>lokalen Extrema</em>. Die Überprüfung der Randstellen liefert</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(F(0)=0\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\lim_{v\to\infty}{F(v)}=\lim_{v\to\infty}{\frac{v}{4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}}} \to 0.555 \frac{\text{Fahrzeuge}}{\text{s}} = 2000 \frac{\text{Fahrzeuge}}{\text{h}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{v\to\infty}{F(v)}=\lim_{v\to\infty}{\frac{v}{4.5\,\text{m} + \frac{v\cdot 3.6 \,\text{s}}{2}}} = 0.555 \frac{\text{Fahrzeuge}}{\text{s}} = 2000 \frac{\text{Fahrzeuge}}{\text{h}}\)</span></p></li>
 </ol>
+<p>Der Grenzwert bei 2. wird anhand der Regel von Bernoulli-L’Hospital berechnet.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% graphische Darstellung von F(v) für beide Abstandsmodelle</span>
@@ -849,8 +879,9 @@ Bisher wird beim Sicherheitsabstand so getan, als ob im Bremsfall der Vorfahrend
 </ol>
 <a class="reference internal image-reference" href="../../_images/Bremsvorgang.svg"><img alt="Quelle: Wikipedia" class="align-center" src="../../_images/Bremsvorgang.svg" width="600px" /></a>
 <div style="text-align: right"> "Bremsvorgang", <a href="https://commons.wikimedia.org/wiki/User:Stefan-Xp" >Stefan-Xp</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Bremsvorgang.svg" >Wikimedia Commons</a></div> <br>
-<p>Wenn man beides berücksichtigt, ergibt sich mit Hilfe der Reaktionszeit <span class="math notranslate nohighlight">\(t_\text{R}\)</span> und der Verzögerung <span class="math notranslate nohighlight">\(a\)</span> als neuer Sicherheitsabstand <span class="math notranslate nohighlight">\(s\)</span>:
-$<span class="math notranslate nohighlight">\(s = s(v,a_{\text{selbst}},a_{\text{VF}},t_\text{R})=v\cdot t_\text{R} + \frac{v^2}{2\cdot a_{\text{selbst}}} - \frac{v^2}{2\cdot a_{\text{VF}}}\)</span>$</p>
+<p>Wenn man beides berücksichtigt, ergibt sich mit Hilfe der Reaktionszeit <span class="math notranslate nohighlight">\(t_\text{R}\)</span> und der Verzögerung <span class="math notranslate nohighlight">\(a\)</span> als neuer Sicherheitsabstand <span class="math notranslate nohighlight">\(s\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[s = s(v,a_{\text{selbst}},a_{\text{VF}},t_\text{R})=v\cdot t_\text{R} + \frac{v^2}{2\cdot a_{\text{selbst}}} - \frac{v^2}{2\cdot a_{\text{VF}}}\]</div>
 <p>Wieder müssen wir mit Nebenbedingungen (hier: Konstanten) das Problem vereinfachen:</p>
 <ol class="simple">
 <li><p><span class="math notranslate nohighlight">\(t_\text{R}=1 \text{ s}\)</span></p></li>
@@ -912,7 +943,7 @@ bestv = 20
 <li><p>Gültigkeits- und Randstellen-Prüfung</p></li>
 </ol>
 <p>Außerdem haben wir eine wichtige Lektion gelernt:</p>
-<p><em><strong>Für eine gute Simulation ist ein Bewusstsein für die Modellannahmen entscheident.</strong></em></p>
+<p><em><strong>Für eine gute Simulation ist ein Bewusstsein für die Modellannahmen entscheidend.</strong></em></p>
 </div>
 <div class="section" id="ausblick">
 <h2>Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
