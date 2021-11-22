@@ -1,5 +1,6 @@
-file: intro
-sections:
+format: jb-book
+root: intro
+chapters:
 - file: 00_einleitung/00_einleitung
   sections:
   - file: 00_einleitung/01_motivation/00_motivation
@@ -38,6 +39,7 @@ sections:
   - file: 07_num_ode/01_simulation_eines_raketenstarts
   - file: 07_num_ode/02_stabilitaet_eulerverfahren
   - file: 07_num_ode/03_modellierung_einer_highline_dynamisch
+  - file: 07_num_ode/04_mass-spring-mass
 - file: 08_eigenwerte/00_eigenwertprobleme
   sections:
   - file: 08_eigenwerte/01_das_qr_verfahren
@@ -56,6 +58,7 @@ sections:
 - file: 11_pde/00_partielle_differentialgleichungen
   sections:
   - file: 11_pde/01_modellierung_einer_highline_dynamisch_pde
+<<<<<<< HEAD
   - file: 11_pde/02_trafficPDE
   - file: 11_pde/03_konvektion_und_diffusion
 - file: 12_matlab/00_MATLAB_introduction
@@ -77,3 +80,8 @@ sections:
     - file: 12_matlab/05_matlab_videos/09_exercise9
     - file: 12_matlab/05_matlab_videos/10_exercise10
     - file: 12_matlab/05_matlab_videos/11_extra
+=======
+  - file: 11_pde/02_konvektion_und_diffusion
+  - file: 11_pde/03_trafficPDE
+
+>>>>>>> master
