@@ -616,13 +616,15 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="section" id="harmonische-schwingung">
 <h1>Harmonische Schwingung<a class="headerlink" href="#harmonische-schwingung" title="Permalink to this headline">¶</a></h1>
-<p>Unter einer harmonischen Schwingung versteht man eine Schwingung, die vollständig mit der Sinus- bzw. Kosinusfunktion beschrieben werden kann:
-<span class="math notranslate nohighlight">\(y(t) = \hat y \cdot \sin \left( {\omega  \cdot t} \right)\)</span></p>
+<p>Unter einer harmonischen Schwingung versteht man eine Schwingung, die vollständig mit der Sinus- bzw. Kosinusfunktion beschrieben werden kann. Dazu gehört das einfache Fadenpendel, das trotz der starken Vereinfachung eine gute Vorstellung davon gibt, mit welchen mathematischen Problemstellungen Ingenieur:innen in der Praxis oft konfrontiert werden. Oft haben die Differentialgleichungen eine Lösung der Form</p>
+<div class="math notranslate nohighlight">
+\[y(t) = y_0 \cdot \sin \left( {\omega  \cdot t} \right).\]</div>
 <div class="section" id="aufgabe-1-fadenpendel">
 <h2>Aufgabe 1: Fadenpendel<a class="headerlink" href="#aufgabe-1-fadenpendel" title="Permalink to this headline">¶</a></h2>
 <p>Nutzen Sie Matlab/Octave, um das Verhalten eines Fadenpendels zu simulieren.
 Stellen Sie dazu zunächst mit Stift und Papier die zu lösende Differentialgleichung auf.</p>
-<p><em><strong>Tipp:</strong></em> Vielleicht hilft Ihnen eine Skizze und die Energieerhaltung bei der Herleitung!</p>
+<p><em><strong>Tipp:</strong></em> Vielleicht hilft Ihnen die Energieerhaltung oder das dynamische Kräftegleichgewicht (D’Alembert) bei der Herleitung!</p>
+<a class="reference internal image-reference" href="../_images/pendulum.png"><img alt="Name of image" class="align-center" src="../_images/pendulum.png" style="width: 400px;" /></a>
 <p>Nun stehen wir vor der Herausforderung ein zeitkontinuierliches Problem mit unseren endlichen Ressourcen zu lösen! Wie gelingt uns dies? Und wie können wir eine diskrete Zeit in Matlab ausdrücken?</p>
 <p><em><strong>Tipp:</strong></em> Vielleicht kommen wir mit <a class="reference external" href="https://de.mathworks.com/help/matlab/ref/linspace.html">dieser Funktion</a> einen Schritt näher?</p>
 <p>Nun können wir unser Problem Matlab/Octave mitteilen. Dazu geben wir zunächst allen Variablen und konstanten Größen einen Wert:</p>
