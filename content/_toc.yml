@@ -23,6 +23,7 @@ chapters:
 - file: 02_gleitkommaarithmetik/00_gleitkommaarithmetik
   sections:
   - file: "02_gleitkommaarithmetik/01_\xFCbungen"
+  - file: 02_gleitkommaarithmetik/02_taylor
 - file: 03_interp_approx/00_interpolation_Und_approximation
   sections:
   - file: 03_interp_approx/01_lineare_interpolation
