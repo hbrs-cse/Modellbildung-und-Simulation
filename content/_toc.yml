@@ -40,7 +40,8 @@ chapters:
   - file: 06_Differentiation_Integration/01_differentiation
   - file: 06_Differentiation_Integration/02_integration_and_stepcontrol
   - file: 06_Differentiation_Integration/03_integration_RK
-  - file: 06_Differentiation_Integration/04_integration_RK_evaluation
+  - file: 06_Differentiation_Integration/04_integration_implicit
+  - file: 06_Differentiation_Integration/05_integration_RK_evaluation
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
   sections:
   - file: 07_num_ode/01_simulation_eines_raketenstarts
