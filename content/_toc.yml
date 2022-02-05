@@ -41,14 +41,16 @@ chapters:
   - file: 06_Differentiation_Integration/02_integration_and_stepcontrol
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
   sections:
-  - file: 07_num_ode/01_integration_RK
-  - file: 07_num_ode/02_integration_implicit
-  - file: 07_num_ode/03_integration_RK_evaluation
-  - file: 07_num_ode/04_adaptive_steps
-  - file: 07_num_ode/05_simulation_eines_raketenstarts
-  - file: 07_num_ode/06_stabilitaet_eulerverfahren
-  - file: 07_num_ode/07_modellierung_einer_highline_dynamisch
-  - file: 07_num_ode/08_mass-spring-mass
+  - file: 07_num_ode/01_intro_RK/00_intro_RK
+    sections:
+    - file: 07_num_ode/01_intro_RK/01_integration_RK
+    - file: 07_num_ode/01_intro_RK/02_integration_implicit
+    - file: 07_num_ode/01_intro_RK/03_integration_RK_evaluation
+    - file: 07_num_ode/01_intro_RK/04_adaptive_steps
+  - file: 07_num_ode/02_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts
+  - file: 07_num_ode/03_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren
+  - file: 07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch
+  - file: 07_num_ode/05_mass-spring-mass/00_mass-spring-mass
 - file: 08_eigenwerte/00_eigenwertprobleme
   sections:
   - file: 08_eigenwerte/01_das_qr_verfahren
