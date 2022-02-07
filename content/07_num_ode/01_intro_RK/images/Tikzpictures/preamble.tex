@@ -1,0 +1,103 @@
+% load the "Hochschule Bonn-Rhein-Sieg" beamer theme
+%\usetheme{HBRS}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% packages (some, like tikz, are already loaded with the HBRS theme)
+
+%Fonts and encoding:
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+%used for the newdateformat command
+\usepackage{datetime}
+
+%multimedia support (!! depends on pdf viewer !!)
+\usepackage{media9}
+
+%floating point operations
+\usepackage{fp}
+
+%"TikZ ist kein Zeichenprogramm"
+\usepackage{tikz}
+\usetikzlibrary{arrows,
+		calc,
+		patterns,
+		fit,
+		external}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+		
+%electric circuits using tikz
+\usepackage[europeanvoltages]{circuitikz}
+		
+		
+\usepackage{color,colortbl}
+\definecolor{darkgreen}{rgb}{.0,.5,.0} 
+\definecolor{lightgray}{rgb}{.8,.8,.8} 
+\definecolor{lightgreen}{rgb}{.514,.804,.737}
+
+\usepackage{tabularx}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\definecolor{darkgreen}{rgb}{0,0.67,0}
+\definecolor{DG}{rgb}{0.3,0.3,0.3}
+\definecolor{MG}{rgb}{0.6,0.6,0.6}
+\definecolor{LG}{rgb}{0.9,0.9,0.9}
+
+\usepackage[absolute]{textpos}
+
+
+\usepackage{listings}
+\definecolor{matlabgreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{matlablilas}{RGB}{170,55,241}
+\lstset{
+  language=Matlab,
+  emph=[1]{for,while,end,break,function},emphstyle=[1]\color{blue}, %some words to emphasise
+  commentstyle=\color{matlabgreen},
+  showstringspaces=false
+  }
+
+  
+  \usepackage{units} % for nicefrac
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title, subtitle,author,date and optional footlinetext
+
+\title{Modellbildung und Simulation 1}
+%\subtitle{Sommersemester 2019}
+\author{Jan Kleinert}
+\date{FB 03 -- EMT}
+
+%\footlinetext{%
+%\insertframenumber/\inserttotalframenumber%
+%\newline%
+%ModSim1, Jan Kleinert%
+%\newline%
+%Sommersemester 2019%
+%}
+ 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% qr code (default units for width/height are inches) 
+\usepackage{qrcode}
+
+\makeatletter 
+\newcommand{\qr}[2]{% 
+\href{#2}{% 
+\begin{tikzpicture} 
+\node [rectangle,draw=HBRSblue,rounded corners=5pt, line width=2pt, fill=HBRSlightgray]{%
+\qrcode{#2}% 
+\begin{tabular}{l} \textcolor{HBRSblue}{#1}\\\\
+\footnotesize{\texttt{\textcolor{HBRSblue}{#2}}} 
+\end{tabular} 
+}; 
+\end{tikzpicture} 
+} 
+} 
+\makeatother
