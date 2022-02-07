@@ -1,7 +1,6 @@
 format: jb-book
 root: intro
 chapters:
-- file: Untitled
 - file: 00_einleitung/00_einleitung
   sections:
   - file: 00_einleitung/01_motivation/00_motivation
