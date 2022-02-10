@@ -3,6 +3,10 @@
 <details>
 <summary>## Project Goals</summary>
  
+The goal of the Modellbildung und Simulation Buchprojekt is to create a relatable, intuitive and application-oriented introduction to modelling and simulation with low entry barriers.
+ 
+Its focus are the basics of physical modelling and the mathematics and programming aspects of numerical simulation. 
+ 
 </details>
 
 <details>
