@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -88,7 +91,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Differentiation und Integration" href="../06_Differentiation_Integration/00_differentiation_und_integration.html" />
+    <link rel="next" title="Gewöhnliche Differentialgleichungen" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html" />
     <link rel="prev" title="Newton-Verfahren" href="01_newton-verfahren.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -290,8 +293,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
-   Lineare Gleichungssysteme
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -300,7 +303,29 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html">
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
+     Numerische Intergration mit Schrittweitensteuerung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html">
      Modellierung einer Highline
     </a>
    </li>
@@ -310,8 +335,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="00_nichtlineare_gleichungssysteme.html">
    Nichtlineare Gleichungssysteme
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -324,28 +349,6 @@ commentsRunWhenDOMLoaded(addUtterances);
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Bierschaumzerfall
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06_Differentiation_Integration/00_differentiation_und_integration.html">
-   Differentiation und Integration
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06_Differentiation_Integration/01_differentiation.html">
-     Numerische Differentiation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../06_Differentiation_Integration/02_integration_and_stepcontrol.html">
-     Numerische Intergration mit Schrittweitensteuerung
     </a>
    </li>
   </ul>
@@ -531,7 +534,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/05_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -548,7 +551,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/05_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -568,7 +571,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/05_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -1179,7 +1182,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
         },
         kernelOptions: {
             kernelName: "octave",
-            path: "./05_nichtlineare_gleichungen"
+            path: "./06_nichtlineare_gleichungen"
         },
         predefinedOutput: true
     }
@@ -1198,10 +1201,10 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
             <p class="prev-next-title">Newton-Verfahren</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../06_Differentiation_Integration/00_differentiation_und_integration.html" title="next page">
+    <a class='right-next' id="next-link" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Differentiation und Integration</p>
+        <p class="prev-next-title">Gewöhnliche Differentialgleichungen</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

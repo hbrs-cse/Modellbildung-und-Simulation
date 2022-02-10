@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -290,8 +293,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
-   Lineare Gleichungssysteme
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -300,15 +303,20 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html">
-     Modellierung einer Highline
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
+     Numerische Intergration mit Schrittweitensteuerung
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
-   Nichtlineare Gleichungssysteme
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -317,20 +325,15 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05_nichtlineare_gleichungen/01_newton-verfahren.html">
-     Newton-Verfahren
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05_nichtlineare_gleichungen/02_bierschaumzerfall.html">
-     Bierschaumzerfall
+    <a class="reference internal" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06_Differentiation_Integration/00_differentiation_und_integration.html">
-   Differentiation und Integration
+  <a class="reference internal" href="../06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
   <label for="toctree-checkbox-9">
@@ -339,13 +342,13 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_Differentiation_Integration/01_differentiation.html">
-     Numerische Differentiation
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_Differentiation_Integration/02_integration_and_stepcontrol.html">
-     Numerische Intergration mit Schrittweitensteuerung
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
     </a>
    </li>
   </ul>
@@ -674,7 +677,7 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="section" id="modellierung-einer-highline-zeitliche-auflosung">
 <span id="content-references-highline-dynamic"></span><h1>Modellierung einer Highline - Zeitliche Auflösung<a class="headerlink" href="#modellierung-einer-highline-zeitliche-auflosung" title="Permalink to this headline">¶</a></h1>
-<p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie unter <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-model-description-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
+<p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie unter <a class="reference internal" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html#content-references-model-description-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
 <div class="section" id="neu-die-dynamische-simulation">
 <h2>Neu: Die dynamische Simulation<a class="headerlink" href="#neu-die-dynamische-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Anstatt einen stationären Lastfall zu betrachten und so die Gleichung zu <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} =\mathbf{b}\)</span> zu vereinfachen, betrachten wir weiterhin die oben stehende Gleichung inklusive der Dämpfungsmatrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>. Die <span class="math notranslate nohighlight">\(L = 50 \text{ m}\)</span> lange Highline wird mit <span class="math notranslate nohighlight">\(N = 100\)</span> Elementen diskretisiert.</p>

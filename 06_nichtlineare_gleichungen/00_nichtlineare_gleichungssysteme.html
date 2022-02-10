@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Numerische Differentiation &#8212; Modellbildung und Simulation</title>
+    <title>Nichtlineare Gleichungssysteme &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -37,9 +37,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -76,8 +79,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -88,8 +89,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Numerische Intergration mit Schrittweitensteuerung" href="02_integration_and_stepcontrol.html" />
-    <link rel="prev" title="Differentiation und Integration" href="00_differentiation_und_integration.html" />
+    <link rel="next" title="Newton-Verfahren" href="01_newton-verfahren.html" />
+    <link rel="prev" title="Modellierung einer Highline" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -290,8 +291,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04_lineare_gleichungen/00_lineare_gleichungssysteme.html">
-   Lineare Gleichungssysteme
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
@@ -300,15 +301,20 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_lineare_gleichungen/01_modellierung_einer_highline.html">
-     Modellierung einer Highline
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
+     Numerische Intergration mit Schrittweitensteuerung
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
-   Nichtlineare Gleichungssysteme
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
   <label for="toctree-checkbox-8">
@@ -317,35 +323,30 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../05_nichtlineare_gleichungen/01_newton-verfahren.html">
-     Newton-Verfahren
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../05_nichtlineare_gleichungen/02_bierschaumzerfall.html">
-     Bierschaumzerfall
+    <a class="reference internal" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html">
+     Modellierung einer Highline
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_differentiation_und_integration.html">
-   Differentiation und Integration
+  <a class="current reference internal" href="#">
+   Nichtlineare Gleichungssysteme
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
   <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Numerische Differentiation
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_newton-verfahren.html">
+     Newton-Verfahren
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_integration_and_stepcontrol.html">
-     Numerische Intergration mit Schrittweitensteuerung
+    <a class="reference internal" href="02_bierschaumzerfall.html">
+     Bierschaumzerfall
     </a>
    </li>
   </ul>
@@ -531,9 +532,9 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/06_Differentiation_Integration/01_differentiation.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
+                data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
                 onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -548,7 +549,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/06_Differentiation_Integration/01_differentiation.ipynb"><button
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -563,49 +564,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 
             <!-- Launch buttons -->
 
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/06_Differentiation_Integration/01_differentiation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-1">
-   Aufgabe 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2">
-   Aufgabe 2
-  </a>
- </li>
-</ul>
-
-            </nav>
         </div>
     </div>
 </div>
@@ -613,93 +576,21 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Numerische Differentiation</h1>
+                <h1>Nichtlineare Gleichungssysteme</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-1">
-   Aufgabe 1
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#aufgabe-2">
-   Aufgabe 2
-  </a>
- </li>
-</ul>
-
-                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="section" id="numerische-differentiation">
-<h1>Numerische Differentiation<a class="headerlink" href="#numerische-differentiation" title="Permalink to this headline">¶</a></h1>
-<p>Um Ableitungen von Funktionen zu approximieren, die wir analytisch nicht berechnen können oder wollen, verwenden wir <strong>Differenzenquotienten</strong>. Im Wesentlichen unterscheiden wir zwischen</p>
-<ul class="simple">
-<li><p><em>Vorwärtsdifferenzen</em>, die für die Ableitung am Punkt x Funktionswerte größer als x mit einbeziehen, zum Beispiel <span class="math notranslate nohighlight">\(f'(x) \approx \frac{f(x+dx) - f(x)}{dx}\)</span>,</p></li>
-<li><p><em>Zentrale Differenzen</em>, die Funktionswerte größer und kleiner als x mit einbeziehen, zum Beispiel <span class="math notranslate nohighlight">\(f'(x) \approx \frac{f(x+dx) - f(x-dx)}{2 dx}\)</span>, und</p></li>
-<li><p><em>Rückwärtsdifferenzen</em>, die Funktionswerte kleiner als x mit einbeziehen, zum Beispiel <span class="math notranslate nohighlight">\(f'(x) \approx \frac{f(x) - f(x-dx)}{dx}\)</span>.</p></li>
-</ul>
-<p>Differenzenquotienten können für beliebig hohe Ableitungen gebildet werden. Der Fehler wird mit geringerer Schrittweite <span class="math notranslate nohighlight">\(dx\)</span> kleiner. Wie stark der Fehler kleiner wird, beschreibt die Fehlerordnung <span class="math notranslate nohighlight">\(\mathcal{O}\)</span>. Zum Beispiel ist für quadratische Fehlerordnung <span class="math notranslate nohighlight">\(\mathcal{O}(dx^2)\)</span>, also <span class="math notranslate nohighlight">\(dx_2 = \frac{dx_1}{2} \rightarrow \epsilon_2 = \frac{\epsilon_1}{2^2}\)</span> (eine Halbierung der Schrittweite <span class="math notranslate nohighlight">\(dx\)</span> führt zu einem Vierteln des Fehlers <span class="math notranslate nohighlight">\(\epsilon\)</span>).</p>
-<div class="admonition-hinweis admonition">
-<p class="admonition-title">Hinweis</p>
-<p>Anstelle von <span class="math notranslate nohighlight">\(dx\)</span> wird oft auch <span class="math notranslate nohighlight">\(h\)</span> als Symbol für die Schrittweite verwendet.</p>
-</div>
-<div class="section" id="aufgabe-1">
-<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<p>Stellen Sie eine Übersicht und Bewertung verschiedener Differenzenquotienten für verschiedene Ableitungen auf. Schreiben Sie dazu ein Skript, das für eine Auswahl von Funktionen die numerische Approximation an einigen Stellen mit Ihrer analytischen Lösung vergleicht. Suchen Sie sich einige Beispiele für Differenzenquotienten aus den Lehrunterlagen oder von <a class="reference external" href="https://de.wikipedia.org/wiki/Differenzenquotient">Wikipedia</a>.</p>
-<p>Beantworten Sie für einige Ableitungen erster und zweiter Ordnung die folgenden Fragen:</p>
-<ul class="simple">
-<li><p>Welche Funktionstypen lassen sich mit bestimmten Differenzenquotienten besonders gut lösen? Welche besonders schlecht?</p></li>
-<li><p>Wie teuer sind höhere Fehlerordnungen? Lohnen sich die zusätzlichen Funktionsauswertungen?</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%%your code here%%%</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="aufgabe-2">
-<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Lagern Sie Ihren Test so aus, dass Sie für beliebige Funktionen die eingegebene analytische Lösung mit der numerischen Lösung vergleichen können.</p></li>
-<li><p>Werten Sie anstatt für diskrete Werte für ganze Intervalle die durchschnittliche und die maximale Abweichung <code class="docutils literal notranslate"><span class="pre">meandiff</span></code>, <code class="docutils literal notranslate"><span class="pre">maxdiff</span></code> von der analytischen Lösung aus.</p></li>
-<li><p>Werten Sie die benötigte Zeit <code class="docutils literal notranslate"><span class="pre">time</span></code> und die Anzahl an Funktionsauswertungen <code class="docutils literal notranslate"><span class="pre">n</span></code> aus.</p></li>
-<li><p>Verringern Sie die Anzahl der Funktionsauswertungen, indem Sie diese wiederverwenden.</p></li>
-</ul>
-<div class="admonition-hinweis admonition">
-<p class="admonition-title">Hinweis</p>
-<p>Bei sehr komplexen Funktionen ist die Verringerung von Funktionsauswertungen entscheidend für die Performanz Ihres Programms.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% f is function</span>
-<span class="c">% g is first derivative</span>
-<span class="c">% h is second derivative</span>
-<span class="c">% t is relevant interval</span>
-<span class="c">% dx is stepsize</span>
-
-<span class="k">function</span><span class="w"> </span><span class="nf">[meandiff, maxdiff, time, n] = test</span><span class="p">(</span>f,g,h,t,dx<span class="p">)</span><span class="w"></span>
-<span class="nb">tic</span><span class="p">;</span>
-
-<span class="nb">time</span> <span class="p">=</span> <span class="nb">toc</span><span class="p">;</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</div>
-</div>
+  <div class="section" id="nichtlineare-gleichungssysteme">
+<h1>Nichtlineare Gleichungssysteme<a class="headerlink" href="#nichtlineare-gleichungssysteme" title="Permalink to this headline">¶</a></h1>
+<p>Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlineare Gleichungssysteme.</p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -712,33 +603,33 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "octave"
+            mode: "python"
         },
         kernelOptions: {
-            kernelName: "octave",
-            path: "./06_Differentiation_Integration"
+            kernelName: "python3",
+            path: "./06_nichtlineare_gleichungen"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'octave'</script>
+    <script>kernelName = 'python3'</script>
 
               </div>
               
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="00_differentiation_und_integration.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../05_lineare_gleichungen/01_modellierung_einer_highline.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Differentiation und Integration</p>
+            <p class="prev-next-title">Modellierung einer Highline</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02_integration_and_stepcontrol.html" title="next page">
+    <a class='right-next' id="next-link" href="01_newton-verfahren.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Numerische Intergration mit Schrittweitensteuerung</p>
+        <p class="prev-next-title">Newton-Verfahren</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
