@@ -49,6 +49,7 @@ pip install -r requirements.txt
 
 ## Contribution Workflow
 
+<details>
 In this section, it is assumed that you are in the root directory of your clone of this repository, i.e. in `Modellbildung-und-Simulation`.
 
 #### Create a feature branch
@@ -112,9 +113,11 @@ To view the demo site, click on *"Details"* next to the check *"ci/circleci:html
 
 If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
 
+</details>
 
 ## Tips and best practices
 
+<details>
 Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt the new format to every occurrence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
 
 #### Embedding images
@@ -163,3 +166,5 @@ Dies ist ein Tipp.
 Dies ist eine Warnung.
 ```
 ````
+
+</details>
