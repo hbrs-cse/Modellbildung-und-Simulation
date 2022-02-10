@@ -1,8 +1,12 @@
 # Contribution Guide
 
+<details>
+<summary>## Project Goals</summary>
+ 
+</details>
 
 <details>
-<summary>Initial Setup</summary>
+<summary>## Initial Setup</summary>
 
 I have tested this on Linux, though it should work on Windows and Mac as well. For Windows 10, working with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) works really well, so I suggest you install e.g. **Ubuntu 18.04** on your Windows machine.
 
@@ -47,9 +51,9 @@ pip install -r requirements.txt
 
 </details>
 
-## Contribution Workflow
-
 <details>
+<summary>## Contribution Workflow</summary>
+
 In this section, it is assumed that you are in the root directory of your clone of this repository, i.e. in `Modellbildung-und-Simulation`.
 
 #### Create a feature branch
@@ -115,9 +119,9 @@ If the book generation failed for some reason, there will be a red cross instead
 
 </details>
 
-## Tips and best practices
-
 <details>
+<summary>## Tips and best practices</summary>
+
 Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt the new format to every occurrence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
 
 #### Embedding images
