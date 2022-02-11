@@ -151,7 +151,25 @@ Here is our scheme for license information and an example from our Book. These c
 <div style="text-align: right"> "Bremsvorgang", <a href="https://commons.wikimedia.org/wiki/User:Stefan-Xp" >Stefan-Xp</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Bremsvorgang.svg" >Wikimedia Commons</a></div> <br>
 ```
 
-#### Special content boxes and admonitions
+ #### Requirements and learning goals
+ 
+All new exercises should include learning requirements and learning goals. These can be added using this draft:
+ 
+````
+````{panels}
+Voraussetzungen
+^^^
+- keine
+---
+
+Lernziele
+^^^
+- Einblick in die mathematische Modellierung
+- Kritisches Hinterfragen von Modellannahmen
+````
+````
+ 
+ #### Special content boxes and admonitions
 
 Jupyter Book has a convenient way to mark special content like tips or warnings.
 We are using three different styles of these boxes, one for admonitions, one for tips and one for warnings. They are formatted like this:
