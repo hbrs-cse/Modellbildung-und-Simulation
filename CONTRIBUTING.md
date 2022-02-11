@@ -156,7 +156,7 @@ Here is our scheme for license information and an example from our Book. These c
 All new exercises should include learning requirements and learning goals. These can be added using this draft:
  
 ````
-````{panels}
+```{panels}
 Voraussetzungen
 ^^^
 - keine
@@ -166,9 +166,9 @@ Lernziele
 ^^^
 - Einblick in die mathematische Modellierung
 - Kritisches Hinterfragen von Modellannahmen
+```
 ````
-````
- 
+
  #### Special content boxes and admonitions
 
 Jupyter Book has a convenient way to mark special content like tips or warnings.
