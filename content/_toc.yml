@@ -23,22 +23,23 @@ chapters:
 - file: 02_gleitkommaarithmetik/00_gleitkommaarithmetik
   sections:
   - file: "02_gleitkommaarithmetik/01_\xFCbungen"
+  - file: 02_gleitkommaarithmetik/02_taylor
 - file: 03_interp_approx/00_interpolation_Und_approximation
   sections:
   - file: 03_interp_approx/01_lineare_interpolation
   - file: 03_interp_approx/02_lineare_approximation
   - file: 03_interp_approx/03_spline_interpolation
-- file: 04_lineare_gleichungen/00_lineare_gleichungssysteme
+- file: 04_Differentiation_Integration/00_differentiation_und_integration
   sections:
-  - file: 04_lineare_gleichungen/01_modellierung_einer_highline
-- file: 05_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
+  - file: 04_Differentiation_Integration/01_differentiation
+  - file: 04_Differentiation_Integration/02_integration_and_stepcontrol
+- file: 05_lineare_gleichungen/00_lineare_gleichungssysteme
   sections:
-  - file: 05_nichtlineare_gleichungen/01_newton-verfahren
-  - file: 05_nichtlineare_gleichungen/02_bierschaumzerfall
-- file: 06_Differentiation_Integration/00_differentiation_und_integration
+  - file: 05_lineare_gleichungen/01_modellierung_einer_highline
+- file: 06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
   sections:
-  - file: 06_Differentiation_Integration/01_differentiation
-  - file: 06_Differentiation_Integration/02_integration_and_stepcontrol
+  - file: 06_nichtlineare_gleichungen/01_newton-verfahren
+  - file: 06_nichtlineare_gleichungen/02_bierschaumzerfall
 - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
   sections:
   - file: 07_num_ode/01_intro_RK/00_intro_RK
