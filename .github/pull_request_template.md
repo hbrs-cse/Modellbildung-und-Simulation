@@ -8,3 +8,4 @@
  - [ ] All used resources use a CC-by-SA license or less and are marked appropriately, see our [contribution guide](https://github.com/joergbrech/Modellbildung-und-Simulation/blob/master/CONTRIBUTING.md).
  - [ ] All used resources have been added to [list_of_all_resources.md](https://github.com/joergbrech/Modellbildung-und-Simulation/blob/master/docs/List_of_all_resources.md)
  - [ ] New exercises include learning requirements and learning goals.
+ - [ ] Add @LeaKruehler as reviewer and wait for approval just before merging.
