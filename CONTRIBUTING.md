@@ -181,15 +181,19 @@ Dies ist ein Hinweis.
 ````
 ```{admonition} Tipp
 :class: tip
-
 Dies ist ein Tipp.
 ```
 ````
 ````
 ```{admonition} Achtung
 :class: warning
-
 Dies ist eine Warnung.
+```
+````
+````
+```{admonition} Achtung
+:class: dropdown
+Dies ist ein Ausklappmenü.
 ```
 ````
 
