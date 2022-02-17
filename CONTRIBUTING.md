@@ -191,7 +191,7 @@ Dies ist eine Warnung.
 ```
 ````
 ````
-```{admonition} Achtung
+```{admonition} Exkurs
 :class: dropdown
 Dies ist ein Ausklappmenü.
 ```
