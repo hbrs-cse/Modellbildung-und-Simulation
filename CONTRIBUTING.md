@@ -1,8 +1,16 @@
 # Contribution Guide
 
+<details>
+<summary>## Project Goals</summary>
+ 
+The goal of the Modellbildung und Simulation Buchprojekt is to create a relatable, intuitive and application-oriented introduction to modelling and simulation with low entry barriers.
+ 
+Its focus are the basics of physical modelling and the mathematics and programming aspects of numerical simulation. 
+ 
+</details>
 
 <details>
-<summary>Initial Setup</summary>
+<summary>## Initial Setup</summary>
 
 I have tested this on Linux, though it should work on Windows and Mac as well. For Windows 10, working with the [Windows Linux Subsystem](https://docs.microsoft.com/en-us/windows/wsl/install-win10) works really well, so I suggest you install e.g. **Ubuntu 18.04** on your Windows machine.
 
@@ -47,7 +55,8 @@ pip install -r requirements.txt
 
 </details>
 
-## Contribution Workflow
+<details>
+<summary>## Contribution Workflow</summary>
 
 In this section, it is assumed that you are in the root directory of your clone of this repository, i.e. in `Modellbildung-und-Simulation`.
 
@@ -112,8 +121,10 @@ To view the demo site, click on *"Details"* next to the check *"ci/circleci:html
 
 If the book generation failed for some reason, there will be a red cross instead of a green check mark. You can click on the red cross to see what went wrong.
 
+</details>
 
-## Tips and best practices
+<details>
+<summary>## Tips and best practices</summary>
 
 Hereafter we will list our tips and best practices to keep a consistent look to this book. If something is listed below we should stick to using this format or we should adapt the new format to every occurrence. This list will not represent every feature of Jupyter Book. If something isn't listed it can be found in the [documentation](https://jupyterbook.org/intro.html).
 
@@ -121,7 +132,7 @@ Hereafter we will list our tips and best practices to keep a consistent look to 
 
 Images can be embedded with the following code block. All lines starting with a `:` are optional but help with formatting the book.
 ````
-```{image} image/image.png
+```{image} images/image.png
 :alt: Name of image
 :width: 800px
 :align: center
@@ -140,7 +151,25 @@ Here is our scheme for license information and an example from our Book. These c
 <div style="text-align: right"> "Bremsvorgang", <a href="https://commons.wikimedia.org/wiki/User:Stefan-Xp" >Stefan-Xp</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Bremsvorgang.svg" >Wikimedia Commons</a></div> <br>
 ```
 
-#### Special content boxes and admonitions
+ #### Requirements and learning goals
+ 
+All new exercises should include learning requirements and learning goals. These can be added using this draft:
+ 
+````
+```{panels}
+Voraussetzungen
+^^^
+- keine
+---
+
+Lernziele
+^^^
+- Einblick in die mathematische Modellierung
+- Kritisches Hinterfragen von Modellannahmen
+```
+````
+
+ #### Special content boxes and admonitions
 
 Jupyter Book has a convenient way to mark special content like tips or warnings.
 We are using three different styles of these boxes, one for admonitions, one for tips and one for warnings. They are formatted like this:
@@ -152,14 +181,20 @@ Dies ist ein Hinweis.
 ````
 ```{admonition} Tipp
 :class: tip
-
 Dies ist ein Tipp.
 ```
 ````
 ````
 ```{admonition} Achtung
 :class: warning
-
 Dies ist eine Warnung.
 ```
 ````
+````
+```{admonition} Exkurs
+:class: dropdown
+Dies ist ein Ausklappmenü.
+```
+````
+
+</details>
