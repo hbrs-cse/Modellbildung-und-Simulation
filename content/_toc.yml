@@ -17,6 +17,7 @@ chapters:
     - file: 00_einleitung/04_exercises/03_fluessigkeit_im_boden
     - file: 00_einleitung/04_exercises/04_verkehrssimulation
     - file: 00_einleitung/04_exercises/05_der_perfekte_wurf
+    - file: 00_einleitung/04_exercises/06_game_of_life
 - file: 01_schwingungen/00_schwingungen
   sections:
   - file: 01_schwingungen/01_harmonische_schwingung
