@@ -79,6 +79,9 @@
 			% first steps
 			\draw[thick,blue,->] (0,1) -- (\xii,\fx) node[above] {$y_1$};
 			\draw[thick,dashed,blue,->] (\xii,\fx) -- (\xiiii,\fxi) node[above] {$y_2$};
+			%f(x,y) at steps
+			\draw[thick,red,-stealth] (\xi,1.66) node[below right] {$f(x_{\frac{1}{2}},y)$} -- (\xi+0.135,1.88257737154); %1.66+exp(xi)*0.13
+			\draw[thick,red,-stealth] (\xiii,4.2) node[below right] {$f(x_{\frac{3}{2}},y)$} -- (\xiii+0.13,4.78261957914); %4.2+exp(xiii)*0.13
 			% intervals
 %			\draw[dashed,red,->] (\xi,\start) node[below] {$y(x_\frac{1}{2})$} -- (\xii,\step);
 %			\draw[dashed,red,->] (\xiii,\starti) node[below] {$y(x_\frac{3}{2})$} -- (\xiiii,\stepi);
