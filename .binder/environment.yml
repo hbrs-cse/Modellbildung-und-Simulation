@@ -1,4 +1,4 @@
 dependencies:
 - numpy
 - matplotlib
-- octave_kernel >= 0.34.1
+- octave_kernel >= 0.34.0
