@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stabilität Eulerverfahren &#8212; Modellbildung und Simulation</title>
+    <title>Stabilität des expliziten versus impliziten Eulerverfahrens &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -326,7 +326,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Stabilität Eulerverfahren
+     Stabilität des expliziten versus impliziten Eulerverfahrens
     </a>
    </li>
    <li class="toctree-l2">
@@ -693,7 +693,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Stabilität Eulerverfahren</h1>
+                <h1>Stabilität des expliziten versus impliziten Eulerverfahrens</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -727,31 +727,32 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="stabilitat-eulerverfahren">
-<h1>Stabilität Eulerverfahren<a class="headerlink" href="#stabilitat-eulerverfahren" title="Permalink to this headline">¶</a></h1>
-<p>Bestimmte ODEs lassen sich mit impliziten Verfahren besser lösen als mit expliziten Verfahren. Diese ODEs bezeichnen wir als <strong>steif</strong>.</p>
-<p>Das liegt vor allem an der hohen Lipschitzkonstante <span class="math notranslate nohighlight">\(\lambda\)</span>. Diese beschreibt den maximalen Betrag der Steigung. Also:</p>
+  <div class="section" id="stabilitat-des-expliziten-versus-impliziten-eulerverfahrens">
+<h1>Stabilität des expliziten versus impliziten Eulerverfahrens<a class="headerlink" href="#stabilitat-des-expliziten-versus-impliziten-eulerverfahrens" title="Permalink to this headline">¶</a></h1>
+<p>Bestimmte ODEs lassen sich mit impliziten Verfahren besser lösen als mit expliziten Verfahren. Diese ODEs bezeichnen wir als <strong>steif</strong>. Das möchten wir an einem kleinen Modellproblem demonstrieren.</p>
+<p>Entscheidend dafür ist, ob eine hohe maximale Steigung vorliegt. Diese wird mit der Lipschitzkonstanten beschrieben, die eine obere Schranke der Steigung <span class="math notranslate nohighlight">\(f_y\)</span> aufstellt (mit der ODE <span class="math notranslate nohighlight">\(y' = f(t,y)\)</span>):</p>
 <div class="math notranslate nohighlight">
-\[\lambda \ge \left|\frac{f(x_1)-f(x_2)|}{x_1-x_2}\right| \,\forall\, x_1,x_2 \in \mathbb{D}\]</div>
-<p>Für explizite Verfahren impliziert <span class="math notranslate nohighlight">\(\lambda\)</span> eine sehr kleine Schrittweite <span class="math notranslate nohighlight">\(h\)</span>. Hier gilt <span class="math notranslate nohighlight">\(h&lt;\frac{2}{|\lambda|}\)</span>.</p>
+\[\forall y_1,y_2 \in \mathbb{D} : \left(\lambda \ge \left|\frac{f(t,y_1)-f(t,y_2)}{y_1-y_2}\right|\right)\]</div>
+<p>.
+Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schrittweite <span class="math notranslate nohighlight">\(h\)</span> gewählt werden. Für das explizite Eulerverfahren gilt <span class="math notranslate nohighlight">\(h&lt;\frac{2}{|\lambda|}\)</span>.</p>
 <div class="section" id="stabilitat-der-dahlquist-und-prothero-robinson-gleichungen">
 <h2>Stabilität der Dahlquist- und Prothero-Robinson-Gleichungen<a class="headerlink" href="#stabilitat-der-dahlquist-und-prothero-robinson-gleichungen" title="Permalink to this headline">¶</a></h2>
-<p>Ein weiteres Stabilitätsproblem ist die inhomogene Prothero-Robinson-Gleichung mit <span class="math notranslate nohighlight">\(y'=-λ(y-g)+g',λ&gt;0\)</span>. <span class="math notranslate nohighlight">\(g(t)\)</span> ist eine glatte Funktion. Da <span class="math notranslate nohighlight">\(e^{(-λt)}\)</span> für <span class="math notranslate nohighlight">\(λ≫1\)</span> schnell gegen 0 geht, sollte die Lösung schnell gegen <span class="math notranslate nohighlight">\(g(t)\)</span> konvergieren. Außerdem ist die Lipschitzkonstante leicht zu ermitteln mit <span class="math notranslate nohighlight">\(|y'|_\text{max} = \lambda\)</span>, also <span class="math notranslate nohighlight">\( h &lt; \frac{2}{\lambda} \)</span>.</p>
-<p>Für <span class="math notranslate nohighlight">\(g(t) = 0\)</span> entspricht die Prothero-Robinson-Gleichung der Dahlquist-Gleichung, also der ODE der Form <span class="math notranslate nohighlight">\(y'=-λy,λ&gt;0,y_0=1\)</span> mit der exakten Lösung <span class="math notranslate nohighlight">\(y(t)=e^{(-λt)}\)</span>.</p>
-<p>Für <span class="math notranslate nohighlight">\(g(t) = const.\)</span> lautet die DGL <span class="math notranslate nohighlight">\(y' = -\lambda (y - g)\)</span> mit der Lösung <span class="math notranslate nohighlight">\(y(t) = g + e^{(-λt)}\)</span>, die gegen <span class="math notranslate nohighlight">\(g\)</span> konvergiert. Diese lässt sich leicht für das implizite Eulerverfahren umformen zu <span class="math notranslate nohighlight">\(y_{k+1} = \frac{y_k + h\lambda g}{1+h\lambda}\)</span>.</p>
+<p>Ein geeignetes Stabilitätsproblem ist die inhomogene Prothero-Robinson-Gleichung mit</p>
+<div class="math notranslate nohighlight">
+\[y'=-λ(y-g)+g',\quad y(0)=y_0,\quad g(0)=g_0,\quad λ&gt;0.\]</div>
+<p><span class="math notranslate nohighlight">\(g(t)\)</span> ist eine glatte Funktion.</p>
+<p>Die analytische Lösung lautet <span class="math notranslate nohighlight">\(y(t) = e^{-\lambda t}(y_0-g_0) + g(t)\)</span>. Für <span class="math notranslate nohighlight">\(λ≫1\)</span> konvergiert <span class="math notranslate nohighlight">\(y(t)\)</span> schnell gegen <span class="math notranslate nohighlight">\(g(t)\)</span>. Außerdem ist die Lipschitzkonstante leicht zu ermitteln mit <span class="math notranslate nohighlight">\(|y'|_\text{max} = \lambda\)</span>, also <span class="math notranslate nohighlight">\( h &lt; \frac{2}{\lambda} \)</span> für das explizite Eulerverfahren.</p>
+<p>Für <span class="math notranslate nohighlight">\(g(t) = 0\)</span> entspricht die Prothero-Robinson-Gleichung der Dahlquist-Gleichung, also der ODE der Form <span class="math notranslate nohighlight">\(y'=-λy,λ&gt;0,y_0=1\)</span> mit der exakten Lösung <span class="math notranslate nohighlight">\(y(t)=e^{-λt}\)</span>.</p>
+<p>Für <span class="math notranslate nohighlight">\(g(t) = const.\)</span> lautet die DGL <span class="math notranslate nohighlight">\(y' = -\lambda (y - g)\)</span> mit der Lösung <span class="math notranslate nohighlight">\(y(t) = g + e^{-λt}\)</span>, die gegen <span class="math notranslate nohighlight">\(g\)</span> konvergiert. Bei Anwendung des impliziten Eulerverfahrens erhalten wir <span class="math notranslate nohighlight">\(y_{k+1} = \frac{y_k + h\lambda g}{1+h\lambda}\)</span>.</p>
 </div>
 <div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>Weisen Sie nach, dass <span class="math notranslate nohighlight">\(y(t)=g(t)+e^{(-λt)} (y_0-g_0)\)</span> die exakte Lösung der ODE für allgemeine <span class="math notranslate nohighlight">\(g(t)\)</span> ist.</p></li>
-<li><p>Wie sieht die implizite Form der ODE für <span class="math notranslate nohighlight">\(g(t) = t^2\)</span> aus?</p></li>
-<li><p>Können Sie die implizite Form der ODE für eine allgemeine Funktion <span class="math notranslate nohighlight">\(g(t)\)</span> formulieren?</p></li>
-</ul>
+<p>Weisen Sie nach, dass <span class="math notranslate nohighlight">\(y(t)=g(t)+e^{-λt} (y_0-g_0)\)</span> die exakte Lösung der ODE für allgemeine <span class="math notranslate nohighlight">\(g(t)\)</span> ist.</p>
 </div>
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>In dieser Übung sollen Sie <strong>optisch</strong> kennen lernen, wie sich die Lösungen des expliziten und impliziten Eulerverfahrens unterscheiden. Damit können Sie auch ein Gefühl dafür entwickeln, was steife Funktionen auszeichnet.</p>
-<p>Mit dem unten stehenden können Sie in Octave bzw. MATLAB eine App ausführen, die Ihnen erlaubt, die Prothero-Robinson-Gleichung mit dem für Sie fertig implementierten expliziten und impliziten Eulerverfahren zu lösen, und die Lösungen zu vergleichen. Sie können die wesentlichen Parameter (<span class="math notranslate nohighlight">\(lambda, y_0, h_\text{explizit}, h_\text{implizit}\)</span>) mit Schiebereglern variieren.</p>
+<p>Mit den unten stehenden Hinweisen können Sie in Octave bzw. Matlab eine App ausführen, die Ihnen erlaubt, die Prothero-Robinson-Gleichung mit dem für Sie fertig implementierten expliziten und impliziten Eulerverfahren zu lösen und die Lösungen zu vergleichen. Sie können die wesentlichen Parameter (<span class="math notranslate nohighlight">\(\lambda, y_0, h_\text{explizit}, h_\text{implizit}\)</span>) mit Schiebereglern variieren.</p>
 <p>Variieren Sie nun mithilfe der App die verfügbaren Parameter sowie die Funtion für <span class="math notranslate nohighlight">\(g(t)\)</span>. Gegebenenfalls müssen Sie den Code lokal ausführen.</p>
 <ul class="simple">
 <li><p>Wie unterscheiden sich die Lösungen beider Verfahren?</p></li>
@@ -759,13 +760,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Was passiert, wenn <span class="math notranslate nohighlight">\(h\)</span> für das explizite Verfahren nur minimal kleiner als <span class="math notranslate nohighlight">\(\frac{2}{|\lambda|}\)</span> ist? Was passiert, wenn <span class="math notranslate nohighlight">\(h\)</span> größer ist?</p></li>
 <li><p>Bei welchen Parametern ist das explizite Verfahren nicht mehr hilfreich? Was macht die “Steifheit” der resultierenden Funktionen qualitativ aus?</p></li>
 </ul>
+<a class="reference internal image-reference" href="../_images/exp_imp_demonstrator_demo.png"><img alt="Name of image" class="align-center" src="../_images/exp_imp_demonstrator_demo.png" style="width: 800px;" /></a>
 <p>Probieren Sie für <span class="math notranslate nohighlight">\(g(t)\)</span> beispielsweise aus</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(g(t) = 0\)</span> (entspricht der Dahlquist-Gleichung)</p></li>
 <li><p><span class="math notranslate nohighlight">\(g(t) = \)</span> <code class="docutils literal notranslate"><span class="pre">t.^2</span></code> (da die Rechnung mit Matrizen durchgeführt wird, ist die Punkt-Notation nötig)</p></li>
-<li><p><span class="math notranslate nohighlight">\(g(t) = cos(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(g(t) = sin(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(g(t) = \)</span> <code class="docutils literal notranslate"><span class="pre">heaviside(t-5)</span></code> ist die Stufenfunktion von 0 auf 1 bei <span class="math notranslate nohighlight">\(t=5\)</span>. Hierfür benötigen Sie das “symbolic package” bzw. die “Symbolic Math Toolbox”. Wie reagieren die Löser auf den Sprung? Setzen Sie <span class="math notranslate nohighlight">\(\lambda = 0\)</span>, um die Funktion ohne den e-Funktion Beitrag zu betrachten.</p></li>
+<li><p><span class="math notranslate nohighlight">\(g(t) = \cos t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(g(t) = \sin t\)</span></p></li>
 <li><p>…</p></li>
 </ul>
 <p><strong>Octave Code</strong></p>
@@ -942,10 +943,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p><strong>MATLAB Code</strong></p>
+<p><strong>Matlab Code</strong></p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% MATLAB equivalent</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Matlab equivalent</span>
 
 <span class="nb">close</span> <span class="nb">all</span>
 <span class="n">clearvars</span>
@@ -1114,7 +1115,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Die MATLAB Dokumentation und zugehörige Blogs liefern weitere anschauliche Beispiele:</p>
+<p>Die Matlab Dokumentation und zugehörige Blogs liefern weitere anschauliche Beispiele:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://de.mathworks.com/help/matlab/math/choose-an-ode-solver.html">https://de.mathworks.com/help/matlab/math/choose-an-ode-solver.html</a></p></li>
 <li><p><a class="reference external" href="https://de.mathworks.com/help/matlab/math/solve-stiff-odes.html">https://de.mathworks.com/help/matlab/math/solve-stiff-odes.html</a></p></li>
