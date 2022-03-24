@@ -92,7 +92,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Interpolation und Approximation" href="../03_interp_approx/00_interpolation_Und_approximation.html" />
-    <link rel="prev" title="Übungen" href="01_%C3%BCbungen.html" />
+    <link rel="prev" title="Übungen zur Gleitpunktarithmetik" href="01_%C3%BCbungen.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -211,7 +211,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_%C3%BCbungen.html">
-     Übungen
+     Übungen zur Gleitpunktarithmetik
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -505,7 +505,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../13_matlab/00_MATLAB_introduction.html">
-   MATLAB Einführung
+   Matlab Einführung
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
   <label for="toctree-checkbox-15">
@@ -515,7 +515,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../13_matlab/01_erste_schritte_in_matlab.html">
-     MATLAB einrichten
+     Matlab einrichten
     </a>
    </li>
    <li class="toctree-l2">
@@ -530,7 +530,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../13_matlab/04_matlab_kennenlernen.html">
-     Rechnen mit MATLAB
+     Rechnen mit Matlab
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -719,11 +719,11 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sin-varphi-mit-taylorreihen-hoherer-ordnungen">
+  <a class="reference internal nav-link" href="#sin-varphi-mit-taylorpolynomen-hoheren-grades">
    <span class="math notranslate nohighlight">
     \(\sin(\varphi)\)
    </span>
-   mit Taylorreihen höherer Ordnungen
+   mit Taylorpolynomen höheren Grades
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -775,11 +775,11 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#sin-varphi-mit-taylorreihen-hoherer-ordnungen">
+  <a class="reference internal nav-link" href="#sin-varphi-mit-taylorpolynomen-hoheren-grades">
    <span class="math notranslate nohighlight">
     \(\sin(\varphi)\)
    </span>
-   mit Taylorreihen höherer Ordnungen
+   mit Taylorpolynomen höheren Grades
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -858,12 +858,13 @@ T_1 \sin(\varphi,0) &amp;= \sum_{n=0}^{1}\frac{f^{(n)}(0)}{n!}(x-0)^n\\
 &amp;= \frac{\sin(0)}{1}1 + \frac{\cos(0)}{1}\varphi\\
 &amp;= \varphi
 \end{align}\end{split}\]</div>
-<p>Berechnen Sie die maximale Abweichung der Kleinwinkelnäherung auf dem Intervall <span class="math notranslate nohighlight">\(\varphi \in [0,0.1]\)</span> mit einer Auflösung von 100 Punkten. Überzeugen Sie sich davon mit einem kleinen Plot.</p>
+<p>Berechnen Sie die maximale (absolute) Abweichung der Kleinwinkelnäherung auf dem Intervall <span class="math notranslate nohighlight">\(\varphi \in [0,0.1]\)</span> mit einer Auflösung von 100 Punkten. Überzeugen Sie sich davon mit einem kleinen Plot.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">phispan</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">sin_phi</span> <span class="p">=</span> <span class="p">...</span>
 <span class="n">T_1</span>     <span class="p">=</span> <span class="p">...</span>
-<span class="nb">error</span>   <span class="p">=</span> <span class="p">...</span> <span class="c">% error throughout the interval</span>
+<span class="nb">error</span>   <span class="p">=</span> <span class="p">...</span> <span class="c">% absolute error throughout the interval</span>
 <span class="n">maxerror</span><span class="p">=</span> <span class="p">...</span> <span class="c">% maximum error across interval</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">),</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">error</span><span class="p">)</span>
 </pre></div>
@@ -881,23 +882,29 @@ T_1 \sin(\varphi,0) &amp;= \sum_{n=0}^{1}\frac{f^{(n)}(0)}{n!}(x-0)^n\\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">phispan</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="nb">pi</span><span class="p">,</span><span class="nb">pi</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>
+<span class="n">sin_phi</span> <span class="p">=</span> <span class="p">...</span>
 <span class="n">T_1</span>     <span class="p">=</span> <span class="p">...</span>
-<span class="nb">error</span>   <span class="p">=</span> <span class="p">...</span> <span class="c">% error throughout the interval</span>
+<span class="nb">error</span>   <span class="p">=</span> <span class="p">...</span> <span class="c">% absolute error throughout the interval</span>
 <span class="n">maxerror</span><span class="p">=</span> <span class="p">...</span> <span class="c">% maximum error across interval</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">),</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">error</span><span class="p">)</span>
 <span class="n">atol</span>    <span class="p">=</span> <span class="p">...</span>
-<span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">phispan</span><span class="p">(</span><span class="nb">error</span><span class="o">&lt;</span><span class="n">atol</span><span class="p">)))</span>
+<span class="nb">min</span><span class="p">(</span><span class="n">phispan</span><span class="p">(</span><span class="nb">error</span><span class="o">&lt;</span><span class="n">atol</span><span class="p">))</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">phispan</span><span class="p">(</span><span class="nb">error</span><span class="o">&lt;</span><span class="n">atol</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="sin-varphi-mit-taylorreihen-hoherer-ordnungen">
-<h2><span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> mit Taylorreihen höherer Ordnungen<a class="headerlink" href="#sin-varphi-mit-taylorreihen-hoherer-ordnungen" title="Permalink to this headline">¶</a></h2>
-<p>Vergleichen Sie nun Ihre Lösung mit der 3-ten und 5-ten Taylorreihe (<span class="math notranslate nohighlight">\(N = 3\)</span> und <span class="math notranslate nohighlight">\(N = 5\)</span>) auf dem Intervall <span class="math notranslate nohighlight">\(\varphi = [0,\pi/6]\)</span>. Schreiben Sie hierzu eine <code class="docutils literal notranslate"><span class="pre">function</span></code>, die die Taylorreihe für beliebige Grade berechnet.</p>
-<p>Nach einer kurzen Internetrecherche finden Sie folgende Vereinfachung der Taylorreihe der Sinusfunktion (hier wird jedes gerade Glied übersprungen, da <span class="math notranslate nohighlight">\(\sin(2n \pi)=0\)</span>):</p>
+<div class="section" id="sin-varphi-mit-taylorpolynomen-hoheren-grades">
+<h2><span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> mit Taylorpolynomen höheren Grades<a class="headerlink" href="#sin-varphi-mit-taylorpolynomen-hoheren-grades" title="Permalink to this headline">¶</a></h2>
+<p>Vergleichen Sie nun Ihre Lösung mit der dritten und fünften Taylorpolynom (<span class="math notranslate nohighlight">\(N = 3\)</span> und <span class="math notranslate nohighlight">\(N = 5\)</span>) auf dem Intervall <span class="math notranslate nohighlight">\(\varphi = [0,\pi/6]\)</span>. Schreiben Sie hierzu eine <code class="docutils literal notranslate"><span class="pre">function</span></code>, die die Taylorpolynome für beliebige Grade berechnet.</p>
+<p>Versuchen Sie, das Taylorpolynom <span class="math notranslate nohighlight">\(T_N \sin(\varphi,0)\)</span> möglichst weit zu vereinfachen. Sollten Sie nicht weiter kommen, klappen Sie das Fenster aus.</p>
+<div class="toggle docutils container">
+<p>Nach einer kurzen Internetrecherche finden Sie folgende Vereinfachung der Taylorpolynome der Sinusfunktion (hier wird jedes gerade Glied der Taylorreihe übersprungen, da <span class="math notranslate nohighlight">\(\sin(2n \pi)=0\)</span>).</p>
 <div class="math notranslate nohighlight">
-\[T_N \sin(\varphi,0) = \sum_{k=1}^N (-1)^k \frac{x^{2k+1}}{(2k+1)!}\]</div>
+\[T_K \sin(\varphi,0) = \sum_{k=0}^K (-1)^k \frac{\varphi^{2k+1}}{(2k+1)!}\]</div>
+<p>Hier entspricht <span class="math notranslate nohighlight">\(K\)</span> nicht mehr dem Grad des Taylorpolynoms, da jedes zweite Glied übersprungen wurde. Stattdessen ist <span class="math notranslate nohighlight">\(K= \frac{N}{2}\text{, bzw. }\frac{N+1}{2}\)</span>.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">taylor_sin</span><span class="p">(</span>phi0,phispan,n<span class="p">)</span><span class="w"></span>
@@ -910,14 +917,15 @@ T_1 \sin(\varphi,0) &amp;= \sum_{n=0}^{1}\frac{f^{(n)}(0)}{n!}(x-0)^n\\
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">phispan</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="n">sin_phi</span>    <span class="p">=</span> <span class="p">...</span>
 <span class="n">T_1</span>        <span class="p">=</span> <span class="p">...</span>
-<span class="n">error_1</span>    <span class="p">=</span> <span class="n">T_1</span> <span class="o">-</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">);</span>
+<span class="n">error_1</span>    <span class="p">=</span> <span class="p">...</span>
 <span class="n">maxerror_1</span> <span class="p">=</span> <span class="p">...</span>
 <span class="n">T_3</span>        <span class="p">=</span> <span class="p">...</span>
-<span class="n">error_3</span>    <span class="p">=</span> <span class="n">T_3</span> <span class="o">-</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">);</span>
+<span class="n">error_3</span>    <span class="p">=</span> <span class="p">...</span>
 <span class="n">maxerror_3</span> <span class="p">=</span> <span class="p">...</span>
 <span class="n">T_5</span>        <span class="p">=</span> <span class="p">...</span>
-<span class="n">error_5</span>    <span class="p">=</span> <span class="n">T_5</span> <span class="o">-</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">);</span>
+<span class="n">error_5</span>    <span class="p">=</span> <span class="p">...</span>
 <span class="n">maxerror_5</span> <span class="p">=</span> <span class="p">...</span>
 <span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">T_3</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">T_5</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">),</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">error_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">error_3</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">error_5</span><span class="p">)</span>
 </pre></div>
@@ -1021,7 +1029,7 @@ T_1 \sin(\varphi,0) &amp;= \sum_{n=0}^{1}\frac{f^{(n)}(0)}{n!}(x-0)^n\\
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Übungen</p>
+            <p class="prev-next-title">Übungen zur Gleitpunktarithmetik</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="../03_interp_approx/00_interpolation_Und_approximation.html" title="next page">
