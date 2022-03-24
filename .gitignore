@@ -166,3 +166,4 @@ _build
 
 # table of contents (is generated using CI)
 content/_toc.yml
+/content/_toc.yml
