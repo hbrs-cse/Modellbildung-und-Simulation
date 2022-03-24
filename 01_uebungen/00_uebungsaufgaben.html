@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Übungsaufgaben &#8212; Modellbildung und Simulation</title>
+    <title>Einleitende Übungsaufgaben &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -89,8 +89,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Flüssigkeit im Boden" href="03_fluessigkeit_im_boden.html" />
-    <link rel="prev" title="Game of Life" href="../00_einleitung/04_exercises/06_game_of_life.html" />
+    <link rel="next" title="Flüssigkeit im Boden" href="01_fluessigkeit_im_boden.html" />
+    <link rel="prev" title="Best Practices" href="../00_einleitung/03_best_practice.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -149,30 +149,25 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../00_einleitung/01_motivation/00_motivation.html">
+    <a class="reference internal" href="../00_einleitung/01_motivation.html">
      Das Stauproblem - Motivation zur Benutzung dieses Buches
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../00_einleitung/02_usage/00_verwendung_dieses_buches.html">
+    <a class="reference internal" href="../00_einleitung/02_verwendung_dieses_buches.html">
      Verwendung dieses Buches
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../00_einleitung/03_best_practices/03_best_practice.html">
+    <a class="reference internal" href="../00_einleitung/03_best_practice.html">
      Best Practices
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../00_einleitung/04_exercises/06_game_of_life.html">
-     Game of Life
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="current reference internal" href="#">
-   Übungsaufgaben
+   Einleitende Übungsaufgaben
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -181,18 +176,23 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_fluessigkeit_im_boden.html">
+    <a class="reference internal" href="01_fluessigkeit_im_boden.html">
      Flüssigkeit im Boden
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_verkehrssimulation.html">
+    <a class="reference internal" href="02_verkehrssimulation.html">
      Verkehrssimulation mit zellulären Automaten
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_der_perfekte_wurf.html">
+    <a class="reference internal" href="03_der_perfekte_wurf.html">
      Der perfekte Wurf
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_game_of_life.html">
+     Game of Life
     </a>
    </li>
   </ul>
@@ -263,7 +263,7 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
-     Numerische Intergration mit Schrittweitensteuerung
+     Numerische Integration (mit Schrittweitensteuerung)
     </a>
    </li>
   </ul>
@@ -317,23 +317,60 @@ commentsRunWhenDOMLoaded(addUtterances);
    </i>
   </label>
   <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../07_num_ode/01_intro_RK/00_intro_RK.html">
+     Einführung in numerische Integrationsverfahren von ODEs
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/01_integration_RK.html">
+       Integration von ODEs mit expliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/02_integration_implicit.html">
+       Integration von ODEs mit impliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/03_integration_RK_evaluation.html">
+       Lohnen sich Verfahren höherer Ordnung?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/04_adaptive_steps.html">
+       Adaptive Schrittweitensteuerung
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/05_oscillation_and_vdpol.html">
+       Systeme von ODEs
+      </a>
+     </li>
+    </ul>
+   </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../07_num_ode/01_simulation_eines_raketenstarts.html">
+    <a class="reference internal" href="../07_num_ode/02_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.html">
      Simulation eines Raketenstarts
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../07_num_ode/02_stabilitaet_eulerverfahren.html">
+    <a class="reference internal" href="../07_num_ode/03_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren.html">
      Stabilität des expliziten versus impliziten Eulerverfahrens
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../07_num_ode/03_modellierung_einer_highline_dynamisch.html">
+    <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html">
      Modellierung einer Highline - Zeitliche Auflösung
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../07_num_ode/04_mass-spring-mass.html">
+    <a class="reference internal" href="../07_num_ode/05_mass-spring-mass/00_mass-spring-mass.html">
      Rutschendes Masse-Feder-Masse System
     </a>
    </li>
@@ -343,8 +380,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../08_schwingungen/00_schwingungen.html">
    Schwingungen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -360,8 +397,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../09_eigenwerte/00_eigenwertprobleme.html">
    Eigenwertprobleme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -387,8 +424,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../10_dft/00_diskrete_fouriertransformation.html">
    Diskrete Fouriertransformation
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -419,8 +456,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../11_bvp/00_randwertprobleme.html">
    Randwertprobleme
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -441,8 +478,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../12_pde/00_partielle_differentialgleichungen.html">
    Partielle Differentialgleichungen
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -468,8 +505,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   <a class="reference internal" href="../13_matlab/00_MATLAB_introduction.html">
    MATLAB Einführung
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -498,8 +535,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <a class="reference internal" href="../13_matlab/05_matlab_videos/00_matlab_videos.html">
      Grundlagenkurs und Zusatzübungen
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-    <label for="toctree-checkbox-15">
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -648,7 +685,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Übungsaufgaben</h1>
+                <h1>Einleitende Übungsaufgaben</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -659,9 +696,9 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="ubungsaufgaben">
-<h1>Übungsaufgaben<a class="headerlink" href="#ubungsaufgaben" title="Permalink to this headline">¶</a></h1>
-<p>In den folgenden Aufgaben soll zum einen der Umgang mit Matlab und zum anderen die Modellierung einfacher Prozesse geübt werden.</p>
+  <div class="section" id="einleitende-ubungsaufgaben">
+<h1>Einleitende Übungsaufgaben<a class="headerlink" href="#einleitende-ubungsaufgaben" title="Permalink to this headline">¶</a></h1>
+<p>In den folgenden Aufgaben soll zum einen der Umgang mit Matlab und zum anderen die Modellierung einfacher Prozesse geübt werden. Diese Übungen können mit wenig Vorwissen in Modellbildung und Simulation gut gelöst werden.</p>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -691,14 +728,14 @@ commentsRunWhenDOMLoaded(addUtterances);
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="../00_einleitung/04_exercises/06_game_of_life.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="../00_einleitung/03_best_practice.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Game of Life</p>
+            <p class="prev-next-title">Best Practices</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03_fluessigkeit_im_boden.html" title="next page">
+    <a class='right-next' id="next-link" href="01_fluessigkeit_im_boden.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Flüssigkeit im Boden</p>
