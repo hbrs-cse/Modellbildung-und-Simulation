@@ -801,7 +801,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="c">%</span>
 <span class="c">% Outputs:</span>
 <span class="c">%   - ground:      2D-grid representing the groundwater distribution</span>
-<span class="c">%                  It is a (depth x width) Matrix with values in {0,1}</span>
+<span class="c">%                  It is a (depth x width) Matrix with values in [0,1]</span>
 
 <span class="k">end</span>
 </pre></div>
@@ -817,6 +817,80 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_groundwater_sim</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Den Code hinter <code class="docutils literal notranslate"><span class="pre">test_groundwater_sim.m</span></code> können Sie hier ausklappen.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">test_suite</span><span class="p">=</span><span class="n">test_groundwater_sim</span>
+<span class="c">% initialize unit tets</span>
+    <span class="k">try</span>
+        <span class="n">test_functions</span><span class="p">=</span><span class="n">localfunctions</span><span class="p">();</span>
+    <span class="k">catch</span>
+    <span class="k">end</span>
+    <span class="n">initTestSuite</span><span class="p">;</span>
+<span class="k">end</span>
+
+
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_for_logical</span>
+<span class="c">% test if result contains only zeros and ones</span>
+    <span class="n">ground</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mf">0.1</span><span class="p">);</span>
+    <span class="n">assertElementsAlmostEqual</span><span class="p">(</span><span class="nb">double</span><span class="p">(</span><span class="n">ground</span><span class="p">),</span> <span class="nb">double</span><span class="p">(</span><span class="nb">logical</span><span class="p">(</span><span class="n">ground</span><span class="p">)));</span>
+<span class="k">end</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_for_correct_size</span>
+<span class="c">% test if result contains only zeros and ones</span>
+    <span class="n">depth</span> <span class="p">=</span> <span class="nb">randi</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">width</span> <span class="p">=</span> <span class="nb">randi</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">ground</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="mf">0.1</span><span class="p">);</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">ground</span><span class="p">),[</span><span class="n">depth</span> <span class="n">width</span><span class="p">]);</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">test_for_existing_parent</span>
+<span class="c">% test if each wetted cell has a origin in the layer above</span>
+    <span class="n">depth</span> <span class="p">=</span> <span class="nb">randi</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">width</span> <span class="p">=</span> <span class="nb">randi</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+    <span class="n">ground</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span><span class="n">width</span><span class="p">,</span><span class="nb">rand</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">depth</span>
+        <span class="n">js</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">ground</span><span class="p">(</span><span class="n">i</span><span class="p">,:));</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">=</span><span class="n">js</span>
+            <span class="n">s</span><span class="p">=</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+            <span class="nb">e</span><span class="p">=</span><span class="nb">min</span><span class="p">(</span><span class="n">width</span><span class="p">,</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+            <span class="nb">assert</span><span class="p">(</span><span class="nb">any</span><span class="p">(</span><span class="n">ground</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">s</span><span class="p">:</span><span class="nb">e</span><span class="p">)));</span>
+        <span class="k">end</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_num_wetted_cells_per_layer_rand</span>
+<span class="c">% test if the number of wetted cells in each layer is plausible</span>
+    <span class="n">ground</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="nb">rand</span><span class="p">());</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="mi">80</span>
+       <span class="n">nwetted_above</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ground</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,:));</span>
+       <span class="n">num_puddles</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="nb">diff</span><span class="p">(</span><span class="n">ground</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,:))))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+       <span class="n">nwetted</span> <span class="p">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ground</span><span class="p">(</span><span class="n">i</span><span class="p">,:));</span>
+       <span class="n">assertTrue</span><span class="p">(</span><span class="n">nwetted</span> <span class="o">&lt;</span><span class="p">=</span> <span class="n">nwetted_above</span><span class="o">+</span><span class="n">num_puddles</span><span class="o">*</span><span class="mi">2</span><span class="p">);</span>
+    <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">test_num_wetted_cells_per_layer_deterministic</span>
+<span class="c">% test if the number of wetted cells in each layer is plausible</span>
+    <span class="c">% use probability = 2, so that definitely all three cells below a </span>
+    <span class="c">% wetted cells will be wetted. This makes the simulation</span>
+    <span class="c">% deterministic;</span>
+    
+    <span class="n">ground</span> <span class="p">=</span> <span class="n">groundwater_sim</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>
+    
+    <span class="n">expected</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span><span class="mi">80</span><span class="p">);</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">80</span>
+        <span class="n">first</span> <span class="p">=</span> <span class="nb">max</span><span class="p">([</span> <span class="mi">1</span><span class="p">,</span><span class="mi">21</span><span class="o">-</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">last</span>   <span class="p">=</span> <span class="nb">min</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span><span class="mi">59</span><span class="o">+</span><span class="n">i</span><span class="p">]);</span>
+        <span class="n">expected</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">first</span><span class="p">:</span><span class="n">last</span><span class="p">)=</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">end</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span><span class="n">ground</span><span class="p">);</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 </div>
