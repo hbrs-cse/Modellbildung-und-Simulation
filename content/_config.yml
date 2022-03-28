@@ -6,8 +6,8 @@
 #######################################################################################
 # Book settings
 title                       : Modellbildung und Simulation  # The title of the book. Will be placed in the left navbar.
-author                      : "Jan Kleinert"  # The author of the book
-copyright                   : "2020"  # Copyright year to be placed in the footer
+author                      : "Dirk Reith, Jan Kleinert, and Gerd Steinebach"  # The author of the book
+copyright                   : "2020 - 2022"  # Copyright year to be placed in the footer
 logo                        : images/logo/hbrs_logo_text.png  # A path to the book logo
 exclude_patterns            : [CHANGELOG.md, 
                                README.md, 
