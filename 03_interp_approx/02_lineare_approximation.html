@@ -700,6 +700,29 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -712,6 +735,29 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3">
+   Aufgabe 3
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -720,14 +766,66 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="section" id="lineare-approximation">
 <h1>Lineare Approximation<a class="headerlink" href="#lineare-approximation" title="Permalink to this headline">¶</a></h1>
-<p>Erzeugen Sie sich auf Basis folgender Geradengleichung <span class="math notranslate nohighlight">\( y = 2.2 x - 3.1 \)</span> Werte im Intervall <span class="math notranslate nohighlight">\(x \in [0,10]\)</span>. Modifizieren Sie die entsprechenden y-Werte so, dass Sie <strong>normalverteilt</strong>  mit Standardabweichung 1 von der exakten Geradengleichung abweichen (Abbildung). Gehen Sie dabei zunächst von <span class="math notranslate nohighlight">\(n=100\)</span> Messwerten aus.</p>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<p>Erzeugen Sie sich auf Basis folgender Geradengleichung <span class="math notranslate nohighlight">\( y = 2.2 x - 3.1 \)</span> Werte im Intervall <span class="math notranslate nohighlight">\(x \in [0,10]\)</span>. Modifizieren Sie die entsprechenden y-Werte so, dass diese <strong>normalverteilt</strong> von der exakten Geradengleichung abweichen (Abbildung). Gehen Sie dabei zunächst von <span class="math notranslate nohighlight">\(n=100\)</span> Messwerten aus.</p>
 <a class="reference internal image-reference" href="../_images/approx.png"><img alt="../_images/approx.png" class="align-center" src="../_images/approx.png" style="width: 600px;" /></a>
-<p>Schreiben Sie ein Programm mit dessen Hilfe Sie eine Regressionsgerade durch die zuvor erzeugten Punkte legen können. <strong>Verwenden Sie für diese Aufgabe NICHT die <code class="docutils literal notranslate"><span class="pre">polyfit</span></code>-Funktion!</strong> Berechnen Sie statt dessen die Koeffizienten der Regressionsgeraden direkt mit Hilfe der Messpunkte, <em>vgl. Vorlesung.</em></p>
-<p>Stellen Sie Messpunkte, Regressionsgerade und die exakte Geradengleichung in einem plot dar. Was passiert mit der Regressionsgerade bei kleinen bzw. großen <span class="math notranslate nohighlight">\(n\)</span>? (Sie sollten sich selbst überlegen, was “klein” bzw. was “groß” bedeutet.)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">=</span><span class="mi">100</span>
+<span class="n">x</span><span class="p">=</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="n">y</span><span class="p">=</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>              <span class="c">%Erzeugen der y-Werte mittels zu erstellender Funktion f(x)</span>
+<span class="n">y</span><span class="p">=</span><span class="n">y</span><span class="o">+</span><span class="nb">randn</span><span class="p">(</span><span class="nb">size</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c">%Erstellen des Störsignals</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Sie haben eben die Messwerte simuliert. Sie wollen diese Punkte nun mit Hilfe eines Polynoms approximieren. Schreiben Sie dazu ein Programm, welches eine Regressionsgerade durch diese Punkte legt.
+<br>
+<em>Verwenden Sie dabei <strong>nicht</strong> die polyfit-Funktion! Berechnen Sie stattdessen die Koeffizienten der Regressionsgeraden.</em></p>
+<div class="dropdown admonition">
+<p class="admonition-title">Kurzer Rückblick in die Vorlesung</p>
+<p>Die Gleichungen</p>
+<div class="math notranslate nohighlight">
+\[
+\sum_{j=0}^m  a_j \sum_{i=0}^n   x_i^{j+k} = \sum_{i=0}^n y_i \, x_i^k \, , \; 
+k=0,...,m
+\]</div>
+<p>nennen wir die Normalengleichungen.<br />
+Sie definieren ein lineares Gleichungssystem für die Koeffizienten <span class="math notranslate nohighlight">\(a_k\)</span>.
+<br> <br>
+Für den Polynomgrad <span class="math notranslate nohighlight">\(m=1\)</span> ergibt sich beispielsweise das System:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{pmatrix}  n+1 &amp; \sum x_i  \\ \sum x_i &amp; \sum x_i^2 \end{pmatrix}  
+\begin{pmatrix} a_0 \\  a_1  \end{pmatrix}  =
+\begin{pmatrix}  \sum y_i \\  \sum y_i x_i   \end{pmatrix} 
+\end{split}\]</div>
+<p>Dabei entspricht <span class="math notranslate nohighlight">\(n+1=\)</span> der Anzahl der Messwerte.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR THE SOLUTION</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-3">
+<h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
+<p>Stellen Sie Messpunkte, Regressionsgerade und die exakte Geradengleichung nun in einem Plot dar.</p>
+<p>Testen Sie außerdem, was mit der Regressionsgerade bei kleinem bzw. großem <span class="math notranslate nohighlight">\(n\)</span> passiert.
+Überlegen Sie sich dabei selbst, was “klein” bzw. “groß” bedeutet.</p>
+<a class="reference internal image-reference" href="../_images/approx.gif"><img alt="../_images/approx.gif" class="align-center" src="../_images/approx.gif" style="width: 500px;" /></a>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR THE SOLUTION</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
