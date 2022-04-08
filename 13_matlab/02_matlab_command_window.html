@@ -819,7 +819,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Im <em>Command Window</em> gibt man, wie der Name schon sagt, Befehle ein. Diese werden unmittelbar nach dem <em>Prompt</em> <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> eingetippt.</p>
 <div class="section" id="erste-befehle">
 <h2>Erste Befehle<a class="headerlink" href="#erste-befehle" title="Permalink to this headline">¶</a></h2>
-<p>Gibt man zum Beispiel <code class="docutils literal notranslate"><span class="pre">a=5</span></code> ein, erscheint ein feedback, dass die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> erstellt wurde, und sie den Wert <code class="docutils literal notranslate"><span class="pre">5</span></code> zugewiesen bekommen hat.</p>
+<p>Gibt man zum Beispiel <code class="docutils literal notranslate"><span class="pre">a=5</span></code> ein, erscheint ein Feedback, dass die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> erstellt wurde, und sie den Wert <code class="docutils literal notranslate"><span class="pre">5</span></code> zugewiesen bekommen hat.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="mi">5</span>
@@ -832,7 +832,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>MATLAB gibt nach Eingabe eines Kommandos immer eine Rückmeldung, in diesem Fall wird die Variable noch einmal ausgegeben. Diese Rückmeldung kann mit Hilfe des Semikolons unterdrückt werden:</p>
+<p>Matlab gibt nach Eingabe eines Kommandos immer eine Rückmeldung, in diesem Fall wird die Variable noch einmal ausgegeben. Diese Rückmeldung kann mit Hilfe des Semikolons unterdrückt werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
@@ -840,7 +840,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Beide Variablen sind nun im Workspace hinterlegt, und können für weitere Berechnungen benutzt werden. Ich kann mir zum Beispiel den Wert von <code class="docutils literal notranslate"><span class="pre">b</span></code> ausgeben lassen,</p>
+<p>Beide Variablen sind nun im Workspace hinterlegt, und können für weitere Berechnungen benutzt werden. Wir können uns zum Beispiel den Wert von <code class="docutils literal notranslate"><span class="pre">b</span></code> ausgeben lassen,</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
@@ -866,7 +866,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Das Ergebnis der Rechnung wird unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">ans</span></code> im Workspace hinterlegt. Ich kann dem Ergebnis explizit einen Variablennamen, hier <code class="docutils literal notranslate"><span class="pre">c</span></code> zuordnen:</p>
+<p>Das Ergebnis der Rechnung wird unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">ans</span></code> im Workspace hinterlegt. Wir können dem Ergebnis explizit einen Variablennamen, hier <code class="docutils literal notranslate"><span class="pre">c</span></code> zuordnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="p">=</span> <span class="n">b</span><span class="o">/</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
@@ -879,7 +879,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Wenn ich möchte, kann ich die Ausgabe des Ergebnisses unterdrücken, indem ich die Zeile mit einem Semikolon beende:</p>
+<p>Wenn wir möchten, können wir die Ausgabe des Ergebnisses unterdrücken, indem wir die Zeile mit einem Semikolon beenden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">a</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">8</span><span class="p">));</span>
@@ -892,7 +892,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Variablenzuweisungen passieren von links nach rechts: Was rechts vom Gleichheitszeichen steht, wird der Variablen die links vom Gleichheitszeichen steht zugeordnet. Wenn es diese Variable nicht gibt, wird sie im Workspace hinterlegt.</p></li>
 <li><p>Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion <code class="docutils literal notranslate"><span class="pre">exp</span></code> oder das Rechnen mit komplexen Zahlen. Dabei können sowohl <code class="docutils literal notranslate"><span class="pre">1i</span></code>, <code class="docutils literal notranslate"><span class="pre">1j</span></code> als auch <code class="docutils literal notranslate"><span class="pre">i</span></code> und <code class="docutils literal notranslate"><span class="pre">j</span></code> als Symbole für die komplexe Einheit verwendet werden. Die letzten beiden Varianten sind aber potenziell gefährlich, da es auch valide Variablennamen sind und es so zu Verwechslungen kommen kann.</p></li>
 <li><p>Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendet werden.</p></li>
-<li><p>In Matlab werden die skalaren Datentypen (<code class="docutils literal notranslate"><span class="pre">integer</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, …) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variablen <code class="docutils literal notranslate"><span class="pre">a</span></code> ganzzahlig ist, geht Matlab standardmäßig von <code class="docutils literal notranslate"><span class="pre">double</span></code> aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion <code class="docutils literal notranslate"><span class="pre">class()</span></code> ausgeben:</p></li>
+<li><p>In Matlab werden die skalaren Datentypen (<code class="docutils literal notranslate"><span class="pre">integer</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, …) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> ganzzahlig ist, geht Matlab standardmäßig von <code class="docutils literal notranslate"><span class="pre">double</span></code> aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion <code class="docutils literal notranslate"><span class="pre">class()</span></code> ausgeben:</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1033,7 +1033,7 @@ f =
 </div>
 </div>
 </div>
-<p>Matlab verwendet ein sogenanntes <em>column-major</em> Speicherformat für Matrizen. D.h. dass Matrizen im Speicher spaltenweise gespeichert werden. Für die Matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> sähe das in Etwa so aus:</p>
+<p>Matlab verwendet ein sogenanntes <em>column-major</em> Speicherformat für Matrizen. Das heißt, dass Matrizen im Speicher spaltenweise gespeichert werden. Für die Matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> sähe das in etwa so aus:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span> <span class="mi">21</span> <span class="mi">12</span> <span class="mi">22</span>
 </pre></div>
 </div>
@@ -1098,7 +1098,7 @@ f =
 </div>
 <div class="section" id="produkte-von-vektoren-und-matrizen">
 <h2>Produkte von Vektoren und Matrizen<a class="headerlink" href="#produkte-von-vektoren-und-matrizen" title="Permalink to this headline">¶</a></h2>
-<p>Beim Produkt zweier Vektoren <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> (bzw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Kann ich die eben erstellten Vektoren <span class="math notranslate nohighlight">\(e\)</span> und <span class="math notranslate nohighlight">\(f\)</span> miteinander multiplizieren?</p>
+<p>Beim Produkt zweier Vektoren <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> (bzw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Können wir die eben erstellten Vektoren <span class="math notranslate nohighlight">\(e\)</span> und <span class="math notranslate nohighlight">\(f\)</span> miteinander multiplizieren?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span><span class="o">*</span><span class="n">f</span>
@@ -1111,7 +1111,7 @@ f =
 </div>
 </div>
 </div>
-<p>Aha, bei Multiplikation eines <span class="math notranslate nohighlight">\((1,n)\)</span>-dimensionalen Vektors <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> mit einem <span class="math notranslate nohighlight">\((n,1)\)</span>-dimensionalen Vektor <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> erhalte ich eine Zahl, bzw. eine <span class="math notranslate nohighlight">\((1,1)\)</span>-dimensionale Matrix mit nur einem Eintrag. Wir erhalten das <strong>Skalarprodukt</strong></p>
+<p>Aha, bei Multiplikation eines <span class="math notranslate nohighlight">\((1,n)\)</span>-dimensionalen Vektors <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> mit einem <span class="math notranslate nohighlight">\((n,1)\)</span>-dimensionalen Vektor <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> erhalten wir eine Zahl, bzw. eine <span class="math notranslate nohighlight">\((1,1)\)</span>-dimensionale Matrix mit nur einem Eintrag. Wir erhalten das <strong>Skalarprodukt</strong></p>
 <div class="math notranslate nohighlight">
 \[ \mathbf{e} \cdot \mathbf{f} = \sum_{i=1}^n e_i \cdot f_i. \]</div>
 <div class="cell docutils container">
@@ -1150,7 +1150,7 @@ f =
 </div>
 </div>
 </div>
-<p>Nein! Es klappt nicht. Die Fehlermeldung gibt schon Auskunft darüber wieso, die Dimensionen der Matrizen passen nicht zusammen.</p>
+<p>Nein! Es klappt nicht. Die Fehlermeldung gibt schon Auskunft darüber wieso: Die Dimensionen der Matrizen passen nicht zusammen.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Hier ist der Wortlaut der Octave-Fehlermeldung zu sehen. Matlab gibt an dieser Stelle die folgende Fehlermeldung wieder:</p>
@@ -1233,7 +1233,7 @@ f =
 </div>
 </div>
 </div>
-<p>Sehr häufig ist es nützlich, Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, einer hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter hinterlegen wir in einem Vektor</p>
+<p>Sehr häufig ist es nützlich, Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter:innen haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, eine:r Mitarbeiter:in hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter:innen hinterlegen wir in einem Vektor</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_hours</span> <span class="p">=</span> <span class="p">[</span><span class="mf">39.5</span><span class="p">,</span> <span class="mf">19.5</span><span class="p">,</span> <span class="mf">39.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
@@ -1241,7 +1241,7 @@ f =
 </div>
 </div>
 </div>
-<p>Die stündlichen Bruttokosten der Mitarbeiterstellen in € schreiben wir ebenfalls in einen Vektor:</p>
+<p>Die stündlichen Bruttokosten der Stellen der Mitarbeiter:innen in € schreiben wir ebenfalls in einen Vektor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">costPerHour_brutto_euro</span> <span class="p">=</span> <span class="p">[</span><span class="mf">57.5</span><span class="p">,</span> <span class="mf">57.5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">];</span>
@@ -1249,7 +1249,7 @@ f =
 </div>
 </div>
 </div>
-<p>Wenn ich wissen möchte, wieviel die Mitarbeiter jeweils pro Woche kosten, muss ich die Vektoren komponentenweise miteinander multiplizieren. Das erreiche ich in Matlab, indem ich vor dem <code class="docutils literal notranslate"><span class="pre">*</span></code>-Operator einen Punkt voranstelle, es ist also eine <em>punktweise</em> Operation, und keine Matrixmultiplikation:</p>
+<p>Wenn wie wissen möchten, wieviel die Mitarbeiter:innen jeweils pro Woche kosten, müssen wir die Vektoren komponentenweise miteinander multiplizieren. Das erreichen wir in Matlab, indem wir vor dem <code class="docutils literal notranslate"><span class="pre">*</span></code>-Operator einen Punkt voranstellen, es ist also eine <em>punktweise</em> Operation, und keine Matrixmultiplikation:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_hours</span><span class="o">.*</span><span class="n">costPerHour_brutto_euro</span>
@@ -1264,7 +1264,7 @@ f =
 </div>
 </div>
 </div>
-<p><strong>Quiz:</strong> Wie berechne ich die Gesamtkosten aller Mitarbeiter pro Woche mit nur einer Zeile in Matlab?</p>
+<p><strong>Quiz:</strong> Wie berechnen wir die Gesamtkosten aller Mitarbeiter:innen pro Woche mit nur einer Zeile in Matlab?</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Das Ergebnis lautet 5212.5 €.</p>
@@ -1361,7 +1361,7 @@ ans =
 </div>
 <div class="section" id="concatenation-und-slicing">
 <h2>Concatenation und Slicing<a class="headerlink" href="#concatenation-und-slicing" title="Permalink to this headline">¶</a></h2>
-<p>Oft kann es sinnvoll sein, einzelne Vektoren oder Matrizen zu größeren zusammenzufügen. Das nennt man <em>Concatenation</em>. Die zuvor erstellten Matrizen <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code> sind schließlich nicht unabhängig von einander, sie bezeichnen die Komponenten von <span class="math notranslate nohighlight">\(n\)</span> Vektoren <span class="math notranslate nohighlight">\(v_i\)</span>. Um dies zu verdeutlichen, können wir eine <span class="math notranslate nohighlight">\((n,3)\)</span>-Matrix erstellen, deren Zeilen die jeweiligen Vektoren <span class="math notranslate nohighlight">\(v_i\)</span> sind, und die Spalten die jeweiligen Komponenten <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> und <code class="docutils literal notranslate"><span class="pre">Z</span></code>:</p>
+<p>Oft kann es sinnvoll sein, einzelne Vektoren oder Matrizen zu größeren zusammenzufügen. Das nennt man <em>Concatenation</em>. Die zuvor erstellten Matrizen <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code> sind schließlich nicht unabhängig voneinander, sie bezeichnen die Komponenten von <span class="math notranslate nohighlight">\(n\)</span> Vektoren <span class="math notranslate nohighlight">\(v_i\)</span>. Um dies zu verdeutlichen, können wir eine <span class="math notranslate nohighlight">\((n,3)\)</span>-Matrix erstellen, deren Zeilen die jeweiligen Vektoren <span class="math notranslate nohighlight">\(v_i\)</span> sind, und die Spalten die jeweiligen Komponenten <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> und <code class="docutils literal notranslate"><span class="pre">Z</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="p">=</span> <span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">]</span>
@@ -1427,7 +1427,7 @@ ans =
 </div>
 </div>
 </div>
-<p>Im Gegensatz zu C/C++, fangen wir bei Matlab immer bei 1 an zu zählen, und nicht bei 0. Der Doppelpunkt nach dem Komma gibt Auskunft darüber, dass alle Spalten ausgegeben werden sollen. Wenn nur die ersten beiden Spalten ausgegeben werden sollen kann man <code class="docutils literal notranslate"><span class="pre">V(1:5,1:2)</span></code> eingeben.</p>
+<p>Im Gegensatz zu C/C++, fangen wir bei Matlab immer bei 1 an zu zählen und nicht bei 0. Der Doppelpunkt nach dem Komma gibt Auskunft darüber, dass alle Spalten ausgegeben werden sollen. Wenn nur die ersten beiden Spalten ausgegeben werden sollen kann man <code class="docutils literal notranslate"><span class="pre">V(1:5,1:2)</span></code> eingeben.</p>
 <p>Alle Vektoren, bis auf die ersten 15, erhalten wir mit Hilfe des Wortes <code class="docutils literal notranslate"><span class="pre">end</span></code>, das für die Größe der jeweiligen Dimension steht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1447,7 +1447,7 @@ ans =
 </div>
 </div>
 </div>
-<p>Ich kann mir auch jeden zweiten Vektor ausgeben lassen, indem ich eine ganzzahlige Schrittweite mit angebe:</p>
+<p>Wir können uns auch jeden zweiten Vektor ausgeben lassen, indem wir eine ganzzahlige Schrittweite mit angeben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">,:)</span>
@@ -1505,7 +1505,7 @@ ans =
 </div>
 </div>
 </div>
-<p><strong>Zusatzfrage:</strong> Wie kann ich mir die letzten fünf Zeilen einer Matrix ausgeben lassen, ohne explizit die Größe der Matrix zu kennen?</p>
+<p><strong>Zusatzfrage:</strong> Wie können wir uns die letzten fünf Zeilen einer Matrix ausgeben lassen, ohne explizit die Größe der Matrix zu kennen?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% get last 5 elements of V</span>
@@ -1613,7 +1613,7 @@ ans =
 </div>
 </div>
 </div>
-<p><strong>Zusatzfrage:</strong> Wie erhalte ich mit nur einem Befehl alle Vektoren, deren Betrag kleiner als 1 ist?</p>
+<p><strong>Zusatzfrage:</strong> Wie erhalten wir mit nur einem Befehl alle Vektoren, deren Betrag kleiner als 1 ist?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% get all rows with a magnitude &lt; 1</span>
