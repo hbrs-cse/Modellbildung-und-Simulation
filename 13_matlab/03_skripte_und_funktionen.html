@@ -847,8 +847,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Bisher haben wir Befehle im <code class="docutils literal notranslate"><span class="pre">Command</span> <span class="pre">Window</span></code> eingeben und festgestellt, dass alle Variablen im <code class="docutils literal notranslate"><span class="pre">Workspace</span></code> hinterlegt werden. In diesem Kapitel widmen wir uns dem <code class="docutils literal notranslate"><span class="pre">Editor</span></code>. Wir benutzen ihn, um Skripte und Funktionen zu schreiben. Beide werden als Textdateien mit der Endung <code class="docutils literal notranslate"><span class="pre">.m</span></code> gespeichert. Prinzipiell können wir diese Textdateien mit jedem beliebigen Texteditor schreiben, der Editor in Matlab bietet aber einige nützliche Funktionen. Allein <em>Syntax-Highlighting</em> kann schon sehr hilfreich sein.</p>
 <div class="section" id="skripte">
 <h2>Skripte<a class="headerlink" href="#skripte" title="Permalink to this headline">¶</a></h2>
-<p>Matlab-Skripte sind einfache Textdateien, die eine Abfolge von Matlab-Befehlen enthalten. Diese werden nach einander abgearbeitet.</p>
-<p>Das <code class="docutils literal notranslate"><span class="pre">%</span></code>-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollziehbar zu machen. Wie in <em>ALLEN</em> Programmiersprachen gilt auch in MATLAB: <strong>Kommentieren Sie Ihren Code!</strong>
+<p>Matlab-Skripte sind einfache Textdateien, die eine Abfolge von Matlab-Befehlen enthalten. Diese werden nacheinander abgearbeitet.</p>
+<p>Das <code class="docutils literal notranslate"><span class="pre">%</span></code>-Zeichen läutet in Matlab einen Kommentar ein. Kommentare helfen dabei, die Skripte nachvollziehbar zu machen. Wie in <em>ALLEN</em> Programmiersprachen gilt auch in Matlab: <strong>Kommentieren Sie Ihren Code!</strong>
 Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schaut, sich fragt was man damals eigentlich gemacht hat und sich wünscht, man hätte es besser kommentiert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -872,7 +872,7 @@ Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schau
 </div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p><em>Die allererste Zeile</em></p>
+<p><em>Die erste Zeile</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myScript.m</span></code></p>
 <p><em>besagt nur, dass alles was folgt Inhalt der Datei <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Ein</span> <span class="pre">kleines</span> <span class="pre">Beispielskript</span></code>.</p>
@@ -921,7 +921,7 @@ mailing list.
 </div>
 <div class="section" id="for-schleifen">
 <h3>for-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this headline">¶</a></h3>
-<p>Wie in anderen Programmiersprachen können in MATLAB auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist</p>
+<p>Wie in anderen Programmiersprachen können in Matlab auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
@@ -931,7 +931,7 @@ mailing list.
 </div>
 </div>
 </div>
-<p>Der Code zwischen der <code class="docutils literal notranslate"><span class="pre">for</span></code>-  und der <code class="docutils literal notranslate"><span class="pre">end</span></code>-Zeile wird fünf mal ausgeführt. Bei jeder Ausführung wird eine <em>Laufvariable</em> <code class="docutils literal notranslate"><span class="pre">i</span></code> um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die <span class="math notranslate nohighlight">\(i\)</span>-te Stelle eines Vektors <span class="math notranslate nohighlight">\(f\)</span> zu, und beschreiben diese Stelle mit <span class="math notranslate nohighlight">\(2^i\)</span>. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in MATLAB auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.</p>
+<p>Der Code zwischen der <code class="docutils literal notranslate"><span class="pre">for</span></code>-  und der <code class="docutils literal notranslate"><span class="pre">end</span></code>-Zeile wird fünfmal ausgeführt. Bei jeder Ausführung wird eine <em>Laufvariable</em> <code class="docutils literal notranslate"><span class="pre">i</span></code> um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die <span class="math notranslate nohighlight">\(i\)</span>-te Stelle eines Vektors <span class="math notranslate nohighlight">\(f\)</span> zu, und beschreiben diese Stelle mit <span class="math notranslate nohighlight">\(2^i\)</span>. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in Matlab auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.</p>
 <p>Es besteht die Möglichkeit die Schrittweite der Laufvariablen anzupassen. Auf diese Weise können auch Laufvariablen benutzt werden, die nicht ganzzahlig sind:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -976,11 +976,11 @@ x =
 </div>
 </div>
 </div>
-<p>Bei for-Schleifen ist über die Laufvariable die Anzahl der Aufrufe vor dem Beginn der Schleife klar. Es ist zwar möglich, die Laufvariable selbst in der Schleife zu verändern, das sollte aber auf jeden Fall vermieden werden. Der Code wird dadurch nicht mehr intuitiv verständlich und es ist eine wahrscheinliche Fehlerquelle.</p>
+<p>Bei for-Schleifen ist über die Laufvariable die Anzahl der Aufrufe vor dem Beginn der Schleife klar. Es ist zwar möglich, die Laufvariable selbst in der Schleife zu verändern, das sollte aber auf jeden Fall vermieden werden. Der Code wird dadurch nicht mehr intuitiv verständlich. Es ist eine wahrscheinliche Fehlerquelle.</p>
 </div>
 <div class="section" id="while-schleifen">
 <h3>while-Schleifen<a class="headerlink" href="#while-schleifen" title="Permalink to this headline">¶</a></h3>
-<p>while-Schleifen bieten eine weiter Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife wird solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss dem Programmierer vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.</p>
+<p>while-Schleifen bieten eine weitere Möglichkeit, einen Code-Block wiederholt auszuführen. Eine while-Schleife wird solange ausgeführt, bis eine Aussage nicht mehr zutrifft. Dabei muss den Programmierer:innen vorher nicht bekannt sein, wieviele Schleifendurchläufe dafür nötig sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="p">=</span> <span class="nb">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
@@ -1061,7 +1061,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 </div>
 </div>
 </div>
-<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-elseif-else-Bedingung. Das kann zum Beispiel Sinn haben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
+<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-else-if-else-Bedingung. Das kann zum Beispiel Sinn ergeben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
@@ -1271,7 +1271,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Mit Skripten können wir also Algorithmen als eine Abfolge von Anweisungen umsetzen. Funktionen zeichnen sich, im Gegensatz zu Skripten, dadurch aus, dass es eine klare Trennung von Eingabe, Ausgabe und Anweisungen gibt. Dies bietet sich insbesondere dann an, wenn die Funktion einen Algorithmus repräsentiert, der oft an verschiedenen Stellen ausgeführt werden soll.</p>
 <div class="section" id="eingabe-und-ausgabe">
 <h3>Eingabe und Ausgabe<a class="headerlink" href="#eingabe-und-ausgabe" title="Permalink to this headline">¶</a></h3>
-<p>Funktionen werden in Matlab mit dem <code class="docutils literal notranslate"><span class="pre">function</span></code> keyword eingeleitet. Das folgende m-file <code class="docutils literal notranslate"><span class="pre">oldmcdonald.m</span></code> definiert eine Funktion mit Namen <code class="docutils literal notranslate"><span class="pre">oldmcdonald</span></code>, die für einen Tiernamen <code class="docutils literal notranslate"><span class="pre">animal</span></code> als Eingabe einen Laut <code class="docutils literal notranslate"><span class="pre">sound</span></code> als Ausgabe ausgibt. Sowohl <code class="docutils literal notranslate"><span class="pre">animal</span></code> und <code class="docutils literal notranslate"><span class="pre">sound</span></code> werden als strings definiert.</p>
+<p>Funktionen werden in Matlab mit dem <code class="docutils literal notranslate"><span class="pre">function</span></code> Keyword eingeleitet. Das folgende m-file <code class="docutils literal notranslate"><span class="pre">oldmcdonald.m</span></code> definiert eine Funktion mit Namen <code class="docutils literal notranslate"><span class="pre">oldmcdonald</span></code>, die für einen Tiernamen <code class="docutils literal notranslate"><span class="pre">animal</span></code> als Eingabe einen Laut <code class="docutils literal notranslate"><span class="pre">sound</span></code> als Ausgabe ausgibt. Sowohl <code class="docutils literal notranslate"><span class="pre">animal</span></code> und <code class="docutils literal notranslate"><span class="pre">sound</span></code> werden als strings definiert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
@@ -1300,7 +1300,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 </div>
 </div>
 <p><strong>Wichtig:</strong> Der Dateiname muss genau dem Funktionsnamen entsprechen.</p>
-<p>Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe kann ich nun entweder der temporären Variable <code class="docutils literal notranslate"><span class="pre">ans</span></code> oder einer Variablen mit beliebigem Namen zuordnen:</p>
+<p>Wenn sich die Datei im aktuellen Arbeitsverzeichnis befindet, steht uns die Funktion für die Verwendung im Command Window oder in einem Skript zur Verfügung. Die Ausgabe können wir nun entweder der temporären Variable <code class="docutils literal notranslate"><span class="pre">ans</span></code> oder einer Variablen mit beliebigem Namen zuordnen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">oldmcdonald</span><span class="p">(</span><span class="s">&#39;cat&#39;</span><span class="p">)</span>
@@ -1421,7 +1421,7 @@ Gib mir eine Schnapspraline.
 <div class="section" id="scope-von-variablen">
 <h3>Scope von Variablen<a class="headerlink" href="#scope-von-variablen" title="Permalink to this headline">¶</a></h3>
 <p>In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff <em>scope</em> bezeichnet.</p>
-<p>Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen die sich zur Zeit der Ausführung im Workspace befinden können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden, nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems innerhalb der Funktion dienen, nach außen sichtbar. Außerdem können nicht ausversehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.</p>
+<p>Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen, die sich zur Zeit der Ausführung im Workspace befinden, können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden, nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems innerhalb der Funktion dienen, nach außen sichtbar. Außerdem können nicht aus Versehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.</p>
 <p>Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1490,7 +1490,7 @@ Gib mir eine Schnapspraline.
 </div>
 </div>
 </div>
-<p>Im folgenden wird die neue Funktion verwendet. Die Grenzen <code class="docutils literal notranslate"><span class="pre">xlower</span></code> und <code class="docutils literal notranslate"><span class="pre">xupper</span></code> werden über die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> an die Funktion übergeben. Der Mittelpunkt des Startintervals wird in der Variable <code class="docutils literal notranslate"><span class="pre">midpoint</span></code> gespeichert.</p>
+<p>Im Folgenden wird die neue Funktion verwendet. Die Grenzen <code class="docutils literal notranslate"><span class="pre">xlower</span></code> und <code class="docutils literal notranslate"><span class="pre">xupper</span></code> werden über die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> an die Funktion übergeben. Der Mittelpunkt des Startintervals wird in der Variable <code class="docutils literal notranslate"><span class="pre">midpoint</span></code> gespeichert.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% define initial points and calculate the midpoint</span>
@@ -1546,12 +1546,12 @@ Gib mir eine Schnapspraline.
 </div>
 </div>
 </div>
-<p>Überall dort, wo der <em>scope</em> einer Variablen <code class="docutils literal notranslate"><span class="pre">x</span></code> erweitert werden soll, muss dies explizit durch die Zeile <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">x</span></code> angegeben werden. In dem obigen Beispiel muss das also sowohl in der Funktion als auch im aufrufenden Skript geschehen.</p>
+<p>Überall dort, wo der <em>Scope</em> einer Variablen <code class="docutils literal notranslate"><span class="pre">x</span></code> erweitert werden soll, muss dies explizit durch die Zeile <code class="docutils literal notranslate"><span class="pre">global</span> <span class="pre">x</span></code> angegeben werden. In dem obigen Beispiel muss das also sowohl in der Funktion als auch im aufrufenden Skript geschehen.</p>
 <p>Globale Variablen sollten spärlich verwendet werden, da sie gerade die saubere Trennung von Eingabe, Ausgabe und Funktionskörper unterwandern und so für mögliche Fehlerquellen sorgen.</p>
 </div>
 <div class="section" id="function-handles">
 <h3>Function Handles<a class="headerlink" href="#function-handles" title="Permalink to this headline">¶</a></h3>
-<p>Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte <em>function handles</em> zu definieren. Ein <em>function handle</em> ist eine Variable, in der die Funktion gespeichert wird. function handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.</p>
+<p>Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte <em>Function Handles</em> zu definieren. Ein <em>Function Handle</em> ist eine Variable, in der die Funktion gespeichert wird. Function Handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
@@ -1609,7 +1609,7 @@ Gib mir eine Schnapspraline.
 </div>
 </div>
 </div>
-<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines function handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Interval sinnvoll eingeklammert haben und sich der function handle für alle Zwischenwerte auswerten lässt.</p>
+<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines Function Handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Intervall sinnvoll eingeklammert haben und sich der Function Handle für alle Zwischenwerte auswerten lässt.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
@@ -1674,7 +1674,7 @@ Gib mir eine Schnapspraline.
 </div>
 </div>
 <p>Nicht nur haben wir die Funktion stark erweitert, da sie nun Nullstellen beliebiger Funktionen finden kann, wir haben auch eine potentielle Fehlerquelle beseitigt: Bisher wurde die Funktionsvorschrift des Polynoms an drei Stellen des Algorithmus verwendet. Wenn die Funktion nun geändert werden soll, passiert es schnell, dass sie nicht an allen Stellen geändert wird. In der neuen Version kann das nicht passieren, da überall die Funktion <code class="docutils literal notranslate"><span class="pre">f</span></code> aus der Eingabe verwendet wird.</p>
-<p>Die weiter oben über ein function handle definierte Funktion <code class="docutils literal notranslate"><span class="pre">myPolynomial</span></code> kann nun als Eingabe verwendet werden:</p>
+<p>Die weiter oben über ein Function Handle definierte Funktion <code class="docutils literal notranslate"><span class="pre">myPolynomial</span></code> kann nun als Eingabe verwendet werden:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">bisection</span><span class="p">(</span><span class="n">myPolynomial</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-12</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -1712,8 +1712,8 @@ ans = -0.51879
 </div>
 </div>
 </div>
-<p>Aus Funktionen, die über ein m-file definiert wurden lassen sich auch function handles erzeugen.</p>
-<p>Function handles lassen sich durch ein vorangestelltes <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein function handle <code class="docutils literal notranslate"><span class="pre">h</span></code> für die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> erstellt. Die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> wird anschließend mittelbar über das function handle <code class="docutils literal notranslate"><span class="pre">h</span></code> aufgerufen, um eine Nullstelle der Funktion <span class="math notranslate nohighlight">\(f(x) = 2x - \frac{1}{3}\)</span> aufzufinden.</p>
+<p>Aus Funktionen, die über ein m-file definiert wurden lassen sich auch Function Handles erzeugen.</p>
+<p>Function Handles lassen sich durch ein vorangestelltes <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein Function Handle <code class="docutils literal notranslate"><span class="pre">h</span></code> für die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> erstellt. Die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> wird anschließend mittelbar über das Function Handle <code class="docutils literal notranslate"><span class="pre">h</span></code> aufgerufen, um eine Nullstelle der Funktion <span class="math notranslate nohighlight">\(f(x) = 2x - \frac{1}{3}\)</span> aufzufinden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">h</span> <span class="p">=</span> <span class="p">@</span><span class="n">bisection</span>
