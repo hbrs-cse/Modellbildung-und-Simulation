@@ -7,12 +7,12 @@
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Jasmin Breuer"
         },
-	    {
+    	{
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Sandro Elsweijer"
         }, 
         {
-            "affiliation": "Hochschule Bonn-Rhein-Sieg/German Space Association", 
+            "affiliation": "German Aerospace Center", 
             "name": "Jan Kleinert",
 	        "orcid": "0000-0002-2709-214X"
         },
@@ -22,6 +22,10 @@
         },
         {
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
+            "name": "Victor Lüddemann"
+        }, 
+        {
+            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Dirk Reith",
 	        "orcid": "0000-0003-1480-6745"
         },
@@ -29,10 +33,18 @@
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Philipp Rosauer"
         },
-	    {
+	{
+            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
+            "name": "Florian Roßbach"
+        }, 
+        {
+            "affiliation": "Hochschule Bonn-Rhein-Sieg", 
+            "name": "Martin Schenk"
+        }, 
+    	{
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Philipp Spelten"
-	    },
+    	},
         {
             "affiliation": "Hochschule Bonn-Rhein-Sieg", 
             "name": "Gerd Steinebach",
