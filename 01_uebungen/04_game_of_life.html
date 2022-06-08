@@ -1,0 +1,1203 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game of Life &#8212; Modellbildung und Simulation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "joergbrech/Modellbildung-und-Simulation");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gleitkommaarithmetik" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html" />
+    <link rel="prev" title="Der perfekte Wurf" href="03_der_perfekte_wurf.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-134708516-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00_einleitung/00_einleitung.html">
+   Einleitung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/01_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/02_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/03_best_practice.html">
+     Best Practices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_uebungsaufgaben.html">
+   Einleitende Übungsaufgaben
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_fluessigkeit_im_boden.html">
+     Flüssigkeit im Boden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_verkehrssimulation.html">
+     Verkehrssimulation mit zellulären Automaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_der_perfekte_wurf.html">
+     Der perfekte Wurf
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Game of Life
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
+     Übungen zur Gleitkommaarithmetik
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/02_taylor.html">
+     Funktionen mit Taylorpolynomen berechnen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/03_spline_interpolation.html">
+     Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
+     Numerische Integration (mit Schrittweitensteuerung)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/01_lgs_sparse.html">
+     Lösung linearer Gleichungssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
+   Gewöhnliche Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../07_num_ode/01_intro_RK/00_intro_RK.html">
+     Einführung in numerische Integrationsverfahren von ODEs
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/01_integration_RK.html">
+       Integration von ODEs mit expliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/02_integration_implicit.html">
+       Integration von ODEs mit impliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/03_integration_RK_evaluation.html">
+       Lohnen sich Verfahren höherer Ordnung?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/04_adaptive_steps.html">
+       Adaptive Schrittweitensteuerung
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/05_oscillation_and_vdpol.html">
+       Systeme von ODEs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/02_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/03_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren.html">
+     Stabilität des expliziten versus impliziten Eulerverfahrens
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html">
+     Modellierung einer Highline - Zeitliche Auflösung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/05_mass-spring-mass/00_mass-spring-mass.html">
+     Rutschendes Masse-Feder-Masse System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../09_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../10_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../11_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../12_pde/00_partielle_differentialgleichungen.html">
+   Partielle Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_pde/01_modellierung_einer_highline_dynamisch_pde.html">
+     Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_pde/02_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_pde/03_trafficPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../13_matlab/00_MATLAB_introduction.html">
+   Matlab Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/01_erste_schritte_in_matlab.html">
+     Matlab einrichten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/02_matlab_command_window.html">
+     Matlab Command Window
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/03_skripte_und_funktionen.html">
+     Skripte und Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/04_matlab_kennenlernen.html">
+     Rechnen mit Matlab
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../13_matlab/05_matlab_videos/00_matlab_videos.html">
+     Grundlagenkurs und Zusatzübungen
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/01_exercise1.html">
+       1. Messwerte importieren, plotten und bearbeiten
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/02_exercise2.html">
+       2. Messwerte filtern und interpolieren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/03_exercise3.html">
+       3. Polynomfitting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/04_exercise4.html">
+       4. Flächenberechnung und Newtonverfahren (1D)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/05_exercise5.html">
+       5. Funktionsfitting und Newtonverfahren (nD)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/06_exercise6.html">
+       6. Numerische Differentiation und Integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/07_exercise7.html">
+       7. Gewöhnliche Differentialgleichungen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/08_exercise8.html">
+       8. Gewöhnliche Differentialgleichungen und Event-Detektion
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/09_exercise9.html">
+       9. Differential-Algebraische Gleichungen (1)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/10_exercise10.html">
+       10. Differential-Algebraische Gleichungen (2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/11_extra.html">
+       Zusatzinfo - Mehrdimensionales Newtonverfahren
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/01_uebungen/04_game_of_life.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/01_uebungen/04_game_of_life.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/01_uebungen/04_game_of_life.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#das-spielfeld">
+   Das Spielfeld
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-spielregeln">
+   Die Spielregeln
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spielfeld">
+     1.1 Spielfeld
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anfangsgeneration">
+     1.2 Anfangsgeneration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spielfeldrand">
+     1.3 Spielfeldrand
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualisierung">
+     1.4 Visualisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Game of Life</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#das-spielfeld">
+   Das Spielfeld
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#die-spielregeln">
+   Die Spielregeln
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-1">
+   Aufgabe 1
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spielfeld">
+     1.1 Spielfeld
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#anfangsgeneration">
+     1.2 Anfangsgeneration
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#spielfeldrand">
+     1.3 Spielfeldrand
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#visualisierung">
+     1.4 Visualisierung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2">
+   Aufgabe 2
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Matlab Grundkenntnisse</p></li>
+<li><p class="card-text">Grundkenntnisse im Umgang mit Matritzen bzw. Arrays</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lernziele</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Softwareimplementierung von allgemein definierten Regeln und Verhaltensweisen</p></li>
+<li><p class="card-text">Implementierung von Auswahlmöglichkeiten</p></li>
+<li><p class="card-text">Umgang mit Funktionen und instanzierten Aufrufen innerhalb der Software</p></li>
+<li><p class="card-text">Visualisierung von Daten</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="game-of-life">
+<h1>Game of Life<a class="headerlink" href="#game-of-life" title="Permalink to this headline">¶</a></h1>
+<p>Conway’s Game of Life (dt. Spiel des Lebens) wurde 1970 von dem Mathematiker John Horton Conway entwickelt und basiert auf einem zweidimensionalen zellulären Automaten.</p>
+<div class="section" id="das-spielfeld">
+<h2>Das Spielfeld<a class="headerlink" href="#das-spielfeld" title="Permalink to this headline">¶</a></h2>
+<p>Das Spielfeld besteht aus Feldern, die schachbrettartig in Zeilen und Spalten angeordnet sind und ist im Idealfall unendlich groß. Jedes Feld stellt einen zellulären Automaten dar und wird hier auch Zelle genannt.</p>
+<p>Zellen können einen von zwei Zuständen annehmen. Diese werden oft ‘lebendig’ bzw. ‘tot’ genannt.</p>
+<p>Beim Spielen des Spiels wird zunächst eine (zufällige) Anfangsgeneration von lebenden Zellen auf dem Spielfeld platziert. Jede Zelle hat genau acht Nachbarzellen, die zur Bestimmung der Folgegeneration berücksichtigt werden müssen. Die nächste Generation ergibt sich durch die Befolgung einfacher Regeln.</p>
+<img alt="GameOfLife" class="align-center" src="../_images/GameOfLife_rnd_n100.gif" />
+<p>Abbildung 1: Beispiel für einen Game of Life Durchlauf mit zufälliger Startverteilung und n = 100 Iterationen.</p>
+<p>Das Spiel des Lebens kann mit Hilfe eines Computers simuliert (= gespielt) werden. Da in diesem Fall das Spielfeld immer endlich ist, muss es einen Rand haben, an dem die Regeln gesondert festgelegt werden müssen.
+Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt ist. Eine Alternative sind sogenannte periodische Randbedingungen, bei denen alles, was das Spielfeld nach unten verlässt, oben wieder hereinkommt und umgekehrt bzw. alles, was das Spielfeld nach links verlässt, rechts wieder eintritt und umgekehrt.</p>
+</div>
+<div class="section" id="die-spielregeln">
+<h2>Die Spielregeln<a class="headerlink" href="#die-spielregeln" title="Permalink to this headline">¶</a></h2>
+<p>Die Folgegeneration wird für alle Zellen gleichzeitig berechnet und ersetzt die aktuelle Generation. Der Zustand einer Zelle (lebendig oder tot) in der Folgegeneration hängt nur vom aktuellen Zustand der Zelle selbst und den aktuellen Zuständen ihrer acht Nachbarzellen ab.</p>
+<p>Die von Conway ursprünglich verwendeten Regeln sind:</p>
+<ul class="simple">
+<li><p>Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren</p></li>
+<li><p>Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Einsamkeit</p></li>
+<li><p>Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben</p></li>
+<li><p>Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung</p></li>
+</ul>
+</div>
+<div class="section" id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+<p>Schreiben Sie einen Matlabcode, der ein quadratisches Spielfeld der Größe N x N anlegt. Implementieren Sie je eine Auswahl für verschiedene Anfangsgenerationen (siehe 1.2) bzw. verschiedene Spielfeldränder (siehe 1.3).</p>
+<div class="section" id="spielfeld">
+<h3>1.1 Spielfeld<a class="headerlink" href="#spielfeld" title="Permalink to this headline">¶</a></h3>
+<p>Legen Sie fest, welche Größe Ihr quadratisches Spielfeld haben soll.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c">% größe des Spielfelds</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="anfangsgeneration">
+<h3>1.2 Anfangsgeneration<a class="headerlink" href="#anfangsgeneration" title="Permalink to this headline">¶</a></h3>
+<p>Ermöglichen Sie eine Auswahl verschiedener Anfangsgenerationen:</p>
+<ul class="simple">
+<li><p>Eine zufällige Verteilung von toten und lebendigen Zellen</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% entweder Zufallsverteilung:</span>
+<span class="c">% erzeugt ein quadratisches array der Größe (N x N) mit ganzzahligen Zufallswerten zwischen 0 und 1</span>
+<span class="n">field</span> <span class="p">=</span> <span class="nb">randi</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">]);</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Ein R-Pentomino in der Mitte des Spielfelds (siehe Abbildung 2). Hier soll die minimale Spielfeldgröße <code class="docutils literal notranslate"><span class="pre">N=10</span></code> betragen, selbst wenn <code class="docutils literal notranslate"><span class="pre">N</span></code> vorher kleiner gewählt wurde.</p>
+<img alt="R-Pentomino" class="align-center" src="../_images/GameOfLife_R_Pentomino.gif" />
+<p>Abbildung 2: Ein R-Pentomino in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% R-Pentomino:</span>
+<span class="n">field</span> <span class="p">=</span> <span class="n">R_pentomino</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">R_pentomino</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">10</span>
+        <span class="n">N</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="n">field</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+    <span class="n">mid</span> <span class="p">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">N</span><span class="o">/</span><span class="mi">2</span><span class="p">);</span>
+    <span class="n">field</span><span class="p">(</span><span class="n">mid</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">mid</span><span class="p">:</span><span class="n">mid</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">...</span>
+    <span class="k">return</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Einen Glider in der Mitte des Spielfelds (siehe Abbildung 3). Auch hier soll die minimale Spielfeldgröße <code class="docutils literal notranslate"><span class="pre">N=10</span></code> betragen, selbst wenn <code class="docutils literal notranslate"><span class="pre">N</span></code> vorher kleiner gewählt wurde.</p>
+<img alt="Glider" class="align-center" src="../_images/GameOfLife_Glider.gif" />
+<p>Abbildung 3: Ein Glider in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Glider:</span>
+<span class="n">field</span> <span class="p">=</span> <span class="n">Glider</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Glider</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">10</span>
+        <span class="n">N</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="p">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Ein Light Weight Spaceship (LWSS), Medium Weight Spaceship (MWSS) bzw. Heavy Weight Spaceship (HWSS) in der Mitte des Spielfelds (siehe Abbildunen 4-6). Hier soll die minimale Spielfeldgröße <code class="docutils literal notranslate"><span class="pre">N=20</span></code> betragen, selbst wenn <code class="docutils literal notranslate"><span class="pre">N</span></code> vorher kleiner gewählt wurde.</p>
+<img alt="Light Weight Spaceship (LWSS)" class="align-center" src="../_images/GameOfLife_LWSS.gif" />
+<p>Abbildung 4: Ein Light Weigth Spaceship (LWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+<img alt="Medium Weight Spaceship (MWSS)" class="align-center" src="../_images/GameOfLife_MWSS.gif" />
+<p>Abbildung 5: Ein Medium Weigth Spaceship (MWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+<img alt="Heavy Weight Spaceship (HWSS)" class="align-center" src="../_images/GameOfLife_HWSS.gif" />
+<p>Abbildung 6: Ein Heavy Weigth Spaceship (HWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Spaceships</span>
+<span class="n">field</span> <span class="p">=</span> <span class="n">LWSS</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">LWSS</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">20</span>
+        <span class="n">N</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
+    <span class="k">end</span>
+    
+    <span class="p">...</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">MWSS</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">HWSS</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spielfeldrand">
+<h3>1.3 Spielfeldrand<a class="headerlink" href="#spielfeldrand" title="Permalink to this headline">¶</a></h3>
+<p>Realisieren Sie folgende Spielfeldränder, von denen immer genau eins ausgewählt sein soll:</p>
+<ul>
+<li><p>Alle äußeren Zellen sind immer tot (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">1</span></code>)</p></li>
+<li><p>Alle äußeren Zellen sind immer lebendig (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">2</span></code>)</p></li>
+<li><p>Periodisches Spielfeld (siehe Abb. 7): Was links/rechts/oben/unten das Spielfeld verlässt kommt auf der gegenüberliegenden Seite wieder rein (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">3</span></code>)</p>
+<img alt="Periodische Randbedingungen (periodic boundary conditions, PBC)" class="align-center" src="../_images/GameOfLife_PBC.png" />
+<p>Abbildung 7: Beispiel für periodische Randbedingungen. Das Spielfelds wird oben/unten bzw. links/rechts an sich selbst kopiert. Etwas das z.B. rechts das Spielfeld verlassen würde kommt so auf der linken Seite wieder rein.</p>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">rule</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c">% only dead cells</span>
+<span class="c">% or</span>
+<span class="c">%rule = 2; % only living cells</span>
+<span class="c">% or</span>
+<span class="c">%rule = 3; % PBC</span>
+
+<span class="n">field</span> <span class="p">=</span> <span class="n">add_boundaries</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">rule</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">add_boundaries</span><span class="p">(</span>field, rule, N<span class="p">)</span><span class="w"></span>
+<span class="c">% add field boundaries based on selected rule</span>
+    <span class="k">if</span> <span class="n">rule</span> <span class="o">==</span> <span class="mi">1</span>
+    <span class="c">% boundaries are only dead cells (0)</span>
+        <span class="n">top_bottom</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+        <span class="n">sides</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+        
+        <span class="n">field</span> <span class="p">=</span> <span class="p">[</span><span class="n">top_bottom</span><span class="p">;</span>
+                 <span class="n">sides</span> <span class="n">field</span> <span class="n">sides</span><span class="p">;</span>
+                 <span class="n">top_bottom</span><span class="p">];</span>
+                 
+    <span class="k">elseif</span> <span class="n">rule</span> <span class="o">==</span> <span class="mi">2</span>
+    <span class="c">% boundaries are only living cells (1)</span>
+        <span class="p">...</span>
+    <span class="k">elseif</span> <span class="n">rule</span> <span class="o">==</span> <span class="mi">3</span>
+    <span class="c">% periodic boundary conditions (PBC)</span>
+        <span class="p">...</span>
+    <span class="k">else</span>
+    <span class="c">% rule is neither equal to 1, 2 or 3</span>
+        <span class="p">...</span>
+    <span class="k">return</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="visualisierung">
+<h3>1.4 Visualisierung<a class="headerlink" href="#visualisierung" title="Permalink to this headline">¶</a></h3>
+<p>Lassen Sie sich die Startverteilung visuell darstellen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">figure</span><span class="p">;</span> <span class="n">hAxes</span> <span class="p">=</span> <span class="nb">gca</span><span class="p">;</span>
+<span class="nb">imagesc</span><span class="p">(</span><span class="n">hAxes</span><span class="p">,</span> <span class="n">field</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span> <span class="c">% Der Rand, der über add_boundaries hinzugefügt wird, wird hier nicht mit anzeigt</span>
+<span class="nb">colormap</span><span class="p">(</span><span class="n">hAxes</span> <span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">]);</span>
+<span class="nb">hold</span> <span class="n">on</span>
+<span class="nb">pause</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+<p>Erweitern Sie Ihren Matlab Code nun so, dass für eine vorherbestimmte Anzahl an Iterationen jeweils die Folgegeneration bestimmt und anschließen angezeigt wird.</p>
+<p>Probieren Sie die verschiendenen Startverteilungen und Randbedingungen aus (vgl. Abb. 8-10).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">Iterations</span> <span class="p">=</span> <span class="mi">100</span><span class="p">;</span> <span class="c">%Anzahl an Spielrunden</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="n">Iterations</span>
+    <span class="n">field</span> <span class="p">=</span> <span class="n">next_iteration</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    
+    <span class="c">%plot</span>
+    <span class="nb">imagesc</span><span class="p">(</span><span class="n">hAxes</span><span class="p">,</span> <span class="n">field</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    <span class="nb">colormap</span><span class="p">(</span><span class="n">hAxes</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">;</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">]);</span>
+    <span class="nb">hold</span> <span class="n">on</span>
+    
+    <span class="nb">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">next_iteration</span><span class="p">(</span>field, N, rule<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">new_field</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>    
+    <span class="c">% current field size (N+2)x(N+2) because boundaries were added previously</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
+            <span class="n">count</span> <span class="p">=</span> <span class="n">count_living_cells</span><span class="p">(</span><span class="n">field</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">);</span>             
+
+            <span class="c">% take aktion based on living or dead cell</span>
+            <span class="n">new_field</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">update_cell</span><span class="p">(</span><span class="n">field</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">),</span> <span class="n">count</span><span class="p">);</span>                
+        <span class="k">end</span>
+    <span class="k">end</span>
+    
+    <span class="c">% add boundaries to the new field</span>
+    <span class="n">new_field</span> <span class="p">=</span> <span class="n">add_boundaries</span><span class="p">(</span><span class="n">new_field</span><span class="p">,</span> <span class="n">rule</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
+
+    <span class="c">% make new_field the current field</span>
+    <span class="n">field</span> <span class="p">=</span> <span class="n">new_field</span><span class="p">;</span>
+    <span class="k">return</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span>count<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">count_living_cells</span><span class="p">(</span>field, i, j<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="n">count</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c">% check number living neighbour cells</span>
+    <span class="c">% add above the cell</span>
+    <span class="n">count</span> <span class="p">=</span> <span class="n">count</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="n">field</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+    <span class="c">% add below the cell</span>
+    <span class="n">count</span> <span class="p">=</span> <span class="n">count</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">();</span>
+    <span class="c">% add left side</span>
+    <span class="p">...</span>
+    <span class="k">return</span>
+<span class="k">end</span>
+
+<span class="k">function</span><span class="w"> </span>val<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">update_cell</span><span class="p">(</span>cell, count<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span> <span class="nb">cell</span> <span class="o">==</span> <span class="mi">1</span>
+        <span class="c">% living cell</span>
+        <span class="c">% if less than to living neighbours: cell dies</span>
+        <span class="k">if</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">2</span>
+            <span class="n">val</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">elseif</span> <span class="n">count</span> <span class="o">&lt;</span><span class="p">=</span> <span class="mi">3</span>
+            <span class="c">% if 2 or 3 living neighbour cells: cell stays alive</span>
+            <span class="n">val</span> <span class="p">=</span> <span class="p">...;</span>
+        <span class="k">else</span>
+            <span class="c">% if more than 3 living neighbour cells: cell dies due</span>
+            <span class="c">% to overpopulatoin</span>
+            <span class="p">...</span>
+        <span class="k">end</span>
+    <span class="k">else</span>
+        <span class="c">% dead cell</span>
+        <span class="p">...</span>
+    <span class="k">end</span>
+    <span class="k">return</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Abbildung 8 zeigt die Animation für ein mittig platziertes R-Pentomino. Das Spielfeld hat die Größe N=50 und die Anzahl der Folgegenerationen ist Iterations=100. Als Randbedinung wurde festgelegt, dass alle Zellen dort tot sind.</p>
+<img alt="R-Pentomino_animation" class="align-center" src="../_images/GameOfLife_R_Pentomino_n100.gif" />
+<p>Abbildung 8: Ein R-Pentomino in der Mitte eines 50x50 Spielfelds und 100 Folgegenerationen mit einem Rand auf dem alle Zellen tot sind.</p>
+<p>Abbildung 9 zeigt die Animation für ein mittig platzierten Glider. Das Spielfeld hat die Größe N=30 und die Anzahl der Folgegenerationen ist Iterations=100. Es wurden periodische Randbedingungen (periodic boundary conditions, PBC) gewählt.</p>
+<img alt="Glider_animation" class="align-center" src="../_images/GameOfLife_Glider_n100.gif" />
+<p>Abbildung 9: Ein Glider in der Mitte eines 30x30 Spielfelds und 100 Folgegenerationen mit PBC.</p>
+<p>Abbildung 10 zeigt die Animation für ein mittig platziertes Light Weight Spaceship (LWSS). Das Spielfeld hat die Größe N=30 und die Anzahl der Folgegenerationen ist Iterations=100. Es wurden periodische Randbedingungen (periodic boundary conditions, PBC) gewählt.</p>
+<img alt="LWSS_animation" class="align-center" src="../_images/GameOfLife_LWSS_n100.gif" />
+<p>Abbildung 10: Ein LWSSin der Mitte eines 30x30 Spielfelds und 100 Folgegenerationen mit PBC.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./01_uebungen"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03_der_perfekte_wurf.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Der perfekte Wurf</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Gleitkommaarithmetik</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+    
+        &copy; Copyright 2020 - 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

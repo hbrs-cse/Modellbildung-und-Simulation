@@ -1,0 +1,1190 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verwendung dieses Buches &#8212; Modellbildung und Simulation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >let toggleHintShow = 'Click to show';</script>
+    <script >let toggleHintHide = 'Click to hide';</script>
+    <script >let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "joergbrech/Modellbildung-und-Simulation");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Best Practices" href="03_best_practice.html" />
+    <link rel="prev" title="Das Stauproblem - Motivation zur Benutzung dieses Buches" href="01_motivation.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-134708516-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_einleitung.html">
+   Einleitung
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_best_practice.html">
+     Best Practices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_uebungen/00_uebungsaufgaben.html">
+   Einleitende Übungsaufgaben
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/01_fluessigkeit_im_boden.html">
+     Flüssigkeit im Boden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html">
+     Verkehrssimulation mit zellulären Automaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/03_der_perfekte_wurf.html">
+     Der perfekte Wurf
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/04_game_of_life.html">
+     Game of Life
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
+     Übungen zur Gleitkommaarithmetik
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/02_taylor.html">
+     Funktionen mit Taylorpolynomen berechnen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/03_spline_interpolation.html">
+     Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
+     Numerische Integration (mit Schrittweitensteuerung)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/01_lgs_sparse.html">
+     Lösung linearer Gleichungssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
+   Gewöhnliche Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../07_num_ode/01_intro_RK/00_intro_RK.html">
+     Einführung in numerische Integrationsverfahren von ODEs
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/01_integration_RK.html">
+       Integration von ODEs mit expliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/02_integration_implicit.html">
+       Integration von ODEs mit impliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/03_integration_RK_evaluation.html">
+       Lohnen sich Verfahren höherer Ordnung?
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/04_adaptive_steps.html">
+       Adaptive Schrittweitensteuerung
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/05_oscillation_and_vdpol.html">
+       Systeme von ODEs
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/02_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/03_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren.html">
+     Stabilität des expliziten versus impliziten Eulerverfahrens
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html">
+     Modellierung einer Highline - Zeitliche Auflösung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/05_mass-spring-mass/00_mass-spring-mass.html">
+     Rutschendes Masse-Feder-Masse System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08_schwingungen/00_schwingungen.html">
+   Schwingungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_schwingungen/01_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../09_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_eigenwerte/01_das_qr_verfahren.html">
+     Das QR Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../10_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../11_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../12_pde/00_partielle_differentialgleichungen.html">
+   Partielle Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_pde/01_modellierung_einer_highline_dynamisch_pde.html">
+     Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_pde/02_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_pde/03_trafficPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../13_matlab/00_MATLAB_introduction.html">
+   Matlab Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/01_erste_schritte_in_matlab.html">
+     Matlab einrichten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/02_matlab_command_window.html">
+     Matlab Command Window
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/03_skripte_und_funktionen.html">
+     Skripte und Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../13_matlab/04_matlab_kennenlernen.html">
+     Rechnen mit Matlab
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../13_matlab/05_matlab_videos/00_matlab_videos.html">
+     Grundlagenkurs und Zusatzübungen
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/01_exercise1.html">
+       1. Messwerte importieren, plotten und bearbeiten
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/02_exercise2.html">
+       2. Messwerte filtern und interpolieren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/03_exercise3.html">
+       3. Polynomfitting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/04_exercise4.html">
+       4. Flächenberechnung und Newtonverfahren (1D)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/05_exercise5.html">
+       5. Funktionsfitting und Newtonverfahren (nD)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/06_exercise6.html">
+       6. Numerische Differentiation und Integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/07_exercise7.html">
+       7. Gewöhnliche Differentialgleichungen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/08_exercise8.html">
+       8. Gewöhnliche Differentialgleichungen und Event-Detektion
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/09_exercise9.html">
+       9. Differential-Algebraische Gleichungen (1)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/10_exercise10.html">
+       10. Differential-Algebraische Gleichungen (2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../13_matlab/05_matlab_videos/11_extra.html">
+       Zusatzinfo - Mehrdimensionales Newtonverfahren
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div align="left"> <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br> <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br> <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/00_einleitung/02_verwendung_dieses_buches.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/joergbrech/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_verwendung_dieses_buches.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/joergbrech/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/02_verwendung_dieses_buches.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#live-code">
+   Live Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binder">
+   Binder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dateien-erstellen">
+   Dateien erstellen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unit-testing">
+   Unit Testing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests-auf-dieser-seite-ausfuhren">
+     Unit Tests auf dieser Seite ausführen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests-offline-ausfuhren">
+     Unit Tests offline ausführen.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Verwendung dieses Buches</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#live-code">
+   Live Code
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#binder">
+   Binder
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dateien-erstellen">
+   Dateien erstellen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#unit-testing">
+   Unit Testing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests-auf-dieser-seite-ausfuhren">
+     Unit Tests auf dieser Seite ausführen
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#unit-tests-offline-ausfuhren">
+     Unit Tests offline ausführen.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#troubleshooting">
+   Troubleshooting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="verwendung-dieses-buches">
+<span id="verwendung"></span><h1>Verwendung dieses Buches<a class="headerlink" href="#verwendung-dieses-buches" title="Permalink to this headline">¶</a></h1>
+<p>Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese Features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.</p>
+<p>Auf allen Seiten, die Codeblöcke enthalten, verbergen sich hinter dem Raketen-Symbol in der Kopfzeile zwei Buttons, einen auf dem “Binder” steht und einen auf dem “Live Code” steht.</p>
+<a class="reference internal image-reference" href="../_images/usage_buttons.png"><img alt="Interact buttons" class="align-center" src="../_images/usage_buttons.png" style="width: 250px;" /></a>
+<p>Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editier- und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave-Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.</p>
+<p>Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service <a class="reference external" href="https://mybinder.org/">Binder</a> auf, sodass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.</p>
+<p>Rechts neben dem beschriebenen Raketen-Symbol befindet sich das GitHub-Logo (das mit der Katze). Über diesen Button ist es möglich Verbesserungsvorschläge oder Bugs selbst zu beheben und zur Verbesserung dieses Buches beizutragen. Falls die Verbesserung nicht selbst durchgeführt werden kann, ist es auch möglich auf GitHub einen <a class="reference external" href="https://github.com/joergbrech/Modellbildung-und-Simulation/issues/new">Issue</a> mit einer Kurzbeschreibung des Problems zu eröffnen. Dieser wird dann schnellstmöglich bearbeitet.</p>
+<div class="section" id="live-code">
+<h2>Live Code<a class="headerlink" href="#live-code" title="Permalink to this headline">¶</a></h2>
+<p>Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über den Button “Live Code”. Per Klick auf die Taste “run”, wird der Code ausgeführt, mit “restart” wird der im Hintergrund laufende Octave-Kernel neu gestartet.</p>
+<a class="reference internal image-reference" href="../_images/usage_thebe.png"><img alt="Binder Loading Page" class="align-center" src="../_images/usage_thebe.png" style="width: 820px;" /></a>
+<p>Denken Sie daran, dass die Code-Zellen unter Umständen voneinander abhängig sein könnten. Wenn zum Beispiel in einer Code-Zelle auf eine Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> zugegriffen wird, muss diese auch im Workspace zur Verfügung stehen. Ist dies nicht der Fall, haben Sie wahrscheinlich die Code-Zelle weiter oben, in der <code class="docutils literal notranslate"><span class="pre">x</span></code> initialisiert wird, nicht ausgeführt.</p>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p>Beim Aufrufen von Dateien mit der “Live Code”-Methode kann es zu Komplikationen kommen. Die Lösungen für viele bekannte Probleme sind hier beschrieben: <a class="reference internal" href="#troubleshooting"><span class="std std-ref">Troubleshooting</span></a></p>
+</div>
+</div>
+<div class="section" id="binder">
+<h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h2>
+<p>Der Nachteil von Binder ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über <a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">Jupyter Lab</a> zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft.</p>
+<a class="reference internal image-reference" href="../_images/usage_binder.png"><img alt="Jupyter Lab Screenshot" class="align-center" src="../_images/usage_binder.png" style="width: 1200px;" /></a>
+<a class="reference internal image-reference" href="../_images/usage_binder_launcher.png"><img alt="Jupyter Lab Screenshot 2" class="align-center" src="../_images/usage_binder_launcher.png" style="width: 1200px;" /></a>
+<p>Sie können nicht nur die Code-Blöcke editieren und ausführen, Sie können auch neue Dokumente, wie z.B. m-files, erstellen oder hochladen, Dokumente herunterladen und eine Linux-Konsole starten. Das Ganze funktioniert über einen <a class="reference external" href="https://de.wikipedia.org/wiki/Docker_(Software)">Docker-Container</a>, der über den <a class="reference external" href="https://mybinder.org/">Binder</a> Service geladen wird.</p>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p><strong>Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!</strong> Laden Sie erstellte Dateien unbedingt runter, bevor Sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.</p>
+</div>
+</div>
+<div class="section" id="dateien-erstellen">
+<h2>Dateien erstellen<a class="headerlink" href="#dateien-erstellen" title="Permalink to this headline">¶</a></h2>
+<p>In Jupyter Lab (“Binder” Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der “Live Code”-Methode erstellen. Wenn ein Code-Block mit der Zeile <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myfile.m</span></code> beginnt, wird der folgende Inhalt des Blocks in eine Datei <code class="docutils literal notranslate"><span class="pre">myfile.m</span></code> geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file hello_world.m</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">()</span><span class="w"></span>
+<span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+    <span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Hello World, how is your day?&#39;</span><span class="p">)</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/hello_world.m&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">hello_world</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+Hello World, how is your day?
+</pre></div>
+</div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">Achtung</p>
+<p>Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.</p>
+</div>
+</div>
+<div class="section" id="unit-testing">
+<span id="content-references-unit-testing-intro"></span><h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://lmgtfy.com/?q=unit+testing"><em>Unit Testing</em></a> ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihre Funktionsfähigkeit prüfen. Ein weit verbreitetes <a class="reference external" href="https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">Programmierparadigma</a> besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt.</p>
+<p>Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für Ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.</p>
+<div class="section" id="unit-tests-auf-dieser-seite-ausfuhren">
+<h3>Unit Tests auf dieser Seite ausführen<a class="headerlink" href="#unit-tests-auf-dieser-seite-ausfuhren" title="Permalink to this headline">¶</a></h3>
+<p>Sowohl Matlab als auch Octave bieten Werkzeuge für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle <a class="reference external" href="https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit">MOxUnit</a> verwendet. MoXUnit ist ein freies open source unit testing Framework, das sowohl mit Matlab als auch Octave funktioniert.</p>
+<p>Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion <code class="docutils literal notranslate"><span class="pre">fac</span></code> zu schreiben, die die Fakultät <span class="math notranslate nohighlight">\(n!\)</span> einer Zahl <span class="math notranslate nohighlight">\(n\)</span> berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion <code class="docutils literal notranslate"><span class="pre">factorial</span></code>, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fac.m</span>
+<span class="k">function</span><span class="w"> </span>r<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fac</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="c">% wrapper for Matlabs factorial function</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="nb">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/fac.m&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die bereitgestellten Unit Tests befinden sich in der Datei <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>. Diese Tests überprüfen, ob die Funktion sich so verhält wie erwartet. Den Code hinter <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code> können Sie hier ausklappen.</p>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">test_suite</span><span class="p">=</span><span class="n">test_fac</span>
+<span class="c">% initialize unit tets</span>
+    <span class="k">try</span>
+        <span class="n">test_functions</span><span class="p">=</span><span class="n">localfunctions</span><span class="p">();</span>
+    <span class="k">catch</span>
+    <span class="k">end</span>
+    <span class="n">initTestSuite</span><span class="p">;</span>
+
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">%     Basic tests     %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_0</span>
+<span class="c">% test if fac(0)==1</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_1</span>
+<span class="c">% test if fac(1)==1</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_5</span>
+<span class="c">% test if fac(5)==120</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="mi">120</span><span class="p">);</span>
+    
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% More advanced tests %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_exception_negative</span>
+<span class="c">% test if exceptions are thrown for negative values</span>
+    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">fac</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_exception_noninteger</span>
+<span class="c">% test if exceptions are thrown for noninteger values</span>
+    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">fac</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span><span class="s">&#39;*&#39;</span><span class="p">);</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_array</span>
+<span class="c">% test if fac works on array inputs</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">([</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]),[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">6</span> <span class="mi">24</span> <span class="mi">120</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Der Test wird mit folgendem Befehl ausgeführt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 6 tests
+......
+--------------------------------------------------
+
+OK (passed=6)
+ans = 1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha, es gab also sechs Tests, und die werden von <code class="docutils literal notranslate"><span class="pre">fac</span></code>, bzw. der von Matlab zur Verfügung gestellten Funktion <code class="docutils literal notranslate"><span class="pre">factorial</span></code>, alle erfüllt. Super!</p>
+<p>Das war allerdings auch etwas geschummelt. Wir probieren eine etwas andere Implementierung der Funktion:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fac.m</span>
+<span class="k">function</span><span class="w"> </span>r<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fac</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="c">% calculates the factorial of the input n</span>
+    <span class="n">r</span> <span class="p">=</span> <span class="nb">prod</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/fac.m&#39;.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mal sehen, ob immer noch alle Tests durchlaufen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 6 tests
+...FFF
+--------------------------------------------------
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/user/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac&gt;test_fac_exception_negative:31 (/home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: No exception was raised
+  assertExceptionThrown:84 (/home/user/MOxUnit/MOxUnit/assertExceptionThrown.m)
+  test_fac&gt;test_fac_exception_noninteger:35 (/home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+failure: inputs are not of the same size
+
+First input: 1x1 double
+1
+
+Second input: 2x3 double
+[1 1 2;6 24 120]
+  assertEqual:70 (/home/user/MOxUnit/MOxUnit/assertEqual.m)
+  test_fac&gt;test_fac_array:39 (/home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m)
+
+--------------------------------------------------
+
+FAILED (passed=3, failure=3)
+ans = 0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ok, drei der Tests sind erfolgreich, drei schlagen fehl. Die Test Suite gibt Auskunft darüber, welche der Tests fehlschlagen. Die Ausgabe</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">suite</span><span class="p">:</span> <span class="mi">6</span> <span class="n">tests</span>
+<span class="o">...</span><span class="n">FFF</span>
+<span class="o">--------------------------------------------------</span>
+</pre></div>
+</div>
+<p>bedeutet, dass die letzten drei Tests fehlgeschlagen sind. Zusätzlich gibt jeder fehlgeschlagene Test Informationen darüber aus, welches Verhalten erwartet wurde und welches tatsächlich eingetroffen ist. Manchmal sind diese Ausgaben etwas kryptisch, dann lohnt es sich einen Blick in die Implementierung der Tests zu werfen. Mit dem Befehl <code class="docutils literal notranslate"><span class="pre">type</span></code> lässt sich der Inhalt einer Datei in Matlab wiedergeben. Das können wir benutzen um uns die sechs Tests in <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code> genauer anzuschauen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../test_fac.m is the user-defined function defined from: /home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
+
+function test_suite=test_fac
+% initialize unit tets
+    try
+        test_functions=localfunctions();
+    catch
+    end
+    initTestSuite;
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%     Basic tests     %
+%%%%%%%%%%%%%%%%%%%%%%%
+    
+function test_fac_0
+% test if fac(0)==1
+    assertEqual(fac(0),1);
+
+function test_fac_1
+% test if fac(1)==1
+    assertEqual(fac(1),1);
+    
+function test_fac_5
+% test if fac(5)==120
+    assertEqual(fac(5),120);
+    
+%%%%%%%%%%%%%%%%%%%%%%%
+% More advanced tests %
+%%%%%%%%%%%%%%%%%%%%%%%
+
+function test_fac_exception_negative
+% test if exceptions are thrown for negative values
+    assertExceptionThrown(@()fac(-1));
+    
+function test_fac_exception_noninteger
+% test if exceptions are thrown for noninteger values
+    assertExceptionThrown(@()fac(1.5),&#39;*&#39;);
+    
+function test_fac_array
+% test if fac works on array inputs
+    assertEqual(fac([0 1 2; 3 4 5]),[1 1 2; 6 24 120]);
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden, wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird.</p>
+</div>
+<div class="section" id="unit-tests-offline-ausfuhren">
+<h3>Unit Tests offline ausführen.<a class="headerlink" href="#unit-tests-offline-ausfuhren" title="Permalink to this headline">¶</a></h3>
+<p>Wenn Sie möchten, können Sie die Unit Tests auch offline ausführen. Dazu müssen Sie die jeweilige <em>Test Suite</em>, in diesem Fall <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>, herunterladen und das MOxUnit Framework lokal installiert haben.</p>
+<ul class="simple">
+<li><p>Installieren Sie <a class="reference external" href="https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit">MOxUnit</a>.</p></li>
+<li><p>Laden Sie sich den entsprechenden Unit Test von dieser Seite herunter. Wenn die Funktion, die getestet werden soll, <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> heißt, ist der Unit Test in der Datei <code class="docutils literal notranslate"><span class="pre">test_myFunction.m</span></code> gespeichert. Sie können sich mit dem Befehl <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">test_myFunction.m</span></code> den Inhalt der Datei wiedergeben lassen, oder mit dem “Interact”-Button eine interaktive Session starten und die Datei per Mausklick herunterladen.</p></li>
+<li><p>Führen Sie den Unit Test mit <code class="docutils literal notranslate"><span class="pre">moxunit_runtests</span> <span class="pre">test_myFunction.m</span></code> aus.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<span id="id1"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p><strong>Wenn ich auf <code class="docutils literal notranslate"><span class="pre">run</span></code> klicke, steht da nur <code class="docutils literal notranslate"><span class="pre">Waiting</span> <span class="pre">for</span> <span class="pre">kernel...</span></code> und nichts passiert.</strong></p>
+<a class="reference internal image-reference" href="../_images/usage_waiting.png"><img alt="Drawing" class="align-center" src="../_images/usage_waiting.png" style="width: 400px;" /></a>
+<p><em>Lösung:</em> Geduld. Wahrscheinlich wurden gerade Änderungen an diesem Buch vorgenommen und Sie sind die erste Person, die seitdem interaktive Inhalte nutzen will. Damit haben Sie ein <em>rebuild des binder image getriggert</em>. Das kann schon mal eine Weile dauern. Dasselbe gilt für die “Interact” Funktion. Hier erhält man aber ausführlichere Informationen über eine Konsolenausgabe beim Start.</p>
+<a class="reference internal image-reference" href="../_images/usage_binder_waiting.png"><img alt="Binder Loading Page" class="align-center" src="../_images/usage_binder_waiting.png" style="width: 1200px;" /></a>
+</li>
+<li><p><strong>Wenn ich einen Code-Block starte, erhalte ich eine seltsame Fehlermeldung, die nicht nach Octave oder Matlab aussieht.</strong></p>
+<p><em>Lösung:</em> Ab und zu wird der Code fälschlicherweise an einen <em>Python</em>-Interpreter übergeben. In solchen Fällen hilft es, die Seite neu zuladen. Vergessen Sie aber nicht, Ihren eingetragenen Code vorher zu kopieren, damit er beim Neuladen nicht abhanden kommt!</p>
+</li>
+<li><p><strong>Ich bin mir sicher, dass ich die Übungsaufgabe richtig bearbeitet habe, aber der Unit Test gibt Fehler aus.</strong></p>
+<p><em>Lösung:</em> Möglicherweise wurde für die Bearbeitung der Übungsaufgabe Matlab-Code geschrieben, der nicht mit Octave kompatibel ist. In diesem Fall sollte es schon helfen, den Unit Test lokal in der eigenen Matlab Installation laufen zu lassen.</p>
+</li>
+<li><p><strong>Beim Ausführen des Unit Tests mit der “Live Code”-Methode erhalte ich folgende Fehlermeldung:</strong></p></li>
+</ol>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span>   <span class="n">moxunit_runtests</span> <span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+   
+   <span class="nb">error</span><span class="p">:</span> <span class="n">Parameter</span> <span class="nb">not</span> <span class="n">recognised</span> <span class="nb">or</span> <span class="n">file</span> <span class="n">missing</span><span class="p">:</span> <span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+   <span class="nb">error</span><span class="p">:</span> <span class="n">called</span> <span class="n">from</span>
+      <span class="n">moxunit_runtests</span><span class="o">&gt;</span><span class="n">get_params</span> <span class="n">at</span> <span class="nb">line</span> <span class="mi">365</span> <span class="n">column</span> <span class="mi">21</span>
+      <span class="n">moxunit_runtests</span> <span class="n">at</span> <span class="nb">line</span> <span class="mi">72</span> <span class="n">column</span> <span class="mi">11</span>
+</pre></div>
+</div>
+<p>Das ist ein <a class="reference external" href="https://github.com/jupyter/jupyter-book/issues/107">bekanntes Problem</a>, an dem gerade gearbeitet wird. Die einfachste Lösung ist die Binder statt der “Live Code”-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus <code class="docutils literal notranslate"><span class="pre">content</span></code> sowie dem akutellen Unterordner dieser Seite, der sich aus der URL ablesen lässt. Für diese Seite lautet er <code class="docutils literal notranslate"><span class="pre">00_einleitung</span></code>. Der Befehl</p>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span>    <span class="n">moxunit_runtests</span> <span class="n">content</span><span class="o">/</span><span class="mi">00</span><span class="n">_einleitung</span><span class="o">/</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+</pre></div>
+</div>
+<p>sollte funktionieren.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "joergbrech/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./00_einleitung"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_motivation.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Das Stauproblem - Motivation zur Benutzung dieses Buches</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_best_practice.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Best Practices</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+    
+        &copy; Copyright 2020 - 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
