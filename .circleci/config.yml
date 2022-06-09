@@ -39,6 +39,7 @@ jobs:
             jupyter-book toc from-project -e .ipynb -e .md -f jb-book . > _toc.yml
             cat _toc.yml
             jupyter-book build -W -n --keep-going --builder linkcheck .
+            jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
             cp ../redirect_htmls/* _build/html
 
