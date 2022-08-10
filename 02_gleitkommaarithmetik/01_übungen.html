@@ -802,7 +802,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <h2>Aufgabe 1: Gleitpunktarithmetik<a class="headerlink" href="#aufgabe-1-gleitpunktarithmetik" title="Permalink to this headline">¶</a></h2>
 <p>Welches Ergebnis erhalten Sie für die Rechnung</p>
 <p><span class="math notranslate nohighlight">\(2590 + 4 + 4 + 4\)</span></p>
-<p>in Gleitpunktarithmetik zur Basis <span class="math notranslate nohighlight">\(\beta=10\)</span> mit Mantissenlänge <span class="math notranslate nohighlight">\(t=3\)</span>, wenn sie die Summanden</p>
+<p>in Gleitpunktarithmetik zur Basis <span class="math notranslate nohighlight">\(\beta=10\)</span> mit Mantissenlänge <span class="math notranslate nohighlight">\(t=3\)</span>, wenn Sie die Summanden</p>
 <p>(a) von links nach rechts und</p>
 <p>(b) von rechts nach links</p>
 <p>abarbeiten? Welche allgemeine Konsequenz lässt sich daraus ableiten?</p>
@@ -815,7 +815,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 Wie können Sie das Ergebnis umformen, um ein richtiges Ergebnis zu erhalten?</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Vermeiden Sie die Subtraktion von etwa gleich großen Zahlen)</p>
+<p>Vermeiden Sie die Subtraktion von etwa gleich großen Zahlen.</p>
 </div>
 </div>
 <div class="section" id="aufgabe-3-overflow">
@@ -827,7 +827,7 @@ Formen Sie die Formel so um, dass ein Overflow vermieden wird.</p>
 </div>
 <div class="section" id="aufgabe-4-zahlentypen">
 <h2>Aufgabe 4: Zahlentypen<a class="headerlink" href="#aufgabe-4-zahlentypen" title="Permalink to this headline">¶</a></h2>
-<p>a) Stellen Sie fest, mit welchem Zahlentyp MATLAB arbeitet, indem Sie <code class="docutils literal notranslate"><span class="pre">realmin</span></code>, <code class="docutils literal notranslate"><span class="pre">realmax</span></code> und <code class="docutils literal notranslate"><span class="pre">eps</span></code> abfragen.</p>
+<p>a) Stellen Sie fest, mit welchem Zahlentyp Matlab arbeitet, indem Sie <code class="docutils literal notranslate"><span class="pre">realmin</span></code>, <code class="docutils literal notranslate"><span class="pre">realmax</span></code> und <code class="docutils literal notranslate"><span class="pre">eps</span></code> abfragen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">clear</span><span class="p">;</span>
@@ -846,7 +846,7 @@ ans =    2.2204e-16
 </div>
 </div>
 </div>
-<p>b) Berechnen Sie mit MATLAB: <span class="math notranslate nohighlight">\(\sin(0)/\sin(0)\)</span>, <span class="math notranslate nohighlight">\(\sin(0)/\cos(\pi/2)\)</span>, <span class="math notranslate nohighlight">\(\cos(\pi/2)/\sin(0)\)</span>,
+<p>b) Berechnen Sie mit Matlab: <span class="math notranslate nohighlight">\(\sin(0)/\sin(0)\)</span>, <span class="math notranslate nohighlight">\(\sin(0)/\cos(\pi/2)\)</span>, <span class="math notranslate nohighlight">\(\cos(\pi/2)/\sin(0)\)</span>,
 <span class="math notranslate nohighlight">\(\cos(\pi/2)/\cos(\pi/2)\)</span> und 1+1.0e-18.</p>
 <p>c) Versuchen Sie <span class="math notranslate nohighlight">\(eps\)</span> in MATLAB selbstständig mit Hilfe einer for- oder while-Schleife zu ermitteln.</p>
 <p>Erinnerung: <span class="math notranslate nohighlight">\(eps\)</span> ist die größte Zahl für die gilt: <span class="math notranslate nohighlight">\(x_M=x_M(1+\frac{eps}{2})\)</span>, wobei <span class="math notranslate nohighlight">\(x_M\)</span> eine
@@ -882,7 +882,7 @@ z_n &amp;= 2^{n+\frac{1}{2}}\sqrt{1-\sqrt{1-4^{-n}z_{n-1}^2}}, \text{ für } n =
 <p>Die Folge konvergiert für <span class="math notranslate nohighlight">\(n \to \infty\)</span> gegen <span class="math notranslate nohighlight">\(\pi\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[ \lim_{n \to \infty} z_n = \pi. \]</div>
-<p>Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortplanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich. Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortplanzung demonstriert. Berechnen Sie dazu für <span class="math notranslate nohighlight">\(n=1,2,3,...,20\)</span> jeweils die Folgeglieder <span class="math notranslate nohighlight">\(z_n\)</span>. Berechnen Sie für jedes <span class="math notranslate nohighlight">\(z_n\)</span> den relativen Fehler</p>
+<p>Herr Viète konnte damals noch nichts von Computern und den inherent eingebauten Rundungsfehlern wissen. Leider ist gerade seine Folge anfällig für Fehlerfortpflanzung, d.h. kleine Rundungsfehler in jedem Iterationsschritt verstärken sich. Schreiben Sie ein kleines Matlabskript, das diese Fehlerfortpflanzung demonstriert. Berechnen Sie dazu für <span class="math notranslate nohighlight">\(n=1,2,3,...,20\)</span> jeweils die Folgeglieder <span class="math notranslate nohighlight">\(z_n\)</span>. Berechnen Sie für jedes <span class="math notranslate nohighlight">\(z_n\)</span> den relativen Fehler</p>
 <div class="math notranslate nohighlight">
 \[ r_n = \frac{|\pi - z_n|}{\pi}. \]</div>
 <p>Erstellen Sie einen Plot, in dem der Logarithmus des relativen Fehlers in Abhängigkeit der Iterationszahl <span class="math notranslate nohighlight">\(n\)</span> dargestellt ist. Wie verhält sich der Fehler für kleine bzw. große <span class="math notranslate nohighlight">\(n\)</span>?</p>
@@ -1015,9 +1015,9 @@ dy =    0.00000000000000E+00
 </div>
 </div>
 </div>
-<p>Welchen Wert darf <span class="math notranslate nohighlight">\(z\)</span> maximal annehmen, bevor Auslöschung stattfindet?
-Ab welchem Wert findet Auslöschung auch bei doppelter Genauigkeit statt (<span class="math notranslate nohighlight">\(dx=0\)</span>)?</p>
-<p><em><strong>Tipp: Ausprobieren wird Sie viel wertvolle Zeit kosten, haben Sie eine bessere Idee?</strong></em></p>
+<p>Welchen Wert darf <span class="math notranslate nohighlight">\(z\)</span> maximal annehmen, bevor eine Auslöschung stattfindet?
+Ab welchem Wert findet die Auslöschung auch bei doppelter Genauigkeit statt (<span class="math notranslate nohighlight">\(dx=0\)</span>)?</p>
+<p><strong>Tipp</strong>: Ausprobieren wird Sie viel wertvolle Zeit kosten, haben Sie eine bessere Idee?</p>
 <p>Berechnen Sie die relative Maschinengenauigkeit negativer Werte. Was fällt auf? Wie können Sie das erklären?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
