@@ -781,11 +781,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 </tr>
 </tbody>
 </table>
-<p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Hierbei keine fertige MATLAB Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
+<p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Verwenden Sie hierbei keine fertige Matlab Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
 <div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<p>Konstruieren sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle (alles Bleistift und Papier!).
-Bestimmen sie die Koeffizienten der gesuchten Parabeln <span class="math notranslate nohighlight">\(z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]\)</span>.</p>
+<p>Konstruieren Sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle mit Bleistift und Papier.
+Bestimmen Sie die Koeffizienten der gesuchten Parabeln <span class="math notranslate nohighlight">\(z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]\)</span>.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Zur eindeutigen Bestimmung der einzelnen Polynome sind drei Bedingungen notwendig. Zwei sind durch
@@ -814,7 +814,7 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 </div>
 </div>
 <ul class="simple">
-<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>test suite</em> <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten 5 der unit tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle 9 unit tests zu erfüllen?</p></li>
+<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>Test Suite</em> <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code>. Es reicht zunächst, dass die ersten fünf der Unit Tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle neun Unit Tests zu erfüllen?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
