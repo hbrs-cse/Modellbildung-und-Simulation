@@ -787,7 +787,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </li>
 </ol>
 </div>
-<p>Verwenden Sie zur Lösung die MATLAB-Funktion <code class="docutils literal notranslate"><span class="pre">fzero</span></code>.</p>
+<p>Verwenden Sie zur Lösung die Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fzero</span></code>.</p>
 <p>Aus der Hilfe zu fzero:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FZERO</span>  <span class="n">Scalar</span> <span class="n">nonlinear</span> <span class="n">zero</span> <span class="n">finding</span><span class="o">.</span> 
 <span class="n">X</span> <span class="o">=</span> <span class="n">FZERO</span><span class="p">(</span><span class="n">FUN</span><span class="p">,</span><span class="n">X0</span><span class="p">)</span> <span class="n">tries</span> <span class="n">to</span> <span class="n">find</span> <span class="n">a</span> <span class="n">zero</span> <span class="n">of</span> <span class="n">the</span> <span class="n">function</span> <span class="n">FUN</span> <span class="n">near</span> <span class="n">X0</span><span class="p">,</span> 
@@ -818,7 +818,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>a) Programmieren Sie das Newton-Verfahren, so dass es wie <code class="docutils literal notranslate"><span class="pre">fzero</span></code> angewendet werden kann. Da die Ableitung der Funktion noch sehr einfach von Hand zu berechnen ist, kann sie dem Programm übergeben werden.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Machen Sie sich mit <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handles</a></em> und <em><a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/anonymous-functions.html">anonymous functions</a></em> in Matlab vertraut.</p>
+<p>Machen Sie sich mit <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">Function Handles</a></em> und <em><a class="reference external" href="https://www.mathworks.com/help/matlab/matlab_prog/anonymous-functions.html">Anonymous Functions</a></em> in Matlab vertraut.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -846,7 +846,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>b) Lösen Sie Aufgabe 1 noch einmal mithilfe ihres soeben programmierten Newton-Verfahrens und schauen Sie, ob die Ergebnisse übereinstimmen.</p>
+<p>b) Lösen Sie Aufgabe 1 noch einmal mit Hilfe Ihres soeben programmierten Newton-Verfahrens und schauen Sie, ob die Ergebnisse übereinstimmen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR SOLUTION</span>
@@ -875,7 +875,7 @@ x_1 x_2-\frac{1}{4}(sin(x_1)+cos(x_2)) &amp;= -\frac{1}{4}
 \end{split}\]</div>
 <p>a) Bestimmen Sie die Jacobimatrix des Systems.</p>
 <p>Um dem Newton-Verfahren nicht jedes mal eine Jacobi-Matrix übergeben zu müssen, kann diese auch mittels finiter Differenzen approximiert werden. Das hat den Vorteil, dass so auch komplexe Systeme einfach gelöst werden können. Aufgrund der Approximierung verlieren wir aber an Genauigkeit.</p>
-<p>b) Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder in diesem Fall <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[5*x(1)^2-x(2)^2;</span> <span class="pre">x(1)*x(2)-1/4*(sin(x(1))+cos(x(2)))+1/4]</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist hierbei der Vektor, an dem die Matrix ausgewertet werden soll und wird als <code class="docutils literal notranslate"><span class="pre">[1/8;</span> <span class="pre">1/4]</span></code> übergeben.</p>
+<p>b) Schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">Function Handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder in diesem Fall <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[5*x(1)^2-x(2)^2;</span> <span class="pre">x(1)*x(2)-1/4*(sin(x(1))+cos(x(2)))+1/4]</span></code>. <code class="docutils literal notranslate"><span class="pre">x</span></code> ist hierbei der Vektor, an dem die Matrix ausgewertet werden soll und wird als <code class="docutils literal notranslate"><span class="pre">[1/8;</span> <span class="pre">1/4]</span></code> übergeben.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <ul class="simple">
@@ -903,7 +903,7 @@ x_1 x_2-\frac{1}{4}(sin(x_1)+cos(x_2)) &amp;= -\frac{1}{4}
 </div>
 </div>
 </div>
-<p>Prüfen Sie nun mithilfe Ihrer in a) errechneten Jacobimatrix die Ergebnisse für verschiedene x. Sie können ihr Programm des Weiteren auch mithilfe eines Unit Tests überprüfen:</p>
+<p>Prüfen Sie nun mit Hilfe Ihrer in a) errechneten Jacobimatrix die Ergebnisse für verschiedene x. Sie können Ihr Programm des Weiteren auch mittels eines Unit Tests überprüfen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="p">.</span><span class="n">m</span>
@@ -911,7 +911,7 @@ x_1 x_2-\frac{1}{4}(sin(x_1)+cos(x_2)) &amp;= -\frac{1}{4}
 </div>
 </div>
 </div>
-<p>b) Erweitern Sie mithilfe des zuvor erstellten Programms zur Auswertung der Jacobimatrix ihr Programm für das Newton-Verfahren, sodass es nun das oben genannte Gleichungssystem lösen kann.</p>
+<p>b) Erweitern Sie mit Hilfe des zuvor erstellten Programms zur Auswertung der Jacobimatrix Ihr Programm für das Newton-Verfahren, sodass es nun das oben genannte Gleichungssystem lösen kann.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Sie können Ihr Programm in der Aufgabe <a class="reference internal" href="02_bierschaumzerfall.html#bierschaum-newton"><span class="std std-ref">Aufgabe 2: Das Newton-Verfahren</span></a> wiederverwenden. Speichern Sie Ihre Lösung also bestenfalls nach der Fertigstellung ab.</p>
@@ -933,7 +933,7 @@ x_1 x_2-\frac{1}{4}(sin(x_1)+cos(x_2)) &amp;= -\frac{1}{4}
 </div>
 </div>
 </div>
-<p>Auch dieses Programm lässt sich mithilfe eines Unit Tests überprüfen:</p>
+<p>Auch dieses Programm lässt sich mittels eines Unit Tests überprüfen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="p">.</span><span class="n">m</span>
