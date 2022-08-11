@@ -993,7 +993,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="modellbeschreibung">
 <h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
-<p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können, und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung <span class="math notranslate nohighlight">\(\dot{V}\)</span> des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
+<p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung <span class="math notranslate nohighlight">\(\dot{V}\)</span> des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
 <div class="math notranslate nohighlight">
 \[ \dot{V} = a \cdot V, \]</div>
 <p>mit einer uns unbekannten Proportionalitätskonstante <span class="math notranslate nohighlight">\(a \in \mathbb{R}\)</span>. Diese Differentialgleichung kommt sehr häufig vor, denn sie beschreibt exponentielles Wachstum, bzw. - je nach Vorzeichen von <span class="math notranslate nohighlight">\(a\)</span> - exponentiellen Zerfall. Wir machen also, wie gewohnt, einen Ansatz</p>
@@ -1002,7 +1002,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Setzen wir <span class="math notranslate nohighlight">\(V(t)\)</span> in die Differentialgleichung <span class="math notranslate nohighlight">\( \dot{V} = a \cdot V \)</span> ein,</p>
 <div class="math notranslate nohighlight">
 \[ c b \cdot e^{c \cdot t} = a \cdot b e^{c \cdot t}, \]</div>
-<p>stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichung ist, unter der Voraussetzung, dass <span class="math notranslate nohighlight">\(c = a\)</span> gilt.</p>
+<p>stellen wir fest, dass unser Ansatz eine valide Lösung der Differentialgleichung ist, unter der Voraussetzung, dass <span class="math notranslate nohighlight">\(c = a\)</span> gilt</p>
 <div class="math notranslate nohighlight">
 \[ V(t) = b \cdot e^{a \cdot t}. \]</div>
 <p>Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>. <span class="math notranslate nohighlight">\(b\)</span> muss offensichtlich der y-Achsenabschnitt sein, da <span class="math notranslate nohighlight">\(V(0)=b \cdot e^0 = b\)</span>, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate <span class="math notranslate nohighlight">\(a\)</span> zu raten. Für <span class="math notranslate nohighlight">\(a=-0.001 \frac{1}{\text{s}}\)</span> und <span class="math notranslate nohighlight">\(b=0.575\)</span> <span class="math notranslate nohighlight">\(l\)</span> ergibt sich folgender Verlauf.</p>
@@ -1044,14 +1044,14 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte <span class="math notranslate nohighlight">\(t_i\)</span> soll die Differenz <span class="math notranslate nohighlight">\(y_i - f(p_1,...,p_n,t_i)\)</span> betragsmäßig klein werden.</p>
 <p>Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:</p>
 <div class="math notranslate nohighlight">
-\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)|  \]</div>
+\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m |y_i - f(p_1,...,p_n,t_i)| . \]</div>
 <p>Wenn die Funktion <span class="math notranslate nohighlight">\(G\)</span> minimal werden soll, muss die Ableitung von <span class="math notranslate nohighlight">\(G\)</span> nach allen Parametern verschwinden,</p>
 <div class="math notranslate nohighlight">
 \[ \frac{\partial G}{\partial p_1} = ... = \frac{\partial G}{\partial p_n} = 0. \]</div>
 <p>Spätestens jetzt haben wir ein Problem: Wir müssen die Betragsfunktion, die in <span class="math notranslate nohighlight">\(G\)</span> verwendet wird, ableiten.</p>
 <p>Als Alternative nehmen wir nicht den Betrag der Differenzen, sondern einfach das Quadrat. Auf diese Weise werden positive und negative Differenzen gleich berücksichtigt. Es hat auch noch den angenehmen Nebeneffekt, dass große Abweichungen zwischen Modell und Messung größer bestraft werden als kleine Abweichungen:</p>
 <div class="math notranslate nohighlight">
-\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  \]</div>
+\[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2 . \]</div>
 <p>Das Minimierungsproblem lösen wir, indem wir die Bedingung aufstellen, dass alle Ableitungen von <span class="math notranslate nohighlight">\(G\)</span> nach den Parametern null sein sollen und nach den Parametern auflösen. Die partiellen Ableitungen bestimmen wir mit der Kettenregel:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1088,7 +1088,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 \begin{bmatrix}
 -\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i})\cdot  t_i \cdot b \cdot e^{a \cdot t_i} \\
 -\frac{2}{m}\sum_{i=1}^m (V_i - b \cdot e^{a \cdot t_i}) \cdot e^{a \cdot t_i}
-\end{bmatrix}
+\end{bmatrix}.
 \end{split}\]</div>
 <p>Im Folgenden wird das Problem schrittweise gelöst.</p>
 <ol class="simple">
@@ -1120,7 +1120,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="aufgabe-2-das-newton-verfahren">
 <span id="bierschaum-newton"></span><h3>Aufgabe 2: Das Newton-Verfahren<a class="headerlink" href="#aufgabe-2-das-newton-verfahren" title="Permalink to this headline">¶</a></h3>
-<p>Hier können wir unsere Implementierung des Newton-Verfahrens aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurückgreifen. Da unser Newton-Verfahren auf der approximation der Jacobimatrix beruht, müssen wir diese zuerst implementieren. Kopieren sie dazu ihre Lösung aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> oder schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">function handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
+<p>Hier können wir unsere Implementierung des Newton-Verfahrens aus dem Kapitel <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurückgreifen. Da unser Newton-Verfahren auf der Approximation der Jacobimatrix beruht, müssen wir diese zuerst implementieren. Kopieren Sie dazu Ihre Lösung aus dem Kapitel <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> oder schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">Function Handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file jacobian.m</span>
@@ -1139,7 +1139,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Wenn Sie Ihre Funktion richtig implementiert haben, wären Sie in der Lage mit folgendem Aufruf die Ableitung von <span class="math notranslate nohighlight">\(sin(x)\)</span> an der Stelle <span class="math notranslate nohighlight">\(x=0.25\)</span> auszuwerten:</p>
+<p>Wenn Sie Ihre Funktion richtig implementiert haben, sind Sie in der Lage mit folgendem Aufruf die Ableitung von <span class="math notranslate nohighlight">\(sin(x)\)</span> an der Stelle <span class="math notranslate nohighlight">\(x=0.25\)</span> auszuwerten:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">jacobian</span><span class="p">(@</span><span class="nb">sin</span><span class="p">,</span><span class="mf">0.25</span><span class="p">)</span>
@@ -1147,7 +1147,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
+<p>Mit dem folgenden Unit Test können Sie Ihre Funktion testen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_jacobian</span><span class="p">.</span><span class="n">m</span>
@@ -1155,7 +1155,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Mithilfe der <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>-Funktion können Sie nun das Newton-Verfahren implementieren. Dazu können Sie auch hier entweder Ihre Lösung aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> wiederverwenden oder eine neue Funktion implementieren.</p>
+<p>Mit Hilfe der <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>-Funktion können Sie nun das Newton-Verfahren implementieren. Dazu können Sie auch hier entweder Ihre Lösung aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> wiederverwenden oder eine neue Funktion implementieren.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file newton.m</span>
@@ -1173,7 +1173,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>Mit dem folgenden unit test können Sie Ihre Funktion testen:</p>
+<p>Mit dem folgenden Unit Test können Sie Ihre Funktion testen:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_newton</span><span class="p">.</span><span class="n">m</span>
@@ -1224,7 +1224,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_0}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_0}(\mathbf{p}) \\
 \vdots &amp; \ddots &amp; \vdots \\
 \frac{\partial}{\partial p_0} \frac{\partial G}{\partial p_n}(\mathbf{p}) &amp; \cdots &amp; \frac{\partial}{\partial p_n} \frac{\partial G}{\partial p_n}(\mathbf{p})
-\end{bmatrix}
+\end{bmatrix}.
 \end{split}\]</div>
 <p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
 <div class="section" id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
@@ -1251,7 +1251,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren.* Vermeiden Sie duplizierten Code!</p>
+<p>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren. Vermeiden Sie duplizierten Code!</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
