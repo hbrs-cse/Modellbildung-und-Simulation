@@ -29,17 +29,23 @@ jobs:
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
-      - run: pip3 install -r requirements.txt
+      - run:
+          name: Install requirements
+          command: |
+            pip3 install --upgrade pip
+            pip3 install -r requirements.txt
 
-      # Build the page intermediate HTML files and copy all images to the build directory
+      # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
           name: Build page intermediate HTML files
           command: |
             cd content
             jupyter-book toc from-project -e .ipynb -e .md -f jb-book . > _toc.yml
             cat _toc.yml
+            jupyter-book build -W -n --keep-going --builder linkcheck .
             jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
+            cp ../redirect_htmls/* _build/html
 
       # Persist the specified paths (see https://circleci.com/docs/2.0/workflows/#using-workspaces-to-share-data-among-jobs)
       - persist_to_workspace:
