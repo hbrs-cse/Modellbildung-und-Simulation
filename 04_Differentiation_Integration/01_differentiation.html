@@ -795,8 +795,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li><p>Erstellen Sie nun für die Differenzenquotienten jeweils eine Test-Funktion.</p></li>
 <li><p>Lagern Sie Ihren Test so aus, dass Sie für beliebige Funktionen die eingegebene analytische Lösung mit der numerischen Lösung vergleichen können.</p></li>
-<li><p>Werten Sie anstatt für diskrete Werte für ganze Intervalle die durchschnittliche und die maximale Abweichung <code class="docutils literal notranslate"><span class="pre">meandiff</span></code>, <code class="docutils literal notranslate"><span class="pre">maxdiff</span></code> von der analytischen Lösung aus.</p></li>
+<li><p>Werten Sie anstatt für diskrete Werte, nun für ganze Intervalle die durchschnittliche und die maximale Abweichung <code class="docutils literal notranslate"><span class="pre">meandiff</span></code>, <code class="docutils literal notranslate"><span class="pre">maxdiff</span></code> von der analytischen Lösung aus.</p></li>
 <li><p>Werten Sie die benötigte Zeit <code class="docutils literal notranslate"><span class="pre">time</span></code> und die Anzahl an Funktionsauswertungen <code class="docutils literal notranslate"><span class="pre">n</span></code> aus.</p></li>
 <li><p>Verringern Sie die Anzahl der Funktionsauswertungen, indem Sie diese wiederverwenden.</p></li>
 </ul>
@@ -812,7 +813,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="c">% t is relevant interval</span>
 <span class="c">% dx is stepsize</span>
 
-<span class="k">function</span><span class="w"> </span><span class="nf">[meandiff, maxdiff, time, n] = test</span><span class="p">(</span>f,g,h,t,dx<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">[meandiff, maxdiff, time, n] = test_&lt;Name_Differenzenquotient&gt;</span><span class="p">(</span>f,g,h,t,dx<span class="p">)</span><span class="w"></span>
 <span class="nb">tic</span><span class="p">;</span>
 
 <span class="nb">time</span> <span class="p">=</span> <span class="nb">toc</span><span class="p">;</span>
