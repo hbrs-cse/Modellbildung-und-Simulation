@@ -43,7 +43,7 @@ cd ..
 #### Clone this repository to your local machine
 
  ```bash
- git clone https://github.com/joergbrech/Modellbildung-und-Simulation
+ git clone https://github.com/hbrs-cse/Modellbildung-und-Simulation
  cd Modellbildung-und-Simulation
  ```
  
@@ -80,7 +80,7 @@ In this section, it is assumed that you are in the root directory of your clone 
  jupyter-lab .
  ```
  Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser. 
- * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/joergbrech/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
+ * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/hbrs-cse/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
  * Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyterbook.org/start/overview.html) and the [demo notebook](https://jupyterbook.org/intro.html).
  * Back in the root directory, run
  ```bash
