@@ -1,6 +1,6 @@
 # Contribution Guide
 
-The style guide can be found in the wiki tab.
+The style guide can be found in the wiki tab at [](https://github.com/hbrs-cse/Modellbildung-und-Simulation/wiki).
 
 <details>
 <summary>## Project Goals</summary>
