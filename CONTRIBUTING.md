@@ -1,5 +1,7 @@
 # Contribution Guide
 
+The style guide can be found in the wiki tab.
+
 <details>
 <summary>## Project Goals</summary>
  
