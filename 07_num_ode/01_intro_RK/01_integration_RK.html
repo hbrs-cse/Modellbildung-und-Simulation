@@ -932,7 +932,7 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <p>Wenden Sie die linke Rechteckregel</p>
 <div class="math notranslate nohighlight">
 \[\int_{x_i}^{x_{i+1}}f(x,y(x)) dx \approx h \cdot f(x_i,y_i)\]</div>
-<p>auf die Traktrix an.</p>
+<p>auf die Traktrix an. In dem Code ist in Zeile 8 bereits <code class="docutils literal notranslate"><span class="pre">x=xspan(i)</span></code> definiert. Das kommt in der Traktrix nicht vor, ist aber für andere Gleichungen <span class="math notranslate nohighlight">\(f(x,y)\)</span> sehr relevant, wie Sie weiter unten sehen werden.</p>
 <p>Was passiert bei <span class="math notranslate nohighlight">\(x=0\)</span>? Wie können Sie dem Problem ausweichen?</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
@@ -980,10 +980,11 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <p>Hieraus ergibt sich für die schrittweise Integration</p>
 <div class="math notranslate nohighlight">
 \[y_{i+1} \approx y_i + h \cdot f\left(\frac{x_i+x_{i+1}}{2},y\left(x_i\right)\right).\]</div>
+<p>Hierbei ist <span class="math notranslate nohighlight">\(\frac{x_i+x_{i+1}}{2}\)</span> gleichbedeutend mit <span class="math notranslate nohighlight">\(x_{i+\frac{1}{2}}\)</span>, beziehungsweise <span class="math notranslate nohighlight">\(x_i + \frac{1}{2}h\)</span>. Wir verwenden weiter unten vor allem die letzte Form.</p>
 <a class="reference internal image-reference" href="../../_images/quadratur_mittelpunkt_xdot.png"><img alt="Name of image" class="align-center" src="../../_images/quadratur_mittelpunkt_xdot.png" style="width: 500px;" /></a>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Kopieren Sie Ihren Code in die neue Codebox oder auf Ihrem Rechner in eine neue Datei, um die Lösungen der verschiedenen Verfahren später vergleichen zu können.</p>
+<p>Kopieren Sie Ihren Code in die neue Codebox oder auf Ihrem Rechner in eine neue Datei, um die Lösungen der verschiedenen Verfahren später vergleichen zu können. Übernehmen Sie die Anpassung für <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1030,7 +1031,7 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <div class="math notranslate nohighlight">
 \[K_2 := f\left(x_i+\frac{1}{2}h,y_i + \frac{h}{2} K_1\right)\]</div>
 <div class="math notranslate nohighlight">
-\[y_{i+1} \approx y_i + h \cdot (0 \cdot K_1 + 1\cdot K_2.\]</div>
+\[y_{i+1} \approx y_i + h \cdot (0 \cdot K_1 + 1\cdot K_2).\]</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -1052,10 +1053,10 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <p>Außerdem benennen wir die drei verwendeten Stufenwerte als <span class="math notranslate nohighlight">\(K_1, K_2, K_3\)</span>, also</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}K_1 &amp;= f\left(x_i,y_i\right)\\ K_2 &amp;= f\left(x_i+\frac{1}{2}h,y_i\right)\\ K_3 &amp;= f\left(x_i+h,y_i\right).\end{align}\end{split}\]</div>
-<p>Bisher haben wir angenommen, dass wir <span class="math notranslate nohighlight">\(y_i\)</span> auch für die mittlere Stützstelle <span class="math notranslate nohighlight">\(K_2 = f\left(x_i+\frac{1}{2}h,y_i\right)\)</span> und die rechte Stützstelle <span class="math notranslate nohighlight">\(K_3 = f\left(x_i+h,y_i\right)\)</span> verwenden können. Das können wir aber noch besser. <span class="math notranslate nohighlight">\(K_2\)</span> approximieren wir einfach mit der linken Rechteckregel (und setzen <span class="math notranslate nohighlight">\(K_1\)</span> ein):</p>
+<p>Wir können das aber noch besser: Bisher haben wir angenommen, dass wir <span class="math notranslate nohighlight">\(y_i\)</span> auch für die mittlere Stützstelle <span class="math notranslate nohighlight">\(K_2 = f\left(x_i+\frac{1}{2}h,y_i\right)\)</span> und die rechte Stützstelle <span class="math notranslate nohighlight">\(K_3 = f\left(x_i+h,y_i\right)\)</span> verwenden können. Wir haben aber schon eine Approximation, für die Stelle <span class="math notranslate nohighlight">\(x_{i+\frac{1}{2}}\)</span>. Mit <span class="math notranslate nohighlight">\(\frac{h}{2}\)</span> multipliziert, können wir <span class="math notranslate nohighlight">\(K_1\)</span> nutzen, um mit der linken Rechteckregel <span class="math notranslate nohighlight">\(y_{i+\frac{1}{2}}\)</span> zu approximieren:</p>
 <div class="math notranslate nohighlight">
-\[K_2 = f\left(x_i+\frac{1}{2}h,y_i + \frac{h}{2}\cdot f(y_i,x_i)\right) = f\left(x_i+\frac{1}{2}h,y_i + h\cdot\frac{1}{2}K_1\right).\]</div>
-<p>Für <span class="math notranslate nohighlight">\(K_3\)</span> verwenden wir zusätzlich auch <span class="math notranslate nohighlight">\(K_2\)</span> als Stützstelle:</p>
+\[K_2 = f\left(x_i+\frac{1}{2}h,y_i + \frac{h}{2}\cdot f(x_i,y_i)\right) = f\left(x_i+\frac{1}{2}h,y_i + h\cdot\frac{1}{2}K_1\right).\]</div>
+<p>Genauso verwenden wir für <span class="math notranslate nohighlight">\(K_3\)</span> zusätzlich auch <span class="math notranslate nohighlight">\(K_2\)</span> als Stützstelle:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align} &amp; \\ &amp; \end{align}
 K_3 = f\left(x_i + h, y_i + h \cdot \left(-1 \cdot K_1 + 2 \cdot K_2 \right)\right).\end{split}\]</div>
