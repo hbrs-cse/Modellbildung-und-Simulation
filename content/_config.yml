@@ -27,7 +27,7 @@ html:
   favicon                   : images/logo/favicon.ico  # A path to a favicon image
   navbar_number_sections    : false  # Add a number to each section in your left navbar
   navbar_footer_text        : '<div align="left">
-    <a href="https://github.com/joergbrech/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
+    <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
     <br>
     <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
     <br>
@@ -40,7 +40,7 @@ html:
   baseurl                   : ""  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     utterances:
-      repo: "joergbrech/Modellbildung-und-Simulation"
+      repo: "hbrs-cse/Modellbildung-und-Simulation"
 
 #######################################################################################
 # Launch button settings
@@ -51,7 +51,7 @@ launch_buttons:
   thebe                     : true  # Add a thebelab button to pages (requires the repository to run on Binder)
 
 repository:
-  url                       : https://github.com/joergbrech/Modellbildung-und-Simulation  # The URL to your book's repository
+  url                       : https://github.com/hbrs-cse/Modellbildung-und-Simulation  # The URL to your book's repository
   path_to_book              : "content"  # A path to your book's folder, relative to the repository root.
   branch                    : master  # Which branch of the repository should be used when creating links
 
