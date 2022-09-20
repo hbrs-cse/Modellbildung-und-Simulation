@@ -829,7 +829,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Implementieren Sie das implizite Eulerverfahren für die Traktrix.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tipp</p>
-<p>Eine Matlab-Routine zum Finden von Nullstellen, nämlich <code class="docutils literal notranslate"><span class="pre">fzero</span></code>, kennen Sie bereits aus <a class="reference internal" href="../../06_nichtlineare_gleichungen/01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a>.</p>
+<p>Eine Matlab-Routine zum Finden von Nullstellen, nämlich <code class="docutils literal notranslate"><span class="pre">fzero</span></code>, kennen Sie bereits aus <a class="reference internal" href="../../06_nichtlineare_gleichungen/01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a>. Dafür müssen Sie aus Ihrem function handle für <span class="math notranslate nohighlight">\(g(x_i,x_{i+1})\)</span> ein spezifisches function handle <span class="math notranslate nohighlight">\(\~g(x_{i+1})\)</span> definieren.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -838,11 +838,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="n">n</span>     <span class="p">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c">% number of timesteps</span>
 <span class="n">tmax</span>  <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
 <span class="n">tspan</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">tmax</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="n">h</span>     <span class="p">=</span> <span class="n">tmax</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">g</span>     <span class="p">=</span> <span class="p">@(</span><span class="n">yip1</span><span class="p">,</span><span class="n">yi</span><span class="p">)</span> <span class="o">-</span><span class="n">yip1</span> <span class="o">+</span> <span class="n">yi</span> <span class="o">+</span> <span class="n">h</span><span class="o">*</span><span class="p">...;</span>
 <span class="n">y</span>     <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
 <span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="p">=</span> <span class="n">y0</span><span class="p">;</span>
 <span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">2</span><span class="p">:</span><span class="n">n</span>
     <span class="n">t</span>    <span class="p">=</span> <span class="n">tspan</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="nb">fzero</span><span class="p">(...);</span>
+    <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="nb">fzero</span><span class="p">(@(</span><span class="n">yip1</span><span class="p">)</span> <span class="n">g</span><span class="p">(</span><span class="n">yip1</span><span class="p">,</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)));</span>
 <span class="k">end</span>
 
 <span class="nb">plot</span><span class="p">(</span><span class="n">tspan</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>

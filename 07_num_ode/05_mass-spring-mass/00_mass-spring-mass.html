@@ -796,7 +796,24 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="aufgabe-3-losung-als-ode">
 <h2>Aufgabe 3: Lösung als ODE<a class="headerlink" href="#aufgabe-3-losung-als-ode" title="Permalink to this headline">¶</a></h2>
-<p>Stellen Sie nun die ODE des Systems auf. Nutzen Sie zur Animation Ihrer Ergebnisse die unten stehenden Skripte.</p>
+<p>Stellen Sie nun die ODE des Systems auf. Nutzen Sie zur Animation Ihrer Ergebnisse die unten stehenden Skripte. (gegebenenfalls müssen Sie die Reihenfolge anpassen, falls Sie online in OCTAVE arbeiten wollen)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
+<span class="p">...</span>
+<span class="n">q0</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">tspan</span> <span class="p">=</span> <span class="p">...</span>
+<span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(@(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">)</span> <span class="n">massspringode</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">tspan</span><span class="p">,</span><span class="n">q0</span><span class="p">);</span>
+
+<span class="n">plotboxes</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">q</span><span class="p">,</span><span class="n">m1</span><span class="p">,</span><span class="n">m2</span><span class="p">,</span><span class="n">l0</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">massspringode</span><span class="p">(</span>q<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><strong>MATLAB Animation</strong></p>
 <p>Inklusive GIF-Export zum Vergleich verschiedener Szenarien.</p>
 <div class="cell tag_hide_input docutils container">
