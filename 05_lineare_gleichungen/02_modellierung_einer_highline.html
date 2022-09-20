@@ -873,6 +873,39 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 <div class="section" id="aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht">
 <h2>Aufgabe 1 - Durchhang der Highline ohne Zusatzgewicht<a class="headerlink" href="#aufgabe-1-durchhang-der-highline-ohne-zusatzgewicht" title="Permalink to this headline">¶</a></h2>
 <p>Lösen Sie das Gleichungssystem <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} = \mathbf{b}\)</span> mit <span class="math notranslate nohighlight">\(S \in \mathbb{R}^{2N \times 2N}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{b} \in \mathbb{R}^{2N}\)</span> für verschiedene Werte für <span class="math notranslate nohighlight">\(N\)</span> mit Hilfe des Backslash-Operators <code class="docutils literal notranslate"><span class="pre">S\b</span></code> und berechnen Sie anschließend die Verschiebung der Massepunkte <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>. Erzeugen Sie <span class="math notranslate nohighlight">\(S\)</span> dazu im Sparse-Matrix-Format, wie in der vorherigen Übung beschrieben.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Klappen Sie die Codebox aus, um auf den Code für <code class="docutils literal notranslate"><span class="pre">plot_highline</span></code> zuzugreifen. Wenn Sie Ihren Code online ausführen, brauchen Sie die Funktion nicht initialisieren, da sie dem Kernel als Datei hinterlegt ist.</p>
+</div>
+<div class="cell tag_hide_input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>handle<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">plot_highline</span><span class="p">(</span>z, L<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="c">% plots the highline according to the (x,y)-coordinates stored in the flat</span>
+    <span class="c">% vector z = [x1,y1, x2, y2, x3, y3, ...] and the length L of the highline.</span>
+
+    <span class="n">N</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="n">N</span> <span class="o">-</span> <span class="nb">floor</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e-15</span>
+        <span class="nb">error</span><span class="p">(</span><span class="s">&quot;The length of the input vector z must be divisble by 2!&quot;</span><span class="p">);</span>
+    <span class="k">end</span>
+
+    <span class="n">positions_x</span> <span class="p">=</span> <span class="n">z</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">)</span><span class="o">&#39;</span> <span class="o">+</span> <span class="n">L</span><span class="o">*</span><span class="nb">linspace</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">N</span><span class="p">);</span>
+    <span class="n">positions_y</span> <span class="p">=</span> <span class="n">z</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">)</span><span class="o">&#39;</span><span class="p">;</span>
+
+    <span class="n">positions_x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="n">positions_x</span> <span class="n">L</span><span class="p">];</span>
+    <span class="n">positions_y</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="n">positions_y</span> <span class="mi">0</span><span class="p">];</span>
+
+    <span class="n">handle</span> <span class="p">=</span> <span class="nb">plot</span><span class="p">(</span><span class="n">positions_x</span><span class="p">,</span> <span class="n">positions_y</span><span class="p">);</span>
+
+    <span class="nb">xlabel</span><span class="p">(</span><span class="s">&#39;x [m]&#39;</span><span class="p">)</span>
+    <span class="nb">ylabel</span><span class="p">(</span><span class="s">&#39;y [m]&#39;</span><span class="p">)</span>
+    <span class="nb">title</span><span class="p">(</span><span class="s">&#39;highline displacement&#39;</span><span class="p">)</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% space for the solution</span>

@@ -883,7 +883,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Was war nochmal ein inverses Tangentenproblem?</p>
 <p>Gottfried Wilhelm Leibniz beschäftigte sich um 1676 mit geometrischen Problemen.
 Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenuhr entlang der Schreibtischkante und fragte sich, auf welcher Bahnkurve <span class="math notranslate nohighlight">\(y(x)\)</span> sich die Uhr bewegt.</p>
-<p><img alt="" src="../../_images/LeipnizUhrInvTangProblem.gif" /></p>
+<img alt="LeipnizUhrInvTangProblem" class="align-center" src="../../_images/LeipnizUhrInvTangProblem.gif" />
+<p>Abbildung 1: Leipniz’ Taschenuhrenproblem. An der Kette (rot gestrichelt, konstante Länge) wird die Taschenuhr (roter Kreis) gezogen. Sie beschreibt eine Bahnkurve (blau), die als Differentialgleichung beschrieben wird.</p>
 <p>Dabei machte er die Beobachtung, dass die Uhrenkette immer tangential an der Bahnkurve anliegt. Damit stimmen <span class="math notranslate nohighlight">\(y'(x)\)</span> und die Steigung der Geraden entlang der Kette überein und für eine Kette der Länge <span class="math notranslate nohighlight">\(L\)</span> erhalten wir</p>
 <div class="math notranslate nohighlight">
 \[y'(x) = - \frac{y(x)}{\sqrt{d^2-y^2(x)}}.\]</div>
@@ -927,8 +928,10 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <h2>Aufgabe 1: Linke Rechteckregel<a class="headerlink" href="#aufgabe-1-linke-rechteckregel" title="Permalink to this headline">¶</a></h2>
 <p>Für die Integration bekannter Funktionen entspricht die linke Rechteckregel einem Rechteck unter dem Punkt <span class="math notranslate nohighlight">\(x_i\)</span>:</p>
 <a class="reference internal image-reference" href="../../_images/quadratur_rechteck_x.png"><img alt="Name of image" class="align-center" src="../../_images/quadratur_rechteck_x.png" style="width: 400px;" /></a>
+<p>Abbildung 2: Integral einer bekannten Funktion mit der linken Rechteckregel.</p>
 <p>Bei der Integration einer ODE entspricht die linke Rechteckregel dem Vektorpfeil (der Ableitung) im Punkt <span class="math notranslate nohighlight">\((x_i,y_i)\)</span>:</p>
 <a class="reference internal image-reference" href="../../_images/quadratur_rechteck_xdot.png"><img alt="Name of image" class="align-center" src="../../_images/quadratur_rechteck_xdot.png" style="width: 500px;" /></a>
+<p>Abbildung 3: Integration einer Differentialgleichung mit der linken Rechteckregel. Das Vektorfeld (rote Pfeile), das die Differentialgleichung an beliebigen Punkten <span class="math notranslate nohighlight">\((x,y)\)</span> beschreibt, wird immer am linken Rand des diskretisierten Intervalls (<span class="math notranslate nohighlight">\(x_0, x_1, ...\)</span>) ausgewertet, um auf den nächsten Startwert zu schließen (blaue Pfeile). Dabei wird hier die ideale Lösung (blau gestrichelt) unterschätzt.</p>
 <p>Wenden Sie die linke Rechteckregel</p>
 <div class="math notranslate nohighlight">
 \[\int_{x_i}^{x_{i+1}}f(x,y(x)) dx \approx h \cdot f(x_i,y_i)\]</div>
@@ -946,7 +949,10 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 \hline
 &amp; 1
 \end{array}.\)</span></p>
-<p>Die 0 oben links bedeutet, dass für den ersten Zwischenwert (hier gibt es nur einen) die Stelle <span class="math notranslate nohighlight">\(x_i\)</span>  verwendet wird. Die 1 unten rechts bedeutet, dass das Ergebnis aus der ersten Zeile zu 100 % in <span class="math notranslate nohighlight">\(y_{i+1}\)</span> eingeht. Komplexere Butcher-Tableaus werden weiter unten zusammen mit den zugehörigen Verfahren erläutert.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Die 0 oben links bedeutet, dass für den ersten Zwischenwert (hier gibt es nur einen) die Stelle $x_i$  verwendet wird. Die 1 unten rechts bedeutet, dass das Ergebnis aus der ersten Zeile zu 100 % in $y_{i+1}$ eingeht. Komplexere Butcher-Tableaus werden weiter unten zusammen mit den zugehörigen Verfahren erläutert.
+```
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -977,11 +983,13 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <div class="math notranslate nohighlight">
 \[\int_{x_i}^{x_{i+1}}f\left(x,y(x)\right)dx \approx h \cdot f\left(x_{i+\frac{1}{2}},y\left(x_i\right)\right)\]</div>
 <a class="reference internal image-reference" href="../../_images/quadratur_mittelpunkt_x.png"><img alt="Name of image" class="align-center" src="../../_images/quadratur_mittelpunkt_x.png" style="width: 400px;" /></a>
+<p>Abbildung 4: Integral einer bekannten Funktion mit der Mittelpunktregel.</p>
 <p>Hieraus ergibt sich für die schrittweise Integration</p>
 <div class="math notranslate nohighlight">
 \[y_{i+1} \approx y_i + h \cdot f\left(\frac{x_i+x_{i+1}}{2},y\left(x_i\right)\right).\]</div>
 <p>Hierbei ist <span class="math notranslate nohighlight">\(\frac{x_i+x_{i+1}}{2}\)</span> gleichbedeutend mit <span class="math notranslate nohighlight">\(x_{i+\frac{1}{2}}\)</span>, beziehungsweise <span class="math notranslate nohighlight">\(x_i + \frac{1}{2}h\)</span>. Wir verwenden weiter unten vor allem die letzte Form.</p>
 <a class="reference internal image-reference" href="../../_images/quadratur_mittelpunkt_xdot.png"><img alt="Name of image" class="align-center" src="../../_images/quadratur_mittelpunkt_xdot.png" style="width: 500px;" /></a>
+<p>Abbildung 5: Integration einer Differentialgleichung mit der Mittelpunktregel. Das Vektorfeld (rote Pfeile), das die Differentialgleichung an beliebigen Punkten <span class="math notranslate nohighlight">\((x,y)\)</span> beschreibt, wird zwischen zwei Punkten des diskretisierten Intervalls (<span class="math notranslate nohighlight">\(x_{1/2}, x_{3/2}, ...\)</span>) ausgewertet (dicke rote Pfeile), um auf die Steigung zu schließen (blaue Pfeile). Dabei wird die Lösung schon deutlich besser angenähert.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Kopieren Sie Ihren Code in die neue Codebox oder auf Ihrem Rechner in eine neue Datei, um die Lösungen der verschiedenen Verfahren später vergleichen zu können. Übernehmen Sie die Anpassung für <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
@@ -1005,10 +1013,12 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 \[y_{i+1} \approx y_i + h \cdot K_2.\]</div>
 <p>Übernehmen Sie die verbesserte Stützstelle <span class="math notranslate nohighlight">\(K_2\)</span> in Ihrem Code. In der Abbildung sehen Sie, wie sich die verbesserte Ableitung auswirkt. Die kleinen blauen Pfeile beschreiben die Ableitung <span class="math notranslate nohighlight">\(f(x,y(x))\)</span> an ausgewählten Stellen im Raum ausgewertet, da die ODE von der Zeit <em>und</em> dem Funktionswert abhängen kann.</p>
 <a class="reference internal image-reference" href="../../_images/vectorfield_animated_traktrix_RK2.gif"><img alt="Name of image" class="align-center" src="../../_images/vectorfield_animated_traktrix_RK2.gif" style="width: 800px;" /></a>
+<p>Abbildung 6: Lösung der Traktrix (orange) mit explizitem Eulerverfahren (dunkelblau) und einem Runke-Kutta-Verfahren zweiter Ordnung (lila). Die Differentialgleichung kann an beliebigen Punkten <span class="math notranslate nohighlight">\((x,y)\)</span> ausgewertet werden (hellblaue Pfeile). Für die RK Lösung wird zuerst die Steigung am linken Rand ausgewertet (roter Pfeil), anschließend an dessen Hälfte die Steigung ermittelt (grüner Pfeil) und zuletzt diese Steigung am Startpunkt angesetzt.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Dieses Vorgehen entspricht einem <strong>Runge-Kutta-Verfahren 2. Ordnung</strong>. Für die Kosinus-Funktion (also die Integration der Sinus-Funktion) klappt das Verfahren sogar noch besser:</p>
 <a class="reference internal image-reference" href="../../_images/vectorfield_animated_cos_RK2.gif"><img alt="Name of image" class="align-center" src="../../_images/vectorfield_animated_cos_RK2.gif" style="width: 800px;" /></a>
+<p>Abbildung 7: Lösung der Funktion <span class="math notranslate nohighlight">\(y' = f(x,y) = \sin(x)\)</span> mit der Lösung <span class="math notranslate nohighlight">\(y = \cos(x)\)</span> (orange) mit explizitem Eulerverfahren (dunkelblau) und einem Runke-Kutta-Verfahren zweiter Ordnung (lila). Die Differentialgleichung kann an beliebigen Punkten <span class="math notranslate nohighlight">\((x,y)\)</span> ausgewertet werden (hellblaue Pfeile). Für die RK Lösung wird zuerst die Steigung am linken Rand ausgewertet (roter Pfeil), anschließend an dessen Hälfte die Steigung ermittelt (grüner Pfeil) und zuletzt diese Steigung am Startpunkt angesetzt.</p>
 <div class="admonition-butcher-tableau admonition">
 <p class="admonition-title">Butcher-Tableau</p>
 <p>Das Butcher-Tableau für dieses Runge-Kutta-Verfahren 2. Ordnung lautet</p>
@@ -1065,7 +1075,9 @@ K_3 = f\left(x_i + h, y_i + h \cdot \left(-1 \cdot K_1 + 2 \cdot K_2 \right)\rig
 \[y_{i+1} = y_i + h \cdot \left(\frac{1}{6}K_1 + \frac{4}{6}K_2 + \frac{1}{6}K_3\right)\]</div>
 <p>In der Abbildung sehen Sie, wie die einzelnen Faktoren das Ergebnis für eine Traktrix ergeben. Da die Auswertungsstelle für <span class="math notranslate nohighlight">\(K_3\)</span> unschön ist, finden Sie darunter auch die Aufstellung der Faktoren für eine Kosinus-Funktion.</p>
 <a class="reference internal image-reference" href="../../_images/vectorfield_animated_traktrix.gif"><img alt="Name of image" class="align-center" src="../../_images/vectorfield_animated_traktrix.gif" style="width: 800px;" /></a>
+<p>Abbildung 8: Lösung der Traktrix (orange) mit explizitem Eulerverfahren (dunkelblau) und einem Runke-Kutta-Verfahren dritter Ordnung (lila). Die Differentialgleichung kann an beliebigen Punkten <span class="math notranslate nohighlight">\((x,y)\)</span> ausgewertet werden (hellblaue Pfeile). Für die RK Lösung werden in verschiedenen Schritten die Faktoren <span class="math notranslate nohighlight">\(K_1, K_2, K_3\)</span> ermittelt und zuletzt gewichtet mit <span class="math notranslate nohighlight">\(\frac{1}{6},\frac{4}{6},\frac{1}{6}\)</span> aneinandergereiht, um zum ersten Schritt zu gelangen.</p>
 <a class="reference internal image-reference" href="../../_images/vectorfield_animated_cos.gif"><img alt="Name of image" class="align-center" src="../../_images/vectorfield_animated_cos.gif" style="width: 600px;" /></a>
+<p>Abbildung 9: Lösung der Funktion <span class="math notranslate nohighlight">\(y' = f(x,y) = \sin(x)\)</span> mit der Lösung <span class="math notranslate nohighlight">\(y = \cos(x)\)</span> (orange) mit explizitem Eulerverfahren (dunkelblau) und einem Runke-Kutta-Verfahren dritter Ordnung (lila). Die Differentialgleichung kann an beliebigen Punkten <span class="math notranslate nohighlight">\((x,y)\)</span> ausgewertet werden (hellblaue Pfeile). Für die RK Lösung werden in verschiedenen Schritten die Faktoren <span class="math notranslate nohighlight">\(K_1, K_2, K_3\)</span> ermittelt und zuletzt gewichtet mit <span class="math notranslate nohighlight">\(\frac{1}{6},\frac{4}{6},\frac{1}{6}\)</span> aneinandergereiht, um zum ersten Schritt zu gelangen.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Butcher-Tableau</p>
 <p>Das Butcher-Tableau für dieses Runge-Kutta-Verfahren 3. Ordnung lautet</p>
