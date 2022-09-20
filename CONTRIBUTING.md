@@ -137,6 +137,7 @@ Images can be embedded with the following code block. All lines starting with a 
 :width: 800px
 :align: center
 ```
+<div style=\"text-align: right\"> Abbildung x: Description of image. </div> <br>
 ````
 This format also accepts internet links to images instead of `path/to/image.png`.
 
