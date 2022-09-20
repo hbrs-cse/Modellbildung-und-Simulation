@@ -1,5 +1,16 @@
-(erste-schritte)=
-# MATLAB einrichten
+````{panels}
+Voraussetzungen
+^^^
+- keine
+---
+
+Lerninhalte
+^^^
+- Kennenlernen von Matlab
+````
+
+(erste_schritte)=
+# Matlab einrichten
 
 [Matlab](https://de.wikipedia.org/wiki/Matlab) ist eine interpretierte Skriptsprache, die insbesondere für numerische Berechnungen, Modellbildung und Simulation verwendet wird. Interpretierte Skriptsprachen zeichnen sich dadurch aus, dass sie von speziellen Computerprogrammen, sogenannten *Interpretern*, direkt interpretiert und ausgeführt werden. Im Kontrast dazu stehen Sprachen wie C/C++, die zunächst von einem Compiler in eine maschinenlesbare Datei übersetzt werden müssen.
 
@@ -24,7 +35,7 @@ Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man e
  * [Julia](https://julialang.org/) - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
  
 
-Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es so viele kostenfreie Alternativen gibt? Zugegeben, sehr viele Argumente fallen mir nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
+Warum soll ich also das kostenpflichtige Matlab verwenden, wenn es so viele kostenfreie Alternativen gibt? Zugegeben, sehr viele Argumente fallen uns nicht ein. Es gibt dennoch ein paar sehr gute Gründe Matlab zu benutzen: 
 1. Es ist eine ausgereifte, vielseitige, robuste und einfach zu erlernende Skriptsprache, mit der man in sehr kurzer Zeit komplexe Modelle erstellen kann.
 2. Die sehr gute Benutzerumgebung liefert viele praktische Werkzeuge wie Profiler oder Debugging Tools.
 2. Studenten erhalten in der Regel kostenfrei Zugang zu einer Campuslizenz.

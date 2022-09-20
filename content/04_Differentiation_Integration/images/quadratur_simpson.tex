@@ -1,0 +1,155 @@
+\documentclass[10pt]{standalone}
+% load the "Hochschule Bonn-Rhein-Sieg" beamer theme
+%\usetheme{HBRS}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% packages (some, like tikz, are already loaded with the HBRS theme)
+
+%Fonts and encoding:
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+%used for the newdateformat command
+\usepackage{datetime}
+
+%multimedia support (!! depends on pdf viewer !!)
+\usepackage{media9}
+
+%floating point operations
+\usepackage{fp}
+
+%"TikZ ist kein Zeichenprogramm"
+\usepackage{tikz}
+\usetikzlibrary{arrows,
+	calc,
+	patterns,
+	fit,
+	external}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween}
+
+%electric circuits using tikz
+\usepackage[europeanvoltages]{circuitikz}
+
+
+\usepackage{color,colortbl}
+\definecolor{darkgreen}{rgb}{.0,.5,.0} 
+\definecolor{lightgray}{rgb}{.8,.8,.8} 
+\definecolor{lightgreen}{rgb}{.514,.804,.737}
+
+\usepackage{tabularx}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{L}[1]{>{\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+\definecolor{darkgreen}{rgb}{0,0.67,0}
+\definecolor{DG}{rgb}{0.3,0.3,0.3}
+\definecolor{MG}{rgb}{0.6,0.6,0.6}
+\definecolor{LG}{rgb}{0.9,0.9,0.9}
+
+\usepackage[absolute]{textpos}
+
+
+\usepackage{listings}
+\definecolor{matlabgreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{matlablilas}{RGB}{170,55,241}
+\lstset{
+	language=Matlab,
+	emph=[1]{for,while,end,break,function},emphstyle=[1]\color{blue}, %some words to emphasise
+	commentstyle=\color{matlabgreen},
+	showstringspaces=false
+}
+
+
+\usepackage{units} % for nicefrac
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title, subtitle,author,date and optional footlinetext
+
+\title{Modellbildung und Simulation 1}
+%\subtitle{Sommersemester 2019}
+\author{Jan Kleinert}
+\date{FB 03 -- EMT}
+
+%\footlinetext{%
+	%\insertframenumber/\inserttotalframenumber%
+	%\newline%
+	%ModSim1, Jan Kleinert%
+	%\newline%
+	%Sommersemester 2019%
+	%}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% qr code (default units for width/height are inches) 
+%\usepackage{qrcode}
+
+\makeatletter 
+\newcommand{\qr}[2]{% 
+	\href{#2}{% 
+		\begin{tikzpicture} 
+			\node [rectangle,draw=HBRSblue,rounded corners=5pt, line width=2pt, fill=HBRSlightgray]{%
+				\qrcode{#2}% 
+				\begin{tabular}{l} \textcolor{HBRSblue}{#1}\\\\
+					\footnotesize{\texttt{\textcolor{HBRSblue}{#2}}} 
+				\end{tabular} 
+			}; 
+		\end{tikzpicture} 
+	} 
+} 
+\makeatother
+
+\begin{document}
+	
+\begin{tikzpicture}
+	\begin{axis}[ 
+		height=4cm,
+		width=5cm, 
+		axis lines=middle,
+		clip=false,
+		axis line style={->},
+		% xlabel={$x$},
+		% ylabel={$y$},
+		ticks=none,
+		xmin=-0.25,
+		xmax=1.25,
+		ymin=-0.5,
+		ymax=3
+		]
+		
+		
+		\addplot[red,samples=500,domain=-0.25:1.25,line width = 1pt] {exp(x)};
+		
+		
+		\addplot[name path=p,blue,samples=500,domain=0.4:0.8, line width = 1 pt] { 1.0506 + 0.7374*x + 0.9141*x^2};
+		\path[name path=axis] (axis cs:0.4,0) -- (axis cs:0.8,0);
+		\addplot [
+		thick,
+		color=blue,
+		fill=blue, 
+		fill opacity=0.15
+		]
+		fill between[
+		of=p and axis,
+		%         soft clip={domain=0.399:0.8},
+		];
+		
+		\draw[blue, line width=1pt] (0.8,2.2255) -- (0.8,0) -- (0.4,0) -- (0.4,1.4918);
+		
+		\node at (0.4,1.4918) [draw,circle,scale=0.25,fill=black] {};
+		\node at (0.6,1.8221) [draw,circle,scale=0.25,fill=black] {};
+		\node at (0.8,2.2255) [draw,circle,scale=0.25,fill=black] {};
+		
+		\draw[dashed] (0.4,0) node[below] {$x_{i}$} -- (0.4,3);
+		\draw[dashed] (0.8,0) node[below] {$x_{i+1}$} -- (0.8,3);
+		
+	\end{axis}
+	
+	
+\end{tikzpicture}
+
+\end{document}

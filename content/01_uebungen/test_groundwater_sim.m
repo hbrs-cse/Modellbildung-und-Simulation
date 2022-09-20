@@ -59,8 +59,8 @@ function test_num_wetted_cells_per_layer_deterministic
     
     expected = zeros(80,80);
     for i=1:80
-        first = max([ 1,20-i]);
-        last   = min([80,60+i]);
+        first = max([ 1,21-i]);
+        last   = min([80,59+i]);
         expected(i,first:last)=1;
     end
     assertEqual(expected,ground);
