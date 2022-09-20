@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -802,8 +802,39 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="konvektion-und-diffusion">
-<h1>Konvektion und Diffusion<a class="headerlink" href="#konvektion-und-diffusion" title="Permalink to this headline">¶</a></h1>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">mathematische Grundlagen von PDEs und der Linienmethode</p></li>
+<li><p class="card-text">Kenntnis des expliziten Euler-Verfahrens und des Crank-Nicolson-Verfahrens</p></li>
+<li><p class="card-text">Partielle Differentialgleichungen mit Randbedingungen</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Umsetzung der Verfahrensvorschriften zur Umsetzung der Linienmethode</p></li>
+<li><p class="card-text">Einschätzung der Auswirkungen numerischer Ungenauigkeiten</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="konvektion-und-diffusion">
+<span id="conv-diff-pde"></span><h1>Konvektion und Diffusion<a class="headerlink" href="#konvektion-und-diffusion" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg"><img alt="Aedes Albopictus" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg" style="width: 512px;" /></a>
 <div style="text-align: right"> "Aedes Albopictus",  James Gathany/CDC, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg" >Wikimedia Commons</a></div> <br>
 <p>Wir wollen simulieren wie sich ein Insektengift in einer Blutbahn ausbreitet. Zum einen wird sich durch ein Diffusionsprozess das Insektengift mit dem Blut vermischen. Zum anderen wird es mit der Fließgeschwindigkeit des Blutes transportiert <em>(Konvektion)</em>. Es ergibt sich ein sogenannter Konvektions-Diffusionsprozess. <span class="math notranslate nohighlight">\(\rho(t,x)\)</span> sei die Konzentration des Insektengiftes entlang der Blutbahn.</p>
@@ -903,7 +934,7 @@ so aussehen (nur jeder 50. Zeitschritt wurde ausgegeben):</p></li>
 <a class="reference internal image-reference" href="../_images/blood_animated_a001_xn500.gif"><img alt="blood_animated_a001_xn500" class="align-center" src="../_images/blood_animated_a001_xn500.gif" style="width: 800px;" /></a>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Weiterführend können Sie sich über ENO (Essentially Non-Oscillatory) Methoden informieren. Diese sind speziell dafür entwickelt, numerische Oszillationen zu vermeiden. Ein Beispiel für eine ENO Methode finden Sie in <a class="reference internal" href="03_trafficPDE.html#content-references-pdes-traffic"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a>.</p>
+<p>Weiterführend können Sie sich über ENO (Essentially Non-Oscillatory) Methoden informieren. Diese sind speziell dafür entwickelt, numerische Oszillationen zu vermeiden. Ein Beispiel für eine ENO Methode finden Sie in <a class="reference internal" href="03_trafficPDE.html#traffic-pde"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a>.</p>
 </div>
 </div>
 <div class="section" id="literatur">

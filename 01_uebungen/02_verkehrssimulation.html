@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -786,9 +786,39 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="verkehrssimulation-mit-zellularen-automaten">
-<span id="content-exercises-naschr"></span><h1>Verkehrssimulation mit zellulären Automaten<a class="headerlink" href="#verkehrssimulation-mit-zellularen-automaten" title="Permalink to this headline">¶</a></h1>
-<p>In dieser Übungsaufgabe soll das Fahrverhalten von Autofahrer:innen und die damit einhergehende Stauentwicklung modelliert werden. In einem 7.5 km langen einspurigen Tunnel bilden sich zu Hauptverkehrszeiten immer wieder Staus, ohne dass ein Unfall oder eine Baustelle als Ursache ausgemacht werden kann. Ampeln gibt es auf der gesamten Strecke nicht. Ihre Aufgabe ist es, ein simples Computermodell zu erstellen, das in der Lage ist dieses Phänomen zu reproduzieren. Welche Durchschnittsgeschwindigkeit kann man bei einer gegebenen Verkehrsdichte erwarten? Wie hängt der Verkehrsfluss von der Verkehrsdichte ab?</p>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Programmier-Grundlagen</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Modellbildung mit zeitlicher und räumlicher Diskretisierung</p></li>
+<li><p class="card-text">Kenntnis der Funktionsweise zellulärer Automaten</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="verkehrssimulation-mit-zellularen-automaten">
+<span id="naschr"></span><h1>Verkehrssimulation mit zellulären Automaten<a class="headerlink" href="#verkehrssimulation-mit-zellularen-automaten" title="Permalink to this headline">¶</a></h1>
+<p>In dieser Übungsaufgabe soll das Fahrverhalten von Autofahrern und die damit einhergehende Stauentwicklung modelliert werden. In einem 7.5 km langen einspurigen Tunnel bilden sich zu Hauptverkehrszeiten immer wieder Staus, ohne dass ein Unfall oder eine Baustelle als Ursache ausgemacht werden kann. Ampeln gibt es auf der gesamten Strecke nicht. Ihre Aufgabe ist es, ein simples Computermodell zu erstellen, das in der Lage ist dieses Phänomen zu reproduzieren. Welche Durchschnittsgeschwindigkeit kann man bei einer gegebenen Verkehrsdichte erwarten? Wie hängt der Verkehrsfluss von der Verkehrsdichte ab?
+:</p>
 <img alt="../_images/tunnel.jpg" class="align-center" src="../_images/tunnel.jpg" />
 <div style="text-align: right"> Abbildung 1: "New York city center street at night-time", <a href="https://unsplash.com/@nicolaiberntsen" >Nicolai Berntsen</a>, <a href="https://unsplash.com/license" >[Unsplash License]</a> via <a href="https://unsplash.com/photos/vM97bob4ZGk">Unsplash</a></div> <br>
 <div class="section" id="modellbeschreibung">
@@ -796,7 +826,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Im Durchschnitt belegt ein Fahrzeug ca. 7.5 m der Strecke in einem Stau. Diese Länge beinhaltet bereits den Abstand zum Auto davor. Die 7.5 km lange Strecke lässt sich demnach in 1000 Zellen zerlegen. Zu jedem Zeitpunkt ist eine Zelle entweder frei oder von einem Auto belegt. In den Tunnel passen maximal 1000 Fahrzeuge. Abbildung 1 zeigt beispielhaft einen Streckenabschnitt aus 10 Zellen mit 5 Fahrzeugen A, B, C, D und E. In Abbildung 1(a) ist der Streckenabschnitt dargestellt. Die Zellen 2, 3, 5, 8 und 10 sind jeweils mit einem Auto belegt. Abbildung 1(b) zeigt eine komprimierte Darstellung. In einem Positionsvektor werden die Zellennummern der 5 Fahrzeuge gespeichert.</p>
 <img alt="zellnummern" src="../_images/zellnummern.PNG" />
    <div style="text-align: right"> Abbildung 2: Zwei Darstellungen für einen 75 m langen Streckenabschnitt mit 5 Fahrzeugen A, B, C, D und E. </div> <br>
-<p>Ein Fahrzeug mit einer Geschwindigkeit von 27 km/h = 7.5 m/s rückt innerhalb einer Sekunde genau eine Zelle vor. Die Maximalgeschwindigkeit im Tunnel beträgt 135 km/h, bzw. 5 Zellen pro Sekunde. Simulieren Sie den Verkehrsfluss sekundenweise. Dies entspricht in etwa der Reaktionszeit der jeweiligen Autofahrer:innen. In jedem Zeitschritt von einer Sekunde ergibt sich die Position und Geschwindigkeit eines Fahrzeuges nach folgenden einfachen Regeln, die in der angegebenen Reihenfolge umgesetzt werden:</p>
+<p>Ein Fahrzeug mit einer Geschwindigkeit von 27 km/h = 7.5 m/s rückt innerhalb einer Sekunde genau eine Zelle vor. Die Maximalgeschwindigkeit im Tunnel beträgt 135 km/h, bzw. 5 Zellen pro Sekunde. Simulieren Sie den Verkehrsfluss sekundenweise. Dies entspricht in etwa der Reaktionszeit eines Autofahrers. In jedem Zeitschritt von einer Sekunde ergibt sich die Position und Geschwindigkeit eines Fahrzeuges nach folgenden einfachen Regeln, die in der angegebenen Reihenfolge umgesetzt werden:</p>
 <ol>
 <li><p>Jedes Auto, das noch nicht die Maximalgeschwindigkeit erreicht hat, erhöht seine Geschwindigkeit um eine Zelle pro Sekunde.</p>
 <img alt="bild1_stau" src="../_images/bild1_stau.png" />
@@ -811,7 +841,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div style="text-align: right"> Abbildung 5: Abbremsen der zufällig gewählten Sonntagsfahrer. </div> <br>
 </li>
 <li><p>Alle Fahrzeuge rücken entsprechend ihrer Geschwindigkeit vor.
-Die Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> im betrachteten Zeitraum bleibe annähernd konstant. Zu jeder Zeit verlassen also so viele Autos den Steckenabschnitt, wie neue hinzu kommen. Um diesen Effekt zu berücksichtigen, bedienen Sie sich eines Tricks: Gehen Sie von periodischen Randbedingungen aus. Sobald ein Auto die 7.5 km lange Strecke verlässt, taucht es am Anfang wieder auf (In anderen Worten: Die Zellen mit den Nummern <code class="docutils literal notranslate"><span class="pre">i</span></code> und <code class="docutils literal notranslate"><span class="pre">1000+i</span></code> sind identisch). Eine Anschauung des Tricks ist es, sich den Tunnel als Ringstraße mit einem Umfang von 7.5 km vorzustellen.</p>
+Die Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> im betrachteten Zeitraum bleibe annähernd konstant. Zu jeder Zeit verlassen also so viele Autos den Steckenabschnitt, wie neue hinzu kommen. Um diesen Effekt zu berücksichtigen, bedienen sie sich eines Tricks: Gehen Sie von periodischen Randbedingungen aus. Sobald ein Auto die 7.5 km lange Strecke verlässt, taucht es am Anfang wieder auf (In anderen Worten: Die Zellen mit den Nummern <code class="docutils literal notranslate"><span class="pre">i</span></code> und <code class="docutils literal notranslate"><span class="pre">1000+i</span></code> sind identisch). Eine Anschauung des Tricks ist es, sich den Tunnel als Ringstraße mit einem Umfang von 7.5 km vorzustellen.</p>
 <img alt="ringstrasse" src="../_images/ringstrasse.gif" />
 <div style="text-align: right"> Abbildung 6: Darstellung der periodischen Randbedingungen als Ringstraße. </div> <br>
 </li>
@@ -825,14 +855,14 @@ Die Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> im
 <ul class="simple">
 <li><p>normalisierte Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span></p></li>
 <li><p>Maximalgeschwindigkeit <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> (Zellen/Sekunde)</p></li>
-<li><p>Anteil Sonntagsfahrer:innen <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span></p></li>
+<li><p>Anteil Sonntagsfahrer <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span></p></li>
 <li><p>Streckenlänge <span class="math notranslate nohighlight">\(L\)</span> (Anzahl von Zellen)</p></li>
 <li><p>Simulationszeitraum <span class="math notranslate nohighlight">\(T\)</span> (Sekunden)</p></li>
 </ul>
 </li>
 <li><p>Die normalisierte Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> ist der Anteil der belegten Zellen, also eine einheitslose Zahl zwischen 0 und 1.</p>
 <p>Berechnen Sie die Anzahl der Fahrzeuge <code class="docutils literal notranslate"><span class="pre">n</span></code> aus der Streckenlänge <code class="docutils literal notranslate"><span class="pre">len</span></code> und der normalisierten Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span> und erzeugen Sie zwei Vektoren <code class="docutils literal notranslate"><span class="pre">pos</span></code> und <code class="docutils literal notranslate"><span class="pre">vel</span></code> der Länge <code class="docutils literal notranslate"><span class="pre">n</span></code> für die Positionen (Zellennummer) und Geschwindigkeiten (Zellen/Sekunde) der Fahrzeuge. Zu Beginn der Simulation sind die Autos beliebig auf der Strecke verteilt. Die Anfangsgeschwindigkeit aller Fahrzeuge beträgt 0 Zellen/Sekunde. <strong>Tipp</strong>: Schauen Sie sich die Matlab–Funktion <code class="docutils literal notranslate"><span class="pre">randperm(m,n)</span></code> an. Sortieren sie den Vektor <code class="docutils literal notranslate"><span class="pre">pos</span></code> zu Beginn der Simulation aufsteigend.</p>
-<p>Berechnen Sie die Positionen <code class="docutils literal notranslate"><span class="pre">pos</span></code> und Geschwindigkeiten <code class="docutils literal notranslate"><span class="pre">vel</span></code> aller Fahrzeuge nach den vier oben genannten Regeln für jede Sekunde innerhalb einer Stunde. <strong>Tipp</strong>: Für die Umsetzung der periodischen Randbedingungen könnte die Funktion <code class="docutils literal notranslate"><span class="pre">mod(k,</span> <span class="pre">n)</span></code> hilfreich sein. Für die Umsetzung von Regel 3 bietet sich wieder <code class="docutils literal notranslate"><span class="pre">randperm(n,</span> <span class="pre">k)</span></code> an.</p>
+<p>Berechnen sie die Positionen <code class="docutils literal notranslate"><span class="pre">pos</span></code> und Geschwindigkeiten <code class="docutils literal notranslate"><span class="pre">vel</span></code> aller Fahrzeuge nach den vier oben genannten Regeln für jede Sekunde innerhalb einer Stunde. Tipp: Für die Umsetzung der periodischen Randbedingungen könnte die Funktion <code class="docutils literal notranslate"><span class="pre">mod(k,</span> <span class="pre">n)</span></code> hilfreich sein. Für die Umsetzung von Regel 3 bietet sich wieder <code class="docutils literal notranslate"><span class="pre">randperm(n,</span> <span class="pre">k)</span></code> an.</p>
 <p>Animieren Sie den Verkehrsfluss um zu überprüfen, ob Ihr Modell funktioniert. Gehen Sie dabei von einer Maximalgeschwindigkeit von 5 Zellen/Sekunde, <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span> = 0.2 sowie einer normalisierten Verkehrsdichte von <span class="math notranslate nohighlight">\(\rho\)</span> = 0.4 aus. <strong>Tipp</strong>: Eine Animation kann zum Beispiel mit den Matlab–Funktionen <code class="docutils literal notranslate"><span class="pre">scatter</span></code> und <code class="docutils literal notranslate"><span class="pre">pause(t)</span></code> in der Hauptschleife Ihres Programmes erzeugt werden.</p>
 </li>
 </ol>
@@ -886,7 +916,7 @@ Die Funktion erhält als Eingabe</p>
 <ul class="simple">
 <li><p>normalisierte Verkehrsdichte <span class="math notranslate nohighlight">\(\rho\)</span></p></li>
 <li><p>Maximalgeschwindigkeit <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span></p></li>
-<li><p>Anteil der Sonntagsfahrer:innen <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span></p></li>
+<li><p>Anteil der Sonntagsfahrer <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span></p></li>
 </ul>
 <p>und gibt</p>
 <ul class="simple">
@@ -990,7 +1020,7 @@ Erstellen Sie mit Ihrem Skript sowohl ein <span class="math notranslate nohighli
    <div style="text-align: right"> Abbildung 7: $\rho–v$ Diagramm und $\rho–Q$ Diagramm zum Vergleich mit der eigenen Lösung. </div> <br></div>
 <div class="section" id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
-<p>Experimentieren Sie mit den Parametern <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> und <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span>. Wie lässt sich der Einfluss beider Parameter auf die Durchschnittsgeschwindigkeit und den Verkehrsfluss qualitativ beschreiben? Nennen Sie eine Möglichkeit den Realismus des Modells zu steigen.</p>
+<p>Experimentieren Sie mit den Parametern <span class="math notranslate nohighlight">\(v_{\text{max}}\)</span> und <span class="math notranslate nohighlight">\(p_{\text{SF}}\)</span>. Wie lässt sich der Einfluss beider Parameter auf die Durchschnittsgeschwindigkeit und den Verkehrsfluss qualitativ beschreiben? Nennen sie eine Möglichkeit den Realismus des Modells zu steigen.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% Qualitative Beschreibung des Einflusses von v_max auf v_mean und Q:</span>

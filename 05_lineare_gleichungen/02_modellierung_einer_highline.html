@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -800,8 +800,38 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="modellierung-einer-highline">
-<span id="content-references-highline-static"></span><h1>Modellierung einer Highline<a class="headerlink" href="#modellierung-einer-highline" title="Permalink to this headline">¶</a></h1>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Matrizen-Grundlagen</p></li>
+<li><p class="card-text">dynamische Kräfte-Gleichgewichte</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Lösung bekannter Modellgleichungen mithilfe von räumlicher Diskretisierung als Modellannahme</p></li>
+<li><p class="card-text">Vergleich und Bewertung iterativer Gleichungssystemlöser</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modellierung-einer-highline">
+<span id="highline-static"></span><h1>Modellierung einer Highline<a class="headerlink" href="#modellierung-einer-highline" title="Permalink to this headline">¶</a></h1>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/C6MtzvQ5hZ8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div style="font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
 <p>Mittels einer Reihenschaltung von Federdämpfer-Systemen lässt sich ein einfaches zweidimensionales Modell einer Highline erstellen.</p>
@@ -810,7 +840,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <img alt="../_images/bridge.png" class="align-center" src="../_images/bridge.png" />
 <p>Die Highline wird als eine Kette von <span class="math notranslate nohighlight">\(N\)</span> Massepunkten modelliert, die jeweils mit Feder- und Dämpferelementen in horizontaler und vertikaler Richtung miteinader verbunden sind.</p>
 <div class="section" id="kraftebilanzierung">
-<span id="content-references-model-description-balance-of-forces"></span><h3>Kräftebilanzierung<a class="headerlink" href="#kraftebilanzierung" title="Permalink to this headline">¶</a></h3>
+<span id="highline-static-balance-of-forces"></span><h3>Kräftebilanzierung<a class="headerlink" href="#kraftebilanzierung" title="Permalink to this headline">¶</a></h3>
 <p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen <span class="math notranslate nohighlight">\(\mathbf{z}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix}\)</span> der Massepunkte weg von diesem Urzustand. Die Verschiebungen der Ankerpunkte seien konstant Null, <span class="math notranslate nohighlight">\(\mathbf{z}_{0}=\mathbf{z}_{N+1}=\begin{bmatrix} 0 \\ 0 \end{bmatrix}\)</span>.</p>
 <p>Angenommen jeder Massepunkt hat die Masse <span class="math notranslate nohighlight">\(m\)</span> und die Federdämpferelemente haben die Steifigkeiten <span class="math notranslate nohighlight">\(k\)</span> und Dämpfungskoeffizienten <span class="math notranslate nohighlight">\(d\)</span>. Durch Freischneiden und Kraftbilanzierung lassen sich für alle Massepunkte die Bewegungsgleichungen aufstellen. Sei <span class="math notranslate nohighlight">\(\mathbf{F}_{i,\text{ext}} \in \mathbb{R}^2\)</span> die externe Kraft, die auf den Massepunkt mit Index <span class="math notranslate nohighlight">\(i\)</span> wirkt. Dann gilt</p>
 <div class="math notranslate nohighlight">
@@ -1049,7 +1079,7 @@ lässt sich das lineare Gleichungssystem schreiben als</p>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Es geht weiter mit der Highline</p>
-<p>Um die Highline dynamisch zu simulieren, sehen Sie sich die Übung <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html#content-references-highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> an.</p>
+<p>Um die Highline dynamisch zu simulieren, sehen Sie sich die Übung <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html#highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> an.</p>
 </div>
 </div>
 </div>

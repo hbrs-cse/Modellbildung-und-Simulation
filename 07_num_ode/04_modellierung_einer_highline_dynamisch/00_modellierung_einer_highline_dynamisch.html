@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -786,9 +786,41 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="modellierung-einer-highline-zeitliche-auflosung">
-<span id="content-references-highline-dynamic"></span><h1>Modellierung einer Highline - Zeitliche Auflösung<a class="headerlink" href="#modellierung-einer-highline-zeitliche-auflosung" title="Permalink to this headline">¶</a></h1>
-<p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie unter <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#content-references-model-description-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">statische Modellierung einer Highline (<a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>)</p></li>
+<li><p class="card-text">Reduktion von DGLs höherer Ordnung auf ein System von DGLs erster Ordnung</p></li>
+<li><p class="card-text">Umgang mit aufgeteilten Programmroutinen</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">zeitliche und räumliche Diskretisierung dynamischer Systeme</p></li>
+<li><p class="card-text">Aufstellen von Differentialgleichungssystemen</p></li>
+<li><p class="card-text">Lösung der Systemgleichungen mit ODE Lösern</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modellierung-einer-highline-zeitliche-auflosung">
+<span id="highline-dynamic"></span><h1>Modellierung einer Highline - Zeitliche Auflösung<a class="headerlink" href="#modellierung-einer-highline-zeitliche-auflosung" title="Permalink to this headline">¶</a></h1>
+<p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie unter <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
 <div class="section" id="neu-die-dynamische-simulation">
 <h2>Neu: Die dynamische Simulation<a class="headerlink" href="#neu-die-dynamische-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Anstatt einen stationären Lastfall zu betrachten und so die Gleichung zu <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} =\mathbf{b}\)</span> zu vereinfachen, betrachten wir weiterhin die oben stehende Gleichung inklusive der Dämpfungsmatrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>. Die <span class="math notranslate nohighlight">\(L = 50 \text{ m}\)</span> lange Highline wird mit <span class="math notranslate nohighlight">\(N = 100\)</span> Elementen diskretisiert.</p>

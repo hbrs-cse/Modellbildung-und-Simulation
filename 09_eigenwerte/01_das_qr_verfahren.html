@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -756,8 +756,37 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="das-qr-verfahren">
-<h1>Das QR Verfahren<a class="headerlink" href="#das-qr-verfahren" title="Permalink to this headline">¶</a></h1>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Programmier-Grundlagen</p></li>
+<li><p class="card-text">Matrizen-Grundlagen inklusive Eigenwerte</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Berechnung von Eigenwerten mithilfe der QR-Zerlegung (Diagonalisierung)</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="das-qr-verfahren">
+<span id="qr-eigen"></span><h1>Das QR Verfahren<a class="headerlink" href="#das-qr-verfahren" title="Permalink to this headline">¶</a></h1>
 <p>Folgender iterativer Algorithmus liegt dem sogenanneten <em>QR-Verfahren</em> zur Berechnung der Eigenwerte einer Matrix zugrunde:</p>
 <ol>
 <li><p>Setze <span class="math notranslate nohighlight">\(A^{(0))}=A\)</span></p></li>
@@ -799,15 +828,6 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_my_eig</span><span class="p">.</span><span class="n">m</span><span class="p">;</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>suite: 3 tests
-...
---------------------------------------------------
-
-OK (passed=3)
 </pre></div>
 </div>
 </div>

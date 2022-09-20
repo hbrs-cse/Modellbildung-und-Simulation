@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -746,10 +746,42 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="modellierung-einer-highline-die-losung-als-pde">
-<span id="content-references-highline-dynamic-pde"></span><h1>Modellierung einer Highline - Die Lösung als PDE<a class="headerlink" href="#modellierung-einer-highline-die-losung-als-pde" title="Permalink to this headline">¶</a></h1>
-<p>Wie in <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html#content-references-highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> wollen wir nun die Highline aus <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> als partielle Differentialgleichung (Partial Differential Equation, PDE) lösen. Im Unterschied zu den gewöhnlichen Differentialgleichungen gibt es hier Ableitungen nach mehr als einer Variablen, häufig nach Raumgrößen und der Zeit (z.B. <span class="math notranslate nohighlight">\(\frac{\partial f(t,x)}{\partial t}, \frac{\partial f(t,x)}{\partial x}\)</span>).</p>
-<p>Auch wenn es nicht so aussah, beinhaltet bereits die die Kräftebilanzierung aus <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> eine partielle Differentialgleichung. Allgmein lässt sich die Highline gemäß <span id="id1">[<a class="reference internal" href="#id6">Opr20</a>]</span> als PDE aufstellen.</p>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Aufgaben <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> und <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html#highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a></p></li>
+<li><p class="card-text">mathematische Grundlagen von PDEs und der Linienmethode</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Aufstellen partieller Differentialgleichungen</p></li>
+<li><p class="card-text">Diskretisierung</p></li>
+<li><p class="card-text">Numerische Lösung von partiellen Differentialgleichungen</p></li>
+<li><p class="card-text">Demonstration der Ähnlichkeit der Diskretisierung der Linienmethode zur diskretisierten Modellannahme in der bisherigen Modellierung einer Highline</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modellierung-einer-highline-die-losung-als-pde">
+<span id="highline-dynamic-pde"></span><h1>Modellierung einer Highline - Die Lösung als PDE<a class="headerlink" href="#modellierung-einer-highline-die-losung-als-pde" title="Permalink to this headline">¶</a></h1>
+<p>Wie in <a class="reference internal" href="../07_num_ode/04_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html#highline-dynamic"><span class="std std-ref">Modellierung einer Highline - Zeitliche Auflösung</span></a> wollen wir nun die Highline aus <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> als partielle Differentialgleichung (Partial Differential Equation, PDE) lösen. Im Unterschied zu den gewöhnlichen Differentialgleichungen gibt es hier Ableitungen nach mehr als einer Variablen, häufig nach Raumgrößen und der Zeit (z.B. <span class="math notranslate nohighlight">\(\frac{\partial f(t,x)}{\partial t}, \frac{\partial f(t,x)}{\partial x}\)</span>).</p>
+<p>Auch wenn es nicht so aussah, beinhaltet bereits die die Kräftebilanzierung aus <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> eine partielle Differentialgleichung. Allgmein lässt sich die Highline gemäß <span id="id1">[<a class="reference internal" href="#id6">Opr20</a>]</span> als PDE aufstellen.</p>
 <div class="math notranslate nohighlight">
 \[\rho_L \cdot \mathbf{\ddot{z}} = E \cdot A \cdot \mathbf{z}_{xx} + c \cdot \mathbf{\dot{z}}_{xx} + \Delta\mathbf{F}(t)\]</div>
 <div class="admonition-hinweis admonition">
@@ -786,7 +818,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Mit <span class="math notranslate nohighlight">\(\frac{E \cdot A}{dx} = k\)</span>, <span class="math notranslate nohighlight">\(\frac{c}{dx} = d\)</span> und <span class="math notranslate nohighlight">\(\Delta\mathbf{F} = \frac{\mathbf{F}_{\text{i,ext}}(t)}{dx}\)</span> wird aus der PDE</p>
 <div class="math notranslate nohighlight">
 \[\frac{m}{dx} {\mathbf{\ddot{z}}_i} = \frac{k}{dx} (\mathbf{z}_{i-1}-2\mathbf{z}_i+\mathbf{z}_{i+1}) + \frac{d}{dx} (\mathbf{\dot{z}}_{i-1}-2\mathbf{\dot{z}}_i+\mathbf{\dot{z}}_{i+1}) + \frac{1}{dx}\mathbf{F}_{\text{i,ext}}(t)\]</div>
-<p>Nach Kürzen von <span class="math notranslate nohighlight">\(\frac{1}{dx}\)</span> (die PDE war ja bezogen auf ein relatives Ortsintervall) entsteht die bekannte Gleichung aus <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#content-references-highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>:</p>
+<p>Nach Kürzen von <span class="math notranslate nohighlight">\(\frac{1}{dx}\)</span> (die PDE war ja bezogen auf ein relatives Ortsintervall) entsteht die bekannte Gleichung aus <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>:</p>
 <div class="math notranslate nohighlight">
 \[m \ddot{\mathbf{z}}_i = k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) + d(\dot{\mathbf{z}}_{i-1} - \dot{\mathbf{z}}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) - d(\dot{\mathbf{z}}_{i} -\dot{\mathbf{z}}_{i+1}) + \mathbf{F}_{i,\text{ext}}\]</div>
 <p>Für den ersten und den letzten Massenpunkt (<span class="math notranslate nohighlight">\(i=1\)</span> und <span class="math notranslate nohighlight">\(i=N\)</span>) sind zusätzlich die Geschwindigkeit und Verschiebung der Massenpunkte an den Rändern für die finiten Differenzen notwendig. Es entsteht also ein System mit <span class="math notranslate nohighlight">\(N+4\)</span> Unbekannten (beziehungsweise <span class="math notranslate nohighlight">\(2N+8\)</span> Unbekannte, falls wir die Vektoren in ihre Raumrichtungen zerlegen) und nur <span class="math notranslate nohighlight">\(N\)</span> Gleichungen.</p>

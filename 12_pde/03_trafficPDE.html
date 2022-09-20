@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -756,9 +756,37 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="section" id="verkehrssimulation-mit-finiten-volumen">
-<span id="content-references-pdes-traffic"></span><h1>Verkehrssimulation mit finiten Volumen<a class="headerlink" href="#verkehrssimulation-mit-finiten-volumen" title="Permalink to this headline">¶</a></h1>
-<p>In <a class="reference internal" href="../00_einleitung/01_motivation.html#content-references-intro-traffic"><span class="std std-ref">Das Stauproblem - Motivation zur Benutzung dieses Buches</span></a> haben wir ein Beispiel zur Verkehrssimulation kennen gelernt. Mit partiellen Differentialgleichungen können wir auch unser Verkehrsmodell wesentlich realistischer lösen und verschiedene Situationen simulieren. In diesem Kapitel ist dafür ein Beispiel gegeben. Unten finden Sie die graphische Ausgabe aus MATLAB.</p>
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">mathematisches und numerisches Grundverständnis</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Nachvollziehen eines Beispiels zur Implementierung des Finite-Volumen-Verfahrens mit WENO-Methode</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="verkehrssimulation-mit-finiten-volumen">
+<span id="traffic-pde"></span><h1>Verkehrssimulation mit finiten Volumen<a class="headerlink" href="#verkehrssimulation-mit-finiten-volumen" title="Permalink to this headline">¶</a></h1>
+<p>In <a class="reference internal" href="../00_einleitung/01_motivation.html#traffic-motivation"><span class="std std-ref">Das Stauproblem - Motivation zur Benutzung dieses Buches</span></a> haben wir ein Beispiel zur Verkehrssimulation kennen gelernt. Mit partiellen Differentialgleichungen können wir auch unser Verkehrsmodell wesentlich realistischer lösen und verschiedene Situationen simulieren. In diesem Kapitel ist dafür ein Beispiel gegeben. Unten finden Sie die graphische Ausgabe aus MATLAB.</p>
 <div class="section" id="aufstellen-einer-partiellen-differentialgleichung">
 <h2>Aufstellen einer partiellen Differentialgleichung<a class="headerlink" href="#aufstellen-einer-partiellen-differentialgleichung" title="Permalink to this headline">¶</a></h2>
 <p>Der Situation liegt ein Transportproblem zugrunde:</p>
@@ -770,7 +798,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Das bedeutet, dass bis zu einer kritischen Verkehrsdichte alle Fahrzeuge mit der maximal möglichen Geschwindigkeit fahren können. Danach nimmt die durchschnittliche Geschwindigkeit logarithmisch ab, bis alle Fahrzeuge bei der maximalen Dichte direkt hintereinander zum Stillstand kommen. In der unten stehenden Grafik ist als maximale Geschwindigkeit <span class="math notranslate nohighlight">\(130 \frac{\text{km}}{\text{h}}\)</span>, für die kritische Dichte <span class="math notranslate nohighlight">\(\frac{1 \text{ Fahrzeug}}{100 \text{ m}}\)</span> und für die maximale Dichte <span class="math notranslate nohighlight">\(\frac{1 \text{ Fahrzeug}}{6 \text{ m}}\)</span> angenommen.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Diese Funktion lässt sich auch mit dem Nagel-Schreckenberg-Modell herleiten, siehe Übung <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html#content-exercises-naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a>.</p>
+<p>Diese Funktion lässt sich auch mit dem Nagel-Schreckenberg-Modell herleiten, siehe Übung <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html#naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a>.</p>
 </div>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -802,7 +830,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03_trafficPDE_1_0.png" src="../_images/03_trafficPDE_1_0.png" />
+<img alt="../_images/03_trafficPDE_2_0.png" src="../_images/03_trafficPDE_2_0.png" />
 </div>
 </div>
 </div>

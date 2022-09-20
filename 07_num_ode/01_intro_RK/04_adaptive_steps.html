@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -805,7 +805,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="adaptive-schrittweitensteuerung">
-<span id="adaptive-steps"></span><h1>Adaptive Schrittweitensteuerung<a class="headerlink" href="#adaptive-schrittweitensteuerung" title="Permalink to this headline">¶</a></h1>
+<span id="rk-adaptive-steps"></span><h1>Adaptive Schrittweitensteuerung<a class="headerlink" href="#adaptive-schrittweitensteuerung" title="Permalink to this headline">¶</a></h1>
 <p>ODE-Lösungsroutinen nutzen <em>adaptive Schrittweitensteuerungen</em>, um an sensiblen Stellen der Lösung möglichst nicht zu divergieren und um an weniger sensiblen Stellen den Rechenaufwand gering zu halten. Aufbauend auf den Kapiteln zu Runge-Kutta-Verfahren ist naheliegend, die Schrittweite zu halbieren und zu testen, ob Konvergenz erreicht wurde. Anders gesagt:</p>
 <div class="section" id="lohnt-es-sich-noch-die-schrittweite-zu-verkleinern">
 <h2>“Lohnt es sich noch, die Schrittweite zu verkleinern?”<a class="headerlink" href="#lohnt-es-sich-noch-die-schrittweite-zu-verkleinern" title="Permalink to this headline">¶</a></h2>
@@ -959,7 +959,7 @@ p=3 &amp; \frac{1}{6} &amp; \frac{1}{6} &amp; \frac{4}{6}\\
 </div>
 <ul class="simple">
 <li><p>Leiten Sie aus den Butcher-Tableaus die Koeffizienten für <span class="math notranslate nohighlight">\(K_1 ... K_3\)</span>, <span class="math notranslate nohighlight">\(y_{i+1}\)</span> und <span class="math notranslate nohighlight">\(\hat{y}_{i+1}\)</span> her.</p></li>
-<li><p>Ändern Sie Ihren Code aus <a class="reference internal" href="01_integration_RK.html#integration-rk3"><span class="std std-ref">Aufgabe 3: Implementierung des Runge-Kutta-Verfahrens 3. Ordnung</span></a> zu einem eingebetteten Verfahren ab.</p></li>
+<li><p>Ändern Sie Ihren Code aus <a class="reference internal" href="01_integration_RK.html#integration-rk-exp"><span class="std std-ref">Integration von ODEs mit expliziten Verfahren</span></a> zu einem eingebetteten Verfahren ab.</p></li>
 <li><p>Vergleichen Sie das Ergebnis, insbesondere die Laufzeit, mit Ihrem Code aus Aufgabe 1.</p></li>
 </ul>
 <div class="cell docutils container">

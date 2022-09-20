@@ -207,8 +207,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_%C3%BCbungen.html">
-     Übungen zur Gleitkommaarithmetik
+    <a class="reference internal" href="../../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
@@ -813,7 +813,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="lohnen-sich-verfahren-hoherer-ordnung">
 <span id="integration-rk-eval"></span><h1>Lohnen sich Verfahren höherer Ordnung?<a class="headerlink" href="#lohnen-sich-verfahren-hoherer-ordnung" title="Permalink to this headline">¶</a></h1>
-<p>Nachdem wir uns in den Kapiteln <a class="reference internal" href="01_integration_RK.html#integration-rk"><span class="std std-ref">Integration von ODEs mit expliziten Verfahren</span></a> und <a class="reference internal" href="02_integration_implicit.html#integration-implicit"><span class="std std-ref">Integration von ODEs mit impliziten Verfahren</span></a> auf das numerische Lösen einer analytisch nicht lösbaren ODE fokussiert haben, möchten wir nun bewerten, wie gut die numerische Lösung im Vergleich zur analytischen Lösung ist. Dazu nehmen wir das Beispiel des Fadenpendels aus dem Kapitel <a class="reference internal" href="../../08_schwingungen/01_harmonische_schwingung.html#harmonic-oscillation"><span class="std std-ref">Harmonische Schwingung</span></a>. Dessen Lösung kennen wir unter der Annahme der Kleinwinkelnäherung <span class="math notranslate nohighlight">\(\sin \varphi \approx \varphi\)</span>:</p>
+<p>Nachdem wir uns in den Kapiteln <a class="reference internal" href="01_integration_RK.html#integration-rk-exp"><span class="std std-ref">Integration von ODEs mit expliziten Verfahren</span></a> und <a class="reference internal" href="02_integration_implicit.html#integration-rk-imp"><span class="std std-ref">Integration von ODEs mit impliziten Verfahren</span></a> auf das numerische Lösen einer analytisch nicht lösbaren ODE fokussiert haben, möchten wir nun bewerten, wie gut die numerische Lösung im Vergleich zur analytischen Lösung ist. Dazu nehmen wir das Beispiel des Fadenpendels aus dem Kapitel <a class="reference internal" href="../../08_schwingungen/01_harmonische_schwingung.html#harmonic-oscillation"><span class="std std-ref">Harmonische Schwingung</span></a>. Dessen Lösung kennen wir unter der Annahme der Kleinwinkelnäherung <span class="math notranslate nohighlight">\(\sin \varphi \approx \varphi\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\varphi(t) = \varphi_0 \cdot \cos \left( {\sqrt{\frac{g}{l}} \cdot t} \right)\]</div>
 <a class="reference internal image-reference" href="../../_images/pendulum1.png"><img alt="Name of image" class="align-center" src="../../_images/pendulum1.png" style="width: 400px;" /></a>
@@ -915,7 +915,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Um zu ermitteln, wie lang die Verfahren benötigen, passen Sie die Schrittweiten der Verfahren so an, dass die relative Abweichung von der analytischen Lösung geringer ist als ein von Ihnen festgelegter Wert. Messen Sie die Zeit, die die Verfahren dafür benötigen, mit den <code class="docutils literal notranslate"><span class="pre">tic</span> <span class="pre">toc</span></code> Befehlen.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Diese Aufgabe können Sie auch mit einer adaptiven Schrittweitensteuerung aus dem Kapitel <a class="reference internal" href="04_adaptive_steps.html#adaptive-steps"><span class="std std-ref">Adaptive Schrittweitensteuerung</span></a> lösen.</p>
+<p>Diese Aufgabe können Sie auch mit einer adaptiven Schrittweitensteuerung aus dem Kapitel <a class="reference internal" href="04_adaptive_steps.html#rk-adaptive-steps"><span class="std std-ref">Adaptive Schrittweitensteuerung</span></a> lösen.</p>
 </div>
 <ul class="simple">
 <li><p>Wie lang benötigen die Verfahren?</p></li>
