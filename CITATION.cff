@@ -25,6 +25,7 @@ authors:
 - family-names: "Rosauer"
   given-names: "Philipp"
   affiliation: "Hochschule Bonn-Rhein-Sieg"
+  orcid: "0000-0001-9403-8824"
 - family-names: "Schenk"
   given-names: "Martin"
   affiliation: "Hochschule Bonn-Rhein-Sieg"
@@ -44,7 +45,7 @@ contact:
   - affiliation: "Hochschule Bonn-Rhein-Sieg"
 title: "Modellbildung-und-Simulation: Online Lehrbuch"
 version: 1.0.0
-license: CC-BY-SA-4.0
+license: CC BY-NC-SA-4.0
 identifiers:
   - description: "The concept DOI of the work."
     type: doi
