@@ -4,7 +4,7 @@
 
 | **Visit the site:** | [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)]( https://hbrs-cse.github.io/Modellbildung-und-Simulation/) |
 |--|--|
-| **License:** | [![License: CC BY-NC-SA 4.0](https://commons.wikimedia.org/wiki/File:Cc-by-nc-sa_icon.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
+| **License:** | [![License: CC BY-NC-SA 4.0](https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
 | **Interactive notebooks:** | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content) |
 | **Build Status:** | [![CircleCI](https://circleci.com/gh/hbrs-cse/Modellbildung-und-Simulation.svg?style=svg)](https://circleci.com/gh/hbrs-cse/Modellbildung-und-Simulation) |
 
