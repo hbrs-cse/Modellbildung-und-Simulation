@@ -1,5 +1,6 @@
 # <img src="content/images/logo/favicon.ico" width=40 /> Modellbildung und Simulation
-[comment]: # (For citation, add under **license**: | **Cite this book:** | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg)](https://doi.org/10.5281/zenodo.2560551) |)
+
+<!-- For citation, add under **license**: | **Cite this book:** | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg)](https://doi.org/10.5281/zenodo.2560551) | -->
 
 | **Visit the site:** | [![Jupyter Book Badge](https://jupyterbook.org/badge.svg)]( https://hbrs-cse.github.io/Modellbildung-und-Simulation/) |
 |--|--|
