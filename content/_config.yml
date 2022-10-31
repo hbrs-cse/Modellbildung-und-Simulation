@@ -29,7 +29,7 @@ html:
   navbar_number_sections    : false  # Add a number to each section in your left navbar
   navbar_footer_text        : '<div align="left">
     <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
-    <br><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Cc-by-nc-sa_icon.svg" alt="License: CC BY-NC-SA 4.0"></a>
+    <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
     <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>
     </div>'  # Will be displayed underneath the left navbar.
   google_analytics_id       : "UA-134708516-1"  # A GA id that can be used to track book views.
