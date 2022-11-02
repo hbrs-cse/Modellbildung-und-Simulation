@@ -820,11 +820,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="modellierung-einer-highline-zeitliche-auflosung">
 <span id="highline-dynamic"></span><h1>Modellierung einer Highline - Zeitliche Auflösung<a class="headerlink" href="#modellierung-einer-highline-zeitliche-auflosung" title="Permalink to this headline">¶</a></h1>
-<p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie unter <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
+<p>Sie kennen dieses Modell einer Highline bereits aus dem Kapitel zu linearen Gleichungen. Alle wichtigen Informationen finden Sie in dem Kapitel <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a>, genauer <a class="reference internal" href="../../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static-balance-of-forces"><span class="std std-ref">Kräftebilanzierung</span></a>.</p>
 <div class="section" id="neu-die-dynamische-simulation">
 <h2>Neu: Die dynamische Simulation<a class="headerlink" href="#neu-die-dynamische-simulation" title="Permalink to this headline">¶</a></h2>
 <p>Anstatt einen stationären Lastfall zu betrachten und so die Gleichung zu <span class="math notranslate nohighlight">\(S \tilde{\mathbf{z}} =\mathbf{b}\)</span> zu vereinfachen, betrachten wir weiterhin die oben stehende Gleichung inklusive der Dämpfungsmatrix <span class="math notranslate nohighlight">\(\mathbf{D}\)</span>. Die <span class="math notranslate nohighlight">\(L = 50 \text{ m}\)</span> lange Highline wird mit <span class="math notranslate nohighlight">\(N = 100\)</span> Elementen diskretisiert.</p>
-<p>Nehmen Sie als Gesamtgewicht <span class="math notranslate nohighlight">\(m_{ges} = 3.15 \text{ kg}\)</span>, als Dämpfung der Elemente <span class="math notranslate nohighlight">\(d = 10 \,\frac{\text{Ns}}{\text{m}}\)</span>, und als Steifigkeit der Elemente <span class="math notranslate nohighlight">\(k = 2\cdot10^4 \,\frac{\text{N}}{\text{m}}\)</span> an.</p>
+<p>Nehmen Sie als Gesamtgewicht <span class="math notranslate nohighlight">\(m_{ges} = 3.15 \text{ kg}\)</span>, als Dämpfung der Elemente <span class="math notranslate nohighlight">\(d = 10 \,\frac{\text{Ns}}{\text{m}}\)</span> und als Steifigkeit der Elemente <span class="math notranslate nohighlight">\(k = 2\cdot10^4 \,\frac{\text{N}}{\text{m}}\)</span> an.</p>
 <p>Zur Erinnerung, das Gleichungssystem und die Matrizen sind:</p>
 <div class="math notranslate nohighlight">
 \[M \ddot{\mathbf{z}} + D\dot{\mathbf{z}} + K \mathbf{z} = \mathbf{F}_{\text{ext}}, K = k \cdot S, D=d \cdot S, \]</div>
@@ -843,7 +843,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<p>Lösen Sie die Differentialgleichung mit der Matlab–Routine <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> auf einem Zeitinterval von 40 Sekunden. Als externte Kraft <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> soll zunächst nur die Schwerkraft auf die Highline-Knoten wirken. Verwenden Sie <span class="math notranslate nohighlight">\(\mathbf{z}(0)=\mathbf{\dot{z}}(0)=0\)</span> als Anfangsbedingungen. Zunächst nehmen wir <span class="math notranslate nohighlight">\(\mathbf{F}_{ext} = \text{const.} = \mathbf{F}_g\)</span> an.</p>
+<p>Lösen Sie die Differentialgleichung mit der Matlab–Routine <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> auf einem Zeitinterval von 40 Sekunden. Als externe Kraft <span class="math notranslate nohighlight">\(\mathbf{F}_{ext}\)</span> soll zunächst nur die Schwerkraft auf die Highline-Knoten wirken. Verwenden Sie <span class="math notranslate nohighlight">\(\mathbf{z}(0)=\mathbf{\dot{z}}(0)=0\)</span> als Anfangsbedingungen. Zunächst nehmen wir <span class="math notranslate nohighlight">\(\mathbf{F}_{ext} = \text{const.} = \mathbf{F}_g\)</span> an.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tipp</p>
 <ul class="simple">
@@ -853,8 +853,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 \[\begin{split}\mathbf{\dot{q}}=F(t,\mathbf{q})\text{, mit } \mathbf{q} = \left[ \begin{array}{c} \mathbf{q}_0 \\ \mathbf{q}_1 \end{array} \right] := \left[ \begin{array}{c} \mathbf{z} \\ \mathbf{\dot{z}} \end{array} \right] \in \mathbb{R}^{4N}\end{split}\]</div>
 <p>mit einer geeigneten Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^{4N}\to\mathbb{R}^{4N}\)</span></p>
 <ul class="simple">
-<li><p>Mit Ihrem Paramter <code class="docutils literal notranslate"><span class="pre">L</span></code> und den Ausgaben <code class="docutils literal notranslate"><span class="pre">[t,q]</span></code> aus <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> können Sie die hinterlegte Funktion <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code> nutzen, um sich eine Animation Ihrer Simulation anzeigen zu lassen. Keine Sorge: In dieser Teilaufgabe darf die Auslenkung der Highline noch unrealistisch hoch sein.</p></li>
-<li><p>Holen Sie sich Inspiration aus den vorherigen Aufgaben, insbesondere Simulation eines Raketenstarts.</p></li>
+<li><p>Mit Ihrem Parameter <code class="docutils literal notranslate"><span class="pre">L</span></code> und den Ausgaben <code class="docutils literal notranslate"><span class="pre">[t,q]</span></code> aus <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> können Sie die hinterlegte Funktion <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code> nutzen, um sich eine Animation Ihrer Simulation anzeigen zu lassen. Keine Sorge: In dieser Teilaufgabe darf die Auslenkung der Highline noch unrealistisch hoch sein.</p></li>
+<li><p>Holen Sie sich Inspiration aus den vorherigen Aufgaben, insbesondere aus der Simulation eines Raketenstarts.</p></li>
 <li><p>Sie müssen <span class="math notranslate nohighlight">\(k\)</span> anhand der Dehnbarkeit abhängig von der Länge Ihrer Elemente berechnen.</p></li>
 </ul>
 </div>
@@ -961,7 +961,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
-<p>Modifizieren Sie Ihr Skript, so dass zusätzlich zur Schwerkraft <span class="math notranslate nohighlight">\(\mathbf{F}_g\)</span> eine Anregung durch Wind <span class="math notranslate nohighlight">\(\mathbf{F}_w\)</span> sowie eine Anregung <span class="math notranslate nohighlight">\(\mathbf{F}_p\)</span> durch den Highliner modeliert wird, also</p>
+<p>Modifizieren Sie Ihr Skript so, dass zusätzlich zur Schwerkraft <span class="math notranslate nohighlight">\(\mathbf{F}_g\)</span> eine Anregung durch Wind <span class="math notranslate nohighlight">\(\mathbf{F}_w\)</span> sowie eine Anregung <span class="math notranslate nohighlight">\(\mathbf{F}_p\)</span> durch den Highliner modeliert wird, also</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{F}_{ext}(t) = \mathbf{F}_g + \mathbf{F}_w(t) + \mathbf{F}_p(t).\]</div>
 <p>Simple Modelle für den Highliner und den Wind sind für Sie in <code class="docutils literal notranslate"><span class="pre">wind.m</span></code> und <code class="docutils literal notranslate"><span class="pre">person_on_highline.m</span></code> hinterlegt. Diese können Sie mit den Befehlen</p>
@@ -1081,7 +1081,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="section" id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
-<p>Modifizieren Sie Ihr Skript, so dass es die folgenden Plots erstellt:</p>
+<p>Modifizieren Sie Ihr Skript, sodass es die folgenden Plots erstellt:</p>
 <ul class="simple">
 <li><p>Ein Plot, der die Verschiebung der Mitte der Highline über die Zeit darstellt.</p></li>
 <li><p>Ein Plot, der die Beschleunigungen der Mitte der Highline über die Zeit darstellt.</p></li>
@@ -1091,10 +1091,10 @@ der Highline verringert werden kann? Belegen Sie Ihre Antwort möglichst mit Sim
 </div>
 <div class="section" id="aufgabe-4">
 <h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
-<p>Reale Slacklines haben eine Dehung von etwa <span class="math notranslate nohighlight">\(15 \,\text{%}\)</span> bei <span class="math notranslate nohighlight">\(15 \,\text{kN}\)</span> und ein Gewicht von etwa <span class="math notranslate nohighlight">\(60 \,\frac{\text{g}}{\text{m}}\)</span> (siehe <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-dehnung/">hier</a> und <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-gewichtbruchlast/">hier</a>).</p>
+<p>Reale Slacklines haben eine Dehnung von etwa <span class="math notranslate nohighlight">\(15 \,\text{%}\)</span> bei <span class="math notranslate nohighlight">\(15 \,\text{kN}\)</span> und ein Gewicht von etwa <span class="math notranslate nohighlight">\(60 \,\frac{\text{g}}{\text{m}}\)</span> (siehe <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-dehnung/">hier</a> und <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-gewichtbruchlast/">hier</a>).</p>
 <ul class="simple">
 <li><p>Wie können Sie die Dehnung in die Federsteifigkeit für variable <span class="math notranslate nohighlight">\(L\)</span> übertragen? Können Sie unabhängig von <span class="math notranslate nohighlight">\(N\)</span> die gleichen Ergebnisse erzielen?</p></li>
-<li><p>Probieren Sie anstelle von <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> den ‘klassischen’ Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code>aus. Warum benötigt dieser so lang und warum ist <code class="docutils literal notranslate"><span class="pre">ode15s</span></code>so viel performanter? Lassen Sie sich dazu Eckdaten der Löser ausgeben.</p></li>
+<li><p>Probieren Sie anstelle von <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> den ‘klassischen’ Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code> aus. Warum benötigt dieser so lang und warum ist <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> so viel performanter? Lassen Sie sich dazu Eckdaten der Löser ausgeben.</p></li>
 <li><p>Wirkt die Dämpfung realistisch? Lässt sich das System auch mit einer geringeren Dämpfung gut simulieren?</p></li>
 </ul>
 </div>
