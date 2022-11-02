@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Das QR Verfahren &#8212; Modellbildung und Simulation</title>
+    <title>Das QR-Verfahren &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -409,7 +409,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Das QR Verfahren
+     Das QR-Verfahren
     </a>
    </li>
    <li class="toctree-l2">
@@ -714,7 +714,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aufgabe-2-testen-sie-ihre-funktion-von-hand">
-   Aufgabe 2 - Testen Sie ihre Funktion von Hand
+   Aufgabe 2 - Testen Sie Ihre Funktion von Hand
   </a>
  </li>
 </ul>
@@ -727,7 +727,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Das QR Verfahren</h1>
+                <h1>Das QR-Verfahren</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -744,7 +744,7 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aufgabe-2-testen-sie-ihre-funktion-von-hand">
-   Aufgabe 2 - Testen Sie ihre Funktion von Hand
+   Aufgabe 2 - Testen Sie Ihre Funktion von Hand
   </a>
  </li>
 </ul>
@@ -786,7 +786,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="das-qr-verfahren">
-<span id="qr-eigen"></span><h1>Das QR Verfahren<a class="headerlink" href="#das-qr-verfahren" title="Permalink to this headline">¶</a></h1>
+<span id="qr-eigen"></span><h1>Das QR-Verfahren<a class="headerlink" href="#das-qr-verfahren" title="Permalink to this headline">¶</a></h1>
 <p>Folgender iterativer Algorithmus liegt dem sogenanneten <em>QR-Verfahren</em> zur Berechnung der Eigenwerte einer Matrix zugrunde:</p>
 <ol>
 <li><p>Setze <span class="math notranslate nohighlight">\(A^{(0))}=A\)</span></p></li>
@@ -800,7 +800,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ol>
 <div class="section" id="aufgabe-1-implementieren-sie-den-qr-algorithmus">
 <h2>Aufgabe 1 - Implementieren Sie den QR-Algorithmus<a class="headerlink" href="#aufgabe-1-implementieren-sie-den-qr-algorithmus" title="Permalink to this headline">¶</a></h2>
-<p>Schreiben Sie eine Funktion, die dieses Verfahren implementiert um die Eigenwerte einer Matrix zu berechnen. Brechen Sie die Iteration ab sobald eine maximale Anzahl an Iterationen erreicht wurde, oder die relative Änderung <span class="math notranslate nohighlight">\(\frac{\|diag(A^{(k)}) - diag(A^{(k-1)})\|}{\|diag(A^{(k)})\|}\)</span> eine vom Benutzer vorgegebene Toleranz unterschreitet.</p>
+<p>Schreiben Sie eine Funktion, die dieses Verfahren implementiert, um die Eigenwerte einer Matrix zu berechnen. Brechen Sie die Iteration ab, sobald eine maximale Anzahl an Iterationen erreicht wurde oder die relative Änderung <span class="math notranslate nohighlight">\(\frac{\|diag(A^{(k)}) - diag(A^{(k-1)})\|}{\|diag(A^{(k)})\|}\)</span> eine vom Benutzer vorgegebene Toleranz unterschreitet.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file my_eig.m</span>
@@ -824,7 +824,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Hinweis</p>
 <p>Verwenden Sie für die Berechnung der <em>QR-Zerlegung</em> die Matlab/Octave-Funktion <code class="docutils literal notranslate"><span class="pre">qr</span></code>.</p>
 </div>
-<p>Überprüfen Sie ob ihrer Funktion die Testfälle in <code class="docutils literal notranslate"><span class="pre">test_my_eig.m</span></code> besteht:</p>
+<p>Überprüfen Sie ob Ihre Funktion die Testfälle in <code class="docutils literal notranslate"><span class="pre">test_my_eig.m</span></code> besteht:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">moxunit_runtests</span> <span class="n">test_my_eig</span><span class="p">.</span><span class="n">m</span><span class="p">;</span>
@@ -834,7 +834,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div class="section" id="aufgabe-2-testen-sie-ihre-funktion-von-hand">
-<h2>Aufgabe 2 - Testen Sie ihre Funktion von Hand<a class="headerlink" href="#aufgabe-2-testen-sie-ihre-funktion-von-hand" title="Permalink to this headline">¶</a></h2>
+<h2>Aufgabe 2 - Testen Sie Ihre Funktion von Hand<a class="headerlink" href="#aufgabe-2-testen-sie-ihre-funktion-von-hand" title="Permalink to this headline">¶</a></h2>
 <p>Berechnen Sie die Eigenwerte der Matrix</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -845,7 +845,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 0 &amp; 0 &amp; 1 &amp; 9
 \end{bmatrix}
 \end{split}\]</div>
-<p>mit der Matlab/Octave-Funktion <code class="docutils literal notranslate"><span class="pre">eig</span></code>und vergleichen Sie das Ergebnis mit der Ausgabe ihrer Funktion <code class="docutils literal notranslate"><span class="pre">my_eig</span></code>.</p>
+<p>mit der Matlab/Octave-Funktion <code class="docutils literal notranslate"><span class="pre">eig</span></code> und vergleichen Sie das Ergebnis mit der Ausgabe Ihrer Funktion <code class="docutils literal notranslate"><span class="pre">my_eig</span></code>.</p>
 </div>
 </div>
 

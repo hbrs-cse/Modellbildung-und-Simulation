@@ -409,7 +409,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_das_qr_verfahren.html">
-     Das QR Verfahren
+     Das QR-Verfahren
     </a>
    </li>
    <li class="toctree-l2">
@@ -826,7 +826,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <img alt="../_images/rod.png" class="align-center" src="../_images/rod.png" />
 <div class="section" id="die-modellgleichungen">
 <h2>Die Modellgleichungen<a class="headerlink" href="#die-modellgleichungen" title="Permalink to this headline">¶</a></h2>
-<p>Das Bild kommt uns bekannt vor! Wir können dieselben Modellgleichungen wie in <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> verwenden, allerdings vernachlässigen wir die externe Kraft und die Dämpfung.</p>
+<p>Das Bild kommt uns bekannt vor! Wir können dieselben Modellgleichungen wie in dem Kapitel <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> verwenden, allerdings vernachlässigen wir die externe Kraft und die Dämpfung.</p>
 <p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen</p>
 <div class="math notranslate nohighlight">
 \[\begin{split} \mathbf{u}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix} \end{split}\]</div>
@@ -836,7 +836,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 \begin{align}
  m \ddot{\mathbf{u}}_1 &amp;= -k(\mathbf{u}_1-\mathbf{u}_2)  \notag \\
  m \ddot{\mathbf{u}}_i &amp;= k(\mathbf{u}_{i-1}-\mathbf{u}_{i}) - k(\mathbf{u}_{i}-\mathbf{u}_{i+1}) , \hskip4em \text{für } i=2,...,N-1 \notag \\
- m \ddot{\mathbf{u}}_N &amp;= k(\mathbf{u}_{N-1}-\mathbf{u}_N) \notag \\
+ m \ddot{\mathbf{u}}_N &amp;= k(\mathbf{u}_{N-1}-\mathbf{u}_N) . \notag \\
 \end{align}
 \end{split}\]</div>
 <p>Diese Gleichungen lassen sich in eine kompaktere Matrixschreibweise bringen. Dazu führen wir folgende Bezeichungen ein:</p>
@@ -854,7 +854,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 \end{array}  \right] \in \mathbb{R}^{2N \times 2N}.\end{split}\]</div>
 <p><span class="math notranslate nohighlight">\(M\)</span> ist die <em>Massematrix</em> und <span class="math notranslate nohighlight">\(K = k \cdot S\)</span> die <em>Steifigkeitsmatrix</em> des gekoppelten Systems. Zusammengesetzt ergibt sich folgende Differentialgleichung:</p>
 <div class="math notranslate nohighlight">
-\[M \ddot{\mathbf{z}} + K\mathbf{z} = \boldsymbol{0}\]</div>
+\[M \ddot{\mathbf{z}} + K\mathbf{z} = \boldsymbol{0} .\]</div>
 </div>
 <div class="section" id="was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun">
 <h2>Was hat das mit Eigenwerten und Eigenvektoren zu tun?<a class="headerlink" href="#was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun" title="Permalink to this headline">¶</a></h2>
@@ -875,10 +875,10 @@ M^{-1}K \boldsymbol{\phi} = \omega^2 \boldsymbol{\phi}.
 <li><p><span class="math notranslate nohighlight">\(\boldsymbol{\phi}_j\)</span> nennt man <strong>Schwingungsmode</strong> oder <strong>Schwingungsform</strong> des Systems.</p></li>
 </ul>
 <p>Das System hat also viele Eigenfrequenzen. Wenn wir es mit einer bestimmten Eigenfrequenz anregen, stellt sich eine bestimmte Schwingungsform ein, die im Amplitudenvektor <span class="math notranslate nohighlight">\(\boldsymbol{\phi}\)</span> kodiert ist. Jede Bewegung die das System ausführen kann, lässt sich als Superposition der Schwingungsmoden darstellen.</p>
-<p>Zur Anschauung einzelner Schwingungsmoden <span class="math notranslate nohighlight">\(\boldsymbol{\phi}_j\)</span> animiert man sie oft mit einer festen Frequenz <span class="math notranslate nohighlight">\(a \neq \omega_j\)</span> und ohne Phasenverschiebung.Das folgende Skript berechnet die Eigenfrequenzen und Schwingungsmoden in dem das entsprechende Eigenwertproblem gelöst wird und animiert die Schwingungsmoden.</p>
+<p>Zur Anschauung einzelner Schwingungsmoden <span class="math notranslate nohighlight">\(\boldsymbol{\phi}_j\)</span> animiert man sie oft mit einer festen Frequenz <span class="math notranslate nohighlight">\(a \neq \omega_j\)</span> und ohne Phasenverschiebung. Das folgende Skript berechnet die Eigenfrequenzen und Schwingungsmoden, in dem das entsprechende Eigenwertproblem gelöst wird, und animiert die Schwingungsmoden.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Wegen der Animation kann das Skript nicht interaktiv ausgeführt werden, laden sie es sich herunter.</p>
+<p>Wegen der Animation kann das Skript nicht interaktiv ausgeführt werden, laden Sie es sich herunter.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
