@@ -800,9 +800,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Bestimmte ODEs lassen sich mit impliziten Verfahren besser lösen als mit expliziten Verfahren. Diese ODEs bezeichnen wir als <strong>steif</strong>. Das möchten wir an einem kleinen Modellproblem demonstrieren.</p>
 <p>Entscheidend dafür ist, ob eine hohe maximale Steigung vorliegt. Diese wird mit der Lipschitzkonstanten beschrieben, die eine obere Schranke der Steigung <span class="math notranslate nohighlight">\(f_y\)</span> aufstellt (mit der ODE <span class="math notranslate nohighlight">\(y' = f(t,y)\)</span>).</p>
 <div class="math notranslate nohighlight">
-\[\forall y_1,y_2 \in \mathbb{D} : \left(\lambda \ge \left|\frac{f(t,y_1)-f(t,y_2)}{y_1-y_2}\right|\right)\]</div>
+\[\forall y_1,y_2 \in \mathbb{D} : \left(L \ge \left|\frac{f(t,y_1)-f(t,y_2)}{y_1-y_2}\right|\right)\]</div>
 <p>.
-Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schrittweite <span class="math notranslate nohighlight">\(h\)</span> gewählt werden. Für das explizite Eulerverfahren gilt <span class="math notranslate nohighlight">\(h&lt;\frac{2}{|\lambda|}\)</span>.</p>
+Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schrittweite <span class="math notranslate nohighlight">\(h\)</span> gewählt werden. Für das explizite Eulerverfahren gilt <span class="math notranslate nohighlight">\(h&lt;\frac{2}{|L|}\)</span>.</p>
 <div class="section" id="stabilitat-der-dahlquist-und-prothero-robinson-gleichungen">
 <h2>Stabilität der Dahlquist- und Prothero-Robinson-Gleichungen<a class="headerlink" href="#stabilitat-der-dahlquist-und-prothero-robinson-gleichungen" title="Permalink to this headline">¶</a></h2>
 <p>Ein geeignetes Stabilitätsproblem ist die inhomogene Prothero-Robinson-Gleichung mit</p>
@@ -812,6 +812,15 @@ Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schritt
 <p>Die analytische Lösung lautet <span class="math notranslate nohighlight">\(y(t) = e^{-\lambda t}(y_0-g_0) + g(t)\)</span>. Für <span class="math notranslate nohighlight">\(λ≫1\)</span> konvergiert <span class="math notranslate nohighlight">\(y(t)\)</span> schnell gegen <span class="math notranslate nohighlight">\(g(t)\)</span>. Außerdem ist die Lipschitzkonstante leicht zu ermitteln mit <span class="math notranslate nohighlight">\(|y'|_\text{max} = \lambda\)</span>, also <span class="math notranslate nohighlight">\( h &lt; \frac{2}{\lambda} \)</span> für das explizite Eulerverfahren.</p>
 <p>Für <span class="math notranslate nohighlight">\(g(t) = 0\)</span> entspricht die Prothero-Robinson-Gleichung der Dahlquist-Gleichung, also der ODE der Form <span class="math notranslate nohighlight">\(y'=-λy,λ&gt;0,y_0=1\)</span> mit der exakten Lösung <span class="math notranslate nohighlight">\(y(t)=e^{-λt}\)</span>.</p>
 <p>Für <span class="math notranslate nohighlight">\(g(t) = const.\)</span> lautet die DGL <span class="math notranslate nohighlight">\(y' = -\lambda (y - g)\)</span> mit der Lösung <span class="math notranslate nohighlight">\(y(t) = g + e^{-λt}\)</span>, die gegen <span class="math notranslate nohighlight">\(g\)</span> konvergiert. Bei Anwendung des impliziten Eulerverfahrens erhalten wir <span class="math notranslate nohighlight">\(y_{k+1} = \frac{y_k + h\lambda g}{1+h\lambda}\)</span>.</p>
+<div class="dropdown admonition">
+<p class="admonition-title">Herleitung von <span class="math notranslate nohighlight">\(y_{k+1}\)</span></p>
+<p>Für das implizite Eulerverfahren lautet die Forschrift allgemein</p>
+<div class="math notranslate nohighlight">
+\[y_{k+1} = y_k + h\cdot y'_{k+1}.\]</div>
+<p>In diesem Fall erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[y_{k+1} = y_k + h\cdot(-\lambda(y_{k+1}-g)) \to y_{k+1}(1+h\lambda) = y_k + h\lambda g \to y_{k+1} = \frac{y_k + h\lambda g}{1+h\lambda}\]</div>
+</div>
 </div>
 <div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
@@ -820,7 +829,7 @@ Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schritt
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>In dieser Übung sollen Sie <strong>optisch</strong> kennen lernen, wie sich die Lösungen des expliziten und impliziten Eulerverfahrens unterscheiden. Damit können Sie auch ein Gefühl dafür entwickeln, was steife Funktionen auszeichnet.</p>
-<p>Mit dem unten stehenden Code können Sie in Octave bzw. Matlab eine App ausführen, die Ihnen erlaubt, die Prothero-Robinson-Gleichung mit dem für Sie fertig implementierten expliziten und impliziten Eulerverfahren zu lösen und die Lösungen zu vergleichen. Sie können die wesentlichen Parameter (<span class="math notranslate nohighlight">\(lambda, y_0, h_\text{explizit}, h_\text{implizit}\)</span>) mit Schiebereglern variieren.</p>
+<p>Mit dem unten stehenden Code können Sie in Octave bzw. Matlab eine App ausführen, die Ihnen erlaubt, die Prothero-Robinson-Gleichung mit dem für Sie fertig implementierten expliziten und impliziten Eulerverfahren zu lösen und die Lösungen zu vergleichen. Sie können die wesentlichen Parameter (<span class="math notranslate nohighlight">\(\lambda, y_0, h_\text{explizit}, h_\text{implizit}\)</span>) mit Schiebereglern variieren.</p>
 <p>Variieren Sie nun mithilfe der App die verfügbaren Parameter und die Funktion für <span class="math notranslate nohighlight">\(g(t)\)</span>. Gegebenenfalls müssen Sie den Code lokal ausführen.</p>
 <ul class="simple">
 <li><p>Wie unterscheiden sich die Lösungen beider Verfahren?</p></li>
