@@ -13,7 +13,7 @@ jobs:
         with:
           target_repo_url: git@github.com:PhiSpel/modsim-mirror.git
           ssh_private_key: ${{ secrets.MIRROR_SSH_PUBLIC_KEY }}
-          ssh_username: PhiSpel
+          # ssh_username: PhiSpel
 
   # to_codecommit:                                        # <-- different jobs are executed in parallel.
   #   runs-on: ubuntu-latest
