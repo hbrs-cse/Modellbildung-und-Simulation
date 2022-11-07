@@ -342,18 +342,18 @@ commentsRunWhenDOMLoaded(addUtterances);
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../01_intro_RK/03_integration_RK_evaluation.html">
-       Lohnen sich Verfahren höherer Ordnung?
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../01_intro_RK/04_adaptive_steps.html">
+      <a class="reference internal" href="../01_intro_RK/03_adaptive_steps.html">
        Adaptive Schrittweitensteuerung
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../01_intro_RK/05_oscillation_and_vdpol.html">
+      <a class="reference internal" href="../01_intro_RK/04_oscillation_and_vdpol.html">
        Systeme von ODEs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../01_intro_RK/05_integration_RK_evaluation.html">
+       Lohnen sich Verfahren höherer Ordnung?
       </a>
      </li>
     </ul>
@@ -1091,7 +1091,7 @@ der Highline verringert werden kann? Belegen Sie Ihre Antwort möglichst mit Sim
 </div>
 <div class="section" id="aufgabe-4">
 <h2>Aufgabe 4<a class="headerlink" href="#aufgabe-4" title="Permalink to this headline">¶</a></h2>
-<p>Reale Slacklines haben eine Dehnung von etwa <span class="math notranslate nohighlight">\(15 \,\text{%}\)</span> bei <span class="math notranslate nohighlight">\(15 \,\text{kN}\)</span> und ein Gewicht von etwa <span class="math notranslate nohighlight">\(60 \,\frac{\text{g}}{\text{m}}\)</span> (siehe <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-dehnung/">hier</a> und <a class="reference external" href="https://www.slacklineverband.com/know-how/slackline-vergleich-gewichtbruchlast/">hier</a>).</p>
+<p>Reale Slacklines haben eine Dehnung von etwa <span class="math notranslate nohighlight">\(15 \,\text{%}\)</span> bei <span class="math notranslate nohighlight">\(15 \,\text{kN}\)</span> und ein Gewicht von etwa <span class="math notranslate nohighlight">\(60 \,\frac{\text{g}}{\text{m}}\)</span> (je nach Modell).</p>
 <ul class="simple">
 <li><p>Wie können Sie die Dehnung in die Federsteifigkeit für variable <span class="math notranslate nohighlight">\(L\)</span> übertragen? Können Sie unabhängig von <span class="math notranslate nohighlight">\(N\)</span> die gleichen Ergebnisse erzielen?</p></li>
 <li><p>Probieren Sie anstelle von <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> den ‘klassischen’ Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code> aus. Warum benötigt dieser so lang und warum ist <code class="docutils literal notranslate"><span class="pre">ode15s</span></code> so viel performanter? Lassen Sie sich dazu Eckdaten der Löser ausgeben.</p></li>
