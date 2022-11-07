@@ -14,6 +14,7 @@ jobs:
           REMOTE: 'https://gitlab.com/spyoungtech/mirror-action.git'
           GIT_SSH_PRIVATE_KEY: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
           # GIT_SSH_KNOWN_HOSTS: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
+          GIT_SSH_NO_VERIFY_HOST: "true"
           # GIT_USERNAME: spyoungtech
           # GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
           
