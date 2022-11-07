@@ -5,15 +5,26 @@ on: [push, delete]
 jobs:
   to_github:
     runs-on: ubuntu-latest
-    steps:                                              # <-- must use actions/checkout before mirroring!
-      - uses: actions/checkout@v3
+    steps:
+      - uses: yesolutions/mirror-action@master
         with:
-          fetch-depth: 0
-      - uses: pixta-dev/repository-mirroring-action@v1.1.0
-        with:
-          target_repo_url: git@github.com:PhiSpel/modsim-mirror.git
-          ssh_private_key: ${{ secrets.MIRROR_SSH_PUBLIC_KEY }}
-          # ssh_username: PhiSpel
+          REMOTE: 'https://gitlab.com/spyoungtech/mirror-action.git'
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.MIRROR_SSH_PRIVATE_KEY }}
+          # GIT_SSH_KNOWN_HOSTS: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
+          # GIT_USERNAME: spyoungtech
+          # GIT_PASSWORD: ${{ secrets.GIT_PASSWORD }}
+          
+#   to_github2:    
+#     runs-on: ubuntu-latest
+#     steps:                                              # <-- must use actions/checkout before mirroring!
+#       - uses: actions/checkout@v3
+#         with:
+#           fetch-depth: 0
+#       - uses: pixta-dev/repository-mirroring-action@v1.1.0
+#         with:
+#           target_repo_url: git@github.com:PhiSpel/modsim-mirror.git
+#           ssh_private_key: ${{ secrets.MIRROR_SSH_PUBLIC_KEY }}
+#           # ssh_username: PhiSpel
 
   # to_codecommit:                                        # <-- different jobs are executed in parallel.
   #   runs-on: ubuntu-latest
