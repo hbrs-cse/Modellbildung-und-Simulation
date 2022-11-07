@@ -12,7 +12,7 @@ jobs:
       - uses: pixta-dev/repository-mirroring-action@v1.1.0
         with:
           target_repo_url:
-            github@github.com:hbrs-cse/Modellbildung-und-Simulation.git
+            git@github.com:PhiSpel/modsim-mirror.git
           ssh_private_key:                              # <-- use 'secrets' to pass credential information.
             ${{ secrets.GITHUB_SSH_PRIVATE_KEY }}
 
