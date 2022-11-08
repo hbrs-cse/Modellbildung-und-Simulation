@@ -11,7 +11,7 @@ jobs:
           fetch-depth: 0
       - uses: yesolutions/mirror-action@master
         with:
-          REMOTE: 'git@github.com:PhiSpel/modsim-mirror.git'
+          REMOTE: 'https://github.com/PhiSpel/modsim-mirror.git'
           GIT_SSH_PRIVATE_KEY: ${{ secrets.MIRROR_SSH_PRIVATE_KEY2 }}
           # GIT_SSH_KNOWN_HOSTS: ${{ secrets.GIT_SSH_KNOWN_HOSTS }}
           GIT_SSH_NO_VERIFY_HOST: "true"
