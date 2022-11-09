@@ -1,0 +1,14 @@
+name: Gitstart Pull
+
+on:
+  schedule:
+    - cron: '41 16 * * *'
+
+jobs:
+  gitstart_pull:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GitStartHQ/actions@v0.0.6
+        with:
+        # URL of the Repo which you are forking
+          upstream: https://github.com/hbrs-cse/Modellbildung-und-Simulation
