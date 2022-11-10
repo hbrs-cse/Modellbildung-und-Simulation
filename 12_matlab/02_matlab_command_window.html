@@ -1,0 +1,1702 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matlab Command Window &#8212; Modellbildung und Simulation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hbrs-cse/Modellbildung-und-Simulation");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Skripte und Funktionen" href="03_skripte_und_funktionen.html" />
+    <link rel="prev" title="Matlab einrichten" href="01_erste_schritte_in_matlab.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-134708516-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../00_einleitung/00_einleitung.html">
+   Einleitung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/01_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/02_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../00_einleitung/03_best_practice.html">
+     Best Practices
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_uebungen/00_uebungsaufgaben.html">
+   Einleitende Übungsaufgaben
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/01_fluessigkeit_im_boden.html">
+     Flüssigkeit im Boden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html">
+     Verkehrssimulation mit zellulären Automaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/03_der_perfekte_wurf.html">
+     Der perfekte Wurf
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/04_game_of_life.html">
+     Game of Life
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/02_taylor.html">
+     Funktionen mit Taylorpolynomen berechnen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/01_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/02_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/03_spline_interpolation.html">
+     Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_integration_and_stepcontrol.html">
+     Numerische Integration (mit Schrittweitensteuerung)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/01_lgs_sparse.html">
+     Lösung linearer Gleichungssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/02_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
+   Gewöhnliche Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../07_num_ode/01_intro_RK/00_intro_RK.html">
+     Einführung in numerische Integrationsverfahren von ODEs
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/01_integration_RK.html">
+       Integration von ODEs mit expliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/02_integration_implicit.html">
+       Integration von ODEs mit impliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/03_adaptive_steps.html">
+       Adaptive Schrittweitensteuerung
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/04_oscillation_and_vdpol.html">
+       Systeme von ODEs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/05_integration_RK_evaluation.html">
+       Lohnen sich Verfahren höherer Ordnung?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/02_schwingungen/00_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/04_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren.html">
+     Stabilität des expliziten versus impliziten Eulerverfahrens
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/05_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html">
+     Modellierung einer Highline - Zeitliche Auflösung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/06_mass-spring-mass/00_mass-spring-mass.html">
+     Rutschendes Masse-Feder-Masse System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../11_pde/00_partielle_differentialgleichungen.html">
+   Partielle Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/01_modellierung_einer_highline_dynamisch_pde.html">
+     Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/02_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/03_trafficPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_MATLAB_introduction.html">
+   Matlab Einführung
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_erste_schritte_in_matlab.html">
+     Matlab einrichten
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Matlab Command Window
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_skripte_und_funktionen.html">
+     Skripte und Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_matlab_kennenlernen.html">
+     Rechnen mit Matlab
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="05_matlab_videos/00_matlab_videos.html">
+     Grundlagenkurs und Zusatzübungen
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/01_exercise1.html">
+       1. Messwerte importieren, plotten und bearbeiten
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/02_exercise2.html">
+       2. Messwerte filtern und interpolieren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/03_exercise3.html">
+       3. Polynomfitting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/04_exercise4.html">
+       4. Flächenberechnung und Newtonverfahren (1D)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/05_exercise5.html">
+       5. Funktionsfitting und Newtonverfahren (nD)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/06_exercise6.html">
+       6. Numerische Differentiation und Integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/07_exercise7.html">
+       7. Gewöhnliche Differentialgleichungen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/08_exercise8.html">
+       8. Gewöhnliche Differentialgleichungen und Event-Detektion
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/09_exercise9.html">
+       9. Differential-Algebraische Gleichungen (1)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/10_exercise10.html">
+       10. Differential-Algebraische Gleichungen (2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="05_matlab_videos/11_extra.html">
+       Zusatzinfo - Mehrdimensionales Newtonverfahren
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/12_matlab/02_matlab_command_window.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/12_matlab/02_matlab_command_window.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/12_matlab/02_matlab_command_window.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erste-befehle">
+   Erste Befehle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vektoren-und-matrizen">
+   Vektoren und Matrizen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produkte-von-vektoren-und-matrizen">
+   Produkte von Vektoren und Matrizen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spezielle-matrizen">
+   Spezielle Matrizen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funktionen-komponentenweise-ausfuhren">
+   Funktionen komponentenweise ausführen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenation-und-slicing">
+   Concatenation und Slicing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logische-indizierung">
+   Logische Indizierung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichungssysteme-losen">
+   Gleichungssysteme lösen
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Matlab Command Window</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#erste-befehle">
+   Erste Befehle
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vektoren-und-matrizen">
+   Vektoren und Matrizen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#produkte-von-vektoren-und-matrizen">
+   Produkte von Vektoren und Matrizen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spezielle-matrizen">
+   Spezielle Matrizen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#funktionen-komponentenweise-ausfuhren">
+   Funktionen komponentenweise ausführen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#concatenation-und-slicing">
+   Concatenation und Slicing
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logische-indizierung">
+   Logische Indizierung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#gleichungssysteme-losen">
+   Gleichungssysteme lösen
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="matlab-command-window">
+<span id="matlab-window"></span><h1>Matlab Command Window<a class="headerlink" href="#matlab-command-window" title="Permalink to this headline">¶</a></h1>
+<p>Im <em>Command Window</em> gibt man, wie der Name schon sagt, Befehle ein. Diese werden unmittelbar nach dem <em>Prompt</em> <code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code> eingetippt.</p>
+<div class="section" id="erste-befehle">
+<h2>Erste Befehle<a class="headerlink" href="#erste-befehle" title="Permalink to this headline">¶</a></h2>
+<p>Gibt man zum Beispiel <code class="docutils literal notranslate"><span class="pre">a=5</span></code> ein, erscheint ein Feedback, dass die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> erstellt wurde, und sie den Wert <code class="docutils literal notranslate"><span class="pre">5</span></code> zugewiesen bekommen hat.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>a =  5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matlab gibt nach Eingabe eines Kommandos immer eine Rückmeldung, in diesem Fall wird die Variable noch einmal ausgegeben. Diese Rückmeldung kann mit Hilfe des Semikolons unterdrückt werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Beide Variablen sind nun im Workspace hinterlegt, und können für weitere Berechnungen benutzt werden. Wir können uns zum Beispiel den Wert von <code class="docutils literal notranslate"><span class="pre">b</span></code> ausgeben lassen,</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>b =  6.2832
+</pre></div>
+</div>
+</div>
+</div>
+<p>oder einfache Rechenoperationen ausführen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="o">/</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  1.25664 + 0.38268i
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Ergebnis der Rechnung wird unter dem Variablennamen <code class="docutils literal notranslate"><span class="pre">ans</span></code> im Workspace hinterlegt. Wir können dem Ergebnis explizit einen Variablennamen, hier <code class="docutils literal notranslate"><span class="pre">c</span></code> zuordnen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="p">=</span> <span class="n">b</span><span class="o">/</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="n">i</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>c =  1.25664 + 0.38268i
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wir möchten, können wir die Ausgabe des Ergebnisses unterdrücken, indem wir die Zeile mit einem Semikolon beenden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">a</span> <span class="o">-</span> <span class="n">i</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="nb">pi</span><span class="o">/</span><span class="mi">8</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Einige wichtige Punkte konnten wir bisher beobachten:</p>
+<ul class="simple">
+<li><p>Variablenzuweisungen passieren von links nach rechts: Was rechts vom Gleichheitszeichen steht, wird der Variablen die links vom Gleichheitszeichen steht zugeordnet. Wenn es diese Variable nicht gibt, wird sie im Workspace hinterlegt.</p></li>
+<li><p>Matlab bietet eine Vielzahl von mathematischen Funktionen an, die regelmäßig gebraucht werden, wie z.B. die Exponentialfunktion <code class="docutils literal notranslate"><span class="pre">exp</span></code> oder das Rechnen mit komplexen Zahlen. Dabei können sowohl <code class="docutils literal notranslate"><span class="pre">1i</span></code>, <code class="docutils literal notranslate"><span class="pre">1j</span></code> als auch <code class="docutils literal notranslate"><span class="pre">i</span></code> und <code class="docutils literal notranslate"><span class="pre">j</span></code> als Symbole für die komplexe Einheit verwendet werden. Die letzten beiden Varianten sind aber potenziell gefährlich, da es auch valide Variablennamen sind und es so zu Verwechslungen kommen kann.</p></li>
+<li><p>Alle Variablen werden im Workspace hinterlegt und können anschließend für weitere Berechnungen verwendet werden.</p></li>
+<li><p>In Matlab werden die skalaren Datentypen (<code class="docutils literal notranslate"><span class="pre">integer</span></code>, <code class="docutils literal notranslate"><span class="pre">double</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, …) nicht explizit angegeben, wie man es von Sprachen wie C oder C++ vielleicht gewöhnt ist. Auch wenn die Variable <code class="docutils literal notranslate"><span class="pre">a</span></code> ganzzahlig ist, geht Matlab standardmäßig von <code class="docutils literal notranslate"><span class="pre">double</span></code> aus. Der Typ einer Variable lässt sich in Matlab durch die Funktion <code class="docutils literal notranslate"><span class="pre">class()</span></code> ausgeben:</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">class</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = double
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unter Umständen kann es sinnvoll sein, nochmal mit einem frischen <em>Workspace</em> zu starten. Der Inhalt des Workspace lässt sich mit dem Befehl <code class="docutils literal notranslate"><span class="pre">clear</span></code> leeren.</p>
+</div>
+<div class="section" id="vektoren-und-matrizen">
+<h2>Vektoren und Matrizen<a class="headerlink" href="#vektoren-und-matrizen" title="Permalink to this headline">¶</a></h2>
+<p>Matlab ist ein Kofferwort aus <strong>Mat</strong>rix-<strong>Lab</strong>oratory. Der Name impliziert schon, dass es sich ideal dazu eignet mit Matrizen und Vektoren zu arbeiten. Dabei wird nicht zwischen den beiden unterschieden: Ein Zeilenvektor mit <span class="math notranslate nohighlight">\(n\)</span> Einträgen ist einfach eine Matrix aus <span class="math notranslate nohighlight">\(\mathbb{R}^{1 \times n}\)</span>, während ein Spaltenvektor mit <span class="math notranslate nohighlight">\(n\)</span> Einträgen eine Matrix aus <span class="math notranslate nohighlight">\(\mathbb{R}^{n \times 1}\)</span> ist.</p>
+<p>In Matlab werden Matrizen mit eckigen Klammern geschrieben, ein Semikolon beendet eine Zeile:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span> <span class="c">% ein Zeilenvektor</span>
+<span class="n">f</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span><span class="p">;</span> <span class="mi">4</span><span class="p">;</span> <span class="mi">5</span><span class="p">]</span> <span class="c">% ein Spaltenvektor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e =
+
+   1   2   3   4   5
+
+f =
+
+   1
+   2
+   3
+   4
+   5
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matrizen erzeugt man auf dieselbe Art:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="p">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">;</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =
+
+   11   12
+   21   22
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mit runden Klammern können wir auf einzelne Elemente zugreifen und auch überschreiben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   1   2   3
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e =
+
+    1    2   42    4    5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>e =
+
+   1   2   3   4   5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  22
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="mi">42</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =
+
+   42   12
+   21   22
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matlab verwendet ein sogenanntes <em>column-major</em> Speicherformat für Matrizen. Das heißt, dass Matrizen im Speicher spaltenweise gespeichert werden. Für die Matrix <code class="docutils literal notranslate"><span class="pre">A</span></code> sähe das in etwa so aus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">42</span> <span class="mi">21</span> <span class="mi">12</span> <span class="mi">22</span>
+</pre></div>
+</div>
+<p>Wir können uns alle Elemente der Matrix <code class="docutils literal notranslate"><span class="pre">A</span></code>, so wie sie von Matlab gespeichert werden ausgeben, in dem wir den Index durch einen Doppelpunkt ersetzen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   42
+   21
+   12
+   22
+</pre></div>
+</div>
+</div>
+</div>
+<p>Für Matrizen kann man daher sowohl durch Angabe zweier Indizes als auch durch Angabe eines Index auf Elemente zugreifen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A =
+
+   42    5
+   21   22
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  5
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="produkte-von-vektoren-und-matrizen">
+<h2>Produkte von Vektoren und Matrizen<a class="headerlink" href="#produkte-von-vektoren-und-matrizen" title="Permalink to this headline">¶</a></h2>
+<p>Beim Produkt zweier Vektoren <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> und <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> (bzw. Matrixprodukt zweier Matrizen) ist stets darauf zu achten, dass die Dimensionen zueinander passen! Können wir die eben erstellten Vektoren <span class="math notranslate nohighlight">\(e\)</span> und <span class="math notranslate nohighlight">\(f\)</span> miteinander multiplizieren?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">e</span><span class="o">*</span><span class="n">f</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  55
+</pre></div>
+</div>
+</div>
+</div>
+<p>Aha, bei Multiplikation eines <span class="math notranslate nohighlight">\((1,n)\)</span>-dimensionalen Vektors <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> mit einem <span class="math notranslate nohighlight">\((n,1)\)</span>-dimensionalen Vektor <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> erhalten wir eine Zahl, bzw. eine <span class="math notranslate nohighlight">\((1,1)\)</span>-dimensionale Matrix mit nur einem Eintrag. Wir erhalten das <strong>Skalarprodukt</strong></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{e} \cdot \mathbf{f} = \sum_{i=1}^n e_i \cdot f_i. \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">*</span><span class="nb">e</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+    1    2    3    4    5
+    2    4    6    8   10
+    3    6    9   12   15
+    4    8   12   16   20
+    5   10   15   20   25
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Multiplikation eines <span class="math notranslate nohighlight">\((n,1)\)</span>-dimensionalen Vektors <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> mit einem <span class="math notranslate nohighlight">\((1,n)\)</span>-dimensionalen Vektor <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> liefert also eine <span class="math notranslate nohighlight">\((n,n)\)</span>-dimensionale Matrix. Es handelt sich um das <strong>diadische Produkt</strong></p>
+<div class="math notranslate nohighlight">
+\[ A = \mathbf{f} \cdot \mathbf{e}, \hskip0.5cm A_{ij} = f_i \cdot e_j \]</div>
+<p>Wie sieht es mit den folgenden Matrizen aus?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">;</span> <span class="mi">1</span><span class="p">;</span> <span class="mi">1</span><span class="p">];</span>
+<span class="n">h</span> <span class="p">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">;</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">2</span><span class="p">];</span>
+<span class="n">g</span><span class="o">*</span><span class="n">h</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: operator *: nonconformant arguments (op1 is 3x1, op2 is 3x1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nein! Es klappt nicht. Die Fehlermeldung gibt schon Auskunft darüber wieso: Die Dimensionen der Matrizen passen nicht zusammen.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Hier ist der Wortlaut der Octave-Fehlermeldung zu sehen. Matlab gibt an dieser Stelle die folgende Fehlermeldung wieder:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Error</span> <span class="n">using</span>  <span class="o">*</span> 
+<span class="n">Incorrect</span> <span class="n">dimensions</span> <span class="k">for</span> <span class="n">matrix</span> <span class="n">multiplication</span><span class="o">.</span> <span class="n">Check</span> <span class="n">that</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">columns</span> <span class="ow">in</span>
+<span class="n">the</span> <span class="n">first</span> <span class="n">matrix</span> <span class="n">matches</span> <span class="n">the</span> <span class="n">number</span> <span class="n">of</span> <span class="n">rows</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">second</span> <span class="n">matrix</span><span class="o">.</span> <span class="n">To</span> <span class="n">perform</span>
+<span class="n">elementwise</span> <span class="n">multiplication</span><span class="p">,</span> <span class="n">use</span> <span class="s1">&#39;.*&#39;</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Wir behelfen uns eines Tricks: Ein nachgestelltes Apostroph gibt die transponierte Matrix aus.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">g</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>g =
+
+   1
+   1
+   1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">size</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   3   1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   1   1   1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">size</span><span class="p">(</span><span class="n">g</span><span class="o">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   1   3
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Skalarprodukt von <span class="math notranslate nohighlight">\(\mathbf{g}\)</span> mit <span class="math notranslate nohighlight">\(\mathbf{h}\)</span> können wir also doch ausrechnen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">&#39;*</span><span class="n">h</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =  6
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sehr häufig ist es nützlich, Operationen komponentenweise auszuführen. Nehmen wir zum Beispiel an, in einer kleinen Arbeitsgruppe arbeiten fünf Personen. Zwei Mitarbeiter:innen haben Vollzeitstellen, d.h. 39.5 Stunden pro Woche, eine:r Mitarbeiter:in hat eine halbe Stelle und zwei studentische Hilfskräfte unterstützen jeweils mit acht Stunden pro Woche. Die wöchentliche Arbeitszeit der Mitarbeiter:innen hinterlegen wir in einem Vektor</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_hours</span> <span class="p">=</span> <span class="p">[</span><span class="mf">39.5</span><span class="p">,</span> <span class="mf">19.5</span><span class="p">,</span> <span class="mf">39.5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die stündlichen Bruttokosten der Stellen der Mitarbeiter:innen in € schreiben wir ebenfalls in einen Vektor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">costPerHour_brutto_euro</span> <span class="p">=</span> <span class="p">[</span><span class="mf">57.5</span><span class="p">,</span> <span class="mf">57.5</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">];</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wenn wie wissen möchten, wieviel die Mitarbeiter:innen jeweils pro Woche kosten, müssen wir die Vektoren komponentenweise miteinander multiplizieren. Das erreichen wir in Matlab, indem wir vor dem <code class="docutils literal notranslate"><span class="pre">*</span></code>-Operator einen Punkt voranstellen, es ist also eine <em>punktweise</em> Operation, und keine Matrixmultiplikation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">weekly_hours</span><span class="o">.*</span><span class="n">costPerHour_brutto_euro</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   2271.25   1121.25   1580.00    120.00    120.00
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Quiz:</strong> Wie berechnen wir die Gesamtkosten aller Mitarbeiter:innen pro Woche mit nur einer Zeile in Matlab?</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Das Ergebnis lautet 5212.5 €.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% calculate weekly total cost</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spezielle-matrizen">
+<h2>Spezielle Matrizen<a class="headerlink" href="#spezielle-matrizen" title="Permalink to this headline">¶</a></h2>
+<p>Matlab hat einige Befehle, um spezielle Matrizen zu erstellen. Einige der wichtigsten sind:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A1</span> <span class="p">=</span> <span class="nb">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>     <span class="c">% 2,2-Einheitsmatrix</span>
+<span class="n">A2</span> <span class="p">=</span> <span class="nb">ones</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span>  <span class="c">% 3,2-Matrix gefuellt mit 1</span>
+<span class="n">A3</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c">% 2,4-Matrix gefuellt mit 0</span>
+<span class="n">A4</span> <span class="p">=</span> <span class="nb">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>    <span class="c">% 2,2-Matrix mit gleichverteilten Zufallszahlen von 0 bis 1</span>
+<span class="n">A5</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>   <span class="c">% 4,4-Matrix mit normalverteilten Zufallszahlen um 0 und Standardabweichung 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="funktionen-komponentenweise-ausfuhren">
+<h2>Funktionen komponentenweise ausführen<a class="headerlink" href="#funktionen-komponentenweise-ausfuhren" title="Permalink to this headline">¶</a></h2>
+<p>Viele der mathematischen Funktionen, wie <code class="docutils literal notranslate"><span class="pre">sin</span></code>, <code class="docutils literal notranslate"><span class="pre">cos</span></code>, <code class="docutils literal notranslate"><span class="pre">exp</span></code>, <code class="docutils literal notranslate"><span class="pre">sqrt</span></code> etc., können auch direkt auf Vektoren und Matrizen angewandt werden. Sie werden dann komponentenweise ausgeführt:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A4</span>
+<span class="nb">disp</span><span class="p">(</span><span class="s">&#39;Die Wurzel der Elemente von A4:&#39;</span><span class="p">)</span>
+<span class="nb">sqrt</span><span class="p">(</span><span class="n">A4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A4 =
+
+   0.44656   0.73537
+   0.18055   0.95080
+
+Die Wurzel der Elemente von A4:
+ans =
+
+   0.66825   0.85754
+   0.42491   0.97509
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nehmen wir zum Beispiel an, wir haben <span class="math notranslate nohighlight">\(n\)</span> Vektoren <span class="math notranslate nohighlight">\(\mathbf{v}_i = (x_i, y_i, z_i)\)</span>, <span class="math notranslate nohighlight">\(i=1,...,n\)</span>. Wenn wir die <span class="math notranslate nohighlight">\(x\)</span>-, <span class="math notranslate nohighlight">\(y\)</span>-, und <span class="math notranslate nohighlight">\(z\)</span>-Komponenten der Vektoren als <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> und <code class="docutils literal notranslate"><span class="pre">Z</span></code> speichern, können wir in nur einer Zeile den Betrag der Vektoren berechnen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">n</span><span class="p">=</span><span class="mi">20</span><span class="p">;</span>
+<span class="n">X</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Y</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">Z</span> <span class="p">=</span> <span class="nb">randn</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+<span class="c">% calculate magnitude of vectors</span>
+<span class="nb">sqrt</span><span class="p">(</span><span class="n">X</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Y</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">Z</span><span class="o">.^</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   1.27082
+   2.12935
+   2.28378
+   1.48039
+   1.84512
+   1.88619
+   1.88152
+   2.68298
+   1.53354
+   3.08340
+   1.50169
+   1.85289
+   2.29875
+   1.74458
+   1.62807
+   1.15378
+   1.77924
+   1.92541
+   0.81153
+   1.52136
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Zusatzfrage:</strong> Wozu dienen die Punkte in der Vorschrift <code class="docutils literal notranslate"><span class="pre">sqrt(X.^2</span> <span class="pre">+</span> <span class="pre">Y.^2</span> <span class="pre">+</span> <span class="pre">Z.^2)</span></code>?</p>
+</div>
+<div class="section" id="concatenation-und-slicing">
+<h2>Concatenation und Slicing<a class="headerlink" href="#concatenation-und-slicing" title="Permalink to this headline">¶</a></h2>
+<p>Oft kann es sinnvoll sein, einzelne Vektoren oder Matrizen zu größeren zusammenzufügen. Das nennt man <em>Concatenation</em>. Die zuvor erstellten Matrizen <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code>, <code class="docutils literal notranslate"><span class="pre">Z</span></code> sind schließlich nicht unabhängig voneinander, sie bezeichnen die Komponenten von <span class="math notranslate nohighlight">\(n\)</span> Vektoren <span class="math notranslate nohighlight">\(v_i\)</span>. Um dies zu verdeutlichen, können wir eine <span class="math notranslate nohighlight">\((n,3)\)</span>-Matrix erstellen, deren Zeilen die jeweiligen Vektoren <span class="math notranslate nohighlight">\(v_i\)</span> sind, und die Spalten die jeweiligen Komponenten <code class="docutils literal notranslate"><span class="pre">X</span></code>, <code class="docutils literal notranslate"><span class="pre">Y</span></code> und <code class="docutils literal notranslate"><span class="pre">Z</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="p">=</span> <span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Z</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>V =
+
+  -0.322496   0.276267   1.197767
+   0.184774  -1.895761   0.951878
+  -0.901812   1.705073   1.222752
+  -0.674568  -1.317111   0.041429
+  -0.296170  -1.678014   0.707831
+   1.467738  -0.762423   0.906740
+  -1.074790  -0.040866  -1.543783
+   0.568760   2.621381   0.057240
+  -0.397382   1.169356  -0.909087
+   1.089513  -2.831767   0.549000
+   0.327851   1.032975  -1.039488
+   0.145657  -0.836806   1.646732
+  -1.588139  -1.661264  -0.047459
+   1.391289   0.329041  -0.999795
+  -1.326279   0.942947   0.049580
+   0.103442  -1.022502   0.524393
+  -0.293752  -1.692801  -0.462420
+  -0.232870  -0.499655   1.844812
+  -0.578842  -0.561705  -0.089501
+   1.133429   0.979685   0.264775
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie bei Matrixprodukten müssen wir auf die richtige Dimension achten. Was passiert genau bei folgendem Befehl?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span> <span class="p">=</span> <span class="p">[</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">;</span><span class="n">Z</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>error: vertical dimensions mismatch (20x2 vs 20x1)
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Concatenation</em> ist also das Zusammenfügen von Matrizen. Der gezielte Zugriff auf Subblöcke aus einer Matrix wird als <em>Slicing</em> bezeichnet. In Matlab wird dazu der <code class="docutils literal notranslate"><span class="pre">:</span></code>-Operator verwendet. Mit folgenden Befehlen erhält man die ersten fünf Zeilen der Matrix <code class="docutils literal notranslate"><span class="pre">V</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">,:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+  -0.322496   0.276267   1.197767
+   0.184774  -1.895761   0.951878
+  -0.901812   1.705073   1.222752
+  -0.674568  -1.317111   0.041429
+  -0.296170  -1.678014   0.707831
+</pre></div>
+</div>
+</div>
+</div>
+<p>Im Gegensatz zu C/C++, fangen wir bei Matlab immer bei 1 an zu zählen und nicht bei 0. Der Doppelpunkt nach dem Komma gibt Auskunft darüber, dass alle Spalten ausgegeben werden sollen. Wenn nur die ersten beiden Spalten ausgegeben werden sollen kann man <code class="docutils literal notranslate"><span class="pre">V(1:5,1:2)</span></code> eingeben.</p>
+<p>Alle Vektoren, bis auf die ersten 15, erhalten wir mit Hilfe des Wortes <code class="docutils literal notranslate"><span class="pre">end</span></code>, das für die Größe der jeweiligen Dimension steht:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="mi">16</span><span class="p">:</span><span class="k">end</span><span class="p">,:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   0.103442  -1.022502   0.524393
+  -0.293752  -1.692801  -0.462420
+  -0.232870  -0.499655   1.844812
+  -0.578842  -0.561705  -0.089501
+   1.133429   0.979685   0.264775
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir können uns auch jeden zweiten Vektor ausgeben lassen, indem wir eine ganzzahlige Schrittweite mit angeben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">:</span><span class="k">end</span><span class="p">,:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+  -0.322496   0.276267   1.197767
+  -0.901812   1.705073   1.222752
+  -0.296170  -1.678014   0.707831
+  -1.074790  -0.040866  -1.543783
+  -0.397382   1.169356  -0.909087
+   0.327851   1.032975  -1.039488
+  -1.588139  -1.661264  -0.047459
+  -1.326279   0.942947   0.049580
+  -0.293752  -1.692801  -0.462420
+  -0.578842  -0.561705  -0.089501
+</pre></div>
+</div>
+</div>
+</div>
+<p>Die Schrittweite kann auch negativ gewählt werden:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="k">end</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">,:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   1.133429   0.979685   0.264775
+  -0.578842  -0.561705  -0.089501
+  -0.232870  -0.499655   1.844812
+  -0.293752  -1.692801  -0.462420
+   0.103442  -1.022502   0.524393
+  -1.326279   0.942947   0.049580
+   1.391289   0.329041  -0.999795
+  -1.588139  -1.661264  -0.047459
+   0.145657  -0.836806   1.646732
+   0.327851   1.032975  -1.039488
+   1.089513  -2.831767   0.549000
+  -0.397382   1.169356  -0.909087
+   0.568760   2.621381   0.057240
+  -1.074790  -0.040866  -1.543783
+   1.467738  -0.762423   0.906740
+  -0.296170  -1.678014   0.707831
+  -0.674568  -1.317111   0.041429
+  -0.901812   1.705073   1.222752
+   0.184774  -1.895761   0.951878
+  -0.322496   0.276267   1.197767
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Zusatzfrage:</strong> Wie können wir uns die letzten fünf Zeilen einer Matrix ausgeben lassen, ohne explizit die Größe der Matrix zu kennen?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% get last 5 elements of V</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="logische-indizierung">
+<h2>Logische Indizierung<a class="headerlink" href="#logische-indizierung" title="Permalink to this headline">¶</a></h2>
+<p>Der folgende Befehl liefert Auskunft darüber, welche Elemente der Matrix <code class="docutils literal notranslate"><span class="pre">X</span></code> größer oder gleich null sind:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="o">&gt;</span><span class="p">=</span><span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+  0
+  1
+  0
+  0
+  0
+  1
+  0
+  1
+  0
+  1
+  1
+  1
+  0
+  1
+  0
+  1
+  0
+  0
+  0
+  1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das Ergebnis ist wieder eine Matrix, deren Einträge entweder 1 sind, falls der jeweilige Eintrag in <code class="docutils literal notranslate"><span class="pre">X</span></code> größer oder gleich null ist, oder 0 wenn der jeweilige Eintrag kleiner als null ist. Matlab speichert diese Werte nicht als <code class="docutils literal notranslate"><span class="pre">double</span></code> ab, sondern als <code class="docutils literal notranslate"><span class="pre">logical</span></code>-, d.h. boolsche Werte. Wir können dem Ergebnis der Abfrage wieder einen Namen geben:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">Xpos</span> <span class="p">=</span> <span class="n">X</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span>
+<span class="nb">class</span><span class="p">(</span><span class="n">Xpos</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans = logical
+</pre></div>
+</div>
+</div>
+</div>
+<p>Um nun alle Vektoren (Zeilen in <code class="docutils literal notranslate"><span class="pre">V</span></code>) zu erhalten, deren <span class="math notranslate nohighlight">\(x\)</span>-Komponente größer oder gleich null ist, kann diese <code class="docutils literal notranslate"><span class="pre">logical</span></code>-Matrix direkt als Zeilenindex verwendet werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="n">Xpos</span><span class="p">,:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   0.184774  -1.895761   0.951878
+   1.467738  -0.762423   0.906740
+   0.568760   2.621381   0.057240
+   1.089513  -2.831767   0.549000
+   0.327851   1.032975  -1.039488
+   0.145657  -0.836806   1.646732
+   1.391289   0.329041  -0.999795
+   0.103442  -1.022502   0.524393
+   1.133429   0.979685   0.264775
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Zusatzfrage:</strong> Was macht der folgende Befehl?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">V</span><span class="p">(</span><span class="n">V</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">,:)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ans =
+
+   0.184774  -1.895761   0.951878
+  -0.674568  -1.317111   0.041429
+  -0.296170  -1.678014   0.707831
+   1.467738  -0.762423   0.906740
+  -1.074790  -0.040866  -1.543783
+   1.089513  -2.831767   0.549000
+   0.145657  -0.836806   1.646732
+  -1.588139  -1.661264  -0.047459
+   0.103442  -1.022502   0.524393
+  -0.293752  -1.692801  -0.462420
+  -0.232870  -0.499655   1.844812
+  -0.578842  -0.561705  -0.089501
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Zusatzfrage:</strong> Wie erhalten wir mit nur einem Befehl alle Vektoren, deren Betrag kleiner als 1 ist?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% get all rows with a magnitude &lt; 1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Denken Sie daran, dass die Gleichheit zweier Variablen mit <code class="docutils literal notranslate"><span class="pre">==</span></code> abgefragt wird!</p>
+</div>
+<div class="section" id="gleichungssysteme-losen">
+<h2>Gleichungssysteme lösen<a class="headerlink" href="#gleichungssysteme-losen" title="Permalink to this headline">¶</a></h2>
+<p>Natürlich bietet Matlab auch viele weitere Funktionen rund um Matrizen und Vektoren, um uns das Leben zu erleichtern. So kann ein Gleichungssystem <span class="math notranslate nohighlight">\(A\cdot \mathbf{x} = \mathbf{b}\)</span> einfach und effizient mit dem sogenannten <strong>backslash</strong>-Operator gelöst werden.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">=[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">;</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">6</span><span class="p">;</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">];</span>
+<span class="n">b</span><span class="p">=[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">]</span><span class="o">&#39;</span><span class="p">;</span>
+<span class="n">x</span> <span class="p">=</span> <span class="n">A</span><span class="o">\</span><span class="n">b</span>                     <span class="c">% x = inv(A)*b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x =
+
+  -3.3333e-02
+   6.6667e-02
+  -1.4456e-18
+</pre></div>
+</div>
+</div>
+</div>
+<p>Also ist Matlab ein Taschenrechner? Ja, genau! Aber ein ziemlich cooler, mit extrem vielen Funktionen und der Möglichkeit beliebig viele Variablen als Matrizen im Zwischenspeicher vorzuhalten.</p>
+<p>Matlab ist aber auch noch mehr, nämlich eine <a class="reference external" href="http://lmgtfy.com/?q=turing+complete+progamming+language">Turing-vollständige Computersprache</a>. Die Mächtigkeit von Matlab kommt erst zur Geltung, wenn wir anfangen Skripte und Funktionen zu schreiben.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hbrs-cse/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./12_matlab"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_erste_schritte_in_matlab.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Matlab einrichten</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="03_skripte_und_funktionen.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Skripte und Funktionen</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+    
+        &copy; Copyright 2020 - 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
