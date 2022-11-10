@@ -1,0 +1,162 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "````{panels}\n",
+    "Voraussetzungen\n",
+    "^^^\n",
+    "- mathematische Grundlagen der Spline-Interpolation\n",
+    "---\n",
+    "\n",
+    "Lerninhalte\n",
+    "^^^\n",
+    "- Realisierung einer Routine zur Spline-Interpolation\n",
+    "````"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {
+    "author": "Martin Kliemank"
+   },
+   "source": [
+    "(spline)=\n",
+    "# Spline-Interpolation\n",
+    "\n",
+    "Für die Herstellung von Rattanstühlen wird Rattanrohr verwoben. Das hat zur Folge, dass ein einzelner Strang um mehrere Punkte gelegt wird, ohne zu knicken, was für eine angenehm glatte und trotzdem nachgiebige Sitzfläche sorgt. Der Verlauf des Strangs entspricht einer sogenannten Spline.\n",
+    "\n",
+    "```{image} images/spline_woven.png\n",
+    ":width: 400px\n",
+    ":height: 315px\n",
+    ":align: center\n",
+    "```\n",
+    "\n",
+    "Der Strang, den Sie betrachten, verläuft durch folgende Punkte:\n",
+    "\n",
+    "| $x [cm]$ | 0   | 0.5 | 1 | 1.5 | 2 | 2.5 |\n",
+    "|:-------|:---|:---|:---|:---|:---|:---|\n",
+    "| $y [cm]$ | 0.0 | 1.0 | 0.8 | 1.8 | 1.6 | 2.4  |\n",
+    "\n",
+<<<<<<< HEAD
+    "Diese Punkte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (**Hierbei keine fertige MATLAB Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!**). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.\n",
+=======
+    "Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (**Verwenden Sie hierbei keine fertige Matlab Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!**). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.\n",
+>>>>>>> master
+    "\n",
+    "## Aufgabe 1\n",
+    "\n",
+    "Konstruieren Sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle mit Bleistift und Papier.\n",
+    "Bestimmen Sie die Koeffizienten der gesuchten Parabeln $z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \\in [0,2]$.\n",
+    "\n",
+    "```{admonition} Hinweis\n",
+    "Zur eindeutigen Bestimmung der einzelnen Polynome sind drei Bedingungen notwendig. Zwei sind durch\n",
+    "den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamten Spline zu vermeiden\n",
+    "wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen\n",
+    "(dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?\n",
+    "```\n",
+    "\n",
+    "## Aufgabe 2\n",
+    "\n",
+    " - Implementieren Sie eine Matlab-Funktion `function zfine = quadraticSpline(x, z, xfine, bc)`, die für gegebene x- und z-Werte sowie Randbedingung an den von `xfine` definierten Punkten die entsprechenden z-Werte des Splines berechnet."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "tags": [
+     "remove-output"
+    ]
+   },
+   "outputs": [],
+   "source": [
+    "%%file quadraticSpline.m\n",
+    "function zfine = quadraticSpline(x, z, xfine, bc)\n",
+    "% z = quadraticSpline(x, z, xfine, bc) calculates the quadratic spline going through the\n",
+    "% points defined by xi and zi and evaluates the spline at the points in xfine.\n",
+    "\n",
+    "...\n",
+    "\n",
+    "end"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "- Testen Sie die Funktionalität mit der bereitgestellten *Test Suite* `test_quadraticSpline.m`. Es reicht zunächst, dass die ersten fünf der Unit Tests erfolgreich sind. **Challenge:** Schaffen Sie es, alle neun Unit Tests zu erfüllen?"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "% test the quadraticSpline function\n",
+    "moxunit_runtests test_quadraticSpline.m"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    " - Nun soll der Biegungsverlauf mit einer Schrittweite von 1 mm interpoliert werden. Erstellen Sie dazu ein Skript, in welchem Ihre Funktion auf die obigen Messwerte angewandt wird. Stellen Sie den interpolierten Spline bzw. die Biegelinie in einem Plot dar."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%script to apply function to the given values\n",
+    "\n",
+    "%uncomment to equalize axis:\n",
+    "%axis equal"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "```{admonition} Hinweis\n",
+    "\n",
+    "[Hier](https://share.streamlit.io/phispel/spielbeispiel-interpolation/main) finden Sie eine Webanwendung mit einer Umsetzung verschiedener Interpolationen zum “Herumspielen”.\n",
+    "\n",
+    "```"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Octave",
+   "language": "octave",
+   "name": "octave"
+  },
+  "language_info": {
+   "file_extension": ".m",
+   "help_links": [
+    {
+     "text": "GNU Octave",
+     "url": "https://www.gnu.org/software/octave/support.html"
+    },
+    {
+     "text": "Octave Kernel",
+     "url": "https://github.com/Calysto/octave_kernel"
+    },
+    {
+     "text": "MetaKernel Magics",
+     "url": "https://metakernel.readthedocs.io/en/latest/source/README.html"
+    }
+   ],
+   "mimetype": "text/x-octave",
+   "name": "octave",
+   "version": "5.2.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
