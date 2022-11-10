@@ -1,8 +1,8 @@
 name: Gitstart Pull
 
-on:
-  schedule:
-    - cron: '30 4 * * *'
+on: push
+#  schedule:
+#    - cron: '30 4 * * *'
 
 jobs:
   update:
