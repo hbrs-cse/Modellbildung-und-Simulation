@@ -1,23 +1,23 @@
+12_matlab/02_matlab_command_window.ipynb:890004: [redirected permanently] http://lmgtfy.com/?q=turing+complete+progamming+language to https://lmgtfy.app/?q=turing+complete+progamming+language
 00_einleitung/02_verwendung_dieses_buches.ipynb:50010: [redirected permanently] http://lmgtfy.com/?q=unit+testing to https://lmgtfy.app/?q=unit+testing
 12_matlab/01_erste_schritte_in_matlab.md:63: [redirected permanently] http://lmgtfy.com/?q=matlab+tutorial+beginner to https://lmgtfy.app/?q=matlab+tutorial+beginner
-12_matlab/02_matlab_command_window.ipynb:890004: [redirected permanently] http://lmgtfy.com/?q=turing+complete+progamming+language to https://lmgtfy.app/?q=turing+complete+progamming+language
 00_einleitung/03_best_practice.ipynb:270022: [redirected permanently] http://lmgtfy.com/?q=git+f%C3%BCr+Anf%C3%A4nger to https://lmgtfy.app/?q=git+f%C3%BCr+Anf%C3%A4nger
-07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb:190004: [redirected permanently] http://www.arianespace.com/mission/ariane-flight-va244/ to https://www.arianespace.com/mission/ariane-flight-va244/
 12_matlab/01_erste_schritte_in_matlab.md:61: [redirected permanently] http://www.mathworks.com/academia/courseware to https://www.mathworks.com/academia/courseware.html
+12_matlab/01_erste_schritte_in_matlab.md:59: [redirected permanently] http://www.mathworks.com/videos/ to https://www.mathworks.com/videos.html
 12_matlab/01_erste_schritte_in_matlab.md:28: [redirected permanently] http://www.octave.org to https://www.octave.org/
 intro.ipynb:50004: [redirected permanently] http://www.samlau.me/ to https://www.samlau.me/
 12_matlab/01_erste_schritte_in_matlab.md:60: [redirected permanently] http://www.mathworks.de/academia/student_center/tutorials to https://matlabacademy.mathworks.com/
+07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb:190004: [redirected permanently] http://www.arianespace.com/mission/ariane-flight-va244/ to https://www.arianespace.com/mission/ariane-flight-va244/
 12_matlab/01_erste_schritte_in_matlab.md:28: [redirected permanently] http://www.scilab.org to https://www.scilab.org
 12_matlab/01_erste_schritte_in_matlab.md:62: [redirected permanently] http://www.mathworks.de/matlabcentral/fileexchange/ to https://de.mathworks.com/matlabcentral/fileexchange/
-06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304 to https://hcvalidate.perfdrive.com/?ssa=442f8e49-d662-4438-91cd-0daf1e5c9521&ssb=31078201342&ssc=https%3A%2F%2Fiopscience.iop.org%2Farticle%2F10.1088%2F0143-0807%2F23%2F1%2F304&ssi=fa5eeb6d-8427-492b-a2b2-2eea31122988&ssk=support@shieldsquare.com&ssm=01605675330817395104419948961621&ssn=2d650f0de37b076853e5c5ad3d2c70aff2fc6c8e0b67-354d-4061-8928ec&sso=a814170f-2f8af4d8b59787e83e746cf28f25ebcb87389e1f2ed495b5&ssp=29230213961668427193166844469732408&ssq=95710532609507728554826095882277360904836&ssr=NDQuMTkyLjI0LjE5Mw==&sst=Sphinx/3.5.4%20requests/2.18.4%20python/3.6.9&ssv=&ssw=&ssx=W10=
-06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088/0143-0807/23/1/304 to https://hcvalidate.perfdrive.com/?ssa=6a675b56-da6d-4f61-9aee-29cd6eb180d7&ssb=31078201342&ssc=https%3A%2F%2Fiopscience.iop.org%2Farticle%2F10.1088%2F0143-0807%2F23%2F1%2F304&ssi=d8df60b6-8427-4ec4-80d2-0486f72776a6&ssk=support@shieldsquare.com&ssm=01605675330817395104419948961621&ssn=2d650f0da2d6f32a48d7632be59970aff2fce77fef33-4945-468d-9928ec&sso=a8141c14-74173fce96a187e83e744fe91106f9b56de3e53d2ed495b5&ssp=29230213961668427193166844469732408&ssq=95710532609507728554826095882277360904836&ssr=NDQuMTkyLjI0LjE5Mw==&sst=Sphinx/3.5.4%20requests/2.18.4%20python/3.6.9&ssv=&ssw=&ssx=W10=
 11_pde/01_modellierung_einer_highline_dynamisch_pde.ipynb:80002: [redirected with Found] https://doi.org/10.1515/9783110684148-004 to https://www.degruyter.com/document/doi/10.1515/9783110684148-004/html
-11_pde/01_modellierung_einer_highline_dynamisch_pde.ipynb:80002: [redirected with Found] https://doi.org/doi:10.1515/9783110684148-004 to https://www.degruyter.com/document/doi/10.1515/9783110684148-004/html
 11_pde/02_konvektion_und_diffusion.ipynb:60002: [redirected with Found] https://doi.org/10.14366/usg.17016 to https://www.e-ultrasonography.org/journal/view.php?doi=10.14366/usg.17016
+11_pde/01_modellierung_einer_highline_dynamisch_pde.ipynb:80002: [redirected with Found] https://doi.org/doi:10.1515/9783110684148-004 to https://www.degruyter.com/document/doi/10.1515/9783110684148-004/html
 00_einleitung/02_verwendung_dieses_buches.ipynb:20019: [redirected with Found] https://github.com/hbrs-cse/Modellbildung-und-Simulation/issues/new to https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fhbrs-cse%2FModellbildung-und-Simulation%2Fissues%2Fnew
 00_einleitung/03_best_practice.ipynb:270016: [redirected permanently] https://gitlab.com to https://about.gitlab.com/
 00_einleitung/02_verwendung_dieses_buches.ipynb:180048: [redirected permanently] https://github.com/jupyter/jupyter-book/issues/107 to https://github.com/executablebooks/jupyter-book/issues/107
-intro.ipynb:30002: [redirected permanently] https://www.gnu.org/software/octave/ to https://octave.org/
-intro.ipynb:10004: [redirected permanently] https://www.h-brs.de to https://www.h-brs.de/de
 01_uebungen/02_verkehrssimulation.ipynb:130002: [redirected permanently] https://doi.org/10.1051/jp1%3A1992277 to https://jp1.journaldephysique.org/articles/jp1/abs/1992/12/jp1v2p2221/jp1v2p2221.html
-12_matlab/01_erste_schritte_in_matlab.md:59: [redirected permanently] http://www.mathworks.com/videos/ to https://www.mathworks.com/videos.html
+intro.ipynb:10004: [redirected permanently] https://www.h-brs.de to https://www.h-brs.de/de
+intro.ipynb:30002: [redirected permanently] https://www.gnu.org/software/octave/ to https://octave.org/
+06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088/0143-0807/23/1/304 to https://iopscience.iop.org/article/10.1088/0143-0807/23/1/304
+06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304 to https://iopscience.iop.org/article/10.1088/0143-0807/23/1/304
