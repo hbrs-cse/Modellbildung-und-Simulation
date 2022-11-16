@@ -725,6 +725,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    Aufgabe 2
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3-zusatzaufgabe">
+   Aufgabe 3 (Zusatzaufgabe):
+  </a>
+ </li>
 </ul>
 
             </nav>
@@ -755,6 +760,11 @@ commentsRunWhenDOMLoaded(addUtterances);
    Aufgabe 2
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-3-zusatzaufgabe">
+   Aufgabe 3 (Zusatzaufgabe):
+  </a>
+ </li>
 </ul>
 
                         </nav>
@@ -764,68 +774,44 @@ commentsRunWhenDOMLoaded(addUtterances);
             
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
-</div>
-<div class="card-body docutils">
-<ul class="simple">
-<li><p class="card-text">mathematische Grundlagen der Spline-Interpolation</p></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
-</div>
-<div class="card-body docutils">
-<ul class="simple">
-<li><p class="card-text">Realisierung einer Routine zur Spline-Interpolation</p></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="spline-interpolation">
-<span id="spline"></span><h1>Spline-Interpolation<a class="headerlink" href="#spline-interpolation" title="Permalink to this headline">¶</a></h1>
-<p>Der Biegebalken mit einseitiger fester Einspannung ist ein Standardlastfall, der Ihnen aus der technischen Mechanik bekannt ist.</p>
-<a class="reference internal image-reference" href="../_images/spline_interpolation_inks.svg"><img alt="../_images/spline_interpolation_inks.svg" class="align-center" height="315px" src="../_images/spline_interpolation_inks.svg" width="400px" /></a>
-<p>Messungen der Biegelinie an verschiedenen Punkten ergaben folgende Werte:</p>
+  <div class="section" id="spline-interpolation">
+<h1>Spline-Interpolation<a class="headerlink" href="#spline-interpolation" title="Permalink to this headline">¶</a></h1>
+<p>Im Handwerk ist die Straklatte (engl.: <em>Spline</em>) ein zentrales Werkzeug für das Entwerfen von Geometrien. Der große Vorteil ist, dass allein durch die Definition einzelner Punkte eine durchgängige Geometrie definiert werden kann, die keine Kanten enthält. Diese kann einfach reproduziert werden, indem die Punkte wieder aufgezeichnet werden und eine ähnliche Latte (dabei ist in erster Linie die Länge entscheidend) um die Punkte gelegt wird. Siehe <a class="reference external" href="https://de.wikipedia.org/wiki/Straklatte">Wikipedia</a> für eine bildliche Darstellung.</p>
+<p>Auch in CAD Standards wie STEP (.stp Dateien) wird diese Methode verwendet, um digitale Geometrien zu definieren, siehe <a class="reference external" href="https://www.steptools.com/stds/smrl/data/resource_docs/geometric_and_topological_representation/sys/4_schema.htm#geometry_schema.locally_refined_spline_curve">hier</a>.</p>
+<p>Sie erhalten nun für Ihre Linie die folgenden Punkte (siehe Abbildung):</p>
 <table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="text-align:left head"><p><span class="math notranslate nohighlight">\(x [m]\)</span></p></th>
+<tr class="row-odd"><th class="text-align:left head"><p><span class="math notranslate nohighlight">\(x [cm]\)</span></p></th>
 <th class="text-align:left head"><p>0</p></th>
 <th class="text-align:left head"><p>0.5</p></th>
 <th class="text-align:left head"><p>1</p></th>
 <th class="text-align:left head"><p>1.5</p></th>
 <th class="text-align:left head"><p>2</p></th>
+<th class="text-align:left head"><p>2.5</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(z [m]\)</span></p></td>
-<td class="text-align:left"><p>0.00</p></td>
-<td class="text-align:left"><p>0.0125</p></td>
-<td class="text-align:left"><p>0.05</p></td>
-<td class="text-align:left"><p>0.1125</p></td>
-<td class="text-align:left"><p>0.2</p></td>
+<tr class="row-even"><td class="text-align:left"><p><span class="math notranslate nohighlight">\(y [cm]\)</span></p></td>
+<td class="text-align:left"><p>0.0</p></td>
+<td class="text-align:left"><p>1.0</p></td>
+<td class="text-align:left"><p>0.8</p></td>
+<td class="text-align:left"><p>1.8</p></td>
+<td class="text-align:left"><p>1.6</p></td>
+<td class="text-align:left"><p>2.4</p></td>
 </tr>
 </tbody>
 </table>
-<p>Die Messwerte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Verwenden Sie hierbei keine fertige Matlab Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert. Der Einfachheit halber werden hier Polynome vom Grad zwei verwendet.</p>
+<a class="reference internal image-reference" href="../_images/spline_spline.png"><img alt="../_images/spline_spline.png" class="align-center" src="../_images/spline_spline.png" style="width: 400px; height: 315px;" /></a>
+<p>Abbildung 1: Verlauf der Straklatte (braun) um die angegebenen Punkte (schwarz) mit Kontaktpunkten (rot). Hier wurden Polynome dritten Grades verwendet.</p>
+<p>Diese Punkte sollen nun interpoliert werden, um möglichst genaue Werte über den gesamten Verlauf zu erhalten (<strong>Verwenden Sie hierbei keine fertige Matlab Spline-Funktion benutzen - Finger weg von der Spline-Toolbox!</strong>). Dazu wird jedes Teilintervall mit einem geeigneten Polynom genähert.</p>
 <div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<p>Konstruieren Sie eine quadratische Splinefunktion durch die Anfangs- und Endpunkte der Teilintervalle mit Bleistift und Papier.
-Bestimmen Sie die Koeffizienten der gesuchten Parabeln <span class="math notranslate nohighlight">\(z_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [0,2]\)</span>.</p>
+<p>Konstruieren Sie eine quadratische Splinefunktion durch die ersten drei Punkte mit Bleistift und Papier.
+Bestimmen Sie die Koeffizienten der gesuchten Funktionen <span class="math notranslate nohighlight">\(y_i(x) = a_i + b_i(x-x_i) + c_i(x-x_i)^2, i \in [1,n_\text{Punkte}-1]\)</span>.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Zur eindeutigen Bestimmung der einzelnen Polynome sind drei Bedingungen notwendig. Zwei sind durch
-den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke im gesamten Spline zu vermeiden
+den Anfangs- und Endpunkt des jeweiligen Intervalls gegeben. Um Knicke in der gesamten Spline zu vermeiden
 wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen übereinstimmen
 (dritte Bedingung). Welche Randbedingung ist für die erste Ableitung an der Einspannung zu wählen?</p>
 </div>
@@ -833,14 +819,14 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Implementieren Sie eine Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">zfine</span> <span class="pre">=</span> <span class="pre">quadraticSpline(x,</span> <span class="pre">z,</span> <span class="pre">xfine,</span> <span class="pre">bc)</span></code>, die für gegebene x- und z-Werte sowie Randbedingung an den von <code class="docutils literal notranslate"><span class="pre">xfine</span></code> definierten Punkten die entsprechenden z-Werte des Splines berechnet.</p></li>
+<li><p>Implementieren Sie eine Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">function</span> <span class="pre">yfine</span> <span class="pre">=</span> <span class="pre">quadraticSpline(x,</span> <span class="pre">y,</span> <span class="pre">xfine,</span> <span class="pre">bc)</span></code>, die für gegebene x- und y-Werte sowie Randbedingung an den von <code class="docutils literal notranslate"><span class="pre">xfine</span></code> definierten Punkten die entsprechenden y-Werte des Splines berechnet.</p></li>
 </ul>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file quadraticSpline.m</span>
-<span class="k">function</span><span class="w"> </span>zfine<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">quadraticSpline</span><span class="p">(</span>x, z, xfine, bc<span class="p">)</span><span class="w"></span>
-<span class="c">% z = quadraticSpline(x, z, xfine, bc) calculates the quadratic spline going through the</span>
-<span class="c">% points defined by xi and zi and evaluates the spline at the points in xfine.</span>
+<span class="k">function</span><span class="w"> </span>yfine<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">quadraticSpline</span><span class="p">(</span>x, y, xfine, bc<span class="p">)</span><span class="w"></span>
+<span class="c">% yfine = quadraticSpline(x, y, xfine, bc) calculates the quadratic spline going through the</span>
+<span class="c">% points defined by xi and yi and evaluates the spline at the points in xfine.</span>
 
 <span class="p">...</span>
 
@@ -850,7 +836,7 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 </div>
 </div>
 <ul class="simple">
-<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>Test Suite</em> <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code>. Es reicht zunächst, dass die ersten fünf der Unit Tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle neun Unit Tests zu erfüllen?</p></li>
+<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>Test Suite</em> <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten fünf der Unit Tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle neun Unit Tests zu erfüllen?</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -860,89 +846,8 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 </div>
 </div>
 </div>
-<p>Klappen Sie die Box aus, um <code class="docutils literal notranslate"><span class="pre">test_quadraticSpline.m</span></code> näher anzusehen.</p>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">test_suite</span><span class="p">=</span><span class="n">test_quadraticSpline</span>
-<span class="c">% initialize unit tets</span>
-    <span class="k">try</span>
-        <span class="n">test_functions</span><span class="p">=</span><span class="n">localfunctions</span><span class="p">();</span>
-    <span class="k">catch</span>
-    <span class="k">end</span>
-    <span class="n">initTestSuite</span><span class="p">;</span>
-
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">%     Basic tests     %</span>
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
- 
-<span class="c">%% WIP: check more values on know parabola?</span>
-
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_Std05</span>
-<span class="c">% test function of quadraticSpline on Standardparabola</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
-    
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_Std0</span>
-<span class="c">% test function of quadraticSpline on Standardparabola</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mf">0.25</span><span class="p">)</span>
-    
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_Std1</span>
-<span class="c">% test function of quadraticSpline on Standardparabola</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_Task</span>
-<span class="c">% test function of quadraticSpline on more complex Parabola from given task</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0125</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.1125</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">];</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="mf">0.5</span><span class="p">:</span><span class="mi">2</span><span class="p">;</span>
-    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.35</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="mf">0.006125</span><span class="p">)</span>
-
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_Derivate</span>
-<span class="c">% test if Derivates on edge of intervals are equal</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.0625</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">zDer1</span> <span class="p">=</span> <span class="mi">10</span>^<span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.25</span><span class="o">+</span><span class="mi">10</span>^<span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
-    <span class="n">zDer2</span> <span class="p">=</span> <span class="mi">10</span>^<span class="mi">10</span><span class="o">*</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.25</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="o">-</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.25</span><span class="o">-</span><span class="mi">10</span>^<span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
-    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="n">zDer1</span><span class="p">,</span><span class="n">zDer2</span><span class="p">)</span>    
-    
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
-<span class="c">% More advanced tests %</span>
-<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
-
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_exception_outofbounds</span>
-<span class="c">% test if exceptions are thrown for xfine outside x</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
-    
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_exception_xzSizeDifference</span>
-<span class="c">% test if exceptions are thrown if x and z are of different size // not</span>
-<span class="c">% proper value pairs</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
-    
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_exception_xNotSorted</span>
-<span class="c">% test if exceptions are thrown if x is not ordered</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span> <span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.64</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mi">0</span><span class="p">));</span>
-    
-<span class="k">function</span><span class="w"> </span><span class="nf">test_quadraticSpline_array</span>
-<span class="c">% test if quadraticSpline works on array inputs</span>
-    <span class="n">x</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">z</span> <span class="p">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">];</span>
-    <span class="n">assertVectorsAlmostEqual</span><span class="p">(</span><span class="n">quadraticSpline</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">,</span> <span class="mf">0.78</span><span class="p">],</span><span class="mi">0</span><span class="p">),[</span><span class="mf">0.04</span><span class="p">,</span>   <span class="mf">0.0004</span><span class="p">,</span>   <span class="mf">0.2025</span><span class="p">,</span>   <span class="mf">0.6084</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <ul class="simple">
-<li><p>Nun soll der Biegungsverlauf des gesamten Balkens mit einer Schrittweite von 1 mm interpoliert werden. Erstellen Sie dazu ein Skript, in welchem Ihre Funktion auf die obigen Messwerte angewandt wird. Stellen Sie den interpolierten Spline bzw. die Biegelinie in einem Plot dar.</p></li>
+<li><p>Nun soll der Spline Verlauf mit einer Schrittweite von 1 mm interpoliert werden. Erstellen Sie dazu ein Skript, in welchem Ihre Funktion auf die obigen Messwerte angewandt wird. Stellen Sie die interpolierte Spline in einem Plot dar.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -950,6 +855,43 @@ wird zusätzlich gefordert, dass die ersten Ableitungen an den Intervallgrenzen 
 
 <span class="c">%uncomment to equalize axis:</span>
 <span class="c">%axis equal</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="aufgabe-3-zusatzaufgabe">
+<h2>Aufgabe 3 (Zusatzaufgabe):<a class="headerlink" href="#aufgabe-3-zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Nutzen Sie Ihren Code aus Aufgabe 2 um eine Funktion <code class="docutils literal notranslate"><span class="pre">yfine</span> <span class="pre">=</span> <span class="pre">cubicSpline(x,y,xfine,bc)</span></code> zu erstellen.</p></li>
+<li><p>Nutzen Sie die <code class="docutils literal notranslate"><span class="pre">Spline</span></code> Funktion von Matlab, um eigene Unit Tests für Ihre <code class="docutils literal notranslate"><span class="pre">cubicSpline</span></code> funktion zu schreiben (einfache Vergleiche für einige Test-Sets an Punkten genügen).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file cubicSpline.m</span>
+<span class="k">function</span><span class="w"> </span>yfine<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">cubicSpline</span><span class="p">(</span>x,y,xfine,bc<span class="p">)</span><span class="w"></span>
+
+<span class="p">...</span>
+
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file test_cubicSpline.m</span>
+<span class="c">%unit tests using Spline</span>
+
+<span class="c">% test the quadraticSpline function</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% test the cubicSpline function</span>
+<span class="n">moxunit_runtests</span> <span class="n">test_cubicSpline</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>
