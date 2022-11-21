@@ -49,6 +49,6 @@ license: CC BY-NC-SA-4.0
 identifiers:
   - description: "The concept DOI of the work."
     type: doi
-    value: tbd
+    value: "https://doi.org/10.5281/zenodo.2560551"
 date-released: 2022-09-14
 repository: "https://github.com/hbrs-cse/Modellbildung-und-Simulation"
