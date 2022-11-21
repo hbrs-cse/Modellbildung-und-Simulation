@@ -44,7 +44,7 @@ authors:
 contact:
   - affiliation: "Hochschule Bonn-Rhein-Sieg"
 title: "Modellbildung-und-Simulation: Online Lehrbuch"
-version: v1.0.0-alpha1
+version: v1.0.0-alpha.0
 license: CC-BY-SA-4.0
 identifiers:
   - description: "The concept DOI of the work."
