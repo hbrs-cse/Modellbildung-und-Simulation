@@ -20,4 +20,4 @@ with support of the **UC Berkeley Data Science Education Program and the Berkele
 Institute for Data Science**.
 
 [sam]: http://www.samlau.me/
-[chris]: https://predictablynoisy.com
+[chris]: https://github.com/choldgraf
