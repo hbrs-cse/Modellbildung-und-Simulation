@@ -26,7 +26,7 @@ jobs:
             apt-get update
             apt-get install -y python3-venv
             python3 -m venv build-page-venv
-            echo "source build-page-venv/bin/activate" >> $BASH_ENV
+            echo "~/project/build-page-venv/bin/activate" >> $BASH_ENV
     
       - run:
           name: Install ssh
