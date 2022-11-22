@@ -21,6 +21,7 @@ jobs:
       - run:
           name: Install ssh
           command: |
+            apt-get install python3-venv
             python3 -m venv build-page
             . venv/bin/activate
             apt update
