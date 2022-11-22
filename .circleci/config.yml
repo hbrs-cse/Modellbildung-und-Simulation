@@ -30,28 +30,24 @@ jobs:
       - run:
           name: Install ssh
           command: |
-            . build-page-venv/bin/activate
-            apt update
-            apt -y install ssh
+            build-page-venv/bin/apt update
+            build-page-venv/bin/apt -y install ssh
     
       # Get our data and merge with upstream
-      - checkout:
-        path: ~/app
+      - checkout
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
       - run:
           name: Install requirements
           command: |
-            . build-page-venv/bin/activate
-            pip3 install --upgrade pip
-            pip3 install -r requirements.txt
+            build-page-venv/bin/pip3 install --upgrade pip
+            build-page-venv/bin/pip3 install -r requirements.txt
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
           name: Build page intermediate HTML files
           command: |
-            . build-page-venv/bin/activate
             cd content
             jupyter-book toc from-project -e .ipynb -e .md -f jb-book . > _toc.yml
             cat _toc.yml
