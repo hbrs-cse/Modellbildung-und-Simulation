@@ -18,6 +18,8 @@ jobs:
     docker:
       - image: mtmiller/octave
       - image: cimg/python:3.11.0
+        environment:
+          PIPENV_VENV_IN_PROJECT: true
     steps:
       - run:
           name: Install and activate build-page-venv
