@@ -60,7 +60,7 @@ In diesem Lehrbuch geht es hauptsächlich um Methodik und weniger um die Compute
 * [http://www.mathworks.de/academia/student_center/tutorials](http://www.mathworks.de/academia/student_center/tutorials)
 * [http://www.mathworks.com/academia/courseware](http://www.mathworks.com/academia/courseware)
 * [http://www.mathworks.de/matlabcentral/fileexchange/](http://www.mathworks.de/matlabcentral/fileexchange/)
-* [let me google that for you...](http://lmgtfy.com/?q=matlab+tutorial+beginner)
+* [let me google that for you...](https://letmegooglethat.com/?q=matlab+tutorial+beginner)
 
 
 Genauso hilft immer ein Blick in die Dokumentation. Nichtsdestotrotz sollen hier die absoluten Basics einmal beschrieben werden. Die wichtigsten Fenster von Matlab werden am Anfang das *Command Window*, der *Editor* und der *Workspace* sein. 
