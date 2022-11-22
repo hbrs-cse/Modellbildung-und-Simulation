@@ -21,6 +21,8 @@ jobs:
       - run:
           name: Install ssh
           command: |
+            python3 -m venv build-page
+            . venv/bin/activate
             apt update
             apt -y install ssh
     
@@ -32,7 +34,6 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            python -m venv build-page
             pip3 install --upgrade pip
             pip3 install -r requirements.txt
 
