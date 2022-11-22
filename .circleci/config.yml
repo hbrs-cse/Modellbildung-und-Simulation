@@ -32,6 +32,7 @@ jobs:
       - run:
           name: Install requirements
           command: |
+            python -m venv build-page
             pip3 install --upgrade pip
             pip3 install -r requirements.txt
 
