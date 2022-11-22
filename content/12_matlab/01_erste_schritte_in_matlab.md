@@ -1,12 +1,11 @@
-````{panels}
-Voraussetzungen
-^^^
+````{grid} 2,
+```{grid-item-card} Voraussetzungen
 - keine
----
+```
 
-Lerninhalte
-^^^
+```{grid-item-card} Lerninhalte
 - Kennenlernen von Matlab
+```
 ````
 
 (erste_schritte)=
