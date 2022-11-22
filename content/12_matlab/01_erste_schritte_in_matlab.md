@@ -1,4 +1,4 @@
-````{grid} 2,
+````{grid} 2
 ```{grid-item-card} Voraussetzungen
 - keine
 ```
