@@ -17,7 +17,7 @@ jobs:
   build_page_files:
     docker:
       - image: mtmiller/octave
-      - image: circleci/python
+      - image: cimg/python
     steps:
       - run:
           name: Install and activate build-page-venv
@@ -65,7 +65,7 @@ jobs:
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: circleci/python
+      - image: cimg/python
     steps:
       - checkout
 
@@ -85,7 +85,7 @@ jobs:
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: circleci/python
+      - image: cimg/python
     steps:
       - checkout
 
