@@ -17,7 +17,7 @@ jobs:
   build_page_files:
     docker:
       - image: mtmiller/octave
-      - image: circleci/python:3.11.0
+      - image: cimg/python:3.11.0
     steps:
       # Get our data and merge with upstream
       - checkout
@@ -51,7 +51,7 @@ jobs:
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: circleci/python:3.11.0
+      - image: cimg/python:3.11.0
     steps:
       - checkout
 
@@ -71,7 +71,7 @@ jobs:
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: circleci/python:3.11.0
+      - image: cimg/python:3.11.0
     steps:
       - checkout
 
