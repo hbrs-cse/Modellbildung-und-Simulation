@@ -18,6 +18,7 @@ jobs:
     docker:
       - image: mtmiller/octave
       - image: cimg/python:3.11.0
+    working_directory: ~/project
     steps:
       - run:
           name: Install and activate build-page-venv
@@ -26,8 +27,7 @@ jobs:
             apt-get update
             apt-get install -y python3-venv
             python3 -m venv build-page-venv
-            . build-page-venv/bin/activate
-            cd ~/project
+            echo "source build-page-venv/bin/activate" >> $BASH_ENV
     
       - run:
           name: Install ssh
