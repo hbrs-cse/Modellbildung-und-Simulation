@@ -33,6 +33,9 @@ jobs:
             source build-page-venv/bin/activate
             apt update
             apt -y install ssh
+            ls
+            cd ~/root/project
+            ls
     
       # Get our data and merge with upstream
       - checkout
