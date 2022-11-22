@@ -17,7 +17,7 @@ jobs:
   build_page_files:
     docker:
       - image: mtmiller/octave
-      - image: circleci/python:3.11.0
+      - image: circleci/python
     steps:
       - run:
           name: Install ssh
@@ -57,7 +57,7 @@ jobs:
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: circleci/python:3.11.0
+      - image: circleci/python
     steps:
       - checkout
 
@@ -77,7 +77,7 @@ jobs:
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: circleci/python:3.11.0
+      - image: circleci/python
     steps:
       - checkout
 
