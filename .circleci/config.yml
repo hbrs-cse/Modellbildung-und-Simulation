@@ -33,6 +33,7 @@ jobs:
             . build-page-venv/bin/activate
             apt update
             apt -y install ssh
+            cd ~/project
     
       # Get our data and merge with upstream
       - checkout
