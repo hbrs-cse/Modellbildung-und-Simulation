@@ -40,6 +40,7 @@ jobs:
       - run:
           name: Install requirements
           command: |
+            pipenv update --outdated
             pipenv install -r requirements.txt
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
