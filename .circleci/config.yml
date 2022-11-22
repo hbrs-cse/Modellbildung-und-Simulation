@@ -22,16 +22,15 @@ jobs:
       - run:
           name: Install and activate build-page-venv
           command: |
-            cd ~
             apt-get update
             apt-get install -y python3-venv
             python3 -m venv build-page-venv
-            echo "~/project/build-page-venv/bin/activate" >> $BASH_ENV
+            ~/project/build-page-venv/bin/activate
     
       - run:
           name: Install ssh
           command: |
-            $BASH_ENV
+            ~/project/build-page-venv/bin/activate
             apt update
             apt -y install ssh
     
@@ -43,7 +42,7 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            $BASH_ENV
+            ~/project/build-page-venv/bin/activate
             pip3 install --upgrade pip
             pip3 install -r requirements.txt
 
@@ -51,7 +50,7 @@ jobs:
       - run:
           name: Build page intermediate HTML files
           command: |
-            $BASH_ENV
+            ~/project/build-page-venv/bin/activate
             cd content
             jupyter-book toc from-project -e .ipynb -e .md -f jb-book . > _toc.yml
             cat _toc.yml
