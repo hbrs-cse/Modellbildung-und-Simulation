@@ -32,6 +32,7 @@ jobs:
           command: |
             apt update
             apt -y install ssh
+            cd /root/project/
     
       # Get our data and merge with upstream
       - checkout
