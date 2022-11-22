@@ -34,7 +34,7 @@ jobs:
             apt update
             apt -y install ssh
             ls
-            cd ~/root/project
+            cd ~/project
             ls
     
       # Get our data and merge with upstream
