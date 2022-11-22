@@ -22,11 +22,12 @@ jobs:
       - run:
           name: Install and activate build-page-venv
           command: |
+            cd ~
             apt-get update
             apt-get install -y python3-venv
             python3 -m venv build-page-venv
             . build-page-venv/bin/activate
-            cd /home/circleci/project
+            cd ~/project
     
       - run:
           name: Install ssh
