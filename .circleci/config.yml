@@ -35,8 +35,8 @@ jobs:
             apt -y install ssh
     
       # Get our data and merge with upstream
-      - cd ~/project
-      - checkout
+      - checkout:
+        path: ~/app
 
       # Install the packages needed to build our documentation
       # This will depend on your particular package!
