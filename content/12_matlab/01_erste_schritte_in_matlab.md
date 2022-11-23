@@ -1,4 +1,4 @@
-````{panels}
+````{card}
 Voraussetzungen
 ^^^
 - keine
