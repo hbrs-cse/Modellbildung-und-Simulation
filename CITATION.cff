@@ -44,11 +44,11 @@ authors:
 contact:
   - affiliation: "Hochschule Bonn-Rhein-Sieg"
 title: "Modellbildung-und-Simulation: Online Lehrbuch"
-version: 1.0.0
-license: CC BY-NC-SA-4.0
+version: v1.0.0-alpha.0
+license: CC-BY-SA-4.0
 identifiers:
   - description: "The concept DOI of the work."
     type: doi
-    value: tbd
-date-released: 2022-09-14
+    value: "https://doi.org/10.5281/zenodo.2560551"
+date-released: 2022-11-22
 repository: "https://github.com/hbrs-cse/Modellbildung-und-Simulation"

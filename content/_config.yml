@@ -31,6 +31,7 @@ html:
     <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
     <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
     <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>
+    <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a>
     </div>'  # Will be displayed underneath the left navbar.
   google_analytics_id       : "UA-134708516-1"  # A GA id that can be used to track book views.
   home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
