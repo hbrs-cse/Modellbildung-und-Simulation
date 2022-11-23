@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spielbeispiel: Approximation &#8212; Modellbildung und Simulation</title>
+    <title>Funktionen mit Taylorpolynomen berechnen &#8212; Modellbildung und Simulation</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -76,6 +76,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe,.cell"
@@ -86,8 +88,8 @@ commentsRunWhenDOMLoaded(addUtterances);
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Lineare Approximation" href="04_lineare_approximation.html" />
-    <link rel="prev" title="Lineare Interpolation" href="02_lineare_interpolation.html" />
+    <link rel="next" title="Interpolation und Approximation" href="../03_interp_approx/00_interpolation_Und_approximation.html" />
+    <link rel="prev" title="Spielbeispiel: Taylorpolynome" href="02_spielbeispiel_taylor.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -194,65 +196,65 @@ commentsRunWhenDOMLoaded(addUtterances);
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_gleitkommaarithmetik.html">
    Gleitkommaarithmetik
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
-     Übungen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/02_spielbeispiel_taylor.html">
-     Spielbeispiel: Taylorpolynome
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_gleitkommaarithmetik/03_taylor.html">
-     Funktionen mit Taylorpolynomen berechnen
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_interpolation_Und_approximation.html">
-   Interpolation und Approximation
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_spielbeispiel_interpolation.html">
-     Spielbeispiel: Interpolation
+    <a class="reference internal" href="01_uebungen.html">
+     Übungen
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_lineare_interpolation.html">
-     Lineare Interpolation
+    <a class="reference internal" href="02_spielbeispiel_taylor.html">
+     Spielbeispiel: Taylorpolynome
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     Funktionen mit Taylorpolynomen berechnen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/01_spielbeispiel_interpolation.html">
+     Spielbeispiel: Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/02_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/03_spielbeispiel_approximation.html">
      Spielbeispiel: Approximation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_lineare_approximation.html">
+    <a class="reference internal" href="../03_interp_approx/04_lineare_approximation.html">
      Lineare Approximation
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="05_spline_interpolation.html">
+    <a class="reference internal" href="../03_interp_approx/05_spline_interpolation.html">
      Spline-Interpolation
     </a>
    </li>
@@ -656,7 +658,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/03_interp_approx/03_spielbeispiel_approximation.ipynb"><button type="button"
+        <a class="dropdown-buttons" href="../_sources/02_gleitkommaarithmetik/03_taylor.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
@@ -673,7 +675,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/03_interp_approx/03_spielbeispiel_approximation.ipynb"><button
+        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/02_gleitkommaarithmetik/03_taylor.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -693,7 +695,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
     <div class="dropdown-buttons">
         
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/03_interp_approx/03_spielbeispiel_approximation.ipynb"><button type="button"
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/02_gleitkommaarithmetik/03_taylor.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
                 data-placement="left"><img class="binder-button-logo"
                     src="../_static/images/logo_binder.svg"
@@ -713,6 +715,50 @@ commentsRunWhenDOMLoaded(addUtterances);
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sin-varphi-fur-kleine-winkel">
+   <span class="math notranslate nohighlight">
+    \(\sin(\varphi)\)
+   </span>
+   für kleine Winkel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wann-versagt-die-kleinwinkelnaherung">
+   Wann versagt die Kleinwinkelnäherung?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sin-varphi-mit-taylorpolynomen-hoheren-grades">
+   <span class="math notranslate nohighlight">
+    \(\sin(\varphi)\)
+   </span>
+   mit Taylorpolynomen höheren Grades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ermittlung-der-notwendigen-entwicklungsgrade">
+   Ermittlung der notwendigen Entwicklungsgrade
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genauigkeit-vs-rechenaufwand">
+   Genauigkeit vs. Rechenaufwand
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#berechnung-uber-aneinander-gekettete-taylorpolynome">
+   Berechnung über aneinander gekettete Taylorpolynome
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -720,28 +766,253 @@ commentsRunWhenDOMLoaded(addUtterances);
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Spielbeispiel: Approximation</h1>
+                <h1>Funktionen mit Taylorpolynomen berechnen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sin-varphi-fur-kleine-winkel">
+   <span class="math notranslate nohighlight">
+    \(\sin(\varphi)\)
+   </span>
+   für kleine Winkel
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wann-versagt-die-kleinwinkelnaherung">
+   Wann versagt die Kleinwinkelnäherung?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sin-varphi-mit-taylorpolynomen-hoheren-grades">
+   <span class="math notranslate nohighlight">
+    \(\sin(\varphi)\)
+   </span>
+   mit Taylorpolynomen höheren Grades
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ermittlung-der-notwendigen-entwicklungsgrade">
+   Ermittlung der notwendigen Entwicklungsgrade
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#genauigkeit-vs-rechenaufwand">
+   Genauigkeit vs. Rechenaufwand
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#berechnung-uber-aneinander-gekettete-taylorpolynome">
+   Berechnung über aneinander gekettete Taylorpolynome
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="section" id="spielbeispiel-approximation">
-<h1>Spielbeispiel: Approximation<a class="headerlink" href="#spielbeispiel-approximation" title="Permalink to this headline">¶</a></h1>
-<p>Hier finden Sie eine Demonstration eines Approximationsverfahrens zum “Herumspielen”. <strong>Die Darstellung in einem eigenen Tab ist sehr zu empfehlen.</strong> Klicken Sie <a href="https://phispel-spielbeispiel-approximation-streamlit-app-omgwx6.streamlit.app/" target="_blank"><strong>hier</strong></a>, um die Seite in einem neuen Tab zu öffnen.</p>
-<!DOCTYPE html>
-<html>
-<body margin = "0">
-<iframe src="https://phispel-spielbeispiel-approximation-streamlit-app-omgwx6.streamlit.app/?embedded=true" width="100%" height="700" frameborder="0">
-  <p>Your browser does not support iframes.</p>
-</iframe>
-</body>
-</html><div style="text-align: left;font-size:80%;color:grey"> - Hinweis: Diese Seite ist von Streamlit eingebunden und unterliegt der dort angegebenen Lizenz! -
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Programmier-Grundlagen</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Einblick in die Nutzung von Taylorpolynomen</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="funktionen-mit-taylorpolynomen-berechnen">
+<span id="taylor"></span><h1>Funktionen mit Taylorpolynomen berechnen<a class="headerlink" href="#funktionen-mit-taylorpolynomen-berechnen" title="Permalink to this headline">¶</a></h1>
+<p>Um Funktionen wie <span class="math notranslate nohighlight">\(\sin(x)\)</span>, <span class="math notranslate nohighlight">\(\cos(x)\)</span> oder <span class="math notranslate nohighlight">\(\ln(x)\)</span> zu berechnen, können Sie einen Trick nutzen: Sie approximieren die Funktion als zusammengesetztes Polynom. Dieses Polynom ist nicht etwa ein beliebiges, experimentell bestimmtes Polynom, sondern ein Taylorpolynom. Diese ergeben sich aus einer “nur” endlich berechneten Taylorreihe. Die Taylorreihe kann jede glatte Funktion darstellen als</p>
+<div class="math notranslate nohighlight">
+\[f(x) = \sum_{n=0}^{\infty}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\]</div>
+<p>, mit <span class="math notranslate nohighlight">\(x_0\)</span> dem <em>Entwicklungspunkt</em> der Reihe. Das Taylor<em>polynom</em> ist also</p>
+<div class="math notranslate nohighlight">
+\[f(x) \approx T_{f,x_0}(x) = \sum_{n=0}^{N}\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n\]</div>
+<p>Der durch den sogenannten <em>Abbruch bei <span class="math notranslate nohighlight">\(N\)</span></em> gemachte Fehler ist nahe an <span class="math notranslate nohighlight">\(x_0\)</span> noch überschaubar, kann aber bei größeren Abständen schnell sehr groß werden. Er lässt sich schätzen, in dieser Übung wollen wir aber einfach ein “Gespür” für die Genauigkeit der Taylorreihe erhalten. Nehmen wir dazu die Funktion <span class="math notranslate nohighlight">\(\sin(\varphi)\)</span>.</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Anstelle der Approximation durch Taylorpolynome nutzen Taschenrechner den <a class="reference external" href="https://de.wikipedia.org/wiki/CORDIC">CORDIC Algorithmus</a>, der noch besser funktioniert. Den wollen wir hier einmal beiseite lassen und uns vorstellen, dass Taylorpolynome state-of-the-art sind.</p>
+</div>
+<div class="section" id="sin-varphi-fur-kleine-winkel">
+<h2><span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> für kleine Winkel<a class="headerlink" href="#sin-varphi-fur-kleine-winkel" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/pendulum.png"><img alt="Name of image" class="align-center" src="../_images/pendulum.png" style="width: 400px;" /></a>
+<p>In den Ingenieurswissenschaften ist häufig die Rede von der <em>Kleinwinkelnäherung</em> mit <span class="math notranslate nohighlight">\(\sin(\varphi) \approx \varphi\)</span>. Dies folgt daher, dass das Erste Taylorpolynom um <span class="math notranslate nohighlight">\(\varphi_0 = 0\)</span> den <span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> bis zu Winkeln von <span class="math notranslate nohighlight">\(5°\)</span> (etwa <span class="math notranslate nohighlight">\(0.087\)</span> Radiant) sehr gut annähert:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+T_1 \sin(\varphi,0) &amp;= \sum_{n=0}^{1}\frac{f^{(n)}(0)}{n!}(x-0)^n\\
+&amp;= \frac{f^{(0)}(0)}{0!}(\varphi)^0 + \frac{f^{(1)}(0)}{1!}(\varphi)^1\\
+&amp;= \frac{\sin(0)}{1}1 + \frac{\cos(0)}{1}\varphi\\
+&amp;= \varphi
+\end{align}\end{split}\]</div>
+<p>Berechnen Sie die maximale (absolute) Abweichung der Kleinwinkelnäherung auf dem Intervall <span class="math notranslate nohighlight">\(\varphi \in [0,0.1]\)</span> mit einer Auflösung von 100 Punkten. Überzeugen Sie sich davon mit einem kleinen Plot.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">phispan</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">sin_phi</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">T_1</span>     <span class="p">=</span> <span class="p">...</span>
+<span class="nb">error</span>   <span class="p">=</span> <span class="p">...</span> <span class="c">% absolute error throughout the interval</span>
+<span class="n">maxerror</span><span class="p">=</span> <span class="p">...</span> <span class="c">% maximum error across interval</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">))</span>
+<span class="nb">figure</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="nb">error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wann-versagt-die-kleinwinkelnaherung">
+<h2>Wann versagt die Kleinwinkelnäherung?<a class="headerlink" href="#wann-versagt-die-kleinwinkelnaherung" title="Permalink to this headline">¶</a></h2>
+<p>Erweitern Sie das Intervall auf <span class="math notranslate nohighlight">\(\varphi \in [-\pi,\pi]\)</span>. Wann überschreitet der Fehler eine Schranke <code class="docutils literal notranslate"><span class="pre">atol</span></code>?</p>
+<div class="tip admonition">
+<p class="admonition-title">Tipp</p>
+<p>Nutzen Sie hierfür die Kontrollstruktur <code class="docutils literal notranslate"><span class="pre">phispan(error&lt;atol)</span></code>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">phispan</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="nb">pi</span><span class="p">,</span><span class="nb">pi</span><span class="p">,</span><span class="mi">1000</span><span class="p">);</span>
+<span class="n">sin_phi</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">T_1</span>     <span class="p">=</span> <span class="p">...</span>
+<span class="nb">error</span>   <span class="p">=</span> <span class="p">...</span> <span class="c">% absolute error throughout the interval</span>
+<span class="n">maxerror</span><span class="p">=</span> <span class="p">...</span> <span class="c">% maximum error across interval</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">),</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">error</span><span class="p">)</span>
+<span class="n">atol</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="nb">min</span><span class="p">(</span><span class="n">phispan</span><span class="p">(</span><span class="nb">error</span><span class="o">&lt;</span><span class="n">atol</span><span class="p">))</span>
+<span class="nb">max</span><span class="p">(</span><span class="n">phispan</span><span class="p">(</span><span class="nb">error</span><span class="o">&lt;</span><span class="n">atol</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="sin-varphi-mit-taylorpolynomen-hoheren-grades">
+<h2><span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> mit Taylorpolynomen höheren Grades<a class="headerlink" href="#sin-varphi-mit-taylorpolynomen-hoheren-grades" title="Permalink to this headline">¶</a></h2>
+<p>Vergleichen Sie nun Ihre Lösung mit der dritten und fünften Taylorpolynom (<span class="math notranslate nohighlight">\(N = 3\)</span> und <span class="math notranslate nohighlight">\(N = 5\)</span>) auf dem Intervall <span class="math notranslate nohighlight">\(\varphi = [0,\pi/6]\)</span>. Schreiben Sie hierzu eine <code class="docutils literal notranslate"><span class="pre">function</span></code>, die die Taylorpolynome für beliebige Grade berechnet.</p>
+<p>Versuchen Sie, das Taylorpolynom <span class="math notranslate nohighlight">\(T_N \sin(\varphi,0)\)</span> möglichst weit zu vereinfachen. Sollten Sie nicht weiter kommen, klappen Sie das Fenster aus.</p>
+<div class="toggle docutils container">
+<p>Nach einer kurzen Internetrecherche finden Sie folgende Vereinfachung der Taylorpolynome der Sinusfunktion (hier wird jedes gerade Glied der Taylorreihe übersprungen, da <span class="math notranslate nohighlight">\(\sin(2n \pi)=0\)</span>).</p>
+<div class="math notranslate nohighlight">
+\[T_K \sin(\varphi,0) = \sum_{k=0}^K (-1)^k \frac{\varphi^{2k+1}}{(2k+1)!}\]</div>
+<p>Hier entspricht <span class="math notranslate nohighlight">\(K\)</span> nicht mehr dem Grad des Taylorpolynoms, da jedes zweite Glied übersprungen wurde. Stattdessen ist <span class="math notranslate nohighlight">\(K= \text{floor}(\frac{N-1}{2})\)</span>.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">taylor_sin</span><span class="p">(</span>phi0,phispan,n<span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">phispan</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="n">sin_phi</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="n">T_1</span>        <span class="p">=</span> <span class="p">...</span>
+<span class="n">error_1</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="n">maxerror_1</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">T_3</span>        <span class="p">=</span> <span class="p">...</span>
+<span class="n">error_3</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="n">maxerror_3</span> <span class="p">=</span> <span class="p">...</span>
+<span class="n">T_5</span>        <span class="p">=</span> <span class="p">...</span>
+<span class="n">error_5</span>    <span class="p">=</span> <span class="p">...</span>
+<span class="n">maxerror_5</span> <span class="p">=</span> <span class="p">...</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">T_3</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">T_5</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">),</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">error_1</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">error_3</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="n">error_5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="ermittlung-der-notwendigen-entwicklungsgrade">
+<h2>Ermittlung der notwendigen Entwicklungsgrade<a class="headerlink" href="#ermittlung-der-notwendigen-entwicklungsgrade" title="Permalink to this headline">¶</a></h2>
+<p>Nun wollen wir <span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> für das gesamte Intervall <span class="math notranslate nohighlight">\(\varphi = [0,\pi/2]\)</span> also <span class="math notranslate nohighlight">\(0\)</span> bis <span class="math notranslate nohighlight">\(90°\)</span> mit Hilfe von Polynomen berechnen können. Wir wissen, dass Taschenrechner zehn Nachkommastellen ausgeben. Diese Toleranz wollen wir auch einhalten.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">atol</span>      <span class="p">=</span> <span class="p">...</span>
+<span class="n">n</span>         <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">phispan</span>   <span class="p">=</span> <span class="p">...</span>
+
+<span class="k">while</span> <span class="p">...</span>
+    <span class="n">n</span>      <span class="p">=</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+    <span class="n">T_n</span>    <span class="p">=</span> <span class="p">...</span>
+    <span class="p">...</span>
+<span class="k">end</span>
+
+<span class="n">maxerror</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">phispan</span><span class="p">,</span> <span class="n">T_n</span><span class="p">,</span> <span class="n">phispan</span><span class="p">,</span> <span class="nb">sin</span><span class="p">(</span><span class="n">phispan</span><span class="p">))</span>
+<span class="nb">legend</span><span class="p">([</span><span class="s">&#39;T_&#39;</span><span class="p">,</span> <span class="n">num2str</span><span class="p">(</span><span class="n">n</span><span class="p">)],</span><span class="s">&#39;MATLAB-sin&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<a class="reference internal image-reference" href="../_images/T_15.png"><img alt="Name of image" class="align-center" src="../_images/T_15.png" style="width: 800px;" /></a>
+</div>
+<div class="section" id="genauigkeit-vs-rechenaufwand">
+<h2>Genauigkeit vs. Rechenaufwand<a class="headerlink" href="#genauigkeit-vs-rechenaufwand" title="Permalink to this headline">¶</a></h2>
+<p>Gehen Sie davon aus, dass Sie den Sinus nun durch ein Polynom von Ordnung <code class="docutils literal notranslate"><span class="pre">N</span></code> approximiert und die Faktoren im Arbeitsspeicher abgelegt haben. “Folgen” Sie dem Rechner, wenn Sie <span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> so berechnen. Ermitteln Sie mit Stift und Papier die Anzahl von Rechenoperationen pro Funktionsaufruf.</p>
+</div>
+<div class="section" id="berechnung-uber-aneinander-gekettete-taylorpolynome">
+<h2>Berechnung über aneinander gekettete Taylorpolynome<a class="headerlink" href="#berechnung-uber-aneinander-gekettete-taylorpolynome" title="Permalink to this headline">¶</a></h2>
+<p>Bisher haben wir die Genauigkeit erhöht, indem wir den Polynomgrad erhöht haben. Alternativ können wir auch den Entwicklungspunkt <span class="math notranslate nohighlight">\(\varphi_0\)</span> verändern.</p>
+<p>Wir können also <span class="math notranslate nohighlight">\(\sin(\varphi)\)</span> aus mehreren Taylorpolynomen mit unterschiedlichen Entwicklungspunkten <span class="math notranslate nohighlight">\(\varphi_0\)</span> zusammensetzen. Modifizieren Sie Ihr Skript so, dass die Berechnung der Faktoren zwischen Funktionswerten des Sinus durchgeführt wird, die Ihnen bereits bekannt sind:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+\sin(0)&amp;=0, &amp; \\
+\sin(30°)&amp;=
+\sin\left(\frac{\pi}{6}\right)&amp;=
+\frac{1}{2},\\
+\sin(45°)&amp;=
+\sin\left(\frac{\pi}{4}\right)&amp;=
+\frac{1}{\sqrt{2}},\\
+\sin(60°)&amp;=
+\sin\left(\frac{\pi}{3}\right)&amp;=
+\frac{\sqrt{3}}{2},\\
+\sin(90°)&amp;=
+\sin\left(\frac{\pi}{2}\right)&amp;=
+1.
+\end{align}\end{split}\]</div>
+<p>Vergleichen Sie die beiden Herangehensweisen: Lohnt es sich, die Taylorpolynome über unterschiedliche Entwicklungspunkte (und damit unterschiedliche Intervalle) abzulegen? Wie viele Rechenoperationen werden nun pro Funktionsaufruf benötigt? Wie viele Kennwerte müssen Sie abspeichern?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% your code here</span>
+</pre></div>
+</div>
+</div>
+</div>
+<a class="reference internal image-reference" href="../_images/T_bits.png"><img alt="Name of image" class="align-center" src="../_images/T_bits.png" style="width: 800px;" /></a>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p><a class="reference external" href="https://share.streamlit.io/hbrs-cse/truncated-taylor-series/main">Hier</a> finden Sie eine sehr anschauliche Webanwendung mit einer Taylor-Approximation zum “Herumspielen”.</p>
+</div>
+<p><strong>Herzlichen Glückwunsch!</strong> Sie haben geschafft, die Sinusfunktion <strong>und</strong> die Cosinusfunktion auf zehn Nachkommastellen genau zu berechnen, indem Sie im Speicher Ihres Taschenrechners lediglich einige Stützstellen, die Faktoren der Polynome sowie die Rechenvorschrift für die Symmetrien der Kreisfunktionen einspeichern.</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -753,33 +1024,33 @@ commentsRunWhenDOMLoaded(addUtterances);
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            kernelName: "python3",
-            path: "./03_interp_approx"
+            kernelName: "octave",
+            path: "./02_gleitkommaarithmetik"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
               </div>
               
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="02_lineare_interpolation.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_spielbeispiel_taylor.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lineare Interpolation</p>
+            <p class="prev-next-title">Spielbeispiel: Taylorpolynome</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04_lineare_approximation.html" title="next page">
+    <a class='right-next' id="next-link" href="../03_interp_approx/00_interpolation_Und_approximation.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lineare Approximation</p>
+        <p class="prev-next-title">Interpolation und Approximation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
