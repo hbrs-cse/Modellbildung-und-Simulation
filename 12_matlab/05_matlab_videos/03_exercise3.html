@@ -741,8 +741,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#polynomberechnung-mit-matlab-routine-polyfit">
-   4. Polynomberechnung mit MATLAB-Routine
+  <a class="reference internal nav-link" href="#polynomberechnung-mit-der-matlab-routine-polyfit">
+   4. Polynomberechnung mit der Matlab-Routine
    <code class="docutils literal notranslate">
     <span class="pre">
      polyfit
@@ -801,8 +801,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#polynomberechnung-mit-matlab-routine-polyfit">
-   4. Polynomberechnung mit MATLAB-Routine
+  <a class="reference internal nav-link" href="#polynomberechnung-mit-der-matlab-routine-polyfit">
+   4. Polynomberechnung mit der Matlab-Routine
    <code class="docutils literal notranslate">
     <span class="pre">
      polyfit
@@ -831,20 +831,20 @@ commentsRunWhenDOMLoaded(addUtterances);
                 
   <div class="section" id="polynomfitting">
 <span id="content-references-matlab-polynomfitting"></span><h1>3. Polynomfitting<a class="headerlink" href="#polynomfitting" title="Permalink to this headline">¶</a></h1>
-<p>Ziel dieser Übung ist das Fitting von Messdaten mittels Polynomen. Dazu soll der Benutzer im zu schreibenden Programm die notwendigen Stützstellen per Mauseingabe vorgeben können. Anschließend soll ein Polynom mit frei wählbarem Grad an die Messwerte gefittet werden.</p>
+<p>Ziel dieser Übung ist das Fitting von Messdaten mittels Polynomen. Dazu sollen die Benutzer:innen im zu schreibenden Programm die notwendigen Stützstellen per Mauseingabe vorgeben können. Anschließend soll ein Polynom mit frei wählbarem Grad an die Messwerte gefittet werden.</p>
 <div class="section" id="situation">
 <h2>Situation<a class="headerlink" href="#situation" title="Permalink to this headline">¶</a></h2>
 <p>Für ein Simulations- und Optimierungsprogramm müssen Messwertverläufe in Form von Kennlinien bereitgestellt werden (Polynome).</p>
 <p>Zunächst muss dazu ein Programm geschrieben werden, welches Polynome eines beliebigen Grades auf Basis von gegebenen Stützpunkten berechnet.</p>
-<p>Diese Stützpunkte sollen dann vorerst von einem Benutzer händisch vorgegeben werden können.</p>
-<p>Zum Abschluss sollen optimale Polynome mit vorgefertigten MATLAB-Routinen berechnet werden.</p>
+<p>Diese Stützpunkte sollen dann vorerst von den Benutzer:innen händisch vorgegeben werden können.</p>
+<p>Zum Abschluss sollen optimale Polynome mit vorgefertigten Matlab-Routinen berechnet werden.</p>
 <p><a href="https://raw.githubusercontent.com/hbrs-cse/Modellbildung-und-Simulation/master/content/13_matlab/05_matlab_videos/files/MW_01.txt" download>MW_01.txt</a></p>
 <p><a href="https://raw.githubusercontent.com/hbrs-cse/Modellbildung-und-Simulation/master/content/13_matlab/05_matlab_videos/files/MW_02.txt" download>MW_02.txt</a></p>
 <p><a href="https://raw.githubusercontent.com/hbrs-cse/Modellbildung-und-Simulation/master/content/13_matlab/05_matlab_videos/files/MW_03.txt" download>MW_03.txt</a></p>
 </div>
 <div class="section" id="polynomgenerator">
 <h2>1. Polynomgenerator<a class="headerlink" href="#polynomgenerator" title="Permalink to this headline">¶</a></h2>
-<p>Erzeugen Sie ein neues Skript und legen Sie dort eine neue function <code class="docutils literal notranslate"><span class="pre">main</span></code> an.
+<p>Erzeugen Sie ein neues Skript und legen Sie dort eine neue Function <code class="docutils literal notranslate"><span class="pre">main</span></code> an.
 Legen Sie außerdem eine Variable n für den Grad der zu erzeugenden Polynome an.
 Erzeugen Sie nun <span class="math notranslate nohighlight">\(n+1\)</span> zufällige x- sowie y-Werte.</p>
 <div class="cell docutils container">
@@ -856,7 +856,7 @@ Erzeugen Sie nun <span class="math notranslate nohighlight">\(n+1\)</span> zufä
 </div>
 </div>
 </div>
-<p>Legen Sie nun eine weitere function <code class="docutils literal notranslate"><span class="pre">fitpoly</span></code> mit 3 Eingabe- und 1 Rückgabewerten an.</p>
+<p>Legen Sie nun eine weitere Function <code class="docutils literal notranslate"><span class="pre">fitpoly</span></code> mit drei Eingabe- und einem Rückgabewerten an.</p>
 <p>Die Funktion soll am Ende dynamisch die Polynomkoeffizienten ermitteln.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -874,7 +874,7 @@ Erzeugen Sie nun <span class="math notranslate nohighlight">\(n+1\)</span> zufä
 <div class="math notranslate nohighlight">
 \[f(x)=p_{n+1} x^n + p_n x^{n-1}+p_{n-1} x^{n-2} + \dots + p_1\]</div>
 <p>Bei Eingabe eines der x-Werte soll das Polynom den entsprechenden y-Wert zurückgeben. Dadurch ergibt sich ein lineares Gleichungssystem (LGS).</p>
-<p>Stellen Sie dieses LGS in Matrix-Form (<span class="math notranslate nohighlight">\(Ax = b\)</span>) auf und versuchen Sie dessen Struktur in das MATLAB-Skript zu übertragen.
+<p>Stellen Sie dieses LGS in Matrix-Form (<span class="math notranslate nohighlight">\(Ax = b\)</span>) auf und versuchen Sie dessen Struktur in das Matlab-Skript zu übertragen.
 Wie kann die Matrix <span class="math notranslate nohighlight">\(A\)</span> abhängig von <span class="math notranslate nohighlight">\(n\)</span> dynamisch erstellt werden?</p>
 <p>In der Variablen <span class="math notranslate nohighlight">\(p\)</span> sollen schließlich die ermittelten Koeffizienten zurückgegeben werden.</p>
 <div class="tip admonition">
@@ -885,7 +885,7 @@ Wie kann die Matrix <span class="math notranslate nohighlight">\(A\)</span> abh�
 <div class="section" id="polynomevaluierung">
 <h2>2. Polynomevaluierung<a class="headerlink" href="#polynomevaluierung" title="Permalink to this headline">¶</a></h2>
 <p>Um die Richtigkeit der berechneten Koeffizienten zu prüfen wird eine Funktion benötigt, welche die ermittelten Polynome an den entsprechenden x-Werten auswertet.</p>
-<p>Legen Sie dazu eine neue function <code class="docutils literal notranslate"><span class="pre">evalpoly</span></code> mit 2 Eingangs- und 1 Rückgabewert an.</p>
+<p>Legen Sie dazu eine neue Function <code class="docutils literal notranslate"><span class="pre">evalpoly</span></code> mit zwei Eingangs- und einem Rückgabewert an.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% file evalpoly.m</span>
@@ -902,7 +902,7 @@ Wie kann die Matrix <span class="math notranslate nohighlight">\(A\)</span> abh�
 </div>
 <div class="section" id="benutzerdefinierte-polynome">
 <h2>Benutzerdefinierte Polynome<a class="headerlink" href="#benutzerdefinierte-polynome" title="Permalink to this headline">¶</a></h2>
-<p>Laden Sie die Messwerte in Ihr Programm (in der <code class="docutils literal notranslate"><span class="pre">main</span></code>-function) und plotten Sie diese.
+<p>Laden Sie die Messwerte in Ihr Programm (in der <code class="docutils literal notranslate"><span class="pre">main</span></code>-Function) und plotten Sie diese.
 Anschließend soll mittels der Funktion <code class="docutils literal notranslate"><span class="pre">ginput</span></code> eine Benutzereingabe möglich sein, über welche die Polynomstützpunkte händisch definiert werden.</p>
 <p>Diese sollen schließlich ausgewertet und das entsprechende Polynom geplottet werden.</p>
 <p><em>Pseudocode:</em></p>
@@ -941,9 +941,9 @@ Anschließend soll mittels der Funktion <code class="docutils literal notranslat
 </div>
 </div>
 </div>
-<div class="section" id="polynomberechnung-mit-matlab-routine-polyfit">
-<h2>4. Polynomberechnung mit MATLAB-Routine <code class="docutils literal notranslate"><span class="pre">polyfit</span></code><a class="headerlink" href="#polynomberechnung-mit-matlab-routine-polyfit" title="Permalink to this headline">¶</a></h2>
-<p>Ähnlich der eingangs erstellten Funktionen arbeiten auch die MATLAB-Routinen <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> und <code class="docutils literal notranslate"><span class="pre">polyval</span></code>. Der Vorteil liegt u.a. darin, dass <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> für ein Polynom vom Grad <span class="math notranslate nohighlight">\(n\)</span> auch mehr als <span class="math notranslate nohighlight">\(n+1\)</span> Wertepaare verwenden kann. <code class="docutils literal notranslate"><span class="pre">Polyfit</span></code> versucht dann den Abstand zwischen Mess- und Funktionswerten auf ein Minimum zu optimieren.</p>
+<div class="section" id="polynomberechnung-mit-der-matlab-routine-polyfit">
+<h2>4. Polynomberechnung mit der Matlab-Routine <code class="docutils literal notranslate"><span class="pre">polyfit</span></code><a class="headerlink" href="#polynomberechnung-mit-der-matlab-routine-polyfit" title="Permalink to this headline">¶</a></h2>
+<p>Ähnlich der eingangs erstellten Funktionen arbeiten auch die Matlab-Routinen <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> und <code class="docutils literal notranslate"><span class="pre">polyval</span></code>. Der Vorteil liegt u.a. darin, dass <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> für ein Polynom vom Grad <span class="math notranslate nohighlight">\(n\)</span> auch mehr als <span class="math notranslate nohighlight">\(n+1\)</span> Wertepaare verwenden kann. <code class="docutils literal notranslate"><span class="pre">Polyfit</span></code> versucht dann den Abstand zwischen Mess- und Funktionswerten auf ein Minimum zu optimieren.</p>
 <p>Lassen Sie nun also für die vorhandenen Messwerte Polynome mittels <code class="docutils literal notranslate"><span class="pre">polyfit</span></code> berechnen, werten diese mit <code class="docutils literal notranslate"><span class="pre">polyval</span></code> zu den gemessenen Zeitpunkten aus und plotten das Resultat über die ursprünglichen Werte.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

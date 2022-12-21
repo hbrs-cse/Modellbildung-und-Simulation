@@ -878,7 +878,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="card-body docutils">
 <ul class="simple">
-<li><p class="card-text">mathematische Grundlagen der Fourier-Transformation</p></li>
+<li><p class="card-text">mathematische Grundlagen der Fouriertransformation</p></li>
 <li><p class="card-text">Kenntnis von digitalen Filtern und Frequenzanalysen (<a class="reference internal" href="01_approximation_von_periodischen_signalen.html#dft-intro"><span class="std std-ref">Approximation von periodischen Signalen</span></a>)</p></li>
 </ul>
 </div>
@@ -907,7 +907,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Hinweis</p>
 <p>Der Inhalt dieser Seite lässt sich nicht interaktiv online ausführen.</p>
 </div>
-<p><strong>Wir entwickeln einen Vuvuzela-Filter in 5 einfachen Schritten:</strong></p>
+<p><strong>Wir entwickeln einen Vuvuzela Filter in 5 einfachen Schritten:</strong></p>
 <ol class="simple">
 <li><p>Wir nehmen einen Vuvuzela-Ton mit Matlab auf.</p></li>
 <li><p>Wir machen eine Frequenzanalyse unserer Aufnahme um die <em>Vuvuzela</em>-Frequenzen zu identifizieren.</p></li>
@@ -917,7 +917,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ol>
 <div class="section" id="schritt-1-die-aufnahme">
 <h2>Schritt 1: Die Aufnahme<a class="headerlink" href="#schritt-1-die-aufnahme" title="Permalink to this headline">¶</a></h2>
-<p>Packen Sie ihre Vuvuzela aus! Wir können mit Matlab den <em>Vuvuzla</em>-Ton aufnehmen. Wir verwenden eine Samplingrate von <span class="math notranslate nohighlight">\(44,1\;\mathrm{kHz}\)</span>, eine Klangtiefe von <span class="math notranslate nohighlight">\(8\;\textrm{Bit}\)</span> und wollen nur einen Kanal (Mono):</p>
+<p>Packen Sie Ihre Vuvuzela aus! Wir können mit Matlab den <em>Vuvuzla</em>-Ton aufnehmen. Wir verwenden eine Samplingrate von <span class="math notranslate nohighlight">\(44,1\;\mathrm{kHz}\)</span>, eine Klangtiefe von <span class="math notranslate nohighlight">\(8\;\textrm{Bit}\)</span> und wollen nur einen Kanal (Mono):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">recordTime</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>   <span class="c">% record for 5 seconds</span>
@@ -1058,10 +1058,10 @@ Recording...
 <h3>Nebenbei:<a class="headerlink" href="#nebenbei" title="Permalink to this headline">¶</a></h3>
 <p>Neben zwei logistischen Funktionen haben wir viele andere Optionen:</p>
 <ul class="simple">
-<li><p>Wir könnten <strong>zwei kubische Polynome</strong> verwenden (Siehe Übungsblatt 0)</p></li>
-<li><p>Wir könnten direkt eine (negative) <strong>Gaußglocke</strong> nehmen <span class="math notranslate nohighlight">\(\rightarrow\)</span> Nah an der Physik</p></li>
-<li><p>Wir könnten eine <strong>Dreiecksfunktion</strong> verwenden</p></li>
-<li><p>Wir könnten eine <strong>Rechtecksfunktion</strong> verwenden</p></li>
+<li><p>Wir könnten <strong>zwei kubische Polynome</strong> verwenden.</p></li>
+<li><p>Wir könnten direkt eine (negative) <strong>Gaußglocke</strong> nehmen. <span class="math notranslate nohighlight">\(\rightarrow\)</span> Nah an der Physik</p></li>
+<li><p>Wir könnten eine <strong>Dreiecksfunktion</strong> verwenden.</p></li>
+<li><p>Wir könnten eine <strong>Rechtecksfunktion</strong> verwenden.</p></li>
 <li><p>…</p></li>
 </ul>
 <p>Wir definieren uns mit der logistischen Funktion einen Multiplikator, der die Vuvuzela–Frequenzen <em>sanft</em> aus dem Spektrum entfernt:</p>
@@ -1154,7 +1154,7 @@ Filtered recording
 <h2>Schritt 5: Wenden wir den Filter an einem Beispiel an<a class="headerlink" href="#schritt-5-wenden-wir-den-filter-an-einem-beispiel-an" title="Permalink to this headline">¶</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HFISx1j0kak?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 <div style="text-align: left;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
-<p><strong>Wir haben da mal etwas vorbereitet…</strong> und die Tonspur des vorherigen Videos als mp3 heruntergeladen. Diese lässt sich mit Matlab importieren:</p>
+<p><strong>Wir haben da mal etwas vorbereitet…</strong> und die Tonspur des vorherigen Videos als mp3 heruntergeladen. Diese lässt sich mit Matlab importieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">soundfile</span> <span class="p">=</span> <span class="s">&#39;Vuvuzela_Tshabalala_Goal.mp3&#39;</span><span class="p">;</span>
@@ -1173,7 +1173,7 @@ Filtered recording
 </div>
 </div>
 </div>
-<p>Unser Filter lässt sich nun durch nur eine Zeile Code anwenden:</p>
+<p>Unser Filter lässt sich nun durch nur eine Zeile Code anwenden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% a) calculate Fouriertransform</span>

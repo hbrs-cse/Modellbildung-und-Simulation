@@ -850,7 +850,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span id="conv-diff-pde"></span><h1>Konvektion und Diffusion<a class="headerlink" href="#konvektion-und-diffusion" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg"><img alt="Aedes Albopictus" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Aedes_Albopictus.jpg/512px-Aedes_Albopictus.jpg" style="width: 512px;" /></a>
 <div style="text-align: right"> "Aedes Albopictus",  James Gathany/CDC, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg" >Wikimedia Commons</a></div> <br>
-<p>Wir wollen simulieren wie sich ein Insektengift in einer Blutbahn ausbreitet. Zum einen wird sich durch ein Diffusionsprozess das Insektengift mit dem Blut vermischen. Zum anderen wird es mit der Fließgeschwindigkeit des Blutes transportiert <em>(Konvektion)</em>. Es ergibt sich ein sogenannter Konvektions-Diffusionsprozess. <span class="math notranslate nohighlight">\(\rho(t,x)\)</span> sei die Konzentration des Insektengiftes entlang der Blutbahn.</p>
+<p>Wir wollen simulieren, wie sich ein Insektengift in einer Blutbahn ausbreitet. Zum einen wird sich durch ein Diffusionsprozess das Insektengift mit dem Blut vermischen. Zum anderen wird es mit der Fließgeschwindigkeit des Blutes transportiert <em>(Konvektion)</em>. Es ergibt sich ein sogenannter Konvektions-Diffusionsprozess. <span class="math notranslate nohighlight">\(\rho(t,x)\)</span> sei die Konzentration des Insektengiftes entlang der Blutbahn.</p>
 <p>Die Kontinuitätsgleichung in einer Dimension lautet</p>
 <div class="math notranslate nohighlight">
 \[
@@ -874,7 +874,7 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 </ol>
 <p>Gehen Sie wie folgt vor:</p>
 <ol>
-<li><p>Diskretisieren Sie zunächst im Ort, so dass Sie <span class="math notranslate nohighlight">\(N\)</span> neue Funktionen <span class="math notranslate nohighlight">\(y_i(t) \approx \rho(x_i, t), i=1,...,N\)</span> erhalten. Hierbei bezeichnet <span class="math notranslate nohighlight">\(N\)</span> die Anzahl der Diskretisierungspunkte und <span class="math notranslate nohighlight">\(x_i\)</span> bezeichnet den <span class="math notranslate nohighlight">\(i\)</span>-ten Diskretisierungspunkt ihres Intervals.</p></li>
+<li><p>Diskretisieren Sie zunächst im Ort, so dass Sie <span class="math notranslate nohighlight">\(N\)</span> neue Funktionen <span class="math notranslate nohighlight">\(y_i(t) \approx \rho(x_i, t), i=1,...,N\)</span> erhalten. Hierbei bezeichnet <span class="math notranslate nohighlight">\(N\)</span> die Anzahl der Diskretisierungspunkte und <span class="math notranslate nohighlight">\(x_i\)</span> bezeichnet den <span class="math notranslate nohighlight">\(i\)</span>-ten Diskretisierungspunkt Ihres Intervals.</p></li>
 <li><p>Schreiben Sie die approximierte Lösung <span class="math notranslate nohighlight">\(y_i(t_j)\)</span> der inneren Punkte <span class="math notranslate nohighlight">\(i=2,...,N-1\)</span> in einen Vektor</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -888,7 +888,7 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
    \end{bmatrix}
    \end{split}\]</div>
 </li>
-<li><p>Bringen Sie die Ortsableitungen der DGL auf die rechte Seite, ersetzen Sie die partiellen Ortsableitungen durch Differenzenquotienten, so dass Sie für die inneren Punkte folgendes schreiben können:</p>
+<li><p>Bringen Sie die Ortsableitungen der DGL auf die rechte Seite, ersetzen Sie die partiellen Ortsableitungen durch Differenzenquotienten, so dass Sie für die inneren Punkte Folgendes schreiben können:</p>
 <div class="math notranslate nohighlight">
 \[
    \frac{\partial \mathbf{y}(t_j)}{\partial t} = A \cdot \mathbf{y}^{j} + \mathbf{b}.
@@ -919,7 +919,7 @@ J = -a \frac{\partial \rho}{\partial x} + c(t) \rho,
 </div>
 <div class="section" id="aufgabe-4-zeitabhangige-flieszgeschwindigkeit-c-t">
 <h2>Aufgabe 4: Zeitabhängige Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span><a class="headerlink" href="#aufgabe-4-zeitabhangige-flieszgeschwindigkeit-c-t" title="Permalink to this headline">¶</a></h2>
-<p>Erweitern Sie ihr Programm, so dass der Nutzer eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben kann. Passen Sie gegebenenfalls die Schrittweite an, um die CFL-Zahl einzuhalten.</p>
+<p>Erweitern Sie Ihr Programm, so dass die Nutzenden eine zeitabhängige (z.B. pulsierende) Fließgeschwindigkeit <span class="math notranslate nohighlight">\(c(t)\)</span> vorgeben können. Passen Sie gegebenenfalls die Schrittweite an, um die CFL-Zahl einzuhalten.</p>
 <p>Ihre Lösungen können beispielsweise für das Parameterset</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(a = 1 \,\frac{\text{m}^2}{\text{s}}\)</span></p></li>
@@ -936,7 +936,7 @@ so aussehen (nur jeder 50. Zeitschritt wurde ausgegeben):</p></li>
 <a class="reference internal image-reference" href="../_images/blood_animated_cos4pit.gif"><img alt="blood_animated_cos4pit" class="align-center" src="../_images/blood_animated_cos4pit.gif" style="width: 800px;" /></a>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Die Parameter sind so gewählt, dass die physikalischen Effekte in der graphischen Ausgabe wahrnehmbar ist. Realistischer wären Parameter wie <span class="math notranslate nohighlight">\(c = 22.88 + 1.58\cdot\sin(2\cdot\pi \,t/\text{s}) \,\frac{\text{cm}}{\text{s}}\)</span> (vgl. <span id="id1">[<a class="reference internal" href="#id3">MMDKS17</a>]</span>), <span class="math notranslate nohighlight">\(a\)</span> in der Größenordnung <span class="math notranslate nohighlight">\(10^{-9}\)</span> (vgl. <a class="reference external" href="https://de.wikipedia.org/wiki/Diffusionskoeffizient">Wikipedia</a>), Strecken in der Größenordnung <span class="math notranslate nohighlight">\(\text{cm}\)</span> und ein Puls von 60-80, statt wie hier 120.</p>
+<p>Die Parameter sind so gewählt, dass die physikalischen Effekte in der graphischen Ausgabe wahrnehmbar sind. Realistischer wären Parameter wie <span class="math notranslate nohighlight">\(c = 22.88 + 1.58\cdot\sin(2\cdot\pi \,t/\text{s}) \,\frac{\text{cm}}{\text{s}}\)</span> (vgl. <span id="id1">[<a class="reference internal" href="#id3">MMDKS17</a>]</span>), <span class="math notranslate nohighlight">\(a\)</span> in der Größenordnung <span class="math notranslate nohighlight">\(10^{-9}\)</span> (vgl. <a class="reference external" href="https://de.wikipedia.org/wiki/Diffusionskoeffizient">Wikipedia</a>), Strecken in der Größenordnung <span class="math notranslate nohighlight">\(\text{cm}\)</span> und ein Puls von 60-80, statt wie hier 120.</p>
 </div>
 </div>
 <div class="section" id="zusatzaufgabe-vermeidung-numerischer-oszillationen">
@@ -947,7 +947,7 @@ so aussehen (nur jeder 50. Zeitschritt wurde ausgegeben):</p></li>
 <a class="reference internal image-reference" href="../_images/blood_animated_a001_xn500.gif"><img alt="blood_animated_a001_xn500" class="align-center" src="../_images/blood_animated_a001_xn500.gif" style="width: 800px;" /></a>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Weiterführend können Sie sich über ENO (Essentially Non-Oscillatory) Methoden informieren. Diese sind speziell dafür entwickelt, numerische Oszillationen zu vermeiden. Ein Beispiel für eine ENO Methode finden Sie in <a class="reference internal" href="03_trafficPDE.html#traffic-pde"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a>.</p>
+<p>Weiterführend können Sie sich über ENO (Essentially Non-Oscillatory) Methoden informieren. Diese sind speziell dafür entwickelt, numerische Oszillationen zu vermeiden. Ein Beispiel für eine ENO Methode finden Sie in dem Kapitel <a class="reference internal" href="03_trafficPDE.html#traffic-pde"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a>.</p>
 </div>
 </div>
 <div class="section" id="literatur">

@@ -886,7 +886,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>In dieser Übung werden Messwerte eines Signals importiert und gefiltert. Da die Messwerte zum Teil lückenhaft sind, werden die fehlenden Stellen außerdem noch interpoliert.</p>
 <div class="section" id="situation">
 <h2>Situation<a class="headerlink" href="#situation" title="Permalink to this headline">¶</a></h2>
-<p>An zwei Schaltungen wurden unterschiedliche Messungen durchgeführt. Die Ergebnisse liegen als Excel-Dateien vor und sollen nun mithilfe von MATLAB ausgewertet werden.
+<p>An zwei Schaltungen wurden unterschiedliche Messungen durchgeführt. Die Ergebnisse liegen als Excel-Dateien vor und sollen nun mithilfe von Matlab ausgewertet werden.
 Beachten Sie, dass es durch einen zeitweiligen Ausfall der Messtechnik u.U. zu Schwierigkeiten bei der Auswertung kommen kann.</p>
 <p><a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/raw/master/content/13_matlab/05_matlab_videos/files/Sig1_measure.xlsx" download>Sig1_measure.xlsx</a></p>
 <p><a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/raw/master/content/13_matlab/05_matlab_videos/files/Sig2_measure.xlsx" download>Sig2_measure.xlsx</a></p>
@@ -894,7 +894,7 @@ Beachten Sie, dass es durch einen zeitweiligen Ausfall der Messtechnik u.U. zu S
 <div class="section" id="datenimport">
 <h2>1. Datenimport<a class="headerlink" href="#datenimport" title="Permalink to this headline">¶</a></h2>
 <p>Importieren Sie <code class="docutils literal notranslate"><span class="pre">Sig1_measure.xlsx</span></code> mit dem Befehl <code class="docutils literal notranslate"><span class="pre">xlsread</span></code>. Legen Sie ggf. zusätzliche Variablen für Zeit- und Spannungswerte an. Beachten Sie die Hinweise aus Übung 1 zum Datenimport.</p>
-<p>Öffnen Sie Messung parallel in Excel. Was genau importiert MATLAB?</p>
+<p>Öffnen Sie Messung parallel in Excel. Was genau importiert Matlab?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">M</span> <span class="p">=</span> <span class="n">xlsread</span><span class="p">(</span>‘<span class="n">Dateiname</span><span class="p">.</span><span class="n">txt</span>‘<span class="p">);</span>
@@ -942,7 +942,7 @@ Beschriften Sie die Achsen mit <span class="math notranslate nohighlight">\(t [s
 </div>
 <div class="section" id="vermeidung-der-for-schleife">
 <h2>4. Vermeidung der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife<a class="headerlink" href="#vermeidung-der-for-schleife" title="Permalink to this headline">¶</a></h2>
-<p>Schleifen in MATLAB tendieren dazu recht langsam zu sein.
+<p>Schleifen in Matlab tendieren dazu recht langsam zu sein.
 Versuchen Sie den „High“-Anteil des Signals nun nur mit dem Befehl <code class="docutils literal notranslate"><span class="pre">sum</span></code> statt der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife zu berechnen.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tipp</p>
@@ -969,7 +969,7 @@ Versuchen Sie den „High“-Anteil des Signals nun nur mit dem Befehl <code cla
 <div class="section" id="datenimport-und-plot">
 <h2>5. Datenimport und Plot<a class="headerlink" href="#datenimport-und-plot" title="Permalink to this headline">¶</a></h2>
 <p>Importieren Sie <code class="docutils literal notranslate"><span class="pre">Sig2_measure.xlsx</span></code> mit dem Befehl <code class="docutils literal notranslate"><span class="pre">xlsread</span></code>. Legen Sie ggf. zusätzliche Variablen für Zeit- und Spannungswerte an.</p>
-<p>Öffnen Sie Messung parallel in Excel. Was genau importiert MATLAB?</p>
+<p>Öffnen Sie Messung parallel in Excel. Was genau importiert Matlab?</p>
 <p>Plotten Sie anschließend die importierten Daten.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1033,7 +1033,7 @@ Versuchen Sie den „High“-Anteil des Signals nun nur mit dem Befehl <code cla
 </div>
 <div class="section" id="dateninterpolation-als-function">
 <h2>8. Dateninterpolation als <code class="docutils literal notranslate"><span class="pre">function</span></code><a class="headerlink" href="#dateninterpolation-als-function" title="Permalink to this headline">¶</a></h2>
-<p>Erstellen Sie ein neues Skript, welches aus zwei functions aufgebaut ist:</p>
+<p>Erstellen Sie ein neues Skript, welches aus zwei Functions aufgebaut ist:</p>
 <p>Dem Hauptprogramm <code class="docutils literal notranslate"><span class="pre">main</span></code> und einer Funktion <code class="docutils literal notranslate"><span class="pre">interpol</span></code>, welche der Interpolation der Messwerte dienen soll.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1071,7 +1071,7 @@ Versuchen Sie den „High“-Anteil des Signals nun nur mit dem Befehl <code cla
 </div>
 <div class="section" id="integralberechnung">
 <h2>9. Integralberechnung<a class="headerlink" href="#integralberechnung" title="Permalink to this headline">¶</a></h2>
-<p>Die MATLAB-Routine <code class="docutils literal notranslate"><span class="pre">integral</span></code> erlaubt die Berechnung numerischer Integrale.</p>
+<p>Die Matlab-Routine <code class="docutils literal notranslate"><span class="pre">integral</span></code> erlaubt die Berechnung numerischer Integrale.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">int</span> <span class="p">=</span> <span class="n">integral</span><span class="p">(@</span><span class="n">fun</span><span class="p">,</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span><span class="p">)</span>
@@ -1079,12 +1079,12 @@ Versuchen Sie den „High“-Anteil des Signals nun nur mit dem Befehl <code cla
 </div>
 </div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">&#64;fun</span></code> ist hierbei ein sog. functionhandle. Hier wird der Name der zu integrierenden Funktion mittels &#64;-Symbol übergeben, also z.B. <code class="docutils literal notranslate"><span class="pre">&#64;interpol</span></code>. xmin und xmax sind die Integrationsgrenzen.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&#64;fun</span></code> ist hierbei ein sog. Function Handle. Hier wird der Name der zu integrierenden Funktion mittels &#64;-Symbol übergeben, also z.B. <code class="docutils literal notranslate"><span class="pre">&#64;interpol</span></code>. xmin und xmax sind die Integrationsgrenzen.</p>
 <p>Berechnen Sie die Integrale der Signale mittels <code class="docutils literal notranslate"><span class="pre">integral</span></code> und der in Aufgabe 8 erstellten <code class="docutils literal notranslate"><span class="pre">function</span></code>.</p>
 <p>Beachten Sie, dass das Integral einer Sinusfunktion über eine volle Periode 0 ergibt. Sie müssen also Ihr Programm zuvor noch minimal anpassen.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tipp</p>
-<p>Der Betrag wird in MATLAB mittels der Funktion „abs“ berechnet.</p>
+<p>Der Betrag wird in Matlab mittels der Funktion „abs“ berechnet.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

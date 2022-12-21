@@ -722,17 +722,17 @@ commentsRunWhenDOMLoaded(addUtterances);
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bremsvorgang-1">
-   1.Bremsvorgang (1)
+   1. Bremsvorgang (1)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bremsvorgang-2">
-   2.Bremsvorgang (2)
+   2. Bremsvorgang (2)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bremsvorgang-3">
-   3.Bremsvorgang (3)
+   3. Bremsvorgang (3)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -772,17 +772,17 @@ commentsRunWhenDOMLoaded(addUtterances);
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bremsvorgang-1">
-   1.Bremsvorgang (1)
+   1. Bremsvorgang (1)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bremsvorgang-2">
-   2.Bremsvorgang (2)
+   2. Bremsvorgang (2)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#bremsvorgang-3">
-   3.Bremsvorgang (3)
+   3. Bremsvorgang (3)
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -815,10 +815,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 Es wird der Bremsvorgang von einem bzw. mehreren Fahrzeugen simuliert.</p>
 <p>Dabei sollen allerdings auch bestimmte Ereignisse - Events - erkannt werden, wie z.B. die Kollision zweier Fahrzeuge.</p>
 <div class="section" id="bremsvorgang-1">
-<h2>1.Bremsvorgang (1)<a class="headerlink" href="#bremsvorgang-1" title="Permalink to this headline">¶</a></h2>
+<h2>1. Bremsvorgang (1)<a class="headerlink" href="#bremsvorgang-1" title="Permalink to this headline">¶</a></h2>
 <p>Auf einer Versuchsstrecke fährt ein Auto mit <span class="math notranslate nohighlight">\(13.9\frac{\text{m}}{\text{s}}\)</span> (ca. <span class="math notranslate nohighlight">\(50\frac{\text{km}}{\text{h}}\)</span>). Nach dem Auslösen eines Signals betätigt der Fahrer die Bremse (Reaktionszeit <span class="math notranslate nohighlight">\(1s\)</span>).
 Das Auto wird anschließend mit einer konstanten Gegenbeschleunigung von <span class="math notranslate nohighlight">\(8\frac{\text{m}}{\text{s}^2}\)</span> zum Stillstand gebracht.</p>
-<p>Stellen Sie eine Differentialgleichung für die Bewegung des Autos auf, implementieren Sie diese, unter Berücksichtigung der Reaktionszeit, in MATLAB und plotten Sie die Bewegung des Fahrzeugs über 5 Sekunden.</p>
+<p>Stellen Sie eine Differentialgleichung für die Bewegung des Autos auf, implementieren Sie diese, unter Berücksichtigung der Reaktionszeit, in Matlab und plotten Sie die Bewegung des Fahrzeugs über 5 Sekunden.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Zur Vereinfachung der Simulation werden zunächst keine Reibkräfte o.ä. angenommen. Betrachten Sie das Auto als Massepunkt, welcher sich gemäß dem 2. Newtonschen Axiom (<span class="math notranslate nohighlight">\(\vec{F}=m\cdot \vec{a}\)</span>) verhält.</p>
@@ -840,12 +840,12 @@ Das Auto wird anschließend mit einer konstanten Gegenbeschleunigung von <span c
 </div>
 </div>
 <div class="section" id="bremsvorgang-2">
-<h2>2.Bremsvorgang (2)<a class="headerlink" href="#bremsvorgang-2" title="Permalink to this headline">¶</a></h2>
+<h2>2. Bremsvorgang (2)<a class="headerlink" href="#bremsvorgang-2" title="Permalink to this headline">¶</a></h2>
 <p>Im ersten Teil ließ sich der Bremsweg bzw. die Bremsdauer am Plot grob ablesen. Nun sollen diese Werte numerisch bestimmt werden und die Simulation bei Stillstand des Autos abgebrochen werden.</p>
 <p>Ergänzen Sie Ihr Programm um eine Event-function, welche die Simulation bei <span class="math notranslate nohighlight">\(v=0\)</span> abbricht.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Event-<code class="docutils literal notranslate"><span class="pre">functions</span></code> müssen dem Solver über die ODE-<code class="docutils literal notranslate"><span class="pre">options</span></code> mitgeteilt werden (vgl. hierzu auch die MATLAB-documentation).</p>
+<p>Event-<code class="docutils literal notranslate"><span class="pre">functions</span></code> müssen dem Solver über die ODE-<code class="docutils literal notranslate"><span class="pre">options</span></code> mitgeteilt werden (vgl. hierzu auch die Matlab-documentation).</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -873,7 +873,7 @@ Das Auto wird anschließend mit einer konstanten Gegenbeschleunigung von <span c
 </div>
 </div>
 <div class="section" id="bremsvorgang-3">
-<h2>3.Bremsvorgang (3)<a class="headerlink" href="#bremsvorgang-3" title="Permalink to this headline">¶</a></h2>
+<h2>3. Bremsvorgang (3)<a class="headerlink" href="#bremsvorgang-3" title="Permalink to this headline">¶</a></h2>
 <p>Ergänzen Sie die Differentialgleichung des Autos um eine Geschwindigkeitsabhängige Gegenkraft <span class="math notranslate nohighlight">\(F(v)=0.1v\)</span>.</p>
 <ol class="simple">
 <li><p>Welche Differenz ergibt sich im Vergleich zum alten Bremsweg?</p></li>
@@ -914,7 +914,7 @@ Allerdings fährt das zweite Auto anfangs mit <span class="math notranslate nohi
 <p>Durch ein plötzliches Ereignis müssen beide Fahrzeuge zeitgleich bremsen (<span class="math notranslate nohighlight">\(a= -8 \frac{\text{m}}{\text{s}^2}\)</span>).</p>
 <ol class="simple">
 <li><p>Nach wie viel Sekunden bzw. Metern kommt es zur Kollision?</p></li>
-<li><p>Wie viel Abstand hätte der hintere Fahrer halten müssen, damit er bei Stillstand noch <span class="math notranslate nohighlight">\(1\,\text{m}\)</span> Abstand zum vorausfahrenden Fahrzeug gehabt hätte?</p></li>
+<li><p>Wie viel Abstand hätte das hintere Fahrzeug halten müssen, damit es bei Stillstand noch <span class="math notranslate nohighlight">\(1\,\text{m}\)</span> Abstand zum vorausfahrenden Fahrzeug gehabt hätte?</p></li>
 </ol>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>

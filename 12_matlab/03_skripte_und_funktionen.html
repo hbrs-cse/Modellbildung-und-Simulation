@@ -913,7 +913,7 @@ Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schau
 <span class="c">% Ändere Variable a</span>
 <span class="n">a</span> <span class="p">=</span> <span class="n">a</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 
-<span class="c">% Ausgabe erzwingen, durch weglassen des Semikolons am Ende der Zeile</span>
+<span class="c">% Ausgabe erzwingen, durch Weglassen des Semikolons am Ende der Zeile</span>
 <span class="n">a</span>
 <span class="n">b</span>
 </pre></div>
@@ -924,7 +924,7 @@ Es kommt nicht selten vor, dass man nach Wochen in ein altes Matlab-Skript schau
 <p class="admonition-title">Hinweis</p>
 <p><em>Die erste Zeile</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myScript.m</span></code></p>
-<p><em>besagt nur, dass alles was folgt Inhalt der Datei <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.</em></p>
+<p><em>besagt nur, dass alles was folgt, Inhalt der Datei <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code> ist. Der eigentliche Inhalt der Datei beginnt ab der darauf folgenden Zeile.</em></p>
 <p><code class="docutils literal notranslate"><span class="pre">%</span> <span class="pre">Ein</span> <span class="pre">kleines</span> <span class="pre">Beispielskript</span></code>.</p>
 <p>Dieses Skript wird mit dem <code class="docutils literal notranslate"><span class="pre">run</span></code> Befehl ausgeführt.</p>
 </div>
@@ -944,7 +944,7 @@ b =  10
 <p>Wir dürfen an dieser Stelle die Dateiendung <code class="docutils literal notranslate"><span class="pre">.m</span></code> weglassen. Tatsächlich ist der <code class="docutils literal notranslate"><span class="pre">run</span></code> Befehl auch nicht zwingend nötig. Die Befehle <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">myScript.m</span></code>, <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">myScript</span></code>, <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code>, <code class="docutils literal notranslate"><span class="pre">myScript</span></code> haben alle denselben Effekt: Die Befehle in <code class="docutils literal notranslate"><span class="pre">myScript.m</span></code> werden ausgeführt.</p>
 <p>Im Matlab-Editor kann das aktuell geöffnete Skript mit <code class="docutils literal notranslate"><span class="pre">F5</span></code> oder per Mausklick auf den großen grünen Play-Button gestartet werden.</p>
 <img alt="Interacte Mode Code-Cell" class="align-center" src="../_images/matlab_run_button.png" />
-<p>Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem <code class="docutils literal notranslate"><span class="pre">help</span></code> Befehl ausgeben:</p>
+<p>Es bietet sich an, in den ersten paar Zeilen jedes Skriptes zu beschreiben, welchem Zweck das Skript dient. Diese ersten Zeilen lassen sich mit dem <code class="docutils literal notranslate"><span class="pre">help</span></code>-Befehl ausgeben:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">help</span> <span class="n">myScript</span><span class="p">.</span><span class="n">m</span>
@@ -971,7 +971,7 @@ mailing list.
 </div>
 <div class="section" id="for-schleifen">
 <h3>for-Schleifen<a class="headerlink" href="#for-schleifen" title="Permalink to this headline">¶</a></h3>
-<p>Wie in anderen Programmiersprachen können in Matlab auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist:</p>
+<p>Wie in anderen Programmiersprachen, können in Matlab auch Schleifen verwendet werden. Die Syntax für eine for-Schleife ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
@@ -981,7 +981,7 @@ mailing list.
 </div>
 </div>
 </div>
-<p>Der Code zwischen der <code class="docutils literal notranslate"><span class="pre">for</span></code>-  und der <code class="docutils literal notranslate"><span class="pre">end</span></code>-Zeile wird fünfmal ausgeführt. Bei jeder Ausführung wird eine <em>Laufvariable</em> <code class="docutils literal notranslate"><span class="pre">i</span></code> um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die <span class="math notranslate nohighlight">\(i\)</span>-te Stelle eines Vektors <span class="math notranslate nohighlight">\(f\)</span> zu, und beschreiben diese Stelle mit <span class="math notranslate nohighlight">\(2^i\)</span>. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in Matlab auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.</p>
+<p>Der Code zwischen der <code class="docutils literal notranslate"><span class="pre">for</span></code>-  und der <code class="docutils literal notranslate"><span class="pre">end</span></code>-Zeile wird fünfmal ausgeführt. Bei jeder Ausführung wird eine <em>Laufvariable</em> <code class="docutils literal notranslate"><span class="pre">i</span></code> um Eins erhöht. Wir greifen in diesem Beispiel in jedem Durchlauf auf die <span class="math notranslate nohighlight">\(i\)</span>-te Stelle eines Vektors <span class="math notranslate nohighlight">\(f\)</span> zu und beschreiben diese Stelle mit <span class="math notranslate nohighlight">\(2^i\)</span>. Dabei wird der Vektor f automatisch in jedem Schleifendurchlauf um ein Element erweitert. Matlab macht den Vektor nur so groß, wie für die Ausführung des Befehls nötig ist. Es ist zu beachten, dass in Matlab auf das erste Element eines Vektors mit dem Index 1 zugegriffen wird.</p>
 <p>Es besteht die Möglichkeit die Schrittweite der Laufvariablen anzupassen. Auf diese Weise können auch Laufvariablen benutzt werden, die nicht ganzzahlig sind:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1111,7 +1111,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 </div>
 </div>
 </div>
-<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-else-if-else-Bedingung. Das kann zum Beispiel Sinn ergeben, wenn eine Variable eine Kategorie beschreibt, wie zum Beispiel Tierarten.</p>
+<p>Es kann auch vorkommen, dass mehr als eine Bedingung abgefragt werden muss. In diesem Fall hilft eine if-then-else-if-else-Bedingung. Das kann zum Beispiel Sinn ergeben, wenn eine Variable eine Kategorie beschreibt, wie beispielsweise Tierarten.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
@@ -1147,7 +1147,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 </div>
 </div>
 <p>In Matlab können wir Strings nicht mit <code class="docutils literal notranslate"><span class="pre">==</span></code> auf Gleichheit prüfen. Dafür stellt Matlab die Funktion <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> bereit.</p>
-<p>Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms <span class="math notranslate nohighlight">\(y(x)= -x^4 + x^3 - x^2 + x + 1\)</span> im Interval <span class="math notranslate nohighlight">\([-1,1]\)</span>. Wir nutzen aus, dass wir wissen, das die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.</p>
+<p>Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms <span class="math notranslate nohighlight">\(y(x)= -x^4 + x^3 - x^2 + x + 1\)</span> im Interval <span class="math notranslate nohighlight">\([-1,1]\)</span>. Wir nutzen aus, dass wir wissen, dass die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% plot f(x) = -x^4 + x^3 - x^2 + x + 1;</span>
@@ -1257,9 +1257,9 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Über die vielen Funktionen rund um die Visualisierung und deren Optionen informieren Sie sich bitte in der Matlab Dokumentation. An dieser Stelle soll abschließend nur noch auf zwei Features aufmerksam gemacht werden:</p>
 <ul class="simple">
 <li><p>Häufig möchte man mehrere Graphen in einem Koordinatensystem darstellen. Matlab überschreibt die Ergebnisse standardmäßig. Dieses Verhalten kann aber mit dem Befehl <code class="docutils literal notranslate"><span class="pre">hold</span> <span class="pre">on</span></code> ausgehebelt werden.</p></li>
-<li><p>Das Koordinatensystem in Matlab ist ein Objekt vom Typ <code class="docutils literal notranslate"><span class="pre">axes</span></code>. Mit dem Befehl <code class="docutils literal notranslate"><span class="pre">gca</span></code>, kurz für <em>get current axes</em>, lässt sich ein <em>handle</em> für das aktuell verwendete Koordinatensystem wiedergeben. Eigenschaften des Koordinatensystems lassen sich dann mit den Befehlen <code class="docutils literal notranslate"><span class="pre">set(gca,</span> <span class="pre">...)</span></code> und <code class="docutils literal notranslate"><span class="pre">get(gca,</span> <span class="pre">...)</span></code> abfragen bzw. ändern. Das ist ein nützliches Feature, wenn man tiefergreifende Eigenschaften ändern möchte, als nur die Achsenbeschriftungen.</p></li>
+<li><p>Das Koordinatensystem in Matlab ist ein Objekt vom Typ <code class="docutils literal notranslate"><span class="pre">axes</span></code>. Mit dem Befehl <code class="docutils literal notranslate"><span class="pre">gca</span></code>, kurz für <em>get current axes</em>, lässt sich ein <em>Handle</em> für das aktuell verwendete Koordinatensystem wiedergeben. Eigenschaften des Koordinatensystems lassen sich dann mit den Befehlen <code class="docutils literal notranslate"><span class="pre">set(gca,</span> <span class="pre">...)</span></code> und <code class="docutils literal notranslate"><span class="pre">get(gca,</span> <span class="pre">...)</span></code> abfragen bzw. ändern. Das ist ein nützliches Feature, wenn man tiefergreifendere Eigenschaften ändern möchte, als nur die Achsenbeschriftungen.</p></li>
 </ul>
-<p>Im folgenden werden diese beiden Features in einem Skript benutzt, das für zehn verschiedene Parameter <span class="math notranslate nohighlight">\(D \in [0.1, 1.0]\)</span> die Funktion</p>
+<p>Im Folgenden werden diese beiden Features in einem Skript benutzt, das für zehn verschiedene Parameter <span class="math notranslate nohighlight">\(D \in [0.1, 1.0]\)</span> die Funktion</p>
 <div class="math notranslate nohighlight">
 \[ y(x) = \frac{1}{\sqrt{(1-x^2)^2 + (2Dx)^2}} \]</div>
 <p>über das Interval <span class="math notranslate nohighlight">\(x \in [0, 3]\)</span> plottet.</p>
@@ -1321,7 +1321,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <p>Mit Skripten können wir also Algorithmen als eine Abfolge von Anweisungen umsetzen. Funktionen zeichnen sich, im Gegensatz zu Skripten, dadurch aus, dass es eine klare Trennung von Eingabe, Ausgabe und Anweisungen gibt. Dies bietet sich insbesondere dann an, wenn die Funktion einen Algorithmus repräsentiert, der oft an verschiedenen Stellen ausgeführt werden soll.</p>
 <div class="section" id="eingabe-und-ausgabe">
 <h3>Eingabe und Ausgabe<a class="headerlink" href="#eingabe-und-ausgabe" title="Permalink to this headline">¶</a></h3>
-<p>Funktionen werden in Matlab mit dem <code class="docutils literal notranslate"><span class="pre">function</span></code> Keyword eingeleitet. Das folgende m-file <code class="docutils literal notranslate"><span class="pre">oldmcdonald.m</span></code> definiert eine Funktion mit Namen <code class="docutils literal notranslate"><span class="pre">oldmcdonald</span></code>, die für einen Tiernamen <code class="docutils literal notranslate"><span class="pre">animal</span></code> als Eingabe einen Laut <code class="docutils literal notranslate"><span class="pre">sound</span></code> als Ausgabe ausgibt. Sowohl <code class="docutils literal notranslate"><span class="pre">animal</span></code> und <code class="docutils literal notranslate"><span class="pre">sound</span></code> werden als strings definiert.</p>
+<p>Funktionen werden in Matlab mit dem <code class="docutils literal notranslate"><span class="pre">function</span></code> Keyword eingeleitet. Das folgende m-File <code class="docutils literal notranslate"><span class="pre">oldmcdonald.m</span></code> definiert eine Funktion mit Namen <code class="docutils literal notranslate"><span class="pre">oldmcdonald</span></code>, die für einen Tiernamen <code class="docutils literal notranslate"><span class="pre">animal</span></code> als Eingabe einen Laut <code class="docutils literal notranslate"><span class="pre">sound</span></code> als Ausgabe ausgibt. Sowohl <code class="docutils literal notranslate"><span class="pre">animal</span></code> und <code class="docutils literal notranslate"><span class="pre">sound</span></code> werden als Strings definiert.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
@@ -1470,7 +1470,7 @@ Gib mir eine Schnapspraline.
 </div>
 <div class="section" id="scope-von-variablen">
 <h3>Scope von Variablen<a class="headerlink" href="#scope-von-variablen" title="Permalink to this headline">¶</a></h3>
-<p>In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff <em>scope</em> bezeichnet.</p>
+<p>In dem obigen Beispiel geschieht die Trennung von Eingabe, Anweisungen und Ausgabe rein syntaktisch. Tatsächlich ist die Trennung aber stärker, da Funktionen die Sichtbarkeit von Variablen einschränken. Die Sichtbarkeit einer Variable in einem Code wird mit dem englischen Begriff <em>Scope</em> bezeichnet.</p>
 <p>Im Inneren einer Funktion sind ausschließlich die Variablen bekannt, die durch die Anweisungen im Funktionsblock erstellt wurden oder aus der Eingabe eingelesen wurden. Alle anderen Variablen, die sich zur Zeit der Ausführung im Workspace befinden, können nicht verwendet werden. Genauso sind alle Variablen, die durch Anweisungen im Funktionsblock erstellt werden, nicht im Workspace verwendbar. Auf diese Art und Weise werden keine Hilfsvariablen, die zur Lösung eines Problems innerhalb der Funktion dienen, nach außen sichtbar. Außerdem können nicht aus Versehen Variablen verwendet werden, die mit der Lösung des Problems nichts zutun haben.</p>
 <p>Am einfachsten lässt sich das demonstrieren, indem wir das Bisektionsskript als Funktion umschreiben.</p>
 <div class="cell tag_remove-output docutils container">
@@ -1601,7 +1601,7 @@ Gib mir eine Schnapspraline.
 </div>
 <div class="section" id="function-handles">
 <h3>Function Handles<a class="headerlink" href="#function-handles" title="Permalink to this headline">¶</a></h3>
-<p>Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-files, bietet Matlab die Möglichkeit Funktionen über sogenannte <em>Function Handles</em> zu definieren. Ein <em>Function Handle</em> ist eine Variable, in der die Funktion gespeichert wird. Function Handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.</p>
+<p>Neben Funktionen am Ende eines Skriptes und Funktionen in separaten m-Files, bietet Matlab die Möglichkeit Funktionen über sogenannte <em>Function Handles</em> zu definieren. Ein <em>Function Handle</em> ist eine Variable, in der die Funktion gespeichert wird. Function Handles eignen sich besonders, um kurze einzeilige Funktionen zu definieren.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">myPolynomial</span> <span class="p">=</span> <span class="p">@(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span><span class="n">x</span><span class="o">.^</span><span class="mi">4</span> <span class="o">+</span> <span class="n">x</span><span class="o">.^</span><span class="mi">3</span> <span class="o">-</span> <span class="n">x</span><span class="o">.^</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
@@ -1659,7 +1659,7 @@ Gib mir eine Schnapspraline.
 </div>
 </div>
 </div>
-<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines Function Handles erhält. So können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Intervall sinnvoll eingeklammert haben und sich der Function Handle für alle Zwischenwerte auswerten lässt.</p>
+<p>Da die Funktion nun als Variable im Workspace gespeichert ist, können wir sie wie andere Variablen verwenden. Wir können sie auch als Eingabe an eine weitere Funktion übergeben. So könnten wir zum Beispiel die Bisektionsfunktion so anpassen, dass sie als Eingabe eine beliebige Funktion in Form eines Function Handles erhält. Dadurch können wir mit unserer Funktion Nullstellen beliebiger Funktionen finden. Die einzige Voraussetzung ist, dass wir die Nullstelle durch ein Intervall sinnvoll eingeklammert haben und sich der Function Handle für alle Zwischenwerte auswerten lässt.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
@@ -1762,7 +1762,7 @@ ans = -0.51879
 </div>
 </div>
 </div>
-<p>Aus Funktionen, die über ein m-file definiert wurden lassen sich auch Function Handles erzeugen.</p>
+<p>Aus Funktionen, die über ein m-File definiert wurden, lassen sich auch Function Handles erzeugen.</p>
 <p>Function Handles lassen sich durch ein vorangestelltes <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> vor dem Funktionsnamen erzeugen. Im folgenden Beispiel wird ein Function Handle <code class="docutils literal notranslate"><span class="pre">h</span></code> für die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> erstellt. Die Funktion <code class="docutils literal notranslate"><span class="pre">bisection</span></code> wird anschließend mittelbar über das Function Handle <code class="docutils literal notranslate"><span class="pre">h</span></code> aufgerufen, um eine Nullstelle der Funktion <span class="math notranslate nohighlight">\(f(x) = 2x - \frac{1}{3}\)</span> aufzufinden.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1821,7 +1821,7 @@ ans =  0.16500
 </div>
 </div>
 </div>
-<p>Die if-then-else-Anweisung garantiert, dass die Rekursion terminiert, da die Funktion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wrid.</p>
+<p>Die if-then-else-Anweisung garantiert, dass die Rekursion terminiert, da die Funktion im Funktionskörper immer nur für kleinere Zahlen aufgerufen wird.</p>
 <p><strong>Zusatzfrage:</strong> Wie ist der Algorithmus hinsichtlich der verwendeten Rechenoperationen zu bewerten? Ist er effizient implementiert oder lässt sich da etwas verbessern?</p>
 </div>
 </div>

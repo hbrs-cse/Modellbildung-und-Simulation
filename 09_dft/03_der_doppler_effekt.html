@@ -788,7 +788,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="card-body docutils">
 <ul class="simple">
-<li><p class="card-text">mathematische Grundlagen der Fourier-Transformation</p></li>
+<li><p class="card-text">mathematische Grundlagen der Fouriertransformation</p></li>
 </ul>
 </div>
 </div>
@@ -800,7 +800,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Ausnutzung des Doppler-Effekts zur Geschwindigkeitsmessung mithilfe der DFT</p></li>
+<li><p class="card-text">Ausnutzung des Doppler Effekts zur Geschwindigkeitsmessung mithilfe der DFT</p></li>
 <li><p class="card-text">digitale Verarbeitung von Audiosignalen</p></li>
 </ul>
 </div>
@@ -821,12 +821,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg"><img alt="Matlab Logo" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" width="300px" /></a>
 <div style="text-align: right"> "MUTCD R2-1", <a href="https://en.wikipedia.org/wiki/Manual_on_Uniform_Traffic_Control_Devices
 " >Manual on Uniform Traffic Control Devices</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:MUTCD_R2-1.svg" >Wikimedia Commons</a></div> <br>
-<p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto an einem vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug an einem vorbei fährt, klingt die Sirene plötzlich viel tiefer. Er ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
+<p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug vorbeifährt, klingt die Sirene plötzlich viel tiefer. Der Doppler Effekt ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
 <div class="section" id="frequenzanalyse">
 <h2>Frequenzanalyse<a class="headerlink" href="#frequenzanalyse" title="Permalink to this headline">¶</a></h2>
 <p>Mit einem beliebigen Online <em>Youtube-zu-mp3-Converter</em> lässt sich die Tonspur des Videos extrahieren und mit der Funktion <code class="docutils literal notranslate"><span class="pre">audioread</span></code> in Matlab einlesen. Mit Hilfe der Signalverarbeitungstoolbox kann man sich dann ein Spektrogramm erstellen:</p>
 <img alt="../_images/honking_car_spectogram.png" class="align-center" src="../_images/honking_car_spectogram.png" />
-<p>Auf der x-Achse ist die Zeit und auf der y-Achse die Frequenz aufgetragen. Die Farbe gibt eine Auskunft über die dominanten Frequenzen zu jedem Zeitpunkt. Zwischen Sekunde 6 und Sekunde 7 fährt das Auto am Kameramann vorbei und der Abfall in der Tonhöhe ist gut zu erkennen.</p>
+<p>Auf der x-Achse ist die Zeit und auf der y-Achse die Frequenz aufgetragen. Die Farbe gibt eine Auskunft über die dominanten Frequenzen zu jedem Zeitpunkt. Zwischen Sekunde 6 und Sekunde 7 fährt das Auto an der Kamera vorbei und der Abfall in der Tonhöhe ist gut zu erkennen.</p>
 <p>Die vielen horizontalen Linien sind ein Zeichen dafür, dass die Hupe des Fahrzeuges keinen reinen Sinuston erzeugt, sondern eine Überlagerung vieler Frequenzen ist. Eine sogenannte Fouriertransformation der Tonspur gibt uns Auskunft über die dominanten Frequenzen im gesamten Zeitfenster:</p>
 <img alt="../_images/honking_car_fouriertransform.png" class="align-center" src="../_images/honking_car_fouriertransform.png" />
 <p>Für jede horizontale Linie im Spektrogramm erhalten wir einen Peak in der Fouriertransformation. Der Ton der Hupe ist also eine Überlagerung von hauptsächlich drei Tönen bzw. Frequenzen.</p>
@@ -851,9 +851,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt <span class="math notranslate nohighlight">\(f_A\)</span>. Das Signal breitet sich mit der Schallgeschwindigkeit von c = 340 m/s aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons, ist dann</p>
 <div class="math notranslate nohighlight">
 \[ \lambda_A = \frac{c}{f_A}, \]</div>
-<p>also genau die Distanz, die das Signal in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurück legt. Kommt das Auto auf uns zu verkürzt sich die Wellenlänge genau um die Strecke, die das Auto in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurücklegt. Ist <span class="math notranslate nohighlight">\(v\)</span> die Geschwindigkeit des Autos, so verringert sich die Wellenlänge zu</p>
+<p>also genau die Distanz, die das Signal in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurücklegt. Kommt das Auto auf uns zu verkürzt sich die Wellenlänge genau um die Strecke, die das Auto in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurücklegt. Ist <span class="math notranslate nohighlight">\(v\)</span> die Geschwindigkeit des Autos, so verringert sich die Wellenlänge zu</p>
 <div class="math notranslate nohighlight">
-\[ \lambda_{A,+} = \frac{c}{f_A} - \frac{v}{f_A} = \frac{c-v}{f_A} \]</div>
+\[ \lambda_{A,+} = \frac{c}{f_A} - \frac{v}{f_A} = \frac{c-v}{f_A}. \]</div>
 <p>Diese verringerte Wellenlänge wird vom Beobachter als höhere Frequenz <span class="math notranslate nohighlight">\(f_{B,+}\)</span> wahrgenommen:</p>
 <div class="math notranslate nohighlight">
 \[ f_{B,+} = \frac{c}{\lambda_{A,+}} = \frac{c \cdot f_A}{c-v}. \]</div>
@@ -867,7 +867,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>wahrnehmen. Wenn wir nun die Gleichung für <span class="math notranslate nohighlight">\(f_{B,+}\)</span> durch die Gleichung für <span class="math notranslate nohighlight">\(f_{B,-}\)</span> teilen, kürzt sich die unbekannte Frequenz <span class="math notranslate nohighlight">\(f_A\)</span> raus:</p>
 <div class="math notranslate nohighlight">
 \[ \frac{f_{B,+}}{f_{B,-}} = \frac{c+v}{c-v}. \]</div>
-<p>Alle Werte in dieser Gleichung sind bekannt, bis auf <span class="math notranslate nohighlight">\(v\)</span>. Wir können also nach <span class="math notranslate nohighlight">\(v\)</span> auflösen um die Geschwindigkeit des Autos aus den gemessenen Frequenzen zu bestimmen. Im folgenden wird das für die drei identifizierten dominanten Frequenzen durchgeführt:</p>
+<p>Alle Werte in dieser Gleichung sind bekannt, bis auf <span class="math notranslate nohighlight">\(v\)</span>. Wir können also nach <span class="math notranslate nohighlight">\(v\)</span> auflösen um die Geschwindigkeit des Autos aus den gemessenen Frequenzen zu bestimmen. Im Folgenden wird das für die drei identifizierten dominanten Frequenzen durchgeführt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1658</span><span class="p">,</span> <span class="mi">1104</span><span class="p">,</span> <span class="mi">456</span><span class="p">];</span>  <span class="c">% frequencies approaching</span>

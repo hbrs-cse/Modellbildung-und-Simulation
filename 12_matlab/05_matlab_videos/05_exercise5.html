@@ -786,7 +786,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="situation">
 <h2>Situation<a class="headerlink" href="#situation" title="Permalink to this headline">¶</a></h2>
 <p>Zur Simulation einer PV-Anlage wurden normalisierte Leistungsdaten ermittelt. Die Messwerte wurden dazu über einen Zeitraum von 24h im 10min-Takt aufgezeichnet.</p>
-<p>Um das Modell der Anlage in ein übergeordnetes Programm einzubinden muss aus den Messwerten nun noch eine Funktionsvorschrift abgeleitet werden (sog. Fitting).</p>
+<p>Um das Modell der Anlage in ein übergeordnetes Programm einzubinden, muss aus den Messwerten nun noch eine Funktionsvorschrift abgeleitet werden (sog. Fitting).</p>
 <p>Dazu eignet sich folgende Funktion</p>
 <div class="math notranslate nohighlight">
 \[P(t) = e^{-\left(\frac{t-a}{b}\right)^2}\]</div>
@@ -807,7 +807,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <ol class="simple">
-<li><p>Legen Sie eine neue function <code class="docutils literal notranslate"><span class="pre">fit_fcn</span></code> an, in welcher die zu fittende Funktion abhängig von <span class="math notranslate nohighlight">\(t\)</span> und den Parametern <span class="math notranslate nohighlight">\(a, b\)</span> ausgewertet wird.</p></li>
+<li><p>Legen Sie eine neue Function <code class="docutils literal notranslate"><span class="pre">fit_fcn</span></code> an, in welcher die zu fittende Funktion abhängig von <span class="math notranslate nohighlight">\(t\)</span> und den Parametern <span class="math notranslate nohighlight">\(a, b\)</span> ausgewertet wird.</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -832,14 +832,14 @@ commentsRunWhenDOMLoaded(addUtterances);
 \[\frac{\partial G}{\partial a} = 0 = \frac{1}{n}\sum_{i=1}^n{2\left(P(t_i)-P_{m_i}\right)\cdot\frac{\partial P(t_i)}{\partial a}}\]</div>
 <div class="math notranslate nohighlight">
 \[\frac{\partial G}{\partial b} = 0 = \frac{1}{n}\sum_{i=1}^n{2\left(P(t_i)-P_{m_i}\right)\cdot\frac{\partial P(t_i)}{\partial b}}\]</div>
-<p>Zur Vereinfachung können die Konstanten <span class="math notranslate nohighlight">\(n\)</span> und <span class="math notranslate nohighlight">\(2\)</span> herausgekürzt werden:</p>
+<p>Zur Vereinfachung können die Konstanten <span class="math notranslate nohighlight">\(n\)</span> und <span class="math notranslate nohighlight">\(2\)</span> heraus gekürzt werden:</p>
 <div class="math notranslate nohighlight">
 \[0 = \sum_{i=1}^n{\left(P(t_i)-P_{m_i}\right)\cdot\frac{\partial P(t_i)}{\partial a}}\]</div>
 <div class="math notranslate nohighlight">
 \[0 = \sum_{i=1}^n{\left(P(t_i)-P_{m_i}\right)\cdot\frac{\partial P(t_i)}{\partial b}}\]</div>
 <p>Sie benötigen also die partiellen Ableitungen der <span class="math notranslate nohighlight">\(e\)</span>-Funktion je nach <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>. Diese Gleichungen werden <strong>Bestimmungsgleichungen</strong> genannt.</p>
 <ol class="simple">
-<li><p>Legen Sie eine neue function <code class="docutils literal notranslate"><span class="pre">fcn</span></code> an, in welcher Sie die Bestimmungsgleichungen abhängig von <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> auswerten:</p></li>
+<li><p>Legen Sie eine neue Function <code class="docutils literal notranslate"><span class="pre">fcn</span></code> an, in welcher Sie die Bestimmungsgleichungen abhängig von <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> auswerten:</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -862,13 +862,13 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <ol class="simple">
-<li><p>Um die Jacobi-Matrix einer Funktion numerisch zu ermitteln können Sie folgende <code class="docutils literal notranslate"><span class="pre">function</span></code>  verwenden (<span class="math notranslate nohighlight">\(f\)</span> muss als functionhandle <code class="docutils literal notranslate"><span class="pre">&#64;(a,b)</span></code> übergeben werden):</p></li>
+<li><p>Um die Jacobi-Matrix einer Funktion numerisch zu ermitteln, können Sie folgende <code class="docutils literal notranslate"><span class="pre">function</span></code>  verwenden (<span class="math notranslate nohighlight">\(f\)</span> muss als Functionhandle <code class="docutils literal notranslate"><span class="pre">&#64;(a,b)</span></code> übergeben werden):</p></li>
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Bestimmt die Jacobi-Matrix beliebiger Funktionen f durch Approximation</span>
 <span class="k">function</span><span class="w"> </span>J<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">jac</span><span class="p">(</span>x,f<span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="c">% Dimension der Jacobimatrix bestimmt sich aus der Anzahl der Variablen </span>
+<span class="w">    </span><span class="c">% Dimension der Jacobi-Matrix bestimmt sich aus der Anzahl der Variablen </span>
     <span class="c">% (=Spalten) und Anzahl der Gleichungen (= Zeilen)</span>
     <span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
     <span class="c">% Funktionswerte an der Stelle x</span>
@@ -880,7 +880,7 @@ commentsRunWhenDOMLoaded(addUtterances);
         <span class="n">x1</span> <span class="p">=</span> <span class="n">x</span><span class="p">;</span>
         <span class="c">% Erweitern der i-ten Komponenten von x um Schrittweite h</span>
         <span class="n">x1</span><span class="p">(</span><span class="n">i</span><span class="p">)=</span><span class="n">x1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">h</span><span class="p">;</span>
-        <span class="c">% Berechnung einer Spalte der Jacobimatrix</span>
+        <span class="c">% Berechnung einer Spalte der Jacobi-Matrix</span>
         <span class="n">J</span><span class="p">(:,</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x1</span><span class="p">)</span><span class="o">-</span><span class="n">f0</span><span class="p">)</span><span class="o">/</span><span class="n">h</span><span class="p">;</span>
     <span class="k">end</span>
 <span class="k">end</span>
@@ -895,8 +895,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 \[J(x_k)\cdot h_k = -F(x_k)\]</div>
 <div class="math notranslate nohighlight">
 \[x_{k+1} = x_k + h_k\]</div>
-<p>Hierbei sind <span class="math notranslate nohighlight">\(F\)</span> die Bestimmungsgleichungen und <span class="math notranslate nohighlight">\(J\)</span> deren Jacobimatrix. Die Variable <span class="math notranslate nohighlight">\(x\)</span> ist in unserem Fall ein Vektor und enthält die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>.</p>
-<p>Um das Newtonverfahren zu starten benötigen Sie Startwerte für <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>.
+<p>Hierbei sind <span class="math notranslate nohighlight">\(F\)</span> die Bestimmungsgleichungen und <span class="math notranslate nohighlight">\(J\)</span> deren Jacobi-Matrix. Die Variable <span class="math notranslate nohighlight">\(x\)</span> ist in unserem Fall ein Vektor und enthält die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>Um das Newtonverfahren zu starten, benötigen Sie Startwerte für <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>.
 Es eignen sich z.B.:</p>
 <p><span class="math notranslate nohighlight">\(a = 12.8, b = 3.5\)</span></p>
 <p>Das lineare Gleichungssystem aus der ersten Zeile können Sie mit dem Backslash-Operator (<code class="docutils literal notranslate"><span class="pre">\</span></code>) lösen (<code class="docutils literal notranslate"><span class="pre">mldivide</span></code>):</p>
@@ -907,7 +907,9 @@ Es eignen sich z.B.:</p>
 </div>
 </div>
 </div>
-<p>7.Werten Sie nach der Bestimmung der Parameter deren Güte aus. Wie groß ist der mittlere quadratische Abstand zwischen Messwerten und Fitting?</p>
+<ol class="simple">
+<li><p>Werten Sie nach der Bestimmung der Parameter deren Güte aus. Wie groß ist der mittlere quadratische Abstand zwischen Messwerten und Fitting?</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
@@ -923,7 +925,7 @@ Es eignen sich z.B.:</p>
 <h2>Lösung<a class="headerlink" href="#losung" title="Permalink to this headline">¶</a></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Depx63n5zcg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div style="text-align: right;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
-<p>Hier finden Sie auserdem den <strong>Code</strong> der Lösung:</p>
+<p>Hier finden Sie außerdem den <strong>Code</strong> der Lösung:</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%% ---Hauptprogramm</span>

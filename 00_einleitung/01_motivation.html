@@ -902,7 +902,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Als Beispiel hierfür nehmen wir uns eine Extremwertaufgabe vor. Diese spielen in der Praxis oft eine große Rolle.</p>
 <div class="section" id="aufgabenstellung">
 <h2>Aufgabenstellung<a class="headerlink" href="#aufgabenstellung" title="Permalink to this headline">¶</a></h2>
-<p>Angenommen das Schweizer Verkehrsministerium macht eine Anfrage an Sie, die bestehenden Tempolimits Ihrer Autobahnen
+<p>Angenommen das Schweizer Verkehrsministerium stellt eine Anfrage an Sie, die bestehenden Tempolimits Ihrer Autobahnen
 zu überprüfen, unter dem konkreten Aspekt:</p>
 <p><em><strong>“Wie können möglichst viele Fahrzeuge eine Engstelle, z.B. einen Tunnel passieren?”</strong></em></p>
 <a class="reference internal image-reference" href="../_images/tunnel-pixabay.jpg"><img alt="high v high s" class="align-center" src="../_images/tunnel-pixabay.jpg" style="width: 800px;" /></a>
@@ -919,17 +919,17 @@ zu überprüfen, unter dem konkreten Aspekt:</p>
 <li><p>Zusammensetzung der Fahrzeugarten (PKW vs. LKW)</p></li>
 <li><p>Anzahl der Fahrspuren, Zu und Abfahrten</p></li>
 <li><p>Sichtverhältnisse, Fahrbahnbeschaffenheit</p></li>
-<li><p>(Sicherheits -)Abstand zwischen den Fahrzeugen</p></li>
+<li><p>(Sicherheits-) Abstand zwischen den Fahrzeugen</p></li>
 <li><p>…und potentiell einige mehr.</p></li>
 </ul>
 <p>Hierbei kommt die Frage auf: <em>Wie können alle Parameter in diesem Modell berücksichtigt werden?</em></p>
 <p>Das ist gar nicht unbedingt nötig, da ein Modell die
-Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathematisch behandelbares Optimierungsproblem unter den Annahmen</p>
+Natur aufs Nötig(st)e reduziert. Wir vereinfachen daher weiter auf ein mathematisch behandelbares Optimierungsproblem unter den Annahmen</p>
 <ul class="simple">
 <li><p>die Fahrbahn sei einspurig</p></li>
 <li><p>alle Fahrzeuge seien PKWs gleicher Länge</p></li>
 <li><p>alle Fahrzeuge fahren mit der gleichen Geschwindigkeit</p></li>
-<li><p>alle Fahrer halten den gleichen Sicherheitsabstand ein</p></li>
+<li><p>alle Fahrer:innen halten den gleichen Sicherheitsabstand ein</p></li>
 </ul>
 <p><em>Das ist für einen langen Tunnel in den Alpen nicht mal allzu unrealistisch…</em></p>
 <div class="admonition-hinweis admonition">
@@ -941,15 +941,15 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <h3>2. Mathematische Formulierung der Fragestellung<a class="headerlink" href="#mathematische-formulierung-der-fragestellung" title="Permalink to this headline">¶</a></h3>
 <p>Was wir uns eigentlich fragen, ist: <em>Was ist besser…?</em></p>
 <ol class="simple">
-<li><p>Hohes Tempo = Großer Sicherheitsabstand</p></li>
+<li><p>Hohes Tempo und großer Sicherheitsabstand</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/highv_highs.png"><img alt="high v high s" class="align-center" src="../_images/highv_highs.png" style="width: 800px;" /></a>
 <p>oder</p>
 <ol class="simple">
-<li><p>Niedriges Tempo Kleiner Sicherheitsabstand</p></li>
+<li><p>Niedriges Tempo und kleiner Sicherheitsabstand</p></li>
 </ol>
 <a class="reference internal image-reference" href="../_images/lowv_lows.png"><img alt="low v low s" class="align-center" src="../_images/lowv_lows.png" style="width: 800px;" /></a>
-<p>Um eine mathematische Funktion für unser Tunnel Modell aufstellen zu können, müssen wir nur noch etwas konkreter fragen,</p>
+<p>Um eine mathematische Funktion für unser Tunnel Modell aufstellen zu können, müssen wir nur noch etwas konkreter fragen:</p>
 <p><em><strong>“Bei welcher Geschwindigkeit ist der Verkehrsfluss <span class="math notranslate nohighlight">\(F \left[\frac{\text{Fahrzeuge}}{\text{h}}\right]\)</span>, d.h. die Anzahl der passierenden Fahrzeuge pro Stunde, am größten?”</strong></em></p>
 <p>Da wir das Modell bereits genügend vereinfacht haben, bleiben nur drei Variablen:</p>
 <ol class="simple">
@@ -971,7 +971,7 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <p>Um die Gleichung besser lösen zu können, können wir <em>Nebenbedingungen</em> konstruieren, welche die Variablen in Beziehung zueinander setzen:</p>
 <ol class="simple">
 <li><p>Lege die Fahrzeuglänge <span class="math notranslate nohighlight">\(L\)</span> als Konstante fest, z.B. <span class="math notranslate nohighlight">\(L=4.5 \text{ m}\)</span>.</p></li>
-<li><p>Für den Sicherheitsabstand kennen wir aus der Fahrschule die Faustregeln</p></li>
+<li><p>Für den Sicherheitsabstand kennen wir aus der Fahrschule die Faustregeln:</p></li>
 </ol>
 <ul class="simple">
 <li><p>“Bremsweg-Regel” <span class="math notranslate nohighlight">\(s(v) = \frac{v}{10} \cdot \frac{v}{10} = \frac{v^2}{100}\)</span></p></li>
@@ -982,7 +982,7 @@ Natur aufs Nötig(st)e reduziert Wir vereinfachen daher weiter auf ein mathemati
 <li><p>“Bremsweg-Regel” <span class="math notranslate nohighlight">\(s\left(v\,\left[\frac{\text{m}}{\text{s}}\right]\right) = \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}\)</span></p></li>
 <li><p>“Tacho-Halbe-Regel” <span class="math notranslate nohighlight">\(s\left(v\,\left[\frac{\text{m}}{\text{s}}\right]\right) = \frac{v\cdot 3.6\,\text{s}}{2}\)</span></p></li>
 </ul>
-<p>Mithilfe der “Bremsweg-Regel” und der konstanten Fahrzeuglänge vereinfachen wir die Funktion zu</p>
+<p>Mithilfe der “Bremsweg-Regel” und der konstanten Fahrzeuglänge vereinfachen wir die Funktion zu:</p>
 <div class="math notranslate nohighlight">
 \[\max{F(v)} = \frac{v}{4.5\,\text{m} + \frac{(v\cdot 3.6\,\text{s})^2}{100\,\text{m}}}, v\in[0,\infty)\]</div>
 <div class="admonition-hinweis admonition">
@@ -1199,8 +1199,8 @@ bestv = 20
 <div class="section" id="ausblick">
 <h2>Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
 <p>In dieser Lösung sind natürlich einige Modellannahmen getroffen worden, die der Realität nicht standhalten, wie variierende Abstände und riskante Fahrweisen.</p>
-<p>Ein sehr bekanntes Modell zur Verkehrssimulation ist das <strong>Nagel-Schreckenberg-Modell</strong>. Damit können Phänomene wie der “Stau-aus-dem-nichts” oder Knotennetze mit Kreuzungen und Ampelschaltungen einfach simuliert werden. Ein Beispiel dafür finden Sie in <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html#naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a> wieder.</p>
-<p>Eine weitere Möglichkeit, Verkehr zu simulieren, ist mit <strong>Partiellen Differentialgleichungen</strong>. Diese lernen Sie in <a class="reference internal" href="../11_pde/03_trafficPDE.html#traffic-pde"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a> kennen.</p>
+<p>Ein sehr bekanntes Modell zur Verkehrssimulation ist das <strong>Nagel-Schreckenberg-Modell</strong>. Damit können Phänomene wie der “Stau-aus-dem-nichts” oder Knotennetze mit Kreuzungen und Ampelschaltungen einfach simuliert werden. Ein Beispiel dafür finden Sie in dem Kapitel <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html#naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a> wieder.</p>
+<p>Eine weitere Möglichkeit, Verkehr zu simulieren, ist mit <strong>Partiellen Differentialgleichungen</strong>. Diese lernen Sie in dem Kapitel <a class="reference internal" href="../11_pde/03_trafficPDE.html#traffic-pde"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a> kennen.</p>
 </div>
 </div>
 
