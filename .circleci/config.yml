@@ -28,6 +28,7 @@ jobs:
           command: |
             pip install --upgrade pip
             pip install -r requirements.txt
+            conda update ipython -c conda-forge
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
