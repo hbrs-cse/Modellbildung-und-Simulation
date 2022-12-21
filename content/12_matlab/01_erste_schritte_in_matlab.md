@@ -29,9 +29,10 @@ Matlab ist nicht kostengünstig. Es gibt aber frei verfügbare Alternativen. Zum
 
 An einigen Stellen dieses Online-Lehrbuchs tauchen Textboxen mit Matlab-Code auf, der sich interaktiv ausführen lässt. Die Umsetzung basiert auf einem Octave-Kern, der im Hintergrund auf einer virtuellen Maschine läuft. [Hier](https://en.wikibooks.org/wiki/MATLAB_Programming/Differences_between_Octave_and_MATLAB) finden Sie eine Liste syntaktischer Unterschiede zwischen Octave und Matlab.
 
-Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte. Die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich des wissenschaftlichen Rechnens sind wahrscheinlich 
+
+Neben Octave und Matlab gibt es eine Vielzahl weiterer Skriptsprachen, die man ebenso verwenden könnte. Die drei am weitesten verbreiteten, frei verfügbaren Sprachen aus dem Bereich des wissenschaftlichen Rechnens sind wahrscheinlich:
  * [Python](https://www.python.org/) - Extrem vielseitige und weitverbreitete Sprache.
- * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet
+ * [R](https://www.r-project.org/) - Insbesondere für statistische Anwendungen geeignet.
  * [Julia](https://julialang.org/) - Spricht R- und Matlabnutzer an. Streng genommen keine interpretierte Sprache, es kommt ein sogenannter *Just-In-Time-Compiler* zum Einsatz.
  
 

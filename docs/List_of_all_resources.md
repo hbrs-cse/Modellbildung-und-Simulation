@@ -15,6 +15,6 @@
 | 09_dft/03_der_doppler_effekt | Gif | Dopplerfrequenz | Charly Whisky | https://commons.wikimedia.org/wiki/User:Charly_Whisky | CC BY-SA 3.0 | https://creativecommons.org/licenses/by-sa/3.0/legalcode | Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif | _ | 
 | 09_dft/04_vuvuzela_filter | Video | Tshabalala Goal VS Mexico In World Cup 2010 **HD** | MaorMizrahi | https://www.youtube.com/channel/UC_dKWNdXsbJOOo9ZotjdfZA | Standard-YouTube-Lizenz | https://www.youtube.com/static?template=terms | YouTube | https://www.youtube.com/watch?v=HFISx1j0kak | - | Hinweis hinschreiben notwendig, weil kein CC! |
 | 11_pde/03_konvektion_und_diffusion | Photo | Aedes Albopictus | James Gathany/CDC | _ | Public domain | https://en.wikipedia.org/wiki/Public_domain | Wikimedia Commons | https://commons.wikimedia.org/wiki/File:Aedes_Albopictus.jpg | _ | 
-
-
+| 02_gleitkommaarithmetik/02_spielbeispiel_taylor.ipynb | Spielbeispiel | Truncated Taylor Series | Jan Kleinert | https://github.com/joergbrech | CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/ | Streamlit | https://joergbrech-truncated-taylor-series-streamlit-app-ujhce3.streamlit.app/ | _ | _ |
+| div | Spielbeispiele | div | Philipp Spelten | https://github.com/PhiSpel | CC BY-SA 4.0 | https://creativecommons.org/licenses/by-sa/4.0/ | Streamlit | div | _ | _ |
 
