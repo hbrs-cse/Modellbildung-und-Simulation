@@ -162,6 +162,11 @@ commentsRunWhenDOMLoaded(addUtterances);
      Best Practices
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_github.html">
+     Einführung in GitHub
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
@@ -928,6 +933,10 @@ Hello World, how is your day?
 <p>Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für Ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.</p>
 <div class="section" id="unit-tests-auf-dieser-seite-ausfuhren">
 <h3>Unit Tests auf dieser Seite ausführen<a class="headerlink" href="#unit-tests-auf-dieser-seite-ausfuhren" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Wie Sie Unit Tests zusammen mit Versionskontrolle verwenden, lernen Sie in <a class="reference internal" href="04_github.html#github"><span class="std std-ref">Einführung in GitHub</span></a>.</p>
+</div>
 <p>Sowohl Matlab als auch Octave bieten Werkzeuge für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle <a class="reference external" href="https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit">MOxUnit</a> verwendet. MoXUnit ist ein freies open source unit testing Framework, das sowohl mit Matlab als auch Octave funktioniert. Beachten Sie die Hinweise auf der Matlab Seite: Sie können den Code nicht direkt installieren, sondern müssen die Installationsanweisungen auf dem zugehörigen <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">GitHub repository</a> befolgen.</p>
 <p>Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion <code class="docutils literal notranslate"><span class="pre">fac</span></code> zu schreiben, die die Fakultät <span class="math notranslate nohighlight">\(n!\)</span> einer Zahl <span class="math notranslate nohighlight">\(n\)</span> berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion <code class="docutils literal notranslate"><span class="pre">factorial</span></code>, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:</p>
 <div class="cell docutils container">

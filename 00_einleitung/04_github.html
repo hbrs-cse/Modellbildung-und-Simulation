@@ -1,0 +1,1177 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Einführung in GitHub &#8212; Modellbildung und Simulation</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "hbrs-cse/Modellbildung-und-Simulation");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Einleitende Übungsaufgaben" href="../01_uebungen/00_uebungsaufgaben.html" />
+    <link rel="prev" title="Best Practices" href="03_best_practice.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+<script async="" src="https://www.google-analytics.com/analytics.js"></script>
+<script>
+                        window.ga = window.ga || function () {
+                            (ga.q = ga.q || []).push(arguments) };
+                        ga.l = +new Date;
+                        ga('create', 'UA-134708516-1', 'auto');
+                        ga('set', 'anonymizeIp', true);
+                        ga('send', 'pageview');
+                    </script>
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/hbrs_logo_text.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Modellbildung und Simulation</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_einleitung.html">
+   Einleitung
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_motivation.html">
+     Das Stauproblem - Motivation zur Benutzung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_verwendung_dieses_buches.html">
+     Verwendung dieses Buches
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_best_practice.html">
+     Best Practices
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Einführung in GitHub
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_uebungen/00_uebungsaufgaben.html">
+   Einleitende Übungsaufgaben
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/01_fluessigkeit_im_boden.html">
+     Flüssigkeit im Boden
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html">
+     Verkehrssimulation mit zellulären Automaten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/03_der_perfekte_wurf.html">
+     Der perfekte Wurf
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_uebungen/04_game_of_life.html">
+     Game of Life
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_gleitkommaarithmetik/00_gleitkommaarithmetik.html">
+   Gleitkommaarithmetik
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/01_uebungen.html">
+     Übungen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/02_spielbeispiel_taylor.html">
+     Spielbeispiel: Taylorpolynome
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_gleitkommaarithmetik/03_taylor.html">
+     Funktionen mit Taylorpolynomen berechnen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_interp_approx/00_interpolation_Und_approximation.html">
+   Interpolation und Approximation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/01_spielbeispiel_interpolation.html">
+     Spielbeispiel: Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/02_lineare_interpolation.html">
+     Lineare Interpolation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/03_spielbeispiel_approximation.html">
+     Spielbeispiel: Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/04_lineare_approximation.html">
+     Lineare Approximation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_interp_approx/05_spline_interpolation.html">
+     Spline-Interpolation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_Differentiation_Integration/00_differentiation_und_integration.html">
+   Differentiation und Integration
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/01_differentiation.html">
+     Numerische Differentiation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/02_spielbeispiel_integration.html">
+     Spielbeispiel: Integration
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_Differentiation_Integration/03_integration_and_stepcontrol.html">
+     Numerische Integration (mit Schrittweitensteuerung)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_lineare_gleichungen/00_lineare_gleichungssysteme.html">
+   Lineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/01_spielbeispiel_lgls.html">
+     Spielbeispiel: lineare GLS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/02_lgs_sparse.html">
+     Lösung linearer Gleichungssysteme
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_lineare_gleichungen/03_modellierung_einer_highline.html">
+     Modellierung einer Highline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme.html">
+   Nichtlineare Gleichungssysteme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/01_newton-verfahren.html">
+     Newton-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../06_nichtlineare_gleichungen/02_bierschaumzerfall.html">
+     Bierschaumzerfall
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../07_num_ode/00_numerik_gew%C3%B6hnlicher_differentialgleichungen.html">
+   Gewöhnliche Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../07_num_ode/01_intro_RK/00_intro_RK.html">
+     Einführung in numerische Integrationsverfahren von ODEs
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+    <label for="toctree-checkbox-9">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/01_integration_RK.html">
+       Integration von ODEs mit expliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/02_integration_implicit.html">
+       Integration von ODEs mit impliziten Verfahren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/03_adaptive_steps.html">
+       Adaptive Schrittweitensteuerung
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/04_oscillation_and_vdpol.html">
+       Systeme von ODEs
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../07_num_ode/01_intro_RK/05_integration_RK_evaluation.html">
+       Lohnen sich Verfahren höherer Ordnung?
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/02_schwingungen/00_harmonische_schwingung.html">
+     Harmonische Schwingung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.html">
+     Simulation eines Raketenstarts
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/04_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren.html">
+     Stabilität des expliziten versus impliziten Eulerverfahrens
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/05_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch.html">
+     Modellierung einer Highline - Zeitliche Auflösung
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../07_num_ode/06_mass-spring-mass/00_mass-spring-mass.html">
+     Rutschendes Masse-Feder-Masse System
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../08_eigenwerte/00_eigenwertprobleme.html">
+   Eigenwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/01_das_qr_verfahren.html">
+     Das QR-Verfahren
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/02_nullstellen_von_polynomen.html">
+     Nullstellen von Polynomen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens.html">
+     Schwingungsmoden eines eindimensionalen Balkens
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../09_dft/00_diskrete_fouriertransformation.html">
+   Diskrete Fouriertransformation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/01_approximation_von_periodischen_signalen.html">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/02_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/03_der_doppler_effekt.html">
+     Der Doppler Effekt
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_dft/04_vuvuzela_filter.html">
+     Vuvuzela Filter
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../10_bvp/00_randwertprobleme.html">
+   Randwertprobleme
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/01_durchhang_eines_flexiblen_kabels.html">
+     Durchhang eines flexiblen Kabels
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../10_bvp/02_temperatur_in_einem_nuklearen_brennstab.html">
+     Temperatur in einem nuklearen Brennstab
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../11_pde/00_partielle_differentialgleichungen.html">
+   Partielle Differentialgleichungen
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/01_modellierung_einer_highline_dynamisch_pde.html">
+     Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/02_konvektion_und_diffusion.html">
+     Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../11_pde/03_trafficPDE.html">
+     Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../12_matlab/00_MATLAB_introduction.html">
+   Matlab Einführung
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_matlab/01_erste_schritte_in_matlab.html">
+     Matlab einrichten
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_matlab/02_matlab_command_window.html">
+     Matlab Command Window
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_matlab/03_skripte_und_funktionen.html">
+     Skripte und Funktionen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../12_matlab/04_matlab_kennenlernen.html">
+     Rechnen mit Matlab
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../12_matlab/05_matlab_videos/00_matlab_videos.html">
+     Grundlagenkurs und Zusatzübungen
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/01_exercise1.html">
+       1. Messwerte importieren, plotten und bearbeiten
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/02_exercise2.html">
+       2. Messwerte filtern und interpolieren
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/03_exercise3.html">
+       3. Polynomfitting
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/04_exercise4.html">
+       4. Flächenberechnung und Newtonverfahren (1D)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/05_exercise5.html">
+       5. Funktionsfitting und Newtonverfahren (nD)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/06_exercise6.html">
+       6. Numerische Differentiation und Integration
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/07_exercise7.html">
+       7. Gewöhnliche Differentialgleichungen
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/08_exercise8.html">
+       8. Gewöhnliche Differentialgleichungen und Event-Detektion
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/09_exercise9.html">
+       9. Differential-Algebraische Gleichungen (1)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/10_exercise10.html">
+       10. Differential-Algebraische Gleichungen (2)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../12_matlab/05_matlab_videos/11_extra.html">
+       Zusatzinfo - Mehrdimensionales Newtonverfahren
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/00_einleitung/04_github.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        
+        
+        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/04_github.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/04_github.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inhalt-der-aufgabe">
+   Inhalt der Aufgabe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorbereitung">
+   1. Vorbereitung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bugfix-und-automatische-tests">
+   2. Bugfix und automatische Tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusatzinformationen">
+   Zusatzinformationen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#der-pull-request-workflow">
+     Der Pull-Request Workflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stellen-sie-folgende-dateien-unter-versionskontrolle">
+     Stellen Sie folgende Dateien unter Versionskontrolle:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stellen-sie-folgende-dateien-nicht-unter-versionskontrolle">
+     Stellen Sie folgende Dateien
+     <strong>
+      nicht
+     </strong>
+     unter Versionskontrolle:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuous-integration">
+     Continuous Integration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nutzliche-links">
+   Nützliche Links
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Einführung in GitHub</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inhalt-der-aufgabe">
+   Inhalt der Aufgabe
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#vorbereitung">
+   1. Vorbereitung
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bugfix-und-automatische-tests">
+   2. Bugfix und automatische Tests
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zusatzinformationen">
+   Zusatzinformationen
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#der-pull-request-workflow">
+     Der Pull-Request Workflow
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stellen-sie-folgende-dateien-unter-versionskontrolle">
+     Stellen Sie folgende Dateien unter Versionskontrolle:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stellen-sie-folgende-dateien-nicht-unter-versionskontrolle">
+     Stellen Sie folgende Dateien
+     <strong>
+      nicht
+     </strong>
+     unter Versionskontrolle:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuous-integration">
+     Continuous Integration
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#nutzliche-links">
+   Nützliche Links
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Voraussetzungen</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">keine</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow docutils">
+<div class="card-header docutils">
+<p class="card-text">Lerninhalte</p>
+</div>
+<div class="card-body docutils">
+<ul class="simple">
+<li><p class="card-text">Versionskontrolle mit GitHub</p></li>
+<li><p class="card-text">Funktionsweise des automatisierten Unit Testing mit GitHub Actions</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="einfuhrung-in-github">
+<span id="github"></span><h1>Einführung in GitHub<a class="headerlink" href="#einfuhrung-in-github" title="Permalink to this headline">¶</a></h1>
+<p><strong>Zu dieser Aufgabe gibt es <a class="reference external" href="https://github.com/hbrs-cse/github-project-template">hier</a> eine GitHub Vorlage.</strong> Sie basiert auf einer <a class="reference external" href="https://github.com/joergbrech/modsim2-projektbeschreibung">Aufgabe von joergbrech</a>.</p>
+<div class="section" id="inhalt-der-aufgabe">
+<h2>Inhalt der Aufgabe<a class="headerlink" href="#inhalt-der-aufgabe" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Sie demonstrieren, dass Sie mit git vertraut sind.</p></li>
+<li><p>Sie erhalten Einblick in automatisierte Software-Tests</p></li>
+</ul>
+<!---
+ - Sie verfassen eine Projektbeschreibung für Ihre Ausarbeitung
+--></div>
+<div class="section" id="vorbereitung">
+<h2>1. Vorbereitung<a class="headerlink" href="#vorbereitung" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Machen Sie sich mit dem <a class="reference external" href="https://de.wikipedia.org/wiki/Versionsverwaltung">Versionskontroll</a>system <a class="reference external" href="https://git-scm.com/">git</a> vertraut und installieren Sie es auf ihrem Rechner.</p>
+<ul>
+<li><p>Historisch bedingt ist git ein Kommandozeilenprogramm ohne graphische Oberfläche. Für Windows, Linux und Mac gibt es inzwischen einige gute graphischen Oberflächen, z.B. <a class="reference external" href="https://tortoisegit.org/">Tortoise Git</a> für Windows.</p></li>
+<li><p>In dieser Übung finden aber <strong>nur die Kommandozeilenbefehle</strong> Erwähnung. Um als Windows Nutzer:in git aus der Kommandozeile verwenden zu können, benutzen sie die <a class="reference external" href="https://gitforwindows.org/">git bash</a>, oder noch besser: Installieren Sie sich eine <a class="reference external" href="https://docs.microsoft.com/de-de/windows/wsl/install-win10">Linux Distribution als Subsystem</a>, z.B. <code class="docutils literal notranslate"><span class="pre">Ubuntu</span> <span class="pre">18.04</span></code>.</p></li>
+<li><p>Auf welche Weise Sie git bedienen, bleibt Ihnen überlassen.</p></li>
+</ul>
+</li>
+<li><p>Machen Sie sich mit dem Arbeiten auf Github vertraut, insbesondere mit dem Issue Tracker und Pull Requests. Als Erinnerungsstütze finden Sie weiter unten unter “Zusatzinformationen” ein Beispiel.</p></li>
+<li><p>Hier finden Sie einige git und Github Tutorials:</p>
+<ul>
+<li><p><a class="reference external" href="https://guides.github.com/introduction/git-handbook/">https://guides.github.com/introduction/git-handbook/</a></p></li>
+<li><p><a class="reference external" href="https://www.atlassian.com/de/git">https://www.atlassian.com/de/git</a></p></li>
+<li><p><a class="reference external" href="https://github.com/skills/introduction-to-github">https://github.com/skills/introduction-to-github</a></p></li>
+</ul>
+</li>
+<li><p>Legen Sie los, sobald Sie folgende Fragen beantworten können:</p>
+<ul>
+<li><p>Wozu wird git verwendet?</p></li>
+<li><p>Was ist der Unterschied zwischen git und GitHub?</p></li>
+<li><p>Was ist ein Repository?</p></li>
+<li><p>Was verbirgt sich hinter den Begriffen “commit”, “branch” und “Staging Area” und “merge conflict”?</p></li>
+<li><p>Was machen die Befehle <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>?</p></li>
+<li><p>Wer oder was ist Linus Tovalds?</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="bugfix-und-automatische-tests">
+<h2>2. Bugfix und automatische Tests<a class="headerlink" href="#bugfix-und-automatische-tests" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Die hier beschriebene Aufgabe finden Sie auch unter <a class="reference internal" href="02_verwendung_dieses_buches.html#verwendung"><span class="std std-ref">Verwendung dieses Buches</span></a>.</p>
+</div>
+<ul>
+<li><p>Mit jedem <em>push</em> in dieses repository werden automatische Tests für den Programmcode im <code class="docutils literal notranslate"><span class="pre">src</span></code> Verzeichnis durchgeführt. An dem roten Kreuz nebem dem letzten <em>commit</em> stellen Sie fest, dass mindestens einer der Tests nicht erfolgreich war:</p>
+<a class="reference internal image-reference" href="../_images/failed_test.gif"><img alt="../_images/failed_test.gif" class="align-center" src="../_images/failed_test.gif" style="width: 400px;" /></a>
+ <div style=\"text-align: right\"> Abbildung 1: Hier finden Sie die Fehlermeldung. </div> <br>
+<p>Sie erhalten zusätzliche Detailinformationen:</p>
+<a class="reference internal image-reference" href="../_images/failed_test_2.png"><img alt="Name of image" class="align-center" src="../_images/failed_test_2.png" style="width: 800px;" /></a>
+ <div style=\"text-align: right\"> Abbildung 2: Auszug aus der detaillierten Fehlermeldung. </div> <br>
+<p>Wir lesen die Information von unten nach oben.</p>
+<ul>
+<li><p>Zeile 38: Zeile 23 von <code class="docutils literal notranslate"><span class="pre">tests/testfac.m</span></code>, im Funktionskörper der Funktion <code class="docutils literal notranslate"><span class="pre">test_fac_5</span></code> ist die Ursache des Fehlers.</p></li>
+<li><p>Zeile 37: Offensichtlich wurde in Zeile 23 von <code class="docutils literal notranslate"><span class="pre">tests/testfac.m</span></code> die Funktion <code class="docutils literal notranslate"><span class="pre">assertEqual</span></code> aufgerufen, die den Fehler verursacht hat. Diese Funktion ist in Zeile 70 von <code class="docutils literal notranslate"><span class="pre">assertEqual.m</span></code> definiert, das interessiert uns aber weniger.</p></li>
+<li><p>Zeilen 30-36: Die Funktion <code class="docutils literal notranslate"><span class="pre">assertEqual</span></code> hat zwei Eingaben bekommen, von  denen erwartet wurde, dass sie gleich sind. Offensichtlich sind sie es aber nicht: Die erste Eingabe ist 15, die zweite ist 120.</p></li>
+<li><p>Es ist Zeit sich den Test genauer anzuschauen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">test_fac_5</span>
+<span class="o">%</span> <span class="n">test</span> <span class="k">if</span> <span class="n">fac</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">==</span><span class="mi">120</span>
+<span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="mi">120</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Offensichtlich wird getestet, ob <code class="docutils literal notranslate"><span class="pre">fac(5)</span></code> 120 ergibt. Tatsächlich liefert die Funktion aber 15 als Rückgabewert für die Eingabe 5. Offenslicht hat die Funktion <code class="docutils literal notranslate"><span class="pre">fac</span></code>, die in <code class="docutils literal notranslate"><span class="pre">src/fac.m</span></code> definiert ist einen bug.</p>
+</li>
+</ul>
+</li>
+<li><p>Wechseln Sie auf den <a class="reference external" href="https://docs.github.com/en/issues/tracking-your-work-with-issues/quickstart">Issue Tracker</a> und eröffnen ein Issue, das das Problem möglichst treffend beschreibt.</p>
+<p>Das erstellte Issue kriegt eine laufende Nummer zugewiesen. Unter der Annahme, dass es das erste Issue ihres repositories ist, ist dies <code class="docutils literal notranslate"><span class="pre">#1</span></code>. Mit diesem hashtag können Sie sich in Kommentaren und commit messages auf das Issue beziehen.</p>
+</li>
+<li><p>Es ist Zeit den bug zu beheben. Wechseln Sie auf die Hauptseite dieses repositories und klicken auf “Clone or Download”. Kopieren Sie sich den <code class="docutils literal notranslate"><span class="pre">hppts</span></code> Link auf ihr repository.</p>
+<a class="reference internal image-reference" href="https://docs.github.com/assets/cb-20363/images/help/repository/code-button.png"><img alt="Name of image" class="align-center" src="https://docs.github.com/assets/cb-20363/images/help/repository/code-button.png" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="https://docs.github.com/assets/cb-33207/images/help/repository/https-url-clone-cli.png"><img alt="Name of image" class="align-center" src="https://docs.github.com/assets/cb-33207/images/help/repository/https-url-clone-cli.png" style="width: 400px;" /></a>
+ <div style=\"text-align: right\"> Abbildung 3: Hier finden Sie den Link zum Klonen des Repository. </div> <br>
+</li>
+<li><p>Auf ihrem Rechner, öffnen Sie ein Kommandozeilenfenster (git bash, Ubuntu 18.04 WSL oder ein Terminal) und klonen Sie sich das Verzeichnis auf ihren lokalen Rechner.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/octo-org/octo-repo.git
+</pre></div>
+</div>
+<p>wobei sie hier den Link <em>ihres</em> repositories verwenden. Es wird ein neuer Ordner angelegt, mit dem Namen <code class="docutils literal notranslate"><span class="pre">aufgabe1-projektbeschreibung-teamname</span></code>. Wechseln sie in diesen Ordner</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">aufgabe1</span><span class="o">-</span><span class="n">projektbeschreibung</span><span class="o">-</span><span class="n">teamname</span>
+</pre></div>
+</div>
+<p>und lassen Sie sich den Inhalt wieder geben:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">la</span>
+</pre></div>
+</div>
+<p>Sie erkennen, dass es sich bei dem Ordner um ein git-repository handelt daran, dass es einen Unterordner mit Namen <code class="docutils literal notranslate"><span class="pre">.git</span></code> gibt. In einem git-repository können Sie sich jederzeit den Status des repositories anschauen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+</li>
+<li><p>Erstellen Sie ein branch <code class="docutils literal notranslate"><span class="pre">factorial-bug</span></code> und wechseln Sie auf diesen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">factorial</span><span class="o">-</span><span class="n">bug</span>
+</pre></div>
+</div>
+<p>Alle Änderungen die sie nun in dem Ordner vornehmen finden nicht mehr im Hauptentwicklungszweig <code class="docutils literal notranslate"><span class="pre">master</span></code> statt, sondern in ihrem eigenen lokalen Zweig <code class="docutils literal notranslate"><span class="pre">factorial-bug</span></code>.</p>
+</li>
+<li><p>Finden Sie den Fehler in <code class="docutils literal notranslate"><span class="pre">src/fac.m</span></code> und beheben Sie ihn. Sie können hierzu einen beliebigen Texteditor, Matlab oder Octave verwenden. Wenn sie die Tests in <code class="docutils literal notranslate"><span class="pre">tests/test_fac.m</span></code> lokal auf ihrem Rechner ausführen möchten, müssen sie sich vorher <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">MOxUnit</a> installieren, das ist aber nicht zwingend nötig.</p></li>
+<li><p>Vergewissern Sie sich per Kommandozeile, dass nur die Datei <code class="docutils literal notranslate"><span class="pre">src/fac.m</span></code> geändert wurde:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">status</span>
+</pre></div>
+</div>
+<p><img alt="" src="../_images/git_status_0.png" /></p>
+<p>Sie können mit <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> alle vorgenommenen Änderungen sehen.</p>
+</li>
+<li><p>Fügen Sie alle geänderten Dateien der <em>Staging Area</em> hinzu</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">.</span>
+</pre></div>
+</div>
+<p>Überprüfen Sie den Status mit <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p>
+<p><img alt="" src="../_images/git_status_1.png" /></p>
+</li>
+<li><p><em>Commiten</em> sie alle Änderungen aus der Staging Area in ihren lokalen branch <code class="docutils literal notranslate"><span class="pre">factorial-bug</span></code> mit einer sprechenend commit Nachricht:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;fix bug in fac.m, addresses #1&quot;</span>
+</pre></div>
+</div>
+<p>Überprüfen Sie den Status mit <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code></p>
+<p><img alt="" src="../_images/git_status_2.png" /></p>
+</li>
+<li><p>Es ist Zeit, ihre Änderungen in das <em>remote</em> repository auf Github zu <em>push</em>en. Dazu erstellen Sie einen branch auf dem nicht-lokalen repository auf github mit dem selben Namen wie ihr lokaler branch, <code class="docutils literal notranslate"><span class="pre">factorial-bug</span></code> und synchronisieren den lokalen und remote branch in einem Befehl:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">HEAD</span>
+</pre></div>
+</div>
+</li>
+<li><p>Wechseln Sie wieder in den Hauptentwicklungszweig</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+</pre></div>
+</div>
+<p>Vergewissern sie sich, dass in diesem Zweig ihre Änderungen an <code class="docutils literal notranslate"><span class="pre">src/fac.m</span></code> fehlen.</p>
+</li>
+<li><p>Öffnen Sie ihr repository auf Github und wechseln Sie auf die <em>branches</em> Ansicht. Vergewissern Sie sich, dass es einen branch mit Namen <code class="docutils literal notranslate"><span class="pre">factorial-bug</span></code> gibt, der ihren <em>commit</em> enthält, und das nun alle automatischen Tests durchlaufen. Letzteres erkennen Sie am grünen Häkchen neben dem <em>branch</em> bzw. neben dem <em>commit</em>.</p>
+<a class="reference internal image-reference" href="../_images/pull_request.gif"><img alt="../_images/pull_request.gif" class="align-center" src="../_images/pull_request.gif" style="width: 400px;" /></a>
+<p>Wenn Sie zufrieden sind, erstellen Sie einen “<em>Pull Request</em> auf den <code class="docutils literal notranslate"><span class="pre">master</span></code> branch” und wählen Sie auf der rechten Seite eines oder alle ihrer Teammitglieder als <em>Reviewer</em> aus.</p>
+<p><strong>Pro Tipp:</strong> <em>Schreiben Sie <code class="docutils literal notranslate"><span class="pre">fixes</span> <span class="pre">#1</span></code> in die Beschreibung des Pull Requests. Dann wird Github automatisch das erstellte Issue schließen, sobald der Pull Request von ihren Teammitgliedern akzeptiert und gemerged wurde.</em></p>
+</li>
+<li><p>Wenn Sie als Reviewer ausgewählt wurden, überprüfen sie die Änderung die ihr Teammitglied in ihrem Pull Request vorgenommen hat. Wenn sie zufrieden sind, wählen Sie “Approve Changes” und “Merge pull request” um alle Änderungen in den Hauptentwicklungszweig zu übernehmen.</p></li>
+<li><p>Das Issue ist behoben und kann im Issue Tracker geschlossen werden.</p></li>
+<li><p>Nun ist ihre lokale Kopie des <code class="docutils literal notranslate"><span class="pre">master</span></code> branch um einen commit hinter dem <code class="docutils literal notranslate"><span class="pre">master</span></code> branch auf Github. Vergewissern Sie sich, dass sie auf dem Hauptentwicklungszweig <code class="docutils literal notranslate"><span class="pre">master</span></code> sind und <em>pull</em>en sie sich alle Änderungen von dem <em>remote</em> repository auf Github in ihre lokale Kopie:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="n">master</span>
+<span class="n">git</span> <span class="n">pull</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Ich lege Ihnen sehr ans Herzen, diesen Workflow für ihre Projektarbeit zu übernehmen. Arbeiten Sie mit dem Issue tracker. Vermeiden Sie <em>commit</em>s in den <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. Arbeiten sie mit branches und <em>Pull Requests</em>. Schreiben Sie Tests für ihren Matlab-Code.</p>
+</div>
+<div class="section" id="zusatzinformationen">
+<h2>Zusatzinformationen<a class="headerlink" href="#zusatzinformationen" title="Permalink to this headline">¶</a></h2>
+<details>
+<summary>Teamarbeit mit GIT</summary>
+<div class="section" id="der-pull-request-workflow">
+<h3>Der Pull-Request Workflow<a class="headerlink" href="#der-pull-request-workflow" title="Permalink to this headline">¶</a></h3>
+<p>Sie arbeiten gemeinsam als Team an einem Projekt. Es empfiehlt sich vorab die Aufgaben zu verteilen. Der Issue Tracker bietet sich hier als unterstützendes Tool an.</p>
+<p>Damit es möglichst zu wenigen Konflikten kommt, bietet es sich an, die Aufgaben so zu verteilen, dass man sich möglichst wenig in die Quere kommt. Am besten arbeitet ihr, in dem ihr <strong>nur in seltenen Ausnahmen</strong> direkt in den <code class="docutils literal notranslate"><span class="pre">master</span></code> branch commitet. Idealerweise folgt ihr dem Workflow mit Pull Requests:</p>
+<p>Angenommen Maja möchte eine bestimmte Teilaufgabe bearbeiten, z.B. das Kapitel “Stand der Technik” in die Projektdokumentation einfügen.</p>
+<ul>
+<li><p>Maja wechselt in ihrer lokalen Kopie des repositories auf den <code class="docutils literal notranslate"><span class="pre">master</span></code> branch und sorgt dafür, dass sie alle aktuellen Änderungen aus dem Github repository enthält:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>master
+git<span class="w"> </span>pull
+</pre></div>
+</div>
+</li>
+<li><p>Sie erstellt einen neuen lokalen branch mit einem sprechenden Namen, z.B. <code class="docutils literal notranslate"><span class="pre">maja/chapter-stand-der-technik</span></code>, und welchselt in diesen branch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>maja/chapter-stand-der-technik
+</pre></div>
+</div>
+</li>
+<li><p>Anschließend kann Maja Dateien ändern oder neue hinzufügen, und jede inkrementelle Änderung <em>commit</em>en.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>02_stand_der_technik.tex
+git<span class="w"> </span>add<span class="w"> </span>main.tex
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Stand der Technik Kapitel geschrieben&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Sie kann jederzeit ihre lokalen Änderungen auf das Github repository <em>push</em>en.
+Der Befehl</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>HEAD
+</pre></div>
+</div>
+<p>erstellt einen neuen branch im <em>remote</em> Github repository mit dem selben Namen wie ihr lokaler branch. Wenn Sie weitere Änderungen an dem branch vornehmen möchte, muss sie beim nächsten mal nur noch</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>eingeben, da es schon im <em>remote</em> Github repository einen branch mit demselben Namen gibt.</p>
+</li>
+<li><p>Sobald Maja mit der Bearbeitung ihrer Teilaufgabe fertig ist, kann sie auf Github eine <em>Pull Request</em> stellen, und einen ihrer Teammitglieder, Willi, um einen <em>review</em> bitten. Wenn Willi mit Majas Änderungen einverstanden ist, kann er den <em>Pull Request</em> in den <code class="docutils literal notranslate"><span class="pre">master</span></code> branch <em>mergen</em>.</p></li>
+<li><p>Sobald Maja’s Änderungen im <code class="docutils literal notranslate"><span class="pre">master</span></code> übernommen sind, kann der branch <code class="docutils literal notranslate"><span class="pre">maja/chapter-stand-der-technik</span></code> ohne Bedenken gelöscht werden.</p></li>
+<li><p>Falls Maja eine Aufgabe bearbeitet hat, die im Issue Tracker hinterlegt ist, kann das Issue als erledigt markiert werden.</p></li>
+</ul>
+</details>
+<details>
+<summary>Was gehört unter Versionskontrolle und was nicht.</summary>
+</div>
+<div class="section" id="stellen-sie-folgende-dateien-unter-versionskontrolle">
+<h3>Stellen Sie folgende Dateien unter Versionskontrolle:<a class="headerlink" href="#stellen-sie-folgende-dateien-unter-versionskontrolle" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Alle von Menschen lesbare Dateien (ASCII), die sie zur Bearbeitung ihres Projektes erstellt haben. Das sind zum Beispiel <code class="docutils literal notranslate"><span class="pre">*.tex</span></code> Dateien oder <code class="docutils literal notranslate"><span class="pre">*.m</span></code> Dateien.</p></li>
+<li><p>Binäre Dateien wie Bilder, die sie in ihrer Dokumentation verwenden.</p></li>
+</ul>
+</div>
+<div class="section" id="stellen-sie-folgende-dateien-nicht-unter-versionskontrolle">
+<h3>Stellen Sie folgende Dateien <strong>nicht</strong> unter Versionskontrolle:<a class="headerlink" href="#stellen-sie-folgende-dateien-nicht-unter-versionskontrolle" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Alle automatisch erstellten Dateien. Bei Latex sind das zum Beispiel Dateien mit der Endung <code class="docutils literal notranslate"><span class="pre">*.aux</span></code> oder <code class="docutils literal notranslate"><span class="pre">*.tmp</span></code>.</p></li>
+<li><p>Große binäre Dateien, die sich regelmäßig ändern.</p></li>
+</ul>
+</details>
+<details>
+<summary>Automatische Tests</summary>
+</div>
+<div class="section" id="continuous-integration">
+<h3>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h3>
+<img alt="https://media.giphy.com/media/12NUbkX6p4xOO4/source.gif" class="align-right" src="https://media.giphy.com/media/12NUbkX6p4xOO4/source.gif" />
+<p>Dieses repository ist so vorbereitet, dass mit jedem <em>push</em> und jedem <em>Pull Request</em> gewisse Aktionen automatisiert in der cloud durchgeführt werden, konkret werden unit tests für den Matlab Code in <code class="docutils literal notranslate"><span class="pre">src</span></code> durchgeführt. Diese automatisierten Aktionen sind wesentliche Bestandteile von <a class="reference external" href="https://de.wikipedia.org/wiki/Kontinuierliche_Integration">Continuous Integration</a>.</p>
+</details>
+</div>
+</div>
+<div class="section" id="nutzliche-links">
+<h2>Nützliche Links<a class="headerlink" href="#nutzliche-links" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf">Git Cheatsheet</a></p></li>
+<li><p><a class="reference external" href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown Cheatsheet</a></p></li>
+<li><p><a class="reference external" href="https://gist.github.com/rxaviers/7360908">Markdown Emoticons</a></p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hbrs-cse/Modellbildung-und-Simulation",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "octave"
+        },
+        kernelOptions: {
+            kernelName: "octave",
+            path: "./00_einleitung"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'octave'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="03_best_practice.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Best Practices</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../01_uebungen/00_uebungsaufgaben.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Einleitende Übungsaufgaben</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+    
+        &copy; Copyright 2020 - 2022.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
