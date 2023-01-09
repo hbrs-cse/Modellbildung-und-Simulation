@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Best Practices &#8212; Modellbildung und Simulation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -74,17 +76,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -107,7 +108,21 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +131,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -625,106 +641,195 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/00_einleitung/03_best_practice.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_best_practice.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_best_practice.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/03_best_practice.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/03_best_practice.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/00_einleitung/03_best_practice.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#unkommentierter-bzw-nicht-dokumentierter-code-ist-schlechter-code">
    Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code
@@ -787,12 +892,11 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Best Practices</h1>
@@ -871,43 +975,44 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
+  <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Voraussetzungen</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Matlab Grundkenntnisse</p></li>
+<li><p class="sd-card-text">Matlab Grundkenntnisse</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Lerninhalte</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Fähigkeit besseren Code zu generieren</p></li>
+<li><p class="sd-card-text">Fähigkeit besseren Code zu generieren</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="best-practices">
-<span id="id1"></span><h1>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="best-practices">
+<span id="id1"></span><h1>Best Practices<a class="headerlink" href="#best-practices" title="Permalink to this headline">#</a></h1>
 <p>Oft gibt es viele Wege die zum Ziel führen, so ist es auch bei der Programmierung. Hier sollen einige Programmierrichtlinien aufgelistet werden, die sich bewährt haben. Die meisten davon lassen sich allgemein auf alle Programmiersprachen anwenden, einige wenige sind Matlab-spezifisch.</p>
 <p>In diesem Kurs wird nicht erwartet, dass Sie sofort perfekten Code schreiben und sich immer und überall an all diese Richtlinien halten. Es kann aber nicht schaden sich beim Erlernen einer neuen Programmiersprache früh mit diesen Ansprüchen vertraut zu machen und sie im Hinterkopf zu haben. Zumindest die ersten beiden Punkte sollten jedoch von Anfang an beherzigt werden.</p>
-<div class="section" id="unkommentierter-bzw-nicht-dokumentierter-code-ist-schlechter-code">
-<h2>Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code<a class="headerlink" href="#unkommentierter-bzw-nicht-dokumentierter-code-ist-schlechter-code" title="Permalink to this headline">¶</a></h2>
+<section id="unkommentierter-bzw-nicht-dokumentierter-code-ist-schlechter-code">
+<h2>Unkommentierter bzw. nicht-dokumentierter Code ist schlechter Code<a class="headerlink" href="#unkommentierter-bzw-nicht-dokumentierter-code-ist-schlechter-code" title="Permalink to this headline">#</a></h2>
 <p>Wenn Sie ein Matlab- bzw. Octaveskript schreiben, haben Sie in der Regel eine genaue Vorstellung von dem was Ihr Skript macht und brauchen die Kommentare nicht als Verständnisstütze. Aus dem Grund ist es allzu leicht, auf die mühsame Kommentierung zu verzichten. Die Erfahrung zeigt aber, dass Ihre Gedankengänge bei der Programmierung schon nachdem Sie sich wenige Wochen nicht mehr mit dem Code auseinandergesetzt haben vergessen sind. Stellen Sie sich vor, nach drei Wochen stellt sich heraus, dass sich ein Bug eingeschlichen hat. Bei der Fehlersuche müssen Sie sich mühsam durch Ihren alten Code kämpfen und es ist im Nachhinein plötzlich nicht mehr ganz so einfach nachzuvollziehen, was Sie sich eigentlich dabei gedacht hatten. Spätestens in solchen Momenten fällt auf, wie wichtig Kommentierung ist.</p>
 <p>Zur Kommentierung gehört nicht nur, dass Sie beschreiben WAS der Code macht, sondern WARUM er so aussieht wie er aussieht. Am Anfang eines Skriptes sollte beschrieben sein, welchem Zweck das Programm dient. Am Anfang einer Funktion gilt dasselbe, wobei hier auch Beschreibungen der Ein- und Ausgabegrößen dazugehören. Wenn relevant, sollten hier auch physikalische Einheiten benannt werden!</p>
 <div class="cell tag_remove-output docutils container">
@@ -976,9 +1081,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Gerade im Beruf ist es sehr unwahrscheinlich, dass Sie alleine an einem Code arbeiten. Sobald mehrere Leute Ihren Code verwenden ist es klar, dass Sie Ihren Kolleg:innen oder Kund:innen das Leben erleichtern, in dem Sie klar kommentierten bzw. dokumentierten Code abliefern. Ein Code, der nicht verstanden wird, wird sehr schnell - berechtigterweise - als schlechter Code abgestempelt, auch wenn er äußerst clever programmiert wurde.</p>
 <p>Spätestens wenn das Programm von einer größeren Zielgruppe benutzt werden soll, reicht eine reine Kommentierung nicht aus. Hier muss eine html- oder pdf-Dokumentation herhalten. Die Wichtigkeit von guter Dokumentation für die Verbreitung von Software ist kann nicht genung betont werden! Es gibt inzwischen einige Hilfsprogramme, die aus strukturierter Code-Kommentierung automatisiert eine solche Dokumentation erzeugen kann, Doxygen und Sphinx sind Beispiele. <a class="reference external" href="https://github.com/gllmflndn/m2html">Hier</a> finden Sie ein Tool das spezifisch für Matlab entwickelt wurde.</p>
 <p>Die Sprache der Kommentierung sollte sich natürlich an die Zielgruppe richten. Da sich die Zielgruppe häufig während der Lebenszeit eines Programmes ändert, bietet es sich an, von Anfang an eine Sprache zu wählen, die von sehr vielen Menschen verstanden wird. Wie oft haben wir schon eine Bibliothek nicht benutzt, nur weil die Dokumentation auf Französisch war.</p>
-</div>
-<div class="section" id="sprechende-variablennamen">
-<h2>Sprechende Variablennamen<a class="headerlink" href="#sprechende-variablennamen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="sprechende-variablennamen">
+<h2>Sprechende Variablennamen<a class="headerlink" href="#sprechende-variablennamen" title="Permalink to this headline">#</a></h2>
 <p>Damit ein Code verständlich ist, hilft es sprechende Variablen- und Funktionsnamen zu verwenden. Während man in mathematischen Gleichungen gerne Buchstaben und Symbole als Abkürzungen verwendet, sollte man im Code versuchen die Bedeutung einer Variable durch Ihren Namen auszudrücken. Im obigen Beispiel wurden anstatt der üblichen Bezeichnungen <code class="docutils literal notranslate"><span class="pre">theta</span></code>, <code class="docutils literal notranslate"><span class="pre">phi</span></code> und <code class="docutils literal notranslate"><span class="pre">r</span></code> für <span class="math notranslate nohighlight">\((\Theta, \phi, r)\)</span> die Variablennamen <code class="docutils literal notranslate"><span class="pre">longitude</span></code>, <code class="docutils literal notranslate"><span class="pre">latitude</span></code> und <code class="docutils literal notranslate"><span class="pre">elevation</span></code> benutzt, um auf die jeweilige Bedeutung hinzuweisen.</p>
 <p>Der folgende Code entspricht semantisch dem obigen Beispiel, ist aber vollkommen unverständlich:</p>
 <div class="cell tag_remove-output docutils container">
@@ -1017,33 +1122,33 @@ commentsRunWhenDOMLoaded(addUtterances);
 <img alt="../_images/03_best_practice_8_0.png" src="../_images/03_best_practice_8_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="wiederholten-code-vermeiden">
-<h2>Wiederholten Code vermeiden<a class="headerlink" href="#wiederholten-code-vermeiden" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="wiederholten-code-vermeiden">
+<h2>Wiederholten Code vermeiden<a class="headerlink" href="#wiederholten-code-vermeiden" title="Permalink to this headline">#</a></h2>
 <p>Nicht selten müssen ähnliche oder identische Algorithmen mehrmals an verschiedenen Stellen im Code ausgeführt werden. So werden zum Beispiel im Laufe einer FEM-Berechnung sehr viele Polynominterpolationen ausgeführt. Wenn nun der Algorithmus der Polynominterpolation einmal geschrieben wird und mit Copy-und-Paste an die unterschiedlichen Stellen im Code verteilt wird, funktioniert das in der Regel, auch wenn derselbe Code mehrfach vorkommt und die Code-Basis unnötig vergrößert wird.</p>
 <p>Wenn sich jetzt aber ein Bug in der Polynominterpolation eingeschlichen hat, oder der Polynomgrad geändert werden muss, muss das an vielen Stellen im Code geschehen und die Gefahr ist groß, dass eine Stelle vergessen wird. Daher ist es viel sinnvoller, die Polynominterpolation in eine Funktion auszulagern, die an den diversen Stellen im Code aufgerufen wird. Die Code-Basis bleibt klein und Änderungen an der Funktion haben direkt an allen relevanten Stellen des Codes Effekt.</p>
-</div>
-<div class="section" id="das-rad-nicht-neu-erfinden">
-<h2>Das Rad nicht neu erfinden<a class="headerlink" href="#das-rad-nicht-neu-erfinden" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="das-rad-nicht-neu-erfinden">
+<h2>Das Rad nicht neu erfinden<a class="headerlink" href="#das-rad-nicht-neu-erfinden" title="Permalink to this headline">#</a></h2>
 <p>Zur Übung wird es Ihre Aufgabe sein, numerische Methoden wie das Lösen linearer Gleichungssysteme, das Newtonverfahren oder die Polynominterpolation mit Matlab bzw. Octave selber zu programmieren. Später in der Praxis macht es Sinn für solche Methoden die bereits zur Verfügung gestellten Bibliotheken zu benutzen. Diese sind seit langer Zeit im Einsatz, vielfach getestet und auf Performanz getrimmt. Sie müssen die Methoden nicht immer wieder neu implementieren. Wichtig ist aber, dass Sie verstehen wie sie funktionieren und an welchen Stellen unter Umständen Probleme auftreten können.</p>
-</div>
-<div class="section" id="lange-skripte-und-funktionen-vermeiden">
-<h2>Lange Skripte und Funktionen vermeiden<a class="headerlink" href="#lange-skripte-und-funktionen-vermeiden" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="lange-skripte-und-funktionen-vermeiden">
+<h2>Lange Skripte und Funktionen vermeiden<a class="headerlink" href="#lange-skripte-und-funktionen-vermeiden" title="Permalink to this headline">#</a></h2>
 <p>Gerade bei etwas komplexeren Algorithmen kann es schnell mal passieren, dass eine Funktion oder ein Skript mehrere Hundert Zeilen beansprucht. Für eine bessere Wartbarkeit und Lesbarkeit des Codes macht es Sinn, diese lange Funktion in Teilaufgaben aufzuteilen, und für jede Teilaufgabe eine separate Funktion zu schreiben. So haben Sie Ihren Code in wartbare kleine Module aufgeteilt, die u.U. auch wiederverwendet werden können.</p>
-</div>
-<div class="section" id="funktionen-uber-skripte-bevorzugen">
-<h2>Funktionen über Skripte bevorzugen<a class="headerlink" href="#funktionen-uber-skripte-bevorzugen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="funktionen-uber-skripte-bevorzugen">
+<h2>Funktionen über Skripte bevorzugen<a class="headerlink" href="#funktionen-uber-skripte-bevorzugen" title="Permalink to this headline">#</a></h2>
 <p>Nun kennen wir schon zwei Gründe, warum Funktionen nützlich sind: Zum einen lassen sich Wiederholungen dadurch vermeiden, dass oft vorkommende Aufgaben in eine Funktion ausgelagert werden. Zum anderen helfen Sie den Code in kleine Arbeitspakete zu zerlegen.</p>
 <p>Es gibt aber weitere Gründe, warum Funktionen häufig gegenüber Skripten zu bevorzugen sind. Zum einen trennen Sie Ein- und Ausgabe eines Algorithmus von der tatsächlichen Implementierung. Zum anderen schützen Sie dadurch, dass der <em>scope</em> von Hilfsvariablen des Algorithmus beschränkt bleiben. Nehmen wir an in einem Skript A wird eine Nullstelle einer Funktion mittels Bisektion gesucht. Ist der Bisektionsalgorithmus als Skript <code class="docutils literal notranslate"><span class="pre">bisection.m</span></code> implementiert, das aus dem Skript B mit dem Befehl <code class="docutils literal notranslate"><span class="pre">run</span> <span class="pre">bisection.m</span></code> aufgerufen wird, landen alle Hilfsvariablen aus <code class="docutils literal notranslate"><span class="pre">bisection.m</span></code> im workspace. Wenn es im Skript A eine Variable <code class="docutils literal notranslate"><span class="pre">i</span></code> und im Skript <code class="docutils literal notranslate"><span class="pre">bisection.m</span></code> eine Variable <code class="docutils literal notranslate"><span class="pre">i</span></code> gibt, so wird die erste durch die zweite überschrieben. Da der Anwender, der Skript A geschrieben hat, sich für die Implementierung in <code class="docutils literal notranslate"><span class="pre">bisection.m</span></code> gar nicht interessiert, bekommt er es unter Umständen gar nicht mit und die Fehlersuche kann langwierig sein.</p>
 <p>Wenn aber <code class="docutils literal notranslate"><span class="pre">bisection.m</span></code> als Funktion implementiert ist, existiert das <code class="docutils literal notranslate"><span class="pre">i</span></code> aus Skript A in einem anderen Workspace (bzw. <em>scope</em>) als das <code class="docutils literal notranslate"><span class="pre">i</span></code> aus <code class="docutils literal notranslate"><span class="pre">bisection.m</span></code>. Keines der <code class="docutils literal notranslate"><span class="pre">i</span></code> wird überschrieben.</p>
-</div>
-<div class="section" id="globale-variablen-vermeiden">
-<h2>Globale Variablen vermeiden<a class="headerlink" href="#globale-variablen-vermeiden" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="globale-variablen-vermeiden">
+<h2>Globale Variablen vermeiden<a class="headerlink" href="#globale-variablen-vermeiden" title="Permalink to this headline">#</a></h2>
 <p>Genauso wie Skripte erweitern globale Variablen die Sichtbarkeit, d.h. den scope einer Variable, was zu möglichen Fehlerquellen führen kann. An wenigen Stellen können globale Variablen sinnvoll sein. Sollten Sie sie einsetzen, fragen Sie sich aber auf jeden Fall, warum Sie sich für eine Implementierung mit globalen Variablen entschieden haben, wo Probleme auftreten könnten und ob Sie das Problem anders hätten lösen können.</p>
 <p>In dem Beispiel des <a class="reference internal" href="../06_nichtlineare_gleichungen/02_bierschaumzerfall.html#bierschaum-newton"><span class="std std-ref">Bierschaumzerfalls</span></a> werden globale Variablen zum Beispiel mit Hilfe von anonymen Funktionen <em>(function handles)</em> vermieden.</p>
-</div>
-<div class="section" id="performance-allokation">
-<h2>Performance: Allokation<a class="headerlink" href="#performance-allokation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="performance-allokation">
+<h2>Performance: Allokation<a class="headerlink" href="#performance-allokation" title="Permalink to this headline">#</a></h2>
 <p>Angenommen <code class="docutils literal notranslate"><span class="pre">A</span></code> ist eine <span class="math notranslate nohighlight">\(3 \times 3\)</span> Matrix in Matlab. Dann bewirkt der Befehl <code class="docutils literal notranslate"><span class="pre">A(5,5)=1</span></code>, dass die Matrix erweitert wird, die neuen Werte mit Nullen gefüllt werden und anschließend das Element <code class="docutils literal notranslate"><span class="pre">A(5,5)</span></code> mit dem Wert <code class="docutils literal notranslate"><span class="pre">1</span></code> beschrieben wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1138,9 +1243,9 @@ Matlab internal method: 0.021763 s
 </div>
 </div>
 <p>Idealerweise sollte man bei Performanzmessungen darauf achten, dass kein anderer Prozess die Rechenressourcen beansprucht und man sollte den Test mehrfach wiederholen, um mögliche Schwankungen in den Messergebnissen mitteln zu können. Aber dennoch lässt sich deutlich erkennen, dass die Vorallokierung einiges an Rechenzeit einsparen kann. Aber wieso ist eigentlich die Matlab-interne Methode so viel schneller? Das liegt daran, dass Matlab natürlich noch einige andere Tricks anwendet als die clevere Allokation der Ergebnisvektoren. Unter anderem lässt sich viel Rechenzeit einsparen, indem die Vektorisierung von Rechenoperationen ausgenutzt wird.</p>
-</div>
-<div class="section" id="performance-matlab-vektorisierung-ausnutzen">
-<h2>Performance: Matlab Vektorisierung ausnutzen<a class="headerlink" href="#performance-matlab-vektorisierung-ausnutzen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="performance-matlab-vektorisierung-ausnutzen">
+<h2>Performance: Matlab Vektorisierung ausnutzen<a class="headerlink" href="#performance-matlab-vektorisierung-ausnutzen" title="Permalink to this headline">#</a></h2>
 <p>Matlab ist für Vektor- und Matrixoperationen optimiert. Deshalb bietet es sich an, skalare Operationen wie zum Beispiel die elementweise Addition in einer for-Schleife zu vermeiden und direkt auf Vektoroperationen zurückzugreifen, die in der Regel viel effizienter sind.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1182,13 +1287,13 @@ Elapsed time is 0.709831 seconds.
 </div>
 </div>
 <p><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/techniques-for-improving-performance.html">Hier</a> finden Sie zusätzliche Informationen, wie Sie die Performanz Ihres Matlab-Codes verbessern können. Insbesondere der Profiler ist sehr zu empfehlen.</p>
-</div>
-<div class="section" id="kein-ubermasziger-gebrauch-von-if-then-else-anweisungen">
-<h2>Kein übermäßiger Gebrauch von if-then-else Anweisungen<a class="headerlink" href="#kein-ubermasziger-gebrauch-von-if-then-else-anweisungen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="kein-ubermasziger-gebrauch-von-if-then-else-anweisungen">
+<h2>Kein übermäßiger Gebrauch von if-then-else Anweisungen<a class="headerlink" href="#kein-ubermasziger-gebrauch-von-if-then-else-anweisungen" title="Permalink to this headline">#</a></h2>
 <p>Zum einen sorgen viele if-then-else-Verzweigungen für komplexe Pfade in einem Rechencode. Zum anderen können if-then-else-Abfragen innerhalb von Schleifen auch Performanzeinbußen mit sich bringen, da die Bedingung immer wieder abgefragt werden muss und u.U. ein Codeblock geladen werden muss oder eben nicht. In diesem Fall lohnt es sich zu überlegen, ob man die if-then-else-Abfrage um die for-Schleife schachtelt.</p>
-</div>
-<div class="section" id="gleitkommazahlen-nicht-auf-gleichheit-uberprufen">
-<h2>Gleitkommazahlen nicht auf Gleichheit überprüfen<a class="headerlink" href="#gleitkommazahlen-nicht-auf-gleichheit-uberprufen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="gleitkommazahlen-nicht-auf-gleichheit-uberprufen">
+<h2>Gleitkommazahlen nicht auf Gleichheit überprüfen<a class="headerlink" href="#gleitkommazahlen-nicht-auf-gleichheit-uberprufen" title="Permalink to this headline">#</a></h2>
 <p>In Computern werden alle Zahlen mit Gleitkommazahlen dargestellt. Diese endliche Zahldarstellung hat den Effekt, dass jede Rechenoperation fehlerbehaftet ist. Während der Rechenfehler einer einzelnen Operation zwar relativ gering ausfallen kann, kann er sich im Laufe vieler Rechenoperationen eines Algorithmus verstärken. Dieser Umstand muss bei numerischen Berechnungen mit dem Computer immer beachtet werden!</p>
 <p>Eine Konsequenz ist, dass wir von zwei reellen Zahlen nur in seltenen Ausnahmefällen erwarten können, dass sie exakt gleich sind. Höchstwahrscheinlich ist mindestens eine Zahl mit Rundungsfehlern behaftet. Im folgenden werden zwei reelle Zahlen <code class="docutils literal notranslate"><span class="pre">a</span></code> und <code class="docutils literal notranslate"><span class="pre">b</span></code> berechnet, so dass das exakte Ergebnis für beide <code class="docutils literal notranslate"><span class="pre">0.3</span></code> ergeben sollte. Der Test auf Gleichheit <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code> schlägt aber fehl, da bei den Berechnungen Rundungsfehler das Ergebnis verfälscht haben.</p>
 <div class="cell docutils container">
@@ -1244,9 +1349,9 @@ a and b are not equal
 </div>
 </div>
 <p>Die Wahl der Toleranz <code class="docutils literal notranslate"><span class="pre">tol</span></code> sollte für jeden Anwendungsfall auf den erwartbaren bzw. tolerierbaren Fehler angepasst sein.</p>
-</div>
-<div class="section" id="versionskontrolle-verwenden">
-<h2>Versionskontrolle verwenden<a class="headerlink" href="#versionskontrolle-verwenden" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="versionskontrolle-verwenden">
+<h2>Versionskontrolle verwenden<a class="headerlink" href="#versionskontrolle-verwenden" title="Permalink to this headline">#</a></h2>
 <p>Unter Versionskontrolle versteht man das Erfassen von Änderungen an Dokumenten und Dateien. Hierfür stehen viele verschiedene Werkzeuge zur Verfügung, wie z.B. git, svn oder mercurial.</p>
 <p>Kleine Änderungen am Code werden in einem <em>commit</em> zusammengefasst, der eine entsprechende Beschreibung erhält, wie z.B.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>test_spherical2Cartesian.m
@@ -1258,8 +1363,8 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 <p>Die Versionskontrolle hat sich aus einer Notwendigkeit in der Softwareentwicklung heraus entwickelt, da nur so gewährleistet werden kann, dass bei Arbeiten in großen Teams ein:e Mitarbeiter:in nicht die Änderungen der anderen Entwickler:innen überschreibt und alle Codeänderungen für alle Entwickler:innen transparent bleiben.</p>
 <p>Die Versionskontrolle kann aber für jegliche Art von Daten genutzt werden. Insbesondere für Studienarbeiten oder Abschlussarbeiten ist sie sehr zu empfehlen. Wir halten zum Beispiel alle Unterlagen dieses Kurses - inklusive dieses Online-Lehrbuchs - unter Versionskontrolle.</p>
 <p>Wir können Git wärmstens empfehlen und nur auf <a class="reference external" href="https://letmegooglethat.com/?q=git+f%C3%BCr+anf%C3%A4nger">eines der vielen sehr gut geschriebenen Online Tutorials</a> verweisen.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1283,9 +1388,11 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="02_verwendung_dieses_buches.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1301,24 +1408,28 @@ git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </sp
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+  
+      &copy; Copyright 2020 - 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
-    
-        &copy; Copyright 2020 - 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

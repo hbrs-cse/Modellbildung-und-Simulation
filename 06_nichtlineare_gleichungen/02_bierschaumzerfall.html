@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Bierschaumzerfall &#8212; Modellbildung und Simulation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -74,17 +76,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -107,7 +108,21 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +131,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -625,106 +641,195 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#experimenteller-aufbau">
    Experimenteller Aufbau
@@ -786,12 +891,11 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Bierschaumzerfall</h1>
@@ -869,46 +973,47 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
+  <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Voraussetzungen</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Grundlagen partieller Differentiation</p></li>
-<li><p class="card-text">Implementierung eines Newton-Verfahrens (aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a>)</p></li>
+<li><p class="sd-card-text">Grundlagen partieller Differentiation</p></li>
+<li><p class="sd-card-text">Implementierung eines Newton-Verfahrens (aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a>)</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Lerninhalte</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Methode der kleinsten Quadrate (Curve Fitting)</p></li>
-<li><p class="card-text">Anwendung des Newton-Verfahrens auf Curve-Fitting als ein Optimierungsproblem</p></li>
+<li><p class="sd-card-text">Methode der kleinsten Quadrate (Curve Fitting)</p></li>
+<li><p class="sd-card-text">Anwendung des Newton-Verfahrens auf Curve-Fitting als ein Optimierungsproblem</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="bierschaumzerfall">
-<span id="bierschaum"></span><h1>Bierschaumzerfall<a class="headerlink" href="#bierschaumzerfall" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="bierschaumzerfall">
+<span id="bierschaum"></span><h1>Bierschaumzerfall<a class="headerlink" href="#bierschaumzerfall" title="Permalink to this headline">#</a></h1>
 <img alt="https://upload.wikimedia.org/wikipedia/commons/7/73/Weizenbier-ukko.jpg" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/7/73/Weizenbier-ukko.jpg" />
 <div style="text-align: right"> Abbildung 1: "Weizenbier-ukko<a href="https://commons.wikimedia.org/wiki/User:Ukko.de" >Ukko.de</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Weizenbier-ukko.jpg" >Wikimedia Commons</a></div> <br>
 <p>Wenn wir ein Weizenbier länger stehen lassen, baut sich die schöne Schaumkrone ab. Aber wie schnell eigentlich?</p>
-<div class="section" id="experimenteller-aufbau">
-<h2>Experimenteller Aufbau<a class="headerlink" href="#experimenteller-aufbau" title="Permalink to this headline">¶</a></h2>
+<section id="experimenteller-aufbau">
+<h2>Experimenteller Aufbau<a class="headerlink" href="#experimenteller-aufbau" title="Permalink to this headline">#</a></h2>
 <p>Messen wir es einfach nach! Wir benutzen einen Messbecher, Wasser und einen wasserfesten Marker, um ein Weizenglas mit Eichstrichen zu versehen <em>(Hier hätten wir natürlich auch direkt den Messbecher benutzen können, wir entscheiden uns aber, etwas Messgenauigkeit zu Gunsten der Realitätsnähe zu opfern)</em>.</p>
 <a class="reference internal image-reference" href="../_images/20190521_bierschaum_01.jpg"><img alt="../_images/20190521_bierschaum_01.jpg" class="align-center" src="../_images/20190521_bierschaum_01.jpg" style="width: 500px;" /></a>
 <div style=\"text-align: right\">Abbildung 2: Versuchsaufbau zur Messung des Bierschaumzerfalls.</div> <br>
@@ -1041,9 +1146,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <div style=\"text-align: right\">Abbildung 4: Volumen in Litern über Zeit in Sekunden. Messungen mit Fehlerschätzung.</div> <br>
-</div>
-<div class="section" id="modellbeschreibung">
-<h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="modellbeschreibung">
+<h2>Modellbeschreibung<a class="headerlink" href="#modellbeschreibung" title="Permalink to this headline">#</a></h2>
 <p>Der Schaum besteht aus vielen kleinen Bläschen, die nach und nach platzen. Je mehr Schaum da ist, d.h. je mehr Bläschen da sind, desto mehr Bläschen platzen auch. Ist der Schaum schon fast komplett abgebaut, bleiben insgesamt weniger Bläschen die platzen können und die Zerfallsrate des Bierschaumes sinkt entsprechend. Mathematisch ausgedrückt ist die zeitliche Änderung <span class="math notranslate nohighlight">\(\dot{V}\)</span> des Schaumvolumens proportional zur Menge des Schaumvolumens selbst, d.h. es gilt</p>
 <div class="math notranslate nohighlight">
 \[ \dot{V} = a \cdot V, \]</div>
@@ -1087,12 +1192,12 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div style=\"text-align: right\">Abbildung 5: Volumen in Litern über Zeit in Sekunden. Messungen mit Fehlerschätzung (blau) und Modell mit geratenen Parametern (orange).</div> <br>
 <p>Wir können immer noch keine quantifizierbare Aussage darüber treffen, wie schnell der Schaum sich abbaut.</p>
 <p>Wie können wir <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> so bestimmen, dass das Modell zu unseren Messwerten passt? Wenn wir das wüssten, könnten wir auf Grundlage der Modellgleichung Vorhersagen treffen.</p>
-</div>
-<div class="section" id="die-methode-der-kleinsten-quadrate">
-<h2>Die Methode der kleinsten Quadrate<a class="headerlink" href="#die-methode-der-kleinsten-quadrate" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="die-methode-der-kleinsten-quadrate">
+<h2>Die Methode der kleinsten Quadrate<a class="headerlink" href="#die-methode-der-kleinsten-quadrate" title="Permalink to this headline">#</a></h2>
 <p>Die Methode der kleinsten Quadrate ist eine weit verbreitete Methode zur Modellkalibrierung. Mit ihr können noch unbekannte Parameter <span class="math notranslate nohighlight">\(p_1,...,p_n\)</span> eines Modells <span class="math notranslate nohighlight">\(y = f(p_1,...,p_n,t)\)</span> so angepasst werden, dass es vorher ermittelte experimentelle Daten <span class="math notranslate nohighlight">\((t_1,y_1),...,(t_m, y_m)\)</span> möglichst gut wiederspiegelt.</p>
-<div class="section" id="die-grundidee">
-<h3>Die Grundidee<a class="headerlink" href="#die-grundidee" title="Permalink to this headline">¶</a></h3>
+<section id="die-grundidee">
+<h3>Die Grundidee<a class="headerlink" href="#die-grundidee" title="Permalink to this headline">#</a></h3>
 <p>Wir formulieren ein Minimierungsproblem: Für alle Messpunkte <span class="math notranslate nohighlight">\(t_i\)</span> soll die Differenz <span class="math notranslate nohighlight">\(y_i - f(p_1,...,p_n,t_i)\)</span> betragsmäßig klein werden.</p>
 <p>Für die Formulierung stehen verschiedene Ansätze zur Verfügung. Man könnte einfach den Mittelwert der betragsmäßigen Differenzen über alle Messpunkte minimieren:</p>
 <div class="math notranslate nohighlight">
@@ -1123,9 +1228,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 -\frac{2}{m}\sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))\cdot \frac{\partial f}{\partial p_n}(p_1,...,p_n) \\
 \end{bmatrix}
 \end{split}\]</div>
-</div>
-<div class="section" id="anwendung-auf-den-bierschaum">
-<h3>Anwendung auf den Bierschaum<a class="headerlink" href="#anwendung-auf-den-bierschaum" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="anwendung-auf-den-bierschaum">
+<h3>Anwendung auf den Bierschaum<a class="headerlink" href="#anwendung-auf-den-bierschaum" title="Permalink to this headline">#</a></h3>
 <p>Im Falle des Bierschaumes gilt <span class="math notranslate nohighlight">\(p_1 = a, p_2 = b\)</span> und</p>
 <div class="math notranslate nohighlight">
 \[ f(a,b,t) = b\cdot e^{a \cdot t}. \]</div>
@@ -1148,9 +1253,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <li><p>Wir greifen auf unsere Implementierung des Newton-Verfahrens mit Auswertung der Jacobi-Matrix aus <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurück. Damit können wir das Newton-Verfahren auf <span class="math notranslate nohighlight">\(F\)</span> anwenden, um unsere Parameter zu bestimmen.</p></li>
 <li><p>Auf Basis unserer Funktion für das Newtonverfahren und unserer Funktion für die Jacobimatrix schreiben wir ein Programm zur Minimierung beliebiger skalarer Funktionen.</p></li>
 </ol>
-</div>
-<div class="section" id="aufgabe-1-das-nichtlineare-gleichungssystem">
-<h3>Aufgabe 1: Das nichtlineare Gleichungssystem<a class="headerlink" href="#aufgabe-1-das-nichtlineare-gleichungssystem" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="aufgabe-1-das-nichtlineare-gleichungssystem">
+<h3>Aufgabe 1: Das nichtlineare Gleichungssystem<a class="headerlink" href="#aufgabe-1-das-nichtlineare-gleichungssystem" title="Permalink to this headline">#</a></h3>
 <p>Schreiben Sie eine Matlab-Funktion, die die nichtlineare Gleichung <span class="math notranslate nohighlight">\(F\)</span> für beliebige Parameter <span class="math notranslate nohighlight">\(\mathbf{p}=[a,b]^T \in \mathbb{R}^2\)</span> und Messwerte <span class="math notranslate nohighlight">\(t \in \mathbb{R}^m\)</span>, <span class="math notranslate nohighlight">\(V \in \mathbb{R}^m\)</span> auswertet:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1169,9 +1274,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 <p>Damit haben Sie eine Funktion geschrieben, mit der Sie Ihr nichtlineares Gleichungssystem auswerten können. Damit alleine können Sie noch nicht so viel anfangen. In den folgenden beiden Aufgaben geht es nun darum, die Nullstellen dieser Funktion zu finden, um die beiden Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> bestimmen zu können.</p>
-</div>
-<div class="section" id="aufgabe-2-das-newton-verfahren">
-<span id="bierschaum-newton"></span><h3>Aufgabe 2: Das Newton-Verfahren<a class="headerlink" href="#aufgabe-2-das-newton-verfahren" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="aufgabe-2-das-newton-verfahren">
+<span id="bierschaum-newton"></span><h3>Aufgabe 2: Das Newton-Verfahren<a class="headerlink" href="#aufgabe-2-das-newton-verfahren" title="Permalink to this headline">#</a></h3>
 <p>Hier können wir unsere Implementierung des Newton-Verfahrens aus dem Kapitel <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> zurückgreifen. Da unser Newton-Verfahren auf der Approximation der Jacobimatrix beruht, müssen wir diese zuerst implementieren. Kopieren Sie dazu Ihre Lösung aus dem Kapitel <a class="reference internal" href="01_newton-verfahren.html#newton-aufgaben"><span class="std std-ref">Newton-Verfahren</span></a> oder schreiben Sie eine Matlab-Funktion, die die Jacobimatrix <span class="math notranslate nohighlight">\(J_F(\mathbf{x})\)</span> für eine beliebige Funktion <span class="math notranslate nohighlight">\(F:\mathbb{R}^n \to \mathbb{R}^m\)</span> mit Differenzenquotienten (<em>“finiten Differenzen”</em>) approximiert. Dabei soll die Eingabe <code class="docutils literal notranslate"><span class="pre">F</span></code> ein <em><a class="reference external" href="https://de.mathworks.com/help/matlab/matlab_prog/creating-a-function-handle.html">Function Handle</a></em> einer beliebigen Funktion sein, beispielsweise <code class="docutils literal notranslate"><span class="pre">&#64;sin</span></code> oder <code class="docutils literal notranslate"><span class="pre">&#64;(x)</span> <span class="pre">[x(1)^2;</span> <span class="pre">cos(x(2))]</span></code>.</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
@@ -1246,10 +1351,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="optimierungsverfahren">
-<h2>Optimierungsverfahren<a class="headerlink" href="#optimierungsverfahren" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="optimierungsverfahren">
+<h2>Optimierungsverfahren<a class="headerlink" href="#optimierungsverfahren" title="Permalink to this headline">#</a></h2>
 <p>Grundlage der Methode der kleinsten Quadrate ist ein Minimierungsproblem. Wir haben gesehen, dass sich das Minimum einer Funktion <span class="math notranslate nohighlight">\(G: \mathbb{R}^n \to \mathbb{R}\)</span> bestimmen lässt, indem das nichtlineare Gleichungssystem</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1279,8 +1384,8 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \end{bmatrix}.
 \end{split}\]</div>
 <p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
-<div class="section" id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
-<h3>Aufgabe 3: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">¶</a></h3>
+<section id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
+<h3>Aufgabe 3: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">#</a></h3>
 <p>Schreiben Sie eine neue Funktion <code class="docutils literal notranslate"><span class="pre">minimize(func,x0,tol,maxit)</span></code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code class="docutils literal notranslate"><span class="pre">func</span></code><span class="math notranslate nohighlight">\(: \mathbb{R}^n \to \mathbb{R}\)</span> minimiert. Verwenden Sie Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
 <ul>
 <li><p>Lösen Sie das ursprüngliche Minimierungsproblem</p>
@@ -1312,15 +1417,16 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="zusatzliche-informationen">
-<h3>Zusätzliche Informationen<a class="headerlink" href="#zusatzliche-informationen" title="Permalink to this headline">¶</a></h3>
-<p>Zusätzliche Informationen zum Verfall von Bierschaum finden Sie in <span id="id1">[<a class="reference internal" href="#id6">Lei01</a>, <a class="reference internal" href="#id7">The09</a>]</span>.</p>
-</div>
-</div>
-<div class="section" id="literatur">
-<h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">¶</a></h2>
-<p id="id2"><dl class="citation">
+</section>
+<section id="zusatzliche-informationen">
+<h3>Zusätzliche Informationen<a class="headerlink" href="#zusatzliche-informationen" title="Permalink to this headline">#</a></h3>
+<p>Zusätzliche Informationen zum Verfall von Bierschaum finden Sie in <span id="id1">[<a class="reference internal" href="#id6" title="A Leike. Demonstration of the exponential decay law using beer froth. European Journal of Physics, 23(1):21–26, dec 2001. URL: https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304, doi:10.1088/0143-0807/23/1/304.">Lei01</a>, <a class="reference internal" href="#id7" title="H Theißen. Mythos bierschaumzerfall - ein analogon für den radioaktiven zerfall? PhyDid A - Physik und Didaktik in Schule und Hochschule, 2009. URL: http://phydid.physik.fu-berlin.de/index.php/phydid/article/view/87.">The09</a>]</span>.</p>
+</section>
+</section>
+<section id="literatur">
+<h2>Literatur<a class="headerlink" href="#literatur" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id2">
+<dl class="citation">
 <dt class="label" id="id6"><span class="brackets"><a class="fn-backref" href="#id1">Lei01</a></span></dt>
 <dd><p>A Leike. Demonstration of the exponential decay law using beer froth. <em>European Journal of Physics</em>, 23(1):21–26, dec 2001. URL: <a class="reference external" href="https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304">https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304</a>, <a class="reference external" href="https://doi.org/10.1088/0143-0807/23/1/304">doi:10.1088/0143-0807/23/1/304</a>.</p>
 </dd>
@@ -1328,9 +1434,9 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 <dd><p>H Theißen. Mythos bierschaumzerfall - ein analogon für den radioaktiven zerfall? <em>PhyDid A - Physik und Didaktik in Schule und Hochschule</em>, 2009. URL: <a class="reference external" href="http://phydid.physik.fu-berlin.de/index.php/phydid/article/view/87">http://phydid.physik.fu-berlin.de/index.php/phydid/article/view/87</a>.</p>
 </dd>
 </dl>
-</p>
 </div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1354,9 +1460,11 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_newton-verfahren.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1372,24 +1480,28 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+  
+      &copy; Copyright 2020 - 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
-    
-        &copy; Copyright 2020 - 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

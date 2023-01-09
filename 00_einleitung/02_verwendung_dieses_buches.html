@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Verwendung dieses Buches &#8212; Modellbildung und Simulation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -74,17 +76,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -107,7 +108,21 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +131,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -625,106 +641,195 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/00_einleitung/02_verwendung_dieses_buches.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_verwendung_dieses_buches.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/02_verwendung_dieses_buches.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/02_verwendung_dieses_buches.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/02_verwendung_dieses_buches.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/00_einleitung/02_verwendung_dieses_buches.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#live-code">
    Live Code
@@ -764,12 +869,11 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Verwendung dieses Buches</h1>
@@ -825,49 +929,49 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
+  <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Voraussetzungen</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">keine</p></li>
+<li><p class="sd-card-text">keine</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Lerninhalte</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Nutzung der Code-Boxen</p></li>
-<li><p class="card-text">Erstellen von Dateien</p></li>
-<li><p class="card-text">Unit Testing</p></li>
+<li><p class="sd-card-text">Nutzung der Code-Boxen</p></li>
+<li><p class="sd-card-text">Erstellen von Dateien</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="verwendung-dieses-buches">
-<span id="verwendung"></span><h1>Verwendung dieses Buches<a class="headerlink" href="#verwendung-dieses-buches" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="verwendung-dieses-buches">
+<span id="verwendung"></span><h1>Verwendung dieses Buches<a class="headerlink" href="#verwendung-dieses-buches" title="Permalink to this headline">#</a></h1>
 <p>Ganz einfach: Lesen. Es gibt aber ein paar zusätzliche Features, die hier erklärt werden. Es wird auch darauf eingegangen, welche Software für diese Features verwendet wird. Das soll nur als Zusatzinformationen dienen und ist für die Verwendung des Online Buches nicht relevant.</p>
 <p>Auf allen Seiten, die Codeblöcke enthalten, verbergen sich hinter dem Raketen-Symbol in der Kopfzeile zwei Buttons, einen auf dem “Binder” steht und einen auf dem “Live Code” steht.</p>
 <a class="reference internal image-reference" href="../_images/usage_buttons.png"><img alt="Interact buttons" class="align-center" src="../_images/usage_buttons.png" style="width: 250px;" /></a>
 <p>Beide Buttons bewirken auf unterschiedliche Weise, dass der Matlab-Code in den Code-Blöcken editier- und ausführbar wird. Im Hintergrund wird in einer virtuellen Maschine ein Octave-Kern gestartet. Octave ist ein freier Matlab-Klon, der weitestgehend mit Matlab kompatibel ist.</p>
 <p>Es kann unter Umständen schon mal etwas dauern, bis im Hintergrund eine virtuelle Maschine mit Octave gestartet ist. Die Technologie baut auf dem kostenlosen Service <a class="reference external" href="https://mybinder.org/">Binder</a> auf, sodass auch bei der Ausführung der Code-Blöcke keine hohe Performanz erwartet werden sollte.</p>
 <p>Rechts neben dem beschriebenen Raketen-Symbol befindet sich das GitHub-Logo (das mit der Katze). Über diesen Button ist es möglich Verbesserungsvorschläge oder Bugs selbst zu beheben und zur Verbesserung dieses Buches beizutragen. Falls die Verbesserung nicht selbst durchgeführt werden kann, ist es auch möglich auf GitHub einen <a class="reference external" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/issues/new">Issue</a> mit einer Kurzbeschreibung des Problems zu eröffnen. Dieser wird dann schnellstmöglich bearbeitet.</p>
-<div class="section" id="live-code">
-<h2>Live Code<a class="headerlink" href="#live-code" title="Permalink to this headline">¶</a></h2>
+<section id="live-code">
+<h2>Live Code<a class="headerlink" href="#live-code" title="Permalink to this headline">#</a></h2>
 <p>Die einfachste Möglichkeit, den Code auf dieser Seite zu editieren und auszuführen ist über den Button “Live Code”. Per Klick auf die Taste “run”, wird der Code ausgeführt, mit “restart” wird der im Hintergrund laufende Octave-Kernel neu gestartet.</p>
 <a class="reference internal image-reference" href="../_images/usage_thebe.png"><img alt="Binder Loading Page" class="align-center" src="../_images/usage_thebe.png" style="width: 820px;" /></a>
 <p>Denken Sie daran, dass die Code-Zellen unter Umständen voneinander abhängig sein könnten. Wenn zum Beispiel in einer Code-Zelle auf eine Variable <code class="docutils literal notranslate"><span class="pre">x</span></code> zugegriffen wird, muss diese auch im Workspace zur Verfügung stehen. Ist dies nicht der Fall, haben Sie wahrscheinlich die Code-Zelle weiter oben, in der <code class="docutils literal notranslate"><span class="pre">x</span></code> initialisiert wird, nicht ausgeführt.</p>
@@ -875,9 +979,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Achtung</p>
 <p>Beim Aufrufen von Dateien mit der “Live Code”-Methode kann es zu Komplikationen kommen. Die Lösungen für viele bekannte Probleme sind hier beschrieben: <a class="reference internal" href="#troubleshooting"><span class="std std-ref">Troubleshooting</span></a></p>
 </div>
-</div>
-<div class="section" id="binder">
-<h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="binder">
+<h2>Binder<a class="headerlink" href="#binder" title="Permalink to this headline">#</a></h2>
 <p>Der Nachteil von Binder ist, dass man von dieser Seite weggeführt wird. Der Vorteil ist, dass man auf die Inhalte über <a class="reference external" href="https://blog.jupyter.org/jupyterlab-is-ready-for-users-5a6f039b8906">Jupyter Lab</a> zugreifen kann, eine Art Entwicklungsumgebung die im Browser läuft.</p>
 <a class="reference internal image-reference" href="../_images/usage_binder.png"><img alt="Jupyter Lab Screenshot" class="align-center" src="../_images/usage_binder.png" style="width: 1200px;" /></a>
 <a class="reference internal image-reference" href="../_images/usage_binder_launcher.png"><img alt="Jupyter Lab Screenshot 2" class="align-center" src="../_images/usage_binder_launcher.png" style="width: 1200px;" /></a>
@@ -886,9 +990,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p class="admonition-title">Achtung</p>
 <p><strong>Das bedeutet insbesondere, dass alle erstellten Dateien und Änderungen nur temporär sind und nicht über eine Session hinaus erhalten bleiben!</strong> Laden Sie erstellte Dateien unbedingt runter, bevor Sie das Fenster schließen, oder noch besser, erstellen Sie Dateien offline auf Ihren Computer und laden Sie sie hoch, wenn Sie sie in einer interaktiven Session verwenden möchten.</p>
 </div>
-</div>
-<div class="section" id="dateien-erstellen">
-<h2>Dateien erstellen<a class="headerlink" href="#dateien-erstellen" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="dateien-erstellen">
+<h2>Dateien erstellen<a class="headerlink" href="#dateien-erstellen" title="Permalink to this headline">#</a></h2>
 <p>In Jupyter Lab (“Binder” Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der “Live Code”-Methode erstellen. Wenn ein Code-Block mit der Zeile <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myfile.m</span></code> beginnt, wird der folgende Inhalt des Blocks in eine Datei <code class="docutils literal notranslate"><span class="pre">myfile.m</span></code> geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -926,13 +1030,13 @@ Hello World, how is your day?
 <p class="admonition-title">Achtung</p>
 <p>Auch hier gilt, dass nur temporäre Dateien angelegt werden können, die die aktuelle Session nicht überleben.</p>
 </div>
-</div>
-<div class="section" id="unit-testing">
-<span id="content-references-unit-testing-intro"></span><h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="unit-testing">
+<span id="content-references-unit-testing-intro"></span><h2>Unit Testing<a class="headerlink" href="#unit-testing" title="Permalink to this headline">#</a></h2>
 <p><a class="reference external" href="https://letmegooglethat.com/?q=unit+testing"><em>Unit Testing</em></a> ist aus moderner Software-Entwicklung nicht mehr wegzudenken. Sobald ein Software-Paket etwas größer wird und aus einer Vielzahl von Modulen, Bibliotheken, Funktionen und Skripten besteht, sollte regelmäßig getestet werden, ob die Module noch so funktionieren wie erwartet. Unit Tests sind im wesentlichen kleine Programme, die diese Module auf ihre Funktionsfähigkeit prüfen. Ein weit verbreitetes <a class="reference external" href="https://de.wikipedia.org/wiki/Testgetriebene_Entwicklung">Programmierparadigma</a> besagt sogar, dass man erst die Unit Tests schreiben soll, bevor man das Modul erstellt.</p>
 <p>Unit Tests sind nicht Teil dieses Kurses und es wird nicht von Ihnen verlangt, dass Sie Unit Tests für Ihre Programme schreiben. Für die meisten Übungsaufgaben auf dieser Seite müssen Matlabfunktionen erstellt werden. Für diese Übungsaufgaben werden bereits fertige Unit Tests zur Verfügung gestellt, mit der die eigens erstellten Funktionen auf ihre Richtigkeit überprüft werden können.</p>
-<div class="section" id="unit-tests-auf-dieser-seite-ausfuhren">
-<h3>Unit Tests auf dieser Seite ausführen<a class="headerlink" href="#unit-tests-auf-dieser-seite-ausfuhren" title="Permalink to this headline">¶</a></h3>
+<section id="unit-tests-auf-dieser-seite-ausfuhren">
+<h3>Unit Tests auf dieser Seite ausführen<a class="headerlink" href="#unit-tests-auf-dieser-seite-ausfuhren" title="Permalink to this headline">#</a></h3>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <p>Wie Sie Unit Tests zusammen mit Versionskontrolle verwenden, lernen Sie in <a class="reference internal" href="04_github.html#github"><span class="std std-ref">Einführung in GitHub</span></a>.</p>
@@ -1133,19 +1237,19 @@ function test_fac_array
 </div>
 </div>
 <p>Aha! Prinzipiell funktioniert die Funktion für nicht-negative ganzzahlige skalare Eingaben. Der Test erwartet aber zusätzlich, dass Fehler ausgegeben werden, wenn die Eingabe negativ oder nicht ganzzahlig ist. Außerdem soll die Funktion für matrixwertige Eingaben funktionieren. Es wird erwartet, dass die Fakultät elementweise berechnet wird.</p>
-</div>
-<div class="section" id="unit-tests-offline-ausfuhren">
-<h3>Unit Tests offline ausführen.<a class="headerlink" href="#unit-tests-offline-ausfuhren" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="unit-tests-offline-ausfuhren">
+<h3>Unit Tests offline ausführen.<a class="headerlink" href="#unit-tests-offline-ausfuhren" title="Permalink to this headline">#</a></h3>
 <p>Wenn Sie möchten, können Sie die Unit Tests auch offline ausführen. Dazu müssen Sie die jeweilige <em>Test Suite</em>, in diesem Fall <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>, herunterladen und das MOxUnit Framework lokal installiert haben.</p>
 <ul class="simple">
 <li><p>Installieren Sie <a class="reference external" href="https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit">MOxUnit</a>. Beachten Sie die Hinweise auf der Matlab Seite: Sie können den Code nicht direkt installieren, sondern müssen die Installationsanweisungen auf dem zugehörigen <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">GitHub repository</a> befolgen.</p></li>
 <li><p>Laden Sie sich den entsprechenden Unit Test von dieser Seite herunter. Wenn die Funktion, die getestet werden soll, <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> heißt, ist der Unit Test in der Datei <code class="docutils literal notranslate"><span class="pre">test_myFunction.m</span></code> gespeichert. Sie können sich mit dem Befehl <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">test_myFunction.m</span></code> den Inhalt der Datei wiedergeben lassen, oder mit dem “Interact”-Button eine interaktive Session starten und die Datei per Mausklick herunterladen.</p></li>
 <li><p>Führen Sie den Unit Test mit <code class="docutils literal notranslate"><span class="pre">moxunit_runtests</span> <span class="pre">test_myFunction.m</span></code> aus.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="troubleshooting">
-<span id="id1"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="troubleshooting">
+<span id="id1"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">#</a></h2>
 <ol>
 <li><p><strong>Wenn ich auf <code class="docutils literal notranslate"><span class="pre">run</span></code> klicke, steht da nur <code class="docutils literal notranslate"><span class="pre">Waiting</span> <span class="pre">for</span> <span class="pre">kernel...</span></code> und nichts passiert.</strong></p>
 <a class="reference internal image-reference" href="../_images/usage_waiting.png"><img alt="Drawing" class="align-center" src="../_images/usage_waiting.png" style="width: 400px;" /></a>
@@ -1173,8 +1277,8 @@ function test_fac_array
 </pre></div>
 </div>
 <p>sollte funktionieren.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1198,9 +1302,11 @@ function test_fac_array
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_motivation.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1216,24 +1322,28 @@ function test_fac_array
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+  
+      &copy; Copyright 2020 - 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
-    
-        &copy; Copyright 2020 - 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

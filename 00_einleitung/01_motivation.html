@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Das Stauproblem - Motivation zur Benutzung dieses Buches &#8212; Modellbildung und Simulation</title>
     
-  <link href="../_static/css/theme.css" rel="stylesheet">
-  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/togglebutton.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -74,17 +76,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -107,7 +108,21 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +131,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -625,106 +641,195 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../_sources/00_einleitung/01_motivation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/01_motivation.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/01_motivation.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/00_einleitung/01_motivation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/00_einleitung/01_motivation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/00_einleitung/01_motivation.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#aufgabenstellung">
    Aufgabenstellung
@@ -786,12 +891,11 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Das Stauproblem - Motivation zur Benutzung dieses Buches</h1>
@@ -869,55 +973,56 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
+  <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Voraussetzungen</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">keine</p></li>
+<li><p class="sd-card-text">keine</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Lerninhalte</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Einblick in die mathematische Modellierung</p></li>
-<li><p class="card-text">Kritisches Hinterfragen von Modellannahmen</p></li>
+<li><p class="sd-card-text">Einblick in die mathematische Modellierung</p></li>
+<li><p class="sd-card-text">Kritisches Hinterfragen von Modellannahmen</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="das-stauproblem-motivation-zur-benutzung-dieses-buches">
-<span id="traffic-motivation"></span><h1>Das Stauproblem - Motivation zur Benutzung dieses Buches<a class="headerlink" href="#das-stauproblem-motivation-zur-benutzung-dieses-buches" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="das-stauproblem-motivation-zur-benutzung-dieses-buches">
+<span id="traffic-motivation"></span><h1>Das Stauproblem - Motivation zur Benutzung dieses Buches<a class="headerlink" href="#das-stauproblem-motivation-zur-benutzung-dieses-buches" title="Permalink to this headline">#</a></h1>
 <p>Modellbildung und Simulation verbindet eine Vielzahl von Disziplinen, von grundlegender Mathematik über numerische Lösungsalgorithmen und Computernumerik hin zu der Syntax verschiedener Programmiersprachen. Dabei fällt es manchmal schwer, den Überblick zu behalten. Dieses Übungsbuch soll dabei helfen, die Modellbildung und Simulation durch ihre Schichten hindurch zu durchdringen und sie (be-)greifbar zu machen.</p>
 <p>Als Beispiel hierfür nehmen wir uns eine Extremwertaufgabe vor. Diese spielen in der Praxis oft eine große Rolle.</p>
-<div class="section" id="aufgabenstellung">
-<h2>Aufgabenstellung<a class="headerlink" href="#aufgabenstellung" title="Permalink to this headline">¶</a></h2>
+<section id="aufgabenstellung">
+<h2>Aufgabenstellung<a class="headerlink" href="#aufgabenstellung" title="Permalink to this headline">#</a></h2>
 <p>Angenommen das Schweizer Verkehrsministerium stellt eine Anfrage an Sie, die bestehenden Tempolimits Ihrer Autobahnen
 zu überprüfen, unter dem konkreten Aspekt:</p>
 <p><em><strong>“Wie können möglichst viele Fahrzeuge eine Engstelle, z.B. einen Tunnel passieren?”</strong></em></p>
 <a class="reference internal image-reference" href="../_images/tunnel-wikimedia.jpg"><img alt="high v high s" class="align-center" src="../_images/tunnel-wikimedia.jpg" style="width: 800px;" /></a>
 <div style="text-align: right"> Abbildung 1: "New Zealand - Homer Tunnel" <a href="https://commons.wikimedia.org/wiki/User:W._Bulach" >W. Bulach</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" >[CC BY-SA 4.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:00_1365_New_Zealand_-_Homer_Tunnel_(Milford_Sound).jpg" >Wikimedia Commons</a></div> <br>
 <p>Nun ist Ihre Expertise gefragt!</p>
-</div>
-<div class="section" id="extremwertaufgaben-in-funf-akten">
-<h2>Extremwertaufgaben in fünf Akten<a class="headerlink" href="#extremwertaufgaben-in-funf-akten" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="parameterauswahl-und-modellreduktion">
-<h3>1. Parameterauswahl und Modellreduktion<a class="headerlink" href="#parameterauswahl-und-modellreduktion" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="extremwertaufgaben-in-funf-akten">
+<h2>Extremwertaufgaben in fünf Akten<a class="headerlink" href="#extremwertaufgaben-in-funf-akten" title="Permalink to this headline">#</a></h2>
+<section id="parameterauswahl-und-modellreduktion">
+<h3>1. Parameterauswahl und Modellreduktion<a class="headerlink" href="#parameterauswahl-und-modellreduktion" title="Permalink to this headline">#</a></h3>
 <p>Um diese Frage beantworten zu können, brauchen wir ein Modell. Aber welche <em>Größen</em> kommen dabei in Betracht? Zum Beispiel können wir uns fokussieren auf</p>
 <ul class="simple">
 <li><p>Länge und Geschwindigkeit der Fahrzeuge</p></li>
@@ -941,9 +1046,9 @@ Natur aufs Nötig(st)e reduziert. Wir vereinfachen daher weiter auf ein mathemat
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>ersten Schritt</strong> im Lösungsschema von Extremwertaufgaben: “Vereinfachtes Modell der Natur erstellen”</p>
 </div>
-</div>
-<div class="section" id="mathematische-formulierung-der-fragestellung">
-<h3>2. Mathematische Formulierung der Fragestellung<a class="headerlink" href="#mathematische-formulierung-der-fragestellung" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mathematische-formulierung-der-fragestellung">
+<h3>2. Mathematische Formulierung der Fragestellung<a class="headerlink" href="#mathematische-formulierung-der-fragestellung" title="Permalink to this headline">#</a></h3>
 <p>Was wir uns eigentlich fragen, ist: <em>Was ist besser…?</em></p>
 <ol class="simple">
 <li><p>Hohes Tempo und großer Sicherheitsabstand</p></li>
@@ -970,9 +1075,9 @@ Natur aufs Nötig(st)e reduziert. Wir vereinfachen daher weiter auf ein mathemat
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>zweiten Schritt</strong> im Schema zur Lösung von Extremwertaufgaben: “Die Ermittlung der Zielfunktion”</p>
 </div>
-</div>
-<div class="section" id="konstruktion-von-nebenbedingungen">
-<h3>3. Konstruktion von Nebenbedingungen<a class="headerlink" href="#konstruktion-von-nebenbedingungen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="konstruktion-von-nebenbedingungen">
+<h3>3. Konstruktion von Nebenbedingungen<a class="headerlink" href="#konstruktion-von-nebenbedingungen" title="Permalink to this headline">#</a></h3>
 <p>Um die Gleichung besser lösen zu können, können wir <em>Nebenbedingungen</em> konstruieren, welche die Variablen in Beziehung zueinander setzen:</p>
 <ol class="simple">
 <li><p>Lege die Fahrzeuglänge <span class="math notranslate nohighlight">\(L\)</span> als Konstante fest, z.B. <span class="math notranslate nohighlight">\(L=4.5 \text{ m}\)</span>.</p></li>
@@ -994,9 +1099,9 @@ Natur aufs Nötig(st)e reduziert. Wir vereinfachen daher weiter auf ein mathemat
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>dritten Schritt</strong> im Lösungsschema: “Eliminierung von Variablen durch Nebenbedingungen”</p>
 </div>
-</div>
-<div class="section" id="mathematische-losung-des-modells">
-<h3>4. Mathematische Lösung des Modells<a class="headerlink" href="#mathematische-losung-des-modells" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mathematische-losung-des-modells">
+<h3>4. Mathematische Lösung des Modells<a class="headerlink" href="#mathematische-losung-des-modells" title="Permalink to this headline">#</a></h3>
 <div class="admonition-einschub-definition-und-satze-zu-extremwerten admonition">
 <p class="admonition-title">Einschub: Definition und Sätze zu Extremwerten</p>
 <p><em>Definition</em>: Ein <em>lokales Maximum (Minimum)</em> ist der Wert der Funktion <span class="math notranslate nohighlight">\(f\)</span> an einer Stelle <span class="math notranslate nohighlight">\(x_0\)</span>, wenn in einer <span class="math notranslate nohighlight">\(\varepsilon\)</span> Umgebung von <span class="math notranslate nohighlight">\(x_0\)</span> die Funktion keine größeren (kleineren) Werte annimmt.</p>
@@ -1050,9 +1155,9 @@ F''(v) &amp;= \frac{d}{dv} \left[ \frac{4.5 - \frac{(3.6)^2}{100} v^2 }{ \left(4
 <p class="admonition-title">Hinweis</p>
 <p>Dies entspricht dem <strong>vierten Schritt</strong> im Lösungsschema: “Bestimmung der lokalen Extremstellen”</p>
 </div>
-</div>
-<div class="section" id="prufung-der-gultigkeit-und-randstellen">
-<h3>5. Prüfung der Gültigkeit und Randstellen<a class="headerlink" href="#prufung-der-gultigkeit-und-randstellen" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="prufung-der-gultigkeit-und-randstellen">
+<h3>5. Prüfung der Gültigkeit und Randstellen<a class="headerlink" href="#prufung-der-gultigkeit-und-randstellen" title="Permalink to this headline">#</a></h3>
 <p>Es bleiben noch zwei letzte Tests:</p>
 <ol class="simple">
 <li><p>Liegt die oben errechnete Lösung im Definitionsbereich von <span class="math notranslate nohighlight">\(F\)</span>? <span class="math notranslate nohighlight">\(\rightarrow\)</span> JA!</p></li>
@@ -1079,10 +1184,10 @@ Fmax = 0.6547
 <p>Dies entspricht dem <strong>fünften Schritt</strong> im Lösungsschema: “Gültigkeits- und Randstellen Prüfung”</p>
 </div>
 <p>Damit erhalten wir die <strong>Lösung</strong>: Bei <span class="math notranslate nohighlight">\(v=21.21 \frac{\text{km}}{\text{h}}\)</span> wird ein maximaler Fahrzeugdurchsatz von <span class="math notranslate nohighlight">\(F\left(21.21 \frac{\text{km}}{\text{h}}\right) = 0.6547 \frac{\text{Fahrzeuge}}{\text{s}} = 2357 \frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
-</div>
-</div>
-<div class="section" id="physikalisches-know-how">
-<h2>Physikalisches Know-How<a class="headerlink" href="#physikalisches-know-how" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="physikalisches-know-how">
+<h2>Physikalisches Know-How<a class="headerlink" href="#physikalisches-know-how" title="Permalink to this headline">#</a></h2>
 <p>Bevor wir die Ergebnisse an das Schweizer Verkehrsministerium übergeben, müssen wir zuletzt noch fragen: <strong>Als wie realistisch schätzen wir diese Lösung ein?</strong></p>
 <p>Dazu variieren wir die Faustformel für den Sicherheitsabstand zur “Tacho-Halbe-Regel”. Daraus ergibt sich</p>
 <div class="math notranslate nohighlight">
@@ -1126,8 +1231,8 @@ Fmax = 0.6547
 <p>Die Modelle liefern also sehr unterschiedliche Ergebnisse, mit denen wir noch nicht voll zufrieden sein können. Daraus ergibt sich die Frage:</p>
 <p><em><strong>Können wir einfachen Mitteln zu einer deutlich realistischeren Beschreibung des Problems kommen?</strong></em></p>
 <p>Die Antwort: Ja, durch etwas mehr Gehirnschmalz und Einsatz von ein wenig mehr Physik.</p>
-<div class="section" id="verbesserung-des-modells">
-<h3>Verbesserung des Modells<a class="headerlink" href="#verbesserung-des-modells" title="Permalink to this headline">¶</a></h3>
+<section id="verbesserung-des-modells">
+<h3>Verbesserung des Modells<a class="headerlink" href="#verbesserung-des-modells" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
 <li><p><strong>Mehr Physik</strong><br />
 Tatsächlich besteht der Anhalteweg u.a. aus dem Reaktionsweg und dem Bremsweg. Letzterer kann mit dem realen Beschleunigungsgesetz genauer berechnet werden: <span class="math notranslate nohighlight">\(s_\text{B} = \frac{v^2}{2\cdot a}\)</span> (Verzögerung <span class="math notranslate nohighlight">\(a\)</span> = <em>negative Beschleunigung</em>!)</p></li>
@@ -1187,10 +1292,10 @@ bestv =  20
 </div>
 <div style="text-align: right"> Abbildung 3: Fahrzeugdurchsatz in Fahrzeugen pro Stunde über Geschwindigkeit in Kilometer pro Stunde für das Bremsweg-Modell (blau), das Tacho-Halbe-Modell (orange) und das angepasste Modell. </div> <br> 
 <p>Also wird bei <span class="math notranslate nohighlight">\(20\,\frac{\text{m}}{\text{s}} = 72 \,\frac{\text{km}}{\text{h}}\)</span> der maximale Fahrzeugdurchsatz <span class="math notranslate nohighlight">\(F\left(v = 71 \,\frac{\text{km}}{\text{h}}\right) = 0.6836 \,\frac{\text{Fahrzeuge}}{\text{s}} = 2461 \,\frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
-</div>
-</div>
-<div class="section" id="zusammenfassung">
-<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="zusammenfassung">
+<h2>Zusammenfassung<a class="headerlink" href="#zusammenfassung" title="Permalink to this headline">#</a></h2>
 <p>Das neue Modell kommt den tatsächlichen Tempolimits schon recht nahe. Damit könnte man dem Schweizer Verkehrsministerium durchaus Rat geben!</p>
 <p>Das Lösen von solchen Extremwertaufgaben besteht also aus fünf Schritten, die wir alle hier kennengelernt haben:</p>
 <ol class="simple">
@@ -1202,14 +1307,14 @@ bestv =  20
 </ol>
 <p>Außerdem haben wir eine wichtige Lektion gelernt:</p>
 <p><em><strong>Für eine gute Simulation ist ein Bewusstsein für die Modellannahmen entscheidend.</strong></em></p>
-</div>
-<div class="section" id="ausblick">
-<h2>Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="ausblick">
+<h2>Ausblick<a class="headerlink" href="#ausblick" title="Permalink to this headline">#</a></h2>
 <p>In dieser Lösung sind natürlich einige Modellannahmen getroffen worden, die der Realität nicht standhalten, wie variierende Abstände und riskante Fahrweisen.</p>
 <p>Ein sehr bekanntes Modell zur Verkehrssimulation ist das <strong>Nagel-Schreckenberg-Modell</strong>. Damit können Phänomene wie der “Stau-aus-dem-nichts” oder Knotennetze mit Kreuzungen und Ampelschaltungen einfach simuliert werden. Ein Beispiel dafür finden Sie in dem Kapitel <a class="reference internal" href="../01_uebungen/02_verkehrssimulation.html#naschr"><span class="std std-ref">Verkehrssimulation mit zellulären Automaten</span></a> wieder.</p>
 <p>Eine weitere Möglichkeit, Verkehr zu simulieren, ist mit <strong>Partiellen Differentialgleichungen</strong>. Diese lernen Sie in dem Kapitel <a class="reference internal" href="../11_pde/03_trafficPDE.html#traffic-pde"><span class="std std-ref">Verkehrssimulation mit finiten Volumen</span></a> kennen.</p>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1233,9 +1338,11 @@ bestv =  20
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="00_einleitung.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1251,24 +1358,28 @@ bestv =  20
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+  
+      &copy; Copyright 2020 - 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
-    
-        &copy; Copyright 2020 - 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

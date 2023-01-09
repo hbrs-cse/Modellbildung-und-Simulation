@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Simulation eines Raketenstarts &#8212; Modellbildung und Simulation</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -74,17 +76,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -107,7 +108,21 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +131,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -625,106 +641,195 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#ihre-simulationssoftware">
    Ihre Simulationssoftware
@@ -803,12 +908,11 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Simulation eines Raketenstarts</h1>
@@ -903,42 +1007,43 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
+  <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Voraussetzungen</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Umgang mit aufgeteilten Programmroutinen</p></li>
-<li><p class="card-text">Integrationsverfahren mehrdimensionaler Differentialgleichungen</p></li>
+<li><p class="sd-card-text">Umgang mit aufgeteilten Programmroutinen</p></li>
+<li><p class="sd-card-text">Integrationsverfahren mehrdimensionaler Differentialgleichungen</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Lerninhalte</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Nutzung von ODE-Lösern zur Umsetzung bekannter Grundgleichungen</p></li>
-<li><p class="card-text">Anwendung einer Simulation mit erhöhter Modellierungstiefe</p></li>
-<li><p class="card-text">Umgang mit und Ergänzung von fremd erstellten Programmroutinen</p></li>
+<li><p class="sd-card-text">Nutzung von ODE-Lösern zur Umsetzung bekannter Grundgleichungen</p></li>
+<li><p class="sd-card-text">Anwendung einer Simulation mit erhöhter Modellierungstiefe</p></li>
+<li><p class="sd-card-text">Umgang mit und Ergänzung von fremd erstellten Programmroutinen</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="simulation-eines-raketenstarts">
-<span id="rocket"></span><h1>Simulation eines Raketenstarts<a class="headerlink" href="#simulation-eines-raketenstarts" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="simulation-eines-raketenstarts">
+<span id="rocket"></span><h1>Simulation eines Raketenstarts<a class="headerlink" href="#simulation-eines-raketenstarts" title="Permalink to this headline">#</a></h1>
 <p>Sie sind Wissenschaftler:in im Head-Bureau for Rocket Simulation <em>(H-BRS)</em> und wurden beauftragt einen geplanten Raketenstart zu simulieren. Von der Raketenplattform in Sankt Augustin sollen vier Satelliten mit einem Gesamtgewicht von 2952 kg in MEO <em>(Medium Earth Orbit)</em> auf eine leicht elliptische Laufbahn in 22922 km Höhe gebracht werden, also etwas unterhalb einer geostationären Umlaufbahn.</p>
 <a class="reference internal image-reference" href="../../_images/gravity_turn.gif"><img alt="Rocket launch Animation" class="align-center" src="../../_images/gravity_turn.gif" style="width: 800px;" /></a>
 <p>Zu Beginn der Planungsphase sollen eine Reihe Simulationen durchgeführt werden, um den Flugplan zu optimieren. Für Sie eigentlich eine Routineuntersuchung, aber da Ihre Mitarbeiter:innen noch nie etwas von <a class="reference external" href="https://git-scm.com/book/de/v2/Erste-Schritte-Was-ist-Versionsverwaltung%3F">Versionskontrolle</a> gehört haben, sind leider Teile Ihres Simulationsprogrammes abhandengekommen.</p>
@@ -948,11 +1053,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Sie finden unten die sechs <code class="docutils literal notranslate"><span class="pre">.m</span></code>-Dateien mit jeweils einer kurzen Beschreibung. Sie können sich den Inhalt der Dateien durch Aufklappen der Codeboxen anschauen.</p>
 <p>Ihre Aufgaben finden Sie weiter unten unterhalb der Beschreibung der Simulationssoftware.</p>
 </div>
-<div class="section" id="ihre-simulationssoftware">
-<h2>Ihre Simulationssoftware<a class="headerlink" href="#ihre-simulationssoftware" title="Permalink to this headline">¶</a></h2>
+<section id="ihre-simulationssoftware">
+<h2>Ihre Simulationssoftware<a class="headerlink" href="#ihre-simulationssoftware" title="Permalink to this headline">#</a></h2>
 <p>Als Matlab-Expert:in haben Sie eine einfache Simulationssoftware für die frühe Planungsphase entworfen. Ihr Programm simuliert ein <em>“gravity turn maneuver”</em> in 2D und besteht aus den folgenden sechs Dateien.</p>
-<div class="section" id="rocket-launch-m">
-<h3><code class="docutils literal notranslate"><span class="pre">rocket_launch.m</span></code><a class="headerlink" href="#rocket-launch-m" title="Permalink to this headline">¶</a></h3>
+<section id="rocket-launch-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_launch.m</span></code><a class="headerlink" href="#rocket-launch-m" title="Permalink to this headline">#</a></h3>
 <p>Dies ist das Hauptskript Ihrer Simulation. Hier werden die Simulationsparameter festgelegt, die zugrunde liegende gewöhnliche Differentialgleichung gelöst und, je nach Bedarf, eine Animation der Simulation gestartet.</p>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
@@ -1049,9 +1154,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="rocket-ode-m">
-<h3><code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code><a class="headerlink" href="#rocket-ode-m" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rocket-ode-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code><a class="headerlink" href="#rocket-ode-m" title="Permalink to this headline">#</a></h3>
 <p>Das Herzstück Ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung <span class="math notranslate nohighlight">\(\dot{\mathbf{q}} = \)</span> <code class="docutils literal notranslate"><span class="pre">rocket_ode</span></code><span class="math notranslate nohighlight">\((t,\mathbf{q})\)</span> mit dem Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code>. Die rechte Seite ist in dieser Datei implementiert. Dabei ist <span class="math notranslate nohighlight">\(\mathbf{q} = [x,y, v_x, v_y, m]^T\)</span> ein Spaltenvektor, der die aktuelle Position <span class="math notranslate nohighlight">\((x,y)\)</span>, die aktuelle Geschwindigkeit <span class="math notranslate nohighlight">\((v_x,v_y)\)</span> sowie die aktuelle Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete beschreibt. <em>Leider fehlt ausgerechnet diese Datei.</em></p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -1074,9 +1179,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mass-flow-rate-m">
-<h3><code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code><a class="headerlink" href="#mass-flow-rate-m" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mass-flow-rate-m">
+<h3><code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code><a class="headerlink" href="#mass-flow-rate-m" title="Permalink to this headline">#</a></h3>
 <p>Teil der Raketen-ODE <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> ist die gewöhnliche Differentialgleichung für die Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete <span class="math notranslate nohighlight">\(\dot{m}=g(m, \tau)\)</span>, wobei <span class="math notranslate nohighlight">\(\tau\)</span> die Antriebsdrossel modelliert (<span class="math notranslate nohighlight">\(\tau=0\)</span> bedeutet kein Antrieb, <span class="math notranslate nohighlight">\(\tau=1\)</span> bedeutet maximaler Antrieb). Die Funktion <span class="math notranslate nohighlight">\(g\)</span> ist in <code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code> implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton’schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Treibstoff ausgestoßen wird, desto höher sind der momentane Impuls und die Gewichtsabnahme der Rakete.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -1100,9 +1205,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="f-thrust-m">
-<h3><code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code><a class="headerlink" href="#f-thrust-m" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="f-thrust-m">
+<h3><code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code><a class="headerlink" href="#f-thrust-m" title="Permalink to this headline">#</a></h3>
 <p>In dieser Datei ist die Funktion <span class="math notranslate nohighlight">\(F_{\text{thrust}}(t,\mathbf{q})\)</span> hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung berechnet. Diese Datei haben Sie bereits von Ihren Kolleg:innen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen <em>lift off, pitch over, ascend, 2nd stage,</em> und <em>orbit</em>. Je nach Phase wird in <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit <code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code> den Flugplan der Rakete. Optional kann die berechnete Drosselung <code class="docutils literal notranslate"><span class="pre">throttle</span></code> als zweiter Parameter mit ausgegeben werden. Sie wird unter anderem gebraucht um den Massefluss <span class="math notranslate nohighlight">\(g\)</span> (bzw. <code class="docutils literal notranslate"><span class="pre">mass_flow_rate</span></code>) zu berechnen.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -1170,9 +1275,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="rocket-status-m">
-<h3><code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code><a class="headerlink" href="#rocket-status-m" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rocket-status-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code><a class="headerlink" href="#rocket-status-m" title="Permalink to this headline">#</a></h3>
 <p>Diese Datei wird von <code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code> verwendet. Hier wird je nach Zustand der Rakete nach bestimmten Kriterien die Phase <em>(lift off, pitch over, ascend, 2nd stage, orbit)</em> des Raketenstarts gewechselt. In jeder Phase verhält sich die Funktion <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> etwas anders. Die Syntax ist so gewählt, dass die Funktion vom <em>event handler</em> des ODE-Lösers von Matlab aufgerufen wird.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -1250,9 +1355,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="rocket-visualization-m">
-<h3><code class="docutils literal notranslate"><span class="pre">rocket_visualization.m</span></code><a class="headerlink" href="#rocket-visualization-m" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="rocket-visualization-m">
+<h3><code class="docutils literal notranslate"><span class="pre">rocket_visualization.m</span></code><a class="headerlink" href="#rocket-visualization-m" title="Permalink to this headline">#</a></h3>
 <p>Diese Datei implementiert die Animation sowie Plots des Raketenstarts. Die Syntax der Funktion ist so gewählt, dass die Funktion während der numerischen Integration in Matlabs ODE Löser in jedem Zeitschritt einen visuellen Output liefern kann.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
@@ -1546,10 +1651,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="aufgabe-1">
-<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="aufgabe-1">
+<h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">#</a></h2>
 <p>Damit Ihre Simulationssoftware lauffähig ist, füllen Sie die Datei <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> mit neuem Inhalt. Die Differentialgleichungen, die gelöst werden müssen, lauten</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1585,13 +1690,13 @@ m
 \end{pmatrix}.
 \end{align}\end{split}\]</div>
 </div>
-</div>
-<div class="section" id="aufgabe-2">
-<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="aufgabe-2">
+<h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">#</a></h2>
 <p>Wie schätzen Sie die Modellierungstiefe des Simulationsprogrammes ein? Nennen Sie die wichtigsten Modellvereinfachungen und diskutieren Sie, welche am kritischsten sind. Welche Modellvereinfachungen würden Sie als erstes angehen, wenn Sie das Modell verfeinern würden? Wie schätzen Sie den Aufwand dafür ein?</p>
-</div>
-<div class="section" id="zusatzaufgabe">
-<h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="zusatzaufgabe">
+<h2>Zusatzaufgabe<a class="headerlink" href="#zusatzaufgabe" title="Permalink to this headline">#</a></h2>
 <p>Bestimmen Sie auf Grundlage Ihrer Simulation welchen Beschleunigungen die Satelliten während des Raketenstarts ausgesetzt sind. Laut Satellitenhersteller sind die kritischen Komponenten für Beschleunigungen bis 10 G ausgelegt. Erfüllt der von Ihnen simulierte Raketenstart diese Anforderungen? In welcher Phase des Raketenstarts sind die Beschleunigungen am höchsten? Erstellen Sie einen Plot, der den Betrag der Beschleunigung in G über die Zeit während des Starts darstellt.</p>
 <div class="tip admonition">
 <p class="admonition-title">Zusatzinformationen</p>
@@ -1605,8 +1710,8 @@ m
 <iframe width="560" height="315" src="https://www.youtube.com/embed/t0BKsk97n6Y?start=1183" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <div style="text-align: right;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1630,9 +1735,11 @@ m
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="../02_schwingungen/00_harmonische_schwingung.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1648,24 +1755,28 @@ m
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+  
+      &copy; Copyright 2020 - 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
-    
-        &copy; Copyright 2020 - 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

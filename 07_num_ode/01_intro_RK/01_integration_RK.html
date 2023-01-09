@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Integration von ODEs mit expliziten Verfahren &#8212; Modellbildung und Simulation</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,28 +20,28 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
     <script kind="utterances">
 
     var commentsRunWhenDOMLoaded = cb => {
@@ -74,17 +76,16 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe,.cell"
-        const thebe_selector_input = "pre,.cell_input div.highlight"
-        const thebe_selector_output = ".output,.cell_output"
-    </script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -107,7 +108,21 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </script>
 
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -116,9 +131,10 @@ commentsRunWhenDOMLoaded(addUtterances);
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -625,106 +641,195 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/07_num_ode/01_intro_RK/01_integration_RK.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        
-        
-        <a class="edit-button" href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/07_num_ode/01_intro_RK/01_integration_RK.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/07_num_ode/01_intro_RK/01_integration_RK.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <button type="button" class="btn btn-secondary topbarbtn"
-            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
-                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            <div align="left"> <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a> <br><a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a> <br>Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a> <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a> </div>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/07_num_ode/01_intro_RK/01_integration_RK.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="initThebeSBT()"
+  class="headerbtn headerbtn-launch-thebe"
+  data-toggle="tooltip"
+data-placement="left"
+title="Launch Thebe"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="headerbtn__text-container">Live Code</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/07_num_ode/01_intro_RK/01_integration_RK.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="bottom"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/07_num_ode/01_intro_RK/01_integration_RK.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#wichtige-begriffe">
    Wichtige Begriffe
@@ -779,12 +884,11 @@ commentsRunWhenDOMLoaded(addUtterances);
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Integration von ODEs mit expliziten Verfahren</h1>
@@ -855,40 +959,41 @@ commentsRunWhenDOMLoaded(addUtterances);
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="sphinx-bs container pb-4 docutils">
-<div class="row docutils">
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Voraussetzungen</p>
+  <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Voraussetzungen</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Schwingungen</p></li>
-<li><p class="card-text">Numerische Integration analytischer Funktionen</p></li>
+<li><p class="sd-card-text">Schwingungen</p></li>
+<li><p class="sd-card-text">Numerische Integration analytischer Funktionen</p></li>
 </ul>
 </div>
 </div>
 </div>
-<div class="d-flex col-lg-6 col-md-6 col-sm-6 col-xs-12 p-2 docutils">
-<div class="card w-100 shadow docutils">
-<div class="card-header docutils">
-<p class="card-text">Lerninhalte</p>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">Lerninhalte</p>
 </div>
-<div class="card-body docutils">
+<div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="card-text">Explizite Integrationsverfahren von gewöhnlichen Differentialgleichungen</p></li>
+<li><p class="sd-card-text">Explizite Integrationsverfahren von gewöhnlichen Differentialgleichungen</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="integration-von-odes-mit-expliziten-verfahren">
-<span id="integration-rk-exp"></span><h1>Integration von ODEs mit expliziten Verfahren<a class="headerlink" href="#integration-von-odes-mit-expliziten-verfahren" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="integration-von-odes-mit-expliziten-verfahren">
+<span id="integration-rk-exp"></span><h1>Integration von ODEs mit expliziten Verfahren<a class="headerlink" href="#integration-von-odes-mit-expliziten-verfahren" title="Permalink to this headline">#</a></h1>
 <p>Gewöhnliche Differentialgleichungen (Ordinary Differential Equations, <strong>ODE</strong>s) können oft nicht analytisch gelöst werden.</p>
 <p>Während die harmonische Schwingungsgleichung</p>
 <div class="math notranslate nohighlight">
@@ -912,10 +1017,10 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <p>Mit senkrechter Kette, d.h. <span class="math notranslate nohighlight">\(y(0)=d\)</span> kann nicht gestartet werden, weil in dem Fall der Nenner null wird. Daher legen wir den Anfangswert z.B. auf <span class="math notranslate nohighlight">\(y(0)=0.99 d\)</span> fest.</p>
 </div>
 </div>
-<div class="section" id="wichtige-begriffe">
-<h2>Wichtige Begriffe<a class="headerlink" href="#wichtige-begriffe" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="explizite-formulierungen">
-<h3>Explizite Formulierungen<a class="headerlink" href="#explizite-formulierungen" title="Permalink to this headline">¶</a></h3>
+<section id="wichtige-begriffe">
+<h2>Wichtige Begriffe<a class="headerlink" href="#wichtige-begriffe" title="Permalink to this headline">#</a></h2>
+<section id="explizite-formulierungen">
+<h3>Explizite Formulierungen<a class="headerlink" href="#explizite-formulierungen" title="Permalink to this headline">#</a></h3>
 <p>Die Traktrix können wir nach <span class="math notranslate nohighlight">\(y'\)</span> umformen zu</p>
 <div class="math notranslate nohighlight">
 \[y'(x) = - \frac{y(x)}{\sqrt{d^2-y^2(x)}}.\]</div>
@@ -923,9 +1028,9 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <div class="math notranslate nohighlight">
 \[y'(x) = f(x,y(x))\]</div>
 <p>schreiben, sprechen wir von einer <strong>expliziten Formulierung</strong>. Diese Form ist besonders interessant für uns, denn wir können unsere Kenntnisse aus der numerischen Integration auf sie anwenden. Das ist besonders hilfreich, wenn wir die Funktion, wie die Traktrix, nicht analytisch integrieren können.</p>
-</div>
-<div class="section" id="schrittweise-integration">
-<h3>Schrittweise Integration<a class="headerlink" href="#schrittweise-integration" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="schrittweise-integration">
+<h3>Schrittweise Integration<a class="headerlink" href="#schrittweise-integration" title="Permalink to this headline">#</a></h3>
 <p>Wie die numerische Integration bekannter Funktionen können wir <span class="math notranslate nohighlight">\(y'(x)\)</span> über das Teilintervall <span class="math notranslate nohighlight">\([x_i,x_{i+1}]\)</span> integrieren.</p>
 <div class="math notranslate nohighlight">
 \[y(x_{i+1})-y(x_i) = \int_{x_i}^{x_{i+1}}f(x,y(x))dx\]</div>
@@ -935,15 +1040,15 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <p>Für die schrittweise Integration führen wir außerdem ein</p>
 <div class="math notranslate nohighlight">
 \[h = x_{i+1} - x_i.\]</div>
-</div>
-<div class="section" id="anfangswertprobleme">
-<h3>Anfangswertprobleme<a class="headerlink" href="#anfangswertprobleme" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="anfangswertprobleme">
+<h3>Anfangswertprobleme<a class="headerlink" href="#anfangswertprobleme" title="Permalink to this headline">#</a></h3>
 <p>Mit der Annahme, dass <span class="math notranslate nohighlight">\(y_{i+1} = f(y_i)\)</span> ist, müssen wir ein <span class="math notranslate nohighlight">\(y_0\)</span> festlegen, von dem aus wir starten. Für das Taschenuhrenbeispiel ist es einfach <span class="math notranslate nohighlight">\((0,d)\)</span>. Für andere ODEs, wie die Schwingungsgleichung, müssen wir Anfangswerte sinnvoll festlegen. Für das Pendel heißt das, wie hoch es anfangs hängt und wie schnell es sich bewegt. Bei ODEs sprechen wir daher auch von Anfangswertproblemen (AWPs oder IVPs, Initial Value Problems).</p>
 <p>Jetzt müssen wir noch das Integral geeignet approximieren.</p>
-</div>
-</div>
-<div class="section" id="aufgabe-1-linke-rechteckregel">
-<h2>Aufgabe 1: Linke Rechteckregel<a class="headerlink" href="#aufgabe-1-linke-rechteckregel" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="aufgabe-1-linke-rechteckregel">
+<h2>Aufgabe 1: Linke Rechteckregel<a class="headerlink" href="#aufgabe-1-linke-rechteckregel" title="Permalink to this headline">#</a></h2>
 <p>Für die Integration bekannter Funktionen entspricht die linke Rechteckregel einem Rechteck unter dem Punkt <span class="math notranslate nohighlight">\(x_i\)</span>:</p>
 <a class="reference internal image-reference" href="../../_images/quadratur_rechteck_x.png"><img alt="Name of image" class="align-center" src="../../_images/quadratur_rechteck_x.png" style="width: 400px;" /></a>
 <p>Abbildung 2: Integral einer bekannten Funktion mit der linken Rechteckregel.</p>
@@ -960,43 +1065,40 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 <p>Dieses Vorgehen entspricht dem <strong>expliziten Eulerverfahren</strong>, das in dem Kapitel <a class="reference internal" href="../04_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren.html#euler-stability"><span class="std std-ref">Stabilität des expliziten versus impliziten Eulerverfahrens</span></a> weiter dikutiert wird. Die rechte Rechteckregel entspricht dem <strong>impliziten Eulerverfahren</strong>, das in dem Kapitel <a class="reference internal" href="02_integration_implicit.html#integration-rk-imp"><span class="std std-ref">Integration von ODEs mit impliziten Verfahren</span></a> behandelt wird.</p>
 <div class="dropdown admonition">
 <p class="admonition-title">Butcher-Tableau</p>
-<p>Die hier behandelten Integrationsverfahren lassen sich mithilfe von Butcher-Tableaus leicht übersichtlich anordnen. Für das explizite Eulerverfahren lautet das Butcher-Tableau</p>
+<p>Die hier behandelten Integrationsverfahren lassen sich mithilfe von Butcher-Tableaus leicht übersichtlich anordnen. Für das explizite Eulerverfahren lautet das Butcher-Tableau:</p>
 <p><span class="math notranslate nohighlight">\(\begin{array}
 {c|c}
 0\\
 \hline
 &amp; 1
-\end{array}.\)</span></p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Die 0 oben links bedeutet, dass für den ersten Zwischenwert (hier gibt es nur einen) die Stelle $x_i$  verwendet wird. Die 1 unten rechts bedeutet, dass das Ergebnis aus der ersten Zeile zu 100 % in $y_{i+1}$ eingeht. Komplexere Butcher-Tableaus werden weiter unten zusammen mit den zugehörigen Verfahren erläutert.
-```
-</pre></div>
-</div>
+\end{array}\)</span></p>
+<p>Die 0 oben links bedeutet, dass für den ersten Zwischenwert (hier gibt es nur einen) die Stelle <span class="math notranslate nohighlight">\(x_i\)</span>  verwendet wird. Die 1 unten rechts bedeutet, dass das Ergebnis aus der ersten Zeile zu 100 % in <span class="math notranslate nohighlight">\(y_{i+1}\)</span> eingeht. Komplexere Butcher-Tableaus werden weiter unten zusammen mit den zugehörigen Verfahren erläutert.</p>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">your</span> <span class="n">code</span> <span class="n">here</span>
-<span class="n">y0</span>    <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="n">n</span>     <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="o">%</span> <span class="n">number</span> <span class="n">of</span> <span class="n">timesteps</span>
-<span class="n">xmax</span>  <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="n">xspan</span> <span class="o">=</span> <span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-<span class="n">y</span>     <span class="o">=</span> <span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
-    <span class="n">x</span>    <span class="o">=</span> <span class="n">xspan</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
-    <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="o">...</span>
-<span class="n">end</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
+<span class="n">y0</span>    <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">n</span>     <span class="p">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c">% number of timesteps</span>
+<span class="n">xmax</span>  <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">xspan</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">xmax</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="n">y</span>     <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">);</span>
+<span class="k">for</span> <span class="n">i</span> <span class="p">=</span> <span class="mi">1</span><span class="p">:</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">x</span>    <span class="p">=</span> <span class="n">xspan</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+    <span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">=</span> <span class="p">...</span>
+<span class="k">end</span>
 
-<span class="n">plot</span><span class="p">(</span><span class="n">xspan</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">xspan</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="mehrstufige-verfahren">
-<h2>Mehrstufige Verfahren<a class="headerlink" href="#mehrstufige-verfahren" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="aufgabe-2-mittelpunktsregel">
-<span id="centroidal-integration"></span><h2>Aufgabe 2: Mittelpunktsregel<a class="headerlink" href="#aufgabe-2-mittelpunktsregel" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="mehrstufige-verfahren">
+<h2>Mehrstufige Verfahren<a class="headerlink" href="#mehrstufige-verfahren" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="aufgabe-2-mittelpunktsregel">
+<span id="centroidal-integration"></span><h2>Aufgabe 2: Mittelpunktsregel<a class="headerlink" href="#aufgabe-2-mittelpunktsregel" title="Permalink to this headline">#</a></h2>
 <p>Um eine größere Genauigkeit zu erreichen, wenden Sie die Mittelpunktsregel an.</p>
 <div class="math notranslate nohighlight">
 \[\int_{x_i}^{x_{i+1}}f\left(x,y(x)\right)dx \approx h \cdot f\left(x_{i+\frac{1}{2}},y\left(x_i\right)\right)\]</div>
@@ -1014,7 +1116,7 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">your</span> <span class="n">code</span> <span class="n">here</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
 </pre></div>
 </div>
 </div>
@@ -1064,14 +1166,14 @@ Beim sogenannten inversen Tangentenproblem zog er die Uhrenkette seiner Taschenu
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">your</span> <span class="n">code</span> <span class="n">here</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="anwendung-auf-hoherstufige-verfahren">
-<h2>Anwendung auf höherstufige Verfahren<a class="headerlink" href="#anwendung-auf-hoherstufige-verfahren" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="anwendung-auf-hoherstufige-verfahren">
+<h2>Anwendung auf höherstufige Verfahren<a class="headerlink" href="#anwendung-auf-hoherstufige-verfahren" title="Permalink to this headline">#</a></h2>
 <p>Formulieren wir die Simpsonregel</p>
 <div class="math notranslate nohighlight">
 \[\int_{x_i}^{x_{i+1}} f(x,y(x)) dx \approx \frac{x_{i+1} - x_i}{6}\left(f(x_i,y_i)+4 f\left(x_{i+\frac{1}{2}},y_i\right)+f(x_{i+1},y_i)\right)\]</div>
@@ -1119,20 +1221,20 @@ K_3 = f\left(x_i + h, y_i + h \cdot \left(-1 \cdot K_1 + 2 \cdot K_2 \right)\rig
 <p class="admonition-title">Hinweis</p>
 <p>Verwechseln Sie nicht die mehr<em>stufigen</em> Verfahren mit Mehr<em>schritt</em>verfahren. Letztere verwenden zusätzlich zu <span class="math notranslate nohighlight">\(y_i\)</span> auch vorherige Auswertungen <span class="math notranslate nohighlight">\(y_{i-c\cdot h}\)</span>.</p>
 </div>
-</div>
-<div class="section" id="aufgabe-3-implementierung-des-runge-kutta-verfahrens-3-ordnung">
-<span id="integration-rk3"></span><h2>Aufgabe 3: Implementierung des Runge-Kutta-Verfahrens 3. Ordnung<a class="headerlink" href="#aufgabe-3-implementierung-des-runge-kutta-verfahrens-3-ordnung" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="aufgabe-3-implementierung-des-runge-kutta-verfahrens-3-ordnung">
+<span id="integration-rk3"></span><h2>Aufgabe 3: Implementierung des Runge-Kutta-Verfahrens 3. Ordnung<a class="headerlink" href="#aufgabe-3-implementierung-des-runge-kutta-verfahrens-3-ordnung" title="Permalink to this headline">#</a></h2>
 <p>Passen Sie Ihren Code so an, dass zur Lösung anstelle des expliziten Eulerverfahrens das RK-Verfahren 3. Ordnung verwendet wird.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">your</span> <span class="n">code</span> <span class="n">here</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="aufgabe-4-ordnungen-der-verfahren">
-<h2>Aufgabe 4: Ordnungen der Verfahren<a class="headerlink" href="#aufgabe-4-ordnungen-der-verfahren" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="aufgabe-4-ordnungen-der-verfahren">
+<h2>Aufgabe 4: Ordnungen der Verfahren<a class="headerlink" href="#aufgabe-4-ordnungen-der-verfahren" title="Permalink to this headline">#</a></h2>
 <p>Die Ordnung <span class="math notranslate nohighlight">\(\mathcal{O(h)}\)</span> gibt an, wie sich ein Fehler bei Verkleinerung der Schrittweite ändern. Ein Verfahren 2. Ordnung, <span class="math notranslate nohighlight">\(\mathcal{O}(h^2)\)</span> hat also bei Halbierung der Schrittweite nur noch ein Viertel des Fehlers.</p>
 <p>Ermitteln Sie nun <strong>experimentell</strong> die Ordnungen der von Ihnen entwickelten Verfahren anhand der Traktrix:</p>
 <ul class="simple">
@@ -1143,13 +1245,13 @@ K_3 = f\left(x_i + h, y_i + h \cdot \left(-1 \cdot K_1 + 2 \cdot K_2 \right)\rig
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span> <span class="n">your</span> <span class="n">code</span> <span class="n">here</span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
 </pre></div>
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1160,22 +1262,24 @@ K_3 = f\left(x_i + h, y_i + h \cdot \left(-1 \cdot K_1 + 2 \cdot K_2 \right)\rig
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "octave"
         },
         kernelOptions: {
-            kernelName: "python3",
+            kernelName: "octave",
             path: "./07_num_ode/01_intro_RK"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'octave'</script>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="00_intro_RK.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1191,24 +1295,28 @@ K_3 = f\left(x_i + h, y_i + h \cdot \left(-1 \cdot K_1 + 2 \cdot K_2 \right)\rig
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
+  
+      &copy; Copyright 2020 - 2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Dirk Reith, Jan Kleinert, and Gerd Steinebach<br/>
-    
-        &copy; Copyright 2020 - 2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
