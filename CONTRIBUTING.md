@@ -158,19 +158,22 @@ Here is our scheme for license information and an example from our Book. These c
  
 All new exercises should include learning requirements and learning goals. These can be added using this draft:
  
-````
-```{panels}
+``````
+````{grid} 2
+```{grid-item-card}
+:class-header: bg-light
 Voraussetzungen
 ^^^
 - keine
----
-
-Lernziele
+```
+```{grid-item-card}
+:class-header: bg-light
+Lerninhalte
 ^^^
-- Einblick in die mathematische Modellierung
-- Kritisches Hinterfragen von Modellannahmen
+- keine
 ```
 ````
+``````
 
  #### Special content boxes and admonitions
 

@@ -1,13 +1,18 @@
-````{panels}
+````{grid} 2
+```{grid-item-card}
+:class-header: bg-light
 Voraussetzungen
 ^^^
 - keine
----
-
+```
+```{grid-item-card}
+:class-header: bg-light
 Lerninhalte
 ^^^
 - Kennenlernen von Matlab
+```
 ````
+
 
 (erste_schritte)=
 # Matlab einrichten

@@ -1,2 +1,1 @@
-jupyter-book==0.11.3
-octave_kernel
+jupyter-book==0.13.1

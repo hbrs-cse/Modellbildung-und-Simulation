@@ -16,14 +16,8 @@ commands:
 jobs:
   build_page_files:
     docker:
-      - image: mtmiller/octave
+      - image: cimg/python:3.11.1
     steps:
-      - run:
-          name: Install ssh
-          command: |
-            apt update
-            apt -y install ssh
-    
       # Get our data and merge with upstream
       - checkout
 
@@ -32,8 +26,8 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            pip3 install --upgrade pip
-            pip3 install -r requirements.txt
+            pip install --upgrade pip
+            pip install -r requirements.txt
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
@@ -56,7 +50,7 @@ jobs:
   # Build the site to store artifacts
   html_demo:
     docker:
-      - image: circleci/python:3.6-stretch
+      - image: cimg/python:3.11.1
     steps:
       - checkout
 
@@ -76,7 +70,7 @@ jobs:
   # Finally, push the HTML to the gh-pages branch
   html_live:
     docker:
-      - image: circleci/python:3.6-stretch
+      - image: cimg/python:3.11.1
     steps:
       - checkout
 
