@@ -1052,7 +1052,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_ode.m</span>
 <span class="c">%% Define right hand side of Rocket ODE</span>
-<span class="k">function</span><span class="w"> </span>dq<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rocket_ode</span><span class="p">(</span>t,q<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dq<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rocket_ode</span><span class="p">(</span>t,q<span class="p">)</span>
 
 <span class="c">% q = [z;v;m], z = [x;y], v = [vx;vy]</span>
 <span class="c">%</span>
@@ -1081,7 +1081,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="c">% assume constant (throttle-dependent) mass flow rate </span>
 <span class="c">% until propellant is depleted</span>
 
-<span class="k">function</span><span class="w"> </span>dotm<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">mass_flow_rate</span><span class="p">(</span>m, throttle<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dotm<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">mass_flow_rate</span><span class="p">(</span>m, throttle<span class="p">)</span>
 
 <span class="k">global</span> <span class="n">params</span><span class="p">;</span>
 <span class="k">if</span> <span class="n">m</span><span class="o">&lt;</span><span class="p">=</span> <span class="n">params</span><span class="p">.</span><span class="n">rocket</span><span class="p">.</span><span class="n">m0</span>
@@ -1103,7 +1103,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file F_thrust.m</span>
 <span class="c">%% Thrust of rocket engine</span>
-<span class="k">function</span><span class="w"> </span><span class="nf">[F, throttle] = F_thrust</span><span class="p">(</span>t,q<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">[F, throttle] = F_thrust</span><span class="p">(</span>t,q<span class="p">)</span>
 <span class="c">% This function takes the arguments of the rocket_ode function and</span>
 <span class="c">% calculates angine thrust for a specific state of the rocket. Depending on</span>
 <span class="c">% the stage, throttle and angle of attack can be varied. The status is</span>
@@ -1158,7 +1158,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>vec<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span>vec,degree<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>vec<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span>vec,degree<span class="p">)</span>
 <span class="w">  </span><span class="nb">vec</span> <span class="p">=</span> <span class="p">[</span><span class="nb">cosd</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="o">-</span><span class="nb">sind</span><span class="p">(</span><span class="n">degree</span><span class="p">);</span> <span class="nb">sind</span><span class="p">(</span><span class="n">degree</span><span class="p">),</span> <span class="nb">cosd</span><span class="p">(</span><span class="n">degree</span><span class="p">)]</span><span class="o">*</span><span class="nb">vec</span><span class="p">;</span>
 <span class="k">end</span>
 </pre></div>
@@ -1173,7 +1173,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_status.m</span>
 <span class="c">%% event function for the rocket_ode</span>
-<span class="k">function</span><span class="w"> </span>[value,isterminal,direction]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rocket_status</span><span class="p">(</span>t,q<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>[value,isterminal,direction]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rocket_status</span><span class="p">(</span>t,q<span class="p">)</span>
 <span class="c">% this function controls the transitions of flight phases. It checks for</span>
 <span class="c">% the following events:</span>
 <span class="c">%</span>
@@ -1254,7 +1254,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_visualization.m</span>
 <span class="c">%% callback function to visualize the rocket launch</span>
 <span class="c">%  during numerical integration</span>
-<span class="k">function</span><span class="w"> </span>status<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rocket_visualization</span><span class="p">(</span>t,q,flag,simple, event_times<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>status<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rocket_visualization</span><span class="p">(</span>t,q,flag,simple, event_times<span class="p">)</span>
 <span class="c">% This is an OutputFcn for Matlab&#39;s ODE solvers. The additional parameter</span>
 <span class="c">% simple can be set to true to only print some info to the command window.</span>
 <span class="c">% event_times can be passed to determine the transition of flight maneuvers</span>
@@ -1483,7 +1483,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="n">status</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span><span class="nf">plot_earth</span><span class="p">(</span>t, flag<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">plot_earth</span><span class="p">(</span>t, flag<span class="p">)</span>
 <span class="c">% modified from Ryan Gray</span>
 <span class="c">% https://de.mathworks.com/matlabcentral/fileexchange/13823-3d-earth-example</span>
 

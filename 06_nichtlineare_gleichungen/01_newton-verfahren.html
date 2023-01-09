@@ -814,10 +814,11 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span id="newton-aufgaben"></span><h1>Newton-Verfahren<a class="headerlink" href="#newton-verfahren" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="aufgabe-1">
 <h2>Aufgabe 1<a class="headerlink" href="#aufgabe-1" title="Permalink to this headline">¶</a></h2>
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/A_glass_of_red_wine.jpg/640px-A_glass_of_red_wine.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/A_glass_of_red_wine.jpg/640px-A_glass_of_red_wine.jpg" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/A_glass_of_red_wine.jpg/640px-A_glass_of_red_wine.jpg" style="width: 500px;" /></a>
-<div style="text-align: right"> "A glass of wine", <a href="https://www.flickr.com/photos/43698630@N00" >Davide Restivo</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0/legalcode" >[CC BY-SA 2.0]</a> via <a href="https://www.flickr.com/photos/somemixedstuff/3104965989/">Flickr</a></div> <br>
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/c0/Red_Wine_Glass.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/c0/Red_Wine_Glass.jpg" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Red_Wine_Glass.jpg" style="width: 500px;" /></a>
+<div style="text-align: right"> Abbildung 1: "Dieses Bild zeigt ein Rotweinglas (WMF Easy) mit Rotwein.", <a href="https://commons.wikimedia.org/wiki/User:Aka" >André Karwath aka Aka</a>, <a href="http://creativecommons.org/licenses/by-sa/3.0/" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Red_Wine_Glass.jpg">Wikimedia Commons</a></div> <br>
 <p>Gegeben sei ein Weinglas mit dem Querschnitt <span class="math notranslate nohighlight">\(y= tan(x^2)\)</span>. An welcher Stelle auf der y-Achse muss der Eichstrich für einen Inhalt von <span class="math notranslate nohighlight">\(V=0.5\)</span> gezogen werden?</p>
 <a class="reference internal image-reference" href="../_images/weinglas_funktion.jpg"><img alt="../_images/weinglas_funktion.jpg" class="align-center" src="../_images/weinglas_funktion.jpg" style="width: 500px;" /></a>
+<div style="text-align: right"> Abbildung 2: Als Funktion $y=|\tan(x^2)|$ approximierter Weinglasquerschnitt.</div> <br>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
 <ol>
@@ -867,7 +868,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file simple_newton.m</span>
-<span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">simple_newton</span><span class="p">(</span>func,deriv,x0,tol,maxit<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>x<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">simple_newton</span><span class="p">(</span>func,deriv,x0,tol,maxit<span class="p">)</span>
 <span class="c">% z = simple_newton(f,df,x0,tol,maxit) solves the nonlinear system 0=func(x)</span>
 <span class="c">%</span>
 <span class="c">% inputs:</span>
@@ -932,7 +933,7 @@ x_1 x_2-\frac{1}{4}(sin(x_1)+cos(x_2)) &amp;= -\frac{1}{4}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file jacobian.m</span>
-<span class="k">function</span><span class="w"> </span>J<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span>F,x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>J<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">jacobian</span><span class="p">(</span>F,x<span class="p">)</span>
 <span class="c">% J = jacobian(F,x) returns the (m x n) Jacobian matrix of F evaluated at x</span>
 <span class="c">%</span>
 <span class="c">%   |  dF1/dx1 ... dF1/dxn |</span>
@@ -963,7 +964,7 @@ x_1 x_2-\frac{1}{4}(sin(x_1)+cos(x_2)) &amp;= -\frac{1}{4}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file newton.m</span>
-<span class="k">function</span><span class="w"> </span>z<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span>func,z0,tol,maxit<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>z<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">newton</span><span class="p">(</span>func,z0,tol,maxit<span class="p">)</span>
 <span class="c">% z = newton(F,z0,tol,maxit) solves the nonlinear system 0=func(z)</span>
 <span class="c">%</span>
 <span class="c">% inputs:</span>

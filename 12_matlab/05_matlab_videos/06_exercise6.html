@@ -910,7 +910,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% your code here</span>
-<span class="k">function</span><span class="w"> </span>fdot<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">derivate</span><span class="p">(</span>f,x0<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>fdot<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">derivate</span><span class="p">(</span>f,x0<span class="p">)</span>
 <span class="k">end</span>
 </pre></div>
 </div>
@@ -959,18 +959,18 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="k">end</span>
 
 <span class="c">%% Numerische Berechnung der Ableitung</span>
-<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ableit</span><span class="p">(</span>f,x0<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ableit</span><span class="p">(</span>f,x0<span class="p">)</span>
 <span class="w">    </span><span class="k">global</span> <span class="n">h</span>
     <span class="n">dy</span> <span class="p">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="o">+</span><span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">f</span><span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="n">h</span><span class="p">;</span>
 <span class="k">end</span>
 
 <span class="c">%% Testfunktion: Exponentialfunktion</span>
 <span class="c">% Funktion f</span>
-<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span>x<span class="p">)</span>
 <span class="w">    </span><span class="n">y</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
 <span class="k">end</span>
 <span class="c">% Ableitung df</span>
-<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">df1</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">df1</span><span class="p">(</span>x<span class="p">)</span>
 <span class="w">    </span><span class="n">dy</span> <span class="p">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">.*</span><span class="nb">exp</span><span class="p">(</span><span class="n">x</span><span class="o">.^</span><span class="mi">2</span><span class="p">);</span>
 <span class="k">end</span>
 </pre></div>
@@ -1011,7 +1011,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="k">end</span>
 
 <span class="c">%% Berechnung der Ableitung des Interpolationspolynoms</span>
-<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ableit2</span><span class="p">(</span>x,y,x0<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ableit2</span><span class="p">(</span>x,y,x0<span class="p">)</span>
 <span class="w">    </span><span class="c">% Interpolationspolynom</span>
     <span class="n">N</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
     <span class="n">p</span> <span class="p">=</span> <span class="nb">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
@@ -1049,17 +1049,17 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="k">end</span>
 
 <span class="c">%% Differenzfunktion f1-f2</span>
-<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">df</span><span class="p">(</span>x<span class="p">)</span>
 <span class="w">    </span><span class="n">y</span> <span class="p">=</span> <span class="n">f2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="n">f1</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="k">end</span>
 
 <span class="c">%% Funktion f1</span>
-<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f1</span><span class="p">(</span>x<span class="p">)</span>
 <span class="w">    </span><span class="n">y</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span><span class="n">x</span><span class="o">./</span><span class="mi">2</span><span class="p">);</span>
 <span class="k">end</span>
 
 <span class="c">%% Funktion f2</span>
-<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span>x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">f2</span><span class="p">(</span>x<span class="p">)</span>
 <span class="w">    </span><span class="n">y</span> <span class="p">=</span> <span class="mi">4</span><span class="o">*</span><span class="nb">sin</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="k">end</span>
 </pre></div>

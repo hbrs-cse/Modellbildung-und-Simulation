@@ -874,7 +874,7 @@ Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schritt
 <span class="n">fi</span><span class="p">.</span><span class="n">fig</span> <span class="p">=</span> <span class="nb">figure</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="s">&#39;position&#39;</span><span class="p">,[</span><span class="mf">0.5</span> <span class="mf">0.5</span> <span class="mi">1450</span> <span class="mi">700</span><span class="p">]);</span>
 <span class="n">fi</span><span class="p">.</span><span class="n">ax</span> <span class="p">=</span> <span class="nb">axes</span><span class="p">(</span><span class="s">&quot;position&quot;</span><span class="p">,[</span><span class="mf">0.05</span> <span class="mf">0.3</span> <span class="mf">0.6</span> <span class="mf">0.7</span><span class="p">]);</span>
 
-<span class="k">function</span><span class="w"> </span><span class="nf">updatefig</span><span class="p">(</span>obj, init<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">updatefig</span><span class="p">(</span>obj, init<span class="p">)</span>
 <span class="w">  </span><span class="k">if</span> <span class="nb">nargin</span> <span class="o">&lt;</span><span class="mi">2</span>
     <span class="n">init</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
   <span class="k">else</span>
@@ -1096,7 +1096,7 @@ Je höher die Lipschitz-Konstante, desto kleiner muss oft die notwendige Schritt
 <span class="n">guidata</span><span class="p">(</span><span class="nb">gcf</span><span class="p">,</span><span class="n">fi</span><span class="p">);</span>
 <span class="n">updatefig</span><span class="p">(</span><span class="nb">gcf</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
 
-<span class="k">function</span><span class="w"> </span><span class="nf">updatefig</span><span class="p">(</span>obj, init<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">updatefig</span><span class="p">(</span>obj, init<span class="p">)</span>
 <span class="w">  </span><span class="k">if</span> <span class="nb">nargin</span> <span class="o">&lt;</span><span class="mi">2</span>
       <span class="n">init</span> <span class="p">=</span> <span class="nb">false</span><span class="p">;</span>
   <span class="k">else</span>

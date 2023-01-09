@@ -908,7 +908,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file spherical2Cartesian.m</span>
-<span class="k">function</span><span class="w"> </span>p<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">spherical2Cartesian</span><span class="p">(</span>longitude, latitude, elevation<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>p<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">spherical2Cartesian</span><span class="p">(</span>longitude, latitude, elevation<span class="p">)</span>
 <span class="c">% This function takes spherical coordinates and transforms them to</span>
 <span class="c">% cartesian coordinates</span>
 <span class="c">%</span>
@@ -979,7 +979,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file xralkldaf.m</span>
-<span class="k">function</span><span class="w"> </span>peng<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">xralkldaf</span><span class="p">(</span>xyz,pft,               hurz<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>peng<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">xralkldaf</span><span class="p">(</span>xyz,pft,               hurz<span class="p">)</span>
 <span class="n">peng</span> <span class="p">=</span> <span class="p">[</span><span class="n">hurz</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">*</span><span class="nb">cosd</span><span class="p">(</span><span class="n">pft</span><span class="p">);</span><span class="n">hurz</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">*</span><span class="nb">sind</span><span class="p">(</span><span class="n">pft</span><span class="p">);</span><span class="n">hurz</span><span class="o">*</span><span class="nb">cosd</span><span class="p">(</span><span class="n">xyz</span><span class="p">)];</span>
 <span class="k">end</span>
 </pre></div>
@@ -1244,8 +1244,8 @@ a and b are not equal
 <h2>Versionskontrolle verwenden<a class="headerlink" href="#versionskontrolle-verwenden" title="Permalink to this headline">¶</a></h2>
 <p>Unter Versionskontrolle versteht man das Erfassen von Änderungen an Dokumenten und Dateien. Hierfür stehen viele verschiedene Werkzeuge zur Verfügung, wie z.B. git, svn oder mercurial.</p>
 <p>Kleine Änderungen am Code werden in einem <em>commit</em> zusammengefasst, der eine entsprechende Beschreibung erhält, wie z.B.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git add test_spherical2Cartesian.m
-git commit -m <span class="s2">&quot;added unit test for coordinate transform&quot;</span> 
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>add<span class="w"> </span>test_spherical2Cartesian.m
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;added unit test for coordinate transform&quot;</span><span class="w"> </span>
 </pre></div>
 </div>
 <p>So können alle Änderungen am Code dokumentiert werden und man kann den Code zu jedem denkbaren Entwicklungspunkt zurückspulen.  Das kann unter Umständen dazu genutzt werden, Fehler zu beheben, die erst spät auffallen. Wichtige Meilensteine können mit zusätzlichen <em>tags</em> versehen werden. Diese können zum Beispiel Major-Releases wie <em>“version 1.0”</em> sein. Dies erhöht zudem die Reproduzierbarkeit, da die Version des Codes, mit der ein bestimmtes Ergebnis erzielt wurde mit einem tag, mindestens mit einem commit referenziert werden kann, auch wenn sich später Änderungen ergeben haben sollten.</p>

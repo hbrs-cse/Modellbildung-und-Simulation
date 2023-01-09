@@ -764,6 +764,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="section" id="lineare-interpolation">
 <span id="linint"></span><h1>Lineare Interpolation<a class="headerlink" href="#lineare-interpolation" title="Permalink to this headline">¶</a></h1>
 <a class="reference internal image-reference" href="../_images/linear_interpolation.png"><img alt="../_images/linear_interpolation.png" class="align-center" src="../_images/linear_interpolation.png" style="width: 400px; height: 315px;" /></a>
+<div style="text-align: right"> Abbildung 1: Linear interpolierte Messpunkte.</div> <br>
 <p>Gegeben seien die Messpunkte <span class="math notranslate nohighlight">\((t_i; y_i)\)</span>, <span class="math notranslate nohighlight">\(i = 1; ..; n\)</span> eines Versuches. Dabei bezeichnet <span class="math notranslate nohighlight">\(t_i\)</span> einen Messzeitpunkt aus dem Intervall <span class="math notranslate nohighlight">\([a; b]\)</span> und <span class="math notranslate nohighlight">\(y_i\)</span> den dazugehörigen Messwert. Programmieren Sie eine Funktion, die für ein beliebiges <span class="math notranslate nohighlight">\(t \in [a; b]\)</span> einen Wert liefert, der auf der Verbindungslinie der benachbarten Messpunkte <span class="math notranslate nohighlight">\((t_j ; y_j)\)</span> und <span class="math notranslate nohighlight">\((t_{j+1}; y_{j+1})\)</span> liegt (lineare Interpolation).</p>
 <p>Arbeiten Sie mit folgenden Angaben:<br />
 <span class="math notranslate nohighlight">\(n = 11, [a; b] = [0; 1]\)</span></p>
@@ -803,7 +804,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file linint.m</span>
-<span class="k">function</span><span class="w"> </span>y<span class="p">=</span><span class="nf">linint</span><span class="p">(</span>t,tv,yv<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>y<span class="p">=</span><span class="nf">linint</span><span class="p">(</span>t,tv,yv<span class="p">)</span>
 <span class="c">% Die Funktion linint interpoliert die in den Vektoren abgelegten Daten tv,yv linear.</span>
 <span class="c">% Dazu sollten die Daten in tv sortiert sein und ein t zwischen dem ersten</span>
 <span class="c">% und letzten Eintrag von tv eingegeben werden</span>

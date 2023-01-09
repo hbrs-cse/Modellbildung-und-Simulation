@@ -758,8 +758,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ingenieurs-know-how">
-   Ingenieurs-Know-How
+  <a class="reference internal nav-link" href="#physikalisches-know-how">
+   Physikalisches Know-How
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -837,8 +837,8 @@ commentsRunWhenDOMLoaded(addUtterances);
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ingenieurs-know-how">
-   Ingenieurs-Know-How
+  <a class="reference internal nav-link" href="#physikalisches-know-how">
+   Physikalisches Know-How
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -905,9 +905,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Angenommen das Schweizer Verkehrsministerium stellt eine Anfrage an Sie, die bestehenden Tempolimits Ihrer Autobahnen
 zu überprüfen, unter dem konkreten Aspekt:</p>
 <p><em><strong>“Wie können möglichst viele Fahrzeuge eine Engstelle, z.B. einen Tunnel passieren?”</strong></em></p>
-<a class="reference internal image-reference" href="../_images/tunnel-pixabay.jpg"><img alt="high v high s" class="align-center" src="../_images/tunnel-pixabay.jpg" style="width: 800px;" /></a>
-<div style="text-align: right"> <a href="https://pixabay.com/de/users/torstensimon-5039407/" >torstensimon</a>, <a href="https://pixabay.com/de/service/license/" >[Pixabay License]</a> via <a href="https://pixabay.com/de/photos/tunnel-verkehr-stau-miniatur-ampel-3518875/" >Pixabay</a></div> <br>
-<p>Nun ist Ihre Expertenmeinung gefragt!</p>
+<a class="reference internal image-reference" href="../_images/tunnel-wikimedia.jpg"><img alt="high v high s" class="align-center" src="../_images/tunnel-wikimedia.jpg" style="width: 800px;" /></a>
+<div style="text-align: right"> Abbildung 1: "New Zealand - Homer Tunnel" <a href="https://commons.wikimedia.org/wiki/User:W._Bulach" >W. Bulach</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/" >[CC BY-SA 4.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:00_1365_New_Zealand_-_Homer_Tunnel_(Milford_Sound).jpg" >Wikimedia Commons</a></div> <br>
+<p>Nun ist Ihre Expertise gefragt!</p>
 </div>
 <div class="section" id="extremwertaufgaben-in-funf-akten">
 <h2>Extremwertaufgaben in fünf Akten<a class="headerlink" href="#extremwertaufgaben-in-funf-akten" title="Permalink to this headline">¶</a></h2>
@@ -1076,8 +1076,8 @@ Fmax = 0.6547
 <p>Damit erhalten wir die <strong>Lösung</strong>: Bei <span class="math notranslate nohighlight">\(v=21.21 \frac{\text{km}}{\text{h}}\)</span> wird ein maximaler Fahrzeugdurchsatz von <span class="math notranslate nohighlight">\(F\left(21.21 \frac{\text{km}}{\text{h}}\right) = 0.6547 \frac{\text{Fahrzeuge}}{\text{s}} = 2357 \frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
 </div>
 </div>
-<div class="section" id="ingenieurs-know-how">
-<h2>Ingenieurs-Know-How<a class="headerlink" href="#ingenieurs-know-how" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="physikalisches-know-how">
+<h2>Physikalisches Know-How<a class="headerlink" href="#physikalisches-know-how" title="Permalink to this headline">¶</a></h2>
 <p>Bevor wir die Ergebnisse an das Schweizer Verkehrsministerium übergeben, müssen wir zuletzt noch fragen: <strong>Als wie realistisch schätzen wir diese Lösung ein?</strong></p>
 <p>Dazu variieren wir die Faustformel für den Sicherheitsabstand zur “Tacho-Halbe-Regel”. Daraus ergibt sich</p>
 <div class="math notranslate nohighlight">
@@ -1104,7 +1104,7 @@ Fmax = 0.6547
 <span class="n">s_tachohalbe</span> <span class="p">=</span> <span class="n">v</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span>
 <span class="n">F_tachohalbe</span> <span class="p">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">v</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">L</span> <span class="o">+</span> <span class="n">s_tachohalbe</span><span class="p">);</span>
 
-<span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="s">&quot;linewidth&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">,</span><span class="s">&quot;linewidth&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">xlabel</span> <span class="p">(</span><span class="s">&quot;Geschwindigkeit [km/h]&quot;</span><span class="p">);</span>
 <span class="nb">ylabel</span> <span class="p">(</span><span class="s">&quot;Fahrzeugdurchsatz [Fahrzeuge/h]&quot;</span><span class="p">);</span>
 
@@ -1117,6 +1117,7 @@ Fmax = 0.6547
 <img alt="../_images/01_motivation_11_0.png" src="../_images/01_motivation_11_0.png" />
 </div>
 </div>
+<div style="text-align: right"> Abbildung 2: Fahrzeugdurchsatz in Fahrzeugen pro Stunde über Geschwindigkeit in Kilometer pro Stunde für das Bremsweg-Modell (blau) und das Tacho-Halbe-Modell (orange). </div> <br> 
 <p>Die Modelle liefern also sehr unterschiedliche Ergebnisse, mit denen wir noch nicht voll zufrieden sein können. Daraus ergibt sich die Frage:</p>
 <p><em><strong>Können wir einfachen Mitteln zu einer deutlich realistischeren Beschreibung des Problems kommen?</strong></em></p>
 <p>Die Antwort: Ja, durch etwas mehr Gehirnschmalz und Einsatz von ein wenig mehr Physik.</p>
@@ -1162,23 +1163,24 @@ Bisher wird beim Sicherheitsabstand so getan, als ob im Bremsfall der Vorfahrend
 <span class="n">maxF</span>
 <span class="n">bestv</span> <span class="p">=</span> <span class="n">bestv</span><span class="o">/</span><span class="n">dv</span>
 
-<span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_physik</span><span class="p">)</span>
+<span class="nb">plot</span><span class="p">(</span><span class="n">v</span><span class="p">,</span><span class="n">F_bremsweg</span><span class="p">,</span><span class="s">&quot;linewidth&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_tachohalbe</span><span class="p">,</span><span class="s">&quot;linewidth&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">F_physik</span><span class="p">,</span><span class="s">&quot;linewidth&quot;</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
 <span class="nb">xlabel</span> <span class="p">(</span><span class="s">&quot;Geschwindigkeit [m/s]&quot;</span><span class="p">);</span>
 <span class="nb">ylabel</span> <span class="p">(</span><span class="s">&quot;Fahrzeugdurchsatz [Fahrzeuge/s]&quot;</span><span class="p">);</span>
 
-<span class="n">h</span> <span class="p">=</span> <span class="nb">legend</span> <span class="p">(</span><span class="s">&quot;Bremsweg-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Tacho-Halbe-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Physikalisches Modell&quot;</span><span class="p">);</span>
+<span class="n">h</span> <span class="p">=</span> <span class="nb">legend</span> <span class="p">(</span><span class="s">&quot;Bremsweg-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Tacho-Halbe-Modell&quot;</span><span class="p">,</span> <span class="s">&quot;Angepasstes Modell&quot;</span><span class="p">);</span>
 <span class="nb">legend</span> <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="s">&quot;location&quot;</span><span class="p">,</span> <span class="s">&quot;northeast&quot;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maxF = 0.6836
-bestv = 20
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>maxF =  0.68357
+bestv =  20
 </pre></div>
 </div>
 <img alt="../_images/01_motivation_14_1.png" src="../_images/01_motivation_14_1.png" />
 </div>
 </div>
+<div style="text-align: right"> Abbildung 3: Fahrzeugdurchsatz in Fahrzeugen pro Stunde über Geschwindigkeit in Kilometer pro Stunde für das Bremsweg-Modell (blau), das Tacho-Halbe-Modell (orange) und das angepasste Modell. </div> <br> 
 <p>Also wird bei <span class="math notranslate nohighlight">\(20\,\frac{\text{m}}{\text{s}} = 72 \,\frac{\text{km}}{\text{h}}\)</span> der maximale Fahrzeugdurchsatz <span class="math notranslate nohighlight">\(F\left(v = 71 \,\frac{\text{km}}{\text{h}}\right) = 0.6836 \,\frac{\text{Fahrzeuge}}{\text{s}} = 2461 \,\frac{\text{Fahrzeuge}}{\text{h}}\)</span> erreicht.</p>
 </div>
 </div>

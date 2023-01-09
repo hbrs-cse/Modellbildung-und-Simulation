@@ -899,7 +899,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">animate_highline</span><span class="p">(</span>L,t,q,person_on_highline<span class="p">)</span><span class="w"></span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">animate_highline</span><span class="p">(</span>L,t,q,person_on_highline<span class="p">)</span>
 
 <span class="n">dt</span> <span class="p">=</span> <span class="mf">0.2</span><span class="p">;</span>                <span class="c">% time step size for animation</span>
 <span class="n">Ta</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">t</span><span class="p">);</span>           <span class="c">% start time</span>
@@ -969,9 +969,8 @@ commentsRunWhenDOMLoaded(addUtterances);
 </div>
 </div>
 </div>
-<p>So sollte die sich einschwingende Highline aussehen:</p>
 <a class="reference internal image-reference" href="../../_images/animated_highline.gif"><img alt="Highline Animation beim Einschwingen" class="align-center" src="../../_images/animated_highline.gif" style="width: 400px;" /></a>
-</div>
+<div style=\"text-align: right\"> Abbildung 1: So sollte die sich einschwingende Highline aussehen. </div> <br></div>
 <div class="section" id="aufgabe-2">
 <h2>Aufgabe 2<a class="headerlink" href="#aufgabe-2" title="Permalink to this headline">¶</a></h2>
 <p>Modifizieren Sie Ihr Skript so, dass zusätzlich zur Schwerkraft <span class="math notranslate nohighlight">\(\mathbf{F}_g\)</span> eine Anregung durch Wind <span class="math notranslate nohighlight">\(\mathbf{F}_w\)</span> sowie eine Anregung <span class="math notranslate nohighlight">\(\mathbf{F}_p\)</span> durch den Highliner modeliert wird, also</p>
@@ -1087,11 +1086,9 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Sollten Sie offline in Octave arbeiten, speichern Sie <code class="docutils literal notranslate"><span class="pre">wind.m</span></code> und <code class="docutils literal notranslate"><span class="pre">person_on_highline.m</span></code> in separaten Dateien.</p>
 </div>
 <p>Simulieren Sie die Highline für den Zeitraum, den die Person zur Überquerung benötigt. Erstellen Sie eine Animation mit dem Befehl <code class="docutils literal notranslate"><span class="pre">animate_highline(...)</span></code>.</p>
-<p>Animation nur mit Wind (mit <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q)</span></code>):</p>
 <a class="reference internal image-reference" href="../../_images/animated_highline_with_wind.gif"><img alt="Highline Animation mit Wind" class="align-center" src="../../_images/animated_highline_with_wind.gif" style="width: 800px;" /></a>
-<p>Animation mit Wind und Person auf der Highline (mit <code class="docutils literal notranslate"><span class="pre">animate_highline(L,t,q,highliner)</span></code>):</p>
-<a class="reference internal image-reference" href="../../_images/animated_highline_with_person.gif"><img alt="Highline Animation mit Highliner" class="align-center" src="../../_images/animated_highline_with_person.gif" style="width: 800px;" /></a>
-</div>
+<div style=\"text-align: right\"> Abbildung 2: Animation nur mit Wind (mit `animate_highline(L,t,q)`). </div> <br><a class="reference internal image-reference" href="../../_images/animated_highline_with_person.gif"><img alt="Highline Animation mit Highliner" class="align-center" src="../../_images/animated_highline_with_person.gif" style="width: 800px;" /></a>
+<div style=\"text-align: right\">Abbildung 3: Animation mit Wind und Person auf der Highline (mit `animate_highline(L,t,q,highliner)`). </div> <br></div>
 <div class="section" id="aufgabe-3">
 <h2>Aufgabe 3<a class="headerlink" href="#aufgabe-3" title="Permalink to this headline">¶</a></h2>
 <p>Modifizieren Sie Ihr Skript, sodass es die folgenden Plots erstellt:</p>

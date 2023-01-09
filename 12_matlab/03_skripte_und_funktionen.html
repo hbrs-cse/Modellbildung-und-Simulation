@@ -1325,7 +1325,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file oldmcdonald.m</span>
-<span class="k">function</span><span class="w"> </span>sound<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>sound<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span>
 <span class="c">% oldmcdonald takes an input string &quot;animal&quot; and outputs a &quot;noise&quot;</span>
 <span class="c">% corresponding to the input. If the animal is unknown, an </span>
 <span class="c">% error is thrown.</span>
@@ -1433,7 +1433,7 @@ mailing list.
 <span class="k">end</span>
 
 <span class="c">% define the function &quot;oldmcdonald&quot;</span>
-<span class="k">function</span><span class="w"> </span>sound<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>sound<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">oldmcdonald</span><span class="p">(</span>animal<span class="p">)</span>
 <span class="w">    </span><span class="k">if</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s">&quot;cat&quot;</span><span class="p">)</span>
         <span class="n">sound</span> <span class="p">=</span> <span class="s">&quot;Meaow&quot;</span><span class="p">;</span>
     <span class="k">elseif</span> <span class="nb">strcmp</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span>  <span class="s">&quot;dog&quot;</span><span class="p">)</span>
@@ -1476,7 +1476,7 @@ Gib mir eine Schnapspraline.
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
-<span class="k">function</span><span class="w"> </span>result<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>xlower, xupper, tolerance, maxIterations<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>result<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>xlower, xupper, tolerance, maxIterations<span class="p">)</span>
 <span class="c">% find a zero of the polynomial </span>
 <span class="c">%</span>
 <span class="c">%      y(x)= -x^4 + x^3 - x^2 + x + 1</span>
@@ -1568,7 +1568,7 @@ Gib mir eine Schnapspraline.
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file increment_a.m</span>
-<span class="k">function</span><span class="w"> </span><span class="nf">increment_a</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span><span class="nf">increment_a</span><span class="p">(</span>n<span class="p">)</span>
 <span class="w">    </span><span class="k">global</span> <span class="n">a</span>
     <span class="n">a</span> <span class="p">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span>
 <span class="k">end</span>
@@ -1663,7 +1663,7 @@ Gib mir eine Schnapspraline.
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file bisection.m</span>
-<span class="k">function</span><span class="w"> </span>result<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>f, xlower, xupper, tolerance, maxIterations<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>result<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">bisection</span><span class="p">(</span>f, xlower, xupper, tolerance, maxIterations<span class="p">)</span>
 <span class="c">% bisection finds a zero of a function f in the interval xlower and xupper </span>
 <span class="c">% using bisection</span>
 <span class="c">%</span>
@@ -1798,7 +1798,7 @@ ans =  0.16500
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fibonacci.m</span>
-<span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>out<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fibonacci</span><span class="p">(</span>n<span class="p">)</span>
 <span class="w">    </span><span class="k">if</span> <span class="p">(</span><span class="n">n</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">)</span>
         <span class="n">out</span> <span class="p">=</span> <span class="mi">1</span><span class="p">;</span>
     <span class="k">else</span>

@@ -819,16 +819,18 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div style="text-align: left;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
 <p>Eine Frage drängt sich nahezu auf: <em><strong>Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung?</strong></em></p>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg"><img alt="Matlab Logo" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" width="300px" /></a>
-<div style="text-align: right"> "MUTCD R2-1", <a href="https://en.wikipedia.org/wiki/Manual_on_Uniform_Traffic_Control_Devices
+<div style="text-align: right"> Abbildung 1: "MUTCD R2-1", <a href="https://en.wikipedia.org/wiki/Manual_on_Uniform_Traffic_Control_Devices
 " >Manual on Uniform Traffic Control Devices</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:MUTCD_R2-1.svg" >Wikimedia Commons</a></div> <br>
 <p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug vorbeifährt, klingt die Sirene plötzlich viel tiefer. Der Doppler Effekt ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
 <div class="section" id="frequenzanalyse">
 <h2>Frequenzanalyse<a class="headerlink" href="#frequenzanalyse" title="Permalink to this headline">¶</a></h2>
 <p>Mit einem beliebigen Online <em>Youtube-zu-mp3-Converter</em> lässt sich die Tonspur des Videos extrahieren und mit der Funktion <code class="docutils literal notranslate"><span class="pre">audioread</span></code> in Matlab einlesen. Mit Hilfe der Signalverarbeitungstoolbox kann man sich dann ein Spektrogramm erstellen:</p>
 <img alt="../_images/honking_car_spectogram.png" class="align-center" src="../_images/honking_car_spectogram.png" />
+<div style=\"text-align: right\"> Abbildung 2: Spektrogramm (Frequenz in Herz über Zeit in Sekunden) eines vorbeifahrenden, hupenden Autos. </div> <br>
 <p>Auf der x-Achse ist die Zeit und auf der y-Achse die Frequenz aufgetragen. Die Farbe gibt eine Auskunft über die dominanten Frequenzen zu jedem Zeitpunkt. Zwischen Sekunde 6 und Sekunde 7 fährt das Auto an der Kamera vorbei und der Abfall in der Tonhöhe ist gut zu erkennen.</p>
 <p>Die vielen horizontalen Linien sind ein Zeichen dafür, dass die Hupe des Fahrzeuges keinen reinen Sinuston erzeugt, sondern eine Überlagerung vieler Frequenzen ist. Eine sogenannte Fouriertransformation der Tonspur gibt uns Auskunft über die dominanten Frequenzen im gesamten Zeitfenster:</p>
 <img alt="../_images/honking_car_fouriertransform.png" class="align-center" src="../_images/honking_car_fouriertransform.png" />
+<div style=\"text-align: right\"> Abbildung 3: Fouriertransformation (Amplitude über Frequenz in Herz) des Geräuschs aus Abbildung 2. </div> <br>
 <p>Für jede horizontale Linie im Spektrogramm erhalten wir einen Peak in der Fouriertransformation. Der Ton der Hupe ist also eine Überlagerung von hauptsächlich drei Tönen bzw. Frequenzen.</p>
 <ul class="simple">
 <li><p>Die dominanteste Frequenz von 1658 Hz (<em><a class="reference external" href="https://www.youtube.com/watch?v=rv6XQwmpJAE">dreigestrichenes gis</a></em>) fällt beim Vorbeifahren auf 1449 Hz herab.</p></li>
@@ -841,10 +843,10 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus.</p>
 <p>Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.</p>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg"><img alt="Matlab Logo" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg" width="300px" /></a>
-<div style="text-align: right"> "Doppler effect", <a href="https://commons.wikimedia.org/wiki/User:Pbroks13" >Pbroks13</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:Doppler_effect.svg" >Wikimedia Commons</a></div> <br>
+<div style="text-align: right"> "Abbildung 4: Doppler effect", <a href="https://commons.wikimedia.org/wiki/User:Pbroks13" >Pbroks13</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:Doppler_effect.svg" >Wikimedia Commons</a></div> <br>
 <p>Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz als die gestreckten Wellenberge hinter dem Fahrzeug und werden deshalb auch als höherer Ton wahrgenommen.</p>
 <img alt="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" />
-<div style="text-align: right"> "Dopplerfrequenz", <a href="https://commons.wikimedia.org/wiki/User:Charly_Whisky" >Charly Whisky</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" >Wikimedia Commons</a></div> <br>
+<div style="text-align: right">Abbildung 5: "Dopplerfrequenz", <a href="https://commons.wikimedia.org/wiki/User:Charly_Whisky" >Charly Whisky</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" >Wikimedia Commons</a></div> <br>
 </div>
 <div class="section" id="zuruck-zur-ursprunglichen-fragestellung">
 <h2>Zurück zur ursprünglichen Fragestellung<a class="headerlink" href="#zuruck-zur-ursprunglichen-fragestellung" title="Permalink to this headline">¶</a></h2>

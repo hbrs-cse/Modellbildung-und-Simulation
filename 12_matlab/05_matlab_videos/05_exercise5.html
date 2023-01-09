@@ -811,7 +811,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fit_fcn</span><span class="p">(</span>t,params<span class="p">)</span><span class="w"></span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fit_fcn</span><span class="p">(</span>t,params<span class="p">)</span>
 <span class="w"> 	</span><span class="c">% “params” muss als Vektor übergeben werden</span>
  	<span class="n">a</span> <span class="p">=</span> <span class="n">params</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 	<span class="n">b</span> <span class="p">=</span> <span class="n">params</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
@@ -843,7 +843,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 </ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>f<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fcn</span><span class="p">(</span>params<span class="p">)</span><span class="w"></span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>f<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fcn</span><span class="p">(</span>params<span class="p">)</span>
 <span class="w"> 	</span><span class="c">% Aufruf der globalen Messwerte:</span>
  	<span class="k">global</span> <span class="n">tm</span> <span class="n">Pm</span>
  	<span class="c">% params ist ein Vektor und enthält a und b</span>
@@ -867,7 +867,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Bestimmt die Jacobi-Matrix beliebiger Funktionen f durch Approximation</span>
-<span class="k">function</span><span class="w"> </span>J<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">jac</span><span class="p">(</span>x,f<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>J<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">jac</span><span class="p">(</span>x,f<span class="p">)</span>
 <span class="w">    </span><span class="c">% Dimension der Jacobi-Matrix bestimmt sich aus der Anzahl der Variablen </span>
     <span class="c">% (=Spalten) und Anzahl der Gleichungen (= Zeilen)</span>
     <span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
@@ -1054,7 +1054,7 @@ Es eignen sich z.B.:</p>
 <span class="c">%% ---Zu fittende Exponentialfunktion</span>
 <span class="c">% Funktion, welche die gemessenen Leistungsdaten der PV-Anlage möglichst</span>
 <span class="c">% gut wiedergeben soll</span>
-<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fit_fcn</span><span class="p">(</span>t,params<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>y<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fit_fcn</span><span class="p">(</span>t,params<span class="p">)</span>
 <span class="w">    </span><span class="n">a</span> <span class="p">=</span> <span class="n">params</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
     <span class="n">b</span> <span class="p">=</span> <span class="n">params</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
     <span class="n">y</span> <span class="p">=</span> <span class="nb">exp</span><span class="p">(</span> <span class="o">-</span><span class="p">((</span><span class="n">t</span><span class="o">-</span><span class="n">a</span><span class="p">)</span><span class="o">./</span><span class="n">b</span><span class="p">)</span><span class="o">.^</span><span class="mi">2</span> <span class="p">);</span>
@@ -1064,7 +1064,7 @@ Es eignen sich z.B.:</p>
 <span class="c">% Sind notwendig, um mit dem Newotnverfahren die Werte für die Paramter der</span>
 <span class="c">% Exponentialfunktion zu optimieren (Güte wird durch mittleren quadrat.</span>
 <span class="c">% Abstand bestimmt)</span>
-<span class="k">function</span><span class="w"> </span>f<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fcn</span><span class="p">(</span>params<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>f<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fcn</span><span class="p">(</span>params<span class="p">)</span>
 <span class="w">    </span><span class="c">% Aufruf globaler Variablen (Messwerte und Parameter p)</span>
     <span class="k">global</span> <span class="n">tm</span> <span class="n">Pm</span>
     <span class="c">% Parameter a,b,c und p werden im Vektor &quot;x&quot; zusammengefasst</span>
@@ -1081,7 +1081,7 @@ Es eignen sich z.B.:</p>
 <span class="c">%% ---Berechnung der Jacobi-Matrix</span>
 <span class="c">% Bestimmt die Jacobi-Matrix beliebiger Funktionen f durch Approximation</span>
 <span class="c">% Notwendig um die Ableitungswerte der Bestimmungsgleichungen zu erhalten</span>
-<span class="k">function</span><span class="w"> </span>J<span class="p">=</span><span class="nf">jac</span><span class="p">(</span>x,f<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>J<span class="p">=</span><span class="nf">jac</span><span class="p">(</span>x,f<span class="p">)</span>
 <span class="c">% Dimension der Jacobimatrix bestimmt sich aus der Anzahl der Variablen </span>
 <span class="c">% (=Spalten) und Anzahl der Gleichungen (= Zeilen)</span>
 <span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>

@@ -903,7 +903,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Nutzen Sie dazu als <em>Goldstandard</em> die Matlab-Routine <code class="docutils literal notranslate"><span class="pre">ode45</span></code> und vergleichen Sie, auf welche Werte die Verfahren nach einer bestimmten Strecke <span class="math notranslate nohighlight">\(x_\text{end}\)</span> kommen.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>ydot<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">dgl</span><span class="p">(</span>y,d<span class="p">)</span><span class="w"></span>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>ydot<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">dgl</span><span class="p">(</span>y,d<span class="p">)</span>
 <span class="w">    </span><span class="n">ydot</span> <span class="p">=</span> <span class="o">-</span><span class="n">y</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="n">d</span>^<span class="mi">2</span><span class="o">-</span><span class="n">y</span>^<span class="mi">2</span><span class="p">);</span>
 <span class="k">end</span>
 

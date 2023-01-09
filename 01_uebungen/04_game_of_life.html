@@ -871,7 +871,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <p>Zellen können einen von zwei Zuständen annehmen. Diese werden oft ‘lebendig’ bzw. ‘tot’ genannt.</p>
 <p>Beim Spielen des Spiels wird zunächst eine (zufällige) Anfangsgeneration von lebenden Zellen auf dem Spielfeld platziert. Jede Zelle hat genau acht Nachbarzellen, die zur Bestimmung der Folgegeneration berücksichtigt werden müssen. Die nächste Generation ergibt sich durch die Befolgung einfacher Regeln.</p>
 <img alt="GameOfLife" class="align-center" src="../_images/GameOfLife_rnd_n100.gif" />
-<p>Abbildung 1: Beispiel für einen Game of Life Durchlauf mit zufälliger Startverteilung und n = 100 Iterationen.</p>
+<div style="text-align: right"> Abbildung 1: Beispiel für einen Game of Life Durchlauf mit zufälliger Startverteilung und n = 100 Iterationen.</div> <br>
 <p>Das Spiel des Lebens kann mit Hilfe eines Computers simuliert (= gespielt) werden. Da in diesem Fall das Spielfeld immer endlich ist, muss es einen Rand haben, an dem die Regeln gesondert festgelegt werden müssen.
 Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt ist. Eine Alternative sind sogenannte periodische Randbedingungen, bei denen alles, was das Spielfeld nach unten verlässt, oben wieder hereinkommt und umgekehrt bzw. alles, was das Spielfeld nach links verlässt, rechts wieder eintritt und umgekehrt.</p>
 </div>
@@ -918,15 +918,14 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
 <ul>
 <li><p>Ein R-Pentomino in der Mitte des Spielfelds (siehe Abbildung 2). Hier soll die minimale Spielfeldgröße <code class="docutils literal notranslate"><span class="pre">N=10</span></code> betragen, selbst wenn <code class="docutils literal notranslate"><span class="pre">N</span></code> vorher kleiner gewählt wurde.</p>
 <img alt="R-Pentomino" class="align-center" src="../_images/GameOfLife_R_Pentomino.gif" />
-<p>Abbildung 2: Ein R-Pentomino in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
-</li>
+ <div style="text-align: right"> Abbildung 2: Ein R-Pentomino in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</div> <br></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% R-Pentomino:</span>
 <span class="n">field</span> <span class="p">=</span> <span class="n">R_pentomino</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">R_pentomino</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">R_pentomino</span><span class="p">(</span>N<span class="p">)</span>
 <span class="w">    </span><span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">10</span>
         <span class="n">N</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="k">end</span>
@@ -944,15 +943,14 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
 <ul>
 <li><p>Einen Glider in der Mitte des Spielfelds (siehe Abbildung 3). Auch hier soll die minimale Spielfeldgröße <code class="docutils literal notranslate"><span class="pre">N=10</span></code> betragen, selbst wenn <code class="docutils literal notranslate"><span class="pre">N</span></code> vorher kleiner gewählt wurde.</p>
 <img alt="Glider" class="align-center" src="../_images/GameOfLife_Glider.gif" />
-<p>Abbildung 3: Ein Glider in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
-</li>
+ <div style="text-align: right"> Abbildung 3: Ein Glider in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</div> <br></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Glider:</span>
 <span class="n">field</span> <span class="p">=</span> <span class="n">Glider</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Glider</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">Glider</span><span class="p">(</span>N<span class="p">)</span>
 <span class="w">    </span><span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">10</span>
         <span class="n">N</span> <span class="p">=</span> <span class="mi">10</span><span class="p">;</span>
     <span class="k">end</span>
@@ -966,19 +964,18 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
 <ul>
 <li><p>Ein Light Weight Spaceship (LWSS), Medium Weight Spaceship (MWSS) bzw. Heavy Weight Spaceship (HWSS) in der Mitte des Spielfelds (siehe Abbildunen 4-6). Hier soll die minimale Spielfeldgröße <code class="docutils literal notranslate"><span class="pre">N=20</span></code> betragen, selbst wenn <code class="docutils literal notranslate"><span class="pre">N</span></code> vorher kleiner gewählt wurde.</p>
 <img alt="Light Weight Spaceship (LWSS)" class="align-center" src="../_images/GameOfLife_LWSS.gif" />
-<p>Abbildung 4: Ein Light Weigth Spaceship (LWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+ <div style="text-align: right"> Abbildung 4: Ein Light Weigth Spaceship (LWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</div> <br>
 <img alt="Medium Weight Spaceship (MWSS)" class="align-center" src="../_images/GameOfLife_MWSS.gif" />
-<p>Abbildung 5: Ein Medium Weigth Spaceship (MWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
+ <div style="text-align: right"> Abbildung 5: Ein Medium Weigth Spaceship (MWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</div> <br>
 <img alt="Heavy Weight Spaceship (HWSS)" class="align-center" src="../_images/GameOfLife_HWSS.gif" />
-<p>Abbildung 6: Ein Heavy Weigth Spaceship (HWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</p>
-</li>
+ <div style="text-align: right"> Abbildung 6: Ein Heavy Weigth Spaceship (HWSS) in der Mitte des Spielfelds. Alle anderen Zellen haben hier den toten Zustand.</div> <br></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% Spaceships</span>
 <span class="n">field</span> <span class="p">=</span> <span class="n">LWSS</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">LWSS</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">LWSS</span><span class="p">(</span>N<span class="p">)</span>
 <span class="w">    </span><span class="k">if</span> <span class="n">N</span> <span class="o">&lt;</span> <span class="mi">20</span>
         <span class="n">N</span> <span class="p">=</span> <span class="mi">20</span><span class="p">;</span>
     <span class="k">end</span>
@@ -986,11 +983,11 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
     <span class="p">...</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">MWSS</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">MWSS</span><span class="p">(</span>N<span class="p">)</span>
 <span class="w">    </span><span class="p">...</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">HWSS</span><span class="p">(</span>N<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">HWSS</span><span class="p">(</span>N<span class="p">)</span>
 <span class="w">    </span><span class="p">...</span>
 <span class="k">end</span>
 </pre></div>
@@ -1006,8 +1003,7 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
 <li><p>Alle äußeren Zellen sind immer lebendig (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">2</span></code>)</p></li>
 <li><p>Periodisches Spielfeld (siehe Abb. 7): Was links/rechts/oben/unten das Spielfeld verlässt kommt auf der gegenüberliegenden Seite wieder rein (<code class="docutils literal notranslate"><span class="pre">rule</span> <span class="pre">3</span></code>)</p>
 <img alt="Periodische Randbedingungen (periodic boundary conditions, PBC)" class="align-center" src="../_images/GameOfLife_PBC.png" />
-<p>Abbildung 7: Beispiel für periodische Randbedingungen. Das Spielfelds wird oben/unten bzw. links/rechts an sich selbst kopiert. Etwas das z.B. rechts das Spielfeld verlassen würde kommt so auf der linken Seite wieder rein.</p>
-</li>
+ <div style="text-align: right"> Abbildung 7: Beispiel für periodische Randbedingungen. Das Spielfelds wird oben/unten bzw. links/rechts an sich selbst kopiert. Etwas das z.B. rechts das Spielfeld verlassen würde kommt so auf der linken Seite wieder rein.</div> <br>   </li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1019,7 +1015,7 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
 
 <span class="n">field</span> <span class="p">=</span> <span class="n">add_boundaries</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">rule</span><span class="p">,</span> <span class="n">N</span><span class="p">);</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">add_boundaries</span><span class="p">(</span>field, rule, N<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">add_boundaries</span><span class="p">(</span>field, rule, N<span class="p">)</span>
 <span class="c">% add field boundaries based on selected rule</span>
     <span class="k">if</span> <span class="n">rule</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="c">% boundaries are only dead cells (0)</span>
@@ -1081,7 +1077,7 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
     <span class="nb">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">next_iteration</span><span class="p">(</span>field, N, rule<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>field<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">next_iteration</span><span class="p">(</span>field, N, rule<span class="p">)</span>
 <span class="w">    </span><span class="n">new_field</span> <span class="p">=</span> <span class="nb">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">N</span><span class="p">);</span>    
     <span class="c">% current field size (N+2)x(N+2) because boundaries were added previously</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">=</span><span class="mi">2</span><span class="p">:</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span>
@@ -1101,7 +1097,7 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
     <span class="k">return</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>count<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">count_living_cells</span><span class="p">(</span>field, i, j<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>count<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">count_living_cells</span><span class="p">(</span>field, i, j<span class="p">)</span>
 <span class="w">    </span><span class="n">count</span> <span class="p">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="c">% check number living neighbour cells</span>
     <span class="c">% add above the cell</span>
@@ -1113,7 +1109,7 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
     <span class="k">return</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>val<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">update_cell</span><span class="p">(</span>cell, count<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>val<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">update_cell</span><span class="p">(</span>cell, count<span class="p">)</span>
 <span class="w">    </span><span class="k">if</span> <span class="nb">cell</span> <span class="o">==</span> <span class="mi">1</span>
         <span class="c">% living cell</span>
         <span class="c">% if less than to living neighbours: cell dies</span>
@@ -1139,14 +1135,11 @@ Eine Möglichkeit ist, dass der Rand komplett durch tote/lebendige Zellen belegt
 </div>
 <p>Abbildung 8 zeigt die Animation für ein mittig platziertes R-Pentomino. Das Spielfeld hat die Größe N=50 und die Anzahl der Folgegenerationen ist Iterations=100. Als Randbedinung wurde festgelegt, dass alle Zellen dort tot sind.</p>
 <img alt="R-Pentomino_animation" class="align-center" src="../_images/GameOfLife_R_Pentomino_n100.gif" />
-<p>Abbildung 8: Ein R-Pentomino in der Mitte eines 50x50 Spielfelds und 100 Folgegenerationen mit einem Rand auf dem alle Zellen tot sind.</p>
-<p>Abbildung 9 zeigt die Animation für ein mittig platzierten Glider. Das Spielfeld hat die Größe N=30 und die Anzahl der Folgegenerationen ist Iterations=100. Es wurden periodische Randbedingungen (periodic boundary conditions, PBC) gewählt.</p>
+   <div style="text-align: right"> Abbildung 8: Ein R-Pentomino in der Mitte eines 50x50 Spielfelds und 100 Folgegenerationen mit einem Rand auf dem alle Zellen tot sind.</div> <br><p>Abbildung 9 zeigt die Animation für ein mittig platzierten Glider. Das Spielfeld hat die Größe N=30 und die Anzahl der Folgegenerationen ist Iterations=100. Es wurden periodische Randbedingungen (periodic boundary conditions, PBC) gewählt.</p>
 <img alt="Glider_animation" class="align-center" src="../_images/GameOfLife_Glider_n100.gif" />
-<p>Abbildung 9: Ein Glider in der Mitte eines 30x30 Spielfelds und 100 Folgegenerationen mit PBC.</p>
-<p>Abbildung 10 zeigt die Animation für ein mittig platziertes Light Weight Spaceship (LWSS). Das Spielfeld hat die Größe N=30 und die Anzahl der Folgegenerationen ist Iterations=100. Es wurden periodische Randbedingungen (periodic boundary conditions, PBC) gewählt.</p>
+   <div style="text-align: right"> Abbildung 9: Ein Glider in der Mitte eines 30x30 Spielfelds und 100 Folgegenerationen mit PBC.</div> <br><p>Abbildung 10 zeigt die Animation für ein mittig platziertes Light Weight Spaceship (LWSS). Das Spielfeld hat die Größe N=30 und die Anzahl der Folgegenerationen ist Iterations=100. Es wurden periodische Randbedingungen (periodic boundary conditions, PBC) gewählt.</p>
 <img alt="LWSS_animation" class="align-center" src="../_images/GameOfLife_LWSS_n100.gif" />
-<p>Abbildung 10: Ein LWSSin der Mitte eines 30x30 Spielfelds und 100 Folgegenerationen mit PBC.</p>
-</div>
+   <div style="text-align: right"> Abbildung 10: Ein LWSSin der Mitte eines 30x30 Spielfelds und 100 Folgegenerationen mit PBC.</div> <br></div>
 </div>
 
     <script type="text/x-thebe-config">

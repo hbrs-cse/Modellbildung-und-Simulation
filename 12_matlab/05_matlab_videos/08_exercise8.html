@@ -831,7 +831,7 @@ Das Auto wird anschließend mit einer konstanten Gegenbeschleunigung von <span c
     <span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(@</span><span class="n">ode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">x0</span><span class="p">);</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>dx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ode</span><span class="p">(</span>t,x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ode</span><span class="p">(</span>t,x<span class="p">)</span>
 <span class="w">    </span><span class="c">% Hier die DGL(s) einfügen</span>
 <span class="k">end</span>
 </pre></div>
@@ -856,11 +856,11 @@ Das Auto wird anschließend mit einer konstanten Gegenbeschleunigung von <span c
     <span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(@</span><span class="n">ode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">options</span><span class="p">);</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>dx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ode</span><span class="p">(</span>t,x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ode</span><span class="p">(</span>t,x<span class="p">)</span>
 <span class="w">    </span><span class="c">% Hier die DGL(s) einfügen</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>[value,isterminal,direction]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span>t,x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>[value,isterminal,direction]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span>t,x<span class="p">)</span>
 <span class="w">    </span><span class="c">% t und x sind je Zeitpunkt und Ergebnis des</span>
     <span class="c">% aktuellen Simulationschritts</span>
     <span class="n">value</span> <span class="p">=</span> <span class="c">% Dieser Wert wird auf Null geprüft</span>
@@ -896,7 +896,7 @@ Allerdings fährt das zweite Auto anfangs mit <span class="math notranslate nohi
     <span class="p">[</span><span class="n">t</span><span class="p">,</span><span class="n">x</span><span class="p">]</span> <span class="p">=</span> <span class="n">ode45</span><span class="p">(@</span><span class="n">ode</span><span class="p">,</span><span class="n">tspan</span><span class="p">,</span><span class="n">x0</span><span class="p">);</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>dx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ode</span><span class="p">(</span>t,x<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dx<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">ode</span><span class="p">(</span>t,x<span class="p">)</span>
 <span class="w">    </span><span class="c">% Hier die DGL(s) einfügen</span>
     <span class="n">dx</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="c">% ...</span>
     <span class="n">dx</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="c">% ...</span>

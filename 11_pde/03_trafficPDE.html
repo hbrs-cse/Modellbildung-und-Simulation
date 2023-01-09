@@ -846,17 +846,17 @@ commentsRunWhenDOMLoaded(addUtterances);
 <img alt="../_images/03_trafficPDE_2_0.png" src="../_images/03_trafficPDE_2_0.png" />
 </div>
 </div>
+<div style=\"text-align: right\"> Abbildung 1: Durchschnittliche Geschwindigkeit in Kilometer pro Stunde über Fahrzeugdichte in Autos pro Meter. Der Zusammenhang wurde aus dem Nagel-Schreckenberg Modell abgeleitet.</div> <br>
 </div>
 <div class="section" id="graphische-darstellung">
 <h2>Graphische Darstellung<a class="headerlink" href="#graphische-darstellung" title="Permalink to this headline">¶</a></h2>
 <p>Leider funktioniert die dynamische graphische Darstellung in Octave nicht. Stattdessen können Sie den untenstehenden Code herunterladen und in Matlab ausführen.</p>
-<p>Auflösung eines Staus:</p>
 <a class="reference internal image-reference" href="../_images/highway_jam.gif"><img alt="highway_jam" class="align-center" src="../_images/highway_jam.gif" style="width: 800px;" /></a>
-<p>Losfahren von einer grünen Ampel:</p>
+<div style=\"text-align: right\"> Abbildung 2: Auflösung eines Staus auf einem Straßenabschnitt.</div> <br>
 <a class="reference internal image-reference" href="../_images/highway_light_green.gif"><img alt="highway_light_green" class="align-center" src="../_images/highway_light_green.gif" style="width: 800px;" /></a>
-<p>Auffahren an eine rote Ampel:</p>
+<div style=\"text-align: right\"> Abbildung 3: Straßenabschnitt beim Losfahren von einer grünen Ampel.</div> <br>
 <a class="reference internal image-reference" href="../_images/highway_light_red.gif"><img alt="highway_light_red" class="align-center" src="../_images/highway_light_red.gif" style="width: 800px;" /></a>
-<div class="cell docutils container">
+<div style=\"text-align: right\"> Abbildung 4: Straßenabschnitt beim Auffahren an eine rote Ampel.</div> <br><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">autobahn</span>
 <span class="c">%-- mit FV WENO-Verfahren 3. Ordnung</span>
@@ -884,7 +884,7 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="nb">toc</span>
 <span class="n">nt</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
-<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">dgl</span><span class="p">(</span>t,y<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>dy<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">dgl</span><span class="p">(</span>t,y<span class="p">)</span>
 <span class="k">global</span> <span class="n">x</span> <span class="n">dx</span> <span class="n">n</span>
 <span class="c">%--</span>
 <span class="n">nord</span> <span class="p">=</span> <span class="mi">3</span><span class="p">;</span>
@@ -909,7 +909,7 @@ commentsRunWhenDOMLoaded(addUtterances);
     <span class="k">end</span>
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>status<span class="p">=</span><span class="nf">plot_sol</span><span class="p">(</span>t,y,flag<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>status<span class="p">=</span><span class="nf">plot_sol</span><span class="p">(</span>t,y,flag<span class="p">)</span>
 <span class="k">global</span> <span class="n">x</span> <span class="n">dx</span> <span class="n">n</span>
 <span class="k">global</span> <span class="n">line_rho</span> <span class="n">line_u</span>
 <span class="c">%--</span>
@@ -932,26 +932,26 @@ commentsRunWhenDOMLoaded(addUtterances);
 <span class="nb">pause</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
 <span class="nb">drawnow</span>
 
-<span class="k">function</span><span class="w"> </span>u<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">uvonrho</span><span class="p">(</span>rho<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>u<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">uvonrho</span><span class="p">(</span>rho<span class="p">)</span>
 <span class="k">global</span> <span class="n">u_max</span> <span class="n">rho_max</span> <span class="n">rho_krit</span> <span class="n">c</span>
 <span class="c">%--</span>
 <span class="n">u</span> <span class="p">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">rho</span><span class="o">+</span><span class="n">u_max</span><span class="p">;</span>
 <span class="n">ff</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">rho</span> <span class="o">&gt;</span> <span class="n">rho_krit</span><span class="p">);</span> <span class="n">u</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="p">=</span> <span class="n">c</span><span class="o">*</span><span class="nb">log</span><span class="p">(</span><span class="n">rho</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span><span class="o">/</span><span class="n">rho_max</span><span class="p">);</span>
 <span class="n">ff</span> <span class="p">=</span> <span class="nb">find</span><span class="p">(</span><span class="n">rho</span> <span class="o">&gt;</span> <span class="n">rho_max</span><span class="p">);</span>  <span class="n">u</span><span class="p">(</span><span class="n">ff</span><span class="p">)=</span><span class="mi">0</span><span class="p">;</span>
 
-<span class="k">function</span><span class="w"> </span>lam<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">eigen</span><span class="p">(</span>rho,u<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>lam<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">eigen</span><span class="p">(</span>rho,u<span class="p">)</span>
 <span class="k">global</span> <span class="n">u_max</span> <span class="n">rho_max</span> <span class="n">rho_krit</span> <span class="n">c</span>
 <span class="c">%--</span>
 <span class="n">lam</span> <span class="p">=</span> <span class="n">u</span><span class="p">;</span>
 <span class="n">ff</span> <span class="p">=</span> <span class="nb">find</span><span class="p">((</span><span class="n">rho</span> <span class="o">&gt;</span> <span class="n">rho_krit</span><span class="p">)</span><span class="o">&amp;</span><span class="p">(</span><span class="n">rho</span> <span class="o">&lt;</span> <span class="n">rho_max</span><span class="p">));</span> <span class="n">lam</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span> <span class="p">=</span> <span class="n">lam</span><span class="p">(</span><span class="n">ff</span><span class="p">)</span><span class="o">+</span><span class="n">c</span><span class="p">;</span>
 <span class="n">lam</span><span class="p">=</span><span class="nb">abs</span><span class="p">(</span><span class="n">lam</span><span class="p">);</span>
 
-<span class="k">function</span><span class="w"> </span>[yL,yR]<span class="p">=</span><span class="nf">mc_extrapol</span><span class="p">(</span>y<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>[yL,yR]<span class="p">=</span><span class="nf">mc_extrapol</span><span class="p">(</span>y<span class="p">)</span>
 <span class="c">%-- Extrapoliere Zellenmittel y der Länge n auf Zellgrenze i=1/2 (=yL) und i=n+1/2 (=yR),</span>
 <span class="n">n</span> <span class="p">=</span> <span class="nb">length</span><span class="p">(</span><span class="n">y</span><span class="p">);</span>
 <span class="n">yR</span> <span class="p">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="p">)</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="n">yL</span><span class="p">=(</span><span class="mi">3</span><span class="o">*</span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">y</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span> <span class="c">%-- lineare Extrap.</span>
 
-<span class="k">function</span><span class="w"> </span>[yL,yR]<span class="p">=</span><span class="nf">mc_recover_pcweno</span><span class="p">(</span>y,nord<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>[yL,yR]<span class="p">=</span><span class="nf">mc_recover_pcweno</span><span class="p">(</span>y,nord<span class="p">)</span>
 <span class="c">%-- Interpoliere Zellenmittelwerte y_i auf Zellgrenzen y_i+1/2</span>
 <span class="c">%-- y enthält y_1/2, y_1,...,y_nx,y_nx+1/2</span>
 <span class="c">%-- yL enthaelt  y_1/2^-,...,y_nx+1/2^-</span>
@@ -999,7 +999,7 @@ commentsRunWhenDOMLoaded(addUtterances);
   <span class="n">yR</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">yL_save</span><span class="p">;</span> <span class="n">yL</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">=</span> <span class="n">yR_save</span><span class="p">;</span> 
 <span class="k">end</span>
 
-<span class="k">function</span><span class="w"> </span>s<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">limiter</span><span class="p">(</span>r<span class="p">)</span><span class="w"></span>
+<span class="k">function</span><span class="w"> </span>s<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">limiter</span><span class="p">(</span>r<span class="p">)</span>
 <span class="w">  </span><span class="n">r</span> <span class="p">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">r</span><span class="p">));</span>
   <span class="n">s</span> <span class="p">=</span> <span class="p">(</span><span class="n">r</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="n">r</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">r</span><span class="o">.^</span><span class="mi">2</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>  <span class="c">% van Albada</span>
 </pre></div>
