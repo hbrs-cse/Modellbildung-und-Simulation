@@ -9,6 +9,10 @@
 
 This is a course book for the course "Modeling and Simulation" held at the University of Applied Sciences Bonn-Rhein-Sieg in Sankt Augustin, Germany. 
 
+## Motivation
+
+In this project we combine our experiences in teaching mathematical-physical modelling to technical Bachelor students with an integral approach. We also bridge a gap in student support with material that is optimally tailored to the target group. Therefore, we rigorously convey methodical and theory-heavy tools, but also take applications into account as much as possible. We acchieve this as modernly as possible, using interactive online content and many useful cross-references.
+
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
