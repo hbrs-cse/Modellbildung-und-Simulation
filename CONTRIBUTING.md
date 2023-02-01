@@ -5,9 +5,9 @@ The style guide can be found in the [wiki tab](https://github.com/hbrs-cse/Model
 <details>
 <summary>## Project Goals</summary>
  
-The goal of the Modellbildung und Simulation Buchprojekt is to create a relatable, intuitive and application-oriented introduction to modelling and simulation with low entry barriers.
+The goal of the Modellbildung und Simulation Buchprojekt is to create a relatable, intuitive and application-oriented introduction to modelling and simulation with low entry barriers. Its focus are the basics of physical modelling and the mathematics and programming aspects of numerical simulation.
  
-Its focus are the basics of physical modelling and the mathematics and programming aspects of numerical simulation. 
+*"Mit diesem Projekt wollen wir unsere Erfahrungen in der Vermittlung von Inhalten der mathematisch-physikalischen Modellierung für technische Bachelor-Studierende durch einen integralen Ansatz zusammenführen. Wir wollen gleichzeitig eine Lücke in der Unterstützung von Studierenden mit geeignetem Lehrmaterial schließen, das optimal auf die Zielgruppe abgestimmt ist. Das bedeutet, dass wir methodisches und theorielastiges Handwerkszeug zwar stringent vermitteln wollen, dabei aber so eng wie möglich die Anwendungsmöglichkeiten mit in den Blick nehmen wollen. Dies soll zudem möglichst modern, mit interaktivem Online-Content und durch viele nützliche Querverweise, gelingen."*
  
 </details>
 
