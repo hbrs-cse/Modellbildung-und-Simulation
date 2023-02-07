@@ -930,8 +930,12 @@ title="Print to PDF"
 </ul>
 <div class="dropdown admonition">
 <p class="admonition-title">Zur Erinnerung das Fadenpendel</p>
-<a class="reference internal image-reference" href="../../_images/pendulum1.png"><img alt="Name of image" class="align-center" src="../../_images/pendulum1.png" style="width: 400px;" /></a>
-<p>Abbildung 1: Das Pendel als klassisches Schwingungsbeispiel. Eingezeichnet sind die Trägheitskräfte (rot), eingeprägte und Zwangskräfte (gelb) und Maße und Variablen (blau). Das Pendel ist im ausgelenkten (schwarz) und hängenden (grau) Zustand dargestellt.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/pendulum1.png"><img alt="../../_images/pendulum1.png" src="../../_images/pendulum1.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Das Pendel als klassisches Schwingungsbeispiel. Eingezeichnet sind die Trägheitskräfte (rot), eingeprägte und Zwangskräfte (gelb) und Maße und Variablen (blau). Das Pendel ist im ausgelenkten (schwarz) und hängenden (grau) Zustand dargestellt.</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -947,9 +951,15 @@ title="Print to PDF"
 <div class="math notranslate nohighlight">
 \[\ddot{x} - \varepsilon(1-x^2)\dot{x} + x = 0.\]</div>
 <p>Analog zu dem Fadenpendel kann <span class="math notranslate nohighlight">\(x\)</span> als ein Winkel beziehungsweise eine Auslenkung interpretiert werden. Die van-der-Pol Gleichung stellt ein besonderes Problem für numerische Verfahren dar. Testen Sie anhand dieser Gleichung Ihre Lösungsverfahren und plotten Sie Ihr Ergebnis. Nehmen Sie auch die Dauern Ihrer Verfahren auf. Ihre Lösung könnte beispielsweise so aussehen:</p>
-<a class="reference internal image-reference" href="../../_images/vdP_comparison_1.png"><img alt="Name of image" class="align-center" src="../../_images/vdP_comparison_1.png" style="width: 400px;" /></a>
-<a class="reference internal image-reference" href="../../_images/vdP_comparison_2.png"><img alt="Name of image" class="align-center" src="../../_images/vdP_comparison_2.png" style="width: 400px;" /></a>
-<p>Abbildung 2: Schwingung und Phasenraum verschiedener Lösungen der van-der-Pol Gleichung. Das explizite Eulerverfahren (rote Punkte) zeigt eine deutliche höhere Amplitude und verschobene Periode. Die Lösung mit einem Runge-Kutta-Verfahren dritter Ordnung (gelbe Striche) liegt sehr nah bei der sehr genauen Lösung von <code class="docutils literal notranslate"><span class="pre">ode45</span></code> (blaue Linie).</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../../_images/vdP_comparison_1.png"><img alt="../../_images/vdP_comparison_1.png" src="../../_images/vdP_comparison_1.png" style="width: 400px;" /></a>
+</figure>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/vdP_comparison_2.png"><img alt="../../_images/vdP_comparison_2.png" src="../../_images/vdP_comparison_2.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Schwingung und Phasenraum verschiedener Lösungen der van-der-Pol Gleichung. Das explizite Eulerverfahren (rote Punkte) zeigt eine deutliche höhere Amplitude und verschobene Periode. Die Lösung mit einem Runge-Kutta-Verfahren dritter Ordnung (gelbe Striche) liegt sehr nah bei der sehr genauen Lösung von <code class="docutils literal notranslate"><span class="pre">ode45</span></code> (blaue Linie).</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%your code here</span>
