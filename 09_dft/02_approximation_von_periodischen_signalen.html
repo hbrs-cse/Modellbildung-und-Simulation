@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Der Doppler Effekt &#8212; Modellbildung und Simulation</title>
+    <title>Approximation von periodischen Signalen &#8212; Modellbildung und Simulation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -89,8 +89,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vuvuzela Filter" href="04_vuvuzela_filter.html" />
-    <link rel="prev" title="Filtern verrauschter Signale" href="02_filtern_verrauschter_signale.html" />
+    <link rel="next" title="Filtern verrauschter Signale" href="03_filtern_verrauschter_signale.html" />
+    <link rel="prev" title="Spielbeispiel: Fourier Transformation" href="01_spielbeispiel_dft.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -256,7 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../03_interp_approx/01_spielbeispiel_interpolation.html">
-     Spielbeispiel: Interpolation
+     Spielbeispiel: Fouriertransformation
     </a>
    </li>
    <li class="toctree-l2">
@@ -469,22 +469,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_approximation_von_periodischen_signalen.html">
-     Approximation von periodischen Signalen
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_filtern_verrauschter_signale.html">
-     Filtern verrauschter Signale
+    <a class="reference internal" href="01_spielbeispiel_dft.html">
+     Spielbeispiel: Fourier Transformation
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
+     Approximation von periodischen Signalen
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_filtern_verrauschter_signale.html">
+     Filtern verrauschter Signale
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="04_der_doppler_effekt.html">
      Der Doppler Effekt
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_vuvuzela_filter.html">
+    <a class="reference internal" href="05_vuvuzela_filter.html">
      Vuvuzela Filter
     </a>
    </li>
@@ -697,7 +702,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/09_dft/03_der_doppler_effekt.ipynb"
+        <a href="https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content/09_dft/02_approximation_von_periodischen_signalen.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -749,7 +754,7 @@ title="Fullscreen mode"
   </span>
 
 </button>
-<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/09_dft/03_der_doppler_effekt.ipynb"
+<a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/edit/master/content/09_dft/02_approximation_von_periodischen_signalen.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="bottom"
@@ -771,7 +776,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/09_dft/03_der_doppler_effekt.ipynb"
+        <a href="../_sources/09_dft/02_approximation_von_periodischen_signalen.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -831,18 +836,13 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequenzanalyse">
-   Frequenzanalyse
+  <a class="reference internal nav-link" href="#aufgabe-1-rechteckssignal">
+   Aufgabe 1: Rechteckssignal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ursache-des-dopplereffektes">
-   Ursache des Dopplereffektes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zuruck-zur-ursprunglichen-fragestellung">
-   Zurück zur ursprünglichen Fragestellung
+  <a class="reference internal nav-link" href="#aufgabe-2-sagezahnfunktion">
+   Aufgabe 2: Sägezahnfunktion
   </a>
  </li>
 </ul>
@@ -854,7 +854,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Der Doppler Effekt</h1>
+                <h1>Approximation von periodischen Signalen</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -865,18 +865,13 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#frequenzanalyse">
-   Frequenzanalyse
+  <a class="reference internal nav-link" href="#aufgabe-1-rechteckssignal">
+   Aufgabe 1: Rechteckssignal
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ursache-des-dopplereffektes">
-   Ursache des Dopplereffektes
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#zuruck-zur-ursprunglichen-fragestellung">
-   Zurück zur ursprünglichen Fragestellung
+  <a class="reference internal nav-link" href="#aufgabe-2-sagezahnfunktion">
+   Aufgabe 2: Sägezahnfunktion
   </a>
  </li>
 </ul>
@@ -910,102 +905,78 @@ title="Print to PDF"
 </div>
 <div class="sd-card-body docutils">
 <ul class="simple">
-<li><p class="sd-card-text">Ausnutzung des Doppler Effekts zur Geschwindigkeitsmessung mithilfe der DFT</p></li>
-<li><p class="sd-card-text">digitale Verarbeitung von Audiosignalen</p></li>
+<li><p class="sd-card-text">Implementierung einer diskreten Fouriertransformation</p></li>
 </ul>
 </div>
 </div>
 </div>
 </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="der-doppler-effekt">
-<span id="doppler"></span><h1>Der Doppler Effekt<a class="headerlink" href="#der-doppler-effekt" title="Permalink to this headline">#</a></h1>
-<div class="admonition-hinweis admonition">
-<p class="admonition-title">Hinweis</p>
-<p>Der Inhalt dieser Seite lässt sich nicht interaktiv auf dieser Seite ausführen.</p>
+<section class="tex2jax_ignore mathjax_ignore" id="approximation-von-periodischen-signalen">
+<span id="dft-intro"></span><h1>Approximation von periodischen Signalen<a class="headerlink" href="#approximation-von-periodischen-signalen" title="Permalink to this headline">#</a></h1>
+<section id="aufgabe-1-rechteckssignal">
+<h2>Aufgabe 1: Rechteckssignal<a class="headerlink" href="#aufgabe-1-rechteckssignal" title="Permalink to this headline">#</a></h2>
+<p>Entwickeln Sie eine Matlab/Octave-Funktion, mit deren Hilfe Sie ein Rechtecksignal mit vorgegebener Frequenz <code class="docutils literal notranslate"><span class="pre">freq</span></code> durch Überlagerung von Sinus- und Kosinusfunktionen erzeugen können. Da Sie die dafür nötige Reihe nicht unendlich genau berechnen können, muss dabei die maximal auftretende Frequenz der verwendeten harmonischen Schwingungen <span class="math notranslate nohighlight">\(f_{max}\)</span> beschränkt werden.</p>
+<p><em>Verwenden Sie nicht die <code class="docutils literal notranslate"><span class="pre">fft</span></code> Funktion. Berechnen Sie die Koeffizienten von Hand vor.</em></p>
+<img alt="../_images/rechteckSignal.png" class="align-center" src="../_images/rechteckSignal.png" />
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fourier_approx_rectangular.m</span>
+<span class="k">function</span><span class="w"> </span>a<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fourier_approx_rectangular</span><span class="p">(</span>amplitude, freq, f_max<span class="p">)</span>
+<span class="c">% calculates the complex Fourier coefficients of a periodic rectangular signal.</span>
+<span class="c">%</span>
+<span class="c">% amplitude denotes the amplitude of the input signal [unit implied]</span>
+<span class="c">% freq denotes the frequency of the input signal [Hz]</span>
+<span class="c">% f_max denotes the highest frequency to be used for the approximation [Hz]</span>
+<span class="c">% </span>
+<span class="c">%  INSERT CODE HERE</span>
+<span class="c">%</span>
+</pre></div>
 </div>
-<p>In <a class="reference external" href="https://www.youtube.com/watch?v=a3RfULw7aAY">dem folgenden Video</a> ist kurz ein Verkehrsschild zu sehen: Hier ist eine Maximalgeschwindigkeit von 50 mph, bzw. ca. 80 km/h vorgeschrieben.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/a3RfULw7aAY?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-<div style="text-align: left;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
-<p>Eine Frage drängt sich nahezu auf: <em><strong>Hält sich der Fahrer des laut hupenden Autos an diese Geschwindigkeitsbegrenzung?</strong></em></p>
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg"><img alt="Matlab Logo" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/8/8b/MUTCD_R2-1.svg" width="300px" /></a>
-<div style="text-align: right"> Abbildung 1: "MUTCD R2-1", <a href="https://en.wikipedia.org/wiki/Manual_on_Uniform_Traffic_Control_Devices
-" >Manual on Uniform Traffic Control Devices</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:MUTCD_R2-1.svg" >Wikimedia Commons</a></div> <br>
-<p>Eine weitere Sache fällt auf: Die Tonhöhe der Hupe ändert sich bei der Vorbeifahrt von einem hohen zu einem tiefen Ton. Dieses Phänomen wird als <strong>Doppler Effekt</strong> bezeichnet. Im Alltag macht er sich vor allem dann bemerkbar, wenn ein Krankenwagen oder ein Polizeiauto vorbeifährt und sich der Klang der Sirene ändert. In dem Moment, in dem das Fahrzeug vorbeifährt, klingt die Sirene plötzlich viel tiefer. Der Doppler Effekt ist auch die Ursache für den charakteristischen Klang von Rennautos, wenn sie an der Zuschauertribüne vorbeirasen.</p>
-<section id="frequenzanalyse">
-<h2>Frequenzanalyse<a class="headerlink" href="#frequenzanalyse" title="Permalink to this headline">#</a></h2>
-<p>Mit einem beliebigen Online <em>Youtube-zu-mp3-Converter</em> lässt sich die Tonspur des Videos extrahieren und mit der Funktion <code class="docutils literal notranslate"><span class="pre">audioread</span></code> in Matlab einlesen. Mit Hilfe der Signalverarbeitungstoolbox kann man sich dann ein Spektrogramm erstellen:</p>
-<img alt="../_images/honking_car_spectogram.png" class="align-center" src="../_images/honking_car_spectogram.png" />
-<div style=\"text-align: right\"> Abbildung 2: Spektrogramm (Frequenz in Herz über Zeit in Sekunden) eines vorbeifahrenden, hupenden Autos. </div> <br>
-<p>Auf der x-Achse ist die Zeit und auf der y-Achse die Frequenz aufgetragen. Die Farbe gibt eine Auskunft über die dominanten Frequenzen zu jedem Zeitpunkt. Zwischen Sekunde 6 und Sekunde 7 fährt das Auto an der Kamera vorbei und der Abfall in der Tonhöhe ist gut zu erkennen.</p>
-<p>Die vielen horizontalen Linien sind ein Zeichen dafür, dass die Hupe des Fahrzeuges keinen reinen Sinuston erzeugt, sondern eine Überlagerung vieler Frequenzen ist. Eine sogenannte Fouriertransformation der Tonspur gibt uns Auskunft über die dominanten Frequenzen im gesamten Zeitfenster:</p>
-<img alt="../_images/honking_car_fouriertransform.png" class="align-center" src="../_images/honking_car_fouriertransform.png" />
-<div style=\"text-align: right\"> Abbildung 3: Fouriertransformation (Amplitude über Frequenz in Herz) des Geräuschs aus Abbildung 2. </div> <br>
-<p>Für jede horizontale Linie im Spektrogramm erhalten wir einen Peak in der Fouriertransformation. Der Ton der Hupe ist also eine Überlagerung von hauptsächlich drei Tönen bzw. Frequenzen.</p>
-<ul class="simple">
-<li><p>Die dominanteste Frequenz von 1658 Hz (<em><a class="reference external" href="https://www.youtube.com/watch?v=rv6XQwmpJAE">dreigestrichenes gis</a></em>) fällt beim Vorbeifahren auf 1449 Hz herab.</p></li>
-<li><p>Die zweite Frequenz von 1104 Hz fällt beim Vorbeifahren auf 964 Hz ab.</p></li>
-<li><p>Die dritte Frequenz von 456 Hz fällt herab auf 399 Hz.</p></li>
-</ul>
-</section>
-<section id="ursache-des-dopplereffektes">
-<h2>Ursache des Dopplereffektes<a class="headerlink" href="#ursache-des-dopplereffektes" title="Permalink to this headline">#</a></h2>
-<p>Die Hupe des Fahrzeuges erzeugt einen Ton, oder mit anderen Worten, regt die umgebende Luft zum Schwingen an. Wenn diese Schwingungen auf unser Ohr treffen, nehmen wir sie als Ton wahr.  Das Geräusch der Hupe breitet sich mit der Schallgeschwindigkeit von ca. 340 m/s im Raum aus.</p>
-<p>Die Schallwellen breiten sich kreisförmig vom Auto aus. Wenn das Fahrzeug in Bewegung ist werden die Wellenberge vor dem Auto gestaucht und hinter dem Auto gestreckt, da es in eine Richtung den zuvor ausgesendeten Schallwellen hinterher fährt.</p>
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg"><img alt="Matlab Logo" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/9/9e/Doppler_effect.svg" width="300px" /></a>
-<div style="text-align: right"> "Abbildung 4: Doppler effect", <a href="https://commons.wikimedia.org/wiki/User:Pbroks13" >Pbroks13</a>, <a href="https://en.wikipedia.org/wiki/Public_domain" >[Public domain]</a> via <a href="https://commons.wikimedia.org/wiki/File:Doppler_effect.svg" >Wikimedia Commons</a></div> <br>
-<p>Die gestauchten Wellenberge vor dem Fahrzeug haben also eine höhere Frequenz als die gestreckten Wellenberge hinter dem Fahrzeug und werden deshalb auch als höherer Ton wahrgenommen.</p>
-<img alt="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" class="align-center" src="https://upload.wikimedia.org/wikipedia/commons/9/90/Dopplerfrequenz.gif" />
-<div style="text-align: right">Abbildung 5: "Dopplerfrequenz", <a href="https://commons.wikimedia.org/wiki/User:Charly_Whisky" >Charly Whisky</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" >[CC BY-SA 3.0]</a> via <a href="https://commons.wikimedia.org/wiki/File:Dopplerfrequenz.gif" >Wikimedia Commons</a></div> <br>
-</section>
-<section id="zuruck-zur-ursprunglichen-fragestellung">
-<h2>Zurück zur ursprünglichen Fragestellung<a class="headerlink" href="#zuruck-zur-ursprunglichen-fragestellung" title="Permalink to this headline">#</a></h2>
-<p>Wie schnell fährt denn nun das Auto? Angenommen das Auto ruht und die Frequenz der Hupe beträgt <span class="math notranslate nohighlight">\(f_A\)</span>. Das Signal breitet sich mit der Schallgeschwindigkeit von c = 340 m/s aus. Der Abstand zweier Wellenberge, also die Wellenlänge des Tons, ist dann</p>
-<div class="math notranslate nohighlight">
-\[ \lambda_A = \frac{c}{f_A}, \]</div>
-<p>also genau die Distanz, die das Signal in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurücklegt. Kommt das Auto auf uns zu verkürzt sich die Wellenlänge genau um die Strecke, die das Auto in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurücklegt. Ist <span class="math notranslate nohighlight">\(v\)</span> die Geschwindigkeit des Autos, so verringert sich die Wellenlänge zu</p>
-<div class="math notranslate nohighlight">
-\[ \lambda_{A,+} = \frac{c}{f_A} - \frac{v}{f_A} = \frac{c-v}{f_A}. \]</div>
-<p>Diese verringerte Wellenlänge wird vom Beobachter als höhere Frequenz <span class="math notranslate nohighlight">\(f_{B,+}\)</span> wahrgenommen:</p>
-<div class="math notranslate nohighlight">
-\[ f_{B,+} = \frac{c}{\lambda_{A,+}} = \frac{c \cdot f_A}{c-v}. \]</div>
-<p>Wenn wir die Originalfrequenz der Hupe kennen würden, könnten wir nun diese Gleichung nach <span class="math notranslate nohighlight">\(v\)</span> umstellen um die Geschwindigkeit zu bestimmen. Aus unserer vorangeschalteten Frequenzanalyse kennen wir aber nur die Frequenz <span class="math notranslate nohighlight">\(f_{B,+}\)</span> der Hupe, die wir wahrnehmen wenn das Auto auf uns zukommt und die Frequenz <span class="math notranslate nohighlight">\(f_{B,-}\)</span>, die wir wahrnehmen, wenn das Auto sich wieder von uns entfernt.</p>
-<p>Wir können die obigen Gleichungen aber für den Fall, dass das Auto sich von uns entfernt, genauso herleiten. In diesem Fall vergrößert sich die Wellenlänge genau um den Betrag, den das Auto in der Zeit <span class="math notranslate nohighlight">\(f_A^{-1}\)</span> zurücklegt:</p>
-<div class="math notranslate nohighlight">
-\[ \lambda_{A,-} = \frac{c+v}{f_A}, \]</div>
-<p>was wir als tiefere Frequenz</p>
-<div class="math notranslate nohighlight">
-\[ f_{B,-} =  \frac{c \cdot f_A}{c+v}\]</div>
-<p>wahrnehmen. Wenn wir nun die Gleichung für <span class="math notranslate nohighlight">\(f_{B,+}\)</span> durch die Gleichung für <span class="math notranslate nohighlight">\(f_{B,-}\)</span> teilen, kürzt sich die unbekannte Frequenz <span class="math notranslate nohighlight">\(f_A\)</span> raus:</p>
-<div class="math notranslate nohighlight">
-\[ \frac{f_{B,+}}{f_{B,-}} = \frac{c+v}{c-v}. \]</div>
-<p>Alle Werte in dieser Gleichung sind bekannt, bis auf <span class="math notranslate nohighlight">\(v\)</span>. Wir können also nach <span class="math notranslate nohighlight">\(v\)</span> auflösen um die Geschwindigkeit des Autos aus den gemessenen Frequenzen zu bestimmen. Im Folgenden wird das für die drei identifizierten dominanten Frequenzen durchgeführt:</p>
+</div>
+</div>
+<p>Betrachten Sie dann eine Periode des so erzeugten Signals und lösen diese mit 1000 Punkten auf. Wie groß ist für eine gegebene Amplitude und Frequenz die betraglich größte Abweichung für <span class="math notranslate nohighlight">\(f_{max}=10\)</span> Hz, <span class="math notranslate nohighlight">\(f_{max} = 50\)</span> Hz, <span class="math notranslate nohighlight">\(f_{max}=200\)</span> Hz?</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1658</span><span class="p">,</span> <span class="mi">1104</span><span class="p">,</span> <span class="mi">456</span><span class="p">];</span>  <span class="c">% frequencies approaching</span>
-<span class="n">f2</span> <span class="p">=</span> <span class="p">[</span><span class="mi">1449</span><span class="p">,</span>  <span class="mi">964</span><span class="p">,</span> <span class="mi">399</span><span class="p">];</span>  <span class="c">% frequencies retreating</span>
-
-<span class="n">c</span> <span class="p">=</span> <span class="mi">340</span><span class="p">;</span>                  <span class="c">% speed of sound [m/s]</span>
-<span class="n">km_to_miles</span> <span class="p">=</span> <span class="mf">0.621371</span><span class="p">;</span>   <span class="c">% [miles/kilometer]</span>
-
-<span class="c">% f1/f2 = (c+v)/(c-v) =&gt;</span>
-<span class="n">v</span> <span class="p">=</span> <span class="n">c</span><span class="o">*</span><span class="p">(</span><span class="n">f1</span> <span class="o">-</span> <span class="n">f2</span><span class="p">)</span><span class="o">./</span><span class="p">(</span><span class="n">f1</span> <span class="o">+</span> <span class="n">f2</span><span class="p">);</span> <span class="c">%in  [m/s]</span>
-
-
-<span class="n">v_kmh</span> <span class="p">=</span> <span class="n">v</span><span class="o">*</span><span class="mf">3.6</span><span class="p">;</span>
-<span class="n">v_mph</span> <span class="p">=</span> <span class="n">v_kmh</span><span class="o">*</span><span class="n">km_to_miles</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>v_mph =
-
-   51.161   51.488   50.704
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR SOLUTION</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Die Toleranzen bei Geschwindigkeitsmessungen in USA liegen im Ermessen des Verkehrsbeamten, in der Regel geht man aber von ca. 5 mph aus. Glück gehabt!</p>
+</section>
+<section id="aufgabe-2-sagezahnfunktion">
+<h2>Aufgabe 2: Sägezahnfunktion<a class="headerlink" href="#aufgabe-2-sagezahnfunktion" title="Permalink to this headline">#</a></h2>
+<p>Wiederholen Sie Aufgabe 1 für die Sägezahnfunktion</p>
+<div class="math notranslate nohighlight">
+\[
+s(t) = 2Aft, \:\:\:\: t \in \left[-\frac{T}{2}, \frac{T}{2}\:\right)
+\]</div>
+<p>mit Amplitude <span class="math notranslate nohighlight">\(A\)</span> und Frequenz <span class="math notranslate nohighlight">\(f=\frac{1}{T}\)</span>.</p>
+<img alt="../_images/saegezahn.png" class="align-center" src="../_images/saegezahn.png" />
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fourier_approx_rectangular.m</span>
+<span class="k">function</span><span class="w"> </span>a<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fourier_approx_sawtooth</span><span class="p">(</span>amplitude, freq, f_max<span class="p">)</span>
+<span class="c">% calculates the complex Fourier coefficients of a periodic sawtooth signal.</span>
+<span class="c">%</span>
+<span class="c">% amplitude denotes the amplitude of the input signal [unit implied]</span>
+<span class="c">% freq denotes the frequency of the input signal [Hz]</span>
+<span class="c">% f_max denotes the highest frequency to be used for the approximation [Hz]</span>
+<span class="c">% </span>
+<span class="c">%  INSERT CODE HERE</span>
+<span class="c">%</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Betrachten Sie dann eine Periode des so erzeugten Signals und lösen diese mit 1000 Punkten auf. Wie groß ist für eine gegebene Amplitude und Frequenz die betraglich größte Abweichung für <span class="math notranslate nohighlight">\(f_{max}=10\)</span> Hz, <span class="math notranslate nohighlight">\(f_{max} = 50\)</span> Hz, <span class="math notranslate nohighlight">\(f_{max}=200\)</span> Hz?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% SPACE FOR SOLUTION</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1036,17 +1007,17 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="02_filtern_verrauschter_signale.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_spielbeispiel_dft.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Filtern verrauschter Signale</p>
+            <p class="prev-next-title">Spielbeispiel: Fourier Transformation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="04_vuvuzela_filter.html" title="next page">
+    <a class='right-next' id="next-link" href="03_filtern_verrauschter_signale.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Vuvuzela Filter</p>
+        <p class="prev-next-title">Filtern verrauschter Signale</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
