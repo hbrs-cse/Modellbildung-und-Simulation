@@ -12,4 +12,3 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           artifact-path: 0/html/index.html
           circleci-jobs: html_demo
-          ACTIONS_STEP_DEBUG: true
