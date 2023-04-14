@@ -1,5 +1,5 @@
 name: html-preview
-on: [status, workflow_dispatch]
+on: [status]
 
 jobs:
   html-preview:
