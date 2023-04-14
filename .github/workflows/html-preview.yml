@@ -12,3 +12,4 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           artifact-path: 0/html/index.html
           circleci-jobs: html_demo
+          api-token: ${{ secrets.CIRCLECI_TOKEN }}
