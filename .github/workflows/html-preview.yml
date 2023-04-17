@@ -10,6 +10,6 @@ jobs:
         uses: larsoner/circleci-artifacts-redirector-action@master
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          api-token: ${{ secrets.CIRCLECI_TOKEN }}
+          api-token: ${{ secrets.CIRCLE_TOKEN }}
           artifact-path: 0/html/index.html
           circleci-jobs: html_demo
