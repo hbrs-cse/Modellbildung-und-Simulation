@@ -34,18 +34,7 @@ html:
   comments:
     utterances:
       repo: "hbrs-cse/Modellbildung-und-Simulation"
-      
-html_theme_options:
-  extra_navbar              : >
-    <div align="left">
-    <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
-    <br>
-    <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
-    <br>
-    Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>
-    <br>
-    <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a></div>
-  
+
 
 #######################################################################################
 # Launch button settings
@@ -64,7 +53,17 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions          : []  # A list of extra extensions to load by Sphinx.
-  config                    : null  # key-value pairs to directly over-ride the Sphinx configuration
+  config                    : # null  # key-value pairs to directly over-ride the Sphinx configuration
+    html_theme_options:
+      extra_navbar              : >
+        <div align="left">
+        <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
+        <br>
+        <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
+        <br>
+        Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>
+        <br>
+        <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a></div>
   
 #######################################################################################
 # Extended syntax for admonitions (https://jupyterbook.org/content/content-blocks.html#new-style-admonitions)
