@@ -61,8 +61,7 @@ repository:
 # Advanced and power-user settings
 sphinx:
   extra_extensions          : []  # A list of extra extensions to load by Sphinx.
-  config                    : 
-    html_theme_options      : null  # key-value pairs to directly over-ride the Sphinx configuration
+  config                    : null  # key-value pairs to directly over-ride the Sphinx configuration
   
 #######################################################################################
 # Extended syntax for admonitions (https://jupyterbook.org/content/content-blocks.html#new-style-admonitions)
