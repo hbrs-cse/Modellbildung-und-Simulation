@@ -1018,10 +1018,6 @@ title="Print to PDF"
 <p>Erinnern Sie sich noch an die WM 2010 in Südafrika? Da wurden die Blasinstrumente <a class="reference external" href="https://de.wikipedia.org/wiki/Vuvuzela">Vuvuzelas</a> intensiv eingesetzt</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HFISx1j0kak?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 <div style="text-align: left;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
-<div class="admonition-hinweis admonition">
-<p class="admonition-title">Hinweis</p>
-<p>Der Inhalt dieser Seite lässt sich nicht interaktiv online ausführen.</p>
-</div>
 <p><strong>Wir entwickeln einen Vuvuzela Filter in 5 einfachen Schritten:</strong></p>
 <ol class="simple">
 <li><p>Wir nehmen einen Vuvuzela-Ton mit Matlab auf. <strong>Falls</strong> Sie keine Vuvuzela zur Hand haben, können Sie auch einen Ton pfeifen oder mit einem Papier rascheln.</p></li>
@@ -1033,6 +1029,10 @@ title="Print to PDF"
 <section id="schritt-1-die-aufnahme">
 <h2>Schritt 1: Die Aufnahme<a class="headerlink" href="#schritt-1-die-aufnahme" title="Permalink to this headline">#</a></h2>
 <p>Packen Sie Ihre Vuvuzela aus! Wir können mit Matlab den <em>Vuvuzla</em>-Ton aufnehmen. Wir verwenden eine Samplingrate von <span class="math notranslate nohighlight">\(44,1\;\mathrm{kHz}\)</span>, eine Klangtiefe von <span class="math notranslate nohighlight">\(8\;\textrm{Bit}\)</span> und wollen nur einen Kanal (Mono):</p>
+<div class="admonition-hinweis admonition">
+<p class="admonition-title">Hinweis</p>
+<p>Die Audioaufnahme lässt sich nicht interaktiv online ausführen.</p>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">recordTime</span> <span class="p">=</span> <span class="mi">5</span><span class="p">;</span>   <span class="c">% record for 5 seconds</span>
@@ -1079,7 +1079,7 @@ Recording...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05_vuvuzela_filter_10_0.png" src="../_images/05_vuvuzela_filter_10_0.png" />
+<img alt="../_images/05_vuvuzela_filter_11_0.png" src="../_images/05_vuvuzela_filter_11_0.png" />
 </div>
 </div>
 <p>Ok, das Signal ist eindeutig übersteuert. Die wesentlichen Frequenzen sind aber hoffentlich im Signal vorhanden.</p>
@@ -1121,7 +1121,7 @@ Recording...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05_vuvuzela_filter_16_0.png" src="../_images/05_vuvuzela_filter_16_0.png" />
+<img alt="../_images/05_vuvuzela_filter_17_0.png" src="../_images/05_vuvuzela_filter_17_0.png" />
 </div>
 </div>
 <section id="die-vuvuzela-frequenzen">
@@ -1154,7 +1154,7 @@ Recording...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05_vuvuzela_filter_22_0.png" src="../_images/05_vuvuzela_filter_22_0.png" />
+<img alt="../_images/05_vuvuzela_filter_23_0.png" src="../_images/05_vuvuzela_filter_23_0.png" />
 </div>
 </div>
 <p>Betrachten wir ein Beispiel, wie man mit der logistischen Funktion einen <em>Notch</em>-Filter konstruieren kann:</p>
@@ -1166,7 +1166,7 @@ Recording...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05_vuvuzela_filter_24_0.png" src="../_images/05_vuvuzela_filter_24_0.png" />
+<img alt="../_images/05_vuvuzela_filter_25_0.png" src="../_images/05_vuvuzela_filter_25_0.png" />
 </div>
 </div>
 <section id="nebenbei">
@@ -1210,7 +1210,7 @@ Recording...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05_vuvuzela_filter_29_0.png" src="../_images/05_vuvuzela_filter_29_0.png" />
+<img alt="../_images/05_vuvuzela_filter_30_0.png" src="../_images/05_vuvuzela_filter_30_0.png" />
 </div>
 </div>
 </section>
@@ -1234,7 +1234,7 @@ Recording...
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/05_vuvuzela_filter_31_0.png" src="../_images/05_vuvuzela_filter_31_0.png" />
+<img alt="../_images/05_vuvuzela_filter_32_0.png" src="../_images/05_vuvuzela_filter_32_0.png" />
 </div>
 </div>
 <p>Wir haben die <em>Vuvuzela</em>-Frequenzen aus dem Spektrum entfernt. Wie klingt die Aufnahme jetzt?</p>
@@ -1270,6 +1270,7 @@ Filtered recording
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HFISx1j0kak?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 <div style="text-align: left;font-size:80%;color:grey"> - Hinweis: Dieses Video ist von YouTube aus eingebunden und nicht Teil des frei lizenzierten Materials! - </div> <br>
 <p><strong>Wir haben da mal etwas vorbereitet…</strong> und die Tonspur des vorherigen Videos als mp3 heruntergeladen. Diese lässt sich mit Matlab importieren.</p>
+<p>Die Tonspur können Sie <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation/raw/master/content/09_dft/Vuvuzela_Tshabalala_Goal.mp3" download>hier als mp3 herunterladen</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="n">soundfile</span> <span class="p">=</span> <span class="s">&#39;Vuvuzela_Tshabalala_Goal.mp3&#39;</span><span class="p">;</span>
