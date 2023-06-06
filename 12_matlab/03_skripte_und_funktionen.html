@@ -1317,8 +1317,8 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
     
     <span class="c">% if we reach this point, we have not converged. </span>
     
-    <span class="c">% reset the limits and repeat</span>
-    <span class="k">if</span> <span class="n">fmidpoint</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="c">% continue so that midpoint and either xupper or xlower have oppsite signs</span>
+    <span class="k">if</span> <span class="nb">sign</span><span class="p">(</span><span class="n">fmidpoint</span><span class="p">)</span> <span class="o">==</span> <span class="nb">sign</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">xupper</span><span class="p">))</span>
         <span class="n">xupper</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
     <span class="k">else</span>
         <span class="n">xlower</span> <span class="p">=</span> <span class="n">midpoint</span><span class="p">;</span>
