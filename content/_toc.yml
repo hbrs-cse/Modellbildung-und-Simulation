@@ -2,7 +2,7 @@ format: jb-book
 root: intro
 parts:
 - caption: Einführung
-chapters:
+  chapters:
 - file: 00_einleitung/00_einleitung
   sections:
   - file: 00_einleitung/01_motivation
@@ -17,7 +17,7 @@ chapters:
   - file: 01_uebungen/04_game_of_life
 
 - caption: Übungsbuch
-- chapters:
+  chapters:
 - file: 02_gleitkommaarithmetik/00_gleitkommaarithmetik
   sections:
   - file: 02_gleitkommaarithmetik/01_uebungen
@@ -81,23 +81,23 @@ chapters:
   - file: 11_pde/03_trafficPDE
 
 - caption: Anhang
-  - chapters:
-  - file: 12_matlab/00_MATLAB_introduction
+  chapters:
+- file: 12_matlab/00_MATLAB_introduction
+  sections:
+  - file: 12_matlab/01_erste_schritte_in_matlab
+  - file: 12_matlab/02_matlab_command_window
+  - file: 12_matlab/03_skripte_und_funktionen
+  - file: 12_matlab/04_matlab_kennenlernen
+  - file: 12_matlab/05_matlab_videos/00_matlab_videos
     sections:
-    - file: 12_matlab/01_erste_schritte_in_matlab
-    - file: 12_matlab/02_matlab_command_window
-    - file: 12_matlab/03_skripte_und_funktionen
-    - file: 12_matlab/04_matlab_kennenlernen
-    - file: 12_matlab/05_matlab_videos/00_matlab_videos
-      sections:
-      - file: 12_matlab/05_matlab_videos/01_exercise1
-      - file: 12_matlab/05_matlab_videos/02_exercise2
-      - file: 12_matlab/05_matlab_videos/03_exercise3
-      - file: 12_matlab/05_matlab_videos/04_exercise4
-      - file: 12_matlab/05_matlab_videos/05_exercise5
-      - file: 12_matlab/05_matlab_videos/06_exercise6
-      - file: 12_matlab/05_matlab_videos/07_exercise7
-      - file: 12_matlab/05_matlab_videos/08_exercise8
-      - file: 12_matlab/05_matlab_videos/09_exercise9
-      - file: 12_matlab/05_matlab_videos/10_exercise10
-      - file: 12_matlab/05_matlab_videos/11_extra
+    - file: 12_matlab/05_matlab_videos/01_exercise1
+    - file: 12_matlab/05_matlab_videos/02_exercise2
+    - file: 12_matlab/05_matlab_videos/03_exercise3
+    - file: 12_matlab/05_matlab_videos/04_exercise4
+    - file: 12_matlab/05_matlab_videos/05_exercise5
+    - file: 12_matlab/05_matlab_videos/06_exercise6
+    - file: 12_matlab/05_matlab_videos/07_exercise7
+    - file: 12_matlab/05_matlab_videos/08_exercise8
+    - file: 12_matlab/05_matlab_videos/09_exercise9
+    - file: 12_matlab/05_matlab_videos/10_exercise10
+    - file: 12_matlab/05_matlab_videos/11_extra
