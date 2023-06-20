@@ -84,11 +84,8 @@ In this section, it is assumed that you are in the root directory of your clone 
  Jupyter-lab (or jupyter-notebook) runs in the browser. If your browser does not start automatically, you might have to copy the url from the command line output to your favorite browser. 
  * Create new Markdown files or jupyter notebooks or edit the ones that are already there. Check the [wiki](https://github.com/hbrs-cse/Modellbildung-und-Simulation/wiki) for writing conventions *(in German)*.
  * Most likely, these are the only places where changes need to be made. For more sophisticated changes, checkout the [jupyter-book documentation](https://jupyterbook.org/start/overview.html) and the [demo notebook](https://jupyterbook.org/intro.html).
+ * If required, adapt `contents/_toc.yml` to the new table of content structure.
  * Back in the root directory, run
- ```bash
- jupyter-book toc from-project -e .ipynb -e .md -f jb-book content/ > content/_toc.yml
- ```
- to automatically generate the table of contents based on the page titles. Then run
  ```bash
  jupyter-book build content/
  ```
