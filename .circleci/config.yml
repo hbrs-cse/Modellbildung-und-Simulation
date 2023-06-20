@@ -34,7 +34,6 @@ jobs:
           name: Build page intermediate HTML files
           command: |
             cd content
-            jupyter-book toc from-project -e .ipynb -e .md -f jb-book . > _toc.yml
             cat _toc.yml
             jupyter-book build -W -n --keep-going --builder linkcheck .
             jupyter-book build -W -n --keep-going .
