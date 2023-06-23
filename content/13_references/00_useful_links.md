@@ -11,5 +11,4 @@ Außerdem finden sich im Internet sehr hilfreiche Lehrvideos zu den Themen Model
 - Domain of Science: ["Map of Computer Science"](https://www.youtube.com/watch?v=SzJ46YA_RaA&t=383s)
 - 3blue1brown: ["Essence of calculus"](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)
 - 3blue1brown: ["Differential equations"](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6)
-- 3blue1brown: ["Essence of calculus"](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr)
 - 3blue1brown: ["What is a Fourier transform? A visual introduction"](https://www.youtube.com/watch?v=spUNpyF58BY&t=3s)
