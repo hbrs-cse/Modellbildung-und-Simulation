@@ -1,0 +1,104 @@
+format: jb-book
+root: intro
+parts:
+- caption: Einführung
+  chapters:
+  - file: 00_einleitung/00_einleitung
+    sections:
+    - file: 00_einleitung/01_motivation
+    - file: 00_einleitung/02_verwendung_dieses_buches
+    - file: 00_einleitung/03_best_practice
+    - file: 00_einleitung/04_github
+  - file: 01_uebungen/00_uebungsaufgaben
+    sections:
+    - file: 01_uebungen/01_fluessigkeit_im_boden
+    - file: 01_uebungen/02_verkehrssimulation
+    - file: 01_uebungen/03_der_perfekte_wurf
+    - file: 01_uebungen/04_game_of_life
+
+- caption: Übungsbuch
+  chapters:
+  - file: 02_gleitkommaarithmetik/00_gleitkommaarithmetik
+    sections:
+    - file: 02_gleitkommaarithmetik/01_uebungen
+    - file: 02_gleitkommaarithmetik/02_spielbeispiel_taylor
+    - file: 02_gleitkommaarithmetik/03_taylor
+  - file: 03_interp_approx/00_interpolation_Und_approximation
+    sections:
+    - file: 03_interp_approx/01_spielbeispiel_interpolation
+    - file: 03_interp_approx/02_lineare_interpolation
+    - file: 03_interp_approx/03_spielbeispiel_approximation
+    - file: 03_interp_approx/04_lineare_approximation
+    - file: 03_interp_approx/05_spline_interpolation
+  - file: 04_Differentiation_Integration/00_differentiation_und_integration
+    sections:
+    - file: 04_Differentiation_Integration/01_differentiation
+    - file: 04_Differentiation_Integration/02_spielbeispiel_integration
+    - file: 04_Differentiation_Integration/03_integration_and_stepcontrol
+  - file: 05_lineare_gleichungen/00_lineare_gleichungssysteme
+    sections:
+    - file: 05_lineare_gleichungen/01_spielbeispiel_lgls
+    - file: 05_lineare_gleichungen/02_lgs_sparse
+    - file: 05_lineare_gleichungen/03_modellierung_einer_highline
+  - file: 06_nichtlineare_gleichungen/00_nichtlineare_gleichungssysteme
+    sections:
+    - file: 06_nichtlineare_gleichungen/01_newton-verfahren
+    - file: 06_nichtlineare_gleichungen/02_bierschaumzerfall
+  - file: "07_num_ode/00_numerik_gew\xF6hnlicher_differentialgleichungen"
+    sections:
+    - file: 07_num_ode/01_intro_RK/00_intro_RK
+      sections:
+      - file: 07_num_ode/01_intro_RK/01_integration_RK
+      - file: 07_num_ode/01_intro_RK/02_integration_implicit
+      - file: 07_num_ode/01_intro_RK/03_adaptive_steps
+      - file: 07_num_ode/01_intro_RK/04_oscillation_and_vdpol
+      - file: 07_num_ode/01_intro_RK/05_integration_RK_evaluation
+    - file: 07_num_ode/02_schwingungen/00_harmonische_schwingung
+    - file: 07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts
+    - file: 07_num_ode/04_stabilitaet_eulerverfahren/00_stabilitaet_eulerverfahren
+    - file: 07_num_ode/05_modellierung_einer_highline_dynamisch/00_modellierung_einer_highline_dynamisch
+    - file: 07_num_ode/06_mass-spring-mass/00_mass-spring-mass
+  - file: 08_eigenwerte/00_eigenwertprobleme
+    sections:
+    - file: 08_eigenwerte/01_das_qr_verfahren
+    - file: 08_eigenwerte/02_nullstellen_von_polynomen
+    - file: 08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens
+  - file: 09_dft/00_diskrete_fouriertransformation
+    sections:
+    - file: 09_dft/01_spielbeispiel_dft
+    - file: 09_dft/02_approximation_von_periodischen_signalen
+    - file: 09_dft/03_filtern_verrauschter_signale
+    - file: 09_dft/04_der_doppler_effekt
+    - file: 09_dft/05_vuvuzela_filter
+  - file: 10_bvp/00_randwertprobleme
+    sections:
+    - file: 10_bvp/01_durchhang_eines_flexiblen_kabels
+    - file: 10_bvp/02_temperatur_in_einem_nuklearen_brennstab
+  - file: 11_pde/00_partielle_differentialgleichungen
+    sections:
+    - file: 11_pde/01_modellierung_einer_highline_dynamisch_pde
+    - file: 11_pde/02_konvektion_und_diffusion
+    - file: 11_pde/03_trafficPDE
+
+- caption: Anhang
+  chapters:
+  - file: 12_matlab/00_MATLAB_introduction
+    sections:
+    - file: 12_matlab/01_erste_schritte_in_matlab
+    - file: 12_matlab/02_matlab_command_window
+    - file: 12_matlab/03_skripte_und_funktionen
+    - file: 12_matlab/04_matlab_kennenlernen
+    - file: 12_matlab/05_matlab_videos/00_matlab_videos
+      sections:
+      - file: 12_matlab/05_matlab_videos/01_exercise1
+      - file: 12_matlab/05_matlab_videos/02_exercise2
+      - file: 12_matlab/05_matlab_videos/03_exercise3
+      - file: 12_matlab/05_matlab_videos/04_exercise4
+      - file: 12_matlab/05_matlab_videos/05_exercise5
+      - file: 12_matlab/05_matlab_videos/06_exercise6
+      - file: 12_matlab/05_matlab_videos/07_exercise7
+      - file: 12_matlab/05_matlab_videos/08_exercise8
+      - file: 12_matlab/05_matlab_videos/09_exercise9
+      - file: 12_matlab/05_matlab_videos/10_exercise10
+      - file: 12_matlab/05_matlab_videos/11_extra
+  - file: 13_references/00_useful_links
