@@ -20,13 +20,15 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlinea
 
 ## 2. Bierschaumzerfall
 
-### [Schwierigkeitsgrade](...)
+### Schwierigkeitsgrade
+[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
 
 |Kategorie|Aufwand|Anspruch|
-|Modellbildung|1|2|
+|---|---|---|
+|Modellbildung|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734; |
 |Implementierung|1|2|
-|Mathematik|1|2|
-|Physikalische Zusammenhänge|1|2|
+|Mathematik|&#9733; &#9733; &#9733; &#9733; &#9734; |2|
+|Physikalische Zusammenhänge|1|&#9733; &#9733; &#9733; &#9734; &#9734; |
 
 ## Kahoot-Quiz
 
