@@ -968,7 +968,7 @@ title="Print to PDF"
 <ul class="simple">
 <li><p>Schreiben Sie eine Funktion, die die Fakultät berechnet:</p></li>
 </ul>
-<div class="cell tag_remove-output docutils container">
+<div class="cell tag_remove-output tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fac.m</span>
 <span class="c">% calculate the factorial of an integer n</span>
@@ -980,12 +980,58 @@ title="Print to PDF"
 </div>
 </div>
 <ul class="simple">
-<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>Test Suite</em> <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>, siehe unten. Es reicht zunächst, dass die ersten drei der Unit Tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle sechs Unit Tests zu erfüllen?</p></li>
+<li><p>Testen Sie die Funktionalität mit der bereitgestellten <em>Test Suite</em> <code class="docutils literal notranslate"><span class="pre">test_fac.m</span></code>. Es reicht zunächst, dass die ersten drei der Unit Tests erfolgreich sind. <strong>Challenge:</strong> Schaffen Sie es, alle sechs Unit Tests zu erfüllen?</p></li>
 </ul>
+<div class="cell tag_hide_input tag_thebe-init docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file test_fac.m</span>
+<span class="k">function</span><span class="w"> </span><span class="nf">test_suite</span><span class="p">=</span><span class="n">test_fac</span>
+<span class="c">% initialize unit tets</span>
+    <span class="k">try</span>
+        <span class="n">test_functions</span><span class="p">=</span><span class="n">localfunctions</span><span class="p">();</span>
+    <span class="k">catch</span>
+    <span class="k">end</span>
+    <span class="n">initTestSuite</span><span class="p">;</span>
+
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">%     Basic tests     %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_0</span>
+<span class="c">% test if fac(0)==1</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_1</span>
+<span class="c">% test if fac(1)==1</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">);</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_5</span>
+<span class="c">% test if fac(5)==120</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="mi">120</span><span class="p">);</span>
+    
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+<span class="c">% More advanced tests %</span>
+<span class="c">%%%%%%%%%%%%%%%%%%%%%%%</span>
+
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_exception_negative</span>
+<span class="c">% test if exceptions are thrown for negative values</span>
+    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">fac</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">));</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_exception_noninteger</span>
+<span class="c">% test if exceptions are thrown for noninteger values</span>
+    <span class="n">assertExceptionThrown</span><span class="p">(@()</span><span class="n">fac</span><span class="p">(</span><span class="mf">1.5</span><span class="p">),</span><span class="s">&#39;*&#39;</span><span class="p">);</span>
+    
+<span class="k">function</span><span class="w"> </span><span class="nf">test_fac_array</span>
+<span class="c">% test if fac works on array inputs</span>
+    <span class="n">assertEqual</span><span class="p">(</span><span class="n">fac</span><span class="p">([</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">]),[</span><span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">;</span> <span class="mi">6</span> <span class="mi">24</span> <span class="mi">120</span><span class="p">]);</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% test the fac function</span>
-<span class="n">moxunit_runtests</span> <span class="p">.</span><span class="o">./</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+<span class="n">moxunit_runtests</span> <span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 </div>

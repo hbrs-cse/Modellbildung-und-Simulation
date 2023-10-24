@@ -1067,17 +1067,12 @@ Hello World, how is your day?
 </div>
 <p>Sowohl Matlab als auch Octave bieten Werkzeuge für Unit Tests an. Leider sind die jeweiligen Toolboxen von Octave und Matlab nicht kompatibel zu einander. Daher wird an dieser Stelle <a class="reference external" href="https://de.mathworks.com/matlabcentral/fileexchange/54417-moxunit">MOxUnit</a> verwendet. MoXUnit ist ein freies open source unit testing Framework, das sowohl mit Matlab als auch Octave funktioniert. Beachten Sie die Hinweise auf der Matlab Seite: Sie können den Code nicht direkt installieren, sondern müssen die Installationsanweisungen auf dem zugehörigen <a class="reference external" href="https://github.com/MOxUnit/MOxUnit">GitHub repository</a> befolgen.</p>
 <p>Wenn für eine Übungsaufgabe ein Unit Test zur Verfügung steht, dann wird das an der entsprechenden Stelle explizit erwähnt. Angenommen die Übungsaufgabe besteht darin, eine Funktion <code class="docutils literal notranslate"><span class="pre">fac</span></code> zu schreiben, die die Fakultät <span class="math notranslate nohighlight">\(n!\)</span> einer Zahl <span class="math notranslate nohighlight">\(n\)</span> berechnet. Der Einfachheit halber schreiben wir einen Wrapper für die von Matlab zur Verfügung gestellt Funktion <code class="docutils literal notranslate"><span class="pre">factorial</span></code>, ungeachtet dessen, dass es dem Zweck der Übungsaufgabe nicht so richtig gerecht wird:</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe-init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file fac.m</span>
 <span class="k">function</span><span class="w"> </span>r<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">fac</span><span class="p">(</span>n<span class="p">)</span>
 <span class="c">% wrapper for Matlabs factorial function</span>
     <span class="n">r</span> <span class="p">=</span> <span class="nb">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;fac.m&#39;.
 </pre></div>
 </div>
 </div>
