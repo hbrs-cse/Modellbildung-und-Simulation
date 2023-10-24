@@ -7,7 +7,7 @@
 | **Interactive notebooks:** | [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/hbrs-cse/Modellbildung-und-Simulation/master?urlpath=lab/tree/content) |
 | **Build Status:** | [![CircleCI](https://circleci.com/gh/hbrs-cse/Modellbildung-und-Simulation.svg?style=svg)](https://circleci.com/gh/hbrs-cse/Modellbildung-und-Simulation) |
 
-This is a course book for the course "Modeling and Simulation" held at the University of Applied Sciences Bonn-Rhein-Sieg in Sankt Augustin, Germany. 
+This is a course book for the course "Modelling and Simulation" held at the University of Applied Sciences Bonn-Rhein-Sieg in Sankt Augustin, Germany. 
 
 ## Motivation
 
