@@ -1211,7 +1211,7 @@ ans = 0
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_fac.m is the user-defined function defined from: /home/user/Modellbildung-und-Simulation/content/00_einleitung/test_fac.m
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>test_fac.m is the user-defined function defined from: /home/jovyan/test_fac.m
 
 function test_suite=test_fac
 % initialize unit tets
@@ -1292,8 +1292,9 @@ function test_fac_array
       <span class="n">moxunit_runtests</span> <span class="n">at</span> <span class="nb">line</span> <span class="mi">72</span> <span class="n">column</span> <span class="mi">11</span>
 </pre></div>
 </div>
-<p>Das ist ein <a class="reference external" href="https://github.com/jupyter/jupyter-book/issues/107">bekanntes Problem</a>, an dem gerade gearbeitet wird. Die einfachste Lösung ist die Binder statt der “Live Code”-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus <code class="docutils literal notranslate"><span class="pre">content</span></code> sowie dem akutellen Unterordner dieser Seite, der sich aus der URL ablesen lässt. Für diese Seite lautet er <code class="docutils literal notranslate"><span class="pre">00_einleitung</span></code>. Der Befehl</p>
-<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span>    <span class="n">moxunit_runtests</span> <span class="n">content</span><span class="o">/</span><span class="mi">00</span><span class="n">_einleitung</span><span class="o">/</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
+<p>Das ist ein <a class="reference external" href="https://github.com/jupyter/jupyter-book/issues/107">bekanntes Problem</a>, an dem gerade gearbeitet wird. Die Dateien sollten beim Start von “Live Code” oder spätestens beim ersten Ausführen der Code-Box mit <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">(...).m</span></code> erstellt werden. Wo die Datei liegt, wird im Ausgabefenster angezeigt. Wo Sie sich befinden, erfahren Sie mit dem Befehl <code class="docutils literal notranslate"><span class="pre">pwd()</span></code>.</p>
+<p>Um auf von uns hinterlegte Dateien zuzugreifen, ist die einfachste Lösung, die Binder- statt der “Live Code”-Methode zu verwenden. Ein alternativer Workaround ist, den relativen Pfad der aktuellen Seite explizit im Befehl zu verwenden. Dieser setzt sich zusammen aus <code class="docutils literal notranslate"><span class="pre">/home/jovyan/content</span></code> sowie dem akutellen Unterordner dieser Seite, der sich aus der URL ablesen lässt. Für diese Seite lautet er <code class="docutils literal notranslate"><span class="pre">00_einleitung</span></code>. Der Befehl</p>
+<div class="highlight-octave notranslate"><div class="highlight"><pre><span></span>    <span class="n">moxunit_runtests</span> <span class="o">/</span><span class="nb">home</span><span class="o">/</span><span class="n">jovyan</span><span class="o">/</span><span class="n">content</span><span class="o">/</span><span class="mi">00</span><span class="n">_einleitung</span><span class="o">/</span><span class="n">test_fac</span><span class="p">.</span><span class="n">m</span>
 </pre></div>
 </div>
 <p>sollte funktionieren.</p>
