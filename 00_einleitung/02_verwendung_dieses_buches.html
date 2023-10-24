@@ -1023,7 +1023,7 @@ title="Print to PDF"
 <section id="dateien-erstellen">
 <h2>Dateien erstellen<a class="headerlink" href="#dateien-erstellen" title="Permalink to this headline">#</a></h2>
 <p>In Jupyter Lab (“Binder” Button), lassen sich Dateien mithilfe des Launchers erstellen. Man kann aber auch Dateien mit der “Live Code”-Methode erstellen. Wenn ein Code-Block mit der Zeile <code class="docutils literal notranslate"><span class="pre">%%file</span> <span class="pre">myfile.m</span></code> beginnt, wird der folgende Inhalt des Blocks in eine Datei <code class="docutils literal notranslate"><span class="pre">myfile.m</span></code> geschrieben. Dies ist insbesondere nützlich um Funktionen zu schreiben, da Funktionen in Matlab immer in eigenen Dateien gespeichert werden müssen, oder erst am Ende eines Skriptes stehen dürfen.</p>
-<div class="cell docutils container">
+<div class="cell tag_thebe_init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file hello_world.m</span>
 <span class="k">function</span><span class="w"> </span><span class="nf">hello_world</span><span class="p">()</span>
@@ -1033,13 +1033,8 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Created file &#39;/home/user/Modellbildung-und-Simulation/content/00_einleitung/02_usage/hello_world.m&#39;.
-</pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
+<div class="cell tag_thebe_init docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">run</span> <span class="n">hello_world</span>
 </pre></div>
