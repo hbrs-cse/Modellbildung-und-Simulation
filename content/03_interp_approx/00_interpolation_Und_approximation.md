@@ -30,7 +30,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolat
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Spline-Interpolation
+## 3. Spline-Interpolation
 
 ### Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
