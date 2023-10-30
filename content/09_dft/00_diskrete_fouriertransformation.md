@@ -8,10 +8,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zur diskrete
 4. Digitale Verarbeitung von Audiosignalen
 5. Anwendung der DFT als digitaler Filter
 
-## 1. Approximation von periodischen Signalen
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Approximation von periodischen Signalen
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -20,10 +20,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zur diskrete
 |Mathematik|&#9733; &#9733; &#9733; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Filtern verrauschter Signale
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Filtern verrauschter Signale
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -32,10 +29,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zur diskrete
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 3. Der Doppler Effekt
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 3. Der Doppler Effekt
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -44,10 +38,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zur diskrete
 |Mathematik|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 4. Vuvuzela Filter
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 4. Vuvuzela Filter
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
