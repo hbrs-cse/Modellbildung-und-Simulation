@@ -6,10 +6,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlinea
 2. Die Methode der kleinsten Quadrate zum Curve Fitting.
 3. Die Anwendung des Newton-Verfahrens auf Curve-Fitting als ein Optimierungsproblem.
 
-## 1. Newton-Verfahren
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Newton-Verfahren
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -18,10 +18,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlinea
 |Mathematik|&#9733; &#9733; &#9733; &#9733; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Bierschaumzerfall
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Bierschaumzerfall
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
