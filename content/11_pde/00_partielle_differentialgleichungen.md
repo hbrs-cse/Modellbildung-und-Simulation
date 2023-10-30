@@ -11,10 +11,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertp
 6. Einschätzung der Auswirkungen numerischer Ungenauigkeiten
 7. Nachvollziehen eines Beispiels zur Implementierung des Finite-Volumen-Verfahrens mit der WENO-Methode
 
-## 1. Modellierung einer Highline - Die Lösung als PDE
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Modellierung einer Highline - Die Lösung als PDE
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -23,10 +23,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertp
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9733; &#9734; &#9734; &#9734;|&#9733; &#9733; &#9733; &#9734; &#9734; |
 
-## 2. Konvektion und Diffusion
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Konvektion und Diffusion
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -35,10 +32,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertp
 |Mathematik|&#9733; &#9733; &#9733; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9733;|
 |Physikalische Zusammenhänge|&#9733; &#9733; &#9733; &#9734; &#9734;|&#9733; &#9733; &#9733; &#9734; &#9734; |
 
-## 3. Verkehrssimulation mit finiten Volumen
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 3. Verkehrssimulation mit finiten Volumen
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
