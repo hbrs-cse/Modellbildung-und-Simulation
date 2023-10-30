@@ -7,10 +7,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über lineare Gl
 3. Lösung bekannter Modellgleichungen mithilfe von räumlicher Diskretisierung als Modellannahme
 4. Vergleich und Bewertung iterativer Gleichungssystemlöser
 
-## 1. Lösung linearer Gleichungssysteme
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Lösung linearer Gleichungssysteme
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -19,10 +19,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über lineare Gl
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Modellierung einer Highline
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Modellierung einer Highline
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
