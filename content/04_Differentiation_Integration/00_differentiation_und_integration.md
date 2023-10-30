@@ -9,10 +9,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel zu Differentiati
 5. Grundlagen und Realisierung numerischer Schrittweitensteuerung
 6. Validierung von Programmroutinen mittels Unit Tests
 
-## 1. Numerische Differentiation
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Numerische Differentiation
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -21,10 +21,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel zu Differentiati
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Numerische Integration (mit Schrittweitensteuerung)
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Numerische Integration (mit Schrittweitensteuerung)
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
