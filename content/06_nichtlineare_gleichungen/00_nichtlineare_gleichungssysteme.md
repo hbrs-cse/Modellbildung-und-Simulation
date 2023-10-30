@@ -13,10 +13,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlinea
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
-|Modellbildung|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734; |
-|Implementierung|1|2|
-|Mathematik|&#9733; &#9733; &#9733; &#9733; &#9734; |2|
-|Physikalische Zusammenhänge|1|&#9733; &#9733; &#9733; &#9734; &#9734; |
+|Modellbildung|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9734; &#9734; &#9734; &#9734; |
+|Implementierung|&#9733; &#9733; &#9733; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9734; |
+|Mathematik|&#9733; &#9733; &#9733; &#9733; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9734;|
+|Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
 ## 2. Bierschaumzerfall
 
@@ -25,10 +25,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlinea
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
-|Modellbildung|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734; |
-|Implementierung|1|2|
-|Mathematik|&#9733; &#9733; &#9733; &#9733; &#9734; |2|
-|Physikalische Zusammenhänge|1|&#9733; &#9733; &#9733; &#9734; &#9734; |
+|Modellbildung|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9734; &#9734; |
+|Implementierung|&#9733; &#9733; &#9733; &#9733; &#9734;|&#9733; &#9733; &#9733; &#9733; &#9734;|
+|Mathematik|&#9733; &#9733; &#9733; &#9733; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9733;|
+|Physikalische Zusammenhänge|&#9733; &#9733; &#9734; &#9734; &#9734;|&#9733; &#9733; &#9734; &#9734; &#9734; |
 
 ## Kahoot-Quiz
 
