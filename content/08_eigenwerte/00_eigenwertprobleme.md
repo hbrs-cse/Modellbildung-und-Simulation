@@ -7,10 +7,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwert
 3. Erstellen eigener Unit Tests
 4. Berechnung von Schwingungsmoden mithilfe der Steifigkeits- und Massematrix
 
-## 1. Das QR-Verfahren
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Das QR-Verfahren
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -19,10 +19,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwert
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Nullstellen von Polynomen
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Nullstellen von Polynomen
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -31,10 +28,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Eigenwert
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 3. Schwingungsmoden eines eindimensionalen Balkens
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 3. Schwingungsmoden eines eindimensionalen Balkens
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
