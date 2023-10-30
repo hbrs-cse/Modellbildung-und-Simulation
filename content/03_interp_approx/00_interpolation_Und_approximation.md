@@ -6,10 +6,11 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolat
 2. Realisierung einer Routine zur linearen Approximation
 3. Anwendung der Spline Interpolation
 
-## 1. Lineare Interpolation
+## Schwierigkeitsgrade
 
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu den Schwierigkeitsgraden.
+
+### 1. Lineare Interpolation
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -18,10 +19,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolat
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9734; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Lineare Approximation
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Lineare Approximation
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -30,10 +28,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Interpolat
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 3. Spline-Interpolation
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 3. Spline-Interpolation
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
