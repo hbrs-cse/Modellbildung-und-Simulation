@@ -54,4 +54,12 @@ In den folgenden Aufgaben soll zum einen der Umgang mit Matlab und zum anderen d
 
 ## Kahoot-Quiz
 
-Dieses Quiz eignet sich zur Überprüfung des Lernerfolgs **nach** Abschluss der Aufgaben. [Hier geht's zum Quiz](https://create.kahoot.it/share/diskrete-fouriertransformation-offentlich/e9ef95d4-0ca7-4174-ad09-a3b2804b6436).
+Diese Quizze eignen sich zur Überprüfung des Lernerfolgs **nach** Abschluss der Aufgaben. Hier geht's zu den Quizzen:
+
+[Flüssigkeit im Boden](https://create.kahoot.it/share/flussigkeit-im-boden-offentlich/a360d4da-9ec7-4b24-ab69-01efe29c26c0)
+
+[Verkehrssimulation mit zellulären Automaten](https://create.kahoot.it/share/verkehrssimulation-mit-zellularen-automaten-offentlich/8a463406-0d04-4bee-ba01-331a97b5fbb6)
+
+[Der perfekte Wurf](https://create.kahoot.it/share/der-perfekte-wurf-offentlich/1f03a777-39c2-4570-ac69-cdd1f58b2df1)
+
+[Game of Life](https://create.kahoot.it/share/game-of-life-offentlich/53258116-8b1e-4622-9b95-faaf4fc03aeb)
