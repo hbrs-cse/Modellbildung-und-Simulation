@@ -5,10 +5,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertp
 1. Implementierung einer Routine zum Lösen von Randwertproblemen mittels Schießverfahren
 2. Anwendung der mathematischen Grundlagen von ODEs höherer Ordnung auf thermodynamische Modellgleichungen
 
-## 1. Durchhang eines flexiblen Kabels
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Durchhang eines flexiblen Kabels
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -17,10 +17,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertp
 |Mathematik|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9733; &#9733; &#9733; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
 
-## 2. Temperatur in einem nuklearen Brennstab
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Temperatur in einem nuklearen Brennstab
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
