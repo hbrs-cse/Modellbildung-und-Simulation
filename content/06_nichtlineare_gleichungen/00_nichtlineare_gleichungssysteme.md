@@ -32,4 +32,4 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über nichtlinea
 
 ## Kahoot-Quiz
 
-Dieses Quiz eignet sich zur Überprüfung des Lernerfolgs **nach** Abschluss der Aufgaben. [Hier geht's zum Quiz]([https://create.kahoot.it/share/nichtlineare-gleichungssysteme-offentlich/356992b1-7d02-42d9-b014-d39817cc6a2b]).
+Dieses Quiz eignet sich zur Überprüfung des Lernerfolgs **nach** Abschluss der Aufgaben. [Hier geht's zum Quiz](https://create.kahoot.it/share/nichtlineare-gleichungssysteme-offentlich/356992b1-7d02-42d9-b014-d39817cc6a2b).
