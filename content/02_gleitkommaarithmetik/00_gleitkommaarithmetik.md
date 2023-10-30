@@ -6,10 +6,10 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Gleitkomma
 2. Einblick in die Nutzung von Taylorpolynomen
 
 
-## 1. Übungen
-
-### Schwierigkeitsgrade
+## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+
+### 1. Übungen
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
@@ -18,10 +18,7 @@ Dieser Abschnitt beinhaltet Anwendungsbeispiele aus dem Kapitel über Gleitkomma
 |Mathematik|-|-|
 |Physikalische Zusammenhänge|-|-|
 
-## 2. Funktionen mit Taylorpolynomen berechnen
-
-### Schwierigkeitsgrade
-[Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
+### 2. Funktionen mit Taylorpolynomen berechnen
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
