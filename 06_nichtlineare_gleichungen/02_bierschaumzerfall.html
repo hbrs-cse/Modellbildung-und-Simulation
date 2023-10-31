@@ -902,8 +902,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
-     Aufgabe 3: Algorithmus zur Minimierung einer Funktion
+    <a class="reference internal nav-link" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion-optional">
+     Aufgabe 3: Algorithmus zur Minimierung einer Funktion (optional)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -980,8 +980,8 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
-     Aufgabe 3: Algorithmus zur Minimierung einer Funktion
+    <a class="reference internal nav-link" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion-optional">
+     Aufgabe 3: Algorithmus zur Minimierung einer Funktion (optional)
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -1351,7 +1351,7 @@ title="Print to PDF"
 <span class="c">% inputs:</span>
 <span class="c">%   func    a handle to the nonlinear function</span>
 <span class="c">%   z0      initial guess for the Newton method</span>
-<span class="c">%   atol    absolute tolerance</span>
+<span class="c">%   tol    absolute tolerance</span>
 <span class="c">%   maxit   maximum number of Newton iterations</span>
 
 <span class="c">% YOUR CODE HERE</span>
@@ -1368,7 +1368,7 @@ title="Print to PDF"
 </div>
 </div>
 <ul class="simple">
-<li><p>Wenden Sie das Newton-Verfahren auf die Funkton <code class="docutils literal notranslate"><span class="pre">func</span> <span class="pre">=</span> <span class="pre">&#64;(p)</span> <span class="pre">F(p,t,V)</span></code> an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> Ihrer Modellfunktion?</p></li>
+<li><p>Wenden Sie das Newton-Verfahren auf die Funktion <code class="docutils literal notranslate"><span class="pre">func</span> <span class="pre">=</span> <span class="pre">&#64;(p)</span> <span class="pre">F(p,t,V)</span></code> an, um das ursprüngliche nichtlineare Gleichungssystem zu lösen. Wählen Sie angemessene Werte für die Toleranz und die maximale Anzahl an Iterationen. Wie lauten die Parameter <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span> Ihrer Modellfunktion?</p></li>
 <li><p>Vergleichen Sie Ihr Ergebnis mit dem Ergebnis der Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fsolve</span></code>.</p></li>
 <li><p>Erstellen Sie einen Plot mit den Messwerten, sowie der kalibrierten Modellfunktion <span class="math notranslate nohighlight">\(V(t) = b \cdot e^{a \cdot t}\)</span>.</p></li>
 <li><p>Wie lautet die Halbwertzeit des Bierschaumes?</p></li>
@@ -1413,17 +1413,15 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 \end{bmatrix}.
 \end{split}\]</div>
 <p>Zusammenfassend kann ein Minimierungsproblem also gelöst werden, indem es auf ein nichtlineares Gleichungssystem zurückgeführt wird. Dieses wiederum kann mit Hilfe des Newtonverfahren gelöst werden. In jeder Iteration des Newtonverfahrens muss ein lineares Gleichungssystem gelöst werden.</p>
-<section id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion">
-<h3>Aufgabe 3: Algorithmus zur Minimierung einer Funktion<a class="headerlink" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion" title="Permalink to this headline">#</a></h3>
+<section id="aufgabe-3-algorithmus-zur-minimierung-einer-funktion-optional">
+<h3>Aufgabe 3: Algorithmus zur Minimierung einer Funktion (optional)<a class="headerlink" href="#aufgabe-3-algorithmus-zur-minimierung-einer-funktion-optional" title="Permalink to this headline">#</a></h3>
 <p>Schreiben Sie eine neue Funktion <code class="docutils literal notranslate"><span class="pre">minimize(func,x0,tol,maxit)</span></code> auf Grundlage Ihrer Implementierung für das Newtonverfahren, die eine beliebige Funktion <code class="docutils literal notranslate"><span class="pre">func</span></code><span class="math notranslate nohighlight">\(: \mathbb{R}^n \to \mathbb{R}\)</span> minimiert. Verwenden Sie Ihre Funktion <code class="docutils literal notranslate"><span class="pre">jacobian</span></code>, um die Hessematrix sowie die rechte Seite in jedem Funktionsaufruf zu konstruieren.</p>
 <ul>
 <li><p>Lösen Sie das ursprüngliche Minimierungsproblem</p>
 <div class="math notranslate nohighlight">
 \[ \min_{p_1,...,p_n} G(p_1,...,p_n) = \frac{1}{m} \sum_{i=1}^m (y_i - f(p_1,...,p_n,t_i))^2  \]</div>
+<p>mit Ihrer neuen Funktion. - Vergleichen Sie das Ergebnis mit Ihrem Ergebnis aus Aufgabe 2, sowie dem Resultat der Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fminsearch</span></code>.</p>
 </li>
-</ul>
-<p>mit Ihrer neuen Funktion und vergleichen Sie das Ergebnis mit Ihrem Ergebnis aus Aufgabe 3 sowie dem Resultat der Matlab-Funktion <code class="docutils literal notranslate"><span class="pre">fminsearch</span></code>.</p>
-<ul class="simple">
 <li><p>Wo sind die Grenzen Ihres Algorithmus? Gibt es mögliche Fehlerquellen, die Nutzer Ihrer Funktion beachten sollten?</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1437,7 +1435,7 @@ Hess_G(\mathbf{p}) = J_{J_G}(\mathbf{p}) =
 </div>
 <div class="admonition-hinweis admonition">
 <p class="admonition-title">Hinweis</p>
-<p>Wenn Sie Ihr Ergebnis aus Aufgaben 2 und 3 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren. Vermeiden Sie duplizierten Code!</p>
+<p>Wenn Sie Ihr Ergebnis aus Aufgaben 1 und 2 wiederverwenden, können Sie die Funktion mit nur 1-2 Zeilen implementieren. Vermeiden Sie duplizierten Code!</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
