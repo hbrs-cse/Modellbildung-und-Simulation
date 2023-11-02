@@ -3,7 +3,7 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Kleinert"
   given-names: "Jan"
-  affiliation: "German Aerospace Center (DLR)"
+  affiliation: "Hochschule Bonn-Rhein-Sieg & German Aerospace Center (DLR)"
   orcid: "0000-0002-2709-214X"
 - family-names: "Steinebach"
   given-names: "Gerd"
