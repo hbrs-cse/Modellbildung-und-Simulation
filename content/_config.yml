@@ -33,7 +33,7 @@ html:
     <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a>
     <br>
     Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>
-    <div>
+    </div>
   google_analytics_id       : "UA-134708516-1"  # A GA id that can be used to track book views.
   home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
   use_edit_page_button      : true  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
