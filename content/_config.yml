@@ -26,7 +26,8 @@ execute:
 # for citation, add above 'powered by': <br><a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a>
 html:
   favicon                   : images/logo/favicon.ico  # A path to a favicon image
-  navbar_number_sections    : false  # Add a number to each section in your left navbar  extra_navbar              : >
+  navbar_number_sections    : false  # Add a number to each section in your left navbar
+  extra_navbar              : >
     <div align="left">
     <a href="https://github.com/hbrs-cse/Modellbildung-und-Simulation"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" style="width: 20px;"> Github Repository</a>
     <br>
