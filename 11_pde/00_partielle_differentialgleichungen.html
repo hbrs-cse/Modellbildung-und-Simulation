@@ -788,12 +788,58 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schwierigkeitsgrade">
+   Schwierigkeitsgrade
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modellierung-einer-highline-die-losung-als-pde">
+     1. Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#konvektion-und-diffusion">
+     2. Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verkehrssimulation-mit-finiten-volumen">
+     3. Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kahoot-quiz">
+   Kahoot-Quiz
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -805,6 +851,41 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#schwierigkeitsgrade">
+   Schwierigkeitsgrade
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modellierung-einer-highline-die-losung-als-pde">
+     1. Modellierung einer Highline - Die Lösung als PDE
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#konvektion-und-diffusion">
+     2. Konvektion und Diffusion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#verkehrssimulation-mit-finiten-volumen">
+     3. Verkehrssimulation mit finiten Volumen
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#kahoot-quiz">
+   Kahoot-Quiz
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -814,7 +895,111 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="partielle-differentialgleichungen">
 <span id="content-references-pdes"></span><h1>Partielle Differentialgleichungen<a class="headerlink" href="#partielle-differentialgleichungen" title="Permalink to this headline">#</a></h1>
-<p>Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertproblemen, die auf einer partiellen Differentialgleichung basieren.</p>
+<p>Dieser Abschnitt beinhaltet Anwendungsbeispiele und Übungsaufgaben zu Randwertproblemen, die auf einer partiellen Differentialgleichung basieren. In drei Aufgaben lernen Sie</p>
+<ol class="simple">
+<li><p>Aufstellen partieller Differentialgleichungen</p></li>
+<li><p>Diskretisierung</p></li>
+<li><p>Numerische Lösung von partiellen Differentialgleichungen</p></li>
+<li><p>Demonstration der Ähnlichkeit der Diskretisierung der Linienmethode zur diskretisierten Modellannahme in der bisherigen Modellierung einer Highline</p></li>
+<li><p>Umsetzung der Verfahrensvorschriften zur Umsetzung der Linienmethode</p></li>
+<li><p>Einschätzung der Auswirkungen numerischer Ungenauigkeiten</p></li>
+<li><p>Nachvollziehen eines Beispiels zur Implementierung des Finite-Volumen-Verfahrens mit der WENO-Methode</p></li>
+</ol>
+<section id="schwierigkeitsgrade">
+<h2>Schwierigkeitsgrade<a class="headerlink" href="#schwierigkeitsgrade" title="Permalink to this headline">#</a></h2>
+<p><a class="reference internal" href="../00_einleitung/02_verwendung_dieses_buches.html#content-references-schwierigkeitsgrade"><span class="std std-ref">Hier</span></a> finden Sie eine Erklärung zu dieser Tabelle.</p>
+<section id="modellierung-einer-highline-die-losung-als-pde">
+<h3>1. Modellierung einer Highline - Die Lösung als PDE<a class="headerlink" href="#modellierung-einer-highline-die-losung-als-pde" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kategorie</p></th>
+<th class="head"><p>Aufwand</p></th>
+<th class="head"><p>Anspruch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Modellbildung</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+</tr>
+<tr class="row-odd"><td><p>Implementierung</p></td>
+<td><p>★ ☆ ☆ ☆ ☆</p></td>
+<td><p>★ ☆ ☆ ☆ ☆</p></td>
+</tr>
+<tr class="row-even"><td><p>Mathematik</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ☆</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physikalische Zusammenhänge</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="konvektion-und-diffusion">
+<h3>2. Konvektion und Diffusion<a class="headerlink" href="#konvektion-und-diffusion" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kategorie</p></th>
+<th class="head"><p>Aufwand</p></th>
+<th class="head"><p>Anspruch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Modellbildung</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ☆</p></td>
+</tr>
+<tr class="row-odd"><td><p>Implementierung</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ☆</p></td>
+</tr>
+<tr class="row-even"><td><p>Mathematik</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ★</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physikalische Zusammenhänge</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="verkehrssimulation-mit-finiten-volumen">
+<h3>3. Verkehrssimulation mit finiten Volumen<a class="headerlink" href="#verkehrssimulation-mit-finiten-volumen" title="Permalink to this headline">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Kategorie</p></th>
+<th class="head"><p>Aufwand</p></th>
+<th class="head"><p>Anspruch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Modellbildung</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ☆</p></td>
+</tr>
+<tr class="row-odd"><td><p>Implementierung</p></td>
+<td><p>★ ★ ☆ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ☆</p></td>
+</tr>
+<tr class="row-even"><td><p>Mathematik</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+<td><p>★ ★ ★ ★ ★</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physikalische Zusammenhänge</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+<td><p>★ ★ ★ ☆ ☆</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="kahoot-quiz">
+<h2>Kahoot-Quiz<a class="headerlink" href="#kahoot-quiz" title="Permalink to this headline">#</a></h2>
+<p>Dieses Quiz eignet sich zur Überprüfung des Lernerfolgs <strong>nach</strong> Abschluss der Aufgaben. <a class="reference external" href="https://create.kahoot.it/share/partielle-differentialgleichungen-offentlich/73ab9afd-02ef-4278-95a3-70843dde9f1c">Hier geht’s zum Quiz</a>.</p>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
