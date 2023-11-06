@@ -29,7 +29,7 @@ html:
   navbar_number_sections    : false  # Add a number to each section in your left navbar
   extra_footer              : |
     <div align="left">
-    License: <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/CC_BY-SA_icon.svg" alt="License: CC BY-SA 4.0"></a>
+    License: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
     Cite this book: <a href="https://doi.org/10.5281/zenodo.2560551"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.2560551.svg" alt="DOI"></a>
     Powered by <a href="https://github.com/jupyter/jupyter-book">Jupyter Book</a>.
     </div>
