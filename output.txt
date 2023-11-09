@@ -1,22 +1,22 @@
-12_matlab/01_erste_schritte_in_matlab.md:67: [redirected permanently] http://www.mathworks.com/academia/courseware to https://www.mathworks.com/academia/courseware.html
 12_matlab/01_erste_schritte_in_matlab.md:65: [redirected permanently] http://www.mathworks.com/videos/ to https://www.mathworks.com/videos.html
-12_matlab/01_erste_schritte_in_matlab.md:33: [redirected permanently] http://www.octave.org to https://www.octave.org/
-intro.ipynb:50004: [redirected permanently] http://www.samlau.me/ to https://www.samlau.me/
+12_matlab/01_erste_schritte_in_matlab.md:67: [redirected permanently] http://www.mathworks.com/academia/courseware to https://www.mathworks.com/academia/courseware.html
 12_matlab/01_erste_schritte_in_matlab.md:66: [redirected permanently] http://www.mathworks.de/academia/student_center/tutorials to https://matlabacademy.mathworks.com/
+intro.ipynb:50004: [redirected permanently] http://www.samlau.me/ to https://www.samlau.me/
 07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb:3: [redirected permanently] http://www.arianespace.com/mission/ariane-flight-va244/ to https://www.arianespace.com/mission/ariane-flight-va244/
+12_matlab/01_erste_schritte_in_matlab.md:33: [redirected permanently] http://www.octave.org to https://www.octave.org/
 12_matlab/01_erste_schritte_in_matlab.md:33: [redirected with Found] http://www.scilab.org to https://www.scilab.org/
 12_matlab/01_erste_schritte_in_matlab.md:68: [redirected with Found] http://www.mathworks.de/matlabcentral/fileexchange/ to https://de.mathworks.com/matlabcentral/fileexchange/
 12_matlab/01_erste_schritte_in_matlab.md:63: [redirected permanently] https://de.mathworks.com/learn/tutorials/matlab-onramp.html to https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted
 00_einleitung/04_github.ipynb:40006: [redirected permanently] https://docs.microsoft.com/de-de/windows/wsl/install-win10 to https://learn.microsoft.com/de-de/windows/wsl/install
+06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088/0143-0807/23/1/304 to https://iopscience.iop.org/article/10.1088/0143-0807/23/1/304
+06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304 to https://iopscience.iop.org/article/10.1088/0143-0807/23/1/304
 11_pde/01_modellierung_einer_highline_dynamisch_pde.ipynb:80002: [redirected with Found] https://doi.org/10.1515/9783110684148-004 to https://www.degruyter.com/document/doi/10.1515/9783110684148-004/html
 11_pde/01_modellierung_einer_highline_dynamisch_pde.ipynb:80002: [redirected with Found] https://doi.org/doi:10.1515/9783110684148-004 to https://www.degruyter.com/document/doi/10.1515/9783110684148-004/html
 11_pde/02_konvektion_und_diffusion.ipynb:60002: [redirected with Found] https://doi.org/10.14366/usg.17016 to https://www.e-ultrasonography.org/journal/view.php?doi=10.14366/usg.17016
 00_einleitung/02_verwendung_dieses_buches.ipynb:20019: [redirected with Found] https://github.com/hbrs-cse/Modellbildung-und-Simulation/issues/new to https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fhbrs-cse%2FModellbildung-und-Simulation%2Fissues%2Fnew
-00_einleitung/04_github.ipynb:90004: [redirected permanently] https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf to https://training.github.com/downloads/github-git-cheat-sheet.pdf
 00_einleitung/02_verwendung_dieses_buches.ipynb:180076: [redirected permanently] https://github.com/jupyter/jupyter-book/issues/107 to https://github.com/executablebooks/jupyter-book/issues/107
+00_einleitung/04_github.ipynb:90004: [redirected permanently] https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf to https://training.github.com/downloads/github-git-cheat-sheet.pdf
 00_einleitung/03_best_practice.ipynb:270016: [redirected permanently] https://gitlab.com to https://about.gitlab.com/
 00_einleitung/04_github.ipynb:40010: [redirected with Found] https://guides.github.com/introduction/git-handbook/ to https://docs.github.com/en/get-started/using-git/about-git
 intro.ipynb:30002: [redirected permanently] https://www.gnu.org/software/octave/ to https://octave.org/
 intro.ipynb:10004: [redirected permanently] https://www.h-brs.de to https://www.h-brs.de/de
-06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088%2F0143-0807%2F23%2F1%2F304 to https://iopscience.iop.org/article/10.1088/0143-0807/23/1/304
-06_nichtlineare_gleichungen/02_bierschaumzerfall.ipynb:280002: [redirected with Found] https://doi.org/10.1088/0143-0807/23/1/304 to https://iopscience.iop.org/article/10.1088/0143-0807/23/1/304
