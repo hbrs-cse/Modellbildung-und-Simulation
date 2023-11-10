@@ -870,8 +870,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ihre-aufgabe">
-   Ihre Aufgabe
+  <a class="reference internal nav-link" href="#aufgabe-1-interpretation-der-schwingungsmoden-und-frequenzen">
+   Aufgabe 1: Interpretation der Schwingungsmoden und -frequenzen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2-manipulation-der-physik-des-schwingungsfahigen-systems">
+   Aufgabe 2: Manipulation der Physik des schwingungsfähigen Systems
   </a>
  </li>
 </ul>
@@ -904,8 +909,13 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#ihre-aufgabe">
-   Ihre Aufgabe
+  <a class="reference internal nav-link" href="#aufgabe-1-interpretation-der-schwingungsmoden-und-frequenzen">
+   Aufgabe 1: Interpretation der Schwingungsmoden und -frequenzen
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aufgabe-2-manipulation-der-physik-des-schwingungsfahigen-systems">
+   Aufgabe 2: Manipulation der Physik des schwingungsfähigen Systems
   </a>
  </li>
 </ul>
@@ -949,29 +959,30 @@ title="Print to PDF"
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="schwingungsmoden-eines-eindimensionalen-balkens">
 <span id="beam-eigen-modes"></span><h1>Schwingungsmoden eines eindimensionalen Balkens<a class="headerlink" href="#schwingungsmoden-eines-eindimensionalen-balkens" title="Permalink to this headline">#</a></h1>
-<p>Wir wollen einen flexiblen Balken simulieren. Dazu diskretisieren wir ihn durch <span class="math notranslate nohighlight">\(N\)</span> Massepunkte der Masse <span class="math notranslate nohighlight">\(m\)</span> und verbinden diese mit Federn der Steifigkeit <span class="math notranslate nohighlight">\(k\)</span>.</p>
-<p>Wir vernachlässigen zur Vereinfachung Torsionssteifigkeiten und betrachten das System bei Schwerelosigkeit.</p>
+<p>Wir wollen einen flexiblen Balken simulieren und hinsichtlich Eigenschwingungen und Eigenfrequenzen analysieren. Wird eine Struktur mit einer Eigenfrequenz angeregt schwingt sie mit und die Amplitude der Schwingung nimmt zu. Das Phänomen wird Resonanz genannt und kann zur Resonanzkatastrophe (Zerstörung der Struktur) führen.</p>
+<p>Für die Modellierung diskretisieren wir den Balken mit <span class="math notranslate nohighlight">\(N\)</span> Massepunkten der Masse <span class="math notranslate nohighlight">\(m\)</span> und verbinden diese mit Federn der Steifigkeit <span class="math notranslate nohighlight">\(k\)</span>.
+Wir vernachlässigen zur Vereinfachung Torsionssteifigkeiten und betrachten das System bei Schwerelosigkeit.</p>
 <img alt="../_images/rod.png" class="align-center" src="../_images/rod.png" />
 <section id="die-modellgleichungen">
 <h2>Die Modellgleichungen<a class="headerlink" href="#die-modellgleichungen" title="Permalink to this headline">#</a></h2>
-<p>Das Bild kommt uns bekannt vor! Wir können dieselben Modellgleichungen wie in dem Kapitel <a class="reference internal" href="../05_lineare_gleichungen/03_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> verwenden, allerdings vernachlässigen wir die externe Kraft und die Dämpfung.</p>
-<p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Durch die Schwerkraft und das Einwirken äußerer Kräfte entstehen Verschiebungen</p>
-<div class="math notranslate nohighlight">
-\[\begin{split} \mathbf{u}_i = \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix} \end{split}\]</div>
-<p>der Massepunkte weg von diesem Urzustand. Die Kräftebilanzierung ergibt</p>
+<p>Das Bild kommt uns bekannt vor! Wir können dieselben Modellgleichungen wie in dem Kapitel <a class="reference internal" href="../05_lineare_gleichungen/03_modellierung_einer_highline.html#highline-static"><span class="std std-ref">Modellierung einer Highline</span></a> verwenden, allerdings vernachlässigen wir die externe Kraft, die Schwerkraft und die Dämpfung.</p>
+<p>Gehen Sie von einem <em>“Urzustand”</em> aus, in dem alle Massepunkte auf einer Linie liegen. Bei einer Verschiebung <span class="math notranslate nohighlight">\(\dot{x_i}\)</span> und <span class="math notranslate nohighlight">\(\dot{y_i}\)</span> der Massepunkte wirken bswp. auf den ersten Massepunkt die Federkräfte <span class="math notranslate nohighlight">\(F_{1x} = k(\)</span>\dot x_2<span class="math notranslate nohighlight">\(-\)</span>\dot x_1<span class="math notranslate nohighlight">\()\)</span> und <span class="math notranslate nohighlight">\(F_{1y} = k(\)</span>\dot y_2<span class="math notranslate nohighlight">\(-\)</span>\dot y_1<span class="math notranslate nohighlight">\()\)</span>. Auf die mittleren Punkte wirken jeweils Federkräfte von links und rechts. Die Kräftebilanzierung mit der Zusammenfassung <span class="math notranslate nohighlight">\(\mathbf{z}_i := \begin{bmatrix} x_i(t) \\ y_i(t) \end{bmatrix}\)</span> ergibt</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
- m \ddot{\mathbf{u}}_1 &amp;= -k(\mathbf{u}_1-\mathbf{u}_2)  \notag \\
- m \ddot{\mathbf{u}}_i &amp;= k(\mathbf{u}_{i-1}-\mathbf{u}_{i}) - k(\mathbf{u}_{i}-\mathbf{u}_{i+1}) , \hskip4em \text{für } i=2,...,N-1 \notag \\
- m \ddot{\mathbf{u}}_N &amp;= k(\mathbf{u}_{N-1}-\mathbf{u}_N) . \notag \\
+ m \ddot{\mathbf{z}}_1 &amp;= -k(\mathbf{z}_1-\mathbf{z}_2)  \notag \\
+ m \ddot{\mathbf{z}}_i &amp;= k(\mathbf{z}_{i-1}-\mathbf{z}_{i}) - k(\mathbf{z}_{i}-\mathbf{z}_{i+1}) , \hskip4em \text{für } i=2,...,N-1 \notag \\
+ m \ddot{\mathbf{z}}_N &amp;= k(\mathbf{z}_{N-1}-\mathbf{z}_N) . \notag \\
 \end{align}
 \end{split}\]</div>
-<p>Diese Gleichungen lassen sich in eine kompaktere Matrixschreibweise bringen. Dazu führen wir folgende Bezeichungen ein:</p>
+<p>Diese Gleichungen lassen sich in eine kompaktere Matrixschreibweise bringen. Wir stellen alle Gleichungen nach links um (bswp. <span class="math notranslate nohighlight">\(m \ddot{\mathbf{z}}_1 + k(\mathbf{z}_1-\mathbf{z}_2) = 0)\)</span> und sammeln alle Ortsvektoren <span class="math notranslate nohighlight">\(\mathbf{z}_i\)</span> in <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>. Wir erhalten die Differentialgleichung</p>
 <div class="math notranslate nohighlight">
-\[\begin{split} \mathbf{u}=\left[ \begin{array}{c} \mathbf{u}_1 \\ \vdots \\ \mathbf{u}_N \end{array} \right] \in \mathbb{R}^{2N},, \quad M = \left[ \begin{array}{cccc} m &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; m &amp; \ddots &amp; \vdots \\ \vdots &amp; \ddots &amp; \ddots &amp; 0 \\ 0 &amp; \cdots &amp; 0 &amp; m \end{array} \right] \in \mathbb{R}^{2N \times 2N} \quad \text{und} \end{split}\]</div>
+\[M \ddot{\mathbf{z}} + K\mathbf{z} = \boldsymbol{0} .\]</div>
+<p><span class="math notranslate nohighlight">\(M\)</span> ist die <em>Massematrix</em> und <span class="math notranslate nohighlight">\(K\)</span> die <em>Steifigkeitsmatrix</em> des gekoppelten Systems. Dazu führen wir folgende Bezeichungen ein:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}S = \left[ \begin{array}{rrrrrrr}
+\[\begin{split}\mathbf{z}=\left[ \begin{array}{c} \mathbf{z}_1 \\ \vdots \\ \mathbf{z}_i \\ \vdots \\ \mathbf{z}_N \end{array} \right]=\left[ \begin{array}{c} x_1 \\ y_1 \vdots \\ x_i \\ y_i \vdots \\ x_N \\ y_N \end{array} \right] \in \mathbb{R}^{2N}, \quad M = \left[ \begin{array}{cccc} m &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; m &amp; \ddots &amp; \vdots \\ \vdots &amp; \ddots &amp; \ddots &amp; 0 \\ 0 &amp; \cdots &amp; 0 &amp; m \end{array} \right] \in \mathbb{R}^{2N \times 2N} \quad \text{,} \end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}K = k \cdot S \text{ und } S = \left[ \begin{array}{rrrrrrr}
 1 &amp; 0 &amp; -1 &amp; 0 &amp; \cdots &amp; \cdots &amp; 0  \\
 0 &amp; 1 &amp; 0 &amp; -1 &amp; \ddots &amp;  &amp; \vdots \\
 -1 &amp; 0 &amp; 2 &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots \\
@@ -980,18 +991,24 @@ title="Print to PDF"
 \vdots &amp; &amp; \ddots &amp; \ddots  &amp; \ddots &amp; 1 &amp; 0 \\
 0 &amp; \cdots &amp; \cdots &amp; 0 &amp; -1 &amp; 0 &amp; 1
 \end{array}  \right] \in \mathbb{R}^{2N \times 2N}.\end{split}\]</div>
-<p><span class="math notranslate nohighlight">\(M\)</span> ist die <em>Massematrix</em> und <span class="math notranslate nohighlight">\(K = k \cdot S\)</span> die <em>Steifigkeitsmatrix</em> des gekoppelten Systems. Zusammengesetzt ergibt sich folgende Differentialgleichung:</p>
-<div class="math notranslate nohighlight">
-\[M \ddot{\mathbf{z}} + K\mathbf{z} = \boldsymbol{0} .\]</div>
 </section>
 <section id="was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun">
 <h2>Was hat das mit Eigenwerten und Eigenvektoren zu tun?<a class="headerlink" href="#was-hat-das-mit-eigenwerten-und-eigenvektoren-zu-tun" title="Permalink to this headline">#</a></h2>
-<p>Wir erkennen die harmonische Schwingungsgleichung und machen einen entsprechenden Ansatz für die Lösung <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>:</p>
+<p>Wir möchten das System hinsichtlich Schwingungen analysieren und kennen die harmonische Schwingungsgleichung. Dementsprechend machen wir einen Ansatz für die Lösung <span class="math notranslate nohighlight">\(\mathbf{z}(t)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbf{u}(t) = \boldsymbol{\phi} \cdot e^{i \omega t},
+\mathbf{z}(t) = \boldsymbol{\phi} \cdot e^{i \omega t},
 \]</div>
-<p>wobei <span class="math notranslate nohighlight">\(\boldsymbol{\phi} \in \mathbb{R}^{2N}\)</span> die <em>zeitunabhängige</em> Amplitude der beiden Komponenten jedes einzelnen Massepunktes beschreibt. Durch Einsetzen unseres Ansatzes in die Differentialgleichung erhalten wir</p>
+<p>wobei <span class="math notranslate nohighlight">\(\boldsymbol{\phi} \in \mathbb{R}^{2N}\)</span> die <em>zeitunabhängige</em> Amplitude der beiden Komponenten jedes einzelnen Massepunktes beschreibt. Leiten wir <span class="math notranslate nohighlight">\(\mathbf{z}(t)\)</span> ab, erhalten wir</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{\mathbf{z}}(t) = i \omega \cdot \boldsymbol{\phi} \cdot e^{i \omega t},
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\ddot{\mathbf{z}}(t) = - \omega^2 \cdot \boldsymbol{\phi} \cdot e^{i \omega t}
+\]</div>
+<p>Durch Einsetzen unseres Ansatzes in die Differentialgleichung und Multiplizieren von <span class="math notranslate nohighlight">\(M^{-1}\)</span> von links erhalten wir</p>
 <div class="math notranslate nohighlight">
 \[
 M^{-1}K \boldsymbol{\phi} = \omega^2 \boldsymbol{\phi}.
@@ -1051,7 +1068,6 @@ M^{-1}K \boldsymbol{\phi} = \omega^2 \boldsymbol{\phi}.
 <span class="c">% stiffness matrix (no need for mass matrix)</span>
 <span class="n">K</span> <span class="p">=</span> <span class="n">k</span><span class="o">*</span><span class="n">S</span><span class="p">;</span>
 
-
 <span class="c">%% calculate eigenfrequencies</span>
 <span class="p">[</span><span class="n">V</span><span class="p">,</span> <span class="n">D</span><span class="p">]</span> <span class="p">=</span> <span class="nb">eig</span><span class="p">(</span><span class="nb">full</span><span class="p">(</span><span class="n">K</span><span class="o">/</span><span class="n">m</span><span class="p">));</span>
 <span class="n">eigfreqs</span> <span class="p">=</span> <span class="nb">sqrt</span><span class="p">(</span><span class="nb">diag</span><span class="p">(</span><span class="n">D</span><span class="p">));</span>
@@ -1099,14 +1115,21 @@ M^{-1}K \boldsymbol{\phi} = \omega^2 \boldsymbol{\phi}.
 <img alt="../_images/modes.gif" class="align-center" src="../_images/modes.gif" />
 <p>Die ersten beiden Schwingungsmoden zum Eigenwert 0 <em>(genauer: Singulärewert)</em> sind die sogenannte <strong>Starrkörpermoden</strong>, bei denen keine Verformung stattfindet.</p>
 </section>
-<section id="ihre-aufgabe">
-<h2>Ihre Aufgabe<a class="headerlink" href="#ihre-aufgabe" title="Permalink to this headline">#</a></h2>
+<section id="aufgabe-1-interpretation-der-schwingungsmoden-und-frequenzen">
+<h2>Aufgabe 1: Interpretation der Schwingungsmoden und -frequenzen<a class="headerlink" href="#aufgabe-1-interpretation-der-schwingungsmoden-und-frequenzen" title="Permalink to this headline">#</a></h2>
+<p>Lassen Sie sich die Variablen <code class="docutils literal notranslate"><span class="pre">V</span></code>, <code class="docutils literal notranslate"><span class="pre">D</span></code> und <code class="docutils literal notranslate"><span class="pre">eigenfreqs</span></code> im Workspace ausgeben. Wie viele Eigenmoden hat das System (= in wie vielen Formen kann das System schwingen)? Ordnen Sie die Einträge der Variablen dem Verhalten der Ausgaben zu!</p>
+</section>
+<section id="aufgabe-2-manipulation-der-physik-des-schwingungsfahigen-systems">
+<h2>Aufgabe 2: Manipulation der Physik des schwingungsfähigen Systems<a class="headerlink" href="#aufgabe-2-manipulation-der-physik-des-schwingungsfahigen-systems" title="Permalink to this headline">#</a></h2>
 <p>Modifizieren Sie das Skript so, dass der eindimensionale Balken</p>
 <ol type="a">
  <li>einseitig eingespannt ist.</li>
  <li>beidseitig eingespannt ist.</li>
 </ol>
-<p><strong>Tipp:</strong> Nehmen Sie Änderungen an der Matrix <span class="math notranslate nohighlight">\(S\)</span> vor.</p>
+<div class="tip admonition">
+<p class="admonition-title">Tipp</p>
+<p>Nehmen Sie Änderungen an der Matrix <span class="math notranslate nohighlight">\(S\)</span> vor. Gegebenenfalls müssen Sie sich mehr als 12 Schwingungsmoden ausgeben lassen.</p>
+</div>
 </section>
 </section>
 
