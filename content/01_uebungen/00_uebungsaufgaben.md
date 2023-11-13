@@ -1,17 +1,14 @@
-# Einfache Übungsaufgaben
+# Einleitende Übungsaufgaben
 
 In den folgenden Aufgaben soll zum einen der Umgang mit Matlab und zum anderen die Modellierung einfacher Prozesse geübt werden. Diese Übungen können mit wenig Vorwissen in Modellbildung und Simulation gut gelöst werden. In vier Aufgaben lernen Sie
 
-1. Schrittweise vertiefte Modellbildung
+1. Schrittweise vertiefte Modellbildung mit zeitlicher und räumlicher Diskretisierung
 2. Nutzung von Unit Tests
-3. Modellbildung mit zeitlicher und räumlicher Diskretisierung
-4. Kenntnis der Funktionsweise zellulärer Automaten
-5. Vertiefte Übung der Modellbildung
-6. Sensibilisierung für die mathematische Robustheit (Abweichung des Ergebnisses bei Abweichung der Eingabewerte) eines Modells
-7. Softwareimplementierung von allgemein definierten Regeln und Verhaltensweisen
-8. Implementierung von Auswahlmöglichkeiten
-9. Umgang mit Funktionen und instanzierten Aufrufen innerhalb der Software
-10. Visualisierung von Daten
+3. Kenntnis der Funktionsweise zellulärer Automaten
+4. Sensibilisierung für die mathematische Robustheit (Abweichung des Ergebnisses bei Abweichung der Eingabewerte) eines Modells
+5. Softwareimplementierung von allgemein definierten Regeln, Verhaltensweisen und Auswahlmöglichkeiten
+6. Umgang mit Funktionen und instanzierten Aufrufen innerhalb der Software
+7. Visualisierung von Daten
 
 ## Schwierigkeitsgrade
 [Hier](content:references:schwierigkeitsgrade) finden Sie eine Erklärung zu dieser Tabelle.
@@ -20,7 +17,7 @@ In den folgenden Aufgaben soll zum einen der Umgang mit Matlab und zum anderen d
 
 |Kategorie|Aufwand|Anspruch|
 |---|---|---|
-|Modellbildung|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9734; &#9734; &#9734; &#9734; |
+|Modellbildung|&#9733; &#9733; &#9734; &#9734; &#9734; |&#9733; &#9734; &#9734; &#9734; &#9734; |
 |Implementierung|&#9733; &#9733; &#9733; &#9733; &#9734; |&#9733; &#9733; &#9733; &#9734; &#9734; |
 |Mathematik|&#9733; &#9734; &#9734; &#9734; &#9734; |&#9733; &#9734; &#9734; &#9734; &#9734;|
 |Physikalische Zusammenhänge|&#9733; &#9734; &#9734; &#9734; &#9734;|&#9733; &#9734; &#9734; &#9734; &#9734; |
