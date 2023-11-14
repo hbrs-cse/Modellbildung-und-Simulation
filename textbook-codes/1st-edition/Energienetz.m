@@ -1,19 +1,19 @@
 function Energienetz
-%-- Batterie/Verbraucher Modell
-global q_max
-q_max = 36000;
-soc = 0.9; q_B = soc*q_max;
-U_0=0; U_1=ruhespannung(soc); i_V=0; i_B=0; u_B=0;
-y0 = [U_0;U_1;i_V;i_B;u_B;q_B];
-M = eye(6); M(1,1)=0; M(2,2)=0; M(3,3)=0; M(4,4)=0;
-options = odeset( ’Mass’ ,M, ’RelTol’ ,1.0e-6);
-tspan = [0 24*3600];
-[t,y] = ode15s(@dgl,tspan,y0,options);
-y(:,6)=y(:,6)/q_max; t = t/3600;
-subplot(2,2,1); plot(t,y(:,2),’linewidth’,1.5); xlabel(’Zeit /h’); ylabel(’V’); title(’Spannung U_1’);
-subplot(2,2,2); plot(t,y(:,4),’linewidth’,1.5); xlabel(’Zeit /h’); ylabel(’A’); title(’Strom i_B’);
-subplot(2,2,3); plot(t,y(:,6),’linewidth’,1.5); xlabel(’Zeit /h’); ylabel(’soc’); title(’Ladezustand’);
-exportgraphics(gcf,’Energienetz_Resultate.pdf’,’resolution’,200)
+  %-- Batterie/Verbraucher Modell
+  global q_max
+  q_max = 36000;
+  soc = 0.9; q_B = soc*q_max;
+  U_0=0; U_1=ruhespannung(soc); i_V=0; i_B=0; u_B=0;
+  y0 = [U_0;U_1;i_V;i_B;u_B;q_B];
+  M = eye(6); M(1,1)=0; M(2,2)=0; M(3,3)=0; M(4,4)=0;
+  options = odeset( ’Mass’ ,M, ’RelTol’ ,1.0e-6);
+  tspan = [0 24*3600];
+  [t,y] = ode15s(@dgl,tspan,y0,options);
+  y(:,6)=y(:,6)/q_max; t = t/3600;
+  subplot(2,2,1); plot(t,y(:,2),’linewidth’,1.5); xlabel(’Zeit /h’); ylabel(’V’); title(’Spannung U_1’);
+  subplot(2,2,2); plot(t,y(:,4),’linewidth’,1.5); xlabel(’Zeit /h’); ylabel(’A’); title(’Strom i_B’);
+  subplot(2,2,3); plot(t,y(:,6),’linewidth’,1.5); xlabel(’Zeit /h’); ylabel(’soc’); title(’Ladezustand’);
+  exportgraphics(gcf,’Energienetz_Resultate.pdf’,’resolution’,200)
 end
 
 function dy = dgl(t,y)
