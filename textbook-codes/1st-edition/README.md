@@ -1,3 +1,0 @@
-# README
-
-These code snipplets refer to the 1st edition of the textbook. They use MATLAB version ... and Julia version ...
