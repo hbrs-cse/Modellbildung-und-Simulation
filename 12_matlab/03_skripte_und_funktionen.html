@@ -848,7 +848,12 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 </div>
 <p>In Matlab können wir Strings nicht mit <code class="docutils literal notranslate"><span class="pre">==</span></code> auf Gleichheit prüfen. Dafür stellt Matlab die Funktion <code class="docutils literal notranslate"><span class="pre">strcmp</span></code> bereit.</p>
 <p>Mit den bis hierher vorgestellten Werkzeugen können wir schon recht komplexe Programme schreiben. Das folgende iterative Programm sucht eine Nullstelle des Polynoms <span class="math notranslate nohighlight">\(y(x)= -x^4 + x^3 - x^2 + x + 1\)</span> im Interval <span class="math notranslate nohighlight">\([-1,1]\)</span>. Wir nutzen aus, dass wir wissen, dass die Funktion bei 1 positiv, und bei -1 negativ ist. Das heißt irgendwo dazwischen muss mindestens eine Nullstelle liegen.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">% plot f(x) = -x^4 + x^3 - x^2 + x + 1;</span>
 <span class="n">x</span> <span class="p">=</span> <span class="nb">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">);</span>
@@ -861,6 +866,7 @@ Das kleine Programm schätzt auf eine etwas ungenaue Art ab, bis zu welchem Wert
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/c15ec73952b48d26123637174693afe021d25df69106d665fc7d3861637d0be4.png" src="../_images/c15ec73952b48d26123637174693afe021d25df69106d665fc7d3861637d0be4.png" />
 </div>
@@ -1439,7 +1445,12 @@ ans = -0.51879
 </div>
 </div>
 <p><strong>Quiz</strong>: Finden Sie die erste positive Nullstelle der Funktion <span class="math notranslate nohighlight">\(f(x)=-\cos(-\frac{1}{3}x^2 - \frac{1}{10}x + 1)\)</span>.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%plot f(x)= -cos(-0.33*x.^2-0.1*x +1)</span>
 <span class="n">x</span> <span class="p">=</span> <span class="mi">0</span><span class="p">:</span><span class="nb">pi</span><span class="o">/</span><span class="mi">2000</span><span class="p">:</span><span class="mi">2</span><span class="o">*</span><span class="nb">pi</span><span class="p">;</span>
@@ -1451,6 +1462,7 @@ ans = -0.51879
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/9d7ce129a78c8a43969db66a2133d16938d6d2ff93ad28d6a79e38040249120d.png" src="../_images/9d7ce129a78c8a43969db66a2133d16938d6d2ff93ad28d6a79e38040249120d.png" />
 </div>

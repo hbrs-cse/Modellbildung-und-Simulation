@@ -646,7 +646,12 @@ document.write(`
 <p class="admonition-title">Hinweis</p>
 <p>Die Animation kann nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf Ihrem Computer.</p>
 </div>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">animate_highline</span><span class="p">(</span>L,t,q,person_on_highline<span class="p">)</span>
 
@@ -708,6 +713,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -726,7 +732,12 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mathbf{F}_{ext}(t) = \mathbf{F}_g + \mathbf{F}_w(t) + \mathbf{F}_p(t).\]</div>
 <p>Simple Modelle für den Highliner und den Wind sind für Sie in <code class="docutils literal notranslate"><span class="pre">wind.m</span></code> und <code class="docutils literal notranslate"><span class="pre">person_on_highline.m</span></code> hinterlegt. Diese können Sie mit den Befehlen</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">classdef</span> <span class="n">person_on_highline</span> <span class="o">&lt;</span> <span class="n">handle</span>
     <span class="c">% person_on_highline is an object to create the excitation caused by</span>
@@ -791,8 +802,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">classdef</span> <span class="n">wind</span> <span class="o">&lt;</span> <span class="n">handle</span>
     <span class="c">% wind is an object to create the excitation caused by</span>
@@ -818,6 +835,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">

@@ -607,7 +607,12 @@ document.write(`
 <p class="admonition-title">Hinweis</p>
 <p>Die Simulation beinhaltet eine Animation und kann deswegen nicht interaktiv auf dieser Seite laufen. Laden Sie sich die Dateien herunter und rechnen Sie lokal auf Ihrem Computer.</p>
 </div>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_launch.m</span>
 <span class="c">%% 2D rocket gravity turn simulation</span>
@@ -690,6 +695,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -702,7 +708,12 @@ document.write(`
 <section id="rocket-ode-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code><a class="headerlink" href="#rocket-ode-m" title="Permalink to this heading">#</a></h3>
 <p>Das Herzstück Ihrer Simulation ist das Lösen eines Systems gewöhnlicher Differentialgleichungen erster Ordnung <span class="math notranslate nohighlight">\(\dot{\mathbf{q}} = \)</span> <code class="docutils literal notranslate"><span class="pre">rocket_ode</span></code><span class="math notranslate nohighlight">\((t,\mathbf{q})\)</span> mit dem Löser <code class="docutils literal notranslate"><span class="pre">ode45</span></code>. Die rechte Seite ist in dieser Datei implementiert. Dabei ist <span class="math notranslate nohighlight">\(\mathbf{q} = [x,y, v_x, v_y, m]^T\)</span> ein Spaltenvektor, der die aktuelle Position <span class="math notranslate nohighlight">\((x,y)\)</span>, die aktuelle Geschwindigkeit <span class="math notranslate nohighlight">\((v_x,v_y)\)</span> sowie die aktuelle Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete beschreibt. <em>Leider fehlt ausgerechnet diese Datei.</em></p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_ode.m</span>
 <span class="c">%% Define right hand side of Rocket ODE</span>
@@ -722,12 +733,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="mass-flow-rate-m">
 <h3><code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code><a class="headerlink" href="#mass-flow-rate-m" title="Permalink to this heading">#</a></h3>
 <p>Teil der Raketen-ODE <code class="docutils literal notranslate"><span class="pre">rocket_ode.m</span></code> ist die gewöhnliche Differentialgleichung für die Masse <span class="math notranslate nohighlight">\(m\)</span> der Rakete <span class="math notranslate nohighlight">\(\dot{m}=g(m, \tau)\)</span>, wobei <span class="math notranslate nohighlight">\(\tau\)</span> die Antriebsdrossel modelliert (<span class="math notranslate nohighlight">\(\tau=0\)</span> bedeutet kein Antrieb, <span class="math notranslate nohighlight">\(\tau=1\)</span> bedeutet maximaler Antrieb). Die Funktion <span class="math notranslate nohighlight">\(g\)</span> ist in <code class="docutils literal notranslate"><span class="pre">mass_flow_rate.m</span></code> implementiert. Ein Raketenantrieb funktioniert nach dem dritten Newton’schen Prinzip über den schnellen Ausstoß von Treibstoff. Je schneller der Treibstoff ausgestoßen wird, desto höher sind der momentane Impuls und die Gewichtsabnahme der Rakete.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file mass_flow_rate.m</span>
 <span class="c">%% mass flow rate [kg/s]</span>
@@ -748,12 +765,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="f-thrust-m">
 <h3><code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code><a class="headerlink" href="#f-thrust-m" title="Permalink to this heading">#</a></h3>
 <p>In dieser Datei ist die Funktion <span class="math notranslate nohighlight">\(F_{\text{thrust}}(t,\mathbf{q})\)</span> hinterlegt, die abhängig des aktuellen Zustandes den Antrieb der Rakete in <span class="math notranslate nohighlight">\(x\)</span>- und <span class="math notranslate nohighlight">\(y\)</span>-Richtung berechnet. Diese Datei haben Sie bereits von Ihren Kolleg:innen von der Flugplanung erhalten. Der Raketenstart ist aufgeteilt in die Phasen <em>lift off, pitch over, ascend, 2nd stage,</em> und <em>orbit</em>. Je nach Phase wird in <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> der Antrieb gedrosselt oder der Angriffswinkel der Rakete geändert. Diese Funktion bestimmt zusammen mit <code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code> den Flugplan der Rakete. Optional kann die berechnete Drosselung <code class="docutils literal notranslate"><span class="pre">throttle</span></code> als zweiter Parameter mit ausgegeben werden. Sie wird unter anderem gebraucht um den Massefluss <span class="math notranslate nohighlight">\(g\)</span> (bzw. <code class="docutils literal notranslate"><span class="pre">mass_flow_rate</span></code>) zu berechnen.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file F_thrust.m</span>
 <span class="c">%% Thrust of rocket engine</span>
@@ -818,12 +841,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="rocket-status-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_status.m</span></code><a class="headerlink" href="#rocket-status-m" title="Permalink to this heading">#</a></h3>
 <p>Diese Datei wird von <code class="docutils literal notranslate"><span class="pre">F_thrust.m</span></code> verwendet. Hier wird je nach Zustand der Rakete nach bestimmten Kriterien die Phase <em>(lift off, pitch over, ascend, 2nd stage, orbit)</em> des Raketenstarts gewechselt. In jeder Phase verhält sich die Funktion <code class="docutils literal notranslate"><span class="pre">F_thrust</span></code> etwas anders. Die Syntax ist so gewählt, dass die Funktion vom <em>event handler</em> des ODE-Lösers von Matlab aufgerufen wird.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_status.m</span>
 <span class="c">%% event function for the rocket_ode</span>
@@ -898,12 +927,18 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="rocket-visualization-m">
 <h3><code class="docutils literal notranslate"><span class="pre">rocket_visualization.m</span></code><a class="headerlink" href="#rocket-visualization-m" title="Permalink to this heading">#</a></h3>
 <p>Diese Datei implementiert die Animation sowie Plots des Raketenstarts. Die Syntax der Funktion ist so gewählt, dass die Funktion während der numerischen Integration in Matlabs ODE Löser in jedem Zeitschritt einen visuellen Output liefern kann.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="c">%%file rocket_visualization.m</span>
 <span class="c">%% callback function to visualize the rocket launch</span>
@@ -1194,6 +1229,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 </section>

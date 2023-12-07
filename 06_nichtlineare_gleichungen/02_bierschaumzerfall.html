@@ -699,7 +699,12 @@ document.write(`
 </tbody>
 </table>
 <p>Die Genauigkeit der Messung sei mal dahin gestellt, es reicht zumindest aus, um einen Trend zu erkennen: Der Schaum baut sich anfänglich schneller ab als später, wenn nicht mehr viel Schaum da ist. Wenn wir von einem Messfehler von ca. <span class="math notranslate nohighlight">\(2 \cdot 0.02 = 0.04\)</span> Litern und ca. <span class="math notranslate nohighlight">\(1\)</span> Sekunde ausgehen, ergibt sich folgendes Bild</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
 
@@ -722,6 +727,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/e796e2889064b9499e69dddf0c7d70df1c5f55c88bc51ffcc0386fb54dcb2a9c.png" src="../_images/e796e2889064b9499e69dddf0c7d70df1c5f55c88bc51ffcc0386fb54dcb2a9c.png" />
 </div>
@@ -743,7 +749,12 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[ V(t) = b \cdot e^{a \cdot t}. \]</div>
 <p>Ok, nun haben wir einerseits Messwerte und andererseits ein mathematisches Modell mit unbekannten Parametern <span class="math notranslate nohighlight">\(a\)</span> und <span class="math notranslate nohighlight">\(b\)</span>. <span class="math notranslate nohighlight">\(b\)</span> muss offensichtlich der y-Achsenabschnitt sein, da <span class="math notranslate nohighlight">\(V(0)=b \cdot e^0 = b\)</span>, den kennen wir aus den Messwerten. Aber was, wenn ausgerechnet die erste Messung mit Messfehlern behaftet ist? Abgesehen, davon haben wir auch dann noch Schwierigkeiten händisch die Zerfallsrate <span class="math notranslate nohighlight">\(a\)</span> zu raten. Für <span class="math notranslate nohighlight">\(a=-0.001 \frac{1}{\text{s}}\)</span> und <span class="math notranslate nohighlight">\(b=0.575\)</span> <span class="math notranslate nohighlight">\(l\)</span> ergibt sich folgender Verlauf.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="nb">hold</span> <span class="n">on</span>
 
@@ -766,6 +777,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/79ae7ed46b63b9abaa61241f3fc2a2c0a3398d1c71d538bb4c2424bbb22e9954.png" src="../_images/79ae7ed46b63b9abaa61241f3fc2a2c0a3398d1c71d538bb4c2424bbb22e9954.png" />
 </div>

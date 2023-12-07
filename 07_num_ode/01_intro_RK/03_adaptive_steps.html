@@ -629,7 +629,12 @@ document.write(`
 \[h_\text{neu} = h \left\lVert\frac{y_{m+1}-\hat{y}_{m+1}}{\text{tol}}\right\rVert^{-\frac{1}{p}}.\]</div>
 <p>Dabei ist <span class="math notranslate nohighlight">\(y_{m+1}\)</span> das Ergebnis des Verfahrens höherer Ordnung, <span class="math notranslate nohighlight">\(\hat{y}_{m+1}\)</span> das des Verfahrens niedrigerer Ordnung, <span class="math notranslate nohighlight">\(\text{tol}\)</span> die Fehlertoleranz und <span class="math notranslate nohighlight">\(p\)</span> die höhere der beiden Ordnungen.</p>
 <p>Ein Beispiel für ein eingebettetes Verfahren mit einer adaptiven Schrittweitensteuerung ist im ausklappbaren Fenster angegeben.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span>[T,Y]<span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">rk3_simple</span><span class="p">(</span>fcn,tspan,y0,atol,rtol<span class="p">)</span>
 <span class="c">%-------------------------------------------------------------------------</span>
@@ -692,6 +697,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="aufgabe-2-adaptive-schrittweitensteuerung-mit-eingebetteten-verfahren">

@@ -623,7 +623,12 @@ document.write(`
 </div>
 <p><strong>Matlab Animation</strong></p>
 <p>Inklusive GIF-Export zum Vergleich verschiedener Szenarien.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">plotboxes</span><span class="p">(</span>t,q,m1,m2,l0,c<span class="p">)</span>
 <span class="w">    </span><span class="n">filename</span> <span class="p">=</span> <span class="s">&#39;boxes_animated.gif&#39;</span><span class="p">;</span>
@@ -769,6 +774,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>Octave Animation</strong></p>
 <div class="admonition-hinweis admonition">
@@ -776,7 +782,12 @@ document.write(`
 <p>Sollte das Schreiben der GIF-Datei sehr lange dauern, setzen Sie im Code <code class="docutils literal notranslate"><span class="pre">gifeverynth</span> <span class="pre">=</span> <span class="pre">0</span></code> oder sehr hoch.<br />
 Diese Version der Animation enthält eine vereinfachte Darstellung der Feder und kein Massezentrum.</p>
 </div>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-octave notranslate"><div class="highlight"><pre><span></span><span class="k">function</span><span class="w"> </span><span class="nf">plotboxes_OCTAVE</span><span class="p">(</span>t,q,q0<span class="p">)</span>
 <span class="w">    </span><span class="c">%graphics_toolkit (gnuplot)</span>
@@ -875,6 +886,7 @@ Diese Version der Animation enthält eine vereinfachte Darstellung der Feder und
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>Ihr Ergebnis könnte beispielsweise so aussehen (<span class="math notranslate nohighlight">\(l_0 = 1 \,\text{m}\)</span>, <span class="math notranslate nohighlight">\(c = 50 \,\frac{\text{N}}{\text{m}}\)</span>, <span class="math notranslate nohighlight">\(x_2(t=0) = 0.5 \,\text{m}\)</span>, <span class="math notranslate nohighlight">\(m_1 = m_2 = 2 \,\text{kg}\)</span>):</p>
 <div class="warning admonition">
