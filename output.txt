@@ -1,7 +1,7 @@
 12_matlab/01_erste_schritte_in_matlab.md:67: [redirected permanently] http://www.mathworks.com/academia/courseware to https://www.mathworks.com/academia/courseware.html
+12_matlab/01_erste_schritte_in_matlab.md:66: [redirected permanently] http://www.mathworks.de/academia/student_center/tutorials to https://matlabacademy.mathworks.com/
 12_matlab/01_erste_schritte_in_matlab.md:65: [redirected permanently] http://www.mathworks.com/videos/ to https://www.mathworks.com/videos.html
 12_matlab/01_erste_schritte_in_matlab.md:33: [redirected permanently] http://www.octave.org to https://www.octave.org/
-12_matlab/01_erste_schritte_in_matlab.md:66: [redirected permanently] http://www.mathworks.de/academia/student_center/tutorials to https://matlabacademy.mathworks.com/
 intro.ipynb:50004: [redirected permanently] http://www.samlau.me/ to https://www.samlau.me/
 07_num_ode/03_simulation_eines_raketenstarts/00_simulation_eines_raketenstarts.ipynb:190006: [redirected permanently] http://www.arianespace.com/mission/ariane-flight-va244/ to https://www.arianespace.com/mission/ariane-flight-va244/
 12_matlab/01_erste_schritte_in_matlab.md:68: [redirected with Found] http://www.mathworks.de/matlabcentral/fileexchange/ to https://de.mathworks.com/matlabcentral/fileexchange/
