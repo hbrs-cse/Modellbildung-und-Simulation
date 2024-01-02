@@ -35,6 +35,13 @@ parts:
     - file: 04_Differentiation_Integration/01_differentiation
     - file: 04_Differentiation_Integration/02_spielbeispiel_integration
     - file: 04_Differentiation_Integration/03_integration_and_stepcontrol
+  - file: 09_dft/00_diskrete_fouriertransformation
+    sections:
+    - file: 09_dft/01_spielbeispiel_dft
+    - file: 09_dft/02_approximation_von_periodischen_signalen
+    - file: 09_dft/03_filtern_verrauschter_signale
+    - file: 09_dft/04_der_doppler_effekt
+    - file: 09_dft/05_vuvuzela_filter
   - file: 05_lineare_gleichungen/00_lineare_gleichungssysteme
     sections:
     - file: 05_lineare_gleichungen/01_spielbeispiel_lgls
@@ -63,13 +70,6 @@ parts:
     - file: 08_eigenwerte/01_das_qr_verfahren
     - file: 08_eigenwerte/02_nullstellen_von_polynomen
     - file: 08_eigenwerte/03_schwingungsmoden_eines_eindimensionalen_balkens
-  - file: 09_dft/00_diskrete_fouriertransformation
-    sections:
-    - file: 09_dft/01_spielbeispiel_dft
-    - file: 09_dft/02_approximation_von_periodischen_signalen
-    - file: 09_dft/03_filtern_verrauschter_signale
-    - file: 09_dft/04_der_doppler_effekt
-    - file: 09_dft/05_vuvuzela_filter
   - file: 10_bvp/00_randwertprobleme
     sections:
     - file: 10_bvp/01_durchhang_eines_flexiblen_kabels
