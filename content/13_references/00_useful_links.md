@@ -11,5 +11,4 @@ Außerdem finden sich im Internet sehr hilfreiche Lehrvideos zu den Themen Model
 - Matlab: ["Matlab Onramp"](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted), [Matlab-eigene Videos](https://www.youtube.com/@MATLAB/playlists)
 - Domain of Science: ["Map of Computer Science"](https://www.youtube.com/watch?v=SzJ46YA_RaA&t=383s)
 - 3blue1brown: ["Essence of calculus"](https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr), ["Differential equations"](https://www.youtube.com/playlist?list=PLZHQObOWTQDNPOjrT6KVlfJuKtYTftqH6)
-- Engineering Math: [Differential Equations and Dynamical Systems](https://www.youtube.com/playlist?list=PLMrJAkhIeNNTYaOnVI3QpH7jgULnAmvPA)
-- Steve Brunton: [Introduction to Data Intensive Engineering](https://www.youtube.com/playlist?list=PLMrJAkhIeNNTv-u25xlhIyiAIV_d7vf-8)
+- Steve Brunton: [Engineering Math: Differential Equations and Dynamical Systems](https://www.youtube.com/playlist?list=PLMrJAkhIeNNTYaOnVI3QpH7jgULnAmvPA), [Introduction to Data Intensive Engineering](https://www.youtube.com/playlist?list=PLMrJAkhIeNNTv-u25xlhIyiAIV_d7vf-8)
