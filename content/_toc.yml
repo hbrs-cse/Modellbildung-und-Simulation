@@ -101,4 +101,5 @@ parts:
       - file: 12_matlab/05_matlab_videos/09_exercise9
       - file: 12_matlab/05_matlab_videos/10_exercise10
       - file: 12_matlab/05_matlab_videos/11_extra
-  - file: 13_references/00_useful_links
+  - file: 13_julia/00_julia
+  - file: 14_references/00_useful_links
