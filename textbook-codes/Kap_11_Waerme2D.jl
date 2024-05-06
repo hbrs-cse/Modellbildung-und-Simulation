@@ -1,4 +1,4 @@
-#-- Kap_11_Waerme2D.jl
+# Kap_11_Waerme2D.jl
 using DifferentialEquations, Plots, SparseArrays
 
 function dgl!(dy, y, p, t)
@@ -44,7 +44,7 @@ function jacstru(N)
   J
 end
 
-#-- Wärmeleitung 2D --
+# Wärmeleitung 2D --
 lam = 237.0; c = 900.0; rho = 2700.0; tau = lam/(c*rho); 
 T0 = 20.0; P = 10.0; L = 0.1; dicke = 0.005;
 N = 200; dx = L/(N-1); 

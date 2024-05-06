@@ -1,6 +1,6 @@
-%-- Kap_08_Pendel.m
+% Kap_07_Pendel.m
 function Pendel
-%-- Pendel als DAE ---
+% Pendel als DAE ---
  L = 2; y0 = [L;0;0;0;0]; tspan = [0, 40];
  M = eye(5); M(5,5)=0; 
  options = odeset('Mass',M,'stats','on');%,'RelTol',1.0e-3);
@@ -17,6 +17,6 @@ end
 function dy = pendel_dae(t,y)
  g = 9.81; m = 1;
  dy = [y(2); 2*y(5)*y(1)/m; y(4); 2*y(5)*y(3)/m - g; ...
-      y(2)^2 + y(4)^2 + 2*y(5)/m*(y(1)^2 + y(3)^2)-g*y(3)]; %-- Index-1
+      y(2)^2 + y(4)^2 + 2*y(5)/m*(y(1)^2 + y(3)^2)-g*y(3)];
 end
 

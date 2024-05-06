@@ -1,6 +1,6 @@
-%-- Kap_08_FederMasse.m
+% Kap_07_FederMasse.m
 function Feder_Masse_Daempfer
-%-- Feder-Masse-Daempfer
+% Feder-Masse-Daempfer
  tspan = [0 100]; d = 1;
  y0 = [1;0]; options=odeset('Stats','on');
  [t,y] = ode45(@(t,y) dgl_feder(t,y,d),tspan,y0,options);
@@ -9,7 +9,7 @@ function Feder_Masse_Daempfer
  [t,y] = ode15s(@(t,y) dgl_feder(t,y,d),tspan,y0,options);
  subplot(2,2,2); plot(t,y(:,1),'Linewidth',2); 
  title('ode15s, d=1'); xlabel('t'); ylabel('y(t)');
-%-- d=1000
+% d=1000
  tspan = [0 10000]; d = 1000;
  [t,y] = ode45(@(t,y) dgl_feder(t,y,d),tspan,y0,options);
  subplot(2,2,3); plot(t,y(:,1),'Linewidth',2); 

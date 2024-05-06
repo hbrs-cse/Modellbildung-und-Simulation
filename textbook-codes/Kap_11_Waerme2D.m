@@ -1,6 +1,6 @@
-%-- Kap_11_Waerme2D.m
+% Kap_11_Waerme2D.m
 function Waerme_2d
-%-- Wärmeleitung auf einer quadratischen Platte
+% Wärmeleitung auf einer quadratischen Platte
 global N dx tau c rho T0 P ix1 ix2 iy dicke
  lam = 237; c = 900; rho = 2700; tau = lam/(c*rho); 
  T0 = 20; P = 10; L = 0.1; dicke = 0.005;
@@ -9,7 +9,8 @@ global N dx tau c rho T0 P ix1 ix2 iy dicke
  [x_min,ix1] = min(abs(x_mesh -0.025)); [x_min,ix2] = min(abs(x_mesh -0.075));
  [y_min,iy] = min(abs(y_mesh - 0.05));
  y0 = zeros(N*N,1)+T0; J = jacstru(N); 
- options=odeset('JPattern',J,'stats','on','RelTol',1.0e-6,'AbsTol',1.0e-6);
+ options=odeset('JPattern',J,'stats','on','RelTol',1.0e-6, ...
+     'AbsTol',1.0e-6);
  tspan = [0,10,30,60,61,200,1000];
  tic
  [t,y] = ode15s(@dgl,tspan,y0,options);

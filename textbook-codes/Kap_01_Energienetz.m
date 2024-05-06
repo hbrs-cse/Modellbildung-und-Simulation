@@ -11,9 +11,12 @@ global q_max
  tspan = [0 24*3600];
  [t,y] = ode15s(@dgl,tspan,y0,options);
  y(:,6)=y(:,6)/q_max; t = t/3600;
- subplot(2,2,1); plot(t,y(:,2),'linewidth',1.5); xlabel('Zeit /h'); ylabel('V'); title('Spannung U_1');
- subplot(2,2,2); plot(t,y(:,4),'linewidth',1.5); xlabel('Zeit /h'); ylabel('A'); title('Strom i_B');
- subplot(2,2,3); plot(t,y(:,6),'linewidth',1.5); xlabel('Zeit /h'); ylabel('soc'); title('Ladezustand');
+ subplot(2,2,1); plot(t,y(:,2),'linewidth',1.5);
+ xlabel('Zeit /h'); ylabel('V'); title('Spannung U_1');
+ subplot(2,2,2); plot(t,y(:,4),'linewidth',1.5);
+ xlabel('Zeit /h'); ylabel('A'); title('Strom i_B');
+ subplot(2,2,3); plot(t,y(:,6),'linewidth',1.5);
+ xlabel('Zeit /h'); ylabel('soc'); title('Ladezustand');
  exportgraphics(gcf,'Energienetz_Resultate.pdf','resolution',200)
 end
 

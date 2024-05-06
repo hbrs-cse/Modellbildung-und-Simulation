@@ -33,7 +33,7 @@ function uvonrho(rho)
   return u
 end
    
-#-- Linienmethode mit FD Ortsdiskretisierung fuer Erhaltungsgleichungen 
+#-- Linienmethode mit FD-Ortsdiskretisierung fuer Erhaltungsgleichungen 
 #-- zur Loesung des Autobahnmodells
   n = 1000; L = 100000.0; dx = L/n; 
   x = range(dx/2, L-dx/2, n); #-- Zellenmittelpunkte

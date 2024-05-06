@@ -1,4 +1,4 @@
-%-- Kap_08_Taschenuhr.m
+% Kap_07_Taschenuhr.m
 function taschenuhr
   y0 = 0.999;  tspan = [0,1.5]; rtol = 1.0e-4; atol = 1.0e-4;
   options = odeset('RelTol',rtol,'AbsTol',atol,'Stats','on');
@@ -16,7 +16,7 @@ function taschenuhr
   xlabel('x'); ylabel('y');
   ax = gca; ax.FontSize = 14;
   legend('ode45','rk3\_simple')
-%-- Genauigkeit in tend
+% Genauigkeit in tend
   rtol = 1.0e-14; atol = 1.0e-14;
   options = odeset('RelTol',rtol,'AbsTol',atol,'Stats','on');
   tic

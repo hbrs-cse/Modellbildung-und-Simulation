@@ -1,4 +1,4 @@
-#-- Kap_11_Linienmethode.jl
+# Kap_11_Linienmethode.jl
 using DifferentialEquations, Plots
 
 function ode!(dy, y, p, t)
@@ -11,13 +11,13 @@ function ode!(dy, y, p, t)
     nothing
 end
 
-#-- Linienmethode zur Loesung des Konvektions-Diffusionsproblems
+# Linienmethode zur Loesung des Konvektions-Diffusionsproblems
   N = 1000; L = 60000.0; dx = L/(N+1); 
-  x = range(dx,L,length=N)#step=dx); #-- Ortsgitter
-  u = 1; D = 1000;  param = u,D,dx,N   #-- Parameter
-  y0 = exp.(-1.0e-7*(x.-15000).^2);  #-- Anfangswerte
+  x = range(dx,L,length=N)#step=dx); # Ortsgitter
+  u = 1; D = 1000;  param = u,D,dx,N   # Parameter
+  y0 = exp.(-1.0e-7*(x.-15000).^2);  # Anfangswerte
   p = plot(x,y0,linewidth = 2,xlabel="Fließstrecke x",
-                              ylabel="Konzentration c(x,t)",label="")
+      ylabel="Konzentration c(x,t)",label="")
   f = ODEFunction(ode!); tspan = [0.0,12*3600.0]; 
   prob = ODEProblem(f, y0, tspan, param)
   sol = solve(prob, Rodas5P())

@@ -1,4 +1,4 @@
-#-- Kap_11_Deichbruch.jl
+# Kap_11_Deichbruch.jl
 using DifferentialEquations, Plots
 include("Kap_11_Recover.jl")
 
@@ -28,18 +28,20 @@ function ode!(dy, y, p, t)
     nothing
 end
 
-function bc1(QL,EL,QR,ER) #-- Randbedingungen Deichbruch
+function bc1(QL,EL,QR,ER) # Randbedingungen Deichbruch
    return 0.0, EL, QR, 0.5*(QR/1.0)^2 + 9.81*1.0
 end
 
-#-- Loesung der Flachwassergleichungen mit der Linienmethode
-  n = 200; L = 1000.0; dx = L/n; x = range(dx/2,L-dx/2,n); #- Zellenmittelpunkte
-  S0 = zeros(n); h = 10.0 .- S0; h[x .> 500] .= 1.0; #-- Deichbruch
+# Loesung der Flachwassergleichungen mit der Linienmethode
+  n = 200; L = 1000.0; dx = L/n;
+  x = range(dx/2,L-dx/2,n); #- Zellenmittelpunkte
+  S0 = zeros(n); h = 10.0 .- S0;
+  h[x .> 500] .= 1.0; # Deichbruch
   Q = zeros(n); ks = 0.0; tend = 30.0; f_bc = bc1 
-  p1 = plot(x,h + S0,linewidth = 2,xlabel="x / m", ylabel="w(x,t)",
-            title="Wasserspiegelhöhe",label="t=0")
-  p2 = plot(x,Q,linewidth = 2,xlabel="x / m", ylabel="Q(x,t)",
-            title="Volumenfluss",label="t=0")
+  p1 = plot(x,h + S0,linewidth = 2,xlabel="x / m",
+       ylabel="w(x,t)",title="Wasserspiegelhöhe",label="t=0")
+  p2 = plot(x,Q,linewidth = 2,xlabel="x / m",
+       ylabel="Q(x,t)",title="Volumenfluss",label="t=0")
   g = 9.81;  b = 1.0; param = dx, n, g, b, S0, ks, f_bc
   neq = 2*n; tspan = [0.0,tend]; y0 = zeros(neq)
   for i = 1:n y0[2*i-1] = h[i]*b; y0[2*i] = Q[i]; end 

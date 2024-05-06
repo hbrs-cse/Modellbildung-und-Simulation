@@ -1,4 +1,4 @@
-#-- Kap_11_Stillwasser.jl
+# Kap_11_Stillwasser.jl
 using DifferentialEquations, Plots, SparseArrays
 include("Kap_11_Recover.jl")
 
@@ -6,7 +6,7 @@ function ode!(dy, y, p, t)
  ...
 end
 
-function bc2(QL,EL,QR,ER) #-- Randbedingungen Stillwasser
+function bc2(QL,EL,QR,ER) # Randbedingungen Stillwasser
    return 0.0, EL, QR, 0.5*(QR/3.0)^2 + 9.81*3.0
 end
 
@@ -18,9 +18,11 @@ function jacstru(n)
    J
 end
 
-#-- Loesung der Flachwassergleichungen mit der Linienmethode
-  n = 200; L = 1000.0; dx = L/n; x = range(dx/2,L-dx/2,n); #- Zellenmittelpunkte
-  S0 = sin.(2*pi*x/100); h = 3.0 .+ 0.1*sin.(pi*x/30) .- S0; #-- Stillwasser
+# Loesung der Flachwassergleichungen mit der Linienmethode
+  n = 200; L = 1000.0; dx = L/n;
+  x = range(dx/2,L-dx/2,n); #- Zellenmittelpunkte
+  S0 = sin.(2*pi*x/100);
+  h = 3.0 .+ 0.1*sin.(pi*x/30) .- S0; # Stillwasser
   Q = zeros(n); ks = 10.0; tend = 24*3600.0; f_bc = bc2 
   ...
   f = ODEFunction(ode!; jac_prototype=jacstru(neq));   

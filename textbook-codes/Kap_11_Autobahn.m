@@ -1,14 +1,14 @@
-%-- Kap_11_Autobahn.m
+% Kap_11_Autobahn.m
 function autobahn
-%-- mit FV Ortsdiskretisierung
+% mit FV Ortsdiskretisierung
  n = 1000; dx = 100000/n;
- x = linspace(dx/2, 100000-dx/2, n); %-- Zellenmittelpunkte
-%-- Anfangswerte, tspan
+ x = linspace(dx/2, 100000-dx/2, n); % Zellenmittelpunkte
+% Anfangswerte, tspan
  y0 = 0*x; y0(x < 50000) = 1/6; tspan = 0:300:900; 
-%-- Integrator
+% Integrator
  tol = 1.0e-5; options=odeset('Stats','on','RelTol',tol,'AbsTol',tol);
  [t,y] = ode45(@(t,y) dgl(t,y,dx),tspan,y0,options);
-%-- Ergebnisse plotten
+% Ergebnisse plotten
  subplot(2,1,1); hold on
  title('Fahrzeugdichte'); xlabel('x / km'); ylabel('\rho(x)');
  subplot(2,1,2); hold on
@@ -17,15 +17,17 @@ function autobahn
     subplot(2,1,1); plot(x/1000,y(i,:),'linewidth',2); 
     subplot(2,1,2); plot(x/1000,uvonrho(y(i,:)),'linewidth',2); hold on
  end
- subplot(2,1,1); legend({'t=0','t=300','t=600','t=900'})
- subplot(2,1,2); legend({'t=0','t=300','t=600','t=900'},'location','southeast')
+ subplot(2,1,1); 
+ legend({'t=0','t=300','t=600','t=900'})
+ subplot(2,1,2);
+ legend({'t=0','t=300','t=600','t=900'},'location','southeast')
 
 function dy = dgl(t,y,dx)
  n = length(y); dy = zeros(n,1);
- lam = uvonrho(0.0); %-- = u_max 
- [yL,yR] = recover(y); %-- Werte auf Zellgrenzen
- yL(1) = 1/6; yR(1) = 1/6; %-- linke RB
- fluxL = yL.*uvonrho(yL); fluxR = yR.*uvonrho(yR); %-- Flüsse auf Zellgrenzen
+ lam = uvonrho(0.0); % = u_max 
+ [yL,yR] = recover(y); % Werte auf Zellgrenzen
+ yL(1) = 1/6; yR(1) = 1/6; % linke RB
+ fluxL = yL.*uvonrho(yL); fluxR = yR.*uvonrho(yR); % Flüsse
  fR = fluxL(1);
  for i = 1:n
     fL = fR;

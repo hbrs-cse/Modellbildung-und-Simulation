@@ -1,6 +1,6 @@
-%-- Kap_08_Masseteilchen_1.m
+% Kap_07_Masseteilchen_1.m
 function Masseteilchen_1
-%--
+%
  x0 = 0; z0 = 0; u0 = 10.0; v0 = 20.0; 
  y0 = [x0,u0,z0,v0]'; 
  tend = 5.0; tspan = [0.0,tend];

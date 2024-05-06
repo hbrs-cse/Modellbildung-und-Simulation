@@ -1,14 +1,14 @@
-#-- Kap_10_Wasserspiegellage.jl
+# Kap_10_Wasserspiegellage.jl
 g = 9.81; B = 2.0; Ks = 30.0; uL = 0.2; hR = 1.0;
 
-function dgl!(du,u,p,x) #-- Differentialgleichungen
+function dgl!(du,u,p,x) # Differentialgleichungen
     h = u[1]; v = u[2]; A = B*h; R = A/(B+2*h);
     S_f = v*abs(v)/(Ks^2 * (R^4)^(1/3));
     M = [v h;g*h v*h];
     du[:] = inv(M)*[0.0; -g*h*(dS_0(x)+S_f)];
 end
    
-function bc!(res, u, p, t) #-- Randbedingungen
+function bc!(res, u, p, t) # Randbedingungen
     res[1] = u[1][2] - uL 
     res[2] = u[end][1] - hR 
 end
@@ -22,7 +22,7 @@ end
   
 
 using LinearAlgebra, Plots, DifferentialEquations 
- L = 10000.0; xspan = (0.0,L);  #-- Ortsintervall
+ L = 10000.0; xspan = (0.0,L);  # Ortsintervall
  bvp = BVProblem(dgl!, bc!, [hR,uL], xspan)
  sol = solve(bvp, MIRK4(),dt=50)
  p=plot(layout=(2,1))

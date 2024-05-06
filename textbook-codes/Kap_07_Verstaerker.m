@@ -1,11 +1,10 @@
-%-- Kap_08_Verstaerker.m
+% Kap_07_Verstaerker.m
 function Verstaerker
-%-- zweistufiger Verstaerker ---
+% --- zweistufiger Verstaerker ---
  for i=1:5 C(i) = i*1.0e-6; end 
  Ub = 6.0; alpha = 0.99; R0 = 1000.;
  for i=1:9 R(i) = 9000.0; end 
  param = [Ub, alpha, R0, R];
-%-- 
  M = zeros(8); 
  M(1,1) = C(1); M(1,2) =  -C(1); M(2,1) =  -C(1); M(2,2) = C(1); M(3,3) = C(2);
  M(4,4) = C(3); M(4,5) =  -C(3); M(5,4) =  -C(3); M(5,5) = C(3); M(6,6) = C(4);
@@ -21,12 +20,12 @@ function Verstaerker
 end
 
 function u = Ue(t)
-%-- Eingangsspannung
+% Eingangsspannung
   u = 0.1*sin(2*pi*200*t);
 end
 
 function i = f_trans(U)
-%-- Transistor Kennlinie
+% Transistor-Kennlinie
  UF = 0.026; beta = 1.0e-6;
  i = beta*(exp(U/UF)-1.0);
 end

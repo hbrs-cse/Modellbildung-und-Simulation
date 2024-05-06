@@ -1,4 +1,4 @@
-%-- Kap_03_Ploynominterpolation.m
+%-- Kap_03_Polynominterpolation.m
 function Test_Polyint
 %-- Testprogramm zur Polynominterpolation
  x = [-2, -1, 0, 1];

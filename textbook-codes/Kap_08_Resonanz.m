@@ -1,6 +1,6 @@
-%-- Kap_09_Resonanz.m
+%  Kap_08_Resonanz.m
 function Resonanz
-%-- Masse-Feder-Daempfer mit externer Kraft
+%  Masse-Feder-Daempfer mit externer Kraft
 global A omega alpha
   m = 100.0; k = 100.0; d = 1; 
   A = [0 1;-k/m -d/m]; 
@@ -13,12 +13,14 @@ global A omega alpha
   tspan =[0,600]; alpha = 1;
   [t,y] = ode45(@dgl,tspan,y0);
   subplot(2,2,2); plot(t,y(:,1),'linewidth',1.5);
-  xlabel('Zeit'); ylabel('Auslenkung'); title('Anregung sin(\omega_0 t)');
+  xlabel('Zeit'); ylabel('Auslenkung');
+  title('Anregung sin(\omega_0 t)');
   omega = 0.5*imag(lam(1));
   tspan =[0,60]; alpha = 1;
   [t,y] = ode45(@dgl,tspan,y0);
   subplot(2,2,3); plot(t,y(:,1),'linewidth',1.5); 
-  xlabel('Zeit'); ylabel('Auslenkung'); title('Anregung sin(1/2 \omega_0 t)');
+  xlabel('Zeit'); ylabel('Auslenkung');
+  title('Anregung sin(1/2 \omega_0 t)');
 end
 
 function dy = dgl(t,y)
