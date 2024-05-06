@@ -1,7 +1,7 @@
 #-- Kap_07_Taschenuhr.jl
 using DifferentialEquations, Plots
 
-include("rk3_simple.jl")
+include("Kap_07_RK3simple.jl")
 
 function dgl_uhr!(dy,y,p,t)
 #-- dy wird inplace geändert
