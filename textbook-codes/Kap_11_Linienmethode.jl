@@ -21,7 +21,7 @@ end
   f = ODEFunction(ode!); tspan = [0.0,12*3600.0]; 
   prob = ODEProblem(f, y0, tspan, param)
   sol = solve(prob, Rodas5P())
-  println(sol.destats);
+  display(sol.stats)
   ts = range(3600.0,12*3600.0,step=3600.0)
   for tt in ts
     global p

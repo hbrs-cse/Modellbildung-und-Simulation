@@ -49,7 +49,7 @@ end
   f = ODEFunction(ode!);   tspan = [0.0,900]; 
   prob = ODEProblem(f, y0, tspan, param); tol = 1.0e-5
   sol = solve(prob, Tsit5(),reltol=tol,abstol=tol)
-  println(sol.destats);
+  display(sol.stats) 
   ts = range(300,tspan[2],step=300.0)
   for tt in ts
     global p1, p2

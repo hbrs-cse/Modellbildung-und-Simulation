@@ -18,9 +18,9 @@ f = ODEFunction(dae!, mass_matrix = M);
 L = 2.0; y0 = [L; 0.0; 0.0; 0.0; 0.0]; tspan = [0.0, 40.0];
 prob = ODEProblem(f, y0, tspan)
 sol = solve(prob, Rodas4P2())
-println(sol.destats);
-p1=plot(sol, vars=[1,3], linewidth = 2, xlabel = "t", label = ["x(t)" "z(t)"], title="RelTol=1.0e-3")
+display(sol.stats) 
+p1=plot(sol, idxs=[1,3], linewidth = 2, xlabel = "t", label = ["x(t)" "z(t)"], title="RelTol=1.0e-3")
 sol = solve(prob, Rodas4P2(),reltol = 1e-4)
-println(sol.destats);
-p2=plot(sol, vars=[1,3], linewidth = 2, xlabel = "t", label = ["x(t)" "z(t)"], title="RelTol=1.0e-4")
+display(sol.stats) 
+p2=plot(sol, idxs=[1,3], linewidth = 2, xlabel = "t", label = ["x(t)" "z(t)"], title="RelTol=1.0e-4")
 plot(p1,p2,layout=(2,1))

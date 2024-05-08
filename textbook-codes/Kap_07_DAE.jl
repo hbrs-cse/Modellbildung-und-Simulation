@@ -13,7 +13,7 @@ f = ODEFunction(dae!, mass_matrix = M);
 y0 = [0.0; 1.0]; tspan = [0.0, 3.0];
 prob = ODEProblem(f, y0, tspan)
 sol = solve(prob, Rodas4())
-println(sol.destats);
+display(sol.stats) 
 p1 = plot(sol, xlabel = "t", ylabel = "y(t)", label = ["y_1(t)" "y_2(t)"], legend = :bottom, title = "Rodas4")
 sol = solve(prob, Rodas4P())
 p2 = plot(sol, xlabel = "t", ylabel = "y(t)", label = ["y_1(t)" "y_2(t)"], legend = :right, title = "Rodas4P")

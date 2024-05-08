@@ -13,19 +13,18 @@ end
  d = 1.0; tspan = [0.0,100.0];
  prob = ODEProblem(f,y0,tspan,d)
  sol = solve(prob,Tsit5())
- println(sol.destats); 
+ display(sol.stats) 
  p1 = plot(sol,idxs=[1],xlabel="t",ylabel = "y(t)",label="",title = "Tsit5, d = 1")
  sol = solve(prob,Rodas5P())
- println(sol.destats); 
+ display(sol.stats) 
  p2 = plot(sol,idxs=[1],xlabel="t",ylabel = "y(t)",label="",title = "Rodas5P, d = 1")
 #-- d=1000
  d = 1000.0; tspan = [0.0,10000.0];
  prob = ODEProblem(f,y0,tspan,d)
  sol = solve(prob,Tsit5())
- println(sol.destats); 
+ display(sol.stats) 
  p3 = plot(sol,idxs=[1],xlabel="t",ylabel = "y(t)",label="",title = "Tsit5, d = 1000")
  sol = solve(prob,Rodas5P())
- println(sol.destats); 
+ display(sol.stats) 
  p4 = plot(sol,idxs=[1],xlabel="t",ylabel = "y(t)",label="",title = "Rodas5P, d = 1000")
  p=plot(p1,p2,p3,p4)
- 
