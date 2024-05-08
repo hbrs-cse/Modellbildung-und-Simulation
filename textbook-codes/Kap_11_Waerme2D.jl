@@ -58,7 +58,7 @@ J = jacstru(N)
 f = ODEFunction(dgl!;jac_prototype=J)
 prob = ODEProblem(f, y0, tspan, param)
 @time sol = solve(prob, Rodas5P(),reltol=1.0e-6,abstol=1.0e-6)
-println(sol.destats);
+display(sol.stats)
 t = [10,30,60,61,200,1000]
 p=plot(layout=(2,3), legend = false)
 for i = 1:length(t)

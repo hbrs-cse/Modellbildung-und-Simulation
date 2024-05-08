@@ -44,7 +44,7 @@ f = ODEFunction(dae!, mass_matrix = M);
 tspan = [0.0, 0.2];
 prob = ODEProblem(f, y0, tspan, param)
 sol = solve(prob, Rodas5P(),reltol = 1e-4)
-println(sol.destats);
+display(sol.stats) 
 t = range(0.0,0.2,step = 0.0001); ue = Ue.(t)
 plot(t,ue, linewidth = 2, xlabel = "t", label ="Ue(t)",legend=:bottomright)
 p=plot!(sol, vars=8, linewidth = 2, xlabel = "t", label ="U8(t)")
