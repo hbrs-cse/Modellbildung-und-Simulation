@@ -36,10 +36,7 @@ jobs:
           command: |
             cd content
             cat _toc.yml
-            jupyter-book build -W -n --keep-going --builder linkcheck . \
-              -D linkcheck_request_headers="\
-                  https://*: {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}, \
-                  http://*: {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'}"
+            jupyter-book build -W -n --keep-going --builder linkcheck .
             jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
             cp ../redirect_htmls/* _build/html
