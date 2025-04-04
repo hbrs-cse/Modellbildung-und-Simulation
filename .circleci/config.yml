@@ -35,7 +35,9 @@ jobs:
           command: |
             cd content
             cat _toc.yml
-            jupyter-book build -W -n --keep-going --builder linkcheck --linkcheck-user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" .
+            export USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+            jupyter-book build -W -n --keep-going --builder linkcheck .
+            unset USER_AGENT
             jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
             cp ../redirect_htmls/* _build/html
