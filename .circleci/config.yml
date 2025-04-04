@@ -12,6 +12,14 @@ commands:
             rm -rf content/_build
             cp -r /tmp/workspace/content/_build .
 
+# define linkcheck agents to avoid 403 errors
+sphinx:
+  config:
+    linkcheck_request_headers:
+      "https://*":
+        User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+      "http://*":
+
 # Jobs define the actual code that CircleCI runs
 jobs:
   build_page_files:
