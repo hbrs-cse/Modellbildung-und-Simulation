@@ -28,20 +28,28 @@ jobs:
           command: |
             pip install --upgrade pip
             pip install -r requirements.txt
-      - run:
-          name: Manual link validation
+            pip install linkchecker
+      - run: 
+          name: Validate links
           command: |
-            grep -hroP '(?<=href=")[^"]*' content/ | sort -u | while read url; do
-              if [[ $url == http* ]]; then
-                status=$(curl -s -o /dev/null -w "%{http_code}" -L -H "User-Agent: Mozilla/5.0" "$url")
-                if [ "$status" -eq 403 ]; then
-                  echo "403 Forbidden: $url - Potentially blocked by bot protection"
-                elif [ "$status" -ge 400 ]; then
-                  echo "ERROR $status: $url"
+            find . -type f -exec grep -hEo '(http|https)://[a-zA-Z0-9./?=_-]*' {} + | \
+              sort -u | \
+                error_found=false
+                while read -r url
+                do
+                  code=$(curl -A "Mozilla/5.0" -s -o /dev/null -w "%{http_code}" "$url")
+                  echo "$code $url"
+                  if [ "$code" -ge 400 ] && [ "$code" -ne 403 ]
+                  then
+                    echo "$code $url"
+                    error_found=true
+                  fi
+                done
+                if [ $error_found ]
+                then
+                  echo "Faulty url! See above."
                   exit 1
                 fi
-              fi
-            done
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
@@ -49,7 +57,6 @@ jobs:
           command: |
             cd content
             cat _toc.yml
-            jupyter-book build -W -n --keep-going --builder linkcheck .
             jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
             cp ../redirect_htmls/* _build/html
