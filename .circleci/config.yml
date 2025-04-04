@@ -28,26 +28,6 @@ jobs:
           command: |
             pip install --upgrade pip
             pip install -r requirements.txt
-      - run: 
-          name: Validate links
-          command: |
-            find . -type f -exec grep -hEo '(http|https)://[a-zA-Z0-9./?=_-]*' {} + | \
-              sort -u | \
-                while read -r url
-                do
-                  code=$(curl -A "Mozilla/5.0" -s -o /dev/null -w "%{http_code}" "$url")
-                  echo "$code $url"
-                  if [ "$code" -ge 400 ] && [ "$code" -ne 403 ]
-                  then
-                    echo "$code $url"
-                    error_found=1
-                  fi
-                done
-                if [ "$error_found" -eq 1 ]
-                then
-                  echo "Faulty url! See above."
-                  exit 1
-                fi
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
@@ -55,6 +35,7 @@ jobs:
           command: |
             cd content
             cat _toc.yml
+            jupyter-book build -W -n --keep-going --builder linkcheck --linkcheck-user-agent "Mozilla/5.0 (Windows NT 10.0; Win64; x64)" .
             jupyter-book build -W -n --keep-going .
             find . -name '*images*' -not -path "*_build*" -exec cp --recursive --parents --verbose \{\} _build/html \;
             cp ../redirect_htmls/* _build/html
