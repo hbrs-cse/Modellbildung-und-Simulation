@@ -28,13 +28,11 @@ jobs:
           command: |
             pip install --upgrade pip
             pip install -r requirements.txt
-            pip install linkchecker
       - run: 
           name: Validate links
           command: |
             find . -type f -exec grep -hEo '(http|https)://[a-zA-Z0-9./?=_-]*' {} + | \
               sort -u | \
-                error_found=false
                 while read -r url
                 do
                   code=$(curl -A "Mozilla/5.0" -s -o /dev/null -w "%{http_code}" "$url")
@@ -42,10 +40,10 @@ jobs:
                   if [ "$code" -ge 400 ] && [ "$code" -ne 403 ]
                   then
                     echo "$code $url"
-                    error_found=true
+                    error_found=1
                   fi
                 done
-                if [ $error_found ]
+                if [ "$error_found" -eq 1 ]
                 then
                   echo "Faulty url! See above."
                   exit 1
