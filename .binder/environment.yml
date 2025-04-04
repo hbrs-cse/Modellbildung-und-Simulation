@@ -2,3 +2,4 @@ dependencies:
 - numpy
 - matplotlib
 - octave_kernel
+- font-manager
