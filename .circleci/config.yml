@@ -28,7 +28,20 @@ jobs:
           command: |
             pip install --upgrade pip
             pip install -r requirements.txt
-            pip install --upgrade jupyter-book sphinx requests urllib3
+      - run:
+          name: Manual link validation
+          command: |
+            grep -hroP '(?<=href=")[^"]*' content/ | sort -u | while read url; do
+              if [[ $url == http* ]]; then
+                status=$(curl -s -o /dev/null -w "%{http_code}" -L -H "User-Agent: Mozilla/5.0" "$url")
+                if [ "$status" -eq 403 ]; then
+                  echo "403 Forbidden: $url - Potentially blocked by bot protection"
+                elif [ "$status" -ge 400 ]; then
+                  echo "ERROR $status: $url"
+                  exit 1
+                fi
+              fi
+            done
 
       # Build the page intermediate HTML files and copy all images to the build directory and check external links
       - run:
